@@ -14,3 +14,13 @@ Thumbs.db
 # Local env
 .env.local
 .env.*.local
+
+# Node
+node_modules/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests/*.spec.ts-snapshots/

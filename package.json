@@ -1,0 +1,34 @@
+{
+  "name": "atheryon-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:chromium": "playwright test --project=chromium",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "serve": "serve -l 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atheryon-ai/atheryon-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/atheryon-ai/atheryon-website/issues"
+  },
+  "homepage": "https://github.com/atheryon-ai/atheryon-website#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "serve": "^14.2.5"
+  },
+  "dependencies": {
+    "playwright": "^1.57.0"
+  }
+}
