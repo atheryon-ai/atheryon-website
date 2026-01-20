@@ -7,6 +7,7 @@ export const site = {
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'What We Deliver', href: '/what-we-deliver' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
+    { label: 'Capability Enablement', href: '/capability-enablement' },
     { label: 'Reference Architectures', href: '/reference-architectures' },
     { label: 'AI-Ready Data', href: '/ai-ready-data' },
     { label: 'About', href: '/about' },
@@ -302,6 +303,40 @@ export const site = {
       },
     },
 
+    capabilityEnablement: {
+      title: 'Capability Enablement | Atheryon',
+      description: 'Turn delivered platforms into durable business capability with embedded ownership, governance, and operating models.',
+      hero: {
+        headline: 'Capability Enablement',
+        subheadline: 'Turn delivered platforms into durable business capability.',
+      },
+      intro: {
+        text: 'Most organisations can deliver platforms. Far fewer succeed in enabling real capability.\n\nCapability Enablement focuses on embedding ownership, governance, delivery patterns, and operating models so data, analytics, and AI capabilities continue to deliver outcomes under real-world and regulatory pressure.',
+      },
+      capabilities: [
+        {
+          title: 'Regulatory & Risk Capability',
+          description: 'Enable end-to-end regulatory and risk capabilities that are production-grade, traceable, and defensible under scrutiny.',
+        },
+        {
+          title: 'Data Product Capability',
+          description: 'Establish repeatable, governed data products with shared semantics, clear contracts, and embedded quality controls.',
+        },
+        {
+          title: 'Governance Built In',
+          description: 'Embed ownership, lineage, and access controls directly into platforms and delivery models — not bolted on later.',
+        },
+        {
+          title: 'Analytics & AI Foundations',
+          description: 'Enable query-ready analytics and AI consumption patterns that operate safely within defined guardrails.',
+        },
+        {
+          title: 'Delivery Capability',
+          description: 'Build internal delivery capability across business, data, and technology so success can be repeated.',
+        },
+      ],
+    },
+
     referenceArchitectures: {
       title: 'Reference Architectures | Atheryon',
       description: 'Production-tested architecture patterns for enterprise data platforms.',
@@ -474,6 +509,7 @@ export const site = {
         { label: 'How We Work', href: '/how-we-work' },
         { label: 'What We Deliver', href: '/what-we-deliver' },
         { label: 'Recovery & Migration', href: '/recovery-migration' },
+        { label: 'Capability Enablement', href: '/capability-enablement' },
       ],
       resources: [
         { label: 'Reference Architectures', href: '/reference-architectures' },
