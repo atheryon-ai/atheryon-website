@@ -21,9 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
+      <body className="bg-slate-50 text-slate-900 font-body antialiased">
         <Header />
-        <main className="pt-16">
+        <main className="pt-20">
           {children}
         </main>
         <Footer />

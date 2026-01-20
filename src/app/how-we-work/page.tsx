@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Hero, Section, Stepper, Checklist, CTASection } from '@/components'
+import { SimpleHero, Section, SectionDivider, Stepper, Checklist, CTASection, BulletList } from '@/components'
 import { site } from '@/content/site'
 
 const { howWeWork } = site.pages
@@ -16,14 +16,17 @@ export const metadata: Metadata = {
 export default function HowWeWorkPage() {
   return (
     <>
-      <Hero
+      <SimpleHero
         headline={howWeWork.hero.headline}
         subheadline={howWeWork.hero.subheadline}
+        badge="Our Method"
       />
+
+      <SectionDivider />
 
       {/* 5-Step Method */}
       <Section
-        badge="Our Method"
+        badge="The Process"
         title="Five steps to production"
       >
         <div className="max-w-3xl">
@@ -31,25 +34,22 @@ export default function HowWeWorkPage() {
         </div>
       </Section>
 
+      <SectionDivider />
+
       {/* What Done Looks Like */}
-      <Section className="bg-gray-50">
+      <Section>
         <div className="grid md:grid-cols-2 gap-12">
-          <Checklist
-            title={howWeWork.whatDoneLooksLike.title}
-            items={howWeWork.whatDoneLooksLike.items}
-          />
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card">
+            <Checklist
+              title={howWeWork.whatDoneLooksLike.title}
+              items={howWeWork.whatDoneLooksLike.items}
+            />
+          </div>
+          <div className="p-8 bg-gradient-to-br from-slate-50 to-white border border-slate-200/60 rounded-3xl">
+            <h3 className="font-display text-lg font-semibold text-slate-900 mb-5 tracking-tight">
               {howWeWork.whyItReducesCost.title}
             </h3>
-            <ul className="space-y-3">
-              {howWeWork.whyItReducesCost.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 mt-2" />
-                  <span className="text-gray-600">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <BulletList items={howWeWork.whyItReducesCost.items} />
           </div>
         </div>
       </Section>

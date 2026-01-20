@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Hero, Section, Card, FeatureGrid, Checklist, CTASection } from '@/components'
+import { SimpleHero, Section, SectionDivider, Card, FeatureGrid, Checklist, CTASection } from '@/components'
 import { site } from '@/content/site'
 
 const { aiReadyData } = site.pages
@@ -16,10 +16,13 @@ export const metadata: Metadata = {
 export default function AiReadyDataPage() {
   return (
     <>
-      <Hero
+      <SimpleHero
         headline={aiReadyData.hero.headline}
         subheadline={aiReadyData.hero.subheadline}
+        badge="AI Foundation"
       />
+
+      <SectionDivider />
 
       {/* Why AI Fails */}
       <Section
@@ -33,14 +36,19 @@ export default function AiReadyDataPage() {
         </FeatureGrid>
       </Section>
 
+      <SectionDivider />
+
       {/* What AI-Ready Means */}
       <Section
         badge={aiReadyData.whatAiReadyMeans.badge}
         title={aiReadyData.whatAiReadyMeans.title}
-        className="bg-gray-50"
       >
-        <Checklist items={aiReadyData.whatAiReadyMeans.items} />
+        <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card max-w-2xl">
+          <Checklist items={aiReadyData.whatAiReadyMeans.items} />
+        </div>
       </Section>
+
+      <SectionDivider />
 
       {/* How We Enable AI */}
       <Section
@@ -54,10 +62,12 @@ export default function AiReadyDataPage() {
         </FeatureGrid>
       </Section>
 
+      <SectionDivider />
+
       {/* Disclaimer */}
-      <Section className="bg-gray-50">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-lg text-gray-600 italic">
+      <Section>
+        <div className="max-w-2xl mx-auto text-center p-8 bg-gradient-to-br from-slate-50 to-white border border-slate-200/60 rounded-3xl">
+          <p className="text-lg text-slate-600 italic">
             {aiReadyData.disclaimer.text}
           </p>
         </div>

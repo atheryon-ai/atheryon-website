@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Hero, Section, Card, FeatureCard, FeatureGrid, Checklist, CTASection } from '@/components'
+import { SimpleHero, Section, SectionDivider, Card, FeatureCard, FeatureGrid, Checklist, CTASection } from '@/components'
 import { site } from '@/content/site'
 
 const { whatWeDeliver } = site.pages
@@ -16,10 +16,13 @@ export const metadata: Metadata = {
 export default function WhatWeDeliverPage() {
   return (
     <>
-      <Hero
+      <SimpleHero
         headline={whatWeDeliver.hero.headline}
         subheadline={whatWeDeliver.hero.subheadline}
+        badge="Deliverables"
       />
+
+      <SectionDivider />
 
       {/* Outcomes */}
       <Section
@@ -33,14 +36,19 @@ export default function WhatWeDeliverPage() {
         </FeatureGrid>
       </Section>
 
+      <SectionDivider />
+
       {/* Deliverables */}
       <Section
         badge={whatWeDeliver.deliverables.badge}
         title={whatWeDeliver.deliverables.title}
-        className="bg-gray-50"
       >
-        <Checklist items={whatWeDeliver.deliverables.items} />
+        <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card max-w-2xl">
+          <Checklist items={whatWeDeliver.deliverables.items} />
+        </div>
       </Section>
+
+      <SectionDivider />
 
       {/* Engagement Shapes */}
       <Section

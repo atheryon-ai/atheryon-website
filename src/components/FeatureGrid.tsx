@@ -14,7 +14,7 @@ export function FeatureGrid({ children, columns = 3, className = '' }: FeatureGr
   }
 
   return (
-    <div className={`grid grid-cols-1 ${gridCols[columns]} gap-6 ${className}`}>
+    <div className={`grid grid-cols-1 ${gridCols[columns]} gap-6 lg:gap-8 ${className}`}>
       {children}
     </div>
   )
