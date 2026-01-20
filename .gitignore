@@ -14,3 +14,17 @@ Thumbs.db
 # Local env
 .env.local
 .env.*.local
+
+# Node
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+tests/*.spec.ts-snapshots/

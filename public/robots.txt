@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atheryon.com.au/sitemap.xml

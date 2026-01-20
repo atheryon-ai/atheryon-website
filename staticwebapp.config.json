@@ -1,11 +1,46 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/_next/*", "/images/*", "/*.ico", "/*.png", "/*.svg", "/*.jpg", "/*.css", "/*.js"]
   },
+  "routes": [
+    {
+      "route": "/how-we-work",
+      "rewrite": "/how-we-work/index.html"
+    },
+    {
+      "route": "/what-we-deliver",
+      "rewrite": "/what-we-deliver/index.html"
+    },
+    {
+      "route": "/recovery-migration",
+      "rewrite": "/recovery-migration/index.html"
+    },
+    {
+      "route": "/reference-architectures",
+      "rewrite": "/reference-architectures/index.html"
+    },
+    {
+      "route": "/ai-ready-data",
+      "rewrite": "/ai-ready-data/index.html"
+    },
+    {
+      "route": "/about",
+      "rewrite": "/about/index.html"
+    },
+    {
+      "route": "/contact",
+      "rewrite": "/contact/index.html"
+    }
+  ],
   "globalHeaders": {
-    "Cache-Control": "public, max-age=3600"
+    "Cache-Control": "public, max-age=3600",
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY"
   },
   "mimeTypes": {
-    ".json": "application/json"
+    ".json": "application/json",
+    ".woff2": "font/woff2",
+    ".woff": "font/woff"
   }
 }
