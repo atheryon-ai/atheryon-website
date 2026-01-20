@@ -74,6 +74,16 @@ export default function ReferenceArchitecturesPage() {
                     className="w-full h-auto object-contain"
                   />
                 </div>
+              ) : index === 3 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/governance-integration.png"
+                    alt="Governance integration diagram showing ownership, lineage, and access controls built into the platform"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               ) : (
                 <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
               )}
