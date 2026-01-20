@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { SimpleHero, Section, SectionDivider, DiagramPlaceholder, CTASection } from '@/components'
 import { site } from '@/content/site'
 
@@ -43,7 +44,19 @@ export default function ReferenceArchitecturesPage() {
         <div className="space-y-12">
           {referenceArchitectures.architectures.map((arch, index) => (
             <div key={index} className="grid md:grid-cols-2 gap-8 items-start">
-              <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
+              {index === 0 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/canonical-data-model.png"
+                    alt="Canonical data model layer diagram showing business entities connected to a shared semantic layer"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : (
+                <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
+              )}
               <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card">
                 <h3 className="font-display text-xl font-semibold text-slate-900 mb-3 tracking-tight">{arch.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{arch.description}</p>
