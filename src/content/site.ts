@@ -306,10 +306,10 @@ export const site = {
 
     maExecution: {
       title: 'M&A Execution | Atheryon',
-      description: 'Separation and integration delivery without value leakage.',
+      description: 'Separation and integration delivery.',
       hero: {
         headline: 'M&A Execution',
-        subheadline: 'Separation and integration delivery without value leakage.',
+        subheadline: 'Separation and integration delivery.',
       },
       intro: {
         text: 'M&A success is determined after the deal is signed.\n\nWe support organisations through separation and integration execution where timelines are fixed, operational risk is high, and regulatory obligations must continue uninterrupted. We preserve meaning in data and processes while enabling Day-1 readiness and clean transition to the target operating model.',
