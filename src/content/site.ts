@@ -7,7 +7,7 @@ export const site = {
     { label: 'How We Work', href: '/how-we-work' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
     { label: 'Capability Enablement', href: '/capability-enablement' },
-    { label: 'M&A', href: '/mergers-acquisitions' },
+    { label: 'M&A Execution', href: '/m-and-a-execution' },
     { label: 'CDM Platform', href: '/cdm-platform' },
     { label: 'Reference Architectures', href: '/reference-architectures' },
     { label: 'AI-Ready Data', href: '/ai-ready-data' },
@@ -18,8 +18,8 @@ export const site = {
   servicesNav: [
     { label: 'CDM Platform', href: '/cdm-platform' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
+    { label: 'M&A Execution', href: '/m-and-a-execution' },
     { label: 'Capability Enablement', href: '/capability-enablement' },
-    { label: 'M&A', href: '/mergers-acquisitions' },
   ],
 
   cta: {
@@ -137,6 +137,27 @@ export const site = {
           },
         ],
         link: { label: 'View reference architectures', href: '/reference-architectures' },
+      },
+      servicesSection: {
+        badge: 'Our Services',
+        title: 'How we help',
+        cards: [
+          {
+            title: 'Recovery & Migration',
+            description: 'Recover stalled initiatives and execute model-led migrations that preserve meaning.',
+            href: '/recovery-migration',
+          },
+          {
+            title: 'M&A Execution',
+            description: 'Execute complex separations and integrations without value leakage.',
+            href: '/m-and-a-execution',
+          },
+          {
+            title: 'Capability Enablement',
+            description: 'Turn delivered platforms into durable business capability with embedded governance.',
+            href: '/capability-enablement',
+          },
+        ],
       },
       finalCta: {
         text: 'If you have a stalled initiative or a migration with unclear semantics, we should talk.',
@@ -283,11 +304,11 @@ export const site = {
       ],
     },
 
-    mergers: {
-      title: 'M&A | Atheryon',
-      description: 'Data and AI capability support for mergers and acquisitions.',
+    maExecution: {
+      title: 'M&A Execution | Atheryon',
+      description: 'Execute complex separations and integrations without value leakage.',
       hero: {
-        headline: 'M&A',
+        headline: 'M&A Execution',
         subheadline: 'Coming Soon!',
       },
     },
@@ -601,8 +622,8 @@ export const site = {
       services: [
         { label: 'How We Work', href: '/how-we-work' },
         { label: 'Recovery & Migration', href: '/recovery-migration' },
+        { label: 'M&A Execution', href: '/m-and-a-execution' },
         { label: 'Capability Enablement', href: '/capability-enablement' },
-        { label: 'M&A', href: '/mergers-acquisitions' },
         { label: 'CDM Platform', href: '/cdm-platform' },
       ],
       resources: [

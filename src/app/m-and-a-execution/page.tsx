@@ -2,24 +2,24 @@ import type { Metadata } from 'next'
 import { SimpleHero, CTASection } from '@/components'
 import { site } from '@/content/site'
 
-const { mergers } = site.pages
+const { maExecution } = site.pages
 
 export const metadata: Metadata = {
-  title: mergers.title,
-  description: mergers.description,
+  title: maExecution.title,
+  description: maExecution.description,
   openGraph: {
-    title: mergers.title,
-    description: mergers.description,
+    title: maExecution.title,
+    description: maExecution.description,
   },
 }
 
-export default function MergersAcquisitionsPage() {
+export default function MAExecutionPage() {
   return (
     <>
       <SimpleHero
-        headline={mergers.hero.headline}
-        subheadline={mergers.hero.subheadline}
-        badge="M&A"
+        headline={maExecution.hero.headline}
+        subheadline={maExecution.hero.subheadline}
+        badge="M&A Execution"
       />
 
       <CTASection
