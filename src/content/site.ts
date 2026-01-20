@@ -8,6 +8,7 @@ export const site = {
     { label: 'What We Deliver', href: '/what-we-deliver' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
     { label: 'Capability Enablement', href: '/capability-enablement' },
+    { label: 'M&A', href: '/mergers-acquisitions' },
     { label: 'Reference Architectures', href: '/reference-architectures' },
     { label: 'AI-Ready Data', href: '/ai-ready-data' },
     { label: 'About', href: '/about' },
@@ -337,6 +338,15 @@ export const site = {
       ],
     },
 
+    mergers: {
+      title: 'M&A | Atheryon',
+      description: 'Data and AI capability support for mergers and acquisitions.',
+      hero: {
+        headline: 'M&A',
+        subheadline: 'Coming Soon!',
+      },
+    },
+
     referenceArchitectures: {
       title: 'Reference Architectures | Atheryon',
       description: 'Production-tested architecture patterns for enterprise data platforms.',
@@ -510,6 +520,7 @@ export const site = {
         { label: 'What We Deliver', href: '/what-we-deliver' },
         { label: 'Recovery & Migration', href: '/recovery-migration' },
         { label: 'Capability Enablement', href: '/capability-enablement' },
+        { label: 'M&A', href: '/mergers-acquisitions' },
       ],
       resources: [
         { label: 'Reference Architectures', href: '/reference-architectures' },
