@@ -64,6 +64,16 @@ export default function ReferenceArchitecturesPage() {
                     className="w-full h-auto object-contain"
                   />
                 </div>
+              ) : index === 2 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/validation-and-controls.png"
+                    alt="Validation and controls diagram showing schema validation, business rules, and anomaly detection"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               ) : (
                 <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
               )}
