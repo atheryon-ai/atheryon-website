@@ -55,6 +55,10 @@ export const defaultFAQItems: FAQItem[] = [
     answer: 'We work primarily with regulated enterprises—banks, investment banks, asset managers, market infrastructure providers, and regulators. Our expertise is in financial services where data governance and regulatory compliance are critical.',
   },
   {
+    question: 'Do you engage directly with regulators?',
+    answer: 'Yes. As part of delivery leadership, we meet regulators on behalf of our clients to demonstrate control, progress, and production readiness.',
+  },
+  {
     question: 'What makes Atheryon different from other consultancies?',
     answer: 'We focus on production outcomes, not demos. Every engagement delivers working capabilities in production, plus reusable data products that compound value over time. We are AI-native in our approach but delivery-led in our execution.',
   },

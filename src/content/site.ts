@@ -31,10 +31,10 @@ export const site = {
       title: 'Atheryon | From AI Potential to Production Reality',
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
-        headline: 'From AI potential to production reality.',
-        subheadline: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
-        primaryCta: { label: 'Discuss a real delivery problem', href: '/contact' },
-        secondaryCta: { label: 'See how we work', href: '/how-we-work' },
+        headline: 'Struggling to deliver business outcomes and strategic data & AI initiatives?',
+        subheadline: 'We help organisations turn strategic intent into delivered capability — stabilising cost, scope, timelines, and regulatory risk when large, complex programs stall.',
+        primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
+        secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
       whoWeAreFor: {
         badge: 'Who We Work With',
