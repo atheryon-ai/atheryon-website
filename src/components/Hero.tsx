@@ -1,9 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { AnimatedBadge } from './AnimatedBadge'
-import { DataVisualization } from './DataVisualization'
-import { TechPartners } from './TechPartners'
+import { ClientLogos } from './ClientLogos'
 
 interface HeroProps {
   headline: string
@@ -17,7 +15,7 @@ interface HeroProps {
     href: string
   }
   showVisualization?: boolean
-  showPartners?: boolean
+  showLogos?: boolean
 }
 
 export function Hero({
@@ -26,40 +24,48 @@ export function Hero({
   primaryCta,
   secondaryCta,
   showVisualization = true,
-  showPartners = true,
+  showLogos = true,
 }: HeroProps) {
-  // Split headline to apply gradient to last word
+  // Split headline to apply accent color to key words
   const words = headline.split(' ')
-  const lastWord = words.pop()
-  const restOfHeadline = words.join(' ')
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-mesh" />
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/50 to-transparent pointer-events-none" />
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
+      {/* Warm gradient background */}
+      <div className="absolute inset-0 bg-gradient-warm" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="animate-stagger">
-            <AnimatedBadge text="AI-native delivery" className="mb-6" />
+      {/* Subtle decorative elements */}
+      <div className="absolute top-20 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-atheryon-blue/5 rounded-full blur-3xl" />
 
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-slate-900 mb-6 leading-[1.1]">
-              {restOfHeadline}{' '}
-              <span className="text-gradient-orange">{lastWord}</span>
+      <div className="relative z-10 max-w-container mx-auto px-6 py-16 md:py-20 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
+          {/* Left Column - Content (50%) */}
+          <div className="flex-1 animate-stagger">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full mb-8 shadow-soft">
+              <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-neutral-700">AI-native delivery</span>
+            </div>
+
+            {/* Headline - Social Grow style */}
+            <h1 className="text-4xl md:text-5xl lg:text-display-xl font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+              {words.slice(0, -2).join(' ')}{' '}
+              <span className="text-brand-orange">{words.slice(-2).join(' ')}</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 max-w-xl mb-10 leading-relaxed">
+            {/* Subheadline */}
+            <p className="text-lg md:text-subheading text-neutral-600 max-w-xl mb-10 leading-relaxed">
               {subheadline}
             </p>
 
+            {/* CTAs */}
             {(primaryCta || secondaryCta) && (
               <div className="flex flex-col sm:flex-row gap-4">
                 {primaryCta && (
                   <Link
                     href={primaryCta.href}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-card hover:shadow-card-hover"
+                    className="btn-primary"
                   >
                     {primaryCta.label}
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +76,7 @@ export function Hero({
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-base font-semibold text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:border-slate-300 transition-all shadow-card"
+                    className="btn-secondary"
                   >
                     {secondaryCta.label}
                   </Link>
@@ -78,17 +84,83 @@ export function Hero({
               </div>
             )}
 
-            {showPartners && (
-              <div className="mt-16 pt-8 border-t border-slate-200/50">
-                <TechPartners />
+            {/* Client Logos */}
+            {showLogos && (
+              <div className="mt-16 pt-8 border-t border-neutral-500/10">
+                <ClientLogos />
               </div>
             )}
           </div>
 
-          {/* Right Column - Visualization */}
+          {/* Right Column - Device Mockup (50%) */}
           {showVisualization && (
-            <div className="hidden lg:block">
-              <DataVisualization />
+            <div className="flex-1 hidden lg:flex justify-end">
+              <div className="device-mockup w-full max-w-lg">
+                <div className="device-mockup-inner p-6">
+                  {/* Abstract AI Network Visualization */}
+                  <svg viewBox="0 0 400 300" className="w-full h-auto">
+                    {/* Background grid */}
+                    <defs>
+                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E5E0D9" strokeWidth="0.5"/>
+                      </pattern>
+                      <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#0A84FF" stopOpacity="0.8"/>
+                        <stop offset="100%" stopColor="#4BC0FF" stopOpacity="0.6"/>
+                      </linearGradient>
+                      <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#FFA500" stopOpacity="0.8"/>
+                        <stop offset="100%" stopColor="#FFB833" stopOpacity="0.6"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grid)"/>
+
+                    {/* Connection lines */}
+                    <g stroke="#A7B0B8" strokeWidth="1" opacity="0.4">
+                      <line x1="80" y1="80" x2="200" y2="150"/>
+                      <line x1="200" y1="150" x2="320" y2="100"/>
+                      <line x1="200" y1="150" x2="280" y2="220"/>
+                      <line x1="80" y1="200" x2="200" y2="150"/>
+                      <line x1="120" y1="130" x2="200" y2="150"/>
+                      <line x1="200" y1="150" x2="340" y2="180"/>
+                    </g>
+
+                    {/* Data flow animation paths */}
+                    <g>
+                      <circle r="4" fill="#0A84FF" opacity="0.8">
+                        <animateMotion dur="3s" repeatCount="indefinite" path="M80,80 L200,150 L320,100"/>
+                      </circle>
+                      <circle r="4" fill="#FFA500" opacity="0.8">
+                        <animateMotion dur="4s" repeatCount="indefinite" path="M80,200 L200,150 L280,220"/>
+                      </circle>
+                    </g>
+
+                    {/* Nodes */}
+                    <g>
+                      {/* Primary node - center */}
+                      <circle cx="200" cy="150" r="24" fill="url(#nodeGradient)"/>
+                      <circle cx="200" cy="150" r="16" fill="white"/>
+                      <text x="200" y="155" textAnchor="middle" fontSize="12" fontWeight="600" fill="#121212">AI</text>
+
+                      {/* Secondary nodes */}
+                      <circle cx="80" cy="80" r="16" fill="url(#orangeGradient)"/>
+                      <circle cx="320" cy="100" r="14" fill="url(#nodeGradient)"/>
+                      <circle cx="80" cy="200" r="12" fill="url(#orangeGradient)"/>
+                      <circle cx="280" cy="220" r="14" fill="url(#nodeGradient)"/>
+                      <circle cx="120" cy="130" r="10" fill="#A7B0B8" opacity="0.5"/>
+                      <circle cx="340" cy="180" r="10" fill="#A7B0B8" opacity="0.5"/>
+                    </g>
+
+                    {/* Labels */}
+                    <g fontSize="10" fill="#555555">
+                      <text x="80" y="60">Data Source</text>
+                      <text x="300" y="85">Validation</text>
+                      <text x="60" y="225">Ingestion</text>
+                      <text x="260" y="245">Production</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -106,22 +178,25 @@ interface SimpleHeroProps {
 
 export function SimpleHero({ headline, subheadline, badge }: SimpleHeroProps) {
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-mesh" />
+    <section className="relative py-24 md:py-32 overflow-hidden pt-32 md:pt-40">
+      {/* Warm gradient background */}
+      <div className="absolute inset-0 bg-gradient-warm" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {badge && (
           <div className="flex justify-center mb-6">
-            <AnimatedBadge text={badge} />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
+              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
+              <span className="text-sm font-medium text-neutral-700">{badge}</span>
+            </div>
           </div>
         )}
 
-        <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-slate-900 mb-6 leading-[1.1]">
+        <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
           {headline}
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed">
           {subheadline}
         </p>
       </div>

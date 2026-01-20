@@ -21,24 +21,24 @@ export function FAQ({ items, className = '' }: FAQProps) {
         <details
           key={index}
           open={openIndex === index}
-          className="group bg-white border border-slate-200/60 rounded-2xl shadow-card overflow-hidden"
+          className="group bg-white border border-neutral-500/10 rounded-2xl shadow-card overflow-hidden"
           onClick={(e) => {
             e.preventDefault()
             setOpenIndex(openIndex === index ? null : index)
           }}
         >
           <summary className="flex items-center justify-between cursor-pointer p-6 text-left">
-            <h3 className="font-display text-lg font-semibold text-slate-900 tracking-tight pr-4">
+            <h3 className="text-lg font-semibold text-neutral-900 tracking-tight pr-4">
               {item.question}
             </h3>
-            <div className="faq-icon w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 transition-transform duration-300">
-              <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="faq-icon w-8 h-8 rounded-full bg-warm-200 flex items-center justify-center flex-shrink-0 transition-transform duration-300">
+              <svg className="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12M6 12h12" />
               </svg>
             </div>
           </summary>
           <div className={`px-6 pb-6 ${openIndex === index ? 'block' : 'hidden'}`}>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-neutral-600 leading-relaxed">
               {item.answer}
             </p>
           </div>

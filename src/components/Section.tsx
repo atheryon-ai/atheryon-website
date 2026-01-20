@@ -12,27 +12,30 @@ interface SectionProps {
 
 export function Section({ children, className = '', badge, title, description, centered = false, dark = false }: SectionProps) {
   return (
-    <section className={`px-6 section-spacing ${dark ? 'bg-slate-900 text-white' : ''} ${className}`}>
-      <div className="max-w-7xl mx-auto">
+    <section className={`px-6 section-spacing ${dark ? 'bg-neutral-900 text-white' : ''} ${className}`}>
+      <div className="max-w-container mx-auto">
         {(badge || title || description) && (
           <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}>
             {badge && (
-              <span className={`inline-block text-sm font-semibold uppercase tracking-wider mb-4 ${
-                dark ? 'text-brand-orange' : 'text-brand-orange'
-              }`}>
-                {badge}
-              </span>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 ${
+                dark ? 'bg-white/10' : 'bg-white/80'
+              } backdrop-blur-sm border border-neutral-500/10 rounded-full mb-6 shadow-soft`}>
+                <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
+                <span className={`text-sm font-medium ${dark ? 'text-white' : 'text-neutral-700'}`}>
+                  {badge}
+                </span>
+              </div>
             )}
             {title && (
-              <h2 className={`font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mb-5 leading-[1.1] ${
-                dark ? 'text-white' : 'text-slate-900'
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-5 leading-[1.1] ${
+                dark ? 'text-white' : 'text-neutral-900'
               }`}>
                 {title}
               </h2>
             )}
             {description && (
-              <p className={`text-lg md:text-xl leading-relaxed ${centered ? 'max-w-3xl mx-auto' : 'max-w-3xl'} ${
-                dark ? 'text-slate-300' : 'text-slate-600'
+              <p className={`text-lg md:text-subheading leading-relaxed ${centered ? 'max-w-3xl mx-auto' : 'max-w-3xl'} ${
+                dark ? 'text-neutral-400' : 'text-neutral-600'
               }`}>
                 {description}
               </p>
@@ -51,8 +54,8 @@ interface SectionDividerProps {
 
 export function SectionDivider({ className = '' }: SectionDividerProps) {
   return (
-    <div className={`max-w-7xl mx-auto px-6 ${className}`}>
-      <div className="h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <div className={`max-w-container mx-auto px-6 ${className}`}>
+      <div className="h-px bg-gradient-to-r from-transparent via-neutral-500/20 to-transparent" />
     </div>
   )
 }

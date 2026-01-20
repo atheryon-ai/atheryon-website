@@ -15,7 +15,7 @@ export function Stepper({ steps, className = '' }: StepperProps) {
       {steps.map((step, index) => (
         <div key={step.number} className="flex gap-6">
           <div className="flex flex-col items-center">
-            <div className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange to-amber-500 text-white font-display font-bold text-lg shadow-card">
+            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-brand-orange text-white font-semibold text-lg shadow-button">
               {step.number}
             </div>
             {index < steps.length - 1 && (
@@ -23,10 +23,10 @@ export function Stepper({ steps, className = '' }: StepperProps) {
             )}
           </div>
           <div className="flex-1 pb-8">
-            <h3 className="font-display text-lg font-semibold text-slate-900 mb-2 tracking-tight">
+            <h3 className="text-lg font-semibold text-neutral-900 mb-2 tracking-tight">
               {step.title}
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-neutral-600 leading-relaxed">
               {step.description}
             </p>
           </div>
@@ -46,10 +46,10 @@ export function SimpleStepper({ steps, className = '' }: SimpleStepperProps) {
     <ol className={`space-y-4 ${className}`}>
       {steps.map((step, index) => (
         <li key={index} className="flex items-start gap-4 group">
-          <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-brand-orange/10 to-brand-blue/10 text-brand-orange font-display font-semibold text-sm group-hover:from-brand-orange group-hover:to-amber-500 group-hover:text-white transition-all duration-300">
+          <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-xl bg-warm-200 text-brand-orange font-semibold text-sm group-hover:bg-brand-orange group-hover:text-white transition-all duration-300">
             {index + 1}
           </span>
-          <span className="text-slate-700 pt-1 font-medium">{step}</span>
+          <span className="text-neutral-700 pt-1 font-medium">{step}</span>
         </li>
       ))}
     </ol>

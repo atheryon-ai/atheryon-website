@@ -2,23 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+/* Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #121212;
+  background: linear-gradient(180deg, #F5F5F5 0%, #EDE9E4 100%);
+  min-height: 100vh;
 }
 
-/* Utility Classes */
+/* ========================
+   UTILITY CLASSES
+   ======================== */
 @layer utilities {
-  /* Text Gradient */
+  /* Social Grow Text Gradients */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange via-brand-blue to-brand-orange;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange via-atheryon-blue to-brand-orange;
   }
 
   .text-gradient-orange {
@@ -26,45 +32,89 @@ body {
   }
 
   .text-gradient-blue {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-blue-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-atheryon-blue to-blue-400;
+  }
+
+  .text-accent {
+    @apply text-brand-orange font-bold;
+  }
+
+  /* Social Grow Warm Backgrounds */
+  .bg-warm {
+    background: linear-gradient(180deg, #F5F5F5 0%, #EDE9E4 100%);
+  }
+
+  .bg-warm-reverse {
+    background: linear-gradient(180deg, #EDE9E4 0%, #F5F5F5 100%);
+  }
+
+  .bg-warm-subtle {
+    background: linear-gradient(180deg, #FDFCFB 0%, #F5F5F5 100%);
+  }
+
+  .bg-hero-overlay {
+    background: rgba(245, 245, 245, 0.8);
+  }
+
+  /* Card Styles - Social Grow aesthetic */
+  .card-social {
+    @apply bg-white border border-neutral-500/10 rounded-2xl shadow-card;
+    transition: all 0.3s ease;
+  }
+
+  .card-social:hover {
+    @apply shadow-card-hover;
+    transform: scale(1.02);
   }
 
   /* Glass Card Effect */
   .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-glass;
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-soft;
   }
 
   .glass-card-dark {
-    @apply bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-glass;
+    @apply bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 shadow-soft;
   }
 
-  /* Gradient Backgrounds */
-  .bg-gradient-mesh {
-    background:
-      radial-gradient(at 40% 20%, rgba(251, 191, 36, 0.1) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgba(96, 165, 250, 0.1) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, rgba(251, 191, 36, 0.05) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, rgba(96, 165, 250, 0.05) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(251, 191, 36, 0.1) 0px, transparent 50%);
+  /* Button Styles - Social Grow */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           text-base font-semibold text-white bg-neutral-900
+           rounded-full shadow-button transition-all duration-300;
   }
 
-  .bg-gradient-subtle {
-    @apply bg-gradient-to-br from-slate-50 via-white to-slate-50;
+  .btn-primary:hover {
+    @apply bg-neutral-800 shadow-button-hover;
+    transform: translateY(-2px);
   }
 
-  /* Card Hover Effects */
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           text-base font-semibold text-neutral-900 bg-white
+           border border-neutral-500/20 rounded-full shadow-soft transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-warm-100 border-neutral-500/30;
+  }
+
+  /* Section Spacing - Social Grow generous padding */
+  .section-spacing {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .section-spacing-sm {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-container mx-auto px-6 md:px-8;
   }
 
   /* Display Heading */
   .heading-display {
-    @apply font-display tracking-tighter;
-  }
-
-  /* Section Spacing */
-  .section-spacing {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply font-display tracking-tight text-neutral-900;
   }
 
   /* Animated Underline */
@@ -74,15 +124,32 @@ body {
 
   .animated-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-orange to-brand-blue transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-brand-orange to-atheryon-blue transition-all duration-300;
   }
 
   .animated-underline:hover::after {
     @apply w-full;
   }
+
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-card-hover;
+    transform: translateY(0);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Soft shadows */
+  .shadow-subtle {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
 }
 
-/* Custom Scrollbar */
+/* ========================
+   SCROLLBAR
+   ======================== */
 @layer base {
   ::-webkit-scrollbar {
     width: 8px;
@@ -90,27 +157,38 @@ body {
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-slate-100;
+    @apply bg-warm-200;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full;
+    @apply bg-neutral-500/30 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400;
+    @apply bg-neutral-500/50;
   }
 }
 
-/* Animation Keyframes */
+/* ========================
+   ANIMATIONS
+   ======================== */
 @keyframes slideUpFade {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -134,38 +212,20 @@ body {
   }
 }
 
-@keyframes data-stream {
+@keyframes scaleIn {
   0% {
-    stroke-dashoffset: 1000;
+    transform: scale(0.95);
+    opacity: 0;
   }
   100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes bar-grow {
-  0% {
-    transform: scaleY(0);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
-
-@keyframes node-pulse {
-  0%, 100% {
     transform: scale(1);
     opacity: 1;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
   }
 }
 
 /* Stagger Animation Classes */
 .animate-stagger > * {
-  animation: slideUpFade 0.5s ease-out forwards;
+  animation: slideUpFade 0.6s ease-out forwards;
   opacity: 0;
 }
 
@@ -176,7 +236,21 @@ body {
 .animate-stagger > *:nth-child(5) { animation-delay: 400ms; }
 .animate-stagger > *:nth-child(6) { animation-delay: 500ms; }
 
-/* FAQ Accordion Styles */
+/* Fade in on scroll (use with IntersectionObserver) */
+.fade-in-view {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-view.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================
+   FAQ ACCORDION
+   ======================== */
 details summary {
   list-style: none;
 }
@@ -189,10 +263,56 @@ details[open] summary .faq-icon {
   transform: rotate(45deg);
 }
 
-/* Focus Styles */
+/* ========================
+   FOCUS STYLES
+   ======================== */
 @layer base {
   a:focus-visible,
   button:focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand-blue;
+    @apply outline-2 outline-offset-2 outline-atheryon-blue;
   }
+}
+
+/* ========================
+   HERO DEVICE MOCKUP
+   ======================== */
+.device-mockup {
+  @apply relative;
+  perspective: 1000px;
+}
+
+.device-mockup-inner {
+  @apply relative bg-white rounded-3xl shadow-card-hover overflow-hidden;
+  transform: rotateY(-5deg) rotateX(5deg);
+  transition: transform 0.4s ease;
+}
+
+.device-mockup:hover .device-mockup-inner {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+/* ========================
+   CLIENT LOGOS
+   ======================== */
+.client-logo {
+  @apply grayscale opacity-50 transition-all duration-300;
+}
+
+.client-logo:hover {
+  @apply grayscale-0 opacity-100;
+}
+
+/* ========================
+   NAVIGATION
+   ======================== */
+.nav-link {
+  @apply text-sm font-medium text-neutral-700 px-4 py-2 rounded-full transition-all duration-200;
+}
+
+.nav-link:hover {
+  @apply text-neutral-900 bg-white/60;
+}
+
+.nav-link-active {
+  @apply text-neutral-900 bg-white;
 }

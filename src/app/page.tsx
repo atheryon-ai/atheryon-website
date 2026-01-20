@@ -7,17 +7,17 @@ import {
   FeatureCard,
   FeatureGrid,
   SimpleStepper,
-  QuoteBlock,
   CaseStudy,
   ComparisonSection,
   FAQ,
   defaultFAQItems,
+  TechPartnerLogos,
 } from '@/components'
 import { site } from '@/content/site'
 
 const { home } = site.pages
 
-// Icons for the problem cards
+// Icons for the problem cards - using gray tones per Social Grow aesthetic
 const problemIcons = [
   // AI POC purgatory
   <svg key="poc" className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ const problemIcons = [
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero - Social Grow asymmetric design */}
       <Hero
         headline={home.hero.headline}
         subheadline={home.hero.subheadline}
@@ -50,20 +50,20 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* Who We're For */}
+      {/* Who We're For - Clean cards */}
       <Section
         badge={home.whoWeAreFor.badge}
         title={home.whoWeAreFor.title}
       >
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card">
+          <div className="p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card card-hover">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
                 <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-display text-xl font-semibold text-slate-900 tracking-tight">We work with</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 tracking-tight">We work with</h3>
             </div>
             <ul className="space-y-4">
               {home.whoWeAreFor.forClients.map((client, index) => (
@@ -71,27 +71,27 @@ export default function HomePage() {
                   <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-slate-700">{client}</span>
+                  <span className="text-neutral-700">{client}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="p-8 bg-slate-50 border border-slate-200/60 rounded-3xl">
+          <div className="p-8 bg-warm-200 border border-neutral-500/10 rounded-2xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center">
-                <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 rounded-xl bg-warm-300 flex items-center justify-center">
+                <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <h3 className="font-display text-xl font-semibold text-slate-900 tracking-tight">Not a fit for</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 tracking-tight">Not a fit for</h3>
             </div>
             <ul className="space-y-4">
               {home.whoWeAreFor.notForClients.map((client, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-slate-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-neutral-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                  <span className="text-slate-500">{client}</span>
+                  <span className="text-neutral-500">{client}</span>
                 </li>
               ))}
             </ul>
@@ -101,7 +101,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* Problems We Solve */}
+      {/* Problems We Solve - 3 column grid */}
       <Section
         badge={home.problemsWeSolve.badge}
         title={home.problemsWeSolve.title}
@@ -148,7 +148,7 @@ export default function HomePage() {
             <SimpleStepper steps={home.howWeWorkTeaser.steps} />
             <Link
               href={home.howWeWorkTeaser.link.href}
-              className="inline-flex items-center gap-2 mt-8 text-slate-900 font-semibold hover:text-brand-orange transition-colors"
+              className="inline-flex items-center gap-2 mt-8 text-neutral-900 font-semibold hover:text-brand-orange transition-colors"
             >
               {home.howWeWorkTeaser.link.label}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,15 +156,15 @@ export default function HomePage() {
               </svg>
             </Link>
           </div>
-          <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card">
-            <h3 className="font-display text-xl font-semibold text-slate-900 tracking-tight mb-6">What done looks like</h3>
+          <div className="p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card">
+            <h3 className="text-xl font-semibold text-neutral-900 tracking-tight mb-6">What done looks like</h3>
             <ul className="space-y-4">
               {site.pages.howWeWork.whatDoneLooksLike.items.map((item, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-slate-700">{item}</span>
+                  <span className="text-neutral-700">{item}</span>
                 </li>
               ))}
             </ul>
@@ -194,7 +194,7 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* Reference Architectures Teaser */}
+      {/* Reference Architectures Teaser - 3 column cards */}
       <Section
         badge={home.referenceArchitecturesTeaser.badge}
         title={home.referenceArchitecturesTeaser.title}
@@ -216,7 +216,7 @@ export default function HomePage() {
         <div className="mt-10">
           <Link
             href={home.referenceArchitecturesTeaser.link.href}
-            className="inline-flex items-center gap-2 text-slate-900 font-semibold hover:text-brand-orange transition-colors"
+            className="inline-flex items-center gap-2 text-neutral-900 font-semibold hover:text-brand-orange transition-colors"
           >
             {home.referenceArchitecturesTeaser.link.label}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -224,6 +224,13 @@ export default function HomePage() {
             </svg>
           </Link>
         </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* Built on Trusted Platforms Section */}
+      <Section centered>
+        <TechPartnerLogos className="py-8" />
       </Section>
 
       <SectionDivider />
