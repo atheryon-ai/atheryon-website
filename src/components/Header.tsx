@@ -44,7 +44,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation - Pill Container */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center ml-8">
             <div className="flex items-center gap-1 bg-white/80 backdrop-blur-xl rounded-full px-2 py-2 shadow-card border border-slate-100">
               {site.nav.map((item) => (
                 <Link
