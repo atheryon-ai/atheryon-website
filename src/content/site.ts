@@ -5,13 +5,21 @@ export const site = {
 
   nav: [
     { label: 'How We Work', href: '/how-we-work' },
-    { label: 'What We Deliver', href: '/what-we-deliver' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
     { label: 'Capability Enablement', href: '/capability-enablement' },
     { label: 'M&A', href: '/mergers-acquisitions' },
+    { label: 'CDM Platform', href: '/cdm-platform' },
     { label: 'Reference Architectures', href: '/reference-architectures' },
     { label: 'AI-Ready Data', href: '/ai-ready-data' },
     { label: 'About', href: '/about' },
+  ],
+
+  // Services dropdown items (used in Header)
+  servicesNav: [
+    { label: 'CDM Platform', href: '/cdm-platform' },
+    { label: 'Recovery & Migration', href: '/recovery-migration' },
+    { label: 'Capability Enablement', href: '/capability-enablement' },
+    { label: 'M&A', href: '/mergers-acquisitions' },
   ],
 
   cta: {
@@ -33,8 +41,8 @@ export const site = {
       title: 'Atheryon | From AI Potential to Production Reality',
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
-        headline: 'Struggling to deliver business outcomes and strategic data & AI initiatives?',
-        subheadline: 'We help organisations turn strategic intent into delivered capability — stabilising cost, scope, timelines, and regulatory risk when large, complex programs stall.',
+        headline: 'From stalled strategy to delivery',
+        subheadline: 'We specialise in recovering complex data, AI, and regulatory initiatives under cost, timeline, and regulatory pressure.',
         primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
         secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
@@ -189,69 +197,6 @@ export const site = {
       },
     },
 
-    whatWeDeliver: {
-      title: 'What We Deliver | Atheryon',
-      description: 'Production-grade capabilities and reusable data products for regulated enterprises.',
-      hero: {
-        headline: 'What we deliver',
-        subheadline: 'Production capabilities and the data products that power them.',
-      },
-      outcomes: {
-        badge: 'Business Outcomes',
-        title: 'Outcomes we enable',
-        items: [
-          {
-            title: 'Regulatory reporting readiness',
-            description: 'Trusted data for timely, accurate regulatory submissions.',
-          },
-          {
-            title: 'Risk & exposure aggregation',
-            description: 'Consolidated views across positions, counterparties, and limits.',
-          },
-          {
-            title: 'Trade lifecycle data foundations',
-            description: 'Clean data from execution through settlement and reporting.',
-          },
-          {
-            title: 'Data cost reduction',
-            description: 'Rationalised pipelines, reduced duplication, governed reuse.',
-          },
-        ],
-      },
-      deliverables: {
-        badge: 'Deliverables',
-        title: 'What we always leave behind',
-        items: [
-          'Canonical model artefacts',
-          'Validated datasets (bronze/silver/gold)',
-          'Pipelines and transformation logic',
-          'Governance hooks (ownership, lineage)',
-          'AI-ready interfaces (query-ready, embeddings-ready)',
-        ],
-      },
-      engagementShapes: {
-        badge: 'Engagement Shapes',
-        title: 'How we engage',
-        items: [
-          {
-            title: 'Recovery sprint',
-            duration: '2–4 weeks',
-            description: 'Stabilise a stalled initiative. Clarify semantics. Extract usable data products.',
-          },
-          {
-            title: 'Capability delivery',
-            duration: '6–12 weeks',
-            description: 'Deliver a specific business capability with underlying data products.',
-          },
-          {
-            title: 'Foundation build',
-            duration: 'Multi-quarter',
-            description: 'Build enterprise data foundations that support multiple capabilities.',
-          },
-        ],
-      },
-    },
-
     recoveryMigration: {
       title: 'Recovery & Migration | Atheryon',
       description: 'We recover stalled data initiatives and execute model-led migrations that preserve meaning.',
@@ -344,6 +289,144 @@ export const site = {
       hero: {
         headline: 'M&A',
         subheadline: 'Coming Soon!',
+      },
+    },
+
+    cdmPlatform: {
+      title: 'CDM Platform | Atheryon',
+      description: 'Transform your derivatives operations with an AI-powered ISDA CDM validation and transformation platform.',
+      hero: {
+        headline: 'Transform Your Derivatives Operations',
+        subheadline: 'An AI-powered platform for ISDA CDM validation, transformation, and regulatory compliance—built for enterprise scale.',
+      },
+      challenge: {
+        badge: 'The Challenge',
+        title: 'Why derivatives data management is broken',
+        cards: [
+          {
+            title: 'Manual Reconciliation',
+            description: 'Over 50% of operations time spent on data quality issues and manual reconciliation across systems.',
+          },
+          {
+            title: 'Inconsistent Formats',
+            description: 'Multiple trade representations, proprietary formats, and siloed data preventing straight-through processing.',
+          },
+          {
+            title: 'Regulatory Complexity',
+            description: 'Different rules across 8+ jurisdictions (CFTC, EMIR, MAS, etc.) with constantly evolving requirements.',
+          },
+          {
+            title: 'Integration Friction',
+            description: 'Point-to-point integrations create brittle architectures that are expensive to maintain and extend.',
+          },
+        ],
+      },
+      solution: {
+        badge: 'The Solution',
+        title: 'Enterprise-grade CDM platform',
+        description: 'A unified platform built on FINOS CDM standards that automates validation, transformation, and regulatory reporting.',
+        stats: [
+          { value: '77', label: 'Platform Components' },
+          { value: '12', label: 'Microservices' },
+          { value: '6', label: 'Applications' },
+          { value: '44', label: 'AI Agents' },
+        ],
+      },
+      capabilities: {
+        badge: 'Core Capabilities',
+        title: 'What the platform does',
+        sections: [
+          {
+            title: 'CDM Validation Engine',
+            description: 'Production-grade validation with full FINOS CDM compliance.',
+            features: [
+              { title: 'Schema Validation', description: 'JSON Schema, XSD, and FpML format validation with detailed error reporting.' },
+              { title: 'Business Rules', description: 'Configurable validation rules for trade economics, dates, and party structures.' },
+              { title: 'Real-time Processing', description: 'Sub-second validation for high-volume trade flows.' },
+            ],
+          },
+          {
+            title: 'Transformation Services',
+            description: 'Bidirectional conversion between formats with semantic preservation.',
+            features: [
+              { title: 'Multi-format Support', description: 'FpML, JSON, CSV, and proprietary formats with extensible adapters.' },
+              { title: 'Semantic Mapping', description: 'Intelligent field mapping that preserves business meaning across transformations.' },
+              { title: 'Batch & Streaming', description: 'Process individual trades or high-volume batch files with equal reliability.' },
+            ],
+          },
+          {
+            title: 'AI-Powered Analysis',
+            description: 'Machine learning for pattern recognition and anomaly detection.',
+            features: [
+              { title: 'Anomaly Detection', description: 'Identify unusual trade patterns, pricing outliers, and data quality issues.' },
+              { title: 'Document Understanding', description: 'Extract structured data from trade confirmations and legal documents.' },
+              { title: 'Predictive Validation', description: 'Learn from historical corrections to prevent recurring issues.' },
+            ],
+          },
+          {
+            title: 'Knowledge Graph',
+            description: 'Connected data model for relationship discovery and lineage.',
+            features: [
+              { title: 'Entity Resolution', description: 'Unified view of counterparties, instruments, and legal entities.' },
+              { title: 'Impact Analysis', description: 'Understand downstream effects of data changes before they propagate.' },
+              { title: 'Regulatory Mapping', description: 'Trace data lineage from source systems through to regulatory reports.' },
+            ],
+          },
+        ],
+      },
+      regulatory: {
+        badge: 'Regulatory Compliance',
+        title: 'Multi-jurisdiction support',
+        description: 'Pre-configured rules for major regulatory frameworks with continuous updates.',
+        jurisdictions: [
+          { name: 'CFTC', region: 'United States' },
+          { name: 'EMIR', region: 'European Union' },
+          { name: 'MAS', region: 'Singapore' },
+          { name: 'JFSA', region: 'Japan' },
+          { name: 'HKMA', region: 'Hong Kong' },
+          { name: 'ASIC', region: 'Australia' },
+          { name: 'FCA', region: 'United Kingdom' },
+          { name: 'OSFI', region: 'Canada' },
+        ],
+        features: [
+          '65+ pre-built validation rules per jurisdiction',
+          'Automated submission formatting',
+          'Regulatory change impact analysis',
+          'Audit trail and compliance reporting',
+        ],
+      },
+      performance: {
+        badge: 'Performance',
+        title: 'Built for enterprise scale',
+        stats: [
+          { value: '<100ms', label: 'API Response Time' },
+          { value: '10,000+', label: 'Trades/Second' },
+          { value: '99.5%', label: 'Match Rate' },
+          { value: '99.9%', label: 'Uptime SLA' },
+        ],
+      },
+      personas: {
+        badge: 'Who It\'s For',
+        title: 'Built for your team',
+        items: [
+          { title: 'Risk Managers', description: 'Real-time exposure visibility with validated, consistent data across all positions.' },
+          { title: 'Compliance Officers', description: 'Automated regulatory validation with audit trails and exception management.' },
+          { title: 'Quantitative Analysts', description: 'Clean, normalized data in standard CDM format for models and analytics.' },
+          { title: 'Operations Teams', description: 'Reduced manual reconciliation with intelligent matching and exception handling.' },
+          { title: 'Technology Teams', description: 'Modern APIs, containerized deployment, and extensible architecture.' },
+        ],
+      },
+      standards: {
+        badge: 'Standards & Technology',
+        title: 'Built on open standards',
+        items: [
+          { name: 'FINOS CDM', description: 'ISDA Common Domain Model' },
+          { name: 'FpML', description: 'Financial Products Markup Language' },
+          { name: 'ISO 20022', description: 'Financial Messaging Standard' },
+          { name: 'Rosetta DSL', description: 'Domain-Specific Language' },
+          { name: 'OpenAPI', description: 'REST API Specification' },
+          { name: 'GraphQL', description: 'Query Language' },
+        ],
       },
     },
 
@@ -517,10 +600,10 @@ export const site = {
     links: {
       services: [
         { label: 'How We Work', href: '/how-we-work' },
-        { label: 'What We Deliver', href: '/what-we-deliver' },
         { label: 'Recovery & Migration', href: '/recovery-migration' },
         { label: 'Capability Enablement', href: '/capability-enablement' },
         { label: 'M&A', href: '/mergers-acquisitions' },
+        { label: 'CDM Platform', href: '/cdm-platform' },
       ],
       resources: [
         { label: 'Reference Architectures', href: '/reference-architectures' },

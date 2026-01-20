@@ -86,7 +86,6 @@ test.describe('Responsive Design', () => {
     // Mobile menu should be visible with navigation links in the overlay
     const mobileNav = page.locator('.lg\\:hidden.fixed');
     await expect(mobileNav.locator('a:has-text("How We Work")')).toBeVisible();
-    await expect(mobileNav.locator('a:has-text("What We Deliver")')).toBeVisible();
     await expect(mobileNav.locator('a:has-text("About")')).toBeVisible();
 
     // Close menu button should be visible
