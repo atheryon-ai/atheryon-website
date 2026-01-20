@@ -18,6 +18,10 @@ Thumbs.db
 # Node
 node_modules/
 
+# Next.js
+.next/
+out/
+
 # Playwright
 /test-results/
 /playwright-report/

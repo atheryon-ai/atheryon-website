@@ -1,0 +1,58 @@
+name: Deploy to Production
+
+# Deploys to Azure Static Web Apps PRODUCTION environment
+# URL: https://www.atheryon.com.au (custom domain to be configured)
+#
+# IMPORTANT: This workflow is DISABLED by default.
+# To enable production deployments:
+# 1. Create a new Azure Static Web App for production
+# 2. Add the secret AZURE_STATIC_WEB_APPS_API_TOKEN_PRODUCTION
+# 3. Configure custom domain www.atheryon.com.au in Azure portal
+# 4. Uncomment the 'on:' trigger below
+
+# DISABLED - Uncomment to enable production deployments
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:  # Allow manual deployments
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  build_and_deploy:
+    # Only runs when workflow is manually triggered (until 'on:' is uncommented)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    name: Build and Deploy to Production
+    environment:
+      name: production
+      url: https://www.atheryon.com.au
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to Azure Static Web Apps (Production)
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_PRODUCTION }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          app_location: "/"
+          output_location: "out"
+          skip_app_build: true
