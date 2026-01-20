@@ -84,6 +84,16 @@ export default function ReferenceArchitecturesPage() {
                     className="w-full h-auto object-contain"
                   />
                 </div>
+              ) : index === 4 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/ai-consumption-patterns.png"
+                    alt="AI consumption patterns diagram showing query-ready interfaces, embedding-ready corpora, and safe agent patterns"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
               ) : (
                 <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
               )}
