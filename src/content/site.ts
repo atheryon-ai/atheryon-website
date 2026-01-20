@@ -306,10 +306,69 @@ export const site = {
 
     maExecution: {
       title: 'M&A Execution | Atheryon',
-      description: 'Execute complex separations and integrations without value leakage.',
+      description: 'Separation and integration delivery without value leakage.',
       hero: {
         headline: 'M&A Execution',
-        subheadline: 'Coming Soon!',
+        subheadline: 'Separation and integration delivery without value leakage.',
+      },
+      intro: {
+        text: 'M&A success is determined after the deal is signed.\n\nWe support organisations through separation and integration execution where timelines are fixed, operational risk is high, and regulatory obligations must continue uninterrupted. We preserve meaning in data and processes while enabling Day-1 readiness and clean transition to the target operating model.',
+      },
+      whenClientsCallUs: {
+        badge: 'When Clients Call Us',
+        title: 'Triggers for engagement',
+        items: [
+          'Acquisition, divestment, or carve-out with fixed regulatory or market deadlines',
+          'Data and platforms must be separated or integrated without disrupting operations',
+          'TSA scope, duration, or cost is escalating',
+          'Day-1 readiness is unclear or under-resourced',
+          'High risk of value leakage post-sign (customers, controls, data, reporting)',
+        ],
+      },
+      execution: {
+        badge: 'Execution',
+        title: 'How we execute separation & integration',
+        description: 'Plan, sequence, and execute with control. We work with what you have and deliver to deadlines.',
+        items: [
+          'Establish separation/integration plan tied to deal outcomes',
+          'Define Day-1 requirements and transition operating model',
+          'Map critical data, reporting, and control dependencies',
+          'Execute separation/integration waves with clear contracts',
+          'Reduce TSA scope and drive clean exit to target state',
+        ],
+      },
+      capabilities: [
+        {
+          title: 'Separation & Integration Strategy',
+          description: 'Pragmatic strategy aligned to deal objectives, constraints, and delivery reality.',
+        },
+        {
+          title: 'Day-1 / Day-2 Readiness',
+          description: 'Design and deliver operating readiness with clear transition sequencing.',
+        },
+        {
+          title: 'Data & Platform Separation',
+          description: 'Separate or integrate data and platforms while preserving meaning and controls.',
+        },
+        {
+          title: 'TSA Reduction & Exit',
+          description: 'Reduce TSA scope and duration through disciplined delivery and target-state design.',
+        },
+        {
+          title: 'Post-Sign Delivery Leadership',
+          description: 'Hands-on execution leadership through to completion and value realisation.',
+        },
+      ],
+      outcomes: {
+        title: 'What we deliver',
+        description: 'Execution that protects value, reduces dependency, and preserves regulatory continuity.',
+        items: [
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
       },
     },
 
