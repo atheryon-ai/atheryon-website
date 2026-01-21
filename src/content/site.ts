@@ -172,6 +172,19 @@ export const site = {
         headline: 'How we work',
         subheadline: 'Two delivery models, one outcome: execution that reaches production.',
       },
+      intro: {
+        title: 'Choose your delivery model',
+        description: 'Data & AI delivery for platform initiatives. M&A execution for transactions and integrations.',
+        ctas: [
+          { label: 'Data & AI Delivery', href: '#data-delivery' },
+          { label: 'M&A Execution', href: '#ma-execution' },
+        ],
+      },
+      transition: {
+        badge: 'When the delivery motion changes',
+        title: 'For transactions, execution is different',
+        description: 'M&A requires deal-timetable delivery, continuity, and controlled migration where needed.',
+      },
       methods: [
         {
           id: 'data-delivery',
@@ -186,13 +199,13 @@ export const site = {
             },
             {
               number: 2,
-              title: 'Align meaning and ownership',
+              title: 'Align definitions and ownership',
               description: 'Establish shared definitions and ownership—so teams trust what the data represents.',
             },
             {
               number: 3,
               title: 'Build pipelines with validation',
-              description: 'Implement ingestion and transformation with automated checks—reject bad data early.',
+              description: 'Build the pipeline with automated checks—reject bad data early.',
             },
             {
               number: 4,
@@ -202,9 +215,17 @@ export const site = {
             {
               number: 5,
               title: 'Package reusable data products',
-              description: 'Harden and document the assets (contracts, governance, access patterns) so future initiatives reuse what\'s built.',
+              description: 'Document and govern the assets so future initiatives reuse what\'s built.',
             },
           ],
+          done: {
+            title: 'What done looks like',
+            bullets: [
+              'Production capability live with operational ownership',
+              'Quality controls, lineage, and governance in place',
+              'Reusable data products published for future delivery',
+            ],
+          },
         },
         {
           id: 'ma-execution',
@@ -220,7 +241,7 @@ export const site = {
             {
               number: 2,
               title: 'Stand up the execution team',
-              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—no advisory overlay.',
+              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—delivery, not slideware.',
             },
             {
               number: 3,
@@ -233,8 +254,17 @@ export const site = {
               description: 'Design and deliver migrations only where they enable the deal outcome—controlled, auditable, regulator-ready.',
             },
           ],
+          done: {
+            title: 'What done looks like',
+            bullets: [
+              'Deal timetable protected with clear execution governance',
+              'Operational and regulatory continuity maintained through transition',
+              'Data migrations completed only where required, with audit trail',
+            ],
+          },
         },
       ],
+      // Used by homepage teaser
       whatDoneLooksLike: {
         title: 'What done looks like',
         items: [
@@ -242,14 +272,6 @@ export const site = {
           'Validation rules explicit and enforced',
           'Ownership and lineage clear',
           'Consumption patterns defined and controlled',
-        ],
-      },
-      whyItReducesCost: {
-        title: 'Why it reduces cost of change',
-        items: [
-          'Reuse by design—new capabilities build on existing assets',
-          'Fewer rewrites—stable semantics mean stable interfaces',
-          'Governed evolution—changes are controlled, not chaotic',
         ],
       },
     },
