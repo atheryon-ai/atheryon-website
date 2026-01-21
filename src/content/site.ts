@@ -715,8 +715,9 @@ export const site = {
       title: 'Contact | Atheryon',
       description: 'Discuss a real delivery problem with Atheryon.',
       hero: {
-        headline: 'Let\'s talk',
-        subheadline: 'Discuss a real delivery problem.',
+        badge: 'AI-native delivery',
+        headline: 'Discuss your delivery challenge',
+        subheadline: 'A short call to understand constraints, assess options, and outline next steps.',
       },
       form: {
         fields: {

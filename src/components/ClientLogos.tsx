@@ -17,7 +17,7 @@ export function ClientLogos({ className = '', showLabel = true }: ClientLogosPro
   return (
     <div className={className}>
       {showLabel && (
-        <p className="text-sm text-neutral-500 mb-6 font-medium">
+        <p className="text-sm text-neutral-600 mb-6 font-medium">
           Trusted by regulated enterprises
         </p>
       )}

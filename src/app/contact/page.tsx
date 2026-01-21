@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Hero, Section } from '@/components'
+import { Section, ClientLogos } from '@/components'
 import { site } from '@/content/site'
 
 const { contact } = site.pages
@@ -27,10 +27,40 @@ export default function ContactPage() {
 
   return (
     <>
-      <Hero
-        headline={contact.hero.headline}
-        subheadline={contact.hero.subheadline}
-      />
+      {/* Custom hero with reduced height and accent word */}
+      <section className="relative py-16 md:py-24 overflow-hidden pt-28 md:pt-36">
+        {/* Warm gradient background */}
+        <div className="absolute inset-0 bg-gradient-warm" />
+
+        {/* Subtle decorative elements */}
+        <div className="absolute top-20 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-atheryon-blue/5 rounded-full blur-3xl" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          {/* Badge */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
+              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
+              <span className="text-sm font-medium text-neutral-700">{contact.hero.badge}</span>
+            </div>
+          </div>
+
+          {/* Headline with accent word */}
+          <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+            Discuss your <span className="text-brand-orange">delivery</span> challenge
+          </h1>
+
+          {/* Subheadline */}
+          <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+            {contact.hero.subheadline}
+          </p>
+
+          {/* Client Logos */}
+          <div className="mt-12 pt-8 border-t border-neutral-500/10">
+            <ClientLogos />
+          </div>
+        </div>
+      </section>
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
