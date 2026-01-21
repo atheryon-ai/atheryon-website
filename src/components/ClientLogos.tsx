@@ -18,7 +18,7 @@ export function ClientLogos({ className = '', showLabel = true }: ClientLogosPro
     <div className={className}>
       {showLabel && (
         <p className="text-sm text-neutral-600 mb-6 font-medium">
-          Trusted by regulated enterprises
+          Microsoft Partner • Delivering for S&P Global
         </p>
       )}
       <div className="flex flex-wrap items-center gap-8 md:gap-12">
