@@ -37,17 +37,9 @@ export default function ContactPage() {
         <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-atheryon-blue/5 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          {/* Badge */}
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
-              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
-              <span className="text-sm font-medium text-neutral-700">{contact.hero.badge}</span>
-            </div>
-          </div>
-
-          {/* Headline with accent word */}
+          {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
-            Discuss your <span className="text-brand-orange">delivery</span> challenge
+            {contact.hero.headline}
           </h1>
 
           {/* Subheadline */}
