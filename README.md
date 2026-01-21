@@ -7,7 +7,7 @@ Corporate website for Atheryon - From AI potential to production reality.
 | Environment | URL | Branch | Deployment |
 |-------------|-----|--------|------------|
 | **Local Dev** | http://localhost:3000 | any | Manual (`npm run dev`) |
-| **Test** | https://icy-tree-093dcc800.azurestaticapps.net | `dev` | Auto on push |
+| **Test** | https://icy-tree-093dcc800.6.azurestaticapps.net | `dev` | Auto on push |
 | **Production** | https://www.atheryon.com.au | `main` | Manual (disabled) |
 
 ## Tech Stack
@@ -51,7 +51,7 @@ Builds and serves the static export at http://localhost:3000
 | | DEV | TEST | PROD |
 |---|---|---|---|
 | **Environment** | Local | Azure Static Web Apps | Azure Static Web Apps |
-| **URL** | http://localhost:3000 | https://icy-tree-093dcc800.azurestaticapps.net | https://www.atheryon.com.au |
+| **URL** | http://localhost:3000 | https://icy-tree-093dcc800.6.azurestaticapps.net | https://www.atheryon.com.au |
 | **Branch** | Any | `dev` | `main` |
 | **Trigger** | Manual | Auto on push | Disabled |
 | **Command** | `npm run dev` | `git push origin dev` | — |
@@ -99,7 +99,7 @@ git push origin dev
 4. Deploys static files to Azure Static Web Apps
 
 #### Test URL
-**https://icy-tree-093dcc800.azurestaticapps.net**
+**https://icy-tree-093dcc800.6.azurestaticapps.net**
 
 #### Workflow File
 `.github/workflows/deploy-test.yml`

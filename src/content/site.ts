@@ -5,11 +5,21 @@ export const site = {
 
   nav: [
     { label: 'How We Work', href: '/how-we-work' },
-    { label: 'What We Deliver', href: '/what-we-deliver' },
     { label: 'Recovery & Migration', href: '/recovery-migration' },
+    { label: 'Capability Enablement', href: '/capability-enablement' },
+    { label: 'M&A Execution', href: '/m-and-a-execution' },
+    { label: 'CDM Platform', href: '/cdm-platform' },
     { label: 'Reference Architectures', href: '/reference-architectures' },
     { label: 'AI-Ready Data', href: '/ai-ready-data' },
     { label: 'About', href: '/about' },
+  ],
+
+  // Services dropdown items (used in Header)
+  servicesNav: [
+    { label: 'CDM Platform', href: '/cdm-platform' },
+    { label: 'Recovery & Migration', href: '/recovery-migration' },
+    { label: 'M&A Execution', href: '/m-and-a-execution' },
+    { label: 'Capability Enablement', href: '/capability-enablement' },
   ],
 
   cta: {
@@ -31,10 +41,10 @@ export const site = {
       title: 'Atheryon | From AI Potential to Production Reality',
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
-        headline: 'From AI potential to production reality.',
-        subheadline: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
-        primaryCta: { label: 'Discuss a real delivery problem', href: '/contact' },
-        secondaryCta: { label: 'See how we work', href: '/how-we-work' },
+        headline: 'From stalled strategy to delivery',
+        subheadline: 'We deliver complex data, AI, and M&A initiatives under real cost, timeline, and regulatory constraints.',
+        primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
+        secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
       whoWeAreFor: {
         badge: 'Who We Work With',
@@ -128,6 +138,27 @@ export const site = {
         ],
         link: { label: 'View reference architectures', href: '/reference-architectures' },
       },
+      servicesSection: {
+        badge: 'Our Services',
+        title: 'How we help',
+        cards: [
+          {
+            title: 'Recovery & Migration',
+            description: 'Recover stalled initiatives and execute model-led migrations that preserve meaning.',
+            href: '/recovery-migration',
+          },
+          {
+            title: 'M&A Execution',
+            description: 'Execute complex separations and integrations without value leakage.',
+            href: '/m-and-a-execution',
+          },
+          {
+            title: 'Capability Enablement',
+            description: 'Turn delivered platforms into durable business capability with embedded governance.',
+            href: '/capability-enablement',
+          },
+        ],
+      },
       finalCta: {
         text: 'If you have a stalled initiative or a migration with unclear semantics, we should talk.',
         cta: { label: 'Discuss a real delivery problem', href: '/contact' },
@@ -136,38 +167,104 @@ export const site = {
 
     howWeWork: {
       title: 'How We Work | Atheryon',
-      description: 'Our five-step method for delivering production-grade capabilities built on reusable data products.',
+      description: 'Two delivery models for complex data, AI, and M&A initiatives under real execution pressure.',
       hero: {
         headline: 'How we work',
-        subheadline: 'Human and AI working hand in hand to turn potential into production reality.',
+        subheadline: 'Two delivery models, one outcome: execution that reaches production.',
       },
-      steps: [
+      intro: {
+        title: 'Choose your delivery model',
+        description: 'Data & AI delivery for platform initiatives. M&A execution for transactions and integrations.',
+        ctas: [
+          { label: 'Data & AI Delivery', href: '#data-delivery' },
+          { label: 'M&A Execution', href: '#ma-execution' },
+        ],
+      },
+      transition: {
+        badge: 'When the delivery motion changes',
+        title: 'For transactions, execution is different',
+        description: 'M&A requires deal-timetable delivery, continuity, and controlled migration where needed.',
+      },
+      methods: [
         {
-          number: 1,
-          title: 'Frame problem & constraints',
-          description: 'Understand the business outcome required, the constraints (regulatory, technical, organisational), and the definition of done.',
+          id: 'data-delivery',
+          badge: 'Data & AI Delivery',
+          title: 'From strategy to production capability',
+          subheadline: 'For complex data, AI, and regulatory initiatives under delivery pressure.',
+          steps: [
+            {
+              number: 1,
+              title: 'Define outcomes and constraints',
+              description: 'Agree the business outcome, delivery constraints (regulatory, technical, organisational), and what "done" means.',
+            },
+            {
+              number: 2,
+              title: 'Align definitions and ownership',
+              description: 'Establish shared definitions and ownership—so teams trust what the data represents.',
+            },
+            {
+              number: 3,
+              title: 'Build pipelines with validation',
+              description: 'Build the pipeline with automated checks—reject bad data early.',
+            },
+            {
+              number: 4,
+              title: 'Ship production capability',
+              description: 'Deliver the working capability into production with runbooks, controls, and operational ownership.',
+            },
+            {
+              number: 5,
+              title: 'Package reusable data products',
+              description: 'Document and govern the assets so future initiatives reuse what\'s built.',
+            },
+          ],
+          done: {
+            title: 'What done looks like',
+            bullets: [
+              'Production capability live with operational ownership',
+              'Quality controls, lineage, and governance in place',
+              'Reusable data products published for future delivery',
+            ],
+          },
         },
         {
-          number: 2,
-          title: 'Model alignment',
-          description: 'Establish canonical semantics. Map existing data to a shared model. Clarify what terms mean and where data originates.',
-        },
-        {
-          number: 3,
-          title: 'Extract/ingest + validate',
-          description: 'Build pipelines that extract, transform, and validate data. Apply rules at ingestion. Reject bad data early.',
-        },
-        {
-          number: 4,
-          title: 'Deliver production capability',
-          description: 'Ship the business capability. Regulatory reporting, risk aggregation, trade lifecycle support—whatever the outcome requires.',
-        },
-        {
-          number: 5,
-          title: 'Abstract into reusable data products',
-          description: 'Extract and package the underlying data assets. Document, govern, and make available for future capabilities.',
+          id: 'ma-execution',
+          badge: 'M&A Execution',
+          title: 'From deal intent to operational reality',
+          subheadline: 'For acquisitions, separations, and integrations where execution risk is material.',
+          steps: [
+            {
+              number: 1,
+              title: 'Pre-deal execution readiness',
+              description: 'Assess execution implications before signing—scope, cost, data, operational continuity, and regulatory requirements.',
+            },
+            {
+              number: 2,
+              title: 'Stand up the execution team',
+              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—delivery, not slideware.',
+            },
+            {
+              number: 3,
+              title: 'Execute separation or integration',
+              description: 'Plan and run separation or integration across technology, data, operations, and governance under time pressure.',
+            },
+            {
+              number: 4,
+              title: 'Manage data migrations where required',
+              description: 'Design and deliver migrations only where they enable the deal outcome—controlled, auditable, regulator-ready.',
+            },
+          ],
+          done: {
+            title: 'What done looks like',
+            bullets: [
+              'Deal timetable protected with clear execution governance',
+              'Operational and regulatory continuity maintained through transition',
+              'Data migrations completed only where required, with audit trail',
+            ],
+          },
         },
       ],
+      // Used by homepage teaser
       whatDoneLooksLike: {
         title: 'What done looks like',
         items: [
@@ -175,77 +272,6 @@ export const site = {
           'Validation rules explicit and enforced',
           'Ownership and lineage clear',
           'Consumption patterns defined and controlled',
-        ],
-      },
-      whyItReducesCost: {
-        title: 'Why it reduces cost of change',
-        items: [
-          'Reuse by design—new capabilities build on existing assets',
-          'Fewer rewrites—stable semantics mean stable interfaces',
-          'Governed evolution—changes are controlled, not chaotic',
-        ],
-      },
-    },
-
-    whatWeDeliver: {
-      title: 'What We Deliver | Atheryon',
-      description: 'Production-grade capabilities and reusable data products for regulated enterprises.',
-      hero: {
-        headline: 'What we deliver',
-        subheadline: 'Production capabilities and the data products that power them.',
-      },
-      outcomes: {
-        badge: 'Business Outcomes',
-        title: 'Outcomes we enable',
-        items: [
-          {
-            title: 'Regulatory reporting readiness',
-            description: 'Trusted data for timely, accurate regulatory submissions.',
-          },
-          {
-            title: 'Risk & exposure aggregation',
-            description: 'Consolidated views across positions, counterparties, and limits.',
-          },
-          {
-            title: 'Trade lifecycle data foundations',
-            description: 'Clean data from execution through settlement and reporting.',
-          },
-          {
-            title: 'Data cost reduction',
-            description: 'Rationalised pipelines, reduced duplication, governed reuse.',
-          },
-        ],
-      },
-      deliverables: {
-        badge: 'Deliverables',
-        title: 'What we always leave behind',
-        items: [
-          'Canonical model artefacts',
-          'Validated datasets (bronze/silver/gold)',
-          'Pipelines and transformation logic',
-          'Governance hooks (ownership, lineage)',
-          'AI-ready interfaces (query-ready, embeddings-ready)',
-        ],
-      },
-      engagementShapes: {
-        badge: 'Engagement Shapes',
-        title: 'How we engage',
-        items: [
-          {
-            title: 'Recovery sprint',
-            duration: '2–4 weeks',
-            description: 'Stabilise a stalled initiative. Clarify semantics. Extract usable data products.',
-          },
-          {
-            title: 'Capability delivery',
-            duration: '6–12 weeks',
-            description: 'Deliver a specific business capability with underlying data products.',
-          },
-          {
-            title: 'Foundation build',
-            duration: 'Multi-quarter',
-            description: 'Build enterprise data foundations that support multiple capabilities.',
-          },
         ],
       },
     },
@@ -298,6 +324,245 @@ export const site = {
           'Validated migration pipelines',
           'Documented transformation logic',
           'Reusable data products for future capabilities',
+        ],
+      },
+    },
+
+    capabilityEnablement: {
+      title: 'Capability Enablement | Atheryon',
+      description: 'Turn delivered platforms into durable business capability with embedded ownership, governance, and operating models.',
+      hero: {
+        headline: 'Capability Enablement',
+        subheadline: 'Turn delivered platforms into durable business capability.',
+      },
+      intro: {
+        text: 'Most organisations can deliver platforms. Far fewer succeed in enabling real capability.\n\nCapability Enablement focuses on embedding ownership, governance, delivery patterns, and operating models so data, analytics, and AI capabilities continue to deliver outcomes under real-world and regulatory pressure.',
+      },
+      capabilities: [
+        {
+          title: 'Regulatory & Risk Capability',
+          description: 'Enable end-to-end regulatory and risk capabilities that are production-grade, traceable, and defensible under scrutiny.',
+        },
+        {
+          title: 'Data Product Capability',
+          description: 'Establish repeatable, governed data products with shared semantics, clear contracts, and embedded quality controls.',
+        },
+        {
+          title: 'Governance Built In',
+          description: 'Embed ownership, lineage, and access controls directly into platforms and delivery models — not bolted on later.',
+        },
+        {
+          title: 'Analytics & AI Foundations',
+          description: 'Enable query-ready analytics and AI consumption patterns that operate safely within defined guardrails.',
+        },
+        {
+          title: 'Delivery Capability',
+          description: 'Build internal delivery capability across business, data, and technology so success can be repeated.',
+        },
+      ],
+    },
+
+    maExecution: {
+      title: 'M&A Execution | Atheryon',
+      description: 'Separation and integration delivery.',
+      hero: {
+        headline: 'M&A Execution',
+        subheadline: 'Separation and integration delivery.',
+      },
+      intro: {
+        text: 'M&A success is determined after the deal is signed.\n\nWe support organisations through separation and integration execution where timelines are fixed, operational risk is high, and regulatory obligations must continue uninterrupted. We preserve meaning in data and processes while enabling Day-1 readiness and clean transition to the target operating model.',
+      },
+      whenClientsCallUs: {
+        badge: 'When Clients Call Us',
+        title: 'Triggers for engagement',
+        items: [
+          'Pre-deal planning deficits',
+          'Execution capability gaps',
+          'High-stakes transaction delivery',
+          'Data migration risk in M&A',
+        ],
+      },
+      execution: {
+        badge: 'Execution',
+        title: 'How we execute separation & integration',
+        description: 'Plan, sequence, and execute with control. We work with what you have and deliver to deadlines.',
+        items: [
+          'Establish separation/integration plan tied to deal outcomes',
+          'Define Day-1 requirements and transition operating model',
+          'Map critical data, reporting, and control dependencies',
+          'Execute separation/integration waves with clear contracts',
+          'Reduce TSA scope and drive clean exit to target state',
+        ],
+      },
+      capabilities: [
+        {
+          title: 'Separation & Integration Strategy',
+          description: 'Pragmatic strategy aligned to deal objectives, constraints, and delivery reality.',
+        },
+        {
+          title: 'Day-1 / Day-2 Readiness',
+          description: 'Design and deliver operating readiness with clear transition sequencing.',
+        },
+        {
+          title: 'Data & Platform Separation',
+          description: 'Separate or integrate data and platforms while preserving meaning and controls.',
+        },
+        {
+          title: 'TSA Reduction & Exit',
+          description: 'Reduce TSA scope and duration through disciplined delivery and target-state design.',
+        },
+        {
+          title: 'Post-Sign Delivery Leadership',
+          description: 'Hands-on execution leadership through to completion and value realisation.',
+        },
+      ],
+      outcomes: {
+        title: 'What we deliver',
+        description: 'Execution that protects value, reduces dependency, and preserves regulatory continuity.',
+        items: [
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
+      },
+    },
+
+    cdmPlatform: {
+      title: 'CDM Platform | Atheryon',
+      description: 'Transform your derivatives operations with an AI-powered ISDA CDM validation and transformation platform.',
+      hero: {
+        headline: 'Transform Your Derivatives Operations',
+        subheadline: 'An AI-powered platform for ISDA CDM validation, transformation, and regulatory compliance—built for enterprise scale.',
+      },
+      challenge: {
+        badge: 'The Challenge',
+        title: 'Why derivatives data management is broken',
+        cards: [
+          {
+            title: 'Manual Reconciliation',
+            description: 'Over 50% of operations time spent on data quality issues and manual reconciliation across systems.',
+          },
+          {
+            title: 'Inconsistent Formats',
+            description: 'Multiple trade representations, proprietary formats, and siloed data preventing straight-through processing.',
+          },
+          {
+            title: 'Regulatory Complexity',
+            description: 'Different rules across 8+ jurisdictions (CFTC, EMIR, MAS, etc.) with constantly evolving requirements.',
+          },
+          {
+            title: 'Integration Friction',
+            description: 'Point-to-point integrations create brittle architectures that are expensive to maintain and extend.',
+          },
+        ],
+      },
+      solution: {
+        badge: 'The Solution',
+        title: 'Enterprise-grade CDM platform',
+        description: 'A unified platform built on FINOS CDM standards that automates validation, transformation, and regulatory reporting.',
+        stats: [
+          { value: '77', label: 'Platform Components' },
+          { value: '12', label: 'Microservices' },
+          { value: '6', label: 'Applications' },
+          { value: '44', label: 'AI Agents' },
+        ],
+      },
+      capabilities: {
+        badge: 'Core Capabilities',
+        title: 'What the platform does',
+        sections: [
+          {
+            title: 'CDM Validation Engine',
+            description: 'Production-grade validation with full FINOS CDM compliance.',
+            features: [
+              { title: 'Schema Validation', description: 'JSON Schema, XSD, and FpML format validation with detailed error reporting.' },
+              { title: 'Business Rules', description: 'Configurable validation rules for trade economics, dates, and party structures.' },
+              { title: 'Real-time Processing', description: 'Sub-second validation for high-volume trade flows.' },
+            ],
+          },
+          {
+            title: 'Transformation Services',
+            description: 'Bidirectional conversion between formats with semantic preservation.',
+            features: [
+              { title: 'Multi-format Support', description: 'FpML, JSON, CSV, and proprietary formats with extensible adapters.' },
+              { title: 'Semantic Mapping', description: 'Intelligent field mapping that preserves business meaning across transformations.' },
+              { title: 'Batch & Streaming', description: 'Process individual trades or high-volume batch files with equal reliability.' },
+            ],
+          },
+          {
+            title: 'AI-Powered Analysis',
+            description: 'Machine learning for pattern recognition and anomaly detection.',
+            features: [
+              { title: 'Anomaly Detection', description: 'Identify unusual trade patterns, pricing outliers, and data quality issues.' },
+              { title: 'Document Understanding', description: 'Extract structured data from trade confirmations and legal documents.' },
+              { title: 'Predictive Validation', description: 'Learn from historical corrections to prevent recurring issues.' },
+            ],
+          },
+          {
+            title: 'Knowledge Graph',
+            description: 'Connected data model for relationship discovery and lineage.',
+            features: [
+              { title: 'Entity Resolution', description: 'Unified view of counterparties, instruments, and legal entities.' },
+              { title: 'Impact Analysis', description: 'Understand downstream effects of data changes before they propagate.' },
+              { title: 'Regulatory Mapping', description: 'Trace data lineage from source systems through to regulatory reports.' },
+            ],
+          },
+        ],
+      },
+      regulatory: {
+        badge: 'Regulatory Compliance',
+        title: 'Multi-jurisdiction support',
+        description: 'Pre-configured rules for major regulatory frameworks with continuous updates.',
+        jurisdictions: [
+          { name: 'CFTC', region: 'United States' },
+          { name: 'EMIR', region: 'European Union' },
+          { name: 'MAS', region: 'Singapore' },
+          { name: 'JFSA', region: 'Japan' },
+          { name: 'HKMA', region: 'Hong Kong' },
+          { name: 'ASIC', region: 'Australia' },
+          { name: 'FCA', region: 'United Kingdom' },
+          { name: 'OSFI', region: 'Canada' },
+        ],
+        features: [
+          '65+ pre-built validation rules per jurisdiction',
+          'Automated submission formatting',
+          'Regulatory change impact analysis',
+          'Audit trail and compliance reporting',
+        ],
+      },
+      performance: {
+        badge: 'Performance',
+        title: 'Built for enterprise scale',
+        stats: [
+          { value: '<100ms', label: 'API Response Time' },
+          { value: '10,000+', label: 'Trades/Second' },
+          { value: '99.5%', label: 'Match Rate' },
+          { value: '99.9%', label: 'Uptime SLA' },
+        ],
+      },
+      personas: {
+        badge: 'Who It\'s For',
+        title: 'Built for your team',
+        items: [
+          { title: 'Risk Managers', description: 'Real-time exposure visibility with validated, consistent data across all positions.' },
+          { title: 'Compliance Officers', description: 'Automated regulatory validation with audit trails and exception management.' },
+          { title: 'Quantitative Analysts', description: 'Clean, normalized data in standard CDM format for models and analytics.' },
+          { title: 'Operations Teams', description: 'Reduced manual reconciliation with intelligent matching and exception handling.' },
+          { title: 'Technology Teams', description: 'Modern APIs, containerized deployment, and extensible architecture.' },
+        ],
+      },
+      standards: {
+        badge: 'Standards & Technology',
+        title: 'Built on open standards',
+        items: [
+          { name: 'FINOS CDM', description: 'ISDA Common Domain Model' },
+          { name: 'FpML', description: 'Financial Products Markup Language' },
+          { name: 'ISO 20022', description: 'Financial Messaging Standard' },
+          { name: 'Rosetta DSL', description: 'Domain-Specific Language' },
+          { name: 'OpenAPI', description: 'REST API Specification' },
+          { name: 'GraphQL', description: 'Query Language' },
         ],
       },
     },
@@ -407,8 +672,18 @@ export const site = {
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
-        description: 'Too many organisations are stuck between AI potential and production reality. Pilots succeed but never scale. Platforms are built but data remains untrusted. Migrations move data but lose meaning. We exist to bridge that gap.',
+        description: 'Many organisations launch strategic platform initiatives only to see costs rise and scope shrink. AI now offers the potential for 10× acceleration, but traditional delivery approaches often stall at proof of concept rather than delivering impact. Atheryon helps break this cycle by putting execution discipline and production outcomes at the heart of strategic delivery.',
       },
+      credibilityBoxes: [
+        {
+          title: '20+ Years in Capital Markets',
+          description: 'We bring over two decades of delivery leadership across global capital markets, spanning London and Australia. Our experience covers tier-one banks, market infrastructure, and regulatory environments — delivering front-to-back data, risk, and regulatory reporting capability under sustained operational and regulatory pressure.\n\nThis includes hands-on leadership across trading, market risk, credit risk, product control, payments, and regulatory reporting frameworks aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank.',
+        },
+        {
+          title: 'M&A Execution & Integration',
+          description: 'M&A introduces some of the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nOur experience spans pre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
+        },
+      ],
       whatExperienceMeans: {
         title: 'What experience means to us',
         items: [
@@ -440,8 +715,9 @@ export const site = {
       title: 'Contact | Atheryon',
       description: 'Discuss a real delivery problem with Atheryon.',
       hero: {
-        headline: 'Let\'s talk',
-        subheadline: 'Discuss a real delivery problem.',
+        badge: 'AI-native delivery',
+        headline: 'Discuss your delivery challenge',
+        subheadline: 'A short call to understand constraints, assess options, and outline next steps.',
       },
       form: {
         fields: {
@@ -472,8 +748,10 @@ export const site = {
     links: {
       services: [
         { label: 'How We Work', href: '/how-we-work' },
-        { label: 'What We Deliver', href: '/what-we-deliver' },
         { label: 'Recovery & Migration', href: '/recovery-migration' },
+        { label: 'M&A Execution', href: '/m-and-a-execution' },
+        { label: 'Capability Enablement', href: '/capability-enablement' },
+        { label: 'CDM Platform', href: '/cdm-platform' },
       ],
       resources: [
         { label: 'Reference Architectures', href: '/reference-architectures' },

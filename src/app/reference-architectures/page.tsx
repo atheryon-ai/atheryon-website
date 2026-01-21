@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Hero, Section, DiagramPlaceholder, CTASection } from '@/components'
+import Image from 'next/image'
+import { SimpleHero, Section, SectionDivider, DiagramPlaceholder, CTASection } from '@/components'
 import { site } from '@/content/site'
 
 const { referenceArchitectures } = site.pages
@@ -16,27 +17,89 @@ export const metadata: Metadata = {
 export default function ReferenceArchitecturesPage() {
   return (
     <>
-      <Hero
+      <SimpleHero
         headline={referenceArchitectures.hero.headline}
         subheadline={referenceArchitectures.hero.subheadline}
+        badge="Architecture"
       />
+
+      <SectionDivider />
 
       {/* Intro */}
       <Section>
-        <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
-          {referenceArchitectures.intro.text}
-        </p>
+        <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card max-w-3xl">
+          <p className="text-lg text-slate-600 leading-relaxed">
+            {referenceArchitectures.intro.text}
+          </p>
+        </div>
       </Section>
 
+      <SectionDivider />
+
       {/* Architecture Cards */}
-      <Section className="bg-gray-50">
+      <Section
+        badge="Patterns"
+        title="Production-tested architectures"
+      >
         <div className="space-y-12">
           {referenceArchitectures.architectures.map((arch, index) => (
             <div key={index} className="grid md:grid-cols-2 gap-8 items-start">
-              <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
-              <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{arch.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{arch.description}</p>
+              {index === 0 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/canonical-data-model.png"
+                    alt="Canonical data model layer diagram showing business entities connected to a shared semantic layer"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : index === 1 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/bronze-silver-gold-pipeline.png"
+                    alt="Bronze/Silver/Gold pipeline diagram showing data progression from raw to business-ready"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : index === 2 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/validation-and-controls.png"
+                    alt="Validation and controls diagram showing schema validation, business rules, and anomaly detection"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : index === 3 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/governance-integration.png"
+                    alt="Governance integration diagram showing ownership, lineage, and access controls built into the platform"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : index === 4 ? (
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 rounded-2xl p-6 flex items-center justify-center min-h-[250px]">
+                  <Image
+                    src="/ai-consumption-patterns.png"
+                    alt="AI consumption patterns diagram showing query-ready interfaces, embedding-ready corpora, and safe agent patterns"
+                    width={500}
+                    height={350}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ) : (
+                <DiagramPlaceholder title={arch.title} className="min-h-[250px]" />
+              )}
+              <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card">
+                <h3 className="font-display text-xl font-semibold text-slate-900 mb-3 tracking-tight">{arch.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{arch.description}</p>
               </div>
             </div>
           ))}

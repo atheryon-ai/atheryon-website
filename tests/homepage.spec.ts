@@ -6,139 +6,134 @@ test.describe('Atheryon Homepage', () => {
   });
 
   test('has correct title', async ({ page }) => {
-    await expect(page).toHaveTitle('Atheryon | AI-Driven Data for Leading Financial Institutions');
+    await expect(page).toHaveTitle('Atheryon | From AI Potential to Production Reality');
   });
 
   test('displays navigation', async ({ page }) => {
     const nav = page.locator('nav');
     await expect(nav).toBeVisible();
 
-    const logo = nav.locator('.nav-logo img');
+    // Check logo
+    const logo = nav.locator('img[alt="Atheryon"]');
     await expect(logo).toBeVisible();
-    await expect(logo).toHaveAttribute('alt', 'Atheryon');
+
+    // Check brand name
+    const brandName = nav.locator('text=Atheryon').first();
+    await expect(brandName).toBeVisible();
   });
 
   test('displays hero section with correct content', async ({ page }) => {
-    const heroBadge = page.locator('.hero-badge');
-    await expect(heroBadge).toBeVisible();
-    await expect(heroBadge).toContainText('Atheryon - A Direct2Client Company');
+    // Check headline contains key text
+    const heroHeadline = page.locator('h1');
+    await expect(heroHeadline).toBeVisible();
+    await expect(heroHeadline).toContainText('stalled strategy');
+    await expect(heroHeadline).toContainText('delivery');
 
-    const heroTitle = page.locator('.hero h1');
-    await expect(heroTitle).toBeVisible();
-    await expect(heroTitle).toContainText('Using AI To Make Your Data AI-Ready');
-
-    const heroDescription = page.locator('.hero-description');
-    await expect(heroDescription).toBeVisible();
-    await expect(heroDescription).toContainText('Microsoft Partner');
-    await expect(heroDescription).toContainText('TeraHelix');
+    // Check subheadline
+    const heroSubheadline = page.locator('section').first().locator('p').first();
+    await expect(heroSubheadline).toContainText('data, AI, and M&A');
   });
 
-  test('displays hero call-to-action button', async ({ page }) => {
-    const approachBtn = page.locator('.hero-buttons .btn-primary');
-    await expect(approachBtn).toBeVisible();
-    await expect(approachBtn).toHaveText('Our Approach');
+  test('displays hero call-to-action buttons', async ({ page }) => {
+    // Primary CTA (target hero section, header CTA hidden on mobile)
+    const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    await expect(primaryCta).toBeVisible();
+
+    // Secondary CTA
+    const secondaryCta = page.locator('section a:has-text("How we deliver capability")').first();
+    await expect(secondaryCta).toBeVisible();
   });
 
-  test('displays Who We Help section', async ({ page }) => {
-    const section = page.locator('#who-we-help');
-    await expect(section).toBeVisible();
+  test('displays Who We Work With section', async ({ page }) => {
+    const sectionTitle = page.locator('h2:has-text("Built for regulated enterprises")');
+    await expect(sectionTitle).toBeVisible();
 
-    const sectionTitle = section.locator('.section-title');
-    await expect(sectionTitle).toHaveText('Who We Help');
+    // Check "We work with" items
+    await expect(page.locator('li:has-text("Banks and investment banks")')).toBeVisible();
+    await expect(page.locator('li:has-text("Asset managers")')).toBeVisible();
 
-    // Check service cards
-    const serviceCards = section.locator('.service-card');
-    await expect(serviceCards).toHaveCount(3);
-
-    // Financial Markets
-    await expect(serviceCards.nth(0).locator('h3')).toHaveText('Financial Markets');
-
-    // Treasury
-    await expect(serviceCards.nth(1).locator('h3')).toHaveText('Treasury');
-
-    // Risk & Compliance
-    await expect(serviceCards.nth(2).locator('h3')).toHaveText('Risk & Compliance');
+    // Check "Not a fit for" items
+    await expect(page.locator('li:has-text("Startups wanting demos")')).toBeVisible();
   });
 
-  test('displays Problem section', async ({ page }) => {
-    const section = page.locator('#problem');
-    await expect(section).toBeVisible();
+  test('displays Problems We Solve section', async ({ page }) => {
+    const sectionTitle = page.locator('h2:has-text("The challenges we address")');
+    await expect(sectionTitle).toBeVisible();
 
-    const sectionTitle = section.locator('.section-title');
-    await expect(sectionTitle).toContainText('The World Is Moving Fast');
-
-    const problemCard = section.locator('.problem-card');
-    await expect(problemCard).toBeVisible();
-    await expect(problemCard.locator('h3')).toContainText('AI Is An Accelerant');
+    // Check problem cards
+    await expect(page.locator('h3:has-text("AI POC purgatory")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Untrusted platforms")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Expensive change")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Migration meaning loss")')).toBeVisible();
   });
 
-  test('displays Solution section with all services', async ({ page }) => {
-    const section = page.locator('#solution');
-    await expect(section).toBeVisible();
+  test('displays What We Do comparison section', async ({ page }) => {
+    const sectionTitle = page.locator('h2:has-text("Two things, done well")');
+    await expect(sectionTitle).toBeVisible();
 
-    const sectionTitle = section.locator('.section-title');
-    await expect(sectionTitle).toContainText('Data Foundations For Every Critical Outcome');
-
-    // Check solution cards
-    const solutionCards = section.locator('.solution-card');
-    await expect(solutionCards).toHaveCount(4);
-
-    // Data Migration
-    await expect(solutionCards.nth(0).locator('h3')).toHaveText('Data Migration');
-    await expect(solutionCards.nth(0).locator('.tagline')).toContainText('Migrate faster');
-
-    // Data Platform Delivery
-    await expect(solutionCards.nth(1).locator('h3')).toHaveText('Data Platform Delivery');
-
-    // Capital Markets Expertise
-    await expect(solutionCards.nth(2).locator('h3')).toHaveText('Capital Markets Expertise');
-
-    // Trade Surveillance
-    await expect(solutionCards.nth(3).locator('h3')).toContainText('Trade Surveillance');
+    // Check comparison items
+    await expect(page.locator('text=Traditional Approach')).toBeVisible();
+    await expect(page.locator('text=Atheryon Approach')).toBeVisible();
   });
 
-  test('displays CTA section', async ({ page }) => {
-    const ctaSection = page.locator('.cta-section');
-    await expect(ctaSection).toBeVisible();
+  test('displays How We Work section', async ({ page }) => {
+    const sectionTitle = page.locator('h2:has-text("How we work")');
+    await expect(sectionTitle).toBeVisible();
 
-    const ctaCard = ctaSection.locator('.cta-card');
-    await expect(ctaCard.locator('h2')).toContainText('Ready to Transform Your Data');
-
-    const ctaButton = ctaCard.locator('.btn-primary');
-    await expect(ctaButton).toBeVisible();
-    await expect(ctaButton).toHaveText('Get In Touch');
+    // Check method steps are present
+    await expect(page.locator('text=Frame problem')).toBeVisible();
+    await expect(page.locator('text=Model alignment')).toBeVisible();
   });
 
-  test('displays footer with links', async ({ page }) => {
+  test('displays FAQ section', async ({ page }) => {
+    const sectionTitle = page.locator('h2:has-text("Frequently asked questions")');
+    await expect(sectionTitle).toBeVisible();
+
+    // Check FAQ items
+    await expect(page.locator('text=What industries do you work with?')).toBeVisible();
+    await expect(page.locator('text=What makes Atheryon different')).toBeVisible();
+  });
+
+  test('displays footer with CTA and links', async ({ page }) => {
     const footer = page.locator('footer');
     await expect(footer).toBeVisible();
 
+    // Check footer CTA
+    await expect(footer.locator('h2:has-text("Ready to turn potential")')).toBeVisible();
+
     // Check footer brand
-    const footerBrand = footer.locator('.footer-brand');
-    await expect(footerBrand.locator('img')).toBeVisible();
-    await expect(footerBrand.locator('p')).toContainText('Microsoft Partner');
+    await expect(footer.locator('img[alt="Atheryon"]')).toBeVisible();
+
+    // Check footer links
+    await expect(footer.locator('text=Services')).toBeVisible();
+    await expect(footer.locator('text=Resources')).toBeVisible();
+    await expect(footer.locator('text=Company')).toBeVisible();
 
     // Check contact email
     const emailLink = footer.locator('a[href="mailto:info@atheryon.com.au"]');
     await expect(emailLink).toBeVisible();
   });
 
-  test('navigation links scroll to sections', async ({ page }) => {
-    // Click on Who We Help link
-    await page.locator('.nav-links a[href="#who-we-help"]').click();
-    await page.waitForTimeout(500);
+  test('navigation links work correctly', async ({ page, isMobile }) => {
+    // On mobile, need to open the mobile menu first
+    if (isMobile) {
+      const mobileMenuBtn = page.locator('button[aria-label="Toggle menu"]');
+      await mobileMenuBtn.click();
+      await page.waitForTimeout(300); // Wait for menu animation
 
-    const whoWeHelpSection = page.locator('#who-we-help');
-    await expect(whoWeHelpSection).toBeInViewport();
+      // Click on How We Work link in mobile menu (text-lg class distinguishes from desktop text-sm)
+      await page.locator('a.text-lg:has-text("How We Work")').click();
+    } else {
+      // Click on How We Work link in desktop nav
+      await page.locator('nav a:has-text("How We Work")').click();
+    }
+
+    await expect(page).toHaveURL(/\/how-we-work/);
   });
 
-  test('animated orbs are present', async ({ page }) => {
-    const orb1 = page.locator('.orb-1');
-    const orb2 = page.locator('.orb-2');
-    const orb3 = page.locator('.orb-3');
-
-    await expect(orb1).toBeAttached();
-    await expect(orb2).toBeAttached();
-    await expect(orb3).toBeAttached();
+  test('tech partners section is visible', async ({ page }) => {
+    // Check for tech partner logos area (may appear in multiple places)
+    const partnersText = page.locator('text=Built on trusted platforms').first();
+    await expect(partnersText).toBeVisible();
   });
 });
