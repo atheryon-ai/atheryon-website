@@ -13,8 +13,8 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #121212;
-  background: linear-gradient(180deg, #F5F5F5 0%, #EDE9E4 100%);
+  color: #0A1A2F; /* Deep Navy (canonical) */
+  background: linear-gradient(180deg, #F7F6F3 0%, #E6E9ED 100%); /* Off-White to Warm Grey Light */
   min-height: 100vh;
 }
 
@@ -28,7 +28,7 @@ body {
   }
 
   .text-gradient-orange {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-amber-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-orange-light;
   }
 
   .text-gradient-blue {
@@ -39,21 +39,21 @@ body {
     @apply text-brand-orange font-bold;
   }
 
-  /* Social Grow Warm Backgrounds */
+  /* Atheryon Warm Backgrounds (canonical colours) */
   .bg-warm {
-    background: linear-gradient(180deg, #F5F5F5 0%, #EDE9E4 100%);
+    background: linear-gradient(180deg, #F7F6F3 0%, #E6E9ED 100%);
   }
 
   .bg-warm-reverse {
-    background: linear-gradient(180deg, #EDE9E4 0%, #F5F5F5 100%);
+    background: linear-gradient(180deg, #E6E9ED 0%, #F7F6F3 100%);
   }
 
   .bg-warm-subtle {
-    background: linear-gradient(180deg, #FDFCFB 0%, #F5F5F5 100%);
+    background: linear-gradient(180deg, #F7F6F3 0%, #F7F6F3 100%);
   }
 
   .bg-hero-overlay {
-    background: rgba(245, 245, 245, 0.8);
+    background: rgba(247, 246, 243, 0.8); /* Off-White with opacity */
   }
 
   /* Card Styles - Social Grow aesthetic */

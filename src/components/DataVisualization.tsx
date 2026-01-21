@@ -86,17 +86,17 @@ export function DataVisualization() {
               <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(148, 163, 184, 0.1)" strokeWidth="1" />
             </pattern>
             <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#FBBF24" />
-              <stop offset="100%" stopColor="#F59E0B" />
+              <stop offset="0%" stopColor="#FF9900" />
+              <stop offset="100%" stopColor="#FFB833" />
             </linearGradient>
             <linearGradient id="barGradientBlue" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#60A5FA" />
-              <stop offset="100%" stopColor="#3B82F6" />
+              <stop offset="0%" stopColor="#0A84FF" />
+              <stop offset="100%" stopColor="#4BC0FF" />
             </linearGradient>
             <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#FBBF24" />
-              <stop offset="50%" stopColor="#60A5FA" />
-              <stop offset="100%" stopColor="#34D399" />
+              <stop offset="0%" stopColor="#FF9900" />
+              <stop offset="50%" stopColor="#0A84FF" />
+              <stop offset="100%" stopColor="#0A1A2F" />
             </linearGradient>
           </defs>
 
@@ -132,19 +132,19 @@ export function DataVisualization() {
 
             {/* Nodes */}
             <g className="data-node" style={{ transformOrigin: '20px 40px' }}>
-              <circle cx="20" cy="40" r="12" fill="#FBBF24" />
+              <circle cx="20" cy="40" r="12" fill="#FF9900" />
               <text x="20" y="44" textAnchor="middle" className="text-[8px] fill-white font-bold">1</text>
             </g>
             <g className="data-node" style={{ transformOrigin: '60px 80px' }}>
-              <circle cx="60" cy="80" r="12" fill="#60A5FA" />
+              <circle cx="60" cy="80" r="12" fill="#0A84FF" />
               <text x="60" y="84" textAnchor="middle" className="text-[8px] fill-white font-bold">2</text>
             </g>
             <g className="data-node" style={{ transformOrigin: '100px 120px' }}>
-              <circle cx="100" cy="120" r="12" fill="#34D399" />
+              <circle cx="100" cy="120" r="12" fill="#A7B0B8" />
               <text x="100" y="124" textAnchor="middle" className="text-[8px] fill-white font-bold">3</text>
             </g>
             <g className="data-node" style={{ transformOrigin: '140px 160px' }}>
-              <circle cx="140" cy="160" r="14" fill="#0F172A" />
+              <circle cx="140" cy="160" r="14" fill="#0A1A2F" />
               <text x="140" y="164" textAnchor="middle" className="text-[10px] fill-white font-bold">AI</text>
             </g>
 

@@ -109,7 +109,7 @@ export function Hero({
                         <stop offset="100%" stopColor="#4BC0FF" stopOpacity="0.6"/>
                       </linearGradient>
                       <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FFA500" stopOpacity="0.8"/>
+                        <stop offset="0%" stopColor="#FF9900" stopOpacity="0.8"/>
                         <stop offset="100%" stopColor="#FFB833" stopOpacity="0.6"/>
                       </linearGradient>
                     </defs>
@@ -130,7 +130,7 @@ export function Hero({
                       <circle r="4" fill="#0A84FF" opacity="0.8">
                         <animateMotion dur="3s" repeatCount="indefinite" path="M80,80 L200,150 L320,100"/>
                       </circle>
-                      <circle r="4" fill="#FFA500" opacity="0.8">
+                      <circle r="4" fill="#FF9900" opacity="0.8">
                         <animateMotion dur="4s" repeatCount="indefinite" path="M80,200 L200,150 L280,220"/>
                       </circle>
                     </g>
@@ -140,7 +140,7 @@ export function Hero({
                       {/* Primary node - center */}
                       <circle cx="200" cy="150" r="24" fill="url(#nodeGradient)"/>
                       <circle cx="200" cy="150" r="16" fill="white"/>
-                      <text x="200" y="155" textAnchor="middle" fontSize="12" fontWeight="600" fill="#121212">AI</text>
+                      <text x="200" y="155" textAnchor="middle" fontSize="12" fontWeight="600" fill="#0A1A2F">AI</text>
 
                       {/* Secondary nodes */}
                       <circle cx="80" cy="80" r="16" fill="url(#orangeGradient)"/>
@@ -152,7 +152,7 @@ export function Hero({
                     </g>
 
                     {/* Labels */}
-                    <g fontSize="10" fill="#555555">
+                    <g fontSize="10" fill="#A7B0B8">
                       <text x="80" y="60">Data Source</text>
                       <text x="300" y="85">Validation</text>
                       <text x="60" y="225">Ingestion</text>

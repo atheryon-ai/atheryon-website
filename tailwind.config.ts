@@ -9,37 +9,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Social Grow inspired warm palette
+        // Atheryon Brand System (canonical colours)
+        // Token Authority: This is the single source of truth for colours
         'warm': {
-          50: '#FDFCFB',
-          100: '#F5F5F5',
-          200: '#EDE9E4',
-          300: '#E5E0D9',
-          400: '#D4CEC5',
+          50: '#F7F6F3',   // Background Off-White (canonical)
+          100: '#F7F6F3',  // Background Off-White
+          200: '#E6E9ED',  // Warm Grey Light (canonical)
+          300: '#E6E9ED',  // Warm Grey Light
+          400: '#A7B0B8',  // Warm Grey Mid (canonical)
         },
-        // Atheryon brand colors (kept for accent)
+        // Atheryon brand colors
         'brand': {
-          orange: '#FFA500',
+          orange: '#FF9900',       // Atheryon Orange (canonical)
           'orange-light': '#FFB833',
-          blue: '#0A84FF',
+          blue: '#0A84FF',         // Atheryon Blue (canonical)
           'blue-light': '#4BC0FF',
-          dark: '#121212',
+          dark: '#0A1A2F',         // Deep Navy (canonical)
         },
         'navy': {
-          900: '#0A1A2F',
+          900: '#0A1A2F',  // Deep Navy (canonical)
           800: '#1B2942',
         },
         'atheryon': {
-          blue: '#0A84FF',
+          blue: '#0A84FF',         // Atheryon Blue (canonical)
           'blue-light': '#4BC0FF',
         },
-        // Neutral text colors
+        // Neutral text colors (mapped to brand)
         'neutral': {
-          900: '#121212',
-          800: '#1D1D1F',
-          700: '#333333',
-          600: '#555555',
-          500: '#A7B0B8',
+          900: '#0A1A2F',  // Deep Navy - headlines
+          800: '#0A1A2F',  // Deep Navy - body text
+          700: '#0A1A2F',  // Deep Navy
+          600: '#A7B0B8',  // Warm Grey Mid - secondary text
+          500: '#A7B0B8',  // Warm Grey Mid - captions
         },
       },
       fontFamily: {
@@ -103,10 +104,10 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        // Social Grow warm gradients
-        'gradient-warm': 'linear-gradient(180deg, #F5F5F5 0%, #EDE9E4 100%)',
-        'gradient-warm-reverse': 'linear-gradient(180deg, #EDE9E4 0%, #F5F5F5 100%)',
-        'gradient-hero': 'linear-gradient(180deg, rgba(245,245,245,0.8) 0%, rgba(237,233,228,0.9) 100%)',
+        // Atheryon warm gradients (using canonical colours)
+        'gradient-warm': 'linear-gradient(180deg, #F7F6F3 0%, #E6E9ED 100%)',
+        'gradient-warm-reverse': 'linear-gradient(180deg, #E6E9ED 0%, #F7F6F3 100%)',
+        'gradient-hero': 'linear-gradient(180deg, rgba(247,246,243,0.8) 0%, rgba(230,233,237,0.9) 100%)',
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
