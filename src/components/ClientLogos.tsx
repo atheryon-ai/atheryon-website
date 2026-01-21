@@ -1,19 +1,11 @@
+import { ClientCanvas } from './ClientCanvas'
+
 interface ClientLogosProps {
   className?: string
   showLabel?: boolean
 }
 
 export function ClientLogos({ className = '', showLabel = true }: ClientLogosProps) {
-  // Grayscale placeholder logos representing enterprise clients
-  // Using abstract shapes since we cannot use real client logos
-  const clients = [
-    { name: 'Enterprise Bank', initial: 'EB' },
-    { name: 'Global Asset Management', initial: 'GA' },
-    { name: 'Market Infrastructure', initial: 'MI' },
-    { name: 'Regulatory Agency', initial: 'RA' },
-    { name: 'Investment Group', initial: 'IG' },
-  ]
-
   return (
     <div className={className}>
       {showLabel && (
@@ -21,17 +13,7 @@ export function ClientLogos({ className = '', showLabel = true }: ClientLogosPro
           Microsoft Partner • Delivering for S&P Global
         </p>
       )}
-      <div className="flex flex-wrap items-center gap-8 md:gap-12">
-        {clients.map((client) => (
-          <div
-            key={client.name}
-            className="client-logo flex items-center justify-center w-16 h-10 text-neutral-500 font-semibold text-sm tracking-wide"
-            title={client.name}
-          >
-            {client.initial}
-          </div>
-        ))}
-      </div>
+      <ClientCanvas className="mt-2" />
     </div>
   )
 }
