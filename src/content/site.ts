@@ -616,6 +616,16 @@ export const site = {
         title: 'Why Atheryon exists',
         description: 'Many organisations launch strategic platform initiatives only to see costs rise and scope shrink. AI now offers the potential for 10× acceleration, but traditional delivery approaches often stall at proof of concept rather than delivering impact. Atheryon helps break this cycle by putting execution discipline and production outcomes at the heart of strategic delivery.',
       },
+      credibilityBoxes: [
+        {
+          title: '20+ Years in Capital Markets',
+          description: 'We bring over two decades of delivery leadership across global capital markets, spanning London and Australia. Our experience covers tier-one banks, market infrastructure, and regulatory environments — delivering front-to-back data, risk, and regulatory reporting capability under sustained operational and regulatory pressure.\n\nThis includes hands-on leadership across trading, market risk, credit risk, product control, payments, and regulatory reporting frameworks aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank.',
+        },
+        {
+          title: 'M&A Execution & Integration',
+          description: 'M&A introduces some of the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nOur experience spans pre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
+        },
+      ],
       whatExperienceMeans: {
         title: 'What experience means to us',
         items: [

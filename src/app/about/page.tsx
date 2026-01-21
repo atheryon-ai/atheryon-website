@@ -40,6 +40,20 @@ export default function AboutPage() {
 
       <SectionDivider />
 
+      {/* Industry Credibility */}
+      <Section
+        badge="Industry"
+        title="Industry experience that shapes delivery"
+      >
+        <FeatureGrid columns={2}>
+          {about.credibilityBoxes.map((item, index) => (
+            <Card key={index} title={item.title} description={item.description} />
+          ))}
+        </FeatureGrid>
+      </Section>
+
+      <SectionDivider />
+
       {/* What Experience Means */}
       <Section
         title={about.whatExperienceMeans.title}

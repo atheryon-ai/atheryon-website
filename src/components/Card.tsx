@@ -27,7 +27,7 @@ export function Card({ title, description, icon, className = '', variant = 'defa
       <h3 className="font-semibold text-lg md:text-xl text-neutral-900 mb-3 tracking-tight">
         {title}
       </h3>
-      <p className="text-neutral-600 leading-relaxed">
+      <p className="text-neutral-600 leading-relaxed whitespace-pre-line">
         {description}
       </p>
     </div>
