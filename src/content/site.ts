@@ -318,11 +318,10 @@ export const site = {
         badge: 'When Clients Call Us',
         title: 'Triggers for engagement',
         items: [
-          'Acquisition, divestment, or carve-out with fixed regulatory or market deadlines',
-          'Data and platforms must be separated or integrated without disrupting operations',
-          'TSA scope, duration, or cost is escalating',
-          'Day-1 readiness is unclear or under-resourced',
-          'High risk of value leakage post-sign (customers, controls, data, reporting)',
+          'Pre-deal planning deficits',
+          'Execution capability gaps',
+          'High-stakes transaction delivery',
+          'Data migration risk in M&A',
         ],
       },
       execution: {
