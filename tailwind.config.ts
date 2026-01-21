@@ -39,7 +39,7 @@ const config: Config = {
           900: '#0A1A2F',  // Deep Navy - headlines
           800: '#0A1A2F',  // Deep Navy - body text
           700: '#0A1A2F',  // Deep Navy
-          600: '#A7B0B8',  // Warm Grey Mid - secondary text
+          600: '#6B7280',  // Warm Grey Mid - secondary text
           500: '#A7B0B8',  // Warm Grey Mid - captions
         },
       },

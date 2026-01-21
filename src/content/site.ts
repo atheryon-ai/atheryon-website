@@ -167,36 +167,72 @@ export const site = {
 
     howWeWork: {
       title: 'How We Work | Atheryon',
-      description: 'Our five-step method for delivering production-grade capabilities built on reusable data products.',
+      description: 'Two delivery models for complex data, AI, and M&A initiatives under real execution pressure.',
       hero: {
         headline: 'How we work',
-        subheadline: 'Human and AI working hand in hand to turn potential into production reality.',
+        subheadline: 'Two delivery models, one outcome: execution that reaches production.',
       },
-      steps: [
+      methods: [
         {
-          number: 1,
-          title: 'Frame problem & constraints',
-          description: 'Understand the business outcome required, the constraints (regulatory, technical, organisational), and the definition of done.',
+          id: 'data-delivery',
+          badge: 'Data & AI Delivery',
+          title: 'From strategy to production capability',
+          subheadline: 'For complex data, AI, and regulatory initiatives under delivery pressure.',
+          steps: [
+            {
+              number: 1,
+              title: 'Define outcomes and constraints',
+              description: 'Agree the business outcome, delivery constraints (regulatory, technical, organisational), and what "done" means.',
+            },
+            {
+              number: 2,
+              title: 'Align meaning and ownership',
+              description: 'Establish shared definitions and ownership—so teams trust what the data represents.',
+            },
+            {
+              number: 3,
+              title: 'Build pipelines with validation',
+              description: 'Implement ingestion and transformation with automated checks—reject bad data early.',
+            },
+            {
+              number: 4,
+              title: 'Ship production capability',
+              description: 'Deliver the working capability into production with runbooks, controls, and operational ownership.',
+            },
+            {
+              number: 5,
+              title: 'Package reusable data products',
+              description: 'Harden and document the assets (contracts, governance, access patterns) so future initiatives reuse what\'s built.',
+            },
+          ],
         },
         {
-          number: 2,
-          title: 'Model alignment',
-          description: 'Establish canonical semantics. Map existing data to a shared model. Clarify what terms mean and where data originates.',
-        },
-        {
-          number: 3,
-          title: 'Extract/ingest + validate',
-          description: 'Build pipelines that extract, transform, and validate data. Apply rules at ingestion. Reject bad data early.',
-        },
-        {
-          number: 4,
-          title: 'Deliver production capability',
-          description: 'Ship the business capability. Regulatory reporting, risk aggregation, trade lifecycle support—whatever the outcome requires.',
-        },
-        {
-          number: 5,
-          title: 'Abstract into reusable data products',
-          description: 'Extract and package the underlying data assets. Document, govern, and make available for future capabilities.',
+          id: 'ma-execution',
+          badge: 'M&A Execution',
+          title: 'From deal intent to operational reality',
+          subheadline: 'For acquisitions, separations, and integrations where execution risk is material.',
+          steps: [
+            {
+              number: 1,
+              title: 'Pre-deal execution readiness',
+              description: 'Assess execution implications before signing—scope, cost, data, operational continuity, and regulatory requirements.',
+            },
+            {
+              number: 2,
+              title: 'Stand up the execution team',
+              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—no advisory overlay.',
+            },
+            {
+              number: 3,
+              title: 'Execute separation or integration',
+              description: 'Plan and run separation or integration across technology, data, operations, and governance under time pressure.',
+            },
+            {
+              number: 4,
+              title: 'Manage data migrations where required',
+              description: 'Design and deliver migrations only where they enable the deal outcome—controlled, auditable, regulator-ready.',
+            },
+          ],
         },
       ],
       whatDoneLooksLike: {

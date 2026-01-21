@@ -22,17 +22,22 @@ export default function HowWeWorkPage() {
         badge="Our Method"
       />
 
-      <SectionDivider />
+      {/* Render both delivery methods */}
+      {howWeWork.methods.map((method, index) => (
+        <div key={method.id} id={method.id}>
+          <SectionDivider />
 
-      {/* 5-Step Method */}
-      <Section
-        badge="The Process"
-        title="Five steps to production"
-      >
-        <div className="max-w-3xl">
-          <Stepper steps={howWeWork.steps} />
+          <Section
+            badge={method.badge}
+            title={method.title}
+            description={method.subheadline}
+          >
+            <div className="max-w-3xl">
+              <Stepper steps={method.steps} />
+            </div>
+          </Section>
         </div>
-      </Section>
+      ))}
 
       <SectionDivider />
 
