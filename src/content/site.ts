@@ -614,7 +614,7 @@ export const site = {
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
-        description: 'Too many organisations are stuck between AI potential and production reality. Pilots succeed but never scale. Platforms are built but data remains untrusted. Migrations move data but lose meaning. We exist to bridge that gap.',
+        description: 'Many organisations launch strategic platform initiatives only to see costs rise and scope shrink. AI now offers the potential for 10× acceleration, but traditional delivery approaches often stall at proof of concept rather than delivering impact. Atheryon helps break this cycle by putting execution discipline and production outcomes at the heart of strategic delivery.',
       },
       whatExperienceMeans: {
         title: 'What experience means to us',
