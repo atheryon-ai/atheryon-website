@@ -78,7 +78,7 @@ test.describe('Accessibility', () => {
 
   test('interactive elements have focus indicators', async ({ page }) => {
     // Focus on a CTA link and check it's focusable (target hero section, header CTA hidden on mobile)
-    const ctaLink = page.locator('section a:has-text("Discuss a real delivery problem")').first();
+    const ctaLink = page.locator('section a:has-text("Discuss your delivery challenge")').first();
     await ctaLink.focus();
     await expect(ctaLink).toBeFocused();
   });

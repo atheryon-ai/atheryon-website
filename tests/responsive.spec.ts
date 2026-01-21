@@ -34,7 +34,7 @@ test.describe('Responsive Design', () => {
     await expect(heroHeadline).toBeVisible();
 
     // CTA buttons should be visible in hero section (header CTA is hidden on mobile)
-    const ctaButtons = page.locator('section a:has-text("Discuss a real delivery problem")').first();
+    const ctaButtons = page.locator('section a:has-text("Discuss your delivery challenge")').first();
     await expect(ctaButtons).toBeVisible();
   });
 
@@ -67,7 +67,7 @@ test.describe('Responsive Design', () => {
       await expect(heroHeadline).toBeVisible();
 
       // CTA buttons should be visible on all sizes (target hero section, header CTA hidden on mobile)
-      const primaryCta = page.locator('section a:has-text("Discuss a real delivery problem")').first();
+      const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
       await expect(primaryCta).toBeVisible();
     }
   });

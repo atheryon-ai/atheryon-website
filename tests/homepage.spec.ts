@@ -26,21 +26,21 @@ test.describe('Atheryon Homepage', () => {
     // Check headline contains key text
     const heroHeadline = page.locator('h1');
     await expect(heroHeadline).toBeVisible();
-    await expect(heroHeadline).toContainText('AI potential');
-    await expect(heroHeadline).toContainText('reality');
+    await expect(heroHeadline).toContainText('stalled strategy');
+    await expect(heroHeadline).toContainText('delivery');
 
     // Check subheadline
     const heroSubheadline = page.locator('section').first().locator('p').first();
-    await expect(heroSubheadline).toContainText('regulated enterprises');
+    await expect(heroSubheadline).toContainText('data, AI, and M&A');
   });
 
   test('displays hero call-to-action buttons', async ({ page }) => {
     // Primary CTA (target hero section, header CTA hidden on mobile)
-    const primaryCta = page.locator('section a:has-text("Discuss a real delivery problem")').first();
+    const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
     await expect(primaryCta).toBeVisible();
 
     // Secondary CTA
-    const secondaryCta = page.locator('section a:has-text("See how we work")').first();
+    const secondaryCta = page.locator('section a:has-text("How we deliver capability")').first();
     await expect(secondaryCta).toBeVisible();
   });
 
@@ -132,8 +132,8 @@ test.describe('Atheryon Homepage', () => {
   });
 
   test('tech partners section is visible', async ({ page }) => {
-    // Check for tech partner logos area
-    const partnersText = page.locator('text=Built on trusted platforms');
+    // Check for tech partner logos area (may appear in multiple places)
+    const partnersText = page.locator('text=Built on trusted platforms').first();
     await expect(partnersText).toBeVisible();
   });
 });

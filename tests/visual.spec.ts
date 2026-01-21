@@ -28,7 +28,7 @@ test.describe('Visual Tests', () => {
     await page.waitForTimeout(1000);
 
     // Target hero section CTA (header CTA hidden on mobile)
-    const ctaButton = page.locator('section a:has-text("Discuss a real delivery problem")').first();
+    const ctaButton = page.locator('section a:has-text("Discuss your delivery challenge")').first();
     await ctaButton.hover();
 
     await expect(ctaButton).toHaveScreenshot('cta-button-hover.png', {
