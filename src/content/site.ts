@@ -42,7 +42,7 @@ export const site = {
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
         headline: 'From stalled strategy to delivery',
-        subheadline: 'We specialise in recovering complex data, AI, and regulatory initiatives under cost, timeline, and regulatory pressure.',
+        subheadline: 'We deliver complex data, AI, and M&A initiatives under real cost, timeline, and regulatory constraints.',
         primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
         secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
