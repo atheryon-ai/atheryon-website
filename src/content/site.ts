@@ -42,7 +42,7 @@ export const site = {
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
         headline: 'From stalled strategy to delivery',
-        subheadline: 'We deliver complex data, AI, and M&A initiatives under real cost, timeline, and regulatory constraints.',
+        subheadline: 'We deliver complex data, AI, and M&A initiatives under cost, timeline, and regulatory constraints.',
         primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
         secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
@@ -66,7 +66,7 @@ export const site = {
         title: 'The challenges we address',
         cards: [
           {
-            title: 'AI POC purgatory',
+            title: 'AI PoC purgatory',
             description: 'Pilots that never reach production. Proofs of concept that prove nothing.',
           },
           {
@@ -167,104 +167,38 @@ export const site = {
 
     howWeWork: {
       title: 'How We Work | Atheryon',
-      description: 'Two delivery models for complex data, AI, and M&A initiatives under real execution pressure.',
+      description: 'Our five-step method for delivering production-grade capabilities built on reusable data products.',
       hero: {
         headline: 'How we work',
-        subheadline: 'Two delivery models, one outcome: execution that reaches production.',
+        subheadline: 'Human and AI working hand in hand to turn potential into production reality.',
       },
-      intro: {
-        title: 'Choose your delivery model',
-        description: 'Data & AI delivery for platform initiatives. M&A execution for transactions and integrations.',
-        ctas: [
-          { label: 'Data & AI Delivery', href: '#data-delivery' },
-          { label: 'M&A Execution', href: '#ma-execution' },
-        ],
-      },
-      transition: {
-        badge: 'When the delivery motion changes',
-        title: 'For transactions, execution is different',
-        description: 'M&A requires deal-timetable delivery, continuity, and controlled migration where needed.',
-      },
-      methods: [
+      steps: [
         {
-          id: 'data-delivery',
-          badge: 'Data & AI Delivery',
-          title: 'From strategy to production capability',
-          subheadline: 'For complex data, AI, and regulatory initiatives under delivery pressure.',
-          steps: [
-            {
-              number: 1,
-              title: 'Define outcomes and constraints',
-              description: 'Agree the business outcome, delivery constraints (regulatory, technical, organisational), and what "done" means.',
-            },
-            {
-              number: 2,
-              title: 'Align definitions and ownership',
-              description: 'Establish shared definitions and ownership—so teams trust what the data represents.',
-            },
-            {
-              number: 3,
-              title: 'Build pipelines with validation',
-              description: 'Build the pipeline with automated checks—reject bad data early.',
-            },
-            {
-              number: 4,
-              title: 'Ship production capability',
-              description: 'Deliver the working capability into production with runbooks, controls, and operational ownership.',
-            },
-            {
-              number: 5,
-              title: 'Package reusable data products',
-              description: 'Document and govern the assets so future initiatives reuse what\'s built.',
-            },
-          ],
-          done: {
-            title: 'What done looks like',
-            bullets: [
-              'Production capability live with operational ownership',
-              'Quality controls, lineage, and governance in place',
-              'Reusable data products published for future delivery',
-            ],
-          },
+          number: 1,
+          title: 'Frame problem & constraints',
+          description: 'Understand the business outcome required, the constraints (regulatory, technical, organisational), and the definition of done.',
         },
         {
-          id: 'ma-execution',
-          badge: 'M&A Execution',
-          title: 'From deal intent to operational reality',
-          subheadline: 'For acquisitions, separations, and integrations where execution risk is material.',
-          steps: [
-            {
-              number: 1,
-              title: 'Pre-deal execution readiness',
-              description: 'Assess execution implications before signing—scope, cost, data, operational continuity, and regulatory requirements.',
-            },
-            {
-              number: 2,
-              title: 'Stand up the execution team',
-              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—delivery, not slideware.',
-            },
-            {
-              number: 3,
-              title: 'Execute separation or integration',
-              description: 'Plan and run separation or integration across technology, data, operations, and governance under time pressure.',
-            },
-            {
-              number: 4,
-              title: 'Manage data migrations where required',
-              description: 'Design and deliver migrations only where they enable the deal outcome—controlled, auditable, regulator-ready.',
-            },
-          ],
-          done: {
-            title: 'What done looks like',
-            bullets: [
-              'Deal timetable protected with clear execution governance',
-              'Operational and regulatory continuity maintained through transition',
-              'Data migrations completed only where required, with audit trail',
-            ],
-          },
+          number: 2,
+          title: 'Model alignment',
+          description: 'Establish canonical semantics. Map existing data to a shared model. Clarify what terms mean and where data originates.',
+        },
+        {
+          number: 3,
+          title: 'Extract/ingest + validate',
+          description: 'Build pipelines that extract, transform, and validate data. Apply rules at ingestion. Reject bad data early.',
+        },
+        {
+          number: 4,
+          title: 'Deliver production capability',
+          description: 'Ship the business capability. Regulatory reporting, risk aggregation, trade lifecycle support—whatever the outcome requires.',
+        },
+        {
+          number: 5,
+          title: 'Abstract into reusable data products',
+          description: 'Extract and package the underlying data assets. Document, govern, and make available for future capabilities.',
         },
       ],
-      // Used by homepage teaser
       whatDoneLooksLike: {
         title: 'What done looks like',
         items: [
@@ -272,6 +206,14 @@ export const site = {
           'Validation rules explicit and enforced',
           'Ownership and lineage clear',
           'Consumption patterns defined and controlled',
+        ],
+      },
+      whyItReducesCost: {
+        title: 'Why it reduces cost of change',
+        items: [
+          'Reuse by design—new capabilities build on existing assets',
+          'Fewer rewrites—stable semantics mean stable interfaces',
+          'Governed evolution—changes are controlled, not chaotic',
         ],
       },
     },
@@ -715,9 +657,8 @@ export const site = {
       title: 'Contact | Atheryon',
       description: 'Discuss a real delivery problem with Atheryon.',
       hero: {
-        badge: 'AI-native delivery',
-        headline: 'Discuss your delivery challenge',
-        subheadline: 'A short call to understand constraints, assess options, and outline next steps.',
+        headline: 'Let\'s talk',
+        subheadline: 'Discuss a real delivery problem.',
       },
       form: {
         fields: {
