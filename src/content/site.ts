@@ -42,7 +42,7 @@ export const site = {
       description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
       hero: {
         headline: 'From stalled strategy to delivery',
-        subheadline: 'We deliver complex data, AI, and M&A initiatives under real cost, timeline, and regulatory constraints.',
+        subheadline: 'We deliver complex data, AI, and M&A initiatives under cost, timeline, and regulatory constraints.',
         primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
         secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
       },
@@ -66,7 +66,7 @@ export const site = {
         title: 'The challenges we address',
         cards: [
           {
-            title: 'AI POC purgatory',
+            title: 'AI PoC purgatory',
             description: 'Pilots that never reach production. Proofs of concept that prove nothing.',
           },
           {
@@ -715,9 +715,8 @@ export const site = {
       title: 'Contact | Atheryon',
       description: 'Discuss a real delivery problem with Atheryon.',
       hero: {
-        badge: 'AI-native delivery',
-        headline: 'Discuss your delivery challenge',
-        subheadline: 'A short call to understand constraints, assess options, and outline next steps.',
+        headline: 'Let\'s talk',
+        subheadline: 'Discuss a real delivery problem.',
       },
       form: {
         fields: {
