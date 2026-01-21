@@ -278,6 +278,13 @@ export default function CDMPlatformPage() {
         </div>
       </Section>
 
+      {/* Trust Line */}
+      <div className="flex justify-center">
+        <p className="text-sm text-neutral-600 text-center tracking-wide mt-8">
+          Microsoft Partner • Experience aligned to S&P Global frameworks.
+        </p>
+      </div>
+
       <CTASection
         text="Ready to transform your derivatives operations?"
         ctaLabel={site.cta.label}
