@@ -281,7 +281,7 @@ export default function CDMPlatformPage() {
       {/* Trust Line */}
       <div className="flex justify-center">
         <p className="text-sm text-neutral-600 text-center tracking-wide mt-8">
-          Microsoft Partner • Experience aligned to S&P Global frameworks.
+          Microsoft Partner • Delivering for S&P Global
         </p>
       </div>
 

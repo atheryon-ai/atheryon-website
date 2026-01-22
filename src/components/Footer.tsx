@@ -67,7 +67,7 @@ export function Footer() {
               <div className="flex items-center gap-4">
                 {/* LinkedIn */}
                 <a
-                  href="https://linkedin.com/in/TsakirisTerence"
+                  href="https://www.linkedin.com/in/terencetsakiris/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white border border-neutral-500/10 flex items-center justify-center text-neutral-500 hover:text-atheryon-blue hover:border-atheryon-blue/30 transition-all shadow-soft"
