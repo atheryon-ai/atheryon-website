@@ -144,9 +144,14 @@ export function Footer() {
 
           {/* Bottom Bar - Minimal */}
           <div className="mt-16 pt-8 border-t border-neutral-500/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-neutral-500">
-              {site.footer.legal.copyright}
-            </p>
+            <div className="flex items-center gap-3">
+              <p className="text-sm text-neutral-500">
+                {site.footer.legal.copyright}
+              </p>
+              <span className="text-[10px] text-neutral-400/50 font-mono">
+                {process.env.NEXT_PUBLIC_COMMIT_SHA?.slice(0, 7) || 'dev'}
+              </span>
+            </div>
             <div className="flex gap-6">
               {site.footer.legal.links.map((link) => (
                 <Link

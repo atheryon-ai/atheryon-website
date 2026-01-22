@@ -39,6 +39,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          COMMIT_SHA: ${{ github.sha }}
 
       - name: Copy staticwebapp.config.json to output
         run: cp staticwebapp.config.json out/
