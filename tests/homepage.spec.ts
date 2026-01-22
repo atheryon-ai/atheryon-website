@@ -136,4 +136,29 @@ test.describe('Atheryon Homepage', () => {
     const partnersText = page.locator('text=Built on trusted platforms').first();
     await expect(partnersText).toBeVisible();
   });
+
+  test('primary CTA navigates to contact page', async ({ page }) => {
+    // Click the primary CTA button in hero section
+    const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    await primaryCta.click();
+
+    // Verify URL changed to /contact
+    await expect(page).toHaveURL(/\/contact/);
+
+    // Verify contact page content loaded (not just URL change)
+    await expect(page).toHaveTitle(/Contact/);
+    await expect(page.locator('h1')).toContainText("Let's talk");
+  });
+
+  test('secondary CTA navigates to how we work page', async ({ page }) => {
+    // Click the secondary CTA button in hero section
+    const secondaryCta = page.locator('section a:has-text("How we deliver capability")').first();
+    await secondaryCta.click();
+
+    // Verify URL changed to /how-we-work
+    await expect(page).toHaveURL(/\/how-we-work/);
+
+    // Verify how we work page content loaded
+    await expect(page).toHaveTitle(/How We Work/);
+  });
 });
