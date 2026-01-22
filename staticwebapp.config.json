@@ -6,31 +6,51 @@
   "routes": [
     {
       "route": "/how-we-work",
-      "rewrite": "/how-we-work/index.html"
+      "rewrite": "/how-we-work.html"
     },
     {
       "route": "/what-we-deliver",
-      "rewrite": "/what-we-deliver/index.html"
+      "rewrite": "/what-we-deliver.html"
     },
     {
       "route": "/recovery-migration",
-      "rewrite": "/recovery-migration/index.html"
+      "rewrite": "/recovery-migration.html"
     },
     {
       "route": "/reference-architectures",
-      "rewrite": "/reference-architectures/index.html"
+      "rewrite": "/reference-architectures.html"
     },
     {
       "route": "/ai-ready-data",
-      "rewrite": "/ai-ready-data/index.html"
+      "rewrite": "/ai-ready-data.html"
     },
     {
       "route": "/about",
-      "rewrite": "/about/index.html"
+      "rewrite": "/about.html"
     },
     {
       "route": "/contact",
-      "rewrite": "/contact/index.html"
+      "rewrite": "/contact.html"
+    },
+    {
+      "route": "/cdm-platform",
+      "rewrite": "/cdm-platform.html"
+    },
+    {
+      "route": "/capability-enablement",
+      "rewrite": "/capability-enablement.html"
+    },
+    {
+      "route": "/m-and-a-execution",
+      "rewrite": "/m-and-a-execution.html"
+    },
+    {
+      "route": "/privacy",
+      "rewrite": "/privacy.html"
+    },
+    {
+      "route": "/terms",
+      "rewrite": "/terms.html"
     }
   ],
   "globalHeaders": {
