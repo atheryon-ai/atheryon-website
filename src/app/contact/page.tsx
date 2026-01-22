@@ -1,30 +1,9 @@
-'use client'
-
-import { useState } from 'react'
 import { Section, ClientLogos } from '@/components'
 import { site } from '@/content/site'
 
 const { contact } = site.pages
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Contact from ${formData.name} - ${formData.company || 'No company'}`)
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`)
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`
-  }
-
   return (
     <>
       {/* Custom hero with reduced height and accent word */}
@@ -56,8 +35,12 @@ export default function ContactPage() {
 
       <Section>
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Form - native HTML submission to Formspree */}
+          <form
+            action="https://formspree.io/f/xdkdynak"
+            method="POST"
+            className="space-y-6"
+          >
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 {contact.form.fields.name.label} {contact.form.fields.name.required && <span className="text-gray-400">*</span>}
@@ -68,8 +51,6 @@ export default function ContactPage() {
                 name="name"
                 required={contact.form.fields.name.required}
                 placeholder={contact.form.fields.name.placeholder}
-                value={formData.name}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
               />
             </div>
@@ -84,8 +65,6 @@ export default function ContactPage() {
                 name="email"
                 required={contact.form.fields.email.required}
                 placeholder={contact.form.fields.email.placeholder}
-                value={formData.email}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
               />
             </div>
@@ -99,8 +78,6 @@ export default function ContactPage() {
                 id="company"
                 name="company"
                 placeholder={contact.form.fields.company.placeholder}
-                value={formData.company}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
               />
             </div>
@@ -115,8 +92,6 @@ export default function ContactPage() {
                 required={contact.form.fields.message.required}
                 placeholder={contact.form.fields.message.placeholder}
                 rows={5}
-                value={formData.message}
-                onChange={handleChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow resize-none"
               />
             </div>
