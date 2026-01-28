@@ -52,15 +52,15 @@ export function FAQ({ items, className = '' }: FAQProps) {
 export const defaultFAQItems: FAQItem[] = [
   {
     question: 'What industries do you work with?',
-    answer: 'We work primarily with regulated enterprises—banks, investment banks, asset managers, market infrastructure providers, and regulators. Our expertise is in financial services where data governance and regulatory compliance are critical.',
+    answer: 'Capital markets, institutional banking, trading infrastructure, and regulatory environments. We work with tier-one banks, asset managers, market operators, and regulators where data governance and regulatory compliance are non-negotiable.',
   },
   {
     question: 'Do you engage directly with regulators?',
-    answer: 'Yes. As part of delivery leadership, we meet regulators on behalf of our clients to demonstrate control, progress, and production readiness.',
+    answer: 'Yes. As part of delivery leadership, we meet regulators on behalf of our clients to demonstrate control, progress, and production readiness. Our work is designed to be regulator-credible from the outset.',
   },
   {
     question: 'What makes Atheryon different from other consultancies?',
-    answer: 'We focus on production outcomes, not demos. Every engagement delivers working capabilities in production, plus reusable data products that compound value over time. We are AI-native in our approach but delivery-led in our execution.',
+    answer: 'Three things. We are practitioner-led — senior people who have carried delivery risk in live trading and regulatory environments. We deliver decision-grade platforms, not slide decks. And our work is regulator-credible — built to withstand scrutiny, not just pass an internal review.',
   },
   {
     question: 'How long does a typical engagement take?',
@@ -68,10 +68,10 @@ export const defaultFAQItems: FAQItem[] = [
   },
   {
     question: 'Do you work with existing platforms and vendors?',
-    answer: 'Yes. We are vendor-agnostic and work with whatever technology stack you have. Our job is to make your existing investments work, not to replace them.',
+    answer: 'Yes. We are vendor-agnostic and work with whatever technology stack you have. Our job is to make your existing investments produce trusted, governed outputs — not to replace them.',
   },
   {
-    question: 'What does "AI-ready data" mean?',
-    answer: 'AI-ready data means consistent semantics, validated quality, clear lineage, and stable access patterns. Without these foundations, AI applications inherit confusion and produce unreliable results.',
+    question: 'What does "decision-grade" mean?',
+    answer: 'Decision-grade means data that the business can trust for regulatory reporting, risk calculations, and trade surveillance. It means consistent semantics, validated quality, clear lineage, and governance that withstands regulatory scrutiny.',
   },
 ]

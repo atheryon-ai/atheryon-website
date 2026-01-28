@@ -78,7 +78,7 @@ export default function AboutPage() {
       </Section>
 
       <CTASection
-        text="Want to learn more about how we work?"
+        text="You should speak with us if data issues are now visible at executive level, regulatory scrutiny is increasing, or a program is failing to land outcomes."
         ctaLabel={site.cta.label}
         ctaHref={site.cta.href}
       />
