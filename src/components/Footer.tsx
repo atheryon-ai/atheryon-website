@@ -16,8 +16,8 @@ export function Footer() {
 
             <div className="relative z-10 text-center max-w-2xl mx-auto">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
-                Ready to turn potential into{' '}
-                <span className="text-brand-orange">production?</span>
+                Ready to discuss a high-stakes{' '}
+                <span className="text-brand-orange">data challenge?</span>
               </h2>
               <p className="text-lg text-neutral-400 mb-10 leading-relaxed">
                 {site.pages.home.finalCta.text}

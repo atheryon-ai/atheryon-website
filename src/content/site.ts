@@ -1,6 +1,6 @@
 export const site = {
   name: 'Atheryon',
-  tagline: 'From AI potential to production reality.',
+  tagline: 'Decision-grade data platforms for regulated markets.',
   email: 'info@atheryon.com.au',
 
   nav: [
@@ -23,77 +23,87 @@ export const site = {
   ],
 
   cta: {
-    label: 'Discuss a real delivery problem',
+    label: 'Request a confidential discussion',
     href: '/contact',
   },
 
   // Core copy blocks from spec
   copy: {
-    headline: 'From AI potential to production reality.',
-    subheadline: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
-    philosophy: 'Human and AI working hand in hand to turn potential into production reality.',
-    proofFraming: 'We are often engaged when data initiatives have consumed significant investment but failed to produce trusted, reusable outputs. Our work focuses on stabilising delivery, clarifying semantics, and leaving behind governed data products that compound over time.',
-    migrationFraming: 'We treat migration as a modelling and validation problem, not a transport problem. The goal is to preserve meaning, reduce downstream rewrites, and create reusable assets.',
+    headline: 'Decision-grade data platforms for regulated markets.',
+    subheadline: 'Atheryon builds decision-grade data platforms for capital markets and institutional banking — where data must be trusted, governance is non-negotiable, and business risk is real.',
+    philosophy: 'Senior practitioners who have carried the risk, building platforms that withstand regulatory scrutiny.',
+    proofFraming: 'We are engaged when data programs have consumed significant investment but failed to produce outputs the business can trust under regulatory or operational pressure. Our work stabilises delivery, enforces semantic clarity, and leaves behind governed platforms that reduce the cost of future change.',
+    migrationFraming: 'We treat migration as a modelling and validation problem, not a transport problem. The goal is to preserve meaning, reduce downstream rewrites, and create regulator-credible assets.',
   },
 
   pages: {
     home: {
-      title: 'Atheryon | From AI Potential to Production Reality',
-      description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
+      title: 'Atheryon | Decision-grade data platforms for regulated markets',
+      description: 'Atheryon builds decision-grade data platforms for capital markets and institutional banking — regulator-credible, production-grade, senior-led.',
       hero: {
-        headline: 'From stalled strategy to delivery',
-        subheadline: 'We deliver complex data, AI, and M&A initiatives under cost, timeline, and regulatory constraints.',
-        primaryCta: { label: 'Discuss your delivery challenge', href: '/contact' },
-        secondaryCta: { label: 'How we deliver capability', href: '/how-we-work' },
+        headline: 'Decision-grade data platforms under pressure',
+        subheadline: 'We build data platforms for capital markets and institutional banking — where data must be trusted, governance is non-negotiable, and business risk is real. Strategy. Architecture. Delivery. Senior practitioners, end to end.',
+        primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
+        secondaryCta: { label: 'How we deliver', href: '/how-we-work' },
       },
       whoWeAreFor: {
-        badge: 'Who We Work With',
-        title: 'Built for regulated enterprises',
+        badge: 'Who We Help',
+        title: 'Built for high-stakes environments',
         forClients: [
-          'Banks and investment banks',
-          'Asset managers',
-          'Market infrastructure providers',
-          'Regulators and central agencies',
+          'Tier-1 banks and investment banks',
+          'Capital markets and trading infrastructure',
+          'Institutional banking and asset management',
+          'Regulators, central agencies, and market operators',
         ],
         notForClients: [
-          'Startups wanting demos',
-          'Tool-first pilots',
-          'UI-only AI work',
+          'Data cannot be trusted for regulatory reporting or risk decisions',
+          'No single source of truth — inconsistent definitions across front, middle, and back office',
+          'Regulatory exposure increasing due to data quality or lineage gaps',
+          'Programs stalled after significant investment — no production outcomes',
+          'Delivery too slow — teams cannot ship governed capability under time pressure',
         ],
       },
       problemsWeSolve: {
-        badge: 'Problems We Solve',
-        title: 'The challenges we address',
+        badge: 'The Problem',
+        title: 'The problem we solve',
         cards: [
           {
-            title: 'AI PoC purgatory',
-            description: 'Pilots that never reach production. Proofs of concept that prove nothing.',
+            title: 'Data cannot be trusted',
+            description: 'Regulatory reporting, risk calculations, and trade surveillance rely on data that no one has confidence in.',
           },
           {
-            title: 'Untrusted platforms',
-            description: 'Data exists but nobody uses it. Platforms are built but outputs are not trusted.',
+            title: 'No single source of truth',
+            description: 'Inconsistent definitions across front, middle, and back office. Every team maintains its own version.',
           },
           {
-            title: 'Expensive change',
-            description: 'Every change is a rewrite. No reuse, no leverage, no compounding value.',
+            title: 'Regulatory exposure',
+            description: 'Data quality and lineage gaps create material regulatory risk. Scrutiny is increasing.',
           },
           {
-            title: 'Migration meaning loss',
-            description: 'Moving rows but losing semantics. Transport without understanding.',
+            title: 'Stalled programs',
+            description: 'Significant investment consumed. No production outcomes. Executive confidence eroding.',
+          },
+          {
+            title: 'Delivery too slow',
+            description: 'Teams cannot ship governed, regulator-credible capability under real time pressure.',
           },
         ],
       },
       whatWeDo: {
-        badge: 'What We Do',
-        title: 'Two things, done well',
+        badge: 'Outcomes',
+        title: 'What we deliver',
         columns: [
           {
-            title: 'Business capabilities delivered in production',
-            description: 'Not demos. Not proofs of concept. Real capabilities that operate in production, under governance, at scale.',
+            title: 'Data the business can trust',
+            description: 'Decision-grade platforms where regulatory reporting, risk, and trade surveillance operate on a single governed truth.',
           },
           {
-            title: 'Reusable data products built underneath',
-            description: 'Canonical models, validated pipelines, governed datasets. Assets that compound and reduce the cost of future change.',
+            title: 'Regulator-credible governance',
+            description: 'Lineage, ownership, and controls that withstand regulatory scrutiny — built in, not bolted on.',
+          },
+          {
+            title: 'Programs that reach production',
+            description: 'Stalled initiatives recovered. New capability shipped under real constraints. Institutional confidence restored.',
           },
         ],
       },
@@ -101,22 +111,20 @@ export const site = {
         badge: 'Our Method',
         title: 'How we work',
         steps: [
-          'Frame problem & constraints',
-          'Model alignment (canonical semantics)',
-          'Extract/ingest + validate',
-          'Deliver production capability',
-          'Abstract into reusable data products',
+          'Strategy — define outcomes, constraints, and what "done" means',
+          'Architecture — semantic alignment, governance model, platform design',
+          'Delivery — build, validate, ship to production under pressure',
         ],
         link: { label: 'Learn more about our method', href: '/how-we-work' },
       },
       credibility: {
         badge: 'Our Track Record',
         title: 'Credibility without logos',
-        quote: 'We are often engaged when data initiatives have consumed significant investment but failed to produce trusted, reusable outputs. Our work focuses on stabilising delivery, clarifying semantics, and leaving behind governed data products that compound over time.',
+        quote: 'We are engaged when data programs have consumed significant investment but failed to produce outputs the business can trust under regulatory or operational pressure. Our work stabilises delivery, enforces semantic clarity, and leaves behind governed platforms that reduce the cost of future change.',
         bullets: [
-          'Recovering stalled programs',
-          'Extracting data products from complex platforms',
-          'Model-led migration that preserves meaning',
+          'Recovering stalled programs in live trading and regulatory environments',
+          'Building decision-grade platforms under regulatory scrutiny',
+          'Senior-led delivery — principals on the ground, not juniors with slide decks',
         ],
       },
       referenceArchitecturesTeaser: {
@@ -144,33 +152,33 @@ export const site = {
         cards: [
           {
             title: 'Recovery & Migration',
-            description: 'Recover stalled initiatives and execute model-led migrations that preserve meaning.',
+            description: 'Recover stalled data programs and execute migrations that preserve meaning — regulator-credible, production-grade.',
             href: '/recovery-migration',
           },
           {
             title: 'M&A Execution',
-            description: 'Execute complex separations and integrations without value leakage.',
+            description: 'Separation and integration delivery where operational continuity and regulatory obligations cannot be interrupted.',
             href: '/m-and-a-execution',
           },
           {
             title: 'Capability Enablement',
-            description: 'Turn delivered platforms into durable business capability with embedded governance.',
+            description: 'Turn delivered platforms into durable business capability with governance, ownership, and operating models that endure.',
             href: '/capability-enablement',
           },
         ],
       },
       finalCta: {
-        text: 'If you have a stalled initiative or a migration with unclear semantics, we should talk.',
-        cta: { label: 'Discuss a real delivery problem', href: '/contact' },
+        text: 'If data issues are visible at executive level, regulatory scrutiny is increasing, or a program is failing to land outcomes — we should talk.',
+        cta: { label: 'Request a confidential discussion', href: '/contact' },
       },
     },
 
     howWeWork: {
       title: 'How We Work | Atheryon',
-      description: 'Two delivery models for complex data, AI, and M&A initiatives under real execution pressure.',
+      description: 'Two delivery models for complex data, regulatory, and M&A initiatives under real execution pressure.',
       hero: {
         headline: 'How we work',
-        subheadline: 'Two delivery models, one outcome: execution that reaches production.',
+        subheadline: 'Two delivery models, one outcome: governed capability in production.',
       },
       intro: {
         title: 'Choose your delivery model',
@@ -278,7 +286,7 @@ export const site = {
 
     recoveryMigration: {
       title: 'Recovery & Migration | Atheryon',
-      description: 'We recover stalled data initiatives and execute model-led migrations that preserve meaning.',
+      description: 'We recover stalled data programs and execute model-led migrations that preserve meaning under regulatory and operational pressure.',
       hero: {
         headline: 'Recovery & migration',
         subheadline: 'When data initiatives stall or migrations lose meaning, we help.',
@@ -330,7 +338,7 @@ export const site = {
 
     capabilityEnablement: {
       title: 'Capability Enablement | Atheryon',
-      description: 'Turn delivered platforms into durable business capability with embedded ownership, governance, and operating models.',
+      description: 'Turn delivered platforms into durable business capability with embedded ownership, governance, and operating models that withstand regulatory scrutiny.',
       hero: {
         headline: 'Capability Enablement',
         subheadline: 'Turn delivered platforms into durable business capability.',
@@ -567,6 +575,70 @@ export const site = {
       },
     },
 
+    whatWeDeliver: {
+      title: 'What We Deliver | Atheryon',
+      description: 'Decision-grade outcomes for capital markets and institutional banking — governed platforms, recovered programs, and regulator-credible capability.',
+      hero: {
+        headline: 'What we deliver',
+        subheadline: 'Governed platforms, recovered programs, and regulator-credible capability — delivered under real pressure.',
+      },
+      outcomes: {
+        badge: 'Outcomes',
+        title: 'What our clients walk away with',
+        items: [
+          {
+            title: 'Data the business can trust',
+            description: 'Decision-grade platforms where regulatory reporting, risk, and trade surveillance operate on a single governed truth.',
+          },
+          {
+            title: 'Regulator-credible governance',
+            description: 'Lineage, ownership, and controls that withstand regulatory scrutiny — built in, not bolted on.',
+          },
+          {
+            title: 'Programs that reach production',
+            description: 'Stalled initiatives recovered. New capability shipped under real constraints. Institutional confidence restored.',
+          },
+          {
+            title: 'Reduced cost of future change',
+            description: 'Reusable data products and shared semantics that compound — so the next initiative starts ahead, not from scratch.',
+          },
+        ],
+      },
+      deliverables: {
+        badge: 'Deliverables',
+        title: 'What we leave behind',
+        items: [
+          'Canonical data model aligned to business terms',
+          'Validated pipelines with quality controls at every stage',
+          'Documented transformation logic and lineage',
+          'Operational runbooks and ownership models',
+          'Reusable data products for future capabilities',
+          'Governance frameworks that enable, not block',
+        ],
+      },
+      engagementShapes: {
+        badge: 'Engagement Models',
+        title: 'How we engage',
+        items: [
+          {
+            title: 'Recovery & Stabilisation',
+            duration: '8–16 weeks',
+            description: 'Assess, stabilise, and extract usable capability from stalled programs. Vendor-agnostic — we work with what you have.',
+          },
+          {
+            title: 'Platform Delivery',
+            duration: '3–9 months',
+            description: 'Strategy through to production capability. Governed data platforms built under real constraints with senior practitioners.',
+          },
+          {
+            title: 'M&A Execution',
+            duration: 'Deal-timetable aligned',
+            description: 'Separation and integration delivery where operational continuity and regulatory obligations cannot be interrupted.',
+          },
+        ],
+      },
+    },
+
     referenceArchitectures: {
       title: 'Reference Architectures | Atheryon',
       description: 'Production-tested architecture patterns for enterprise data platforms.',
@@ -603,10 +675,10 @@ export const site = {
 
     aiReadyData: {
       title: 'AI-Ready Data | Atheryon',
-      description: 'Creating the conditions for AI to work in regulated enterprises.',
+      description: 'Creating decision-grade data foundations that enable AI to operate reliably in regulated environments.',
       hero: {
         headline: 'AI-ready data',
-        subheadline: 'AI fails when data fails. We fix the data.',
+        subheadline: 'AI fails when data fails. We build the governed data platforms that make AI reliable in regulated environments.',
       },
       whyAiFails: {
         badge: 'Why AI Fails',
@@ -661,27 +733,27 @@ export const site = {
 
     about: {
       title: 'About | Atheryon',
-      description: 'An AI-native, delivery-led consultancy bridging potential and production.',
+      description: 'Senior practitioners who have carried the risk — building decision-grade data platforms for capital markets and institutional banking.',
       hero: {
-        headline: 'About Atheryon',
-        subheadline: 'AI-native. Delivery-led.',
+        headline: 'Built by practitioners who\'ve carried the risk',
+        subheadline: 'Senior-led. Regulator-credible. Production-grade.',
       },
       whatWeAre: {
         title: 'What Atheryon is',
-        description: 'An AI-native, delivery-led consultancy. We combine deep enterprise experience with modern delivery practices to help regulated organisations turn AI potential into production reality.',
+        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise.',
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
-        description: 'Many organisations launch strategic platform initiatives only to see costs rise and scope shrink. AI now offers the potential for 10× acceleration, but traditional delivery approaches often stall at proof of concept rather than delivering impact. Atheryon helps break this cycle by putting execution discipline and production outcomes at the heart of strategic delivery.',
+        description: 'High-stakes environments — trading, risk, regulatory reporting — depend on data that is governed, consistent, and trusted. Too many platform programs consume significant investment and fail to produce outputs the business can rely on. Atheryon exists to close that gap: strategy, architecture, and delivery under real pressure.',
       },
       credibilityBoxes: [
         {
           title: '20+ Years in Capital Markets',
-          description: 'We bring over two decades of delivery leadership across global capital markets, spanning London and Australia. Our experience covers tier-one banks, market infrastructure, and regulatory environments — delivering front-to-back data, risk, and regulatory reporting capability under sustained operational and regulatory pressure.\n\nThis includes hands-on leadership across trading, market risk, credit risk, product control, payments, and regulatory reporting frameworks aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank.',
+          description: 'Over two decades of delivery leadership across global capital markets — London and Australia. Tier-one banks, market infrastructure, and regulatory environments. Front-to-back data, risk, and regulatory reporting capability delivered under sustained operational and regulatory pressure.\n\nHands-on leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank. Senior-led — principals on the ground, not juniors with slide decks.',
         },
         {
           title: 'M&A Execution & Integration',
-          description: 'M&A introduces some of the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nOur experience spans pre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
+          description: 'M&A introduces the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nPre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
         },
       ],
       whatExperienceMeans: {
@@ -713,10 +785,10 @@ export const site = {
 
     contact: {
       title: 'Contact | Atheryon',
-      description: 'Discuss a real delivery problem with Atheryon.',
+      description: 'Request a confidential discussion about a high-stakes data challenge in capital markets or institutional banking.',
       hero: {
-        headline: 'Let\'s talk',
-        subheadline: 'Discuss a real delivery problem.',
+        headline: 'Request a confidential discussion',
+        subheadline: 'You should speak with us if data issues are now visible at executive level, regulatory scrutiny is increasing, or a program is failing to land outcomes.',
       },
       form: {
         fields: {
@@ -725,14 +797,14 @@ export const site = {
           company: { label: 'Company', placeholder: 'Your company', required: false },
           message: { label: 'What\'s the problem?', placeholder: 'Describe the challenge you\'re facing...', required: true },
         },
-        submitLabel: 'Send message',
+        submitLabel: 'Request a discussion',
       },
       whatToInclude: {
         title: 'What to include',
         items: [
-          'Current state—what exists today',
-          'Constraints—security, regulatory, technical',
-          'Timeline—any deadlines or drivers',
+          'Current state—what data, platforms, or programs exist today',
+          'Pressure—regulatory exposure, risk visibility, or executive scrutiny',
+          'Constraints—timeline, compliance obligations, organisational complexity',
         ],
       },
       alternative: {
@@ -743,7 +815,7 @@ export const site = {
   },
 
   footer: {
-    description: 'Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.',
+    description: 'Decision-grade data platforms for capital markets and institutional banking. Senior-led. Regulator-credible. Production-grade.',
     links: {
       services: [
         { label: 'How We Work', href: '/how-we-work' },

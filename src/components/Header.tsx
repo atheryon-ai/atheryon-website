@@ -119,7 +119,7 @@ export function Header() {
               href="/contact"
               className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-neutral-900 px-5 py-2.5 rounded-full hover:bg-neutral-800 transition-all shadow-soft hover:shadow-button"
             >
-              Get in Touch
+              Request a discussion
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -270,7 +270,7 @@ export function Header() {
                   className="flex items-center justify-center gap-2 w-full text-base font-semibold text-white bg-neutral-900 px-6 py-4 rounded-full hover:bg-neutral-800 transition-all shadow-button"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Get in Touch
+                  Request a discussion
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

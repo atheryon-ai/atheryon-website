@@ -45,7 +45,7 @@ export function Hero({
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full mb-8 shadow-soft">
               <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
-              <span className="text-sm font-medium text-neutral-700">AI-native delivery</span>
+              <span className="text-sm font-medium text-neutral-700">Senior-led delivery</span>
             </div>
 
             {/* Headline - Social Grow style */}
