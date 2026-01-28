@@ -92,74 +92,18 @@ export function Hero({
             )}
           </div>
 
-          {/* Right Column - Device Mockup (50%) */}
+          {/* Right Column - Logo Animation Video (50%) */}
           {showVisualization && (
             <div className="flex-1 hidden lg:flex justify-end">
-              <div className="device-mockup w-full max-w-lg">
-                <div className="device-mockup-inner p-6">
-                  {/* Abstract AI Network Visualization */}
-                  <svg viewBox="0 0 400 300" className="w-full h-auto">
-                    {/* Background grid */}
-                    <defs>
-                      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E5E0D9" strokeWidth="0.5"/>
-                      </pattern>
-                      <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#0A84FF" stopOpacity="0.8"/>
-                        <stop offset="100%" stopColor="#4BC0FF" stopOpacity="0.6"/>
-                      </linearGradient>
-                      <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#FF9900" stopOpacity="0.8"/>
-                        <stop offset="100%" stopColor="#FFB833" stopOpacity="0.6"/>
-                      </linearGradient>
-                    </defs>
-                    <rect width="400" height="300" fill="url(#grid)"/>
-
-                    {/* Connection lines */}
-                    <g stroke="#A7B0B8" strokeWidth="1" opacity="0.4">
-                      <line x1="80" y1="80" x2="200" y2="150"/>
-                      <line x1="200" y1="150" x2="320" y2="100"/>
-                      <line x1="200" y1="150" x2="280" y2="220"/>
-                      <line x1="80" y1="200" x2="200" y2="150"/>
-                      <line x1="120" y1="130" x2="200" y2="150"/>
-                      <line x1="200" y1="150" x2="340" y2="180"/>
-                    </g>
-
-                    {/* Data flow animation paths */}
-                    <g>
-                      <circle r="4" fill="#0A84FF" opacity="0.8">
-                        <animateMotion dur="3s" repeatCount="indefinite" path="M80,80 L200,150 L320,100"/>
-                      </circle>
-                      <circle r="4" fill="#FF9900" opacity="0.8">
-                        <animateMotion dur="4s" repeatCount="indefinite" path="M80,200 L200,150 L280,220"/>
-                      </circle>
-                    </g>
-
-                    {/* Nodes */}
-                    <g>
-                      {/* Primary node - center */}
-                      <circle cx="200" cy="150" r="24" fill="url(#nodeGradient)"/>
-                      <circle cx="200" cy="150" r="16" fill="white"/>
-                      <text x="200" y="155" textAnchor="middle" fontSize="12" fontWeight="600" fill="#0A1A2F">AI</text>
-
-                      {/* Secondary nodes */}
-                      <circle cx="80" cy="80" r="16" fill="url(#orangeGradient)"/>
-                      <circle cx="320" cy="100" r="14" fill="url(#nodeGradient)"/>
-                      <circle cx="80" cy="200" r="12" fill="url(#orangeGradient)"/>
-                      <circle cx="280" cy="220" r="14" fill="url(#nodeGradient)"/>
-                      <circle cx="120" cy="130" r="10" fill="#A7B0B8" opacity="0.5"/>
-                      <circle cx="340" cy="180" r="10" fill="#A7B0B8" opacity="0.5"/>
-                    </g>
-
-                    {/* Labels */}
-                    <g fontSize="10" fill="#A7B0B8">
-                      <text x="80" y="60">Data Source</text>
-                      <text x="300" y="85">Validation</text>
-                      <text x="60" y="225">Ingestion</text>
-                      <text x="260" y="245">Production</text>
-                    </g>
-                  </svg>
-                </div>
+              <div className="w-full max-w-lg">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto rounded-2xl"
+                  src="/atheryon-logo-animation.mp4"
+                />
               </div>
             </div>
           )}
