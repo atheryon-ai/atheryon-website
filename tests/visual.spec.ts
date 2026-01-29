@@ -27,8 +27,7 @@ test.describe('Visual Tests', () => {
     await page.goto('/');
     await page.waitForTimeout(1000);
 
-    // Target hero section CTA (header CTA hidden on mobile)
-    const ctaButton = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    const ctaButton = page.locator('section a:has-text("Request a confidential discussion")').first();
     await ctaButton.hover();
 
     await expect(ctaButton).toHaveScreenshot('cta-button-hover.png', {
@@ -40,7 +39,6 @@ test.describe('Visual Tests', () => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
 
-    // Wait for animations to settle
     await page.waitForTimeout(2000);
 
     await expect(page).toHaveScreenshot('homepage-mobile.png', {
