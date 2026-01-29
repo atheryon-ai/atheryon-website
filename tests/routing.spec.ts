@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
  */
 
 const routes = [
-  { path: '/', title: /Atheryon/, h1: /stalled strategy.*delivery/i },
+  { path: '/', title: /Atheryon/, h1: /Decision-grade data platforms/i },
   { path: '/contact', title: /Contact/, h1: /Let's talk/i },
   { path: '/how-we-work', title: /How We Work/, h1: /How we work/i },
   { path: '/about', title: /About/, h1: /About/i },
@@ -22,13 +22,10 @@ const routes = [
 test.describe('Route Loading', () => {
   for (const route of routes) {
     test(`${route.path} loads correctly`, async ({ page }) => {
-      // Navigate to the route
       await page.goto(route.path);
 
-      // Verify page title matches expected pattern
       await expect(page).toHaveTitle(route.title);
 
-      // Verify H1 content loaded (not just URL change)
       const h1 = page.locator('h1').first();
       await expect(h1).toBeVisible();
       await expect(h1).toHaveText(route.h1);
@@ -37,7 +34,6 @@ test.describe('Route Loading', () => {
 });
 
 test.describe('Direct URL Access', () => {
-  // Test that refreshing a page works (server-side routing)
   test('contact page loads on direct access', async ({ page }) => {
     await page.goto('/contact');
     await expect(page).toHaveTitle(/Contact/);
@@ -57,18 +53,17 @@ test.describe('Direct URL Access', () => {
 
 test.describe('Navigation Between Pages', () => {
   test('can navigate from homepage to contact and back', async ({ page }) => {
-    // Start at homepage
     await page.goto('/');
     await expect(page).toHaveTitle(/Atheryon/);
 
-    // Navigate to contact
-    await page.locator('section a:has-text("Discuss your delivery challenge")').first().click();
+    // Navigate to contact via hero CTA
+    await page.locator('section a:has-text("Request a confidential discussion")').first().click();
     await expect(page).toHaveURL(/\/contact/);
     await expect(page.locator('h1')).toContainText("Let's talk");
 
     // Navigate back to homepage via logo
     await page.locator('nav a').first().click();
     await expect(page).toHaveURL('/');
-    await expect(page.locator('h1')).toContainText('delivery');
+    await expect(page.locator('h1')).toContainText('data platforms');
   });
 });

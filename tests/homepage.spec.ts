@@ -6,7 +6,7 @@ test.describe('Atheryon Homepage', () => {
   });
 
   test('has correct title', async ({ page }) => {
-    await expect(page).toHaveTitle('Atheryon | From AI Potential to Production Reality');
+    await expect(page).toHaveTitle('Atheryon | Decision-grade data platforms for regulated markets');
   });
 
   test('displays navigation', async ({ page }) => {
@@ -26,54 +26,51 @@ test.describe('Atheryon Homepage', () => {
     // Check headline contains key text
     const heroHeadline = page.locator('h1');
     await expect(heroHeadline).toBeVisible();
-    await expect(heroHeadline).toContainText('stalled strategy');
-    await expect(heroHeadline).toContainText('delivery');
+    await expect(heroHeadline).toContainText('data platforms');
+    await expect(heroHeadline).toContainText('under pressure');
 
     // Check subheadline
     const heroSubheadline = page.locator('section').first().locator('p').first();
-    await expect(heroSubheadline).toContainText('data, AI, and M&A');
+    await expect(heroSubheadline).toContainText('regulated delivery');
   });
 
   test('displays hero call-to-action buttons', async ({ page }) => {
-    // Primary CTA (target hero section, header CTA hidden on mobile)
-    const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    // Primary CTA
+    const primaryCta = page.locator('section a:has-text("Request a confidential discussion")').first();
     await expect(primaryCta).toBeVisible();
 
     // Secondary CTA
-    const secondaryCta = page.locator('section a:has-text("How we deliver capability")').first();
+    const secondaryCta = page.locator('section a:has-text("How we deliver")').first();
     await expect(secondaryCta).toBeVisible();
   });
 
   test('displays Who We Work With section', async ({ page }) => {
-    const sectionTitle = page.locator('h2:has-text("Built for regulated enterprises")');
+    const sectionTitle = page.locator('h2:has-text("Built for high-stakes environments")');
     await expect(sectionTitle).toBeVisible();
 
     // Check "We work with" items
-    await expect(page.locator('li:has-text("Banks and investment banks")')).toBeVisible();
-    await expect(page.locator('li:has-text("Asset managers")')).toBeVisible();
-
-    // Check "Not a fit for" items
-    await expect(page.locator('li:has-text("Startups wanting demos")')).toBeVisible();
+    await expect(page.locator('li:has-text("Tier-1 banks and investment banks")')).toBeVisible();
+    await expect(page.locator('li:has-text("Capital markets and trading infrastructure")')).toBeVisible();
   });
 
   test('displays Problems We Solve section', async ({ page }) => {
-    const sectionTitle = page.locator('h2:has-text("The challenges we address")');
+    const sectionTitle = page.locator('h2:has-text("The problem we solve")');
     await expect(sectionTitle).toBeVisible();
 
     // Check problem cards
-    await expect(page.locator('h3:has-text("AI POC purgatory")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Untrusted platforms")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Expensive change")')).toBeVisible();
-    await expect(page.locator('h3:has-text("Migration meaning loss")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Data cannot be trusted")')).toBeVisible();
+    await expect(page.locator('h3:has-text("No single source of truth")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Regulatory exposure")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Stalled programs")')).toBeVisible();
   });
 
   test('displays What We Do comparison section', async ({ page }) => {
-    const sectionTitle = page.locator('h2:has-text("Two things, done well")');
+    const sectionTitle = page.locator('h2:has-text("What we deliver")');
     await expect(sectionTitle).toBeVisible();
 
     // Check comparison items
-    await expect(page.locator('text=Traditional Approach')).toBeVisible();
-    await expect(page.locator('text=Atheryon Approach')).toBeVisible();
+    await expect(page.locator('text=Traditional')).toBeVisible();
+    await expect(page.locator('text=Atheryon')).toBeVisible();
   });
 
   test('displays How We Work section', async ({ page }) => {
@@ -81,8 +78,8 @@ test.describe('Atheryon Homepage', () => {
     await expect(sectionTitle).toBeVisible();
 
     // Check method steps are present
-    await expect(page.locator('text=Frame problem')).toBeVisible();
-    await expect(page.locator('text=Model alignment')).toBeVisible();
+    await expect(page.locator('text=Strategy')).toBeVisible();
+    await expect(page.locator('text=Architecture')).toBeVisible();
   });
 
   test('displays FAQ section', async ({ page }) => {
@@ -99,7 +96,7 @@ test.describe('Atheryon Homepage', () => {
     await expect(footer).toBeVisible();
 
     // Check footer CTA
-    await expect(footer.locator('h2:has-text("Ready to turn potential")')).toBeVisible();
+    await expect(footer.locator('h2:has-text("Ready to discuss")')).toBeVisible();
 
     // Check footer brand
     await expect(footer.locator('img[alt="Atheryon"]')).toBeVisible();
@@ -115,16 +112,12 @@ test.describe('Atheryon Homepage', () => {
   });
 
   test('navigation links work correctly', async ({ page, isMobile }) => {
-    // On mobile, need to open the mobile menu first
     if (isMobile) {
       const mobileMenuBtn = page.locator('button[aria-label="Toggle menu"]');
       await mobileMenuBtn.click();
-      await page.waitForTimeout(300); // Wait for menu animation
-
-      // Click on How We Work link in mobile menu (text-lg class distinguishes from desktop text-sm)
+      await page.waitForTimeout(300);
       await page.locator('a.text-lg:has-text("How We Work")').click();
     } else {
-      // Click on How We Work link in desktop nav
       await page.locator('nav a:has-text("How We Work")').click();
     }
 
@@ -132,33 +125,23 @@ test.describe('Atheryon Homepage', () => {
   });
 
   test('tech partners section is visible', async ({ page }) => {
-    // Check for tech partner logos area (may appear in multiple places)
     const partnersText = page.locator('text=Built on trusted platforms').first();
     await expect(partnersText).toBeVisible();
   });
 
   test('primary CTA navigates to contact page', async ({ page }) => {
-    // Click the primary CTA button in hero section
-    const primaryCta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    const primaryCta = page.locator('section a:has-text("Request a confidential discussion")').first();
     await primaryCta.click();
 
-    // Verify URL changed to /contact
     await expect(page).toHaveURL(/\/contact/);
-
-    // Verify contact page content loaded (not just URL change)
-    await expect(page).toHaveTitle(/Contact/);
     await expect(page.locator('h1')).toContainText("Let's talk");
   });
 
   test('secondary CTA navigates to how we work page', async ({ page }) => {
-    // Click the secondary CTA button in hero section
-    const secondaryCta = page.locator('section a:has-text("How we deliver capability")').first();
+    const secondaryCta = page.locator('section a:has-text("How we deliver")').first();
     await secondaryCta.click();
 
-    // Verify URL changed to /how-we-work
     await expect(page).toHaveURL(/\/how-we-work/);
-
-    // Verify how we work page content loaded
     await expect(page).toHaveTitle(/How We Work/);
   });
 });

@@ -10,22 +10,22 @@ test.describe('Homepage CTAs', () => {
     await page.goto('/');
   });
 
-  test('hero primary CTA "Discuss your delivery challenge" navigates to contact', async ({ page }) => {
-    const cta = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+  test('hero primary CTA "Request a confidential discussion" navigates to contact', async ({ page }) => {
+    const cta = page.locator('section a:has-text("Request a confidential discussion")').first();
     await cta.click();
     await expect(page).toHaveURL(/\/contact/);
     await expect(page.locator('h1')).toContainText("Let's talk");
   });
 
-  test('hero secondary CTA "How we deliver capability" navigates to how-we-work', async ({ page }) => {
-    const cta = page.locator('section a:has-text("How we deliver capability")').first();
+  test('hero secondary CTA "How we deliver" navigates to how-we-work', async ({ page }) => {
+    const cta = page.locator('section a:has-text("How we deliver")').first();
     await cta.click();
     await expect(page).toHaveURL(/\/how-we-work/);
     await expect(page.locator('h1')).toContainText('How we work');
   });
 
-  test('footer CTA "Discuss a real delivery problem" navigates to contact', async ({ page }) => {
-    const cta = page.locator('footer a:has-text("Discuss a real delivery problem")');
+  test('footer CTA "Request a confidential discussion" navigates to contact', async ({ page }) => {
+    const cta = page.locator('footer a:has-text("Request a confidential discussion")');
     await cta.click();
     await expect(page).toHaveURL(/\/contact/);
     await expect(page.locator('h1')).toContainText("Let's talk");
@@ -53,17 +53,14 @@ test.describe('Header Navigation', () => {
     await page.goto('/');
   });
 
-  test('header "Get in Touch" button navigates to contact', async ({ page, isMobile }) => {
+  test('header CTA button navigates to contact', async ({ page, isMobile }) => {
     if (isMobile) {
-      // Mobile: open menu first, then click Get in Touch at bottom of menu
       await page.locator('button[aria-label="Toggle menu"]').click();
       await page.waitForTimeout(300);
-      // Use the mobile menu CTA (the one with w-full class)
-      const cta = page.locator('a:has-text("Get in Touch")').last();
+      const cta = page.locator('a:has-text("Request a")').last();
       await cta.click();
     } else {
-      // Desktop: click header CTA directly
-      const cta = page.locator('nav a:has-text("Get in Touch")');
+      const cta = page.locator('nav a:has-text("Request a")');
       await cta.click();
     }
     await expect(page).toHaveURL(/\/contact/);
@@ -119,12 +116,10 @@ test.describe('Services Dropdown (Desktop)', () => {
 
     await page.goto('/');
 
-    // Hover over Services button in nav to open dropdown
     const servicesBtn = page.locator('nav button:has-text("Services")');
     await servicesBtn.hover();
     await page.waitForTimeout(300);
 
-    // Check dropdown items are visible (use nav context to avoid footer duplicates)
     const dropdown = page.locator('nav >> a:has-text("Recovery & Migration")');
     await expect(dropdown).toBeVisible();
   });
@@ -165,19 +160,15 @@ test.describe('Mobile Menu Services', () => {
 
     await page.goto('/');
 
-    // Open mobile menu
     await page.locator('button[aria-label="Toggle menu"]').click();
     await page.waitForTimeout(500);
 
-    // Click Services to expand - find the button within the mobile overlay
     const mobileOverlay = page.locator('.fixed.inset-0');
     const mobileServicesBtn = mobileOverlay.locator('button:has-text("Services")');
     await mobileServicesBtn.click();
 
-    // Wait for submenu animation
     await page.waitForTimeout(500);
 
-    // Click a service link within the mobile overlay
     const serviceLink = mobileOverlay.locator('a:has-text("Recovery & Migration")');
     await expect(serviceLink).toBeVisible({ timeout: 5000 });
     await serviceLink.click();
@@ -215,7 +206,6 @@ test.describe('Footer Links', () => {
   });
 
   test('footer service links work', async ({ page }) => {
-    // Test one service link from footer
     const link = page.locator('footer a:has-text("Recovery & Migration")');
     await link.click();
     await expect(page).toHaveURL(/\/recovery-migration/);

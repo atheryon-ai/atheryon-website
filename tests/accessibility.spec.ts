@@ -11,25 +11,21 @@ test.describe('Accessibility', () => {
   });
 
   test('logo images have alt text', async ({ page }) => {
-    // Navigation logo
     const navLogo = page.locator('nav img[alt="Atheryon"]');
     await expect(navLogo).toBeVisible();
 
-    // Footer logo
     const footerLogo = page.locator('footer img[alt="Atheryon"]');
     await expect(footerLogo).toBeVisible();
   });
 
   test('page has meta description', async ({ page }) => {
     const metaDescription = page.locator('meta[name="description"]');
-    await expect(metaDescription).toHaveAttribute('content', /regulated enterprises/i);
+    await expect(metaDescription).toHaveAttribute('content', /regulated/i);
   });
 
   test('navigation links are keyboard accessible', async ({ page }) => {
-    // Focus on the page
     await page.keyboard.press('Tab');
 
-    // Navigation should be reachable via keyboard
     const navLinks = page.locator('nav a');
     const linkCount = await navLinks.count();
     expect(linkCount).toBeGreaterThan(0);
@@ -50,26 +46,20 @@ test.describe('Accessibility', () => {
   });
 
   test('headings follow proper hierarchy', async ({ page }) => {
-    // Page should have exactly one h1
     const h1 = page.locator('h1');
     await expect(h1).toHaveCount(1);
-
-    // H1 should be visible
     await expect(h1).toBeVisible();
 
-    // H2s should exist for sections
     const h2s = page.locator('h2');
     const h2Count = await h2s.count();
     expect(h2Count).toBeGreaterThan(0);
   });
 
   test('links have discernible text', async ({ page }) => {
-    // CTA links should have text
     const ctaLinks = page.locator('a').filter({ hasText: /\w+/ });
     const count = await ctaLinks.count();
     expect(count).toBeGreaterThan(0);
 
-    // Check first few links have text
     for (let i = 0; i < Math.min(count, 5); i++) {
       const text = await ctaLinks.nth(i).textContent();
       expect(text?.trim().length).toBeGreaterThan(0);
@@ -77,8 +67,7 @@ test.describe('Accessibility', () => {
   });
 
   test('interactive elements have focus indicators', async ({ page }) => {
-    // Focus on a CTA link and check it's focusable (target hero section, header CTA hidden on mobile)
-    const ctaLink = page.locator('section a:has-text("Discuss your delivery challenge")').first();
+    const ctaLink = page.locator('section a:has-text("Request a confidential discussion")').first();
     await ctaLink.focus();
     await expect(ctaLink).toBeFocused();
   });
@@ -95,11 +84,9 @@ test.describe('Accessibility', () => {
   });
 
   test('color contrast is sufficient', async ({ page }) => {
-    // Check that text colors are not too light
     const headline = page.locator('h1');
     await expect(headline).toBeVisible();
 
-    // Check body text is visible
     const bodyText = page.locator('p').first();
     await expect(bodyText).toBeVisible();
   });

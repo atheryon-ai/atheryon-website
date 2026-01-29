@@ -220,6 +220,8 @@ export default function HomePage() {
           title="We recover what others abandon"
           description={home.credibility.quote}
           bullets={home.credibility.bullets}
+          imageSrc="/case-study.png"
+          imageAlt="Case study — program recovery results"
           stats={[
             { value: '50+', label: 'Programs recovered' },
             { value: '10x', label: 'Faster to production' },

@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 interface CaseStudyProps {
   badge: string
   title: string
@@ -7,6 +9,8 @@ interface CaseStudyProps {
     label: string
   }>
   bullets?: string[]
+  imageSrc?: string
+  imageAlt?: string
   imagePosition?: 'left' | 'right'
   className?: string
 }
@@ -17,6 +21,8 @@ export function CaseStudy({
   description,
   stats,
   bullets,
+  imageSrc,
+  imageAlt = 'Case study visual',
   imagePosition = 'right',
   className = '',
 }: CaseStudyProps) {
@@ -69,23 +75,28 @@ export function CaseStudy({
         )}
       </div>
 
-      {/* Image Placeholder */}
+      {/* Image */}
       <div className={imageOrder}>
         <div className="relative aspect-[4/3] bg-white border border-neutral-500/10 rounded-2xl overflow-hidden shadow-card">
-          {/* Abstract data visualization placeholder */}
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-100 to-warm-200">
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-warm-300 flex items-center justify-center">
-                <svg className="w-10 h-10 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-warm-100 to-warm-200">
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-warm-300 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-neutral-400 font-medium">Case Study Visual</p>
               </div>
-              <p className="text-sm text-neutral-400 font-medium">Case Study Visual</p>
             </div>
-          </div>
-
-          {/* Decorative gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/5 to-transparent" />
+          )}
         </div>
       </div>
     </div>

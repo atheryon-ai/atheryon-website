@@ -42,7 +42,7 @@ export const site = {
       description: 'Atheryon builds decision-grade data platforms for capital markets and institutional banking — regulator-credible, production-grade, senior-led.',
       hero: {
         headline: 'Decision-grade data platforms under pressure',
-        subheadline: 'We build data platforms for capital markets and institutional banking — where data must be trusted, governance is non-negotiable, and business risk is real. Strategy. Architecture. Delivery. Senior practitioners, end to end.',
+        subheadline: 'Platforms that accelerate regulated delivery, reduce operational and regulatory risk, and provide trusted data for critical decisions.',
         primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
         secondaryCta: { label: 'How we deliver', href: '/how-we-work' },
       },
@@ -62,6 +62,12 @@ export const site = {
           'Programs stalled after significant investment — no production outcomes',
           'Delivery too slow — teams cannot ship governed capability under time pressure',
         ],
+      },
+      problemLeadIn: {
+        badge: 'The reality',
+        title: 'The problem we see before we\u2019re engaged',
+        description:
+          'Most regulated organisations accumulate point solutions over time. Data moves, but meaning erodes. Definitions diverge across teams. Governance becomes reactive. Delivery slows. Risk rises.',
       },
       problemsWeSolve: {
         badge: 'The Problem',
