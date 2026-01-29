@@ -117,6 +117,43 @@ export default function HomePage() {
 
       <SectionDivider />
 
+      {/* Problem Lead-In — "before state" with fragmented animation */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Text */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full mb-6 shadow-soft">
+                <span className="w-2 h-2 bg-neutral-400 rounded-full" />
+                <span className="text-sm font-medium text-neutral-600">{home.problemLeadIn.badge}</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 mb-6 leading-[1.15]">
+                {home.problemLeadIn.title}
+              </h2>
+              <p className="text-lg text-neutral-600 leading-relaxed max-w-lg">
+                {home.problemLeadIn.description}
+              </p>
+            </div>
+            {/* Visual — same video, styled as unresolved / fragmented */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="w-full max-w-sm opacity-60 blur-[1px] saturate-50">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto rounded-2xl"
+                  src="/atheryon-logo-animation.mp4"
+                  poster="/atheryon-logo-animation-poster.jpg"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* Problems We Solve - 3 column grid */}
       <Section
         badge={home.problemsWeSolve.badge}

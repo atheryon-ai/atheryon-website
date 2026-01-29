@@ -63,6 +63,12 @@ export const site = {
           'Delivery too slow — teams cannot ship governed capability under time pressure',
         ],
       },
+      problemLeadIn: {
+        badge: 'The reality',
+        title: 'The problem we see before we\u2019re engaged',
+        description:
+          'Most regulated organisations accumulate point solutions over time. Data moves, but meaning erodes. Definitions diverge across teams. Governance becomes reactive. Delivery slows. Risk rises.',
+      },
       problemsWeSolve: {
         badge: 'The Problem',
         title: 'The problem we solve',
