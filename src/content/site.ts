@@ -984,7 +984,7 @@ export const site = {
       ],
     },
     legal: {
-      copyright: '2025 Atheryon. All rights reserved.',
+      copyright: 'Atheryon. All rights reserved.',
       links: [
         { label: 'Privacy Policy', href: '/privacy' },
         { label: 'Terms of Service', href: '/terms' },
