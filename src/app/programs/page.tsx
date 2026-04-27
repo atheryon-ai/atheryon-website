@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SimpleHero, Section, SectionDivider } from '@/components'
+import { SimpleHero, Section, SectionDivider, ArrowRightIcon } from '@/components'
 import { site } from '@/content/site'
 
 const { programs } = site.pages
@@ -52,9 +52,7 @@ export default function ProgramsPage() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all"
                 >
                   {program.ctaLabel}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <ArrowRightIcon className="w-4 h-4" />
                 </Link>
               ) : (
                 <span

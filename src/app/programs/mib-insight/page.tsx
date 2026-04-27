@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Section, SectionDivider, Card, Checklist, FAQ } from '@/components'
+import { Section, SectionDivider, Card, Checklist, FAQ, ArrowRightIcon } from '@/components'
 import { site } from '@/content/site'
 
 const { mibInsight } = site.pages
@@ -38,9 +38,7 @@ export default function MibInsightPage() {
               className="mt-2 inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all shadow-button"
             >
               {mibInsight.hero.ctaLabel}
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              <ArrowRightIcon />
             </a>
           </div>
         </div>
@@ -112,9 +110,7 @@ export default function MibInsightPage() {
             className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all shadow-button"
           >
             {mibInsight.finalCta.ctaLabel}
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <ArrowRightIcon />
           </a>
         </div>
       </Section>
