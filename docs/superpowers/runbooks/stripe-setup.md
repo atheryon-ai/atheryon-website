@@ -73,9 +73,12 @@ and replace with the actual Payment Link URL from Step 4.
 
 ```bash
 npx next build
+npm run verify:production-ready  # must pass cleanly — fails while REPLACE_ME placeholders exist
 git add src/content/site.ts
 git commit -m "chore(programs): set Stripe Payment Link URL for MiB Insight"
 ```
+
+The `verify:production-ready` script greps `src/` for `REPLACE_ME`. It's a pre-deploy guardrail — run it locally before pushing, and consider adding it as a CI step gate.
 
 ## 7. End-to-end test using a Stripe test card
 

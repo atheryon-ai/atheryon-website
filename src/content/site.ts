@@ -851,7 +851,7 @@ export const site = {
         },
         {
           name: 'MiB Run Program',
-          tagline: 'Deploy MiB-derived solutions in your client’s production environment.',
+          tagline: 'Run MiB-derived solutions in your client’s production environment.',
           access: 'Multi-year access',
           price: 'Coming soon',
           status: 'coming',
