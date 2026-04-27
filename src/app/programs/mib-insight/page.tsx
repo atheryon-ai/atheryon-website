@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Section, SectionDivider } from '@/components'
+import { Section, SectionDivider, Card, Checklist, FAQ } from '@/components'
 import { site } from '@/content/site'
 
 const { mibInsight } = site.pages
@@ -45,6 +45,61 @@ export default function MibInsightPage() {
           </div>
         </div>
       </section>
+
+      <SectionDivider />
+
+      {/* Who it's for */}
+      <Section badge={mibInsight.whoItsFor.badge} title={mibInsight.whoItsFor.title}>
+        <div className="max-w-3xl mx-auto">
+          <Checklist items={mibInsight.whoItsFor.items} />
+          <p className="mt-8 text-neutral-600 italic text-center">{mibInsight.whoItsFor.commonThread}</p>
+        </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* What's included */}
+      <Section badge={mibInsight.whatsIncluded.badge} title={mibInsight.whatsIncluded.title}>
+        <p className="text-lg text-neutral-700 max-w-3xl mx-auto text-center mb-12 leading-relaxed">
+          {mibInsight.whatsIncluded.intro}
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {mibInsight.whatsIncluded.artifactTypes.map((item) => (
+            <Card key={item.title} title={item.title} description={item.description} />
+          ))}
+        </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* Outcomes */}
+      <Section badge={mibInsight.outcomes.badge} title={mibInsight.outcomes.title}>
+        <div className="max-w-3xl mx-auto">
+          <Checklist items={mibInsight.outcomes.items} />
+        </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* Curriculum */}
+      <Section badge={mibInsight.curriculum.badge} title={mibInsight.curriculum.title}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {mibInsight.curriculum.modules.map((module, idx) => (
+            <div key={module.name} className="bg-white p-6 rounded-2xl border border-neutral-500/10 shadow-soft">
+              <div className="text-sm font-semibold text-brand-orange mb-2">Module {idx + 1}</div>
+              <h3 className="font-display text-xl font-semibold text-neutral-900 mb-3 tracking-tight">{module.name}</h3>
+              <p className="text-neutral-600 leading-relaxed">{module.description}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* FAQ */}
+      <Section badge={mibInsight.faq.badge} title={mibInsight.faq.title}>
+        <FAQ items={mibInsight.faq.items} />
+      </Section>
 
       <SectionDivider />
 
