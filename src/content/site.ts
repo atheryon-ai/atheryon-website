@@ -818,6 +818,145 @@ export const site = {
         email: 'info@atheryon.com.au',
       },
     },
+
+    programs: {
+      title: 'Programs | Atheryon',
+      description: 'Industry IP programs for AI agents — bootstrap a market-platform pitch and prototype with your AI agent in days.',
+      hero: {
+        headline: 'Industry IP for AI agents',
+        subheadline: 'Atheryon programs hand you agent-ready IP — prompts, schemas, designs, and reference architectures — so your AI agent can bootstrap a market-platform pitch, prototype, or proposal in days.',
+      },
+      programs: [
+        {
+          name: 'MiB Insight Program',
+          tagline: 'Show your client a credible market-platform vision in days, not months.',
+          access: '90-day access',
+          price: '$19,999',
+          status: 'available',
+          href: '/programs/mib-insight',
+          ctaLabel: 'Learn more',
+        },
+        {
+          name: 'MiB Build Program',
+          tagline: 'Implement MiB-derived solutions for your client.',
+          access: '12-month access',
+          price: 'Coming soon',
+          status: 'coming',
+          href: '#',
+          ctaLabel: 'Coming soon',
+        },
+        {
+          name: 'MiB Run Program',
+          tagline: 'Deploy MiB-derived solutions in your client’s production environment.',
+          access: 'Multi-year access',
+          price: 'Coming soon',
+          status: 'coming',
+          href: '#',
+          ctaLabel: 'Coming soon',
+        },
+      ],
+    },
+
+    mibInsight: {
+      title: 'MiB Insight Program | Atheryon',
+      description: 'Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. 90-day access, $19,999.',
+      hero: {
+        eyebrow: 'MiB Insight Program',
+        headline: 'Industry IP ready for AI agents',
+        subheadline: 'Bootstrap a market-platform pitch, proposal, or prototype with your AI agent in days. 90-day access to agent-ready IP modules covering trading, operations, and compliance — front to back.',
+        price: '$19,999',
+        priceFootnote: 'One-time. 90-day access. Expensable as professional development.',
+        ctaLabel: 'Get access',
+        ctaHref: 'https://buy.stripe.com/REPLACE_ME',
+      },
+      whoItsFor: {
+        badge: 'Who this is for',
+        title: 'Built for teams pitching or building market-platform solutions',
+        items: [
+          'Consultants and SI architects building client engagements',
+          'Capital-markets and fintech product teams (trading, post-trade, market-data, OMS/EMS, compliance vendors)',
+          'AI and developer-tool companies serving financial services',
+          'Innovation labs at incumbents — banks, exchanges, CCPs, custodians',
+        ],
+        commonThread: 'Common thread: you already use AI coding agents, and you want to skip 6–12 months of domain ramp-up.',
+      },
+      whatsIncluded: {
+        badge: 'What you get',
+        title: 'Five agent-ready IP modules',
+        intro: 'Each module is a self-contained bundle your AI agent can consume directly. Drop the prompts into Claude or Cursor, feed in the schemas, and produce tailored artifacts for your engagement.',
+        artifactTypes: [
+          { title: 'Prompts pack', description: '10–30 ready-to-use prompts per module — build a screen, generate a schema, produce test data, write a demo script.' },
+          { title: 'Schemas', description: 'CDM model excerpts, JSON Schema, and OpenAPI specs your agent can ingest.' },
+          { title: 'Design specs', description: 'Annotated screens, design tokens, and Figma exports your agent can adapt.' },
+          { title: 'Reference architectures', description: 'Mermaid diagrams and ADRs in machine-readable form.' },
+          { title: 'Example transcripts', description: 'Recorded Claude/Cursor sessions showing the IP in action — proof it works.' },
+          { title: 'Sample data', description: 'Synthetic but realistic CSV and JSON for end-to-end demos.' },
+          { title: 'Walkthrough', description: 'Short human-facing doc — read once, then drive the agent.' },
+        ],
+      },
+      outcomes: {
+        badge: 'Outcomes',
+        title: 'What you can do after 90 days',
+        items: [
+          'Generate a tailored client demo or product prototype with your agent in a day.',
+          'Produce a credible market-platform reference architecture for a client meeting or product spec.',
+          'Bootstrap a working prototype your agent can extend into a real engagement or feature.',
+        ],
+      },
+      curriculum: {
+        badge: 'Curriculum',
+        title: 'Five modules, front to back',
+        modules: [
+          { name: 'Foundations', description: 'Market-structure primer, CDM glossary, and a "how to use this IP with your AI agent" guide.' },
+          { name: 'Front Office: Trading', description: 'Orders, execution, booking, and positions.' },
+          { name: 'Middle Office: Lifecycle & Risk', description: 'Lifecycle events, settlement, valuation.' },
+          { name: 'Back Office: Books & Operations', description: 'Records, reconciliation, corporate actions.' },
+          { name: 'Compliance & Reporting', description: 'Regulatory reporting, surveillance, audit trail.' },
+        ],
+      },
+      faq: {
+        badge: 'FAQ',
+        title: 'Common questions',
+        items: [
+          {
+            question: 'How is this expensed?',
+            answer: 'The Insight Program is a professional-development purchase — typically expensable on a corporate card or out of an L&D budget. The receipt reads "MiB Insight Program — 90-day access".',
+          },
+          {
+            question: 'Is this a software license?',
+            answer: 'No. The Insight Program is an industry-IP and education program. You receive program materials — prompts, schemas, designs, reference architectures, sample data, and walkthroughs — not a software product.',
+          },
+          {
+            question: 'What happens at day 90?',
+            answer: 'Your access to the program materials ends. You can extend, or move up to the Build Program for ongoing access plus implementation IP.',
+          },
+          {
+            question: 'Can I add team members?',
+            answer: 'Yes — each additional seat is priced separately. Reply to your welcome email and we will add them.',
+          },
+          {
+            question: 'Do you offer a discount?',
+            answer: 'Yes — reach out and we will arrange one. The list price anchors the program; many buyers receive a personal promotion code at checkout.',
+          },
+          {
+            question: 'What if I need a refund?',
+            answer: 'Because program materials are delivered immediately on purchase, we do not offer refunds once access is granted. Exceptions are at our discretion.',
+          },
+        ],
+      },
+      finalCta: {
+        title: 'Ready to bootstrap your next pitch?',
+        subtitle: '90-day access. $19,999, one-time. Promotion code applied at checkout.',
+        ctaLabel: 'Get access',
+        ctaHref: 'https://buy.stripe.com/REPLACE_ME',
+      },
+    },
+    mibInsightThanks: {
+      title: 'Welcome to the MiB Insight Program | Atheryon',
+      description: 'Thank you for joining the MiB Insight Program. Your welcome email is on the way.',
+      headline: 'Welcome to the MiB Insight Program',
+      message: 'Thank you for joining. You will receive a welcome email shortly with access details and a 15-minute Foundations module to get started. If anything is unclear, reply to that email — it goes straight to Terry.',
+    },
   },
 
   footer: {
@@ -831,6 +970,7 @@ export const site = {
         { label: 'CDM Platform', href: '/cdm-platform' },
       ],
       resources: [
+        { label: 'Programs', href: '/programs' },
         { label: 'Reference Architectures', href: '/reference-architectures' },
         { label: 'AI-Ready Data', href: '/ai-ready-data' },
       ],
