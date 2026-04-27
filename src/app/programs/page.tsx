@@ -24,7 +24,7 @@ export default function ProgramsPage() {
 
       <SectionDivider />
 
-      <Section badge="Programs" title="Choose your program">
+      <Section badge={programs.section.badge} title={programs.section.title}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {programs.programs.map((program) => (
             <div

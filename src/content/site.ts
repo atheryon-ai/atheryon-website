@@ -826,6 +826,10 @@ export const site = {
         headline: 'Industry IP for AI agents',
         subheadline: 'Atheryon programs hand you agent-ready IP — prompts, schemas, designs, and reference architectures — so your AI agent can bootstrap a market-platform pitch, prototype, or proposal in days.',
       },
+      section: {
+        badge: 'Programs',
+        title: 'Choose your program',
+      },
       programs: [
         {
           name: 'MiB Insight Program',
