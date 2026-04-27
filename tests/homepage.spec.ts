@@ -68,18 +68,20 @@ test.describe('Atheryon Homepage', () => {
     const sectionTitle = page.locator('h2:has-text("What we deliver")');
     await expect(sectionTitle).toBeVisible();
 
-    // Check comparison items
-    await expect(page.locator('text=Traditional')).toBeVisible();
-    await expect(page.locator('text=Atheryon')).toBeVisible();
+    // Check comparison columns are rendered (use scoped heading locators
+    // so we don't collide with the brand name "Atheryon" elsewhere on the page)
+    await expect(page.locator('h3:has-text("Traditional Approach")')).toBeVisible();
+    await expect(page.locator('h3:has-text("Atheryon Approach")')).toBeVisible();
   });
 
   test('displays How We Work section', async ({ page }) => {
     const sectionTitle = page.locator('h2:has-text("How we work")');
     await expect(sectionTitle).toBeVisible();
 
-    // Check method steps are present
-    await expect(page.locator('text=Strategy')).toBeVisible();
-    await expect(page.locator('text=Architecture')).toBeVisible();
+    // Check method steps are present (scoped to step prefixes so we don't
+    // collide with "Reference Architectures" elsewhere on the page)
+    await expect(page.locator('text=Strategy — define outcomes')).toBeVisible();
+    await expect(page.locator('text=Architecture — semantic alignment')).toBeVisible();
   });
 
   test('displays FAQ section', async ({ page }) => {
@@ -134,7 +136,7 @@ test.describe('Atheryon Homepage', () => {
     await primaryCta.click();
 
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
   });
 
   test('secondary CTA navigates to how we work page', async ({ page }) => {

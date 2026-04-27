@@ -20,7 +20,8 @@ test.describe('Accessibility', () => {
 
   test('page has meta description', async ({ page }) => {
     const metaDescription = page.locator('meta[name="description"]');
-    await expect(metaDescription).toHaveAttribute('content', /regulated/i);
+    // Match "regulator-credible" or "regulated" — current copy uses the former
+    await expect(metaDescription).toHaveAttribute('content', /regulat/i);
   });
 
   test('navigation links are keyboard accessible', async ({ page }) => {
