@@ -57,7 +57,11 @@ export default function ProgramsPage() {
                   </svg>
                 </Link>
               ) : (
-                <span className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-neutral-500 bg-neutral-100 rounded-full cursor-not-allowed">
+                <span
+                  role="button"
+                  aria-disabled="true"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-neutral-500 bg-neutral-100 rounded-full cursor-not-allowed"
+                >
                   {program.ctaLabel}
                 </span>
               )}
