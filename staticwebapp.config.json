@@ -45,6 +45,18 @@
       "rewrite": "/m-and-a-execution.html"
     },
     {
+      "route": "/programs",
+      "rewrite": "/programs.html"
+    },
+    {
+      "route": "/programs/mib-insight",
+      "rewrite": "/programs/mib-insight.html"
+    },
+    {
+      "route": "/programs/mib-insight/thanks",
+      "rewrite": "/programs/mib-insight/thanks.html"
+    },
+    {
       "route": "/privacy",
       "rewrite": "/privacy.html"
     },
