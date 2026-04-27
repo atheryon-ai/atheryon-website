@@ -28,3 +28,19 @@ out/
 /blob-report/
 /playwright/.cache/
 tests/*.spec.ts-snapshots/
+
+# Playwright MCP browser artifacts (snapshots, console logs)
+.playwright-mcp/
+
+# Ad-hoc QA screenshots saved to repo root
+/footer-after-fix.png
+/mib-insight-mobile.png
+/mib-insight-mobile-hero.png
+
+# Local Claude Code session state
+.claude/
+
+# Local-only working asset files (drafts, source renders, Word docs)
+/assets/Atheryon_Logo_Animation_Generation*.mp4
+/assets/*.docx
+/assets/~$*
