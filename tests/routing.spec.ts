@@ -17,6 +17,8 @@ const routes = [
   { path: '/capability-enablement', title: /Capability/, h1: /Capability/i },
   { path: '/cdm-platform', title: /CDM/, h1: /Transform Your Derivatives/i },
   { path: '/m-and-a-execution', title: /M&A/, h1: /M&A/i },
+  { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
+  { path: '/programs/mib-insight', title: /MiB Insight Program/, h1: /Industry IP ready for AI agents/i },
 ];
 
 test.describe('Route Loading', () => {
