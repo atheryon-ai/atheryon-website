@@ -104,7 +104,7 @@ export function Header() {
                 </div>
               </div>
 
-              {/* Other top-level nav items (Programs, Reference Architectures, About) */}
+              {/* Top-level nav items rendered after the Services dropdown */}
               {mainNav.slice(1).map((item) => (
                 <Link key={item.href} href={item.href} className="nav-link">
                   {item.label}
@@ -232,7 +232,7 @@ export function Header() {
                     </div>
                   </div>
 
-                  {/* Other top-level nav items (Programs, Reference Architectures, About) */}
+                  {/* Top-level nav items rendered after the Services dropdown */}
                   {mainNav.slice(1).map((item) => (
                     <Link
                       key={item.href}
