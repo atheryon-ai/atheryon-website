@@ -27,11 +27,11 @@
 
 1. Stripe Dashboard → **Products** → **Add product**
 2. **Name:** `MiB Insight Program — Industry IP for AI Agents`
-3. **Description:** `Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. 30-day access.`
+3. **Description:** `Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. 30-day use.`
 4. **Image:** upload an Atheryon-branded image (square, 512×512+)
 5. **Pricing:**
    - Type: **One-time**
-   - Amount: **19999.00 USD**
+   - Amount: **14000.00 USD**
    - Tax behaviour: per Stripe Tax settings
 6. **Tax category:** "Digital download" or "Educational service" (whichever your jurisdiction prefers; "Educational service" is preferred for the procurement-bypass framing)
 7. Save the product. Note the Product ID (`prod_…`).
@@ -39,7 +39,7 @@
 ## 4. Create the Payment Link
 
 1. Stripe Dashboard → **Payment Links** → **New**
-2. Select the MiB Insight Program product (price: $19,999 USD)
+2. Select the MiB Insight Program product (price: $14,000 USD)
 3. **Custom fields** — add three:
    - `GitHub username` — type: text, required ✅
    - `Company name` — type: text, optional
@@ -47,7 +47,7 @@
 4. **Promotion codes** — toggle ON ("Allow customers to redeem promotion codes")
 5. **Tax collection** — toggle ON
 6. **Confirmation page** — choose "Don't show confirmation page; redirect to your website" → URL: `https://atheryon.com.au/programs/mib-insight/thanks` (replace with the production URL when known)
-7. **Receipt template** — verify the line item reads exactly `MiB Insight Program — 30-day access`. If not, edit the product description and confirm Stripe propagates it.
+7. **Receipt template** — verify the line item reads exactly `MiB Insight Program — 30-day use`. If not, edit the product description and confirm Stripe propagates it.
 8. Save and copy the Payment Link URL (looks like `https://buy.stripe.com/...`).
 
 ## 5. Create initial Promotion Codes

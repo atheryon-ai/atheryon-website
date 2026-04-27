@@ -23,7 +23,7 @@ Three tiers, all education-flavoured to land on professional-development expense
 
 | Tier | Public name | Access window | List price | What it enables |
 |------|-------------|---------------|------------|-----------------|
-| 1 | **MiB Insight Program** | 30 days | **$19,999 USD** | Show your client / build a credible pitch or proposal |
+| 1 | **MiB Insight Program** | 30 days | **$14,000 USD** | Show your client / build a credible pitch or proposal |
 | 2 | MiB Build Program | 12 months | ~$59,999 USD | Implement MiB-derived solutions for your client |
 | 3 | MiB Run Program | Multi-year | ~$199,999 USD | Deploy MiB-derived solutions in your client's production |
 
@@ -129,11 +129,11 @@ The "Get access" button is a plain `<a href="https://buy.stripe.com/...">`. No A
 ### 6.2 Stripe configuration
 
 - Product: *MiB Insight Program — Industry IP for AI Agents*
-- Price: **$19,999 USD**, one-time (USD default; flag if AUD preferred)
+- Price: **$14,000 USD**, one-time (USD default; flag if AUD preferred)
 - Stripe Tax enabled (auto-applies GST/VAT)
 - Payment Link URL hard-coded into `site.ts` for the CTA `href`
 - **Promotion Codes** created per deal: % off or $ off, single-use or multi-use, with expiry
-- Receipt line item: *"MiB Insight Program — 30-day access"* (no software language)
+- Receipt line item: *"MiB Insight Program — 30-day use"* (no software language)
 
 ### 6.3 Manual ops checklist (per sale, ~10 min)
 
@@ -196,7 +196,7 @@ Every customer-facing surface uses **program / materials / IP** language. Never 
 - Single document: `PROGRAM_TERMS.md` at the repo root, branded *Atheryon MiB Program Terms*
 - Body = **Polyform Internal Use 1.0.0** verbatim (industry-tested, lawyer-reviewed template)
 - Adds three Atheryon-specific clauses:
-  - 30-day access window
+  - 30-day use window
   - No redistribution
   - No production use (production rights belong to Build/Run Programs)
 - Acceptance mechanic: collaborator-invitation acceptance + first clone constitutes acceptance (standard GitHub-distribution pattern)

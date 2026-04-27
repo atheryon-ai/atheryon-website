@@ -834,8 +834,8 @@ export const site = {
         {
           name: 'MiB Insight Program',
           tagline: 'Show your client a credible market-platform vision in days, not months.',
-          access: '30-day access',
-          price: '$19,999',
+          access: 'Use within 30 days',
+          price: '$14,000',
           status: 'available',
           href: '/programs/mib-insight',
           ctaLabel: 'Learn more',
@@ -863,13 +863,13 @@ export const site = {
 
     mibInsight: {
       title: 'MiB Insight Program | Atheryon',
-      description: 'Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. 30-day access, $19,999.',
+      description: 'Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. Use within 30 days. $14,000.',
       hero: {
         eyebrow: 'MiB Insight Program',
         headline: 'Industry IP ready for AI agents',
-        subheadline: 'Bootstrap a market-platform pitch, proposal, or prototype with your AI agent in days. 30-day access to agent-ready IP modules covering trading, operations, and compliance — front to back.',
-        price: '$19,999',
-        priceFootnote: 'One-time. 30-day access. Expensable as professional development.',
+        subheadline: 'Bootstrap a market-platform pitch, proposal, or prototype with your AI agent in days. Agent-ready IP modules across trading, operations, and compliance — front to back, used within 30 days of purchase.',
+        price: '$14,000',
+        priceFootnote: 'One-time. Use within 30 days. Expensable as professional development.',
         ctaLabel: 'Get access',
         ctaHref: 'https://buy.stripe.com/REPLACE_ME',
       },
@@ -900,7 +900,7 @@ export const site = {
       },
       outcomes: {
         badge: 'Outcomes',
-        title: 'What you can do after 30 days',
+        title: 'What you can do within 30 days',
         items: [
           'Generate a tailored client demo or product prototype with your agent in a day.',
           'Produce a credible market-platform reference architecture for a client meeting or product spec.',
@@ -924,7 +924,7 @@ export const site = {
         items: [
           {
             question: 'How is this expensed?',
-            answer: 'The Insight Program is a professional-development purchase — typically expensable on a corporate card or out of an L&D budget. The receipt reads "MiB Insight Program — 30-day access".',
+            answer: 'The Insight Program is a professional-development purchase — typically expensable on a corporate card or out of an L&D budget. The receipt reads "MiB Insight Program — 30-day use".',
           },
           {
             question: 'Is this a software license?',
@@ -950,7 +950,7 @@ export const site = {
       },
       finalCta: {
         title: 'Ready to bootstrap your next pitch?',
-        subtitle: '30-day access. $19,999, one-time. Promotion code applied at checkout.',
+        subtitle: 'Use within 30 days. $14,000, one-time. Promotion code applied at checkout.',
         ctaLabel: 'Get access',
         ctaHref: 'https://buy.stripe.com/REPLACE_ME',
       },

@@ -6,7 +6,7 @@ test.describe('Programs index page', () => {
     await expect(page).toHaveTitle(/Programs/);
     await expect(page.locator('h1').first()).toContainText('Industry IP for AI agents');
     await expect(page.getByText('MiB Insight Program').first()).toBeVisible();
-    await expect(page.getByText('$19,999').first()).toBeVisible();
+    await expect(page.getByText('$14,000').first()).toBeVisible();
   });
 
   test('Insight Program card links to product page', async ({ page }) => {
@@ -21,7 +21,7 @@ test.describe('MiB Insight product page', () => {
     await page.goto('/programs/mib-insight');
     await expect(page).toHaveTitle(/MiB Insight Program/);
     await expect(page.locator('h1').first()).toContainText('Industry IP ready for AI agents');
-    await expect(page.getByText('$19,999').first()).toBeVisible();
+    await expect(page.getByText('$14,000').first()).toBeVisible();
     const cta = page.getByRole('link', { name: /Get access/i }).first();
     await expect(cta).toBeVisible();
     await expect(cta).toHaveAttribute('href', /^https:\/\/buy\.stripe\.com\//);
