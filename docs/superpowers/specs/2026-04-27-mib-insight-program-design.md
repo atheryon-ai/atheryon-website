@@ -23,7 +23,7 @@ Three tiers, all education-flavoured to land on professional-development expense
 
 | Tier | Public name | Access window | List price | What it enables |
 |------|-------------|---------------|------------|-----------------|
-| 1 | **MiB Insight Program** | 90 days | **$19,999 USD** | Show your client / build a credible pitch or proposal |
+| 1 | **MiB Insight Program** | 30 days | **$19,999 USD** | Show your client / build a credible pitch or proposal |
 | 2 | MiB Build Program | 12 months | ~$59,999 USD | Implement MiB-derived solutions for your client |
 | 3 | MiB Run Program | Multi-year | ~$199,999 USD | Deploy MiB-derived solutions in your client's production |
 
@@ -69,7 +69,7 @@ The Insight Program is for:
 
 Common thread: already using AI coding agents, want to skip 6–12 months of domain ramp-up.
 
-### 4.1 Outcomes (what the buyer can do after 90 days)
+### 4.1 Outcomes (what the buyer can do after 30 days)
 
 - Generate a tailored client demo or product prototype with their agent in a day
 - Produce a credible market-platform reference architecture for a client meeting or product spec
@@ -93,9 +93,9 @@ Common thread: already using AI coding agents, want to skip 6–12 months of dom
 1. **Hero** — program name, one-line value prop, price, primary "Get access" CTA
 2. **Who it's for** — explicit buyer-profile list (so wrong buyers self-disqualify)
 3. **What's included** — agent-ready IP modules + supporting environment + demo storylines + sample data
-4. **Outcomes** — three concrete things the buyer can do after 90 days
+4. **Outcomes** — three concrete things the buyer can do after 30 days
 5. **Curriculum detail** — module-by-module breakdown
-6. **FAQ** — must include procurement-framing questions ("How is this expensed?", "Is this a software license?", "What happens at day 90?")
+6. **FAQ** — must include procurement-framing questions ("How is this expensed?", "Is this a software license?", "What happens at day 30?")
 7. **Final CTA** — price block + "Get access" → Stripe Payment Link
 
 ### 5.4 Hero copy
@@ -133,7 +133,7 @@ The "Get access" button is a plain `<a href="https://buy.stripe.com/...">`. No A
 - Stripe Tax enabled (auto-applies GST/VAT)
 - Payment Link URL hard-coded into `site.ts` for the CTA `href`
 - **Promotion Codes** created per deal: % off or $ off, single-use or multi-use, with expiry
-- Receipt line item: *"MiB Insight Program — 90-day access"* (no software language)
+- Receipt line item: *"MiB Insight Program — 30-day access"* (no software language)
 
 ### 6.3 Manual ops checklist (per sale, ~10 min)
 
@@ -143,14 +143,14 @@ The "Get access" button is a plain `<a href="https://buy.stripe.com/...">`. No A
 4. Send welcome email from saved template (template below)
 5. Log in tracking sheet: Stripe ID · email · GitHub username · purchase date · expiry date · status
 6. Set calendar reminders:
-   - **Day 85** — gentle nudge: "5 days left — want to extend or move to Build Program?"
-   - **Day 90** — revoke collaborator + send "your access has ended" email with Build-Program upsell
+   - **Day 25** — gentle nudge: "5 days left — want to extend or move to Build Program?"
+   - **Day 30** — revoke collaborator + send "your access has ended" email with Build-Program upsell
 
 ### 6.4 Welcome-email template
 
 > Subject: Welcome to the MiB Insight Program
 >
-> Hi [Name] — thanks for joining the program. Your access is active for 90 days, until **[date]**.
+> Hi [Name] — thanks for joining the program. Your access is active for 30 days, until **[date]**.
 >
 > You've been added to the program materials here: **[GitHub repo URL]**. Please read `PROGRAM_TERMS.md` before you start.
 >
@@ -187,7 +187,7 @@ Every customer-facing surface uses **program / materials / IP** language. Never 
 
 - `site.ts` copy reviewed against the wordlist before launch
 - Stripe product name + description + receipt template
-- Welcome / day-85 / day-90 emails
+- Welcome / day-25 / day-30 emails
 - Promo-code names (e.g., not `LICENSE10` — use `INSIGHT10`)
 - Page `<title>` and meta descriptions
 
@@ -196,12 +196,12 @@ Every customer-facing surface uses **program / materials / IP** language. Never 
 - Single document: `PROGRAM_TERMS.md` at the repo root, branded *Atheryon MiB Program Terms*
 - Body = **Polyform Internal Use 1.0.0** verbatim (industry-tested, lawyer-reviewed template)
 - Adds three Atheryon-specific clauses:
-  - 90-day access window
+  - 30-day access window
   - No redistribution
   - No production use (production rights belong to Build/Run Programs)
 - Acceptance mechanic: collaborator-invitation acceptance + first clone constitutes acceptance (standard GitHub-distribution pattern)
 
-**Why this avoids lawyers:** Polyform is a recognised, low-risk template; if a buyer's legal team ever inspects, they identify it as boilerplate. The 90-day window is enforced operationally (collaborator removal), not just contractually — so if a buyer keeps a local copy after expiry, the contract still binds them not to use it.
+**Why this avoids lawyers:** Polyform is a recognised, low-risk template; if a buyer's legal team ever inspects, they identify it as boilerplate. The 30-day window is enforced operationally (collaborator removal), not just contractually — so if a buyer keeps a local copy after expiry, the contract still binds them not to use it.
 
 ## 9. v1 build order
 
@@ -244,7 +244,7 @@ Move from manual fulfillment to automated when **any** of:
 
 - Sustained > 5 sales/month for two consecutive months (not a one-off peak — manual ops genuinely doesn't scale)
 - A sale lands while Terry is asleep / travelling and fulfillment lags by hours
-- Tracking-sheet drift (a day-90 reminder gets missed)
+- Tracking-sheet drift (a day-30 reminder gets missed)
 
 Approach 2 work: Stripe Checkout migration, Azure SWA Function for `checkout.session.completed`, GitHub API integration, scheduled revocation function, Azure Table Storage for access state. ~1–2 weeks.
 

@@ -17,10 +17,10 @@ Pick one of: Notion · Airtable · Google Sheets. Create a single tracking sheet
 | GitHub username | text | from custom field |
 | Use case | text | optional, from custom field |
 | Purchase date | date | |
-| Expiry date | date | purchase date + 90 days |
+| Expiry date | date | purchase date + 30 days |
 | Status | select | active / expired / extended / refunded |
-| Day-85 reminder sent | checkbox | |
-| Day-90 revoked | checkbox | |
+| Day-25 reminder sent | checkbox | |
+| Day-30 revoked | checkbox | |
 | Notes | text | per-buyer notes |
 
 Save a calendar link to this sheet somewhere accessible (Stripe email signature, browser bookmark).
@@ -32,7 +32,7 @@ Create a new private GitHub repository (e.g., `atheryon-ai/mib-insight-program-m
 Initial contents (placeholder until real content authoring begins):
 
 - `README.md` — curriculum index (5 modules, brief descriptions)
-- `PROGRAM_TERMS.md` — Polyform Internal Use 1.0.0 verbatim, plus Atheryon clauses (90-day window, no redistribution, no production use)
+- `PROGRAM_TERMS.md` — Polyform Internal Use 1.0.0 verbatim, plus Atheryon clauses (30-day window, no redistribution, no production use)
 - `modules/01-foundations/` — placeholder
 - `modules/02-front-office-trading/` — placeholder
 - `modules/03-middle-office/` — placeholder
@@ -52,7 +52,7 @@ Subject: Welcome to the MiB Insight Program
 
 Hi [Name],
 
-Thanks for joining the MiB Insight Program. Your access is active for 90 days, until [DATE].
+Thanks for joining the MiB Insight Program. Your access is active for 30 days, until [DATE].
 
 You've been added to the program materials here: [GITHUB_URL]
 Please read PROGRAM_TERMS.md before you start.
@@ -64,7 +64,7 @@ Reply to this email any time.
 — Terry
 ```
 
-#### Template B: Day-85 nudge
+#### Template B: Day-25 nudge
 
 ```
 Subject: Five days left on your MiB Insight Program access
@@ -83,14 +83,14 @@ If neither fits, no problem — your access ends [EXPIRY_DATE] and you can retur
 — Terry
 ```
 
-#### Template C: Day-90 revocation + upsell
+#### Template C: Day-30 revocation + upsell
 
 ```
 Subject: Your MiB Insight Program access has ended
 
 Hi [Name],
 
-Your 90-day Insight Program access has ended. Per PROGRAM_TERMS.md, please remove any local copies of the materials.
+Your 30-day Insight Program access has ended. Per PROGRAM_TERMS.md, please remove any local copies of the materials.
 
 If you got value from the program — and want to take it further — the Build Program is the next step: implementation IP, 12-month access, and ongoing updates. Happy to walk you through it.
 
@@ -108,11 +108,11 @@ Make sure `terry.tsakiris@atheryon.com.au` is the email on the Stripe account so
 1. **Open the Stripe Dashboard** session and confirm payment cleared
 2. **Copy the buyer's GitHub username** from the Stripe custom field
 3. **Add as collaborator**: GitHub repo → Settings → Collaborators → Add → set permission to **Read**
-4. **Send Welcome email** (Template A) — fill in [Name], [DATE = purchase + 90 days], [GITHUB_URL = the materials repo]
+4. **Send Welcome email** (Template A) — fill in [Name], [DATE = purchase + 30 days], [GITHUB_URL = the materials repo]
 5. **Log in tracking sheet**: copy Stripe Payment ID, email, name, company, GitHub username, use case, purchase date, expiry date, status = `active`
 6. **Set two calendar reminders**:
-   - Day 85: title "Day-85 nudge — [Buyer name]" — action: send Template B
-   - Day 90: title "Day-90 revoke — [Buyer name]" — action: remove collaborator + send Template C, mark sheet `expired`
+   - Day 25: title "Day-25 nudge — [Buyer name]" — action: send Template B
+   - Day 30: title "Day-30 revoke — [Buyer name]" — action: remove collaborator + send Template C, mark sheet `expired`
 
 ## Edge cases
 
@@ -128,6 +128,6 @@ Make sure `terry.tsakiris@atheryon.com.au` is the email on the Stripe account so
 Move from manual to automated when **any** of:
 - Sustained > 5 sales/month for two consecutive months
 - A sale lands while you're asleep / travelling and fulfillment lags by hours
-- Tracking-sheet drift — a day-90 reminder gets missed
+- Tracking-sheet drift — a day-30 reminder gets missed
 
 Approach 2 work: ~1–2 weeks. Migrate to Stripe Checkout (custom fields collected via Checkout, not Payment Link), build an Azure SWA Function for the `checkout.session.completed` webhook, integrate the GitHub API for collaborator-add, build a scheduled SWA Function for revocation, and persist access state in Azure Table Storage.
