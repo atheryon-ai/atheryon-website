@@ -867,7 +867,7 @@ export const site = {
       hero: {
         eyebrow: 'MiB Insight Program',
         headline: 'Industry IP ready for AI agents',
-        subheadline: 'Bootstrap a market-platform prototype with your AI agent in days. Agent-ready IP modules across trading, operations, and compliance — front to back, used within 30 days of purchase.',
+        subheadline: 'Bootstrap a market-platform prototype with your AI agent in days. 20 years of markets knowledge synthesised into agent-ready IP modules across trading, operations, and compliance — front to back, used within 30 days of purchase.',
         price: '$14,000',
         priceFootnote: 'Plus GST. One-time. Use within 30 days. Expensable as professional development.',
         ctaLabel: 'Get access',
@@ -887,7 +887,7 @@ export const site = {
       whatsIncluded: {
         badge: 'What you get',
         title: 'Five agent-ready IP modules',
-        intro: 'Each module is a self-contained bundle your AI agent can consume directly. Drop the prompts into Claude or Cursor, feed in the schemas, and produce tailored artifacts for your engagement.',
+        intro: 'Each module distils 20 years of markets knowledge into a self-contained bundle your AI agent can consume directly. Drop the prompts into Claude or Cursor, feed in the schemas, and produce tailored artifacts for your engagement.',
         artifactTypes: [
           { title: 'Prompts pack', description: '10–30 ready-to-use prompts per module — build a screen, generate a schema, produce test data, write a demo script.' },
           { title: 'Schemas', description: 'CDM model excerpts, JSON Schema, and OpenAPI specs your agent can ingest.' },
