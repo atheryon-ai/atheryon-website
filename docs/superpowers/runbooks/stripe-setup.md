@@ -27,7 +27,7 @@
 
 1. Stripe Dashboard → **Products** → **Add product**
 2. **Name:** `MiB Insight Program — Industry IP for AI Agents`
-3. **Description:** `Industry IP ready for AI agents. Bootstrap a market-platform pitch and prototype with your AI agent in days. 30-day use.`
+3. **Description:** `Industry IP ready for AI agents. Bootstrap a market-platform prototype with your AI agent in days. 30-day use.`
 4. **Image:** upload an Atheryon-branded image (square, 512×512+)
 5. **Pricing:**
    - Type: **One-time**
