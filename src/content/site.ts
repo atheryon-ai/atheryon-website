@@ -871,7 +871,7 @@ export const site = {
         price: '$14,000 AUD',
         priceFootnote: 'Plus GST. One-time. Use within 30 days. Expensable as professional development.',
         ctaLabel: 'Get access',
-        ctaHref: 'https://buy.stripe.com/REPLACE_ME',
+        ctaHref: 'https://buy.stripe.com/bJe9AMbRFf525kZbp02Fa00',
       },
       whoItsFor: {
         badge: 'Who this is for',
@@ -952,7 +952,7 @@ export const site = {
         title: 'Ready to bootstrap your next prototype?',
         subtitle: 'Use within 30 days. $14,000 AUD + GST, one-time. Promotion code applied at checkout.',
         ctaLabel: 'Get access',
-        ctaHref: 'https://buy.stripe.com/REPLACE_ME',
+        ctaHref: 'https://buy.stripe.com/bJe9AMbRFf525kZbp02Fa00',
       },
     },
     mibInsightThanks: {
