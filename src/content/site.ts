@@ -835,7 +835,7 @@ export const site = {
           name: 'MiB Insight Program',
           tagline: 'Show your client a credible market-platform vision in days, not months.',
           access: 'Use within 30 days',
-          price: '$14,000 + GST',
+          price: '$14,000 AUD + GST',
           status: 'available',
           href: '/programs/mib-insight',
           ctaLabel: 'Learn more',
@@ -863,12 +863,12 @@ export const site = {
 
     mibInsight: {
       title: 'MiB Insight Program | Atheryon',
-      description: 'Industry IP ready for AI agents. Bootstrap a market-platform prototype with your AI agent in days. Use within 30 days. $14,000 + GST.',
+      description: 'Industry IP ready for AI agents. Bootstrap a market-platform prototype with your AI agent in days. Use within 30 days. $14,000 AUD + GST.',
       hero: {
         eyebrow: 'MiB Insight Program',
         headline: 'Industry IP ready for AI agents',
         subheadline: 'Bootstrap a market-platform prototype with your AI agent in days. 20 years of markets knowledge synthesised into agent-ready IP modules across trading, operations, and compliance — front to back, used within 30 days of purchase.',
-        price: '$14,000',
+        price: '$14,000 AUD',
         priceFootnote: 'Plus GST. One-time. Use within 30 days. Expensable as professional development.',
         ctaLabel: 'Get access',
         ctaHref: 'https://buy.stripe.com/REPLACE_ME',
@@ -950,7 +950,7 @@ export const site = {
       },
       finalCta: {
         title: 'Ready to bootstrap your next prototype?',
-        subtitle: 'Use within 30 days. $14,000 + GST, one-time. Promotion code applied at checkout.',
+        subtitle: 'Use within 30 days. $14,000 AUD + GST, one-time. Promotion code applied at checkout.',
         ctaLabel: 'Get access',
         ctaHref: 'https://buy.stripe.com/REPLACE_ME',
       },

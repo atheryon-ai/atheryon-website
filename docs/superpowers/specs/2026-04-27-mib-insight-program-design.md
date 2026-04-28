@@ -23,9 +23,9 @@ Three tiers, all education-flavoured to land on professional-development expense
 
 | Tier | Public name | Access window | List price | What it enables |
 |------|-------------|---------------|------------|-----------------|
-| 1 | **MiB Insight Program** | 30 days | **$14,000 USD** | Show your client / build a credible pitch or proposal |
-| 2 | MiB Build Program | 12 months | ~$59,999 USD | Implement MiB-derived solutions for your client |
-| 3 | MiB Run Program | Multi-year | ~$199,999 USD | Deploy MiB-derived solutions in your client's production |
+| 1 | **MiB Insight Program** | 30 days | **$14,000 AUD** | Show your client / build a credible pitch or proposal |
+| 2 | MiB Build Program | 12 months | ~$59,999 AUD | Implement MiB-derived solutions for your client |
+| 3 | MiB Run Program | Multi-year | ~$199,999 AUD | Deploy MiB-derived solutions in your client's production |
 
 **v1 scope: Insight Program only.** Build and Run pages exist as "coming" placeholders.
 
@@ -129,7 +129,7 @@ The "Get access" button is a plain `<a href="https://buy.stripe.com/...">`. No A
 ### 6.2 Stripe configuration
 
 - Product: *MiB Insight Program — Industry IP for AI Agents*
-- Price: **$14,000 USD**, one-time (USD default; flag if AUD preferred)
+- Price: **$14,000 AUD**, one-time (Atheryon's home currency; Stripe Tax adds GST automatically)
 - Stripe Tax enabled (auto-applies GST/VAT)
 - Payment Link URL hard-coded into `site.ts` for the CTA `href`
 - **Promotion Codes** created per deal: % off or $ off, single-use or multi-use, with expiry
@@ -256,7 +256,7 @@ Approach 2 work: Stripe Checkout migration, Azure SWA Function for `checkout.ses
 
 ## 14. Open questions for implementation
 
-- Currency: USD confirmed default. Override later if patterns suggest AUD or GBP per buyer geography.
+- Currency: AUD confirmed. Override later if patterns suggest USD or GBP per buyer geography.
 - Tracking-sheet platform: Notion, Airtable, or Google Sheets — Terry's preference
 - Email vendor for v1: Gmail (manual sends from terry.tsakiris@atheryon.com.au) is sufficient; templated tooling is unnecessary at < 5 sales/month
 - Private-materials-repo location: new GitHub repo under `atheryon-ai` org, name TBD (e.g., `mib-insight-program-materials`)

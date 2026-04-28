@@ -7,7 +7,7 @@
 - Stripe account active (Atheryon)
 - Bank account connected for payouts
 - ABN / tax info entered for invoice/receipt compliance
-- Default currency confirmed (USD recommended for global buyers)
+- Default currency confirmed (**AUD** — Atheryon's home currency; Stripe Tax handles GST automatically)
 
 ## 1. Brand the Stripe checkout
 
@@ -31,7 +31,7 @@
 4. **Image:** upload an Atheryon-branded image (square, 512×512+)
 5. **Pricing:**
    - Type: **One-time**
-   - Amount: **14000.00 USD**
+   - Amount: **14000.00 AUD**
    - Tax behaviour: per Stripe Tax settings
 6. **Tax category:** "Digital download" or "Educational service" (whichever your jurisdiction prefers; "Educational service" is preferred for the procurement-bypass framing)
 7. Save the product. Note the Product ID (`prod_…`).
@@ -39,7 +39,7 @@
 ## 4. Create the Payment Link
 
 1. Stripe Dashboard → **Payment Links** → **New**
-2. Select the MiB Insight Program product (price: $14,000 USD)
+2. Select the MiB Insight Program product (price: $14,000 AUD)
 3. **Custom fields** — add three:
    - `GitHub username` — type: text, required ✅
    - `Company name` — type: text, optional
