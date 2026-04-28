@@ -14,7 +14,7 @@ test.describe('Homepage CTAs', () => {
     const cta = page.locator('section a:has-text("Request a confidential discussion")').first();
     await cta.click();
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
   });
 
   test('hero secondary CTA "How we deliver" navigates to how-we-work', async ({ page }) => {
@@ -28,7 +28,7 @@ test.describe('Homepage CTAs', () => {
     const cta = page.locator('footer a:has-text("Request a confidential discussion")');
     await cta.click();
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
   });
 
   test('"Learn more about our method" link navigates to how-we-work', async ({ page }) => {
@@ -64,7 +64,7 @@ test.describe('Header Navigation', () => {
       await cta.click();
     }
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
   });
 
   test('nav "How We Work" link works', async ({ page, isMobile }) => {

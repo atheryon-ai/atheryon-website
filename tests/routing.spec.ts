@@ -8,15 +8,17 @@ import { test, expect } from '@playwright/test';
 
 const routes = [
   { path: '/', title: /Atheryon/, h1: /Decision-grade data platforms/i },
-  { path: '/contact', title: /Contact/, h1: /Let's talk/i },
+  { path: '/contact', title: /Contact/, h1: /Request a confidential discussion/i },
   { path: '/how-we-work', title: /How We Work/, h1: /How we work/i },
-  { path: '/about', title: /About/, h1: /About/i },
+  { path: '/about', title: /About/, h1: /Built by practitioners/i },
   { path: '/reference-architectures', title: /Reference/, h1: /Reference/i },
   { path: '/ai-ready-data', title: /AI-Ready Data/, h1: /AI-Ready Data/i },
   { path: '/recovery-migration', title: /Recovery/, h1: /Recovery/i },
   { path: '/capability-enablement', title: /Capability/, h1: /Capability/i },
   { path: '/cdm-platform', title: /CDM/, h1: /Transform Your Derivatives/i },
   { path: '/m-and-a-execution', title: /M&A/, h1: /M&A/i },
+  { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
+  { path: '/programs/mib-insight', title: /MiB Insight Program/, h1: /Industry IP ready for AI agents/i },
 ];
 
 test.describe('Route Loading', () => {
@@ -37,7 +39,7 @@ test.describe('Direct URL Access', () => {
   test('contact page loads on direct access', async ({ page }) => {
     await page.goto('/contact');
     await expect(page).toHaveTitle(/Contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
   });
 
   test('how-we-work page loads on direct access', async ({ page }) => {
@@ -59,7 +61,7 @@ test.describe('Navigation Between Pages', () => {
     // Navigate to contact via hero CTA
     await page.locator('section a:has-text("Request a confidential discussion")').first().click();
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText("Let's talk");
+    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
 
     // Navigate back to homepage via logo
     await page.locator('nav a').first().click();

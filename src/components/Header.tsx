@@ -8,6 +8,7 @@ import { site } from '@/content/site'
 // Streamlined navigation with Services dropdown
 const mainNav = [
   { label: 'How We Work', href: '/how-we-work' },
+  { label: 'Programs', href: '/programs' },
   { label: 'Reference Architectures', href: '/reference-architectures' },
   { label: 'About', href: '/about' },
 ]
@@ -103,15 +104,12 @@ export function Header() {
                 </div>
               </div>
 
-              {/* Reference Architectures */}
-              <Link href={mainNav[1].href} className="nav-link">
-                {mainNav[1].label}
-              </Link>
-
-              {/* About */}
-              <Link href={mainNav[2].href} className="nav-link">
-                {mainNav[2].label}
-              </Link>
+              {/* Top-level nav items rendered after the Services dropdown */}
+              {mainNav.slice(1).map((item) => (
+                <Link key={item.href} href={item.href} className="nav-link">
+                  {item.label}
+                </Link>
+              ))}
             </div>
 
             {/* CTA Button */}
@@ -234,23 +232,17 @@ export function Header() {
                     </div>
                   </div>
 
-                  {/* Reference Architectures */}
-                  <Link
-                    href={mainNav[1].href}
-                    className="text-lg font-medium text-neutral-700 hover:text-neutral-900 px-4 py-3 rounded-2xl hover:bg-white/60 transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {mainNav[1].label}
-                  </Link>
-
-                  {/* About */}
-                  <Link
-                    href={mainNav[2].href}
-                    className="text-lg font-medium text-neutral-700 hover:text-neutral-900 px-4 py-3 rounded-2xl hover:bg-white/60 transition-all"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {mainNav[2].label}
-                  </Link>
+                  {/* Top-level nav items rendered after the Services dropdown */}
+                  {mainNav.slice(1).map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-lg font-medium text-neutral-700 hover:text-neutral-900 px-4 py-3 rounded-2xl hover:bg-white/60 transition-all"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
 
                   {/* Contact */}
                   <Link
