@@ -2,7 +2,8 @@
 
 **Date:** 2026-05-03
 **Author:** Terry Tsakiris (with Claude)
-**Status:** Approved for implementation planning
+**Status:** ⚠️ **SUPERSEDED** — see `labs-platform/docs/superpowers/specs/2026-05-03-system-architecture-page-design.md`
+**Reason:** DNS verification revealed `dev.atheryon.ai` resolves to the `labs-platform` Azure Container App (`ca-labs-dev`), not atheryon-website's Static Web App. The deploy target is `labs-platform`, not `atheryon-website`. Architecture changes substantially: in-tree for Atheryon+ATLP posters (only CDM remains cross-repo), middleware bypass needed for public access, Next.js 16 dynamic (not static export), no PAT needed for two of three sources.
 **Target site:** [atheryon-website](https://github.com/atheryon-ai/atheryon-website) — Next.js 14 static export on Azure Static Web Apps
 **Target URL:** `dev.atheryon.ai/system/` (test env), eventually `www.atheryon.com.au/system/` (prod)
 
