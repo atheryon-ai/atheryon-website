@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 
 interface LabsHeroProps {
@@ -27,11 +25,9 @@ export function LabsHero({
       <div className="absolute top-20 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-container mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-2 leading-[1.1]">
-          {headlineLine1}
-        </h1>
-        <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-brand-orange mb-8 leading-[1.1]">
-          {headlineLine2}
+        <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight mb-8 leading-[1.1]">
+          <span className="block text-neutral-900 mb-2">{headlineLine1}</span>
+          <span className="block text-brand-orange">{headlineLine2}</span>
         </h1>
 
         <p className="text-lg md:text-subheading text-neutral-700 max-w-3xl mb-6 leading-relaxed">
