@@ -10,6 +10,7 @@ const mainNav = [
   { label: 'How We Work', href: '/how-we-work' },
   { label: 'Programs', href: '/programs' },
   { label: 'Reference Architectures', href: '/reference-architectures' },
+  { label: 'Labs', href: '/labs' },
   { label: 'About', href: '/about' },
 ]
 

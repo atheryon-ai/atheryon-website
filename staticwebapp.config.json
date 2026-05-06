@@ -61,6 +61,10 @@
       "allowedRoles": ["sp-clients"]
     },
     {
+      "route": "/labs",
+      "rewrite": "/labs.html"
+    },
+    {
       "route": "/privacy",
       "rewrite": "/privacy.html"
     },
