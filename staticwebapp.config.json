@@ -57,6 +57,10 @@
       "rewrite": "/programs/mib-insight/thanks.html"
     },
     {
+      "route": "/labs",
+      "rewrite": "/labs.html"
+    },
+    {
       "route": "/privacy",
       "rewrite": "/privacy.html"
     },
