@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
+  SimpleHero,
   Section,
   SectionDivider,
   Card,
@@ -25,36 +26,14 @@ export const metadata: Metadata = {
 export default function IntegrationPage() {
   return (
     <>
-      {/* Hero with CTAs */}
-      <section className="relative py-24 md:py-32 overflow-hidden pt-32 md:pt-40">
-        <div className="absolute inset-0 bg-gradient-warm" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
-              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
-              <span className="text-sm font-medium text-neutral-700">S&amp;P Global Integration</span>
-            </div>
-          </div>
-
-          <h1 className="text-balance text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
-            {integration.hero.headline}
-          </h1>
-
-          <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed mb-10">
-            {integration.hero.subheadline}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={integration.hero.primaryCta.href} className="btn-primary">
-              {integration.hero.primaryCta.label}
-            </Link>
-            <Link href={integration.hero.secondaryCta.href} className="btn-secondary">
-              {integration.hero.secondaryCta.label}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <SimpleHero
+        headline={integration.hero.headline}
+        subheadline={integration.hero.subheadline}
+        badge="S&P Global Integration"
+        primaryCta={integration.hero.primaryCta}
+        secondaryCta={integration.hero.secondaryCta}
+        balanceHeadline
+      />
 
       <SectionDivider />
 
