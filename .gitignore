@@ -44,3 +44,4 @@ tests/*.spec.ts-snapshots/
 /assets/Atheryon_Logo_Animation_Generation*.mp4
 /assets/*.docx
 /assets/~$*
+.gstack/
