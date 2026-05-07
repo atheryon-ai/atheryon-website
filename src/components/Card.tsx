@@ -45,7 +45,7 @@ interface FeatureCardProps {
 export function FeatureCard({ title, description, duration, icon, className = '' }: FeatureCardProps) {
   return (
     <div className={`p-6 md:p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card card-hover transition-all duration-300 ${className}`}>
-      <div className="flex items-start justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4 mb-4">
         <div className="flex items-center gap-4">
           {icon && (
             <div className="w-10 h-10 rounded-xl bg-warm-200 flex items-center justify-center">
@@ -59,7 +59,7 @@ export function FeatureCard({ title, description, duration, icon, className = ''
           </h3>
         </div>
         {duration && (
-          <span className="text-sm font-medium text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full whitespace-nowrap">
+          <span className="self-start text-sm font-medium text-brand-orange bg-brand-orange/10 px-3 py-1.5 rounded-full whitespace-nowrap">
             {duration}
           </span>
         )}
