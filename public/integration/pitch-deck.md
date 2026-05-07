@@ -8,15 +8,16 @@
 
 Atheryon is the integration partner for S&P Global clients who need to turn fragmented enterprise data systems into trusted, AI-ready workflows — using S&P's own **TeraHelix** data-modelling platform.
 
+- **Download the pitch pack** — atheryon.com.au/integration/atheryon-sp-integration.pdf
+- **Request a confidential discussion** — atheryon.com.au/contact
+
 ---
 
 ## The problem
 
-Most institutions have invested heavily in data — and still cannot trust it. Definitions diverge across front, middle, and back office. Pipelines break silently. AI initiatives launch on top of foundations that were never integrated in the first place.
+Most institutions have invested heavily in data and still cannot trust it: definitions diverge across front, middle, and back office, pipelines break silently, and AI initiatives launch on top of foundations that were never integrated in the first place.
 
-- **Fragmented data systems.** Multiple platforms, inconsistent semantics, no shared model. Every team holds a different version of the truth.
-- **AI on broken foundations.** Generative AI inherits whatever the data layer hands it. Without governed integration, AI outputs are unreliable from day one.
-- **Slow time to insight.** Each new question becomes a new project. Reconciliation work crowds out the analytical work that produced the investment in the first place.
+More on this: see *Why AI fails on ungoverned data* — atheryon.com.au/ai-ready-data
 
 ---
 
@@ -24,15 +25,13 @@ Most institutions have invested heavily in data — and still cannot trust it. D
 
 Twenty years inside tier-1 banks — Credit Suisse, Commonwealth Bank, Westpac, Barclays — building the data foundations that risk, finance, regulatory reporting, and trade surveillance run on. Atheryon brings that experience to S&P Global's enterprise clients: aligning their internal data estate with S&P's data products, so insight ships in weeks instead of quarters.
 
-1. **Model first, transport second.** Integration is a modelling problem, not a pipes problem. Get the semantic model right and the pipelines look after themselves.
-2. **Governance built in.** Lineage, ownership, and controls are part of the data product — not bolted on after deployment.
-3. **Production by default.** Every engagement leaves a regulator-credible, deployable platform behind. Not a slide deck. Not a prototype.
+More on our delivery method: *How we deliver* — atheryon.com.au/how-we-work
 
 ---
 
 ## The leverage — TeraHelix
 
-In June 2025, S&P Global completed its acquisition of **TeraHelix**, integrating it into the Enterprise Data Organization. TeraHelix is the technology that lets S&P link datasets across asset classes, platforms, and storage architectures — and it powers **Gearbox**, S&P's LLM-driven data-linking solution. For S&P's clients, TeraHelix is the lever that turns S&P data into integrated, AI-ready workflows inside their own estate.
+In June 2025, S&P Global completed its acquisition of **TeraHelix**, integrating it into the Enterprise Data Organization. TeraHelix is the technology that lets S&P link datasets across asset classes, platforms, and storage architectures — and it powers **Gearbox**, S&P's LLM-driven data-linking solution. For S&P's clients, TeraHelix is the lever that turns S&P data into integrated, AI-ready workflows inside their own estate. In practice this means S&P reference, market, ESG, and ratings data linked to your internal trade, position, and customer data — with the lineage to prove it.
 
 | Capability | What it delivers |
 | --- | --- |
@@ -48,24 +47,26 @@ Bloomberg and MSCI are deploying AI-driven data tools. The major data providers 
 
 ---
 
-## Outcomes
+## What changes for your clients
 
 - **Smoother data workflows** — fewer reconciliation cycles, fewer tickets, lower run cost
 - **Faster insights** — analysts ask new questions of S&P data without engineering tickets
 - **AI initiatives that hold up** — generative AI grounded in governed, lineage-tracked data
 - **A platform regulators believe** — controls and provenance built in from the first sprint
 
+See atheryon.com.au/what-we-deliver for detailed engagement outcomes.
+
 ---
 
 ## Three engagement modes
 
-### 01 — Integration diagnostic · 30 days
+### 01 — S&P Integration Diagnostic · 30 days
 Assessment of how your data estate aligns with S&P data products. Concrete integration plan, sequenced by business value, scoped against TeraHelix capabilities.
 
-### 02 — Prototype sprint · 6 weeks
+### 02 — S&P Data Sprint · 6 weeks
 Working integration of one S&P dataset into a target decision surface — analyst desk, risk view, regulatory submission, or AI pilot.
 
-### 03 — Platform engagement · 2+ quarters
+### 03 — S&P Data Platform Engagement · 2+ quarters
 Integrated, governed data platform that lets S&P data flow into every part of the business that needs it. Senior-led delivery throughout.
 
 ---
