@@ -961,6 +961,7 @@ export const site = {
       headline: 'Welcome to the MiB Insight Program',
       message: 'Thank you for joining. You will receive a welcome email shortly with access details and a 15-minute Foundations module to get started. If anything is unclear, reply to that email — it goes straight to Terry.',
     },
+
   },
 
   footer: {

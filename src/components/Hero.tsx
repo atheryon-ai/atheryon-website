@@ -118,9 +118,19 @@ interface SimpleHeroProps {
   headline: string
   subheadline: string
   badge?: string
+  primaryCta?: { label: string; href: string }
+  secondaryCta?: { label: string; href: string }
+  balanceHeadline?: boolean
 }
 
-export function SimpleHero({ headline, subheadline, badge }: SimpleHeroProps) {
+export function SimpleHero({
+  headline,
+  subheadline,
+  badge,
+  primaryCta,
+  secondaryCta,
+  balanceHeadline = false,
+}: SimpleHeroProps) {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden pt-32 md:pt-40">
       {/* Warm gradient background */}
@@ -136,13 +146,32 @@ export function SimpleHero({ headline, subheadline, badge }: SimpleHeroProps) {
           </div>
         )}
 
-        <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+        <h1
+          className={`${
+            balanceHeadline ? 'text-balance ' : ''
+          }text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]`}
+        >
           {headline}
         </h1>
 
         <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed">
           {subheadline}
         </p>
+
+        {(primaryCta || secondaryCta) && (
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            {primaryCta && (
+              <Link href={primaryCta.href} className="btn-primary">
+                {primaryCta.label}
+              </Link>
+            )}
+            {secondaryCta && (
+              <Link href={secondaryCta.href} className="btn-secondary">
+                {secondaryCta.label}
+              </Link>
+            )}
+          </div>
+        )}
       </div>
     </section>
   )
