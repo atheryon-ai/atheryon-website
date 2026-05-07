@@ -57,11 +57,6 @@
       "rewrite": "/programs/mib-insight/thanks.html"
     },
     {
-      "route": "/integration",
-      "rewrite": "/integration.html",
-      "allowedRoles": ["sp-clients"]
-    },
-    {
       "route": "/integration/*",
       "allowedRoles": ["sp-clients"]
     },
@@ -76,7 +71,7 @@
   ],
   "responseOverrides": {
     "401": {
-      "redirect": "/.auth/login/aad?post_login_redirect_uri=/integration",
+      "redirect": "/.auth/login/aad?post_login_redirect_uri=/integration/atheryon-sp-integration.pdf",
       "statusCode": 302
     }
   },
