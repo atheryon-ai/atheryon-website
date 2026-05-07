@@ -968,51 +968,27 @@ export const site = {
       hero: {
         headline: 'S&P data is only as valuable as your ability to operationalise it',
         subheadline: 'Atheryon is the integration partner for S&P Global clients who need to turn fragmented enterprise data systems into trusted, AI-ready workflows — using S&P’s own TeraHelix data-modelling platform.',
+        primaryCta: { label: 'Download the pitch pack', href: '/integration/atheryon-sp-integration.pdf' },
+        secondaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
       problem: {
         badge: 'The problem',
         title: 'Why enterprise data programs stall',
         description:
-          'Most institutions have invested heavily in data — and still cannot trust it. Definitions diverge across front, middle, and back office. Pipelines break silently. AI initiatives launch on top of foundations that were never integrated in the first place.',
-        items: [
-          {
-            title: 'Fragmented data systems',
-            description: 'Multiple platforms, inconsistent semantics, no shared model. Every team holds a different version of the truth.',
-          },
-          {
-            title: 'AI on broken foundations',
-            description: 'Generative AI inherits whatever the data layer hands it. Without governed integration, AI outputs are unreliable from day one.',
-          },
-          {
-            title: 'Slow time to insight',
-            description: 'Each new question becomes a new project. Reconciliation work crowds out the analytical work that produced the investment in the first place.',
-          },
-        ],
+          'Most institutions have invested heavily in data and still cannot trust it: definitions diverge across front, middle, and back office, pipelines break silently, and AI initiatives launch on top of foundations that were never integrated in the first place.',
+        link: { label: 'Why AI fails on ungoverned data', href: '/ai-ready-data' },
       },
       specialism: {
         badge: 'The specialism',
         title: 'An integration specialist for S&P Global clients',
         body: 'I have spent twenty years inside tier-1 banks — Credit Suisse, Commonwealth Bank, Westpac, Barclays — building the data foundations that risk, finance, regulatory reporting, and trade surveillance run on. Atheryon brings that experience to S&P Global’s enterprise clients: aligning their internal data estate with S&P’s data products, so insight ships in weeks instead of quarters.',
-        principles: [
-          {
-            title: 'Model first, transport second',
-            description: 'Integration is a modelling problem, not a pipes problem. Get the semantic model right and the pipelines look after themselves.',
-          },
-          {
-            title: 'Governance built in',
-            description: 'Lineage, ownership, and controls are part of the data product — not bolted on after deployment.',
-          },
-          {
-            title: 'Production by default',
-            description: 'Every engagement leaves a regulator-credible, deployable platform behind. Not a slide deck. Not a prototype.',
-          },
-        ],
+        methodLink: { label: 'How we deliver', href: '/how-we-work' },
       },
       teraHelix: {
         badge: 'The leverage',
         title: 'TeraHelix — S&P’s data-modelling and linking platform',
         intro:
-          'In June 2025 S&P Global completed its acquisition of TeraHelix, integrating it into the Enterprise Data Organization. TeraHelix is the technology that lets S&P link datasets across asset classes, platforms, and storage architectures — and it powers Gearbox, S&P’s LLM-driven data-linking solution. For S&P’s clients, TeraHelix is the lever that turns S&P data into integrated, AI-ready workflows inside their own estate.',
+          'In June 2025 S&P Global completed its acquisition of TeraHelix, integrating it into the Enterprise Data Organization. TeraHelix is the technology that lets S&P link datasets across asset classes, platforms, and storage architectures — and it powers Gearbox, S&P’s LLM-driven data-linking solution. For S&P’s clients, TeraHelix is the lever that turns S&P data into integrated, AI-ready workflows inside their own estate. In practice this means S&P reference, market, ESG, and ratings data linked to your internal trade, position, and customer data — with the lineage to prove it.',
         capabilities: [
           {
             title: 'Enterprise-scale data modelling',
@@ -1036,30 +1012,31 @@ export const site = {
       },
       outcomes: {
         badge: 'Outcomes',
-        title: 'What changes when integration is done well',
+        title: 'What changes for your clients',
         items: [
           'Smoother data workflows — fewer reconciliation cycles, fewer tickets, lower run cost',
           'Faster insights — analysts ask new questions of S&P data without engineering tickets',
           'AI initiatives that hold up — generative AI grounded in governed, lineage-tracked data',
           'A platform regulators believe — controls and provenance built in from the first sprint',
         ],
+        link: { label: 'Detailed engagement outcomes', href: '/what-we-deliver' },
       },
       engagement: {
         badge: 'Ways to engage',
         title: 'Three engagement modes',
         items: [
           {
-            title: 'Integration diagnostic',
+            title: 'S&P Integration Diagnostic',
             description: '30-day assessment of how your data estate aligns with S&P data products. Concrete integration plan, sequenced by business value, scoped against TeraHelix capabilities.',
             duration: '30 days',
           },
           {
-            title: 'Prototype sprint',
+            title: 'S&P Data Sprint',
             description: 'Six-week sprint to deliver a working integration of one S&P dataset into a target decision surface — analyst desk, risk view, regulatory submission, or AI pilot.',
             duration: '6 weeks',
           },
           {
-            title: 'Platform engagement',
+            title: 'S&P Data Platform Engagement',
             description: 'Multi-quarter engagement to build the integrated, governed data platform that lets S&P data flow into every part of the business that needs it. Senior-led delivery throughout.',
             duration: '2+ quarters',
           },

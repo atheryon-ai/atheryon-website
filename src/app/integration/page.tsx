@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  SimpleHero,
   Section,
   SectionDivider,
   Card,
@@ -26,11 +25,36 @@ export const metadata: Metadata = {
 export default function IntegrationPage() {
   return (
     <>
-      <SimpleHero
-        headline={integration.hero.headline}
-        subheadline={integration.hero.subheadline}
-        badge="S&P Global Integration"
-      />
+      {/* Hero with CTAs */}
+      <section className="relative py-24 md:py-32 overflow-hidden pt-32 md:pt-40">
+        <div className="absolute inset-0 bg-gradient-warm" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
+              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
+              <span className="text-sm font-medium text-neutral-700">S&amp;P Global Integration</span>
+            </div>
+          </div>
+
+          <h1 className="text-balance text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+            {integration.hero.headline}
+          </h1>
+
+          <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed mb-10">
+            {integration.hero.subheadline}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href={integration.hero.primaryCta.href} className="btn-primary">
+              {integration.hero.primaryCta.label}
+            </Link>
+            <Link href={integration.hero.secondaryCta.href} className="btn-secondary">
+              {integration.hero.secondaryCta.label}
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <SectionDivider />
 
@@ -39,11 +63,13 @@ export default function IntegrationPage() {
         title={integration.problem.title}
         description={integration.problem.description}
       >
-        <FeatureGrid columns={3}>
-          {integration.problem.items.map((item) => (
-            <Card key={item.title} title={item.title} description={item.description} />
-          ))}
-        </FeatureGrid>
+        <p className="text-base text-neutral-600 max-w-3xl">
+          More on this:{' '}
+          <Link href={integration.problem.link.href} className="text-brand-orange font-medium hover:underline">
+            {integration.problem.link.label}
+          </Link>
+          .
+        </p>
       </Section>
 
       <SectionDivider />
@@ -52,14 +78,16 @@ export default function IntegrationPage() {
         badge={integration.specialism.badge}
         title={integration.specialism.title}
       >
-        <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mb-12">
+        <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mb-6">
           {integration.specialism.body}
         </p>
-        <FeatureGrid columns={3}>
-          {integration.specialism.principles.map((p) => (
-            <Card key={p.title} title={p.title} description={p.description} />
-          ))}
-        </FeatureGrid>
+        <p className="text-base text-neutral-600 max-w-3xl">
+          More on our delivery method:{' '}
+          <Link href={integration.specialism.methodLink.href} className="text-brand-orange font-medium hover:underline">
+            {integration.specialism.methodLink.label}
+          </Link>
+          .
+        </p>
       </Section>
 
       <SectionDivider />
@@ -67,8 +95,9 @@ export default function IntegrationPage() {
       <Section
         badge={integration.teraHelix.badge}
         title={integration.teraHelix.title}
+        dark
       >
-        <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mb-12">
+        <p className="text-lg text-neutral-300 leading-relaxed max-w-3xl mb-12">
           {integration.teraHelix.intro}
         </p>
         <FeatureGrid columns={3}>
@@ -95,9 +124,15 @@ export default function IntegrationPage() {
         badge={integration.outcomes.badge}
         title={integration.outcomes.title}
       >
-        <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card max-w-2xl">
+        <div className="p-8 bg-white border border-slate-200/60 rounded-3xl shadow-card max-w-2xl mb-6">
           <Checklist items={integration.outcomes.items} />
         </div>
+        <p className="text-base text-neutral-600 max-w-3xl">
+          <Link href={integration.outcomes.link.href} className="text-brand-orange font-medium hover:underline">
+            {integration.outcomes.link.label}
+          </Link>
+          .
+        </p>
       </Section>
 
       <SectionDivider />
