@@ -57,6 +57,15 @@
       "rewrite": "/programs/mib-insight/thanks.html"
     },
     {
+      "route": "/integration",
+      "rewrite": "/integration.html",
+      "allowedRoles": ["sp-clients"]
+    },
+    {
+      "route": "/integration/*",
+      "allowedRoles": ["sp-clients"]
+    },
+    {
       "route": "/privacy",
       "rewrite": "/privacy.html"
     },
@@ -65,6 +74,12 @@
       "rewrite": "/terms.html"
     }
   ],
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/aad?post_login_redirect_uri=/integration",
+      "statusCode": 302
+    }
+  },
   "globalHeaders": {
     "Cache-Control": "public, max-age=3600",
     "X-Content-Type-Options": "nosniff",
