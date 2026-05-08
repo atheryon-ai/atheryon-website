@@ -10,21 +10,19 @@ interface CardProps {
 
 export function Card({ title, description, icon, className = '', variant = 'default' }: CardProps) {
   const variants = {
-    default: 'bg-white border border-neutral-500/10 shadow-card card-hover',
-    glass: 'glass-card card-hover',
-    outline: 'bg-transparent border-2 border-neutral-500/20 hover:border-neutral-500/30',
+    default: 'bg-white border-t border-neutral-900/10',
+    glass: 'glass-card',
+    outline: 'bg-transparent border-t border-neutral-900/15',
   }
 
   return (
-    <div className={`p-6 md:p-8 rounded-2xl transition-all duration-300 ${variants[variant]} ${className}`}>
+    <div className={`pt-6 pb-2 transition-colors duration-300 ${variants[variant]} ${className}`}>
       {icon && (
-        <div className="w-12 h-12 rounded-xl bg-warm-200 flex items-center justify-center mb-5">
-          <div className="w-6 h-6 text-neutral-500">
-            {icon}
-          </div>
+        <div className="w-6 h-6 mb-5 text-brand-orange">
+          {icon}
         </div>
       )}
-      <h3 className="font-semibold text-lg md:text-xl text-neutral-900 mb-3 tracking-tight">
+      <h3 className="font-display font-medium text-2xl text-neutral-900 mb-3 tracking-tight leading-snug">
         {title}
       </h3>
       <p className="text-neutral-600 leading-relaxed whitespace-pre-line">

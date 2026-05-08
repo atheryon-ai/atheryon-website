@@ -71,43 +71,23 @@ export default function HomePage() {
         badge={home.whoWeAreFor.badge}
         title={home.whoWeAreFor.title}
       >
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card card-hover">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-                <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-neutral-900 tracking-tight">We work with</h3>
-            </div>
-            <ul className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+          <div>
+            <div className="text-xs font-semibold tracking-[0.18em] uppercase text-emerald-700 mb-4">We work with</div>
+            <ul className="space-y-3 border-t border-neutral-900/10 pt-4">
               {home.whoWeAreFor.forClients.map((client, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-neutral-700">{client}</span>
+                <li key={index} className="text-neutral-800 text-lg leading-snug">
+                  {client}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="p-8 bg-warm-200 border border-neutral-500/10 rounded-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-warm-300 flex items-center justify-center">
-                <svg className="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-neutral-900 tracking-tight">Not a fit for</h3>
-            </div>
-            <ul className="space-y-4">
+          <div>
+            <div className="text-xs font-semibold tracking-[0.18em] uppercase text-neutral-500 mb-4">Not a fit for</div>
+            <ul className="space-y-3 border-t border-neutral-900/10 pt-4">
               {home.whoWeAreFor.notForClients.map((client, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-neutral-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                  <span className="text-neutral-500">{client}</span>
+                <li key={index} className="text-neutral-500 text-lg leading-snug">
+                  {client}
                 </li>
               ))}
             </ul>
@@ -192,15 +172,12 @@ export default function HomePage() {
               </svg>
             </Link>
           </div>
-          <div className="p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card">
-            <h3 className="text-xl font-semibold text-neutral-900 tracking-tight mb-6">What done looks like</h3>
-            <ul className="space-y-4">
+          <div>
+            <div className="text-xs font-semibold tracking-[0.18em] uppercase text-brand-orange mb-4">What done looks like</div>
+            <ul className="space-y-3 border-t border-neutral-900/10 pt-4">
               {site.pages.howWeWork.whatDoneLooksLike.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-neutral-700">{item}</span>
+                <li key={index} className="text-neutral-800 text-lg leading-snug">
+                  {item}
                 </li>
               ))}
             </ul>

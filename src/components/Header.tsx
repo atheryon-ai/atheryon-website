@@ -116,7 +116,7 @@ export function Header() {
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-neutral-900 px-5 py-2.5 rounded-full hover:bg-neutral-800 transition-all shadow-soft hover:shadow-button"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white bg-neutral-900 px-5 py-2.5 rounded-md hover:bg-neutral-800 transition-colors"
             >
               Request a discussion
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,7 +260,7 @@ export function Header() {
               <div className="px-6 py-6 border-t border-neutral-500/10">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 w-full text-base font-semibold text-white bg-neutral-900 px-6 py-4 rounded-full hover:bg-neutral-800 transition-all shadow-button"
+                  className="flex items-center justify-center gap-2 w-full text-base font-medium text-white bg-neutral-900 px-6 py-4 rounded-md hover:bg-neutral-800 transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Request a discussion

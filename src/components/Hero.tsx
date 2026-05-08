@@ -96,7 +96,7 @@ export function Hero({
                   loop
                   muted
                   playsInline
-                  className="w-full h-auto rounded-2xl"
+                  className="w-full h-auto"
                   src="/atheryon-logo-animation.mp4"
                 />
               </div>
