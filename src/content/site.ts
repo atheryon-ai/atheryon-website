@@ -962,6 +962,187 @@ export const site = {
       message: 'Thank you for joining. You will receive a welcome email shortly with access details and a 15-minute Foundations module to get started. If anything is unclear, reply to that email — it goes straight to Terry.',
     },
 
+    labs: {
+      title: 'Atheryon Labs — Pitch Pack',
+      description: 'A senior capital-markets data leader using AI to turn 20+ years of tacit banking delivery knowledge into a working, inspectable reference platform.',
+      hero: {
+        headlineLine1: 'Most capital-markets platforms take a decade and a thousand engineers.',
+        headlineLine2: 'This one took one banker, directing AI.',
+        body: 'Atheryon Labs is a CDM-native reference implementation across trading, post-trade, risk, treasury, compliance, and mortgage workflows — built by Terry Tsakiris with AI as a coding partner. Twenty years inside Credit Suisse, CBA, Westpac, Barclays, applied to a working artifact you can inspect.',
+        disclaimer: 'It is not a production bank platform. It is proof that senior domain judgment plus AI-assisted engineering compresses discovery, architecture, and working delivery into weeks.',
+        primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
+        secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
+        tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
+      },
+      credibility: {
+        badge: 'Twenty years on the inside',
+        title: 'A career inside tier-1 banks',
+        photo: '/labs/terry-headshot.jpg',
+        photoAlt: 'Terry Tsakiris',
+        body: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data program and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline. Atheryon Labs is the next iteration of that method: the same delivery muscle, paired with AI.",
+      },
+      stats: {
+        badge: 'At a glance',
+        title: 'The shape of what was built',
+        items: [
+          { value: '8', label: 'banking functions covered' },
+          { value: '1', label: 'CDM data model — ISDA-compliant, end to end' },
+          { value: '31', label: 'flagship surfaces shipped' },
+          { value: 'Live', label: 'at labs.atheryon.ai' },
+        ],
+      },
+      bankMap: {
+        badge: 'The bank, mapped',
+        title: 'Eight functions, one model',
+        caption: 'The bank as I have worked it. Each section maps to a function I have shipped inside a tier-1 institution.',
+        boxes: [
+          'Operational Data Store',
+          'Front Office',
+          'Operations',
+          'Compliance & Reporting',
+          'Market Risk',
+          'Credit Risk',
+          'Treasury',
+          'Mortgages',
+        ],
+      },
+      flagships: {
+        badge: 'Three deep-dives',
+        title: 'What the platform actually does',
+        items: [
+          {
+            number: '01',
+            name: 'Trade Board + Operations',
+            screenshot: '/labs/screenshots/ops-board.png',
+            screenshotAlt: 'Atheryon Labs trade board and operations surface',
+            problem: 'Operations teams in capital markets reconcile breaks, manage confirmations, and process lifecycle events end-of-day under hard regulatory deadlines. Most platforms model this as a workflow tool. The result is reconciliation that misses the underlying CDM event.',
+            howItWorks: 'The /ops board is built directly on the CDM event model: every break, confirmation, and lifecycle action is an event with a typed payload. Operators triage breaks, run lifecycle actions, and the audit trail is the event stream itself — not an after-the-fact log.',
+            metric: 'CV anchor: CBA Markets ODS — Reg Trade Reporting, MiFID II, Surveillance.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+          },
+          {
+            number: '02',
+            name: 'Risk Pricer + IRRBB',
+            screenshot: '/labs/screenshots/risk-pricer.png',
+            screenshotAlt: 'Atheryon Labs risk pricer and IRRBB surface',
+            problem: 'Front-office and middle-office risk teams need pricing and risk views that are fast, correct, and inspectable. Most platforms separate the pricer from the risk view, then reconcile them downstream. The reconciliation is where errors live.',
+            howItWorks: '/risk/pricer and /risk/irrbb call a typed atheryon-risk client over a shared CDM trade payload. Pricing and Greeks come from the same source; IRRBB views layer balance-sheet sensitivity on top. One model, one wire format, one source of truth for explain.',
+            metric: 'CV anchor: Credit Suisse FOBO risk + Global P&L Attribution.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+          },
+          {
+            number: '03',
+            name: 'Schema Editor + CDM Intelligence',
+            screenshot: '/labs/screenshots/schema-editor.png',
+            screenshotAlt: 'Atheryon Labs schema editor and CDM intelligence surfaces',
+            problem: 'The hardest part of any banking data platform is keeping the data model honest under change. Most platforms treat the schema as a database concern. The result is silent drift between the model the business agrees to and the model the system enforces.',
+            howItWorks: '/build/schema-editor edits CDM types directly. /explore/graph walks instances of those types. Reg Submissions reverse-map regulator artefacts back to CDM, so the schema and the regulator are always in the same conversation.',
+            metric: 'CV anchor: the data-modelling thesis — the Atheryon differentiator.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+          },
+        ],
+      },
+      vignettes: {
+        badge: "What AI couldn't know without the banker",
+        title: 'Five places domain judgment changed the implementation',
+        intro: 'In each of these, the AI proposed something plausible. Twenty years on the trading floor changed the answer. The point of this section is not that AI is bad. The point is that the durable artefact is the human directing it.',
+        items: [
+          {
+            title: 'Lifecycle state model',
+            aiProposed: 'The AI proposed modelling a trade as a row that moves through statuses — pending, confirmed, settled, terminated. Standard CRUD with a lifecycle column.',
+            bankerCorrected: 'CDM events are not trade states. Operations does not reconcile rows; it reconciles events — partial terminations, increases, novations, exercise — each one a typed payload with its own controls. The data model was rebuilt event-first, with the trade as a projection.',
+          },
+          {
+            title: 'Regulatory Trade Reporting evidence',
+            aiProposed: 'The AI generated reporting endpoints that emitted the regulator-required fields. Functionally complete by the spec.',
+            bankerCorrected: 'MiFID II and EMIR audits do not ask for the report; they ask for the *evidence chain* — what was reported, what changed, who approved, when. The platform was extended to emit a per-submission evidence artefact alongside the report. Reg Submissions is built around that artefact.',
+          },
+          {
+            title: 'Risk view granularity',
+            aiProposed: 'The AI built a risk view that aggregated P&L explain by risk type — delta, gamma, vega, theta. Textbook taxonomy.',
+            bankerCorrected: 'FOBO P&L breaks if you do not separate explain types the way the trading floor separates them — market move, new trades, amendments, lifecycle, parameters, residual. The Greeks taxonomy came second; the FOBO taxonomy came first, and it is what reconciles.',
+          },
+          {
+            title: 'Schema modelling — extend vs wrap',
+            aiProposed: 'The AI defaulted to extending CDM types whenever a bank-specific field was needed. Inheritance, by the textbook.',
+            bankerCorrected: 'Goldman SecDB taught the opposite: extend when the concept is genuinely a CDM concept with one more attribute; wrap when the concept is a bank-internal artefact that happens to reference CDM. The schema editor encodes both modes, and the rule for choosing.',
+          },
+          {
+            title: 'Ops exception handling at 5pm Sydney',
+            aiProposed: 'The AI built an exception queue with severity, owner, and SLA. Tidy.',
+            bankerCorrected: 'At 5pm Sydney, operations does not work an SLA queue. It works a *deadline*: what must be in the regulator before market open in Frankfurt. The queue was redesigned around deadline-to-cutoff, with a cutoff calendar that knows the holiday schedule of every relevant venue.',
+          },
+        ],
+      },
+      method: {
+        badge: 'The 10× method',
+        title: 'How a banker directs AI',
+        principles: [
+          {
+            title: 'Built from banking controls, not user stories.',
+            body: 'Where most AI demos start "as a user I want…", this started with the regulatory artefact, the operational control, the risk view. Controls drive surfaces; surfaces do not drive controls.',
+          },
+          {
+            title: 'Started from the product / event / data model, not the screen.',
+            body: 'CDM-first, then surfaces. The data model is the contract. Every screen is a projection of it.',
+          },
+          {
+            title: 'Generate variants, then narrow them.',
+            body: 'Three implementation candidates per surface. AI generates them in minutes. Banking judgment rejects, corrects, and chooses.',
+          },
+          {
+            title: 'Every surface traceable to a banking function, CDM concept, and operating control.',
+            body: 'The labs IA enforces this. If a surface cannot be mapped, it does not ship.',
+          },
+          {
+            title: 'The deliverable is a working decision surface, not a slide deck.',
+            body: 'Inspectable, deployable, extendable. A reader who is technical can fork it tonight.',
+          },
+        ],
+        artifact: {
+          heading: 'One real prompt, one real correction',
+          promptShown: '{{TERRY_PROMPT_EXAMPLE_PROMPT}}',
+          correctionShown: '{{TERRY_PROMPT_EXAMPLE_CORRECTION}}',
+          prLink: '{{TERRY_PROMPT_EXAMPLE_PR_URL}}',
+        },
+        disclosure: "Atheryon Labs is currently built using Anthropic's Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which AI is on the other side of the chat.",
+      },
+      engagement: {
+        badge: 'Three ways to use what is here',
+        title: 'Code, prompts, advisory',
+        cards: [
+          {
+            number: '01',
+            title: 'Take the code.',
+            body: "Fork the labs-platform repo. Inspect, deploy, extend. Suitable for technology partners and engineering teams who want to study the reference implementation. Includes architecture map, CDM model, and read-only access to a hosted instance.",
+            ctaLabel: 'Inspect',
+            ctaHref: '/contact?topic=labs-code',
+          },
+          {
+            number: '02',
+            title: 'Take the prompts.',
+            body: "A curated archive of the prompts, corrections, and architectural decisions that produced the platform — paired with Terry's reasoning per surface. Not a generic prompt library; the banker's directorial track.",
+            ctaLabel: 'License',
+            ctaHref: '/contact?topic=labs-prompts',
+          },
+          {
+            number: '03',
+            title: 'Take the advisory.',
+            body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery. Continuing the method that rescued the $84M Westpac program — now amplified.',
+            ctaLabel: 'Engage',
+            ctaHref: '/contact?topic=labs-advisory',
+          },
+        ],
+      },
+      closing: {
+        badge: 'Available for select engagements',
+        title: 'Atheryon partners with a small number of institutions per year.',
+        body: 'If what you have just read maps to a problem on your desk, the next step is a confidential conversation.',
+        primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
+        secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
+        tertiaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
+      },
+    },
   },
 
   footer: {
