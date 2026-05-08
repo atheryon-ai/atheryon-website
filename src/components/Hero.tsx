@@ -34,18 +34,13 @@ export function Hero({
       {/* Warm gradient background */}
       <div className="absolute inset-0 bg-gradient-warm" />
 
-      {/* Subtle decorative elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-atheryon-blue/5 rounded-full blur-3xl" />
-
-      <div className="relative z-10 max-w-container mx-auto px-6 py-16 md:py-20 w-full">
+<div className="relative z-10 max-w-container mx-auto px-6 py-16 md:py-20 w-full">
         <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16">
           {/* Left Column - Content (50%) */}
           <div className="flex-1 animate-stagger">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full mb-8 shadow-soft">
-              <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
-              <span className="text-sm font-medium text-neutral-700">Senior-led delivery</span>
+            {/* Eyebrow */}
+            <div className="mb-6 text-xs font-semibold tracking-[0.18em] uppercase text-brand-orange">
+              Senior-led delivery
             </div>
 
             {/* Headline - Social Grow style */}
@@ -138,11 +133,8 @@ export function SimpleHero({
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {badge && (
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-neutral-500/10 rounded-full shadow-soft">
-              <span className="w-2 h-2 bg-brand-orange rounded-full"></span>
-              <span className="text-sm font-medium text-neutral-700">{badge}</span>
-            </div>
+          <div className="mb-5 text-xs font-semibold tracking-[0.18em] uppercase text-brand-orange">
+            {badge}
           </div>
         )}
 
