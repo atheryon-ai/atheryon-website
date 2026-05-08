@@ -24,7 +24,7 @@ export function Section({ children, className = '', badge, title, description, c
               </div>
             )}
             {title && (
-              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-5 leading-[1.1] ${
+              <h2 className={`font-display text-4xl md:text-5xl lg:text-[3.5rem] font-medium tracking-tight mb-5 leading-[1.05] ${
                 dark ? 'text-white' : 'text-neutral-900'
               }`}>
                 {title}

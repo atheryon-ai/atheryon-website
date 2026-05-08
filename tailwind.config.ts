@@ -44,9 +44,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Inter Tight"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+        body: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // Social Grow typography scale

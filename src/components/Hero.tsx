@@ -43,10 +43,10 @@ export function Hero({
               Senior-led delivery
             </div>
 
-            {/* Headline - Social Grow style */}
-            <h1 className="text-4xl md:text-5xl lg:text-display-xl font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
+            {/* Headline */}
+            <h1 className="font-display text-5xl md:text-6xl lg:text-[5.25rem] font-medium tracking-[-0.02em] text-neutral-900 mb-6 leading-[1.02]">
               {words.slice(0, -2).join(' ')}{' '}
-              <span className="text-brand-orange">{words.slice(-2).join(' ')}</span>
+              <span className="italic text-brand-orange font-normal">{words.slice(-2).join(' ')}</span>
             </h1>
 
             {/* Subheadline */}
@@ -141,7 +141,7 @@ export function SimpleHero({
         <h1
           className={`${
             balanceHeadline ? 'text-balance ' : ''
-          }text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]`}
+          }font-display text-4xl md:text-5xl lg:text-[3.75rem] font-medium tracking-[-0.02em] text-neutral-900 mb-6 leading-[1.05]`}
         >
           {headline}
         </h1>
