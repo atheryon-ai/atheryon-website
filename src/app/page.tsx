@@ -97,41 +97,55 @@ export default function HomePage() {
 
       <SectionDivider />
 
-      {/* Problems We Solve - 3 column grid */}
+      {/* Problems We Solve — editorial list */}
       <Section
         badge={home.problemsWeSolve.badge}
         title={home.problemsWeSolve.title}
       >
-        <FeatureGrid columns={2}>
+        <ul className="divide-y divide-neutral-900/10 border-t border-neutral-900/10">
           {home.problemsWeSolve.cards.map((card, index) => (
-            <Card
-              key={index}
-              title={card.title}
-              description={card.description}
-              icon={problemIcons[index]}
-            />
+            <li key={index} className="grid grid-cols-12 gap-6 py-8 items-start">
+              <span className="col-span-1 text-sm font-mono text-neutral-500 pt-1">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="col-span-11 md:col-span-4 font-display text-xl md:text-2xl font-medium text-neutral-900 tracking-tight leading-snug">
+                {card.title}
+              </h3>
+              <p className="col-span-12 md:col-span-6 md:col-start-7 text-neutral-600 leading-relaxed">
+                {card.description}
+              </p>
+            </li>
           ))}
-        </FeatureGrid>
+        </ul>
       </Section>
 
       <SectionDivider />
 
-      {/* Services Section */}
+      {/* Services Section — numbered editorial list */}
       <Section
         badge={home.servicesSection.badge}
         title={home.servicesSection.title}
       >
-        <FeatureGrid columns={3}>
+        <ul className="divide-y divide-neutral-900/10 border-t border-neutral-900/10">
           {home.servicesSection.cards.map((card, index) => (
-            <Link key={index} href={card.href} className="block">
-              <Card
-                title={card.title}
-                description={card.description}
-                icon={servicesIcons[index]}
-              />
-            </Link>
+            <li key={index}>
+              <Link
+                href={card.href}
+                className="group grid grid-cols-12 gap-6 py-8 md:py-10 items-start hover:bg-neutral-900/[0.015] transition-colors -mx-4 px-4 md:-mx-6 md:px-6"
+              >
+                <span className="col-span-1 text-sm font-mono text-neutral-500 pt-1">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="col-span-11 md:col-span-4 font-display text-2xl md:text-3xl font-medium text-neutral-900 tracking-tight leading-tight group-hover:text-brand-orange transition-colors">
+                  {card.title}
+                </h3>
+                <p className="col-span-12 md:col-span-6 md:col-start-7 text-neutral-600 leading-relaxed text-base md:text-lg">
+                  {card.description}
+                </p>
+              </Link>
+            </li>
           ))}
-        </FeatureGrid>
+        </ul>
       </Section>
 
       <SectionDivider />
@@ -214,20 +228,21 @@ export default function HomePage() {
         badge={home.referenceArchitecturesTeaser.badge}
         title={home.referenceArchitecturesTeaser.title}
       >
-        <FeatureGrid columns={3}>
+        <div className="grid md:grid-cols-3 gap-x-10 gap-y-10 border-t border-neutral-900/10 pt-8">
           {home.referenceArchitecturesTeaser.cards.map((card, index) => (
-            <Card
-              key={index}
-              title={card.title}
-              description={card.description}
-              icon={
-                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              }
-            />
+            <div key={index}>
+              <div className="text-xs font-mono text-neutral-500 mb-3">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <h3 className="font-display text-xl md:text-2xl font-medium text-neutral-900 mb-3 tracking-tight leading-snug">
+                {card.title}
+              </h3>
+              <p className="text-neutral-600 leading-relaxed">
+                {card.description}
+              </p>
+            </div>
           ))}
-        </FeatureGrid>
+        </div>
         <div className="mt-10">
           <Link
             href={home.referenceArchitecturesTeaser.link.href}
