@@ -1,5 +1,11 @@
 import Image from 'next/image'
 
+interface SidebarVignette {
+  title: string
+  aiProposed: string
+  bankerCorrected: string
+}
+
 interface LabsFlagshipProps {
   number: string
   name: string
@@ -10,6 +16,7 @@ interface LabsFlagshipProps {
   metric: string
   footer: string
   reverse?: boolean
+  sidebarVignette?: SidebarVignette
 }
 
 export function LabsFlagship({
@@ -22,6 +29,7 @@ export function LabsFlagship({
   metric,
   footer,
   reverse = false,
+  sidebarVignette,
 }: LabsFlagshipProps) {
   return (
     <article
@@ -48,6 +56,22 @@ export function LabsFlagship({
         <p className="text-neutral-700 leading-relaxed mb-6">{howItWorks}</p>
         <p className="text-sm text-neutral-600 italic mb-2">{metric}</p>
         <p className="text-xs text-neutral-500 italic">{footer}</p>
+        {sidebarVignette && (
+          <div className="mt-6 p-5 bg-warm-200 border border-neutral-500/10 rounded-2xl">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-3">
+              Where the banker changed the build
+            </h4>
+            <p className="text-sm font-bold text-neutral-900 mb-2">{sidebarVignette.title}</p>
+            <p className="text-sm text-neutral-700 leading-relaxed mb-2">
+              <span className="font-semibold text-neutral-600">AI proposed: </span>
+              {sidebarVignette.aiProposed}
+            </p>
+            <p className="text-sm text-neutral-900 leading-relaxed">
+              <span className="font-semibold text-brand-orange">Banker corrected: </span>
+              {sidebarVignette.bankerCorrected}
+            </p>
+          </div>
+        )}
       </div>
     </article>
   )
