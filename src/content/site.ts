@@ -1280,6 +1280,154 @@ export const site = {
         secondaryCta: { label: 'See the artefact', href: '/labs' },
       },
     },
+
+    data: {
+      title: 'Data — Atheryon',
+      description: 'The foundation: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+      hero: {
+        eyebrow: '01 · Data',
+        title: 'Data',
+        definition: 'The foundation: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+        positioning: 'Most enterprises have data. Few have a foundation that intelligence and transformation can stand on. We build that foundation.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most enterprise data programs stall.',
+        bullets: [
+          'Fragmented sources with no shared ownership or model.',
+          'Governance written as policy, not encoded in the platform.',
+          'Schemas drift between what the business agrees and what the system enforces.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'From fragmented sources to a decision-grade foundation.',
+        cards: [
+          { title: 'CDM Platform', body: 'ISDA Common Domain Model implementations — schemas, validators, transforms, governance — for capital-markets data estates.' },
+          { title: 'Reference Architectures', body: 'Cloud-native architectures for trading, risk, ops, and reporting — built on CDM, deployable into your estate.' },
+          { title: 'Data Foundations', body: 'Pipelines, modelling, governance, lineage, and unified visibility across your enterprise data estate.' },
+          { title: 'Schema Modelling', body: 'CDM-first schema design with extension and wrapping patterns for bank-internal artefacts.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See the data foundation in Labs.',
+        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas.',
+        screenshot: '/reality/labs-screenshot-data.png',
+        screenshotAlt: 'Atheryon Labs schema editor and ODS surfaces',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Not sure where to start?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation focused on your data foundation.',
+        cta: { label: 'Request a session', href: '/contact' },
+      },
+    },
+    intelligence: {
+      title: 'Intelligence — Atheryon',
+      description: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
+      hero: {
+        eyebrow: '02 · Intelligence',
+        title: 'Intelligence',
+        definition: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
+        positioning: 'Data alone does not improve decisions. We build the intelligence layer that turns trusted data into prediction, automation, and decision support.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most AI initiatives stall.',
+        bullets: [
+          'Models built on ungoverned data fail audits and lose stakeholder trust.',
+          'Insight projects deliver dashboards, not decision change.',
+          'Automation gets bolted on instead of designed into the operating model.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'Decision advantage from foundations you trust.',
+        cards: [
+          { title: 'AI Readiness', body: 'Assess data maturity, governance, and model lifecycle readiness before AI investment.' },
+          { title: 'Analytics & ML', body: 'Production analytics dashboards, ML pipelines, and the data quality controls that make them trustworthy.' },
+          { title: 'Insight Products', body: 'Decision surfaces — not dashboards. Built around the choices the business actually has to make.' },
+          { title: 'AI-Augmented Decisioning', body: 'Workflow-level AI integration with human-in-the-loop controls and audit trails.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See the intelligence layer in Labs.',
+        body: 'The Analytics Dashboard and ML Workbench in Atheryon Labs show the intelligence layer running on top of governed CDM data — including 11 AI-detected operational patterns.',
+        screenshot: '/reality/labs-screenshot-intelligence.png',
+        screenshotAlt: 'Atheryon Labs analytics dashboard and ML workbench',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Not sure where to start?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation focused on your intelligence layer.',
+        cta: { label: 'Request a session', href: '/contact' },
+      },
+    },
+    transformation: {
+      title: 'Transformation — Atheryon',
+      description: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+      hero: {
+        eyebrow: '03 · Transformation',
+        title: 'Transformation',
+        definition: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+        positioning: 'Capability is not change. Transformation is the operating shift that connects new platforms and intelligence to measurable business outcomes — and to the people who must adopt them.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most transformations stall mid-program.',
+        bullets: [
+          'Roadmaps bought from a deck rarely survive contact with the operating model.',
+          'New platforms ship without the workflow redesign that makes them load-bearing.',
+          'Adoption is treated as comms instead of as workflow integration.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'From distressed program to delivered outcome.',
+        cards: [
+          { title: 'Recovery & Migration', body: 'Diagnose distressed programs, restructure delivery, migrate critical data and platforms safely.' },
+          { title: 'M&A Execution', body: 'Day-1 readiness, Day-100 integration, divestiture carve-outs — the data and platform spine of M&A.' },
+          { title: 'Capability Enablement', body: 'Build internal data, AI, and platform capability in the institutions we serve, not on top of them.' },
+          { title: 'Engagement Shapes', body: '30-day diagnostic, prototype sprint, or full platform engagement — matched to the risk profile of the work.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See transformation in Labs.',
+        body: 'The Trade Board, Operations, and lifecycle surfaces in Atheryon Labs are the operating change in action — break triage, confirmations, lifecycle management, and SSI on a unified CDM event model.',
+        screenshot: '/reality/labs-screenshot-transformation.png',
+        screenshotAlt: 'Atheryon Labs trade board and operations surfaces',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Not sure where to start?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation focused on your transformation pathway.',
+        cta: { label: 'Request a session', href: '/contact' },
+      },
+    },
   },
 
   footer: {
