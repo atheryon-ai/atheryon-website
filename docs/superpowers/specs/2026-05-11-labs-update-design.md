@@ -330,17 +330,24 @@ Each thumb is ~50–150 KB; total static payload added to the site is roughly 2�
 
 ### 9.4 `src/app/labs/page.tsx` — Workstream B edit
 
-After the `<Section badge={labs.offersPreview.badge} …>` block (and its trailing `<SectionDivider />`), add a small inline link row directing readers to the discovery surface:
+Render the discovery-surface link as the **last element inside the existing `offersPreview` Section**, immediately below the three preview cards. This keeps the existing `<SectionDivider />` rhythm intact (no new dividers are introduced) and preserves Workstream A's structure.
 
 ```tsx
-<div className="max-w-container mx-auto px-6 -mt-6 mb-12">
-  <Link href="/labs/themes" className="inline-flex items-center text-sm font-semibold text-brand-orange hover:underline">
-    Browse the surface →
-  </Link>
-</div>
+<Section badge={labs.offersPreview.badge} title={labs.offersPreview.title}>
+  <div className="grid md:grid-cols-3 gap-6">
+    {/* …existing offersPreview.items map (unchanged)… */}
+  </div>
+
+  {/* Workstream B addition — link to discovery surface */}
+  <div className="mt-10 pt-6 border-t border-neutral-500/10">
+    <Link href="/labs/themes" className="inline-flex items-center text-sm font-semibold text-brand-orange hover:underline">
+      Browse the full surface — 29 themes · 147 pages →
+    </Link>
+  </div>
+</Section>
 ```
 
-(Final placement and exact styling are an implementation detail; the requirement is one clearly visible link on `/labs` to `/labs/themes`. The styling above is a minimal default that matches the site's existing inline-link voice.)
+The requirement is one clearly visible link on `/labs` to `/labs/themes`. Styling matches the site's existing inline-link voice.
 
 ### 9.5 Linking strategy
 
@@ -363,7 +370,7 @@ After the `<Section badge={labs.offersPreview.badge} …>` block (and its traili
 
 **Modified (overlap noted):**
 - `src/content/site.ts` — Workstream A adds `reality.hero.partnerStrip`, rewrites `labs.hero`, adds `labs.whyCredible`, rewrites `labs.engagement.cards`, updates `labs.title` / `labs.description`. Workstream B adds `pages.themes`.
-- `src/app/labs/page.tsx` — Workstream A inserts `whyCredible` section between hero and offers preview (§6.4); Workstream B adds "Browse the surface →" link after offers preview (§9.4). Both edits are independent.
+- `src/app/labs/page.tsx` — Workstream A inserts `whyCredible` section between hero and offers preview (§6.4); Workstream B adds a "Browse the full surface →" link as the last element *inside* the offers preview section (§9.4). Both edits are independent.
 - `src/components/RealityHero.tsx` — Workstream A only: optional `partnerStrip` prop (§6.1).
 - `src/components/LabsHero.tsx` — Workstream A only: `disclaimer` prop becomes optional (§6.3).
 - `src/app/reality/page.tsx` — Workstream A only: pass `partnerStrip` through (§6.2).
@@ -376,20 +383,22 @@ The end-state of `/labs/page.tsx`, after both workstreams ship, must read top-to
 ```
 <LabsHero …no disclaimer prop… />
 <SectionDivider />
-<Section> Why this is credible </Section>           ← Workstream A (new)
+<Section> Why this is credible </Section>                              ← Workstream A (new)
 <SectionDivider />
-<Section> Three ways to use this work / Code, prompts, advisory </Section>  ← unchanged
+<Section> Three ways to use this work / Code, prompts, advisory
+  └─ existing 3 preview cards (unchanged)
+  └─ "Browse the full surface →" link → /labs/themes              ← Workstream B (new, in-section)
+</Section>
 <SectionDivider />
-<div> Browse the surface → </div>                   ← Workstream B (new)
-<Section> Evidence (stats / bank map / partners) </Section>  ← unchanged
+<Section> Evidence (stats / bank map / partners) </Section>            ← unchanged
 <SectionDivider />
-<Section> Flagships </Section>                      ← unchanged
+<Section> Flagships </Section>                                         ← unchanged
 <SectionDivider />
-<Section> Banker × AI (bio + vignettes) </Section>  ← unchanged
+<Section> Banker × AI (bio + vignettes) </Section>                     ← unchanged
 <SectionDivider />
-<Section> Method </Section>                         ← unchanged
+<Section> Method </Section>                                            ← unchanged
 <SectionDivider />
-<Section> Engagement (3 cards w/ new copy) + closing </Section>  ← Workstream A (cards rewritten)
+<Section> Engagement (3 cards w/ new copy) + closing </Section>        ← Workstream A (cards rewritten)
 ```
 
 ## 11. Site type implications
@@ -429,7 +438,7 @@ The change is done when:
 - `/reality` renders a partner strip beneath the CTAs reading `S&P TeraHelix integration partner · Microsoft partner` (with eyebrow label and dot separator), and `/reality`'s pillars / Floor 13 / methodology / proof / closing are visually identical to before.
 - `/labs` hero displays `Atheryon Labs` (dark) over `The banking platform built by AI.` (brand-orange), followed by the new body paragraph and the three existing CTAs. No italic disclaimer paragraph appears.
 - A new "Why this is credible" section appears between the `/labs` hero and the offers preview, with the four paragraphs from §5.3 and the section badge `Why this is credible`.
-- A "Browse the surface →" link appears after the `/labs` offers preview and routes to `/labs/themes`.
+- A "Browse the full surface →" link appears as the last element inside the `/labs` offers preview section and routes to `/labs/themes`.
 - The `/labs` engagement section's three cards display the new titles (`Buy the code.` / `License the prompts.` / `Engage the builder.`), the new body copy (§5.5), and the new CTA labels. `anchorId` values, hrefs, and the section header `Code, prompts, advisory` are unchanged.
 - The `/labs` `offersPreview` section is visually and textually identical to before.
 - `/labs` `evidence`, `flagships`, `bankerWedge`, `method`, and `closing` sections are visually and textually identical to before.
