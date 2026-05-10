@@ -35,6 +35,17 @@ export default function LabsPage() {
 
       <SectionDivider />
 
+      {/* §1.5 Why this is credible */}
+      <Section badge={labs.whyCredible.badge} title={labs.whyCredible.title}>
+        <div className="space-y-5 max-w-3xl">
+          {labs.whyCredible.paragraphs.map((p) => (
+            <p key={p.slice(0, 24)} className="text-lg text-neutral-700 leading-relaxed">{p}</p>
+          ))}
+        </div>
+      </Section>
+
+      <SectionDivider />
+
       {/* §2 Offers preview — surfaced early so the AI-co reader sees the ask in <30s */}
       <Section badge={labs.offersPreview.badge} title={labs.offersPreview.title}>
         <div className="grid md:grid-cols-3 gap-6">
