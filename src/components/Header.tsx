@@ -9,7 +9,7 @@ import { site } from '@/content/site'
 const mainNav = [
   { label: 'Reality', href: '/reality' },
   { label: 'Data', href: '/data' },
-  { label: 'Intelligence', href: '/intelligence' },
+  { label: 'AI Direction', href: '/ai-direction' },
   { label: 'Transformation', href: '/transformation' },
   { label: 'Labs', href: '/labs' },
   { label: 'About', href: '/about' },

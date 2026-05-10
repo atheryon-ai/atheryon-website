@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-type PillarId = 'data' | 'intelligence' | 'transformation'
+type PillarId = 'data' | 'aiDirection' | 'transformation'
 type Selection = PillarId | 'custom' | null
 
 interface Dial {
@@ -37,7 +37,7 @@ interface FloorThirteenProps {
   inputCta: string
   blueprints: {
     data: Blueprint
-    intelligence: Blueprint
+    aiDirection: Blueprint
     transformation: Blueprint
     custom: Blueprint
   }

@@ -1,9 +1,30 @@
 import { test, expect } from '@playwright/test'
 
 const pillars = [
-  { path: '/data', eyebrow: '01 · Data', h1: 'Data', proofAlt: /schema editor/i },
-  { path: '/intelligence', eyebrow: '02 · Intelligence', h1: 'Intelligence', proofAlt: /analytics/i },
-  { path: '/transformation', eyebrow: '03 · Transformation', h1: 'Transformation', proofAlt: /trade board/i },
+  {
+    path: '/data',
+    eyebrow: '01 · Data',
+    h1: 'Data',
+    proofAlt: /schema editor/i,
+    closingLabel: /Request a session/i,
+    closingHref: '/contact',
+  },
+  {
+    path: '/ai-direction',
+    eyebrow: '02 · AI Direction',
+    h1: 'AI Direction',
+    proofAlt: /analytics/i,
+    closingLabel: /Request access/i,
+    closingHref: '/contact?topic=ai-direction',
+  },
+  {
+    path: '/transformation',
+    eyebrow: '03 · Transformation',
+    h1: 'Transformation',
+    proofAlt: /trade board/i,
+    closingLabel: /Request a session/i,
+    closingHref: '/contact',
+  },
 ]
 
 for (const p of pillars) {
@@ -31,8 +52,8 @@ for (const p of pillars) {
       await expect(page.getByAltText(p.proofAlt)).toBeVisible()
     })
 
-    test('closing CTA links to /contact', async ({ page }) => {
-      await expect(page.getByRole('link', { name: /Request a session/i })).toHaveAttribute('href', '/contact')
+    test('closing CTA links to contact', async ({ page }) => {
+      await expect(page.getByRole('link', { name: p.closingLabel })).toHaveAttribute('href', p.closingHref)
     })
   })
 }

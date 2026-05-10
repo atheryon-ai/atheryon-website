@@ -486,9 +486,9 @@ export const site = {
           },
           {
             number: '02',
-            title: 'Intelligence',
-            body: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
-            href: '/intelligence',
+            title: 'AI Direction',
+            body: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
+            href: '/ai-direction',
           },
           {
             number: '03',
@@ -516,7 +516,7 @@ export const site = {
         intro: 'The switchboard generates a Reality Blueprint below.',
         dials: [
           { id: 'data', title: 'Data pain', body: '"Our data is fragmented, inconsistent, or inaccessible."', cta: 'Plug into Data' },
-          { id: 'intelligence', title: 'Intelligence pain', body: '"We have data, but not enough predictive or decision value."', cta: 'Plug into Intelligence' },
+          { id: 'aiDirection', title: 'AI direction pain', body: '"We need to study how senior domain expertise directs frontier AI from plausible code into shipped, regulated systems."', cta: 'Plug into AI Direction' },
           { id: 'transformation', title: 'Transformation pain', body: '"We need change, but the roadmap and operating model are unclear."', cta: 'Plug into Transformation' },
         ],
         inputPlaceholder: 'Optional: type your biggest data or transformation challenge',
@@ -531,13 +531,13 @@ export const site = {
               'Prioritise the first high-value data product that can prove momentum.',
             ],
           },
-          intelligence: {
-            title: 'Reality Blueprint: Intelligence Layer',
-            intro: 'Your organisation may have data available, but the intelligence layer is not yet turning it into prediction, automation, or better decisions.',
+          aiDirection: {
+            title: 'Reality Blueprint: AI Direction',
+            intro: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The artefact you are looking for is the directorial record — the prompts, corrections, and architectural choices a 20-year banker made to turn AI output into production-grade banking systems.',
             bullets: [
-              'Assess analytics maturity and AI readiness.',
-              'Identify use cases where models, automation, or decision dashboards can create measurable value.',
-              'Build an intelligence layer connected to trusted enterprise data foundations.',
+              'Trace where a prompt produced a textbook-but-wrong implementation, and the domain rule that corrected it. Five worked examples live on /labs (lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars).',
+              'Study the methodology — controls before user stories, data model before screen, generate-three-then-narrow — that compressed a multi-decade banking platform into weeks.',
+              "Take the directorial archive, not a prompt library: every prompt paired with the banker's reasoning, paired with the resulting code in the labs-platform repo.",
             ],
           },
           transformation: {
@@ -553,7 +553,7 @@ export const site = {
             title: 'Reality Blueprint: Custom Challenge',
             intro: 'Your custom challenge has been captured.',
             bullets: [
-              'Classify the challenge across data, intelligence, and transformation.',
+              'Classify the challenge across data, AI direction, and transformation.',
               'Generate recommended first moves based on the selected pain point.',
               'Continue the conversation in a Reality Architecture Session.',
             ],
@@ -562,7 +562,7 @@ export const site = {
         sellCardsHeading: 'Your next moves',
         recommendation: {
           data: 'code',
-          intelligence: 'prompts',
+          aiDirection: 'prompts',
           transformation: 'advisory',
         },
         sellCards: [
@@ -649,53 +649,53 @@ export const site = {
         cta: { label: 'Request a session', href: '/contact' },
       },
     },
-    intelligence: {
-      title: 'Intelligence — Atheryon',
-      description: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
+    aiDirection: {
+      title: 'AI Direction — Atheryon',
+      description: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
       hero: {
-        eyebrow: '02 · Intelligence',
-        title: 'Intelligence',
-        definition: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
-        positioning: 'Data alone does not improve decisions. We build the intelligence layer that turns trusted data into prediction, automation, and decision support.',
+        eyebrow: '02 · AI Direction',
+        title: 'AI Direction',
+        definition: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
+        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it.',
         breadcrumbHref: '/reality',
         breadcrumbLabel: '← Back to Reality',
       },
       hiddenReality: {
         badge: 'The hidden reality',
-        title: 'Why most AI initiatives stall.',
+        title: 'Why most AI-built software fails the regulated test.',
         bullets: [
-          'Models built on ungoverned data fail audits and lose stakeholder trust.',
-          'Insight projects deliver dashboards, not decision change.',
-          'Automation gets bolted on instead of designed into the operating model.',
+          'AI proposes textbook implementations. Regulators ask for evidence chains, not endpoints.',
+          'Frontier models do not know that operations works deadlines, not SLAs, at 5pm Sydney.',
+          'The first plausible answer is the wrong answer in any domain with thirty years of edge cases.',
         ],
       },
       whatWeDo: {
         badge: 'What we do',
-        title: 'Decision advantage from foundations you trust.',
+        title: 'A directorial track, not a prompt library.',
         cards: [
-          { title: 'AI Readiness', body: 'Assess data maturity, governance, and model lifecycle readiness before AI investment.' },
-          { title: 'Analytics & ML', body: 'Production analytics dashboards, ML pipelines, and the data quality controls that make them trustworthy.' },
-          { title: 'Insight Products', body: 'Decision surfaces — not dashboards. Built around the choices the business actually has to make.' },
-          { title: 'AI-Augmented Decisioning', body: 'Workflow-level AI integration with human-in-the-loop controls and audit trails.' },
+          { title: 'Five worked corrections', body: 'Lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars — five places where AI proposed the textbook answer and a banker corrected it. Each pairs the prompt, the correction, and the resulting code on /labs.' },
+          { title: 'The 10× method', body: 'Built from regulatory artefacts and operational controls, not user stories. Started from the data model, not the screen. Generate three implementation candidates, then narrow with judgment. Surface-to-control traceability enforced.' },
+          { title: 'The directorial archive', body: "Every prompt paired with Terry's reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
+          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic's Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
         ],
       },
       proof: {
         badge: 'Proof',
-        title: 'See the intelligence layer in Labs.',
-        body: 'The Analytics Dashboard and ML Workbench in Atheryon Labs show the intelligence layer running on top of governed CDM data — including 11 AI-detected operational patterns.',
+        title: 'See the direction in action on Labs.',
+        body: 'Atheryon Labs is the working artefact: 31 banking surfaces shipped under directorial AI in weeks. Every surface traces to a regulatory artefact, an operational control, or a risk view — never a "as a user I want" story.',
         screenshot: '/reality/labs-screenshot-intelligence.png',
         screenshotAlt: 'Atheryon Labs analytics dashboard and ML workbench',
         cta: { label: 'Explore Labs →', href: '/labs' },
       },
       floor13Nudge: {
-        body: 'Not sure where to start?',
+        body: 'Want the directorial track, not the platform?',
         cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
       },
       closing: {
         badge: 'Next step',
-        title: 'Book a Reality Architecture Session.',
-        body: 'A 45-minute consultation focused on your intelligence layer.',
-        cta: { label: 'Request a session', href: '/contact' },
+        title: 'License the directorial track.',
+        body: 'For AI labs, model researchers, and developer-product teams studying how senior domain expertise turns frontier AI into regulated-system delivery.',
+        cta: { label: 'Request access', href: '/contact?topic=ai-direction' },
       },
     },
     transformation: {

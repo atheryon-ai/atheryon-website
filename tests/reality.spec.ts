@@ -15,7 +15,7 @@ test.describe('/reality page', () => {
     const cards = page.getByTestId('reality-pillar-card')
     await expect(cards).toHaveCount(3)
     await expect(cards.nth(0).getByRole('link')).toHaveAttribute('href', '/data')
-    await expect(cards.nth(1).getByRole('link')).toHaveAttribute('href', '/intelligence')
+    await expect(cards.nth(1).getByRole('link')).toHaveAttribute('href', '/ai-direction')
     await expect(cards.nth(2).getByRole('link')).toHaveAttribute('href', '/transformation')
   })
 
@@ -35,7 +35,7 @@ test.describe('/reality page', () => {
     await page.getByTestId('floor13-dial').nth(1).getByRole('button').click()
     const titles = page.getByTestId('floor13-blueprint').locator('h3')
     await expect(titles).toHaveCount(1)
-    await expect(titles).toContainText('Reality Blueprint: Intelligence Layer')
+    await expect(titles).toContainText('Reality Blueprint: AI Direction')
   })
 
   test('typed challenge appears in the rendered intro line', async ({ page }) => {
