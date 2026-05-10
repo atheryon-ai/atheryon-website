@@ -99,7 +99,7 @@ Replace `site.pages.labs.hero` content with:
 | `headlineLine2` | `The banking platform built by AI.` |
 | `body` | `Atheryon Labs is a working CDM-native banking reference platform built by one capital-markets expert directing AI. It demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software.` |
 | `disclaimer` | **removed from data** (key deleted) |
-| `primaryCta` | unchanged — `{ label: 'See it live', href: 'https://www.atheryon.com.au' }` |
+| `primaryCta` | label unchanged; **href changes** — `{ label: 'See it live', href: 'https://labs.atheryon.ai' }`. The current data value `https://www.atheryon.com.au` is a pre-existing bug (the user is already on that domain when reading the page), and `tests/labs.spec.ts:17` already asserts `https://labs.atheryon.ai`. This change aligns data with the test and with the obvious intent — "See it *live*" should point at the live labs platform. |
 | `secondaryCta` | unchanged — `{ label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' }` |
 | `tertiaryCta` | unchanged — `{ label: 'Request a confidential discussion', href: '/contact' }` |
 
@@ -122,11 +122,19 @@ whyCredible: {
 }
 ```
 
-### 5.4 `labs.offersPreview` — unchanged
+### 5.4 `labs.offersPreview` — titles unchanged, anchor hrefs renamed
 
-Keep titles, oneLiners, and section title as-is. The "Take the …" voice stays as the soft top-of-page invitation.
+Titles, oneLiners, and section title (`Code, prompts, advisory`) stay as-is. The "Take the …" voice remains the soft top-of-page invitation.
 
-### 5.5 `labs.engagement.cards` — rewrite per-card content; keep section title and ids
+The three `anchorHref` values are renamed to drop the `offers-` prefix so they align with the reality sellCards (which already use `/labs#code` / `/labs#prompts` / `/labs#advisory`) and the existing test in `tests/labs.spec.ts:64-69` (which already asserts `#code` / `#prompts` / `#advisory`):
+
+| Card | `anchorHref` (old) | `anchorHref` (new) |
+|---|---|---|
+| 01 | `#offers-code` | `#code` |
+| 02 | `#offers-prompts` | `#prompts` |
+| 03 | `#offers-advisory` | `#advisory` |
+
+### 5.5 `labs.engagement.cards` — rewrite per-card content; rename anchorIds to drop the `offers-` prefix
 
 `labs.engagement.title` stays `Code, prompts, advisory` (section header is unchanged). Per-card edits:
 
@@ -135,15 +143,20 @@ Keep titles, oneLiners, and section title as-is. The "Take the …" voice stays 
 | 01 (id: `code`) | `title` | `Take the code.` | `Buy the code.` |
 | 01 | `body` | (existing co-marketing language) | `License the Atheryon Labs platform code as a working banking reference implementation. Best for: data vendors, AI firms, banks, consultancies, cloud partners, and fintechs that need a credible vertical platform asset.` |
 | 01 | `ctaLabel` | `Inspect` | `Buy the code` |
-| 01 | `ctaHref`, `anchorId`, `number` | unchanged | unchanged |
+| 01 | `anchorId` | `offers-code` | `code` |
+| 01 | `ctaHref`, `number` | unchanged | unchanged |
 | 02 (id: `prompts`) | `title` | `Take the prompts.` | `License the prompts.` |
 | 02 | `body` | (existing directorial-archive language) | `License the prompt archive that directed the AI build. This includes the instructions, corrections, domain constraints, architecture decisions, and banking reasoning used to turn AI from a generic code generator into a useful regulated-finance build partner.` |
 | 02 | `ctaLabel` | `License` | `License the prompts` |
-| 02 | `ctaHref`, `anchorId`, `number` | unchanged | unchanged |
+| 02 | `anchorId` | `offers-prompts` | `prompts` |
+| 02 | `ctaHref`, `number` | unchanged | unchanged |
 | 03 (id: `advisory`) | `title` | `Take the advisory.` | `Engage the builder.` |
 | 03 | `body` | (existing senior-led-delivery language) | `Work with Terry to apply the same method to your own data, product, platform, client opportunity, or S&P TeraHelix integration path. This is where integration-partner credibility matters most.` |
 | 03 | `ctaLabel` | `Engage` | `Engage the builder` |
-| 03 | `ctaHref`, `anchorId`, `number` | unchanged | unchanged |
+| 03 | `anchorId` | `offers-advisory` | `advisory` |
+| 03 | `ctaHref`, `number` | unchanged | unchanged |
+
+Why rename: the existing `/reality` sellCards in `src/content/site.ts:569-571` already link to `/labs#code` / `/labs#prompts` / `/labs#advisory`, and `tests/labs.spec.ts:64-69` already asserts `#code` / `#prompts` / `#advisory` are visible on the page. The current `offers-` prefix on engagement.anchorId is the bug; this rename fixes a pre-existing cross-page broken link rather than introducing new behaviour.
 
 ### 5.6 `labs.title` / `labs.description` — metadata
 
@@ -266,7 +279,7 @@ interface ThemeCardProps { theme: Theme }
 
 Renders one card. Outer element is `<a href="https://labs.atheryon.ai{theme.primaryRoute}" target="_blank" rel="noopener">`. Card body:
 
-- `<img>` thumbnail (`/menu-themes-thumbs/{id}.png`, 16:10 aspect, `loading="lazy"`).
+- `<img>` thumbnail (`/menu-themes-thumbs/t-{id}.png` — filenames preserve the `t-` prefix from the labs-platform source, see §9.3), 16:10 aspect, `loading="lazy"` (see §9.3 for the above-the-fold caveat).
 - Title row: `<h3>{theme.title}</h3>` + `<span>{theme.pages}p</span>`.
 - Blurb paragraph.
 - First 3 routes as a bordered list, plus `+N more` if `theme.routes.length > 3`. Routes are display-only on the card (not individually clickable; the whole card is the link).
@@ -419,8 +432,17 @@ The end-state of `/labs/page.tsx`, after both workstreams ship, must read top-to
   - `/` (Reality) — partner strip renders below CTAs with correct copy and dot separator; no layout regression at mobile breakpoints.
   - `/labs` — new hero copy renders with `Atheryon Labs` (dark) and `The banking platform built by AI.` (orange); body paragraph renders; **no italic disclaimer** appears; new "Why this is credible" section appears between hero and offers preview; "Browse the surface →" link appears after offers preview; engagement cards show new titles, bodies, and CTA labels.
   - `/labs/themes` — all 29 themes render across 6 bands; counts and section headers match §7.2; thumbnails resolve under `/menu-themes-thumbs/`; cards open `https://labs.atheryon.ai/...` in a new tab; mobile (≤640px) bands stack to single column and cards remain readable.
-- Anchor links — confirm `#offers-code`, `#offers-prompts`, `#offers-advisory` still scroll from the (unchanged) `offersPreview` jump links into the engagement cards (whose `anchorId` values are unchanged).
-- Existing tests — scan `tests/` for any Playwright assertions that match old hero strings (`"Most capital-markets platforms"`, `"This one took one banker"`), old card titles (`"Take the code"` etc.) or old card CTA labels (`"Inspect"`, `"License"`, `"Engage"`). Update only the stale matches; do not invent new tests in this round.
+- Anchor links — confirm `#code`, `#prompts`, `#advisory` scroll correctly: from the renamed `offersPreview.items.anchorHref` jump links *and* from the existing `/reality` sellCards (`/labs#code`, `/labs#prompts`, `/labs#advisory`) into the renamed engagement cards. Cross-page deep links from `/reality` were broken pre-spec; verify they now resolve.
+- Existing tests — the following assertions are known stale and must be updated as part of this change. Do not invent new tests in this round; only update or delete the entries enumerated below.
+
+| File:line | Current state | Required change |
+|---|---|---|
+| `tests/routing.spec.ts:22` | `{ path: '/labs', title: /Labs/, h1: /Most capital-markets platforms/i }` | Replace H1 regex: `h1: /Atheryon Labs/i` (matches new `headlineLine1`) |
+| `tests/labs.spec.ts:7-13` | Whole `test('hero disclaimer renders above the fold', …)` block, asserting `/It is not a production bank platform/i` is visible | **Delete the entire test** — the disclaimer slot is removed in §5.2 |
+| `tests/labs.spec.ts:17` (`See it live` href) | `await expect(page.getByRole('link', { name: /See it live/i }).first()).toHaveAttribute('href', 'https://labs.atheryon.ai')` | **No change** — passes once data is flipped per §5.2's new `primaryCta.href` |
+| `tests/labs.spec.ts:64-69` (`engagement cards have anchor IDs`) | Asserts `#code`, `#prompts`, `#advisory` are visible | **No change** — passes once `engagement.cards.anchorId` is renamed per §5.5 |
+
+If a `grep` of `tests/` against the old hero strings (`"Most capital-markets platforms"`, `"This one took one banker"`, `"Take the code"`, `"Take the prompts"`, `"Take the advisory"`, `"Inspect"`, `"License"`, `"Engage"`, `"It is not a production bank platform"`) returns matches *outside* the four files listed above, treat each match as a new stale-test finding and update at implementation time.
 
 ## 13. Risks
 
@@ -439,8 +461,8 @@ The change is done when:
 - `/labs` hero displays `Atheryon Labs` (dark) over `The banking platform built by AI.` (brand-orange), followed by the new body paragraph and the three existing CTAs. No italic disclaimer paragraph appears.
 - A new "Why this is credible" section appears between the `/labs` hero and the offers preview, with the four paragraphs from §5.3 and the section badge `Why this is credible`.
 - A "Browse the full surface →" link appears as the last element inside the `/labs` offers preview section and routes to `/labs/themes`.
-- The `/labs` engagement section's three cards display the new titles (`Buy the code.` / `License the prompts.` / `Engage the builder.`), the new body copy (§5.5), and the new CTA labels. `anchorId` values, hrefs, and the section header `Code, prompts, advisory` are unchanged.
-- The `/labs` `offersPreview` section is visually and textually identical to before.
+- The `/labs` engagement section's three cards display the new titles (`Buy the code.` / `License the prompts.` / `Engage the builder.`), the new body copy (§5.5), and the new CTA labels. `anchorId` values are renamed to `code` / `prompts` / `advisory` (dropping the `offers-` prefix) so cross-page deep links from `/reality` sellCards resolve. `ctaHref` values, `number`, and the section header `Code, prompts, advisory` are unchanged.
+- The `/labs` `offersPreview` section is visually and textually identical to before, except the three `anchorHref` values change from `#offers-*` to the matching short form (`#code` / `#prompts` / `#advisory`).
 - `/labs` `evidence`, `flagships`, `bankerWedge`, `method`, and `closing` sections are visually and textually identical to before.
 - `/labs/themes` renders all 29 themes across 6 bands (1 ODS + 5 business functions) with counts matching §7.2; every card opens the corresponding `https://labs.atheryon.ai{primaryRoute}` in a new tab; the page is reachable from `/labs` in one click.
 - `npx next build` passes with no type or build errors and emits `out/labs/themes/index.html`.
