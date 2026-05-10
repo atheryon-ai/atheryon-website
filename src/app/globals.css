@@ -301,16 +301,17 @@ details[open] summary .faq-icon {
 /* ========================
    FOCUS STYLES
    ======================== */
-@layer base {
-  a:focus-visible,
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible,
-  summary:focus-visible,
-  [tabindex]:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-atheryon-blue;
-  }
+/* Outside @layer so it wins over utilities-layer overrides like .nav-link
+   that share the cascade origin. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #0A84FF; /* atheryon-blue */
+  outline-offset: 2px;
 }
 
 /* ========================
