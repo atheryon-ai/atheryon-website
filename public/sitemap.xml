@@ -3,7 +3,7 @@
   <url><loc>https://atheryon.com.au/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://atheryon.com.au/reality</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://atheryon.com.au/data</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://atheryon.com.au/intelligence</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://atheryon.com.au/ai-direction</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://atheryon.com.au/transformation</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://atheryon.com.au/labs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://atheryon.com.au/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>

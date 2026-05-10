@@ -7,7 +7,7 @@
     { "route": "/", "rewrite": "/index.html" },
     { "route": "/reality", "rewrite": "/reality.html" },
     { "route": "/data", "rewrite": "/data.html" },
-    { "route": "/intelligence", "rewrite": "/intelligence.html" },
+    { "route": "/ai-direction", "rewrite": "/ai-direction.html" },
     { "route": "/transformation", "rewrite": "/transformation.html" },
     { "route": "/labs", "rewrite": "/labs.html" },
     { "route": "/about", "rewrite": "/about.html" },
@@ -25,7 +25,8 @@
     { "route": "/capability-enablement",  "redirect": "/transformation",      "statusCode": 301 },
     { "route": "/how-we-work",            "redirect": "/reality#methodology", "statusCode": 301 },
     { "route": "/what-we-deliver",        "redirect": "/transformation",      "statusCode": 301 },
-    { "route": "/ai-ready-data",          "redirect": "/intelligence",        "statusCode": 301 },
+    { "route": "/ai-ready-data",          "redirect": "/data",                "statusCode": 301 },
+    { "route": "/intelligence",           "redirect": "/ai-direction",        "statusCode": 301 },
     { "route": "/reference-architectures","redirect": "/data",                "statusCode": 301 }
   ],
   "responseOverrides": {
