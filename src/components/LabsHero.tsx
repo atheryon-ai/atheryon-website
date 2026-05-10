@@ -4,7 +4,7 @@ interface LabsHeroProps {
   headlineLine1: string
   headlineLine2: string
   body: string
-  disclaimer: string
+  disclaimer?: string
   primaryCta: { label: string; href: string }
   secondaryCta: { label: string; href: string }
   tertiaryCta: { label: string; href: string }
@@ -34,9 +34,11 @@ export function LabsHero({
           {body}
         </p>
 
-        <p className="text-base md:text-lg italic text-neutral-600 max-w-3xl mb-10 leading-relaxed">
-          {disclaimer}
-        </p>
+        {disclaimer && (
+          <p className="text-base md:text-lg italic text-neutral-600 max-w-3xl mb-10 leading-relaxed">
+            {disclaimer}
+          </p>
+        )}
 
         <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
           <Link href={primaryCta.href} className="btn-primary">{primaryCta.label}</Link>
