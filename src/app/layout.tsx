@@ -4,8 +4,8 @@ import { site } from '@/content/site'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: site.pages.home.title,
-  description: site.pages.home.description,
+  title: site.pages.reality.title,
+  description: site.pages.reality.description,
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: site.pages.home.title,
-    description: site.pages.home.description,
+    title: site.pages.reality.title,
+    description: site.pages.reality.description,
     type: 'website',
     siteName: site.name,
   },

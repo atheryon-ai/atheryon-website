@@ -5,11 +5,14 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { site } from '@/content/site'
 
+// Flat navigation reflecting new IA (Reality + 3 pillars + Labs + About)
 const mainNav = [
+  { label: 'Reality', href: '/reality' },
+  { label: 'Data', href: '/data' },
+  { label: 'Intelligence', href: '/intelligence' },
+  { label: 'Transformation', href: '/transformation' },
   { label: 'Labs', href: '/labs' },
-  { label: 'Method', href: '/labs#method' },
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export function Header() {
@@ -51,25 +54,12 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            <div className="flex items-center gap-1">
-              {mainNav.map((item) => (
-                <Link key={item.href} href={item.href} className="nav-link">
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-
-            {/* CTA Button */}
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white bg-neutral-900 px-5 py-2.5 rounded-md hover:bg-neutral-800 transition-colors"
-            >
-              Request a discussion
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+          <div className="hidden lg:flex items-center gap-1">
+            {mainNav.map((item) => (
+              <Link key={item.href} href={item.href} className="nav-link">
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -148,20 +138,6 @@ export function Header() {
                     </Link>
                   ))}
                 </div>
-              </div>
-
-              {/* Mobile CTA */}
-              <div className="px-6 py-6 border-t border-neutral-500/10">
-                <Link
-                  href="/contact"
-                  className="flex items-center justify-center gap-2 w-full text-base font-medium text-white bg-neutral-900 px-6 py-4 rounded-md hover:bg-neutral-800 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Request a discussion
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
               </div>
             </div>
           </div>
