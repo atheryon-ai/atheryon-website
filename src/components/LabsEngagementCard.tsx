@@ -7,11 +7,13 @@ interface LabsEngagementCardProps {
   body: string
   ctaLabel: string
   ctaHref: string
+  id?: string
 }
 
-export function LabsEngagementCard({ number, title, body, ctaLabel, ctaHref }: LabsEngagementCardProps) {
+export function LabsEngagementCard({ number, title, body, ctaLabel, ctaHref, id }: LabsEngagementCardProps) {
   return (
     <div
+      id={id}
       data-testid="labs-engagement-card"
       className="p-8 bg-white border border-neutral-500/10 rounded-2xl shadow-card flex flex-col h-full"
     >

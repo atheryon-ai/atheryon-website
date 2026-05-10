@@ -1112,6 +1112,7 @@ export const site = {
         title: 'Code, prompts, advisory',
         cards: [
           {
+            id: 'code',
             number: '01',
             title: 'Take the code.',
             body: "Fork the labs-platform repo. Inspect, deploy, extend. Suitable for technology partners and engineering teams who want to study the reference implementation. Includes architecture map, CDM model, and read-only access to a hosted instance.",
@@ -1119,6 +1120,7 @@ export const site = {
             ctaHref: '/contact?topic=labs-code',
           },
           {
+            id: 'prompts',
             number: '02',
             title: 'Take the prompts.',
             body: "A curated archive of the prompts, corrections, and architectural decisions that produced the platform — paired with Terry's reasoning per surface. Not a generic prompt library; the banker's directorial track.",
@@ -1126,6 +1128,7 @@ export const site = {
             ctaHref: '/contact?topic=labs-prompts',
           },
           {
+            id: 'advisory',
             number: '03',
             title: 'Take the advisory.',
             body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery. Continuing the method that rescued the $84M Westpac program — now amplified.',

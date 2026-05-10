@@ -59,4 +59,10 @@ test.describe('/labs page', () => {
     expect(body).not.toMatch(/TERRY_PROMPT_EXAMPLE/);
     expect(body).not.toMatch(/\{\{[A-Z_]+\}\}/);
   });
+
+  test('engagement cards have anchor IDs', async ({ page }) => {
+    await expect(page.locator('#code')).toBeVisible()
+    await expect(page.locator('#prompts')).toBeVisible()
+    await expect(page.locator('#advisory')).toBeVisible()
+  });
 });
