@@ -42,7 +42,7 @@ const config: Config = {
           900: '#0A1A2F',  // Deep Navy - headlines
           800: '#0A1A2F',  // Deep Navy - body text
           700: '#0A1A2F',  // Deep Navy
-          600: '#6B7280',  // Warm Grey Mid - secondary text
+          600: '#4B5563',  // Secondary text — AA on cream (5.7:1) and white (7.6:1)
           500: '#A7B0B8',  // Warm Grey Mid - captions
         },
         'bone': '#EFEAE0',            // new — body bg for /reality and pillars; replaces warm-50 in new code

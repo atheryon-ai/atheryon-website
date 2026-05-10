@@ -24,7 +24,7 @@ export function PillarGrid({ items, anchor }: PillarGridProps) {
           <div className="text-sm font-mono text-amber mb-4" style={{ color: '#D98B3E' }}>{item.number}</div>
           <h3 className="font-display text-3xl text-charcoal tracking-tight mb-4">{item.title}</h3>
           <p className="text-charcoal/80 leading-relaxed mb-6">{item.body}</p>
-          <Link href={item.href} className="text-sm font-semibold text-charcoal underline-offset-4 hover:underline">
+          <Link href={item.href} className="inline-block py-3 text-sm font-semibold text-charcoal underline-offset-4 hover:underline">
             Explore {item.title} →
           </Link>
         </article>

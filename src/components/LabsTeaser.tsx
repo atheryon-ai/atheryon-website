@@ -22,7 +22,7 @@ export function LabsTeaser({ title, body, screenshot, screenshotAlt, cta }: Labs
         />
       </div>
       <div>
-        <h2 className="font-display text-3xl md:text-4xl text-charcoal tracking-tight leading-[1.1] mb-5">
+        <h2 className="font-display text-4xl md:text-5xl font-medium text-charcoal tracking-tight leading-[1.05] mb-5">
           {title}
         </h2>
         <p className="text-lg text-charcoal/80 leading-relaxed mb-8 max-w-xl">{body}</p>

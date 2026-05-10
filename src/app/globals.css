@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
 :root {
+  color-scheme: light;
   --color-bone: #EFEAE0;
   --color-ink: #0E1116;
   --color-charcoal: #15171A;
@@ -300,11 +301,17 @@ details[open] summary .faq-icon {
 /* ========================
    FOCUS STYLES
    ======================== */
-@layer base {
-  a:focus-visible,
-  button:focus-visible {
-    @apply outline-2 outline-offset-2 outline-atheryon-blue;
-  }
+/* Outside @layer so it wins over utilities-layer overrides like .nav-link
+   that share the cascade origin. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #0A84FF; /* atheryon-blue */
+  outline-offset: 2px;
 }
 
 /* ========================
@@ -340,7 +347,7 @@ details[open] summary .faq-icon {
    NAVIGATION
    ======================== */
 .nav-link {
-  @apply text-sm font-medium text-neutral-700 px-4 py-2 rounded-full transition-all duration-200;
+  @apply text-sm font-medium text-neutral-700 px-4 py-3 rounded-full transition-all duration-200;
 }
 
 .nav-link:hover {
