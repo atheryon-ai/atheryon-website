@@ -471,6 +471,12 @@ export const site = {
         lede: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
         primaryCta: { label: 'Enter Floor 13', href: '#floor-13' },
         secondaryCta: { label: 'Explore the pillars', href: '#pillars' },
+        partnerStrip: {
+          partners: [
+            { name: 'S&P TeraHelix integration partner' },
+            { name: 'Microsoft partner' },
+          ],
+        },
       },
       pillars: {
         anchor: 'pillars',
