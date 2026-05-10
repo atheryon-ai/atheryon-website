@@ -29,6 +29,7 @@ export default function RealityPage() {
         lede={reality.hero.lede}
         primaryCta={reality.hero.primaryCta}
         secondaryCta={reality.hero.secondaryCta}
+        partnerStrip={reality.hero.partnerStrip}
       />
 
       <SectionDivider />

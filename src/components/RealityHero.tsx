@@ -7,9 +7,10 @@ interface RealityHeroProps {
   lede: string
   primaryCta: { label: string; href: string }
   secondaryCta: { label: string; href: string }
+  partnerStrip?: { partners: { name: string }[] }
 }
 
-export function RealityHero({ headline, lede, primaryCta, secondaryCta }: RealityHeroProps) {
+export function RealityHero({ headline, lede, primaryCta, secondaryCta, partnerStrip }: RealityHeroProps) {
   return (
     <section className="relative overflow-hidden min-h-[640px] md:min-h-[720px] flex items-center bg-bone">
       <div
@@ -51,6 +52,19 @@ export function RealityHero({ headline, lede, primaryCta, secondaryCta }: Realit
             {secondaryCta.label}
           </Link>
         </div>
+        {partnerStrip && partnerStrip.partners.length > 0 && (
+          <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-charcoal/60">
+              Ecosystem
+            </span>
+            {partnerStrip.partners.map((p, i) => (
+              <span key={p.name} className="flex items-center gap-x-4 text-sm text-charcoal">
+                {i > 0 && <span aria-hidden className="text-charcoal/40">·</span>}
+                {p.name}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
