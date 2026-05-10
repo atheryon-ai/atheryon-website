@@ -29,6 +29,8 @@ const businessPageCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(
 export default function ThemesPage() {
   return (
     <main>
+      <h1 className="sr-only">{themes.headline}</h1>
+
       <div className="max-w-container mx-auto px-6 pt-8 pb-2">
         <Link href="/labs" className="text-sm font-semibold text-brand-orange hover:underline">
           ← Back to Labs
