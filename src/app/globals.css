@@ -303,8 +303,13 @@ details[open] summary .faq-icon {
    ======================== */
 @layer base {
   a:focus-visible,
-  button:focus-visible {
-    @apply outline-2 outline-offset-2 outline-atheryon-blue;
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-atheryon-blue;
   }
 }
 
