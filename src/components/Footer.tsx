@@ -19,14 +19,17 @@ export function Footer() {
                 Ready to discuss a high-stakes{' '}
                 <span className="text-brand-orange">data challenge?</span>
               </h2>
+              {/* NOTE: Task 19 stub — original copy/CTA pulled from `site.pages.home.finalCta`,
+                   which was deleted with the legacy homepage. Footer is rewritten in Task 20;
+                   for now we use `site.copy.proofFraming` + the global `site.cta`. */}
               <p className="text-lg text-neutral-400 mb-10 leading-relaxed">
-                {site.pages.home.finalCta.text}
+                {site.copy.proofFraming}
               </p>
               <Link
-                href={site.pages.home.finalCta.cta.href}
+                href={site.cta.href}
                 className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-neutral-900 bg-white rounded-full hover:bg-warm-100 transition-all shadow-button hover:shadow-button-hover"
               >
-                {site.pages.home.finalCta.cta.label}
+                {site.cta.label}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
