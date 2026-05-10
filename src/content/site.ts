@@ -273,6 +273,16 @@ export const site = {
         secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
+      whyCredible: {
+        badge: 'Why this is credible',
+        title: 'Atheryon is the integration partner for S&P TeraHelix.',
+        paragraphs: [
+          'Atheryon works in the same problem space that serious financial institutions are now prioritising: data modelling, linking, interoperability, and AI-ready enterprise data.',
+          'S&P Global completed its acquisition of TeraHelix in June 2025 to strengthen advanced data modelling and linking capabilities. S&P described TeraHelix as helping solve complex enterprise-scale data challenges by structuring data models for interoperability across platforms, systems, and storage architectures.',
+          'Atheryon Labs applies that same class of thinking to banking software: CDM-native data structures, expert-directed prompts, AI-assisted engineering, and practical platform surfaces across trading, operations, risk, treasury, compliance, and mortgages.',
+          'The result: a working banking AI platform you can inspect, license, or learn how to build.',
+        ],
+      },
       offersPreview: {
         badge: 'Three ways to use this work',
         title: 'Code, prompts, advisory',
