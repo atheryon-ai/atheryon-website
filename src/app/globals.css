@@ -5,6 +5,40 @@
 /* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
+:root {
+  --color-bone: #EFEAE0;
+  --color-ink: #0E1116;
+  --color-charcoal: #15171A;
+  --color-amber: #D98B3E;
+  --color-amber-light: #E5A862;
+  --color-deepblue: #0D4D7A;
+}
+
+@keyframes hero-glitch {
+  0%   { opacity: 1; filter: none; transform: translateX(0); }
+  45%  { opacity: 1; filter: none; transform: translateX(0); }
+  46%  { opacity: 0.85; filter: hue-rotate(8deg); transform: translateX(-2px); }
+  48%  { opacity: 0.7; filter: hue-rotate(-6deg); transform: translateX(3px); }
+  50%  { opacity: 0.4; filter: hue-rotate(0); transform: translateX(0); }
+  52%  { opacity: 0.6; transform: translateX(-1px); }
+  54%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes architecture-reveal {
+  0%   { opacity: 0; }
+  45%  { opacity: 0; }
+  54%  { opacity: 0.4; }
+  60%  { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reality-hero-sepia { opacity: 0 !important; animation: none !important; }
+  .reality-hero-architecture { opacity: 1 !important; animation: none !important; }
+}
+
 html {
   scroll-behavior: smooth;
 }
