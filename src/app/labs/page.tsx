@@ -63,6 +63,13 @@ export default function LabsPage() {
             </a>
           ))}
         </div>
+
+        {/* Phase B addition — link to discovery surface */}
+        <div className="mt-10 pt-6 border-t border-neutral-500/10">
+          <Link href="/labs/themes" className="inline-flex items-center text-sm font-semibold text-brand-orange hover:underline">
+            Browse the full surface — 29 themes · 147 pages →
+          </Link>
+        </div>
       </Section>
 
       <SectionDivider />
