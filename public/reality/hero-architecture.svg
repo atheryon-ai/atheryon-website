@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="800" fill="#0E1116"/>
+  <!-- amber lattice -->
+  <g stroke="#D98B3E" stroke-width="1" fill="none" opacity="0.85">
+    <path d="M0 600 L1200 600"/>
+    <path d="M0 660 L1200 660"/>
+    <path d="M0 720 L1200 720"/>
+    <path d="M150 0 L150 800"/>
+    <path d="M300 0 L300 800"/>
+    <path d="M450 0 L450 800"/>
+    <path d="M600 0 L600 800"/>
+    <path d="M750 0 L750 800"/>
+    <path d="M900 0 L900 800"/>
+    <path d="M1050 0 L1050 800"/>
+  </g>
+  <!-- structural blue nodes -->
+  <g fill="#0D4D7A">
+    <circle cx="300" cy="600" r="6"/>
+    <circle cx="450" cy="660" r="6"/>
+    <circle cx="600" cy="600" r="6"/>
+    <circle cx="750" cy="720" r="6"/>
+    <circle cx="900" cy="660" r="6"/>
+  </g>
+  <!-- amber accent nodes -->
+  <g fill="#D98B3E">
+    <circle cx="150" cy="660" r="8"/>
+    <circle cx="1050" cy="600" r="8"/>
+  </g>
+  <!-- subtle radial glow -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="65%" r="55%">
+      <stop offset="0%" stop-color="#D98B3E" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0E1116" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#glow)"/>
+</svg>
