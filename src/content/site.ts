@@ -263,8 +263,8 @@ export const site = {
     },
 
     labs: {
-      title: 'Atheryon Labs — The Banker × AI Artefact',
-      description: 'Proof that one senior capital-markets leader, directing AI, ships in weeks what consultancies scope as multi-year, eight-figure programmes. The working artefact AI labs use to close regulated-banking deals.',
+      title: 'Atheryon Labs — Banking AI platform from the S&P TeraHelix integration partner',
+      description: 'A working CDM-native banking reference platform, built by one capital-markets expert directing AI. Buy the code. License the prompts. Engage the builder.',
       hero: {
         headlineLine1: 'Atheryon Labs',
         headlineLine2: 'The banking platform built by AI.',
@@ -290,17 +290,17 @@ export const site = {
           {
             title: 'Take the code.',
             oneLiner: 'The reference implementation as a case study or co-marketed proof point.',
-            anchorHref: '#offers-code',
+            anchorHref: '#code',
           },
           {
             title: 'Take the prompts.',
             oneLiner: 'The directorial archive — packaged as a method asset for your tooling or vertical playbook.',
-            anchorHref: '#offers-prompts',
+            anchorHref: '#prompts',
           },
           {
             title: 'Take the advisory.',
             oneLiner: 'Senior-led delivery under your AI banner in regulated finance.',
-            anchorHref: '#offers-advisory',
+            anchorHref: '#advisory',
           },
         ],
       },
