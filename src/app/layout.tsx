@@ -3,12 +3,9 @@ import { Header, Footer } from '@/components'
 import { site } from '@/content/site'
 import './globals.css'
 
-// NOTE: Task 19 stub — original metadata pulled from `site.pages.home.{title,description}`,
-// which was deleted with the legacy homepage. Task 20 will replace these with
-// `site.pages.reality.{title,description}` (or whatever the new homepage block names them).
 export const metadata: Metadata = {
-  title: site.name,
-  description: site.tagline,
+  title: site.pages.reality.title,
+  description: site.pages.reality.description,
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -21,8 +18,8 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: site.name,
-    description: site.tagline,
+    title: site.pages.reality.title,
+    description: site.pages.reality.description,
     type: 'website',
     siteName: site.name,
   },
