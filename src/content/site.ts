@@ -1143,6 +1143,143 @@ export const site = {
         tertiaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
       },
     },
+
+    reality: {
+      title: 'Atheryon — Architects of Your Reality',
+      description: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
+      hero: {
+        headline: 'Reality is built on data. Architect yours.',
+        lede: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
+        primaryCta: { label: 'Enter Floor 13', href: '#floor-13' },
+        secondaryCta: { label: 'Explore the pillars', href: '#pillars' },
+      },
+      pillars: {
+        anchor: 'pillars',
+        badge: 'Three pillars',
+        title: 'Data. Intelligence. Transformation.',
+        intro: 'A simple three-pillar explanation of how we architect reality.',
+        items: [
+          {
+            number: '01',
+            title: 'Data',
+            body: 'Foundations: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+            href: '/data',
+          },
+          {
+            number: '02',
+            title: 'Intelligence',
+            body: 'Decision advantage: analytics, AI implementation, forecasting, automation, insight products.',
+            href: '/intelligence',
+          },
+          {
+            number: '03',
+            title: 'Transformation',
+            body: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+            href: '/transformation',
+          },
+        ],
+      },
+      transition: {
+        badge: 'The hidden reality',
+        title: 'Beneath every enterprise is a hidden operating reality.',
+        body: 'Fragmented systems create fragmented decisions. Atheryon makes the underlying architecture visible, intelligent, and ready for transformation.',
+        cta: { label: 'Reveal the hidden layer', href: '#floor-13' },
+        steps: [
+          { number: '1', title: 'Fragmented data', body: 'Disconnected sources, inconsistent reporting, unclear ownership.' },
+          { number: '2', title: 'Structured intelligence', body: 'Reliable pipelines, models, dashboards, AI readiness, decision systems.' },
+          { number: '3', title: 'Real transformation', body: 'Cloud, AI, and operating change aligned to measurable business outcomes.' },
+        ],
+      },
+      floor13: {
+        anchor: 'floor-13',
+        badge: 'Floor 13',
+        title: 'Choose the issue that best describes your current reality.',
+        intro: 'The switchboard generates a Reality Blueprint below.',
+        dials: [
+          { id: 'data', title: 'Data pain', body: '"Our data is fragmented, inconsistent, or inaccessible."', cta: 'Plug into Data' },
+          { id: 'intelligence', title: 'Intelligence pain', body: '"We have data, but not enough predictive or decision value."', cta: 'Plug into Intelligence' },
+          { id: 'transformation', title: 'Transformation pain', body: '"We need change, but the roadmap and operating model are unclear."', cta: 'Plug into Transformation' },
+        ],
+        inputPlaceholder: 'Optional: type your biggest data or transformation challenge',
+        inputCta: 'Generate Blueprint',
+        blueprints: {
+          data: {
+            title: 'Reality Blueprint: Data Foundation',
+            intro: 'Your current reality appears to be constrained by fragmented data sources, inconsistent visibility, or unclear data ownership.',
+            bullets: [
+              'Map critical data sources and business decision points.',
+              'Design a unified architecture across cloud, governance, pipelines, and reporting.',
+              'Prioritise the first high-value data product that can prove momentum.',
+            ],
+          },
+          intelligence: {
+            title: 'Reality Blueprint: Intelligence Layer',
+            intro: 'Your organisation may have data available, but the intelligence layer is not yet turning it into prediction, automation, or better decisions.',
+            bullets: [
+              'Assess analytics maturity and AI readiness.',
+              'Identify use cases where models, automation, or decision dashboards can create measurable value.',
+              'Build an intelligence layer connected to trusted enterprise data foundations.',
+            ],
+          },
+          transformation: {
+            title: 'Reality Blueprint: Transformation Pathway',
+            intro: 'Your transformation challenge appears to be less about ambition and more about architecture, roadmap, ownership, and execution.',
+            bullets: [
+              'Define the target operating reality and the systems required to support it.',
+              'Sequence data, cloud, AI, process, and adoption initiatives into a practical roadmap.',
+              'Connect transformation activity to measurable business outcomes.',
+            ],
+          },
+          custom: {
+            title: 'Reality Blueprint: Custom Challenge',
+            intro: 'Your custom challenge has been captured.',
+            bullets: [
+              'Classify the challenge across data, intelligence, and transformation.',
+              'Generate recommended first moves based on the selected pain point.',
+              'Continue the conversation in a Reality Architecture Session.',
+            ],
+          },
+        },
+        sellCardsHeading: 'Your next moves',
+        recommendation: {
+          data: 'code',
+          intelligence: 'prompts',
+          transformation: 'advisory',
+        },
+        sellCards: [
+          { id: 'code', title: 'Take the code', body: 'Fork the labs-platform repo. Inspect, deploy, extend.', ctaLabel: 'Inspect →', ctaHref: '/labs#code' },
+          { id: 'prompts', title: 'Take the prompts', body: "A curated archive of the prompts and corrections that produced the platform — paired with Terry's reasoning.", ctaLabel: 'License →', ctaHref: '/labs#prompts' },
+          { id: 'advisory', title: 'Take the advisory', body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery.', ctaLabel: 'Engage →', ctaHref: '/labs#advisory' },
+        ],
+        closingCta: { label: 'Or — book a Reality Architecture Session', href: '/contact' },
+      },
+      methodology: {
+        anchor: 'methodology',
+        badge: 'How we architect reality',
+        title: 'Built from controls, not user stories.',
+        principles: [
+          { title: 'Built from regulatory artefacts and operational controls.', body: 'Most platforms start "as a user I want…". We start with the artefact, the control, the risk view.' },
+          { title: 'Started from the data model, not the screen.', body: 'CDM-first, then surfaces. Every screen is a projection of the contract.' },
+          { title: 'Generate variants, then narrow.', body: 'AI generates implementation candidates in minutes. Senior judgment chooses, corrects, and ships.' },
+          { title: 'Working decision surface, not a slide deck.', body: 'Inspectable, deployable, extendable. Proof, not promise.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof — Atheryon Labs',
+        title: 'We use this method. Here is the artifact.',
+        body: 'Atheryon Labs is a CDM-native reference platform across eight banking functions, built using the /reality approach. A working artefact you can inspect.',
+        screenshot: '/labs/screenshots/ops-board.png',
+        screenshotAlt: 'Atheryon Labs trade board screenshot',
+        cta: { label: 'See the artefact →', href: '/labs' },
+      },
+      closing: {
+        badge: 'Available for select engagements',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation to identify the hidden architecture beneath your data estate and define the first transformation move.',
+        primaryCta: { label: 'Request a session', href: '/contact' },
+        secondaryCta: { label: 'See the artefact', href: '/labs' },
+      },
+    },
   },
 
   footer: {
