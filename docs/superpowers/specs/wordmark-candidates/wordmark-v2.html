@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Atheryon — Wordmark Candidates v2 (BR2049 × 1920s)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,800;1,6..96,400;1,6..96,500&family=Cinzel:wght@400;500;600;700&family=Italiana&family=DM+Serif+Display:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#EFEAE0;
+  --ink:#0E1116;
+  --charcoal:#15171A;
+  --amber:#D98B3E;
+  --hairline:rgba(21,23,26,0.7);
+  --hairline-dark:rgba(239,234,224,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Inter Tight',sans-serif;background:#fff}
+.tile{
+  width:1200px;height:600px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  page-break-after:always;
+  flex-direction:column;
+}
+.tile.bone{background:var(--bone);color:var(--charcoal)}
+.tile.ink{background:var(--ink);color:var(--bone)}
+.label{
+  position:absolute;top:18px;left:24px;
+  font-family:'Inter Tight',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+}
+.tile.bone .label{color:#7a7368}
+.tile.ink .label{color:#9a9388}
+
+/* shared display structure */
+.display{display:flex;flex-direction:column;align-items:center;gap:16px}
+.eyebrow{
+  font-family:'Inter Tight',sans-serif;
+  font-size:11px;font-weight:500;letter-spacing:0.42em;text-transform:uppercase;
+  opacity:0.55;
+}
+.rule{height:1px;background:currentColor;opacity:0.55;width:100%}
+.rule.short{width:140px}
+
+/* ============ V1: Bodoni Moda — share-certificate register ============ */
+.v1 .mark{
+  font-family:'Bodoni Moda',serif;
+  font-style:normal;font-weight:500;
+  font-variation-settings:'opsz' 96;
+  font-size:120px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  line-height:1;
+}
+
+/* ============ V2: Bodoni Moda italic — softer, with eyebrow ============ */
+.v2 .eyebrow{font-size:12px;letter-spacing:0.42em}
+.v2 .mark{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-variation-settings:'opsz' 96;
+  font-size:148px;
+  letter-spacing:-0.005em;
+  line-height:1;
+}
+
+/* ============ V3: Italiana — narrow, monumental, BR2049-ish ============ */
+.v3 .mark{
+  font-family:'Italiana',serif;
+  font-weight:400;
+  font-size:160px;
+  letter-spacing:0.04em;text-transform:uppercase;
+  line-height:1;
+}
+
+/* ============ V4: Cinzel — Deco/classical, monumental ============ */
+.v4 .mark{
+  font-family:'Cinzel',serif;
+  font-weight:500;
+  font-size:104px;
+  letter-spacing:0.18em;text-transform:uppercase;
+  line-height:1;
+}
+
+/* ============ V5: Bodoni on dark ink — BR2049 register ============ */
+.v5 .mark{
+  font-family:'Bodoni Moda',serif;
+  font-style:normal;font-weight:500;
+  font-variation-settings:'opsz' 96;
+  font-size:120px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  line-height:1;
+}
+
+/* ============ V6: Bodoni dark + sodium amber accent A ============ */
+.v6 .mark{
+  font-family:'Bodoni Moda',serif;
+  font-style:normal;font-weight:500;
+  font-variation-settings:'opsz' 96;
+  font-size:120px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  line-height:1;
+  color:var(--bone);
+}
+.v6 .accent{color:var(--amber)}
+
+/* ============ V7: Bodoni with 1920s certificate hairline frame ============ */
+.v7 .frame{
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+  padding:32px 80px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+}
+.v7 .eyebrow{font-size:10px;letter-spacing:0.5em}
+.v7 .mark{
+  font-family:'Bodoni Moda',serif;
+  font-style:normal;font-weight:500;
+  font-variation-settings:'opsz' 96;
+  font-size:96px;
+  letter-spacing:0.18em;text-transform:uppercase;
+  line-height:1;
+}
+.v7 .sub{
+  font-family:'Bodoni Moda',serif;
+  font-style:italic;font-weight:400;
+  font-size:18px;
+  letter-spacing:0.08em;
+  opacity:0.7;
+}
+
+/* ============ V8: DM Serif Display (Bessey font) — italic ============ */
+.v8 .mark{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;font-weight:400;
+  font-size:172px;
+  letter-spacing:-0.01em;
+  line-height:1;
+}
+</style>
+</head>
+<body>
+
+<div class="tile bone v1">
+  <div class="label">V1 · Bodoni Moda — share-certificate (recommended default)</div>
+  <div class="display"><div class="mark">Atheryon</div></div>
+</div>
+
+<div class="tile bone v2">
+  <div class="label">V2 · Bodoni Moda italic + eyebrow</div>
+  <div class="display">
+    <div class="eyebrow">Atheryon · Advisory</div>
+    <div class="mark">Atheryon</div>
+  </div>
+</div>
+
+<div class="tile bone v3">
+  <div class="label">V3 · Italiana — narrow monumental, BR2049</div>
+  <div class="display"><div class="mark">Atheryon</div></div>
+</div>
+
+<div class="tile bone v4">
+  <div class="label">V4 · Cinzel — deco-classical</div>
+  <div class="display"><div class="mark">Atheryon</div></div>
+</div>
+
+<div class="tile ink v5">
+  <div class="label">V5 · Bodoni on deep ink — BR2049 night</div>
+  <div class="display"><div class="mark">Atheryon</div></div>
+</div>
+
+<div class="tile ink v6">
+  <div class="label">V6 · Sodium amber accent on the A</div>
+  <div class="display"><div class="mark"><span class="accent">A</span>theryon</div></div>
+</div>
+
+<div class="tile bone v7">
+  <div class="label">V7 · 1920s certificate frame</div>
+  <div class="frame">
+    <div class="eyebrow">EST. 2024 · SYDNEY</div>
+    <div class="mark">Atheryon</div>
+    <div class="sub">Decision-grade data platforms</div>
+  </div>
+</div>
+
+<div class="tile bone v8">
+  <div class="label">V8 · DM Serif Display italic — softer Bessey-adjacent</div>
+  <div class="display"><div class="mark">Atheryon</div></div>
+</div>
+
+</body>
+</html>
