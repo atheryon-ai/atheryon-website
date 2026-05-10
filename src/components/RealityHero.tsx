@@ -1,5 +1,6 @@
 'use client'
 
+import { Fragment } from 'react'
 import Link from 'next/link'
 
 interface RealityHeroProps {
@@ -58,10 +59,10 @@ export function RealityHero({ headline, lede, primaryCta, secondaryCta, partnerS
               Ecosystem
             </span>
             {partnerStrip.partners.map((p, i) => (
-              <span key={p.name} className="flex items-center gap-x-4 text-sm text-charcoal">
+              <Fragment key={p.name}>
                 {i > 0 && <span aria-hidden className="text-charcoal/40">·</span>}
-                {p.name}
-              </span>
+                <span className="text-sm text-charcoal">{p.name}</span>
+              </Fragment>
             ))}
           </div>
         )}
