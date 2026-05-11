@@ -11,15 +11,15 @@ function RichBullet({ children }: { children: React.ReactNode }) {
 }
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Atheryon',
+  title: 'Privacy Policy — Atheryon',
   description: 'How Atheryon collects, uses, and protects personal information under the Australian Privacy Act 1988.',
   openGraph: {
-    title: 'Privacy Policy | Atheryon',
+    title: 'Privacy Policy — Atheryon',
     description: 'How Atheryon collects, uses, and protects personal information under the Australian Privacy Act 1988.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Privacy Policy | Atheryon',
+    title: 'Privacy Policy — Atheryon',
     description: 'How Atheryon collects, uses, and protects personal information under the Australian Privacy Act 1988.',
   },
   alternates: {
