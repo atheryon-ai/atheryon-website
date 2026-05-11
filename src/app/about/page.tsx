@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { SimpleHero, Section, SectionDivider, Card, FeatureGrid, BulletList, CTASection } from '@/components'
 import { site } from '@/content/site'
 
@@ -43,6 +44,32 @@ export default function AboutPage() {
             <h3 className="font-display text-xl font-semibold text-slate-900 mb-4 tracking-tight">{about.whyWeExist.title}</h3>
             <p className="text-slate-600 leading-relaxed">{about.whyWeExist.description}</p>
           </div>
+        </div>
+      </Section>
+
+      <SectionDivider />
+
+      {/* Founder */}
+      <Section
+        badge={about.founder.badge}
+        title={about.founder.name}
+      >
+        <div className="grid lg:grid-cols-[200px_1fr] gap-10 items-start">
+          <div>
+            <div className="w-48 h-48 rounded-2xl overflow-hidden bg-warm-200">
+              <Image
+                src={about.founder.photo}
+                alt={about.founder.photoAlt}
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="mt-4 text-sm text-neutral-600">{about.founder.role}</p>
+          </div>
+          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
+            {about.founder.bio}
+          </p>
         </div>
       </Section>
 
