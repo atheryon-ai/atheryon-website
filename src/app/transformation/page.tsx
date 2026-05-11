@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function TransformationPage() {
   return (
-    <main className="bg-bone">
+    <div className="bg-bone">
       <PillarHero {...transformation.hero} />
 
       <SectionDivider />
@@ -112,6 +112,6 @@ export default function TransformationPage() {
           </Link>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

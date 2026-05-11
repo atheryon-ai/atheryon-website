@@ -38,10 +38,21 @@
 @media (prefers-reduced-motion: reduce) {
   .reality-hero-sepia { opacity: 0 !important; animation: none !important; }
   .reality-hero-architecture { opacity: 1 !important; animation: none !important; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
 body {
@@ -166,14 +177,11 @@ body {
     @apply w-full;
   }
 
-  /* Card Hover Effects */
+  /* Card Hover Effects — shadow-only; translateY lift is reserved for cards
+     that are also <a> or <button> (clickable). FeatureCard/IconCard/ServiceCard
+     are static <div>s, so lifting them on hover was a false affordance. */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-card-hover;
-    transform: translateY(0);
-  }
-
-  .card-hover:hover {
-    transform: translateY(-4px);
+    @apply transition-shadow duration-300 hover:shadow-card-hover;
   }
 
   /* Soft shadows */

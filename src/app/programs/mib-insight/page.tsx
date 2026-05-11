@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function MibInsightPage() {
   return (
-    <main>
+    <div>
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-warm-50 to-warm-100">
         <div className="max-w-container mx-auto text-center">
@@ -122,6 +122,6 @@ export default function MibInsightPage() {
           </a>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

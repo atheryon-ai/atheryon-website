@@ -27,6 +27,7 @@ export function LabsHero({
       <div className="relative z-10 max-w-container mx-auto px-6">
         <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight mb-8 leading-[1.1]">
           <span className="block text-neutral-900 mb-2">{headlineLine1}</span>
+          {' '}
           <span className="block text-brand-orange">{headlineLine2}</span>
         </h1>
 

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function LabsPage() {
   return (
-    <main>
+    <div>
       {/* §1 Hero — speed wedge */}
       <LabsHero
         headlineLine1={labs.hero.headlineLine1}
@@ -227,6 +227,6 @@ export default function LabsPage() {
           </div>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }
