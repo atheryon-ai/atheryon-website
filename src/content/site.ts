@@ -640,7 +640,7 @@ export const site = {
         badge: 'What we do',
         title: 'From fragmented sources to a decision-grade foundation.',
         cards: [
-          { title: 'CDM Platform', body: 'ISDA Common Domain Model implementations — schemas, validators, transforms, governance — for capital-markets data estates.' },
+          { title: 'CDM Platform', body: 'ISDA Common Domain Model (CDM): a single shared definition of every business concept — so "trade" means the same thing in trading, ops, risk, and compliance. Implementations include schemas, validators, transforms, governance — for capital-markets data estates.' },
           { title: 'Reference Architectures', body: 'Cloud-native architectures for trading, risk, ops, and reporting — built on CDM, deployable into your estate.' },
           { title: 'Data Foundations', body: 'Pipelines, modelling, governance, lineage, and unified visibility across your enterprise data estate.' },
           { title: 'Schema Modelling', body: 'CDM-first schema design with extension and wrapping patterns for bank-internal artefacts.' },
