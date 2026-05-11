@@ -387,7 +387,7 @@ export const site = {
       bankerWedge: {
         badge: 'Why a banker beats a consultancy at this',
         title: 'AI in regulated finance needs the rare expert in the loop',
-        intro: 'AI labs competing with the global SIs in regulated verticals run into the same wall: the model is plausible, the domain judgement is missing. Here are two corrections — small on the surface, structural underneath — that prove why the loop matters.',
+        intro: 'AI labs competing with the global SIs in regulated verticals run into the same wall: the model is plausible, the domain judgement is missing. Here are two corrections — small on the surface, structural underneath — that prove why the loop matters. Atheryon Labs is the working artefact of an ontology-driven banking platform — semantics, lineage, validation, and access control modelled into the platform from day one, then handed to AI as the operating ground.',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
         bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
