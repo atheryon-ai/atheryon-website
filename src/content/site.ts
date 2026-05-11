@@ -43,7 +43,7 @@ export const site = {
       },
       whatWeAre: {
         title: 'What Atheryon is',
-        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why.',
+        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why. The platforms we build are ontology-driven: business concepts are defined once, modelled formally, and reused across every consuming system — so semantics survive integration, AI workflows inherit the same trust boundary as humans, and access controls follow the data, not the application.',
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
@@ -66,6 +66,10 @@ export const site = {
           title: 'M&A Execution & Integration',
           description: 'M&A introduces the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nPre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
         },
+        {
+          title: 'Ontology-driven platforms in regulated environments',
+          description: 'Atheryon\'s delivery method treats semantics, lineage, validation, access control, and auditability as first-class concerns. Business concepts are modelled once and reused; pipelines carry their own evidence chains; controls are signed, not implied. The pattern is recognisable to anyone who has shipped a senior-led enterprise data platform in a regulated environment — and is exactly what regulator-grade AI workflows require to operate on trusted ground.\n\nOur clients are banks, market operators, asset managers, and the AI labs building for them. The common thread: a need for data that holds up under scrutiny, not just at audit, but every time a model, a desk, or a downstream system reads from it.',
+        },
       ],
       whatExperienceMeans: {
         title: 'What experience means to us',
@@ -84,7 +88,7 @@ export const site = {
           },
           {
             title: 'Reuse over point solutions',
-            description: 'We build data products that compound, not one-off fixes.',
+            description: 'We build ontology-grounded data products that compound, not one-off fixes.',
           },
           {
             title: 'Clarity over complexity',
@@ -383,7 +387,7 @@ export const site = {
       bankerWedge: {
         badge: 'Why a banker beats a consultancy at this',
         title: 'AI in regulated finance needs the rare expert in the loop',
-        intro: 'AI labs competing with the global SIs in regulated verticals run into the same wall: the model is plausible, the domain judgement is missing. Here are two corrections — small on the surface, structural underneath — that prove why the loop matters.',
+        intro: 'AI labs competing with the global SIs in regulated verticals run into the same wall: the model is plausible, the domain judgement is missing. Here are two corrections — small on the surface, structural underneath — that prove why the loop matters. Atheryon Labs is the working artefact of an ontology-driven banking platform — semantics, lineage, validation, and access control modelled into the platform from day one, then handed to AI as the operating ground.',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
         bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
