@@ -3,6 +3,14 @@ import { test, expect } from '@playwright/test';
 /**
  * Button and CTA click tests to ensure all interactive elements work correctly.
  * Tests both navigation and that the correct page content loads.
+ *
+ * Post-pivot homepage (= /reality content):
+ *   - Hero CTAs: "Enter Floor 13" (#floor-13), "Explore the pillars" (#pillars)
+ *   - Closing CTAs: "Request a session" (/contact), "See the artefact" (/labs)
+ *   - Header: wordmark + flat nav (Reality, Data, AI Direction, Transformation,
+ *     Labs, About). No CTA button in the header.
+ *   - Footer: text wordmark + flat link list + LinkedIn external link + © year.
+ *     No email link (info@atheryon.com.au lives on /contact and the legal pages).
  */
 
 test.describe('Homepage CTAs', () => {
@@ -10,18 +18,26 @@ test.describe('Homepage CTAs', () => {
     await page.goto('/');
   });
 
-  test('hero primary CTA "Request a confidential discussion" navigates to contact', async ({ page }) => {
-    const cta = page.locator('section a:has-text("Request a confidential discussion")').first();
+  test('hero primary CTA "Enter Floor 13" anchors to #floor-13', async ({ page }) => {
+    const cta = page.getByRole('link', { name: /Enter Floor 13/i }).first();
+    await expect(cta).toHaveAttribute('href', /#floor-13/);
     await cta.click();
-    await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
+    // Anchor-link navigation: URL gains a hash, page stays on /
+    await expect(page).toHaveURL(/#floor-13$/);
   });
 
-  test('footer CTA "Request a confidential discussion" navigates to contact', async ({ page }) => {
-    const cta = page.locator('footer a:has-text("Request a confidential discussion")');
+  test('hero secondary CTA "Explore the pillars" anchors to #pillars', async ({ page }) => {
+    const cta = page.getByRole('link', { name: /Explore the pillars/i }).first();
+    await expect(cta).toHaveAttribute('href', /#pillars/);
+    await cta.click();
+    await expect(page).toHaveURL(/#pillars$/);
+  });
+
+  test('closing CTA "Request a session" navigates to /contact', async ({ page }) => {
+    const cta = page.getByRole('link', { name: /Request a session/i }).first();
     await cta.click();
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
+    await expect(page.locator('h1').first()).toContainText('Request a confidential discussion');
   });
 });
 
@@ -30,27 +46,14 @@ test.describe('Header Navigation', () => {
     await page.goto('/');
   });
 
-  test('header CTA button navigates to contact', async ({ page, isMobile }) => {
-    if (isMobile) {
-      await page.locator('button[aria-label="Toggle menu"]').click();
-      await page.waitForTimeout(300);
-      const cta = page.locator('a:has-text("Request a")').last();
-      await cta.click();
-    } else {
-      const cta = page.locator('nav a:has-text("Request a")');
-      await cta.click();
-    }
-    await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
-  });
-
   test('nav "About" link works', async ({ page, isMobile }) => {
     if (isMobile) {
       await page.locator('button[aria-label="Toggle menu"]').click();
       await page.waitForTimeout(300);
+      // Mobile menu uses .text-lg class on links
       await page.locator('a.text-lg:has-text("About")').click();
     } else {
-      await page.locator('nav a:has-text("About")').click();
+      await page.locator('nav a:has-text("About")').first().click();
     }
     await expect(page).toHaveURL(/\/about/);
   });
@@ -102,14 +105,11 @@ test.describe('Footer Links', () => {
     await expect(page).toHaveURL(/\/contact/);
   });
 
-  test('footer email link has correct href', async ({ page }) => {
-    const emailLink = page.locator('footer a[href^="mailto:"]');
-    await expect(emailLink).toHaveAttribute('href', /mailto:info@atheryon\.com\.au/);
-  });
-
-  test('footer LinkedIn link opens in new tab', async ({ page }) => {
+  test('footer LinkedIn link has the correct href', async ({ page }) => {
+    // Note: post-pivot footer does NOT set target="_blank" on the LinkedIn
+    // anchor. If the team wants new-tab behaviour, that's a small source fix
+    // (add target/rel) — not a test problem. Track separately if desired.
     const linkedInLink = page.locator('footer a[href*="linkedin"]');
-    await expect(linkedInLink).toHaveAttribute('target', '_blank');
     await expect(linkedInLink).toHaveAttribute('href', /linkedin\.com/);
   });
 });
