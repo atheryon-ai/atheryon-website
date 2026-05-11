@@ -43,7 +43,7 @@ export const site = {
       },
       whatWeAre: {
         title: 'What Atheryon is',
-        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why.',
+        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why. The platforms we build are ontology-driven: business concepts are defined once, modelled formally, and reused across every consuming system — so semantics survive integration, AI workflows inherit the same trust boundary as humans, and access controls follow the data, not the application.',
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
