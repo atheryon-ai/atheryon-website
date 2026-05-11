@@ -29,8 +29,8 @@ test.describe('/labs page', () => {
     await expect(page.getByTestId('labs-flagship')).toHaveCount(3);
   });
 
-  test('five vignettes render', async ({ page }) => {
-    await expect(page.getByTestId('labs-vignette')).toHaveCount(5);
+  test('two banker-wedge vignettes render', async ({ page }) => {
+    await expect(page.getByTestId('labs-vignette')).toHaveCount(2);
   });
 
   test('three engagement cards render with single CTA each', async ({ page }) => {
