@@ -8,7 +8,6 @@
 
 Atheryon is the integration partner for S&P Global clients who need to turn fragmented enterprise data systems into trusted, AI-ready workflows — using S&P's own **TeraHelix** data-modelling platform.
 
-- **Download the pitch pack** — atheryon.com.au/integration/atheryon-sp-integration.pdf
 - **Request a confidential discussion** — atheryon.com.au/contact
 
 ---
