@@ -279,7 +279,6 @@ export const site = {
         headlineLine2: 'The banking platform built by AI.',
         body: 'Atheryon Labs is a working CDM-native banking reference platform built by one capital-markets expert directing AI. It demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software.',
         primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
-        secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
       whyCredible: {
@@ -476,7 +475,6 @@ export const site = {
         title: 'Atheryon partners with a small number of institutions per year.',
         body: 'If what you have just read maps to a problem on your desk — or to a deal you are pitching — the next step is a confidential conversation.',
         primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
-        secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
         tertiaryCta: { label: 'See it live', href: 'https://www.atheryon.com.au' },
       },
     },
