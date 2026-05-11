@@ -37,7 +37,6 @@ export default function LabsPage() {
         headlineLine2={labs.hero.headlineLine2}
         body={labs.hero.body}
         primaryCta={labs.hero.primaryCta}
-        secondaryCta={labs.hero.secondaryCta}
         tertiaryCta={labs.hero.tertiaryCta}
       />
 
