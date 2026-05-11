@@ -479,6 +479,129 @@ export const site = {
       },
     },
 
+    labsCode: {
+      title: 'Buy the Labs Code | Atheryon',
+      description: 'License the Atheryon Labs platform code as a working banking reference implementation.',
+      hero: {
+        eyebrow: '01 / Code',
+        headline: 'Buy the Labs code.',
+        lede: 'License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, 8 banking functions, 31 surfaces, deployable.',
+      },
+      whatYouGet: {
+        badge: 'What you get',
+        title: 'A complete, CDM-native reference banking platform.',
+        items: [
+          'The full labs-platform monorepo as a licensable codebase — Trade Board, Operations, Risk Pricer, IRRBB, Schema Editor, CDM Intelligence, Reg Submissions, and more.',
+          'CDM-native data model — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
+          '31 flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.',
+          'Deployment notes: built on Azure-friendly stack (Next.js + Python services). Deployable into your estate.',
+          'Source paired with the directorial track (see License the prompts for the matching prompt archive).',
+        ],
+      },
+      bestFor: {
+        badge: 'Best for',
+        title: 'Buyers who already have a credible vertical platform need.',
+        items: [
+          'Data vendors and market-data firms building a banking-side platform asset',
+          'AI firms with banking customers who need a vertical reference',
+          'Banks needing a credible internal reference implementation to anchor a build',
+          'Consultancies and SI partners scoping client platform engagements',
+          'Cloud partners standing up vertical reference platforms',
+          'Fintechs that need a credible production-grade banking platform to extend',
+        ],
+      },
+      pricing: {
+        badge: 'Pricing',
+        title: 'Bespoke. Scoped to use case and rights.',
+        body: 'Code licensing is priced per scope: which modules, what rights (read-only, deploy, modify, redistribute), what level of ongoing engineering support, and what level of S&P TeraHelix integration assistance you need. Send a short note about your context and we will come back with a tailored proposal.',
+      },
+      cta: {
+        label: 'Talk to us about code licensing',
+        href: '/contact?topic=labs-code',
+      },
+    },
+
+    labsPrompts: {
+      title: 'License the Labs Prompts | Atheryon',
+      description: 'License the prompt archive that directed the AI build — the directorial track that makes the model ship.',
+      hero: {
+        eyebrow: '02 / Prompts',
+        headline: 'License the prompts.',
+        lede: 'License the prompt archive that directed the AI build — instructions, corrections, domain constraints, architecture decisions, and banking reasoning paired with the resulting code.',
+      },
+      whatYouGet: {
+        badge: 'What you get',
+        title: 'The directorial track, not a prompt library.',
+        items: [
+          'The complete prompt archive used to build the labs-platform — every prompt paired with the correction that turned plausible AI output into shipped banking code.',
+          'Five worked corrections explained in detail: lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars.',
+          'Architecture decisions and design constraints documented as prompts, not as slides.',
+          "Each prompt paired with the banker's reasoning and the resulting code in the labs-platform repo, so the relationship between intent and output is explicit.",
+          'Model-agnostic — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.',
+        ],
+      },
+      bestFor: {
+        badge: 'Best for',
+        title: 'Teams turning AI into a regulated-finance build partner.',
+        items: [
+          'AI teams at banks needing a working example of senior-domain-expertise directing frontier AI',
+          'Research teams studying how AI ships regulated systems versus how AI ships demos',
+          'Consultancies building practice methodology around AI-pair engineering',
+          'Product teams scoping AI-assisted platform builds in regulated verticals',
+        ],
+      },
+      pricing: {
+        badge: 'Pricing',
+        title: 'Bespoke. Scoped to rights and exclusivity.',
+        body: 'Prompt licensing is priced per scope: read-only access, internal-use rights, derivative-work rights, or exclusivity in a vertical. Send a short note about your intended use and we will come back with a tailored proposal.',
+      },
+      cta: {
+        label: 'Talk to us about prompt licensing',
+        href: '/contact?topic=labs-prompts',
+      },
+    },
+
+    labsAdvisory: {
+      title: 'Engage the Builder | Atheryon',
+      description: 'Engage Terry Tsakiris to apply the Atheryon method to your own data, platform, or S&P TeraHelix integration path.',
+      hero: {
+        eyebrow: '03 / Advisory',
+        headline: 'Engage the builder.',
+        lede: "Work with Terry Tsakiris to apply the same method to your own data, product, platform, client opportunity, or S&P TeraHelix integration path.",
+      },
+      whatYouGet: {
+        badge: 'What you get',
+        title: 'Senior-led engagement, directed by the banker who built Labs.',
+        items: [
+          'Direct engagement with Terry Tsakiris (Founder & Principal Practitioner) — not handed off to juniors.',
+          'The Atheryon method applied to your specific problem — CDM-first modelling, controls-before-user-stories, AI-pair engineering.',
+          'S&P TeraHelix integration paths where applicable — Atheryon is the integration partner for S&P TeraHelix.',
+          'Engagement shapes: 30-day diagnostic, 6-12 week prototype sprint, or multi-quarter platform recovery / build.',
+          'Senior delivery leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting.',
+        ],
+      },
+      bestFor: {
+        badge: 'Best for',
+        title: 'Programs where senior practitioner judgment matters most.',
+        items: [
+          'Banks with a distressed platform programme that needs a credible recovery',
+          'Buy-side and sell-side institutions needing a CDM-native reference for build or vendor selection',
+          'S&P clients who want help operationalising their TeraHelix integration',
+          'AI labs that need senior banking domain direction on a regulated-vertical build',
+          'Boards and CDOs scoping a multi-year platform programme who want senior delivery muscle from day one',
+        ],
+      },
+      pricing: {
+        badge: 'Pricing',
+        title: 'Bespoke. Engagement-shape and duration drive scope.',
+        body: 'Advisory engagements are priced per shape and duration. A 30-day diagnostic is fixed-fee; sprint and platform engagements are scoped after the diagnostic. Send a short note about your context and we will come back with a tailored proposal.',
+      },
+      cta: {
+        label: 'Talk to us about advisory engagement',
+        href: '/contact?topic=labs-advisory',
+      },
+    },
+
     reality: {
       title: 'Atheryon — Architects of Your Reality',
       description: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
