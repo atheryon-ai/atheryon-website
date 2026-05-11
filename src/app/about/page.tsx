@@ -80,7 +80,7 @@ export default function AboutPage() {
         badge="Industry"
         title="Industry experience that shapes delivery"
       >
-        <FeatureGrid columns={2}>
+        <FeatureGrid columns={3}>
           {about.credibilityBoxes.map((item, index) => (
             <Card key={index} title={item.title} description={item.description} />
           ))}
