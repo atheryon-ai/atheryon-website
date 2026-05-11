@@ -88,7 +88,7 @@ export const site = {
           },
           {
             title: 'Reuse over point solutions',
-            description: 'We build data products that compound, not one-off fixes.',
+            description: 'We build ontology-grounded data products that compound, not one-off fixes.',
           },
           {
             title: 'Clarity over complexity',
