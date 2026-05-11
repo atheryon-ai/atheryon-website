@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   title: transformation.title,
   description: transformation.description,
   openGraph: { title: transformation.title, description: transformation.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: transformation.title,
+    description: transformation.description,
+  },
 }
 
 export default function TransformationPage() {

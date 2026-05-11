@@ -7,6 +7,15 @@ const { mibInsightThanks } = site.pages
 export const metadata: Metadata = {
   title: mibInsightThanks.title,
   description: mibInsightThanks.description,
+  openGraph: {
+    title: mibInsightThanks.title,
+    description: mibInsightThanks.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: mibInsightThanks.title,
+    description: mibInsightThanks.description,
+  },
 }
 
 export default function MibInsightThanksPage() {

@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: reality.title,
   description: reality.description,
   openGraph: { title: reality.title, description: reality.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: reality.title,
+    description: reality.description,
+  },
 }
 
 export default function RealityPage() {

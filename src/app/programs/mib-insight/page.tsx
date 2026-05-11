@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     title: mibInsight.title,
     description: mibInsight.description,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: mibInsight.title,
+    description: mibInsight.description,
+  },
 }
 
 export default function MibInsightPage() {

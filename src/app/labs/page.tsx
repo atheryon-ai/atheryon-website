@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: labs.title,
   description: labs.description,
   openGraph: { title: labs.title, description: labs.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: labs.title,
+    description: labs.description,
+  },
 }
 
 export default function LabsPage() {
