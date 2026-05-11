@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SimpleHero, Section, SectionDivider } from '@/components'
+import { SimpleHero, Section, SectionDivider, BulletList } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Atheryon',
@@ -58,26 +58,13 @@ export default function TermsPage() {
                 Use of the site
               </h2>
               <p className="mb-4">You agree to use the Site only for lawful purposes. You must not:</p>
-              <ul className="space-y-3 list-none">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    Interfere with, disrupt, or attempt to gain unauthorised access to the Site or its
-                    underlying systems.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    Use automated scrapers, crawlers, or bots to harvest content at a rate that affects
-                    other users, except for well-behaved search-engine indexing.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Submit unlawful, deceptive, defamatory, or harmful content via any form on the Site.</span>
-                </li>
-              </ul>
+              <BulletList
+                items={[
+                  'Interfere with, disrupt, or attempt to gain unauthorised access to the Site or its underlying systems.',
+                  'Use automated scrapers, crawlers, or bots to harvest content at a rate that affects other users, except for well-behaved search-engine indexing.',
+                  'Submit unlawful, deceptive, defamatory, or harmful content via any form on the Site.',
+                ]}
+              />
             </section>
 
             <section>
