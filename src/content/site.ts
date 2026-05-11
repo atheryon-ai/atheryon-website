@@ -447,7 +447,7 @@ export const site = {
             title: 'Buy the code.',
             body: 'License the Atheryon Labs platform code as a working banking reference implementation. Best for: data vendors, AI firms, banks, consultancies, cloud partners, and fintechs that need a credible vertical platform asset.',
             ctaLabel: 'Buy the code',
-            ctaHref: '/contact?topic=labs-code',
+            ctaHref: '/labs/code',
             anchorId: 'code',
           },
           {
@@ -456,7 +456,7 @@ export const site = {
             title: 'License the prompts.',
             body: 'License the prompt archive that directed the AI build. This includes the instructions, corrections, domain constraints, architecture decisions, and banking reasoning used to turn AI from a generic code generator into a useful regulated-finance build partner.',
             ctaLabel: 'License the prompts',
-            ctaHref: '/contact?topic=labs-prompts',
+            ctaHref: '/labs/prompts',
             anchorId: 'prompts',
           },
           {
@@ -465,7 +465,7 @@ export const site = {
             title: 'Engage the builder.',
             body: 'Work with Terry to apply the same method to your own data, product, platform, client opportunity, or S&P TeraHelix integration path. This is where integration-partner credibility matters most.',
             ctaLabel: 'Engage the builder',
-            ctaHref: '/contact?topic=labs-advisory',
+            ctaHref: '/labs/advisory',
             anchorId: 'advisory',
           },
         ],
