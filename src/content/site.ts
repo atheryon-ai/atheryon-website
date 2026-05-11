@@ -513,6 +513,10 @@ export const site = {
             href: '/transformation',
           },
         ],
+        relatedHeading: {
+          badge: 'Explore the other pillars',
+          title: 'Two more lenses on enterprise reality.',
+        },
       },
       transition: {
         badge: 'The hidden reality',
