@@ -4,22 +4,19 @@ export const site = {
   email: 'info@atheryon.com.au',
 
   nav: [
-    { label: 'How We Work', href: '/how-we-work' },
-    { label: 'Recovery & Migration', href: '/recovery-migration' },
-    { label: 'Capability Enablement', href: '/capability-enablement' },
-    { label: 'M&A Execution', href: '/m-and-a-execution' },
-    { label: 'CDM Platform', href: '/cdm-platform' },
-    { label: 'Reference Architectures', href: '/reference-architectures' },
-    { label: 'AI-Ready Data', href: '/ai-ready-data' },
+    { label: 'Reality', href: '/reality' },
+    { label: 'Data', href: '/data' },
+    { label: 'AI Direction', href: '/ai-direction' },
+    { label: 'Transformation', href: '/transformation' },
+    { label: 'Labs', href: '/labs' },
     { label: 'About', href: '/about' },
   ],
 
   // Services dropdown items (used in Header)
   servicesNav: [
-    { label: 'CDM Platform', href: '/cdm-platform' },
-    { label: 'Recovery & Migration', href: '/recovery-migration' },
-    { label: 'M&A Execution', href: '/m-and-a-execution' },
-    { label: 'Capability Enablement', href: '/capability-enablement' },
+    { label: 'Data', href: '/data' },
+    { label: 'AI Direction', href: '/ai-direction' },
+    { label: 'Transformation', href: '/transformation' },
   ],
 
   cta: {
@@ -116,6 +113,10 @@ export const site = {
       alternative: {
         text: 'Prefer email?',
         email: 'info@atheryon.com.au',
+      },
+      coverage: {
+        title: 'Where we work',
+        body: 'Based in Sydney, Australia. Supporting clients across Australia, APAC, and EMEA timezones. London office relationships maintained for European delivery.',
       },
     },
 
@@ -776,17 +777,15 @@ export const site = {
   footer: {
     description: 'Decision-grade data platforms for capital markets and institutional banking. Senior-led. Regulator-credible. Production-grade.',
     links: {
-      services: [
-        { label: 'How We Work', href: '/how-we-work' },
-        { label: 'Recovery & Migration', href: '/recovery-migration' },
-        { label: 'M&A Execution', href: '/m-and-a-execution' },
-        { label: 'Capability Enablement', href: '/capability-enablement' },
-        { label: 'CDM Platform', href: '/cdm-platform' },
+      pillars: [
+        { label: 'Data', href: '/data' },
+        { label: 'AI Direction', href: '/ai-direction' },
+        { label: 'Transformation', href: '/transformation' },
       ],
       resources: [
+        { label: 'Labs', href: '/labs' },
         { label: 'Programs', href: '/programs' },
-        { label: 'Reference Architectures', href: '/reference-architectures' },
-        { label: 'AI-Ready Data', href: '/ai-ready-data' },
+        { label: 'MiB Insight', href: '/programs/mib-insight' },
       ],
       company: [
         { label: 'About', href: '/about' },

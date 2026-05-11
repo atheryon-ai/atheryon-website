@@ -129,6 +129,16 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
+        {/* Geographic coverage */}
+        <div className="max-w-4xl mx-auto mt-16 pt-10 border-t border-neutral-500/10">
+          <h3 className="font-display text-xl font-semibold text-neutral-900 mb-3 tracking-tight">
+            {contact.coverage.title}
+          </h3>
+          <p className="text-neutral-600 leading-relaxed max-w-2xl">
+            {contact.coverage.body}
+          </p>
+        </div>
       </Section>
     </>
   )
