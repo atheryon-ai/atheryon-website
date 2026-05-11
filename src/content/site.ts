@@ -52,7 +52,7 @@ export const site = {
       credibilityBoxes: [
         {
           title: '20+ Years in Capital Markets',
-          description: 'Over two decades of delivery leadership across global capital markets — London and Australia. Tier-one banks, market infrastructure, and regulatory environments. Front-to-back data, risk, and regulatory reporting capability delivered under sustained operational and regulatory pressure.\n\nHands-on leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank. Senior-led — principals on the ground, not juniors with slide decks.',
+          description: 'Over two decades of delivery leadership across global capital markets — London and Australia. Tier-one banks, market infrastructure, and regulatory environments. Front-to-back data, risk, and regulatory reporting capability delivered under sustained operational and regulatory pressure.\n\nHands-on leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting aligned to APRA (Australian Prudential Regulation Authority), ASIC (Australian Securities and Investments Commission), MiFID II (Markets in Financial Instruments Directive II, EU), EMIR (European Market Infrastructure Regulation), and Dodd-Frank (U.S. Dodd-Frank Wall Street Reform and Consumer Protection Act). Senior-led — principals on the ground, not juniors with slide decks.',
         },
         {
           title: 'M&A Execution & Integration',
@@ -310,7 +310,7 @@ export const site = {
         title: 'What was built, how fast',
         statsItems: [
           { value: '8', label: 'banking functions covered' },
-          { value: '1', label: 'CDM data model — ISDA-compliant, end to end' },
+          { value: '1', label: 'CDM data model — ISDA (International Swaps and Derivatives Association)-compliant, end to end' },
           { value: '31', label: 'flagship surfaces shipped' },
           { value: 'Live', label: 'at atheryon.com.au' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
@@ -649,7 +649,7 @@ export const site = {
       proof: {
         badge: 'Proof',
         title: 'See the data foundation in Labs.',
-        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas.',
+        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 (international standard for financial messaging) messages, 14 FpML (Financial Products Markup Language) schemas.',
         screenshot: '/reality/labs-screenshot-data.png',
         screenshotAlt: 'Atheryon Labs schema editor and ODS surfaces',
         cta: { label: 'Explore Labs →', href: '/labs' },
