@@ -164,20 +164,22 @@ export default function LabsPage() {
           <p className="text-neutral-700 leading-relaxed">{labs.method.economics.body}</p>
         </div>
 
-        <div className="p-8 bg-warm-200 border border-neutral-500/10 rounded-2xl mb-10">
-          <h3 className="text-lg font-bold text-neutral-900 tracking-tight mb-4">{labs.method.artifact.heading}</h3>
-          <div className="font-mono text-sm bg-white border border-neutral-500/10 rounded-xl p-5 mb-4 text-neutral-800 whitespace-pre-wrap">
-            {labs.method.artifact.promptShown}
+        {!labs.method.artifact.promptShown.startsWith('{{') && !labs.method.artifact.correctionShown.startsWith('{{') && (
+          <div className="p-8 bg-warm-200 border border-neutral-500/10 rounded-2xl mb-10">
+            <h3 className="text-lg font-bold text-neutral-900 tracking-tight mb-4">{labs.method.artifact.heading}</h3>
+            <div className="font-mono text-sm bg-white border border-neutral-500/10 rounded-xl p-5 mb-4 text-neutral-800 whitespace-pre-wrap">
+              {labs.method.artifact.promptShown}
+            </div>
+            <div className="font-mono text-sm bg-white border border-brand-orange/40 rounded-xl p-5 mb-4 text-neutral-900 whitespace-pre-wrap">
+              {labs.method.artifact.correctionShown}
+            </div>
+            {labs.method.artifact.prLink && !labs.method.artifact.prLink.startsWith('{{') && (
+              <a href={labs.method.artifact.prLink} className="text-sm font-semibold text-brand-orange">
+                View the PR →
+              </a>
+            )}
           </div>
-          <div className="font-mono text-sm bg-white border border-brand-orange/40 rounded-xl p-5 mb-4 text-neutral-900 whitespace-pre-wrap">
-            {labs.method.artifact.correctionShown}
-          </div>
-          {labs.method.artifact.prLink && !labs.method.artifact.prLink.startsWith('{{') && (
-            <a href={labs.method.artifact.prLink} className="text-sm font-semibold text-brand-orange">
-              View the PR →
-            </a>
-          )}
-        </div>
+        )}
 
         <p className="text-base italic text-neutral-600 max-w-3xl">
           {labs.method.disclosure}

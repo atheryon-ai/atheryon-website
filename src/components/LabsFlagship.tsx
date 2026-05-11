@@ -55,7 +55,9 @@ export function LabsFlagship({
         <h4 className="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-2">How it works</h4>
         <p className="text-neutral-700 leading-relaxed mb-6">{howItWorks}</p>
         <p className="text-sm text-neutral-600 italic mb-2">{metric}</p>
-        <p className="text-xs text-neutral-500 italic">{footer}</p>
+        {!/\{\{[A-Z_]+\}\}/.test(footer) && (
+          <p className="text-xs text-neutral-500 italic">{footer}</p>
+        )}
         {sidebarVignette && (
           <div className="mt-6 p-5 bg-warm-200 border border-neutral-500/10 rounded-2xl">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-neutral-500 mb-3">

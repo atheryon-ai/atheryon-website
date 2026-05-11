@@ -4,23 +4,24 @@ import { test, expect } from '@playwright/test';
  * Route testing to ensure all pages load correctly.
  * This catches Azure SWA routing misconfigurations where URL changes
  * but page content doesn't load (falls back to index.html).
+ *
+ * Routes covered match the current IA (post-/reality pivot). The 8 legacy
+ * URLs (/how-we-work, /cdm-platform, etc.) now 301-redirect — those
+ * behaviours are tested in tests/redirects.spec.ts, not here.
  */
 
 const routes = [
-  { path: '/', title: /Atheryon/, h1: /Decision-grade data platforms/i },
-  { path: '/contact', title: /Contact/, h1: /Request a confidential discussion/i },
-  { path: '/how-we-work', title: /How We Work/, h1: /How we work/i },
-  { path: '/about', title: /About/, h1: /Built by practitioners/i },
-  { path: '/reference-architectures', title: /Reference/, h1: /Reference/i },
-  { path: '/ai-ready-data', title: /AI-Ready Data/, h1: /AI-Ready Data/i },
-  { path: '/recovery-migration', title: /Recovery/, h1: /Recovery/i },
-  { path: '/capability-enablement', title: /Capability/, h1: /Capability/i },
-  { path: '/cdm-platform', title: /CDM/, h1: /Transform Your Derivatives/i },
-  { path: '/m-and-a-execution', title: /M&A/, h1: /M&A/i },
-  { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
-  { path: '/programs/mib-insight', title: /MiB Insight Program/, h1: /Industry IP ready for AI agents/i },
+  { path: '/', title: /Atheryon/, h1: /Reality is built on data/i },
+  { path: '/reality', title: /Architects of Your Reality/, h1: /Reality is built on data/i },
+  { path: '/data', title: /Data/, h1: /Data/i },
+  { path: '/ai-direction', title: /AI Direction/, h1: /AI Direction/i },
+  { path: '/transformation', title: /Transformation/, h1: /Transformation/i },
   { path: '/labs', title: /Labs/, h1: /Atheryon Labs/i },
   { path: '/labs/themes', title: /Labs Surface/, h1: /Explore the labs surface/i },
+  { path: '/about', title: /About/, h1: /Built by practitioners/i },
+  { path: '/contact', title: /Contact/, h1: /Request a confidential discussion/i },
+  { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
+  { path: '/programs/mib-insight', title: /MiB Insight Program/, h1: /Industry IP ready for AI agents/i },
 ];
 
 test.describe('Route Loading', () => {
@@ -41,17 +42,18 @@ test.describe('Direct URL Access', () => {
   test('contact page loads on direct access', async ({ page }) => {
     await page.goto('/contact');
     await expect(page).toHaveTitle(/Contact/);
-    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
-  });
-
-  test('how-we-work page loads on direct access', async ({ page }) => {
-    await page.goto('/how-we-work');
-    await expect(page).toHaveTitle(/How We Work/);
+    await expect(page.locator('h1').first()).toContainText('Request a confidential discussion');
   });
 
   test('about page loads on direct access', async ({ page }) => {
     await page.goto('/about');
     await expect(page).toHaveTitle(/About/);
+  });
+
+  test('reality (homepage equivalent) loads on direct access', async ({ page }) => {
+    await page.goto('/reality');
+    await expect(page).toHaveTitle(/Architects of Your Reality/);
+    await expect(page.locator('h1').first()).toContainText('Reality is built on data');
   });
 });
 
@@ -60,14 +62,14 @@ test.describe('Navigation Between Pages', () => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Atheryon/);
 
-    // Navigate to contact via hero CTA
-    await page.locator('section a:has-text("Request a confidential discussion")').first().click();
+    // The /reality closing section has a "Request a session" link to /contact
+    await page.getByRole('link', { name: /Request a session/i }).first().click();
     await expect(page).toHaveURL(/\/contact/);
-    await expect(page.locator('h1')).toContainText('Request a confidential discussion');
+    await expect(page.locator('h1').first()).toContainText('Request a confidential discussion');
 
-    // Navigate back to homepage via logo
-    await page.locator('nav a').first().click();
+    // Navigate back via header logo link
+    await page.locator('header a').first().click();
     await expect(page).toHaveURL('/');
-    await expect(page.locator('h1')).toContainText('data platforms');
+    await expect(page.locator('h1').first()).toContainText('Reality is built on data');
   });
 });
