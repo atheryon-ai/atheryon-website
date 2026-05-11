@@ -5,8 +5,15 @@ name: Playwright tests
 # class of regression that produced PR #42's "Download the pack" CTA gap.
 #
 # Scope: chromium project only (firefox/webkit/mobile remain in playwright.config
-# for local use, but CI runs only chromium for speed). To regenerate visual
-# baselines after intentional UI changes:
+# for local use, but CI runs only chromium for speed).
+#
+# Visual tests (tests/visual.spec.ts) are EXCLUDED from CI because Playwright
+# screenshot baselines are OS-specific (font rendering, anti-aliasing). Baselines
+# are captured on darwin during local dev. Running them on ubuntu-latest needs
+# linux baselines that we deliberately don't maintain — the visual suite is a
+# local design-QA tool, not a cross-OS regression gate.
+#
+# To regenerate visual baselines after intentional UI changes (local only):
 #   npx playwright test --project=chromium --update-snapshots tests/visual.spec.ts
 # then commit the updated tests/visual.spec.ts-snapshots/*.png files.
 
@@ -47,8 +54,8 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Run Playwright tests
-        run: npx playwright test --project=chromium
+      - name: Run Playwright tests (excluding visual baselines — OS-specific)
+        run: npx playwright test --project=chromium --grep-invert "Visual Tests"
         # On failure, the per-test screenshots and traces are still on the
         # runner. Re-run locally with `npx playwright test --project=chromium`
         # to reproduce. If you want to archive playwright-report/ in CI, add
