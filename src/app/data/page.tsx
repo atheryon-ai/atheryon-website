@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     title: data.title,
     description: data.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/data',
+  },
 }
 
 export default function DataPage() {

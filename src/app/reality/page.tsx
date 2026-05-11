@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     title: reality.title,
     description: reality.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/reality',
+  },
 }
 
 export default function RealityPage() {

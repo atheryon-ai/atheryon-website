@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     title: labs.title,
     description: labs.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/labs',
+  },
 }
 
 export default function LabsPage() {

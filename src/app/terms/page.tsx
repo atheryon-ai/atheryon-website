@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: 'Terms of Service | Atheryon',
     description: 'Terms governing use of atheryon.com.au. Governed by the laws of New South Wales, Australia.',
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/terms',
+  },
 }
 
 const EFFECTIVE_DATE = '11 May 2026'

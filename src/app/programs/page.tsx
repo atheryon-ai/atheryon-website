@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     title: programs.title,
     description: programs.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/programs',
+  },
 }
 
 export default function ProgramsPage() {

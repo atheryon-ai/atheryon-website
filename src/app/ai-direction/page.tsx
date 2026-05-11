@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     title: aiDirection.title,
     description: aiDirection.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/ai-direction',
+  },
 }
 
 export default function AiDirectionPage() {

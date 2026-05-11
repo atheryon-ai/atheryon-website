@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Atheryon',
     description: 'How Atheryon collects, uses, and protects personal information under the Australian Privacy Act 1988.',
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/privacy',
+  },
 }
 
 const EFFECTIVE_DATE = '11 May 2026'

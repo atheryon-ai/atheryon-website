@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     title: about.title,
     description: about.description,
   },
+  alternates: {
+    canonical: 'https://atheryon.com.au/about',
+  },
 }
 
 export default function AboutPage() {
