@@ -1,5 +1,14 @@
 import type { Metadata } from 'next'
-import { SimpleHero, Section, SectionDivider } from '@/components'
+import { SimpleHero, Section, SectionDivider, BulletList } from '@/components'
+
+function RichBullet({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="flex items-start gap-3">
+      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
+      <span>{children}</span>
+    </li>
+  )
+}
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Atheryon',
@@ -52,21 +61,15 @@ export default function PrivacyPage() {
                 operate the site. Specifically:
               </p>
               <ul className="space-y-3 list-none">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    <strong className="text-neutral-900">Contact form submissions:</strong> name, email
-                    address, optional company name, and the message you choose to send us.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    <strong className="text-neutral-900">Basic analytics:</strong> aggregate page views and
-                    referrer data used to understand which content is read. We do not collect IP addresses
-                    for marketing purposes and we do not run advertising or cross-site tracking.
-                  </span>
-                </li>
+                <RichBullet>
+                  <strong className="text-neutral-900">Contact form submissions:</strong> name, email
+                  address, optional company name, and the message you choose to send us.
+                </RichBullet>
+                <RichBullet>
+                  <strong className="text-neutral-900">Basic analytics:</strong> aggregate page views and
+                  referrer data used to understand which content is read. We do not collect IP addresses
+                  for marketing purposes and we do not run advertising or cross-site tracking.
+                </RichBullet>
               </ul>
             </section>
 
@@ -78,20 +81,13 @@ export default function PrivacyPage() {
                 We use the information you provide only to respond to your enquiry and to maintain a record
                 of the conversation. Specifically we use it to:
               </p>
-              <ul className="space-y-3 list-none">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Reply to your message and arrange a confidential discussion if appropriate.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Maintain a contact history so subsequent engagement has context.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Understand which areas of the site are read, so we can improve the content.</span>
-                </li>
-              </ul>
+              <BulletList
+                items={[
+                  'Reply to your message and arrange a confidential discussion if appropriate.',
+                  'Maintain a contact history so subsequent engagement has context.',
+                  'Understand which areas of the site are read, so we can improve the content.',
+                ]}
+              />
               <p className="mt-4">
                 We do not use your personal information for marketing automation, profiling, or any
                 machine-learning training.
@@ -107,21 +103,15 @@ export default function PrivacyPage() {
                 for their own marketing purposes. The only disclosures we make are:
               </p>
               <ul className="space-y-3 list-none">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    <strong className="text-neutral-900">Service providers</strong> who help us operate the
-                    site (form delivery via Formspree, web hosting, email). These providers are bound by
-                    confidentiality obligations and may only use the data to provide the service.
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    <strong className="text-neutral-900">Where required by law</strong> &mdash; for example
-                    in response to a lawful regulator, court order, or to protect our rights.
-                  </span>
-                </li>
+                <RichBullet>
+                  <strong className="text-neutral-900">Service providers</strong> who help us operate the
+                  site (form delivery via Formspree, web hosting, email). These providers are bound by
+                  confidentiality obligations and may only use the data to provide the service.
+                </RichBullet>
+                <RichBullet>
+                  <strong className="text-neutral-900">Where required by law</strong> &mdash; for example
+                  in response to a lawful regulator, court order, or to protect our rights.
+                </RichBullet>
               </ul>
             </section>
 
@@ -146,34 +136,24 @@ export default function PrivacyPage() {
                 right to:
               </p>
               <ul className="space-y-3 list-none">
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Access the personal information we hold about you.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Request correction of inaccurate or out-of-date information.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>Request deletion of your information, subject to legal retention requirements.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-orange mt-2.5" />
-                  <span>
-                    Make a complaint about how we have handled your information. You may also complain to
-                    the Office of the Australian Information Commissioner (OAIC) at{' '}
-                    <a
-                      href="https://www.oaic.gov.au"
-                      className="text-brand-orange hover:underline"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      oaic.gov.au
-                    </a>
-                    .
-                  </span>
-                </li>
+                <RichBullet>Access the personal information we hold about you.</RichBullet>
+                <RichBullet>Request correction of inaccurate or out-of-date information.</RichBullet>
+                <RichBullet>
+                  Request deletion of your information, subject to legal retention requirements.
+                </RichBullet>
+                <RichBullet>
+                  Make a complaint about how we have handled your information. You may also complain to
+                  the Office of the Australian Information Commissioner (OAIC) at{' '}
+                  <a
+                    href="https://www.oaic.gov.au"
+                    className="text-brand-orange hover:underline"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    oaic.gov.au
+                  </a>
+                  .
+                </RichBullet>
               </ul>
             </section>
 
