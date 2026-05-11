@@ -1,0 +1,56 @@
+name: Playwright tests
+
+# Runs the Playwright chromium suite on every PR to main. This is the
+# guardrail that catches test rot after content / IA changes — exactly the
+# class of regression that produced PR #42's "Download the pack" CTA gap.
+#
+# Scope: chromium project only (firefox/webkit/mobile remain in playwright.config
+# for local use, but CI runs only chromium for speed). To regenerate visual
+# baselines after intentional UI changes:
+#   npx playwright test --project=chromium --update-snapshots tests/visual.spec.ts
+# then commit the updated tests/visual.spec.ts-snapshots/*.png files.
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: '20'
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    name: Playwright (chromium)
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Build Next.js (static export)
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Run Playwright tests
+        run: npx playwright test --project=chromium
+        # On failure, the per-test screenshots and traces are still on the
+        # runner. Re-run locally with `npx playwright test --project=chromium`
+        # to reproduce. If you want to archive playwright-report/ in CI, add
+        # actions/upload-artifact here with a SHA-pinned version that matches
+        # the repo's CODEOWNERS-approved set.
