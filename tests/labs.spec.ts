@@ -5,14 +5,6 @@ test.describe('/labs page', () => {
     await page.goto('/labs');
   });
 
-  test('hero disclaimer renders above the fold', async ({ page }) => {
-    const disclaimer = page.getByText(/It is not a production bank platform/i);
-    await expect(disclaimer).toBeVisible();
-    const box = await disclaimer.boundingBox();
-    expect(box).not.toBeNull();
-    expect(box!.y).toBeLessThan(900);
-  });
-
   test('three hero CTAs are present', async ({ page }) => {
     await expect(page.getByRole('link', { name: /See it live/i }).first()).toHaveAttribute('href', 'https://labs.atheryon.ai');
     await expect(page.getByRole('link', { name: /Download the pack/i }).first()).toHaveAttribute('href', '/labs/atheryon-pitch-pack.pdf');
@@ -58,5 +50,11 @@ test.describe('/labs page', () => {
     const body = await page.locator('body').innerText();
     expect(body).not.toMatch(/TERRY_PROMPT_EXAMPLE/);
     expect(body).not.toMatch(/\{\{[A-Z_]+\}\}/);
+  });
+
+  test('engagement cards have anchor IDs', async ({ page }) => {
+    await expect(page.locator('#code')).toBeVisible()
+    await expect(page.locator('#prompts')).toBeVisible()
+    await expect(page.locator('#advisory')).toBeVisible()
   });
 });

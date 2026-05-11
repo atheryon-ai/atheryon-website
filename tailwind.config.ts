@@ -20,11 +20,14 @@ const config: Config = {
         },
         // Atheryon brand colors
         'brand': {
-          orange: '#FF9900',       // Atheryon Orange (canonical)
+          orange: '#FF9900',          // legacy — used by /labs and unchanged components; cleanup in v2
           'orange-light': '#FFB833',
-          blue: '#0A84FF',         // Atheryon Blue (canonical)
+          amber: '#D98B3E',           // new — primary accent for /reality, pillars, Floor 13
+          'amber-light': '#E5A862',
+          blue: '#0A84FF',            // legacy — Atheryon Blue (canonical); still used by existing pages
           'blue-light': '#4BC0FF',
-          dark: '#0A1A2F',         // Deep Navy (canonical)
+          deepblue: '#0D4D7A',        // new — Data pillar / Floor 13 Data dial structural accent
+          dark: '#0A1A2F',            // legacy
         },
         'navy': {
           900: '#0A1A2F',  // Deep Navy (canonical)
@@ -39,9 +42,12 @@ const config: Config = {
           900: '#0A1A2F',  // Deep Navy - headlines
           800: '#0A1A2F',  // Deep Navy - body text
           700: '#0A1A2F',  // Deep Navy
-          600: '#6B7280',  // Warm Grey Mid - secondary text
+          600: '#4B5563',  // Secondary text — AA on cream (5.7:1) and white (7.6:1)
           500: '#A7B0B8',  // Warm Grey Mid - captions
         },
+        'bone': '#EFEAE0',            // new — body bg for /reality and pillars; replaces warm-50 in new code
+        'ink': '#0E1116',             // new — Floor 13 band, dark sections
+        'charcoal': '#15171A',        // new — text-on-bone alternative to neutral.900
       },
       fontFamily: {
         sans: ['"Inter Tight"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],

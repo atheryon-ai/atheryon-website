@@ -19,7 +19,8 @@ const routes = [
   { path: '/m-and-a-execution', title: /M&A/, h1: /M&A/i },
   { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
   { path: '/programs/mib-insight', title: /MiB Insight Program/, h1: /Industry IP ready for AI agents/i },
-  { path: '/labs', title: /Labs/, h1: /Most capital-markets platforms/i },
+  { path: '/labs', title: /Labs/, h1: /Atheryon Labs/i },
+  { path: '/labs/themes', title: /Labs Surface/, h1: /Explore the labs surface/i },
 ];
 
 test.describe('Route Loading', () => {

@@ -8,11 +8,12 @@ interface SectionProps {
   description?: string
   centered?: boolean
   dark?: boolean
+  id?: string
 }
 
-export function Section({ children, className = '', badge, title, description, centered = false, dark = false }: SectionProps) {
+export function Section({ children, className = '', badge, title, description, centered = false, dark = false, id }: SectionProps) {
   return (
-    <section className={`px-6 section-spacing ${dark ? 'bg-neutral-900 text-white' : ''} ${className}`}>
+    <section id={id} className={`px-6 section-spacing scroll-mt-24 ${dark ? 'bg-neutral-900 text-white' : ''} ${className}`}>
       <div className="max-w-container mx-auto">
         {(badge || title || description) && (
           <div className={`mb-10 md:mb-14 ${centered ? 'text-center' : ''}`}>

@@ -37,706 +37,6 @@ export const site = {
   },
 
   pages: {
-    home: {
-      title: 'Atheryon | Decision-grade data platforms for regulated markets',
-      description: 'Atheryon builds decision-grade data platforms for capital markets and institutional banking — regulator-credible, production-grade, senior-led.',
-      hero: {
-        headline: 'Decision-grade data platforms under pressure',
-        subheadline: 'Platforms that accelerate regulated delivery, reduce operational and regulatory risk, and provide trusted data for critical decisions.',
-        primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
-        secondaryCta: { label: 'How we deliver', href: '/how-we-work' },
-      },
-      whoWeAreFor: {
-        badge: 'Who We Help',
-        title: 'Built for high-stakes environments',
-        forClients: [
-          'Tier-1 banks and investment banks',
-          'Capital markets and trading infrastructure',
-          'Institutional banking and asset management',
-          'Regulators, central agencies, and market operators',
-        ],
-        notForClients: [
-          'Data cannot be trusted for regulatory reporting or risk decisions',
-          'No single source of truth — inconsistent definitions across front, middle, and back office',
-          'Regulatory exposure increasing due to data quality or lineage gaps',
-          'Programs stalled after significant investment — no production outcomes',
-          'Delivery too slow — teams cannot ship governed capability under time pressure',
-        ],
-      },
-      problemLeadIn: {
-        badge: 'The reality',
-        title: 'The problem we see before we\u2019re engaged',
-        description:
-          'Most regulated organisations accumulate point solutions over time. Data moves, but meaning erodes. Definitions diverge across teams. Governance becomes reactive. Delivery slows. Risk rises.',
-      },
-      problemsWeSolve: {
-        badge: 'The Problem',
-        title: 'The problem we solve',
-        cards: [
-          {
-            title: 'Data cannot be trusted',
-            description: 'Regulatory reporting, risk calculations, and trade surveillance rely on data that no one has confidence in.',
-          },
-          {
-            title: 'No single source of truth',
-            description: 'Inconsistent definitions across front, middle, and back office. Every team maintains its own version.',
-          },
-          {
-            title: 'Regulatory exposure',
-            description: 'Data quality and lineage gaps create material regulatory risk. Scrutiny is increasing.',
-          },
-          {
-            title: 'Stalled programs',
-            description: 'Significant investment consumed. No production outcomes. Executive confidence eroding.',
-          },
-          {
-            title: 'Delivery too slow',
-            description: 'Teams cannot ship governed, regulator-credible capability under real time pressure.',
-          },
-        ],
-      },
-      whatWeDo: {
-        badge: 'Outcomes',
-        title: 'What we deliver',
-        columns: [
-          {
-            title: 'Data the business can trust',
-            description: 'Decision-grade platforms where regulatory reporting, risk, and trade surveillance operate on a single governed truth.',
-          },
-          {
-            title: 'Regulator-credible governance',
-            description: 'Lineage, ownership, and controls that withstand regulatory scrutiny — built in, not bolted on.',
-          },
-          {
-            title: 'Programs that reach production',
-            description: 'Stalled initiatives recovered. New capability shipped under real constraints. Institutional confidence restored.',
-          },
-        ],
-      },
-      howWeWorkTeaser: {
-        badge: 'Our Method',
-        title: 'How we work',
-        steps: [
-          'Strategy — define outcomes, constraints, and what "done" means',
-          'Architecture — semantic alignment, governance model, platform design',
-          'Delivery — build, validate, ship to production under pressure',
-        ],
-        link: { label: 'Learn more about our method', href: '/how-we-work' },
-      },
-      credibility: {
-        badge: 'Our Track Record',
-        title: 'Credibility without logos',
-        quote: 'We are engaged when data programs have consumed significant investment but failed to produce outputs the business can trust under regulatory or operational pressure. Our work stabilises delivery, enforces semantic clarity, and leaves behind governed platforms that reduce the cost of future change.',
-        bullets: [
-          'Recovering stalled programs in live trading and regulatory environments',
-          'Building decision-grade platforms under regulatory scrutiny',
-          'Senior-led delivery — principals on the ground, not juniors with slide decks',
-        ],
-      },
-      referenceArchitecturesTeaser: {
-        badge: 'Reference Architectures',
-        title: 'Artefacts, not claims',
-        cards: [
-          {
-            title: 'Canonical data model layer',
-            description: 'Shared semantics that enable reuse across capabilities.',
-          },
-          {
-            title: 'Bronze/Silver/Gold pipelines',
-            description: 'Progressive refinement with validation at each stage.',
-          },
-          {
-            title: 'Governance + AI consumption',
-            description: 'Controlled access patterns for safe AI integration.',
-          },
-        ],
-        link: { label: 'View reference architectures', href: '/reference-architectures' },
-      },
-      servicesSection: {
-        badge: 'Our Services',
-        title: 'How we help',
-        cards: [
-          {
-            title: 'Recovery & Migration',
-            description: 'Recover stalled data programs and execute migrations that preserve meaning — regulator-credible, production-grade.',
-            href: '/recovery-migration',
-          },
-          {
-            title: 'M&A Execution',
-            description: 'Separation and integration delivery where operational continuity and regulatory obligations cannot be interrupted.',
-            href: '/m-and-a-execution',
-          },
-          {
-            title: 'Capability Enablement',
-            description: 'Turn delivered platforms into durable business capability with governance, ownership, and operating models that endure.',
-            href: '/capability-enablement',
-          },
-        ],
-      },
-      finalCta: {
-        text: 'If data issues are visible at executive level, regulatory scrutiny is increasing, or a program is failing to land outcomes — we should talk.',
-        cta: { label: 'Request a confidential discussion', href: '/contact' },
-      },
-    },
-
-    howWeWork: {
-      title: 'How We Work | Atheryon',
-      description: 'Two delivery models for complex data, regulatory, and M&A initiatives under real execution pressure.',
-      hero: {
-        headline: 'How we work',
-        subheadline: 'Two delivery models, one outcome: governed capability in production.',
-      },
-      intro: {
-        title: 'Choose your delivery model',
-        description: 'Data & AI delivery for platform initiatives. M&A execution for transactions and integrations.',
-        ctas: [
-          { label: 'Data & AI Delivery', href: '#data-delivery' },
-          { label: 'M&A Execution', href: '#ma-execution' },
-        ],
-      },
-      transition: {
-        badge: 'When the delivery motion changes',
-        title: 'For transactions, execution is different',
-        description: 'M&A requires deal-timetable delivery, continuity, and controlled migration where needed.',
-      },
-      methods: [
-        {
-          id: 'data-delivery',
-          badge: 'Data & AI Delivery',
-          title: 'From strategy to production capability',
-          subheadline: 'For complex data, AI, and regulatory initiatives under delivery pressure.',
-          steps: [
-            {
-              number: 1,
-              title: 'Define outcomes and constraints',
-              description: 'Agree the business outcome, delivery constraints (regulatory, technical, organisational), and what "done" means.',
-            },
-            {
-              number: 2,
-              title: 'Align definitions and ownership',
-              description: 'Establish shared definitions and ownership—so teams trust what the data represents.',
-            },
-            {
-              number: 3,
-              title: 'Build pipelines with validation',
-              description: 'Build the pipeline with automated checks—reject bad data early.',
-            },
-            {
-              number: 4,
-              title: 'Ship production capability',
-              description: 'Deliver the working capability into production with runbooks, controls, and operational ownership.',
-            },
-            {
-              number: 5,
-              title: 'Package reusable data products',
-              description: 'Document and govern the assets so future initiatives reuse what\'s built.',
-            },
-          ],
-          done: {
-            title: 'What done looks like',
-            bullets: [
-              'Production capability live with operational ownership',
-              'Quality controls, lineage, and governance in place',
-              'Reusable data products published for future delivery',
-            ],
-          },
-        },
-        {
-          id: 'ma-execution',
-          badge: 'M&A Execution',
-          title: 'From deal intent to operational reality',
-          subheadline: 'For acquisitions, separations, and integrations where execution risk is material.',
-          steps: [
-            {
-              number: 1,
-              title: 'Pre-deal execution readiness',
-              description: 'Assess execution implications before signing—scope, cost, data, operational continuity, and regulatory requirements.',
-            },
-            {
-              number: 2,
-              title: 'Stand up the execution team',
-              description: 'Provide hands-on delivery leadership and teams aligned to the deal timetable—delivery, not slideware.',
-            },
-            {
-              number: 3,
-              title: 'Execute separation or integration',
-              description: 'Plan and run separation or integration across technology, data, operations, and governance under time pressure.',
-            },
-            {
-              number: 4,
-              title: 'Manage data migrations where required',
-              description: 'Design and deliver migrations only where they enable the deal outcome—controlled, auditable, regulator-ready.',
-            },
-          ],
-          done: {
-            title: 'What done looks like',
-            bullets: [
-              'Deal timetable protected with clear execution governance',
-              'Operational and regulatory continuity maintained through transition',
-              'Data migrations completed only where required, with audit trail',
-            ],
-          },
-        },
-      ],
-      // Used by homepage teaser
-      whatDoneLooksLike: {
-        title: 'What done looks like',
-        items: [
-          'Schema documented and versioned',
-          'Validation rules explicit and enforced',
-          'Ownership and lineage clear',
-          'Consumption patterns defined and controlled',
-        ],
-      },
-    },
-
-    recoveryMigration: {
-      title: 'Recovery & Migration | Atheryon',
-      description: 'We recover stalled data programs and execute model-led migrations that preserve meaning under regulatory and operational pressure.',
-      hero: {
-        headline: 'Recovery & migration',
-        subheadline: 'When data initiatives stall or migrations lose meaning, we help.',
-      },
-      whenClientsCallUs: {
-        badge: 'When Clients Call Us',
-        title: 'Triggers for engagement',
-        items: [
-          'Platform exists but nobody trusts the outputs',
-          'Stalled initiative after major spend',
-          'Vendor platform too rigid or opaque',
-          'Migration required but semantics unclear',
-          'Pilots exist but cannot be operationalised',
-        ],
-      },
-      recovery: {
-        badge: 'Recovery',
-        title: 'How we recover stalled initiatives',
-        description: 'Stabilise, simplify, extract usable data products. We are vendor-agnostic—we work with what you have.',
-        items: [
-          'Assess current state without blame',
-          'Identify what can be salvaged',
-          'Clarify semantics and ownership',
-          'Extract reusable data products',
-          'Create path to production',
-        ],
-      },
-      migration: {
-        badge: 'Model-Led Migration',
-        title: 'Migration as a modelling problem',
-        quote: 'We treat migration as a modelling and validation problem, not a transport problem. The goal is to preserve meaning, reduce downstream rewrites, and create reusable assets.',
-        items: [
-          'Map source semantics to target model',
-          'Validate transformations before execution',
-          'Preserve lineage through migration',
-          'Test meaning, not just row counts',
-        ],
-      },
-      whatWeLeave: {
-        title: 'What we leave behind',
-        items: [
-          'Canonical model aligned to business terms',
-          'Validated migration pipelines',
-          'Documented transformation logic',
-          'Reusable data products for future capabilities',
-        ],
-      },
-    },
-
-    capabilityEnablement: {
-      title: 'Capability Enablement | Atheryon',
-      description: 'Turn delivered platforms into durable business capability with embedded ownership, governance, and operating models that withstand regulatory scrutiny.',
-      hero: {
-        headline: 'Capability Enablement',
-        subheadline: 'Turn delivered platforms into durable business capability.',
-      },
-      intro: {
-        text: 'Most organisations can deliver platforms. Far fewer succeed in enabling real capability.\n\nCapability Enablement focuses on embedding ownership, governance, delivery patterns, and operating models so data, analytics, and AI capabilities continue to deliver outcomes under real-world and regulatory pressure.',
-      },
-      capabilities: [
-        {
-          title: 'Regulatory & Risk Capability',
-          description: 'Enable end-to-end regulatory and risk capabilities that are production-grade, traceable, and defensible under scrutiny.',
-        },
-        {
-          title: 'Data Product Capability',
-          description: 'Establish repeatable, governed data products with shared semantics, clear contracts, and embedded quality controls.',
-        },
-        {
-          title: 'Governance Built In',
-          description: 'Embed ownership, lineage, and access controls directly into platforms and delivery models — not bolted on later.',
-        },
-        {
-          title: 'Analytics & AI Foundations',
-          description: 'Enable query-ready analytics and AI consumption patterns that operate safely within defined guardrails.',
-        },
-        {
-          title: 'Delivery Capability',
-          description: 'Build internal delivery capability across business, data, and technology so success can be repeated.',
-        },
-      ],
-    },
-
-    maExecution: {
-      title: 'M&A Execution | Atheryon',
-      description: 'Separation and integration delivery.',
-      hero: {
-        headline: 'M&A Execution',
-        subheadline: 'Separation and integration delivery.',
-      },
-      intro: {
-        text: 'M&A success is determined after the deal is signed.\n\nWe support organisations through separation and integration execution where timelines are fixed, operational risk is high, and regulatory obligations must continue uninterrupted. We preserve meaning in data and processes while enabling Day-1 readiness and clean transition to the target operating model.',
-      },
-      whenClientsCallUs: {
-        badge: 'When Clients Call Us',
-        title: 'Triggers for engagement',
-        items: [
-          'Pre-deal planning deficits',
-          'Execution capability gaps',
-          'High-stakes transaction delivery',
-          'Data migration risk in M&A',
-        ],
-      },
-      execution: {
-        badge: 'Execution',
-        title: 'How we execute separation & integration',
-        description: 'Plan, sequence, and execute with control. We work with what you have and deliver to deadlines.',
-        items: [
-          'Establish separation/integration plan tied to deal outcomes',
-          'Define Day-1 requirements and transition operating model',
-          'Map critical data, reporting, and control dependencies',
-          'Execute separation/integration waves with clear contracts',
-          'Reduce TSA scope and drive clean exit to target state',
-        ],
-      },
-      capabilities: [
-        {
-          title: 'Separation & Integration Strategy',
-          description: 'Pragmatic strategy aligned to deal objectives, constraints, and delivery reality.',
-        },
-        {
-          title: 'Day-1 / Day-2 Readiness',
-          description: 'Design and deliver operating readiness with clear transition sequencing.',
-        },
-        {
-          title: 'Data & Platform Separation',
-          description: 'Separate or integrate data and platforms while preserving meaning and controls.',
-        },
-        {
-          title: 'TSA Reduction & Exit',
-          description: 'Reduce TSA scope and duration through disciplined delivery and target-state design.',
-        },
-        {
-          title: 'Post-Sign Delivery Leadership',
-          description: 'Hands-on execution leadership through to completion and value realisation.',
-        },
-      ],
-      outcomes: {
-        title: 'What we deliver',
-        description: 'Execution that protects value, reduces dependency, and preserves regulatory continuity.',
-        items: [
-          'Clean separation/integration delivered to timeline',
-          'Reduced TSA cost and duration',
-          'Lower operational disruption and delivery risk',
-          'Regulatory continuity across reporting and controls',
-          'Value realised post-sign, not eroded',
-        ],
-      },
-    },
-
-    cdmPlatform: {
-      title: 'CDM Platform | Atheryon',
-      description: 'Transform your derivatives operations with an AI-powered ISDA CDM validation and transformation platform.',
-      hero: {
-        headline: 'Transform Your Derivatives Operations',
-        subheadline: 'An AI-powered platform for ISDA CDM validation, transformation, and regulatory compliance—built for enterprise scale.',
-      },
-      challenge: {
-        badge: 'The Challenge',
-        title: 'Why derivatives data management is broken',
-        cards: [
-          {
-            title: 'Manual Reconciliation',
-            description: 'Over 50% of operations time spent on data quality issues and manual reconciliation across systems.',
-          },
-          {
-            title: 'Inconsistent Formats',
-            description: 'Multiple trade representations, proprietary formats, and siloed data preventing straight-through processing.',
-          },
-          {
-            title: 'Regulatory Complexity',
-            description: 'Different rules across 8+ jurisdictions (CFTC, EMIR, MAS, etc.) with constantly evolving requirements.',
-          },
-          {
-            title: 'Integration Friction',
-            description: 'Point-to-point integrations create brittle architectures that are expensive to maintain and extend.',
-          },
-        ],
-      },
-      solution: {
-        badge: 'The Solution',
-        title: 'Enterprise-grade CDM platform',
-        description: 'A unified platform built on FINOS CDM standards that automates validation, transformation, and regulatory reporting.',
-        stats: [
-          { value: '77', label: 'Platform Components' },
-          { value: '12', label: 'Microservices' },
-          { value: '6', label: 'Applications' },
-          { value: '44', label: 'AI Agents' },
-        ],
-      },
-      capabilities: {
-        badge: 'Core Capabilities',
-        title: 'What the platform does',
-        sections: [
-          {
-            title: 'CDM Validation Engine',
-            description: 'Production-grade validation with full FINOS CDM compliance.',
-            features: [
-              { title: 'Schema Validation', description: 'JSON Schema, XSD, and FpML format validation with detailed error reporting.' },
-              { title: 'Business Rules', description: 'Configurable validation rules for trade economics, dates, and party structures.' },
-              { title: 'Real-time Processing', description: 'Sub-second validation for high-volume trade flows.' },
-            ],
-          },
-          {
-            title: 'Transformation Services',
-            description: 'Bidirectional conversion between formats with semantic preservation.',
-            features: [
-              { title: 'Multi-format Support', description: 'FpML, JSON, CSV, and proprietary formats with extensible adapters.' },
-              { title: 'Semantic Mapping', description: 'Intelligent field mapping that preserves business meaning across transformations.' },
-              { title: 'Batch & Streaming', description: 'Process individual trades or high-volume batch files with equal reliability.' },
-            ],
-          },
-          {
-            title: 'AI-Powered Analysis',
-            description: 'Machine learning for pattern recognition and anomaly detection.',
-            features: [
-              { title: 'Anomaly Detection', description: 'Identify unusual trade patterns, pricing outliers, and data quality issues.' },
-              { title: 'Document Understanding', description: 'Extract structured data from trade confirmations and legal documents.' },
-              { title: 'Predictive Validation', description: 'Learn from historical corrections to prevent recurring issues.' },
-            ],
-          },
-          {
-            title: 'Knowledge Graph',
-            description: 'Connected data model for relationship discovery and lineage.',
-            features: [
-              { title: 'Entity Resolution', description: 'Unified view of counterparties, instruments, and legal entities.' },
-              { title: 'Impact Analysis', description: 'Understand downstream effects of data changes before they propagate.' },
-              { title: 'Regulatory Mapping', description: 'Trace data lineage from source systems through to regulatory reports.' },
-            ],
-          },
-        ],
-      },
-      regulatory: {
-        badge: 'Regulatory Compliance',
-        title: 'Multi-jurisdiction support',
-        description: 'Pre-configured rules for major regulatory frameworks with continuous updates.',
-        jurisdictions: [
-          { name: 'CFTC', region: 'United States' },
-          { name: 'EMIR', region: 'European Union' },
-          { name: 'MAS', region: 'Singapore' },
-          { name: 'JFSA', region: 'Japan' },
-          { name: 'HKMA', region: 'Hong Kong' },
-          { name: 'ASIC', region: 'Australia' },
-          { name: 'FCA', region: 'United Kingdom' },
-          { name: 'OSFI', region: 'Canada' },
-        ],
-        features: [
-          '65+ pre-built validation rules per jurisdiction',
-          'Automated submission formatting',
-          'Regulatory change impact analysis',
-          'Audit trail and compliance reporting',
-        ],
-      },
-      performance: {
-        badge: 'Performance',
-        title: 'Built for enterprise scale',
-        stats: [
-          { value: '<100ms', label: 'API Response Time' },
-          { value: '10,000+', label: 'Trades/Second' },
-          { value: '99.5%', label: 'Match Rate' },
-          { value: '99.9%', label: 'Uptime SLA' },
-        ],
-      },
-      personas: {
-        badge: 'Who It\'s For',
-        title: 'Built for your team',
-        items: [
-          { title: 'Risk Managers', description: 'Real-time exposure visibility with validated, consistent data across all positions.' },
-          { title: 'Compliance Officers', description: 'Automated regulatory validation with audit trails and exception management.' },
-          { title: 'Quantitative Analysts', description: 'Clean, normalized data in standard CDM format for models and analytics.' },
-          { title: 'Operations Teams', description: 'Reduced manual reconciliation with intelligent matching and exception handling.' },
-          { title: 'Technology Teams', description: 'Modern APIs, containerized deployment, and extensible architecture.' },
-        ],
-      },
-      standards: {
-        badge: 'Standards & Technology',
-        title: 'Built on open standards',
-        items: [
-          { name: 'FINOS CDM', description: 'ISDA Common Domain Model' },
-          { name: 'FpML', description: 'Financial Products Markup Language' },
-          { name: 'ISO 20022', description: 'Financial Messaging Standard' },
-          { name: 'Rosetta DSL', description: 'Domain-Specific Language' },
-          { name: 'OpenAPI', description: 'REST API Specification' },
-          { name: 'GraphQL', description: 'Query Language' },
-        ],
-      },
-    },
-
-    whatWeDeliver: {
-      title: 'What We Deliver | Atheryon',
-      description: 'Decision-grade outcomes for capital markets and institutional banking — governed platforms, recovered programs, and regulator-credible capability.',
-      hero: {
-        headline: 'What we deliver',
-        subheadline: 'Governed platforms, recovered programs, and regulator-credible capability — delivered under real pressure.',
-      },
-      outcomes: {
-        badge: 'Outcomes',
-        title: 'What our clients walk away with',
-        items: [
-          {
-            title: 'Data the business can trust',
-            description: 'Decision-grade platforms where regulatory reporting, risk, and trade surveillance operate on a single governed truth.',
-          },
-          {
-            title: 'Regulator-credible governance',
-            description: 'Lineage, ownership, and controls that withstand regulatory scrutiny — built in, not bolted on.',
-          },
-          {
-            title: 'Programs that reach production',
-            description: 'Stalled initiatives recovered. New capability shipped under real constraints. Institutional confidence restored.',
-          },
-          {
-            title: 'Reduced cost of future change',
-            description: 'Reusable data products and shared semantics that compound — so the next initiative starts ahead, not from scratch.',
-          },
-        ],
-      },
-      deliverables: {
-        badge: 'Deliverables',
-        title: 'What we leave behind',
-        items: [
-          'Canonical data model aligned to business terms',
-          'Validated pipelines with quality controls at every stage',
-          'Documented transformation logic and lineage',
-          'Operational runbooks and ownership models',
-          'Reusable data products for future capabilities',
-          'Governance frameworks that enable, not block',
-        ],
-      },
-      engagementShapes: {
-        badge: 'Engagement Models',
-        title: 'How we engage',
-        items: [
-          {
-            title: 'Recovery & Stabilisation',
-            duration: '8–16 weeks',
-            description: 'Assess, stabilise, and extract usable capability from stalled programs. Vendor-agnostic — we work with what you have.',
-          },
-          {
-            title: 'Platform Delivery',
-            duration: '3–9 months',
-            description: 'Strategy through to production capability. Governed data platforms built under real constraints with senior practitioners.',
-          },
-          {
-            title: 'M&A Execution',
-            duration: 'Deal-timetable aligned',
-            description: 'Separation and integration delivery where operational continuity and regulatory obligations cannot be interrupted.',
-          },
-        ],
-      },
-    },
-
-    referenceArchitectures: {
-      title: 'Reference Architectures | Atheryon',
-      description: 'Production-tested architecture patterns for enterprise data platforms.',
-      hero: {
-        headline: 'Reference architectures',
-        subheadline: 'Artefacts over claims.',
-      },
-      intro: {
-        text: 'We share architecture patterns that we have used in production. These are not theoretical—they represent approaches we have implemented and operated.',
-      },
-      architectures: [
-        {
-          title: 'Canonical data model layer',
-          description: 'A shared semantic layer that enables reuse across capabilities. Business terms mapped to technical implementations. Versioned, documented, governed.',
-        },
-        {
-          title: 'Bronze/Silver/Gold pipelines',
-          description: 'Progressive data refinement with validation at each stage. Raw data (bronze) through cleansed (silver) to business-ready (gold). Clear contracts between stages.',
-        },
-        {
-          title: 'Validation and controls',
-          description: 'Rules applied at ingestion and transformation. Schema validation, business rule checks, anomaly detection. Bad data rejected early.',
-        },
-        {
-          title: 'Governance integration',
-          description: 'Ownership, lineage, and access controls built into the platform. Not bolted on later. Governance that enables rather than blocks.',
-        },
-        {
-          title: 'AI consumption patterns',
-          description: 'Query-ready interfaces for analytics. Embedding-ready corpora for retrieval. Safe agent patterns over governed data. AI that operates within guardrails.',
-        },
-      ],
-    },
-
-    aiReadyData: {
-      title: 'AI-Ready Data | Atheryon',
-      description: 'Creating decision-grade data foundations that enable AI to operate reliably in regulated environments.',
-      hero: {
-        headline: 'AI-ready data',
-        subheadline: 'AI fails when data fails. We build the governed data platforms that make AI reliable in regulated environments.',
-      },
-      whyAiFails: {
-        badge: 'Why AI Fails',
-        title: 'Why AI fails in enterprises',
-        items: [
-          {
-            title: 'Inconsistent semantics',
-            description: 'Same terms mean different things in different systems. AI inherits the confusion.',
-          },
-          {
-            title: 'Ungoverned data',
-            description: 'No clear ownership, lineage, or access controls. AI operates in the dark.',
-          },
-          {
-            title: 'Brittle pipelines',
-            description: 'Data flows break. AI outputs become unreliable. Trust erodes.',
-          },
-        ],
-      },
-      whatAiReadyMeans: {
-        badge: 'What AI-Ready Means',
-        title: 'What AI-ready actually means',
-        items: [
-          'Consistent model—shared semantics across the enterprise',
-          'Validation—rules that enforce data quality at ingestion',
-          'Provenance—clear lineage from source to consumption',
-          'Stable access patterns—APIs and interfaces that AI can rely on',
-        ],
-      },
-      howWeEnable: {
-        badge: 'How We Enable AI',
-        title: 'How Atheryon enables AI',
-        items: [
-          {
-            title: 'Query layer',
-            description: 'Structured access to governed data. AI can ask questions and get reliable answers.',
-          },
-          {
-            title: 'Embedding-ready corpora',
-            description: 'Documents and data prepared for retrieval-augmented generation. Semantics preserved.',
-          },
-          {
-            title: 'Safe agent patterns',
-            description: 'AI agents that operate over governed data with appropriate guardrails. Auditable actions.',
-          },
-        ],
-      },
-      disclaimer: {
-        text: 'We do not promise ROI. We create conditions for repeatable deployment.',
-      },
-    },
-
     about: {
       title: 'About | Atheryon',
       description: 'Senior practitioners who have carried the risk — building decision-grade data platforms for capital markets and institutional banking.',
@@ -963,38 +263,57 @@ export const site = {
     },
 
     labs: {
-      title: 'Atheryon Labs — Pitch Pack',
-      description: 'A senior capital-markets data leader using AI to turn 20+ years of tacit banking delivery knowledge into a working, inspectable reference platform.',
+      title: 'Atheryon Labs — Banking AI platform from the S&P TeraHelix integration partner',
+      description: 'A working CDM-native banking reference platform, built by one capital-markets expert directing AI. Buy the code. License the prompts. Engage the builder.',
       hero: {
-        headlineLine1: 'Most capital-markets platforms take a decade and a thousand engineers.',
-        headlineLine2: 'This one took one banker, directing AI.',
-        body: 'Atheryon Labs is a CDM-native reference implementation across trading, post-trade, risk, treasury, compliance, and mortgage workflows — built by Terry Tsakiris with AI as a coding partner. Twenty years inside Credit Suisse, CBA, Westpac, Barclays, applied to a working artifact you can inspect.',
-        disclaimer: 'It is not a production bank platform. It is proof that senior domain judgment plus AI-assisted engineering compresses discovery, architecture, and working delivery into weeks.',
+        headlineLine1: 'Atheryon Labs',
+        headlineLine2: 'The banking platform built by AI.',
+        body: 'Atheryon Labs is a working CDM-native banking reference platform built by one capital-markets expert directing AI. It demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software.',
         primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
         secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
-      credibility: {
-        badge: 'Twenty years on the inside',
-        title: 'A career inside tier-1 banks',
-        photo: '/labs/terry-headshot.jpg',
-        photoAlt: 'Terry Tsakiris',
-        body: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data program and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline. Atheryon Labs is the next iteration of that method: the same delivery muscle, paired with AI.",
+      whyCredible: {
+        badge: 'Why this is credible',
+        title: 'Atheryon is the integration partner for S&P TeraHelix.',
+        paragraphs: [
+          'Atheryon works in the same problem space that serious financial institutions are now prioritising: data modelling, linking, interoperability, and AI-ready enterprise data.',
+          'S&P Global completed its acquisition of TeraHelix in June 2025 to strengthen advanced data modelling and linking capabilities. S&P described TeraHelix as helping solve complex enterprise-scale data challenges by structuring data models for interoperability across platforms, systems, and storage architectures.',
+          'Atheryon Labs applies that same class of thinking to banking software: CDM-native data structures, expert-directed prompts, AI-assisted engineering, and practical platform surfaces across trading, operations, risk, treasury, compliance, and mortgages.',
+          'The result: a working banking AI platform you can inspect, license, or learn how to build.',
+        ],
       },
-      stats: {
-        badge: 'At a glance',
-        title: 'The shape of what was built',
+      offersPreview: {
+        badge: 'Three ways to use this work',
+        title: 'Code, prompts, advisory',
         items: [
+          {
+            title: 'Take the code.',
+            oneLiner: 'The reference implementation as a case study or co-marketed proof point.',
+            anchorHref: '#code',
+          },
+          {
+            title: 'Take the prompts.',
+            oneLiner: 'The directorial archive — packaged as a method asset for your tooling or vertical playbook.',
+            anchorHref: '#prompts',
+          },
+          {
+            title: 'Take the advisory.',
+            oneLiner: 'Senior-led delivery under your AI banner in regulated finance.',
+            anchorHref: '#advisory',
+          },
+        ],
+      },
+      evidence: {
+        badge: 'At a glance',
+        title: 'What was built, how fast',
+        statsItems: [
           { value: '8', label: 'banking functions covered' },
           { value: '1', label: 'CDM data model — ISDA-compliant, end to end' },
           { value: '31', label: 'flagship surfaces shipped' },
-          { value: 'Live', label: 'at labs.atheryon.ai' },
+          { value: 'Live', label: 'at atheryon.com.au' },
+          { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
         ],
-      },
-      bankMap: {
-        badge: 'The bank, mapped',
-        title: 'Eight functions, one model',
-        caption: 'The bank as I have worked it. Each section maps to a function I have shipped inside a tier-1 institution.',
         boxes: [
           'Operational Data Store',
           'Front Office',
@@ -1005,6 +324,12 @@ export const site = {
           'Treasury',
           'Mortgages',
         ],
+        caption: 'The bank as Terry has worked it. Each function maps to a domain shipped inside a tier-1 institution.',
+        partners: [
+          { name: 'Microsoft Partner' },
+          { name: 'S&P Global Partner' },
+        ],
+        partnersCaption: 'Already inside the AI and financial-data ecosystem AI labs care about.',
       },
       flagships: {
         badge: 'Three deep-dives',
@@ -1018,7 +343,7 @@ export const site = {
             problem: 'Operations teams in capital markets reconcile breaks, manage confirmations, and process lifecycle events end-of-day under hard regulatory deadlines. Most platforms model this as a workflow tool. The result is reconciliation that misses the underlying CDM event.',
             howItWorks: 'The /ops board is built directly on the CDM event model: every break, confirmation, and lifecycle action is an event with a typed payload. Operators triage breaks, run lifecycle actions, and the audit trail is the event stream itself — not an after-the-fact log.',
             metric: 'CV anchor: CBA Markets ODS — Reg Trade Reporting, MiFID II, Surveillance.',
-            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
           },
           {
             number: '02',
@@ -1028,7 +353,7 @@ export const site = {
             problem: 'Front-office and middle-office risk teams need pricing and risk views that are fast, correct, and inspectable. Most platforms separate the pricer from the risk view, then reconcile them downstream. The reconciliation is where errors live.',
             howItWorks: '/risk/pricer and /risk/irrbb call a typed atheryon-risk client over a shared CDM trade payload. Pricing and Greeks come from the same source; IRRBB views layer balance-sheet sensitivity on top. One model, one wire format, one source of truth for explain.',
             metric: 'CV anchor: Credit Suisse FOBO risk + Global P&L Attribution.',
-            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
           },
           {
             number: '03',
@@ -1038,15 +363,23 @@ export const site = {
             problem: 'The hardest part of any banking data platform is keeping the data model honest under change. Most platforms treat the schema as a database concern. The result is silent drift between the model the business agrees to and the model the system enforces.',
             howItWorks: '/build/schema-editor edits CDM types directly. /explore/graph walks instances of those types. Reg Submissions reverse-map regulator artefacts back to CDM, so the schema and the regulator are always in the same conversation.',
             metric: 'CV anchor: the data-modelling thesis — the Atheryon differentiator.',
-            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · directed by Terry, executed in AI-pair mode.',
+            footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
+            sidebarVignette: {
+              title: 'Schema modelling — extend vs wrap',
+              aiProposed: 'The AI defaulted to extending CDM types whenever a bank-specific field was needed. Inheritance, by the textbook.',
+              bankerCorrected: 'Goldman SecDB taught the opposite: extend when the concept is genuinely a CDM concept with one more attribute; wrap when the concept is a bank-internal artefact that happens to reference CDM. The schema editor encodes both modes, and the rule for choosing.',
+            },
           },
         ],
       },
-      vignettes: {
-        badge: "What AI couldn't know without the banker",
-        title: 'Five places domain judgment changed the implementation',
-        intro: 'In each of these, the AI proposed something plausible. Twenty years on the trading floor changed the answer. The point of this section is not that AI is bad. The point is that the durable artefact is the human directing it.',
-        items: [
+      bankerWedge: {
+        badge: 'Why a banker beats a consultancy at this',
+        title: 'AI in regulated finance needs the rare expert in the loop',
+        intro: 'AI labs competing with the global SIs in regulated verticals run into the same wall: the model is plausible, the domain judgement is missing. Here are two corrections — small on the surface, structural underneath — that prove why the loop matters.',
+        photo: '/labs/terry-headshot.jpg',
+        photoAlt: 'Terry Tsakiris',
+        bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
+        vignettes: [
           {
             title: 'Lifecycle state model',
             aiProposed: 'The AI proposed modelling a trade as a row that moves through statuses — pending, confirmed, settled, terminated. Standard CRUD with a lifecycle column.',
@@ -1056,21 +389,6 @@ export const site = {
             title: 'Regulatory Trade Reporting evidence',
             aiProposed: 'The AI generated reporting endpoints that emitted the regulator-required fields. Functionally complete by the spec.',
             bankerCorrected: 'MiFID II and EMIR audits do not ask for the report; they ask for the *evidence chain* — what was reported, what changed, who approved, when. The platform was extended to emit a per-submission evidence artefact alongside the report. Reg Submissions is built around that artefact.',
-          },
-          {
-            title: 'Risk view granularity',
-            aiProposed: 'The AI built a risk view that aggregated P&L explain by risk type — delta, gamma, vega, theta. Textbook taxonomy.',
-            bankerCorrected: 'FOBO P&L breaks if you do not separate explain types the way the trading floor separates them — market move, new trades, amendments, lifecycle, parameters, residual. The Greeks taxonomy came second; the FOBO taxonomy came first, and it is what reconciles.',
-          },
-          {
-            title: 'Schema modelling — extend vs wrap',
-            aiProposed: 'The AI defaulted to extending CDM types whenever a bank-specific field was needed. Inheritance, by the textbook.',
-            bankerCorrected: 'Goldman SecDB taught the opposite: extend when the concept is genuinely a CDM concept with one more attribute; wrap when the concept is a bank-internal artefact that happens to reference CDM. The schema editor encodes both modes, and the rule for choosing.',
-          },
-          {
-            title: 'Ops exception handling at 5pm Sydney',
-            aiProposed: 'The AI built an exception queue with severity, owner, and SLA. Tidy.',
-            bankerCorrected: 'At 5pm Sydney, operations does not work an SLA queue. It works a *deadline*: what must be in the regulator before market open in Frankfurt. The queue was redesigned around deadline-to-cutoff, with a cutoff calendar that knows the holiday schedule of every relevant venue.',
           },
         ],
       },
@@ -1088,7 +406,7 @@ export const site = {
           },
           {
             title: 'Generate variants, then narrow them.',
-            body: 'Three implementation candidates per surface. AI generates them in minutes. Banking judgment rejects, corrects, and chooses.',
+            body: 'Three implementation candidates per surface. AI generates them in minutes. Banking judgement rejects, corrects, and chooses.',
           },
           {
             title: 'Every surface traceable to a banking function, CDM concept, and operating control.',
@@ -1099,49 +417,359 @@ export const site = {
             body: 'Inspectable, deployable, extendable. A reader who is technical can fork it tonight.',
           },
         ],
+        economics: {
+          heading: 'What this method displaces',
+          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. This is the licensable asset: not the model on the other side of the chat, but the directorial track that makes the model ship.',
+        },
         artifact: {
           heading: 'One real prompt, one real correction',
           promptShown: '{{TERRY_PROMPT_EXAMPLE_PROMPT}}',
           correctionShown: '{{TERRY_PROMPT_EXAMPLE_CORRECTION}}',
           prLink: '{{TERRY_PROMPT_EXAMPLE_PR_URL}}',
         },
-        disclosure: "Atheryon Labs is currently built using Anthropic's Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which AI is on the other side of the chat.",
+        disclosure: "Atheryon Labs is currently built using Anthropic's Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.",
       },
       engagement: {
         badge: 'Three ways to use what is here',
         title: 'Code, prompts, advisory',
         cards: [
           {
+            id: 'code',
             number: '01',
-            title: 'Take the code.',
-            body: "Fork the labs-platform repo. Inspect, deploy, extend. Suitable for technology partners and engineering teams who want to study the reference implementation. Includes architecture map, CDM model, and read-only access to a hosted instance.",
-            ctaLabel: 'Inspect',
+            title: 'Buy the code.',
+            body: 'License the Atheryon Labs platform code as a working banking reference implementation. Best for: data vendors, AI firms, banks, consultancies, cloud partners, and fintechs that need a credible vertical platform asset.',
+            ctaLabel: 'Buy the code',
             ctaHref: '/contact?topic=labs-code',
+            anchorId: 'code',
           },
           {
+            id: 'prompts',
             number: '02',
-            title: 'Take the prompts.',
-            body: "A curated archive of the prompts, corrections, and architectural decisions that produced the platform — paired with Terry's reasoning per surface. Not a generic prompt library; the banker's directorial track.",
-            ctaLabel: 'License',
+            title: 'License the prompts.',
+            body: 'License the prompt archive that directed the AI build. This includes the instructions, corrections, domain constraints, architecture decisions, and banking reasoning used to turn AI from a generic code generator into a useful regulated-finance build partner.',
+            ctaLabel: 'License the prompts',
             ctaHref: '/contact?topic=labs-prompts',
+            anchorId: 'prompts',
           },
           {
+            id: 'advisory',
             number: '03',
-            title: 'Take the advisory.',
-            body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery. Continuing the method that rescued the $84M Westpac program — now amplified.',
-            ctaLabel: 'Engage',
+            title: 'Engage the builder.',
+            body: 'Work with Terry to apply the same method to your own data, product, platform, client opportunity, or S&P TeraHelix integration path. This is where integration-partner credibility matters most.',
+            ctaLabel: 'Engage the builder',
             ctaHref: '/contact?topic=labs-advisory',
+            anchorId: 'advisory',
           },
         ],
       },
       closing: {
         badge: 'Available for select engagements',
         title: 'Atheryon partners with a small number of institutions per year.',
-        body: 'If what you have just read maps to a problem on your desk, the next step is a confidential conversation.',
+        body: 'If what you have just read maps to a problem on your desk — or to a deal you are pitching — the next step is a confidential conversation.',
         primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
         secondaryCta: { label: 'Download the pack', href: '/labs/atheryon-pitch-pack.pdf' },
-        tertiaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
+        tertiaryCta: { label: 'See it live', href: 'https://www.atheryon.com.au' },
       },
+    },
+
+    reality: {
+      title: 'Atheryon — Architects of Your Reality',
+      description: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
+      hero: {
+        headline: 'Reality is built on data. Architect yours.',
+        lede: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
+        primaryCta: { label: 'Enter Floor 13', href: '#floor-13' },
+        secondaryCta: { label: 'Explore the pillars', href: '#pillars' },
+        partnerStrip: {
+          partners: [
+            { name: 'S&P TeraHelix integration partner' },
+            { name: 'Microsoft partner' },
+          ],
+        },
+      },
+      pillars: {
+        anchor: 'pillars',
+        badge: 'Three pillars',
+        title: 'Data. Intelligence. Transformation.',
+        intro: 'A simple three-pillar explanation of how we architect reality.',
+        items: [
+          {
+            number: '01',
+            title: 'Data',
+            body: 'Foundations: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+            href: '/data',
+          },
+          {
+            number: '02',
+            title: 'AI Direction',
+            body: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
+            href: '/ai-direction',
+          },
+          {
+            number: '03',
+            title: 'Transformation',
+            body: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+            href: '/transformation',
+          },
+        ],
+      },
+      transition: {
+        badge: 'The hidden reality',
+        title: 'Beneath every enterprise is a hidden operating reality.',
+        body: 'Fragmented systems create fragmented decisions. Atheryon makes the underlying architecture visible, intelligent, and ready for transformation.',
+        cta: { label: 'Reveal the hidden layer', href: '#floor-13' },
+        steps: [
+          { number: '1', title: 'Fragmented data', body: 'Disconnected sources, inconsistent reporting, unclear ownership.' },
+          { number: '2', title: 'Structured intelligence', body: 'Reliable pipelines, models, dashboards, AI readiness, decision systems.' },
+          { number: '3', title: 'Real transformation', body: 'Cloud, AI, and operating change aligned to measurable business outcomes.' },
+        ],
+      },
+      floor13: {
+        anchor: 'floor-13',
+        badge: 'Floor 13',
+        title: 'Choose the issue that best describes your current reality.',
+        intro: 'The switchboard generates a Reality Blueprint below.',
+        dials: [
+          { id: 'data', title: 'Data pain', body: '"Our data is fragmented, inconsistent, or inaccessible."', cta: 'Plug into Data' },
+          { id: 'aiDirection', title: 'AI direction pain', body: '"We need to study how senior domain expertise directs frontier AI from plausible code into shipped, regulated systems."', cta: 'Plug into AI Direction' },
+          { id: 'transformation', title: 'Transformation pain', body: '"We need change, but the roadmap and operating model are unclear."', cta: 'Plug into Transformation' },
+        ],
+        inputPlaceholder: 'Optional: type your biggest data or transformation challenge',
+        inputCta: 'Generate Blueprint',
+        blueprints: {
+          data: {
+            title: 'Reality Blueprint: Data Foundation',
+            intro: 'Your current reality appears to be constrained by fragmented data sources, inconsistent visibility, or unclear data ownership.',
+            bullets: [
+              'Map critical data sources and business decision points.',
+              'Design a unified architecture across cloud, governance, pipelines, and reporting.',
+              'Prioritise the first high-value data product that can prove momentum.',
+            ],
+          },
+          aiDirection: {
+            title: 'Reality Blueprint: AI Direction',
+            intro: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The artefact you are looking for is the directorial record — the prompts, corrections, and architectural choices a 20-year banker made to turn AI output into production-grade banking systems.',
+            bullets: [
+              'Trace where a prompt produced a textbook-but-wrong implementation, and the domain rule that corrected it. Five worked examples live on /labs (lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars).',
+              'Study the methodology — controls before user stories, data model before screen, generate-three-then-narrow — that compressed a multi-decade banking platform into weeks.',
+              "Take the directorial archive, not a prompt library: every prompt paired with the banker's reasoning, paired with the resulting code in the labs-platform repo.",
+            ],
+          },
+          transformation: {
+            title: 'Reality Blueprint: Transformation Pathway',
+            intro: 'Your transformation challenge appears to be less about ambition and more about architecture, roadmap, ownership, and execution.',
+            bullets: [
+              'Define the target operating reality and the systems required to support it.',
+              'Sequence data, cloud, AI, process, and adoption initiatives into a practical roadmap.',
+              'Connect transformation activity to measurable business outcomes.',
+            ],
+          },
+          custom: {
+            title: 'Reality Blueprint: Custom Challenge',
+            intro: 'Your custom challenge has been captured.',
+            bullets: [
+              'Classify the challenge across data, AI direction, and transformation.',
+              'Generate recommended first moves based on the selected pain point.',
+              'Continue the conversation in a Reality Architecture Session.',
+            ],
+          },
+        },
+        sellCardsHeading: 'Your next moves',
+        recommendation: {
+          data: 'code',
+          aiDirection: 'prompts',
+          transformation: 'advisory',
+        },
+        sellCards: [
+          { id: 'code', title: 'Take the code', body: 'Fork the labs-platform repo. Inspect, deploy, extend.', ctaLabel: 'Inspect →', ctaHref: '/labs#code' },
+          { id: 'prompts', title: 'Take the prompts', body: "A curated archive of the prompts and corrections that produced the platform — paired with Terry's reasoning.", ctaLabel: 'License →', ctaHref: '/labs#prompts' },
+          { id: 'advisory', title: 'Take the advisory', body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery.', ctaLabel: 'Engage →', ctaHref: '/labs#advisory' },
+        ],
+        closingCta: { label: 'Or — book a Reality Architecture Session', href: '/contact' },
+      },
+      methodology: {
+        anchor: 'methodology',
+        badge: 'How we architect reality',
+        title: 'Built from controls, not user stories.',
+        principles: [
+          { title: 'Built from regulatory artefacts and operational controls.', body: 'Most platforms start "as a user I want…". We start with the artefact, the control, the risk view.' },
+          { title: 'Started from the data model, not the screen.', body: 'CDM-first, then surfaces. Every screen is a projection of the contract.' },
+          { title: 'Generate variants, then narrow.', body: 'AI generates implementation candidates in minutes. Senior judgment chooses, corrects, and ships.' },
+          { title: 'Working decision surface, not a slide deck.', body: 'Inspectable, deployable, extendable. Proof, not promise.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof — Atheryon Labs',
+        title: 'We use this method. Here is the artifact.',
+        body: 'Atheryon Labs is a CDM-native reference platform across eight banking functions, built using the /reality approach. A working artefact you can inspect.',
+        screenshot: '/labs/screenshots/ops-board.png',
+        screenshotAlt: 'Atheryon Labs trade board screenshot',
+        cta: { label: 'See the artefact →', href: '/labs' },
+      },
+      closing: {
+        badge: 'Available for select engagements',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation to identify the hidden architecture beneath your data estate and define the first transformation move.',
+        primaryCta: { label: 'Request a session', href: '/contact' },
+        secondaryCta: { label: 'See the artefact', href: '/labs' },
+      },
+    },
+
+    data: {
+      title: 'Data — Atheryon',
+      description: 'The foundation: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+      hero: {
+        eyebrow: '01 · Data',
+        title: 'Data',
+        definition: 'The foundation: cloud architecture, governance, pipelines, modelling, platforms, unified visibility.',
+        positioning: 'Most enterprises have data. Few have a foundation that intelligence and transformation can stand on. We build that foundation.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most enterprise data programs stall.',
+        bullets: [
+          'Fragmented sources with no shared ownership or model.',
+          'Governance written as policy, not encoded in the platform.',
+          'Schemas drift between what the business agrees and what the system enforces.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'From fragmented sources to a decision-grade foundation.',
+        cards: [
+          { title: 'CDM Platform', body: 'ISDA Common Domain Model implementations — schemas, validators, transforms, governance — for capital-markets data estates.' },
+          { title: 'Reference Architectures', body: 'Cloud-native architectures for trading, risk, ops, and reporting — built on CDM, deployable into your estate.' },
+          { title: 'Data Foundations', body: 'Pipelines, modelling, governance, lineage, and unified visibility across your enterprise data estate.' },
+          { title: 'Schema Modelling', body: 'CDM-first schema design with extension and wrapping patterns for bank-internal artefacts.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See the data foundation in Labs.',
+        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas.',
+        screenshot: '/reality/labs-screenshot-data.png',
+        screenshotAlt: 'Atheryon Labs schema editor and ODS surfaces',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Not sure where to start?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation focused on your data foundation.',
+        cta: { label: 'Request a session', href: '/contact' },
+      },
+    },
+    aiDirection: {
+      title: 'AI Direction — Atheryon',
+      description: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
+      hero: {
+        eyebrow: '02 · AI Direction',
+        title: 'AI Direction',
+        definition: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
+        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most AI-built software fails the regulated test.',
+        bullets: [
+          'AI proposes textbook implementations. Regulators ask for evidence chains, not endpoints.',
+          'Frontier models do not know that operations works deadlines, not SLAs, at 5pm Sydney.',
+          'The first plausible answer is the wrong answer in any domain with thirty years of edge cases.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'A directorial track, not a prompt library.',
+        cards: [
+          { title: 'Five worked corrections', body: 'Lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars — five places where AI proposed the textbook answer and a banker corrected it. Each pairs the prompt, the correction, and the resulting code on /labs.' },
+          { title: 'The 10× method', body: 'Built from regulatory artefacts and operational controls, not user stories. Started from the data model, not the screen. Generate three implementation candidates, then narrow with judgment. Surface-to-control traceability enforced.' },
+          { title: 'The directorial archive', body: "Every prompt paired with Terry's reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
+          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic's Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See the direction in action on Labs.',
+        body: 'Atheryon Labs is the working artefact: 31 banking surfaces shipped under directorial AI in weeks. Every surface traces to a regulatory artefact, an operational control, or a risk view — never a "as a user I want" story.',
+        screenshot: '/reality/labs-screenshot-intelligence.png',
+        screenshotAlt: 'Atheryon Labs analytics dashboard and ML workbench',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Want the directorial track, not the platform?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'License the directorial track.',
+        body: 'For AI labs, model researchers, and developer-product teams studying how senior domain expertise turns frontier AI into regulated-system delivery.',
+        cta: { label: 'Request access', href: '/contact?topic=ai-direction' },
+      },
+    },
+    transformation: {
+      title: 'Transformation — Atheryon',
+      description: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+      hero: {
+        eyebrow: '03 · Transformation',
+        title: 'Transformation',
+        definition: 'Operating change: roadmaps, workflow redesign, adoption support, measurable outcomes.',
+        positioning: 'Capability is not change. Transformation is the operating shift that connects new platforms and intelligence to measurable business outcomes — and to the people who must adopt them.',
+        breadcrumbHref: '/reality',
+        breadcrumbLabel: '← Back to Reality',
+      },
+      hiddenReality: {
+        badge: 'The hidden reality',
+        title: 'Why most transformations stall mid-program.',
+        bullets: [
+          'Roadmaps bought from a deck rarely survive contact with the operating model.',
+          'New platforms ship without the workflow redesign that makes them load-bearing.',
+          'Adoption is treated as comms instead of as workflow integration.',
+        ],
+      },
+      whatWeDo: {
+        badge: 'What we do',
+        title: 'From distressed program to delivered outcome.',
+        cards: [
+          { title: 'Recovery & Migration', body: 'Diagnose distressed programs, restructure delivery, migrate critical data and platforms safely.' },
+          { title: 'M&A Execution', body: 'Day-1 readiness, Day-100 integration, divestiture carve-outs — the data and platform spine of M&A.' },
+          { title: 'Capability Enablement', body: 'Build internal data, AI, and platform capability in the institutions we serve, not on top of them.' },
+          { title: 'Engagement Shapes', body: '30-day diagnostic, prototype sprint, or full platform engagement — matched to the risk profile of the work.' },
+        ],
+      },
+      proof: {
+        badge: 'Proof',
+        title: 'See transformation in Labs.',
+        body: 'The Trade Board, Operations, and lifecycle surfaces in Atheryon Labs are the operating change in action — break triage, confirmations, lifecycle management, and SSI on a unified CDM event model.',
+        screenshot: '/reality/labs-screenshot-transformation.png',
+        screenshotAlt: 'Atheryon Labs trade board and operations surfaces',
+        cta: { label: 'Explore Labs →', href: '/labs' },
+      },
+      floor13Nudge: {
+        body: 'Not sure where to start?',
+        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+      },
+      closing: {
+        badge: 'Next step',
+        title: 'Book a Reality Architecture Session.',
+        body: 'A 45-minute consultation focused on your transformation pathway.',
+        cta: { label: 'Request a session', href: '/contact' },
+      },
+    },
+    themes: {
+      title: 'Labs Surface | Atheryon',
+      description: '29 themes · 147 pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.',
+      badge: 'Discovery',
+      headline: 'Explore the labs surface',
+      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page that lives at labs.atheryon.ai, rendered here as a static map. Click any tile to open the live theme on the labs subdomain in a new tab. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops/dev tools, the MSX workshop deck) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
+      countsLine: '29 themes · 147 pages · 6 surfaces (1 ODS data store + 5 business units)',
+      businessDividerLabel: 'Business Units',
     },
   },
 
