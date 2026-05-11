@@ -17,7 +17,7 @@ const routes = [
   { path: '/ai-direction', title: /AI Direction/, h1: /AI Direction/i },
   { path: '/transformation', title: /Transformation/, h1: /Transformation/i },
   { path: '/labs', title: /Labs/, h1: /Atheryon Labs/i },
-  { path: '/labs/themes', title: /Labs Surface/, h1: /Explore the labs surface/i },
+  { path: '/labs/themes', title: /Themes — Atheryon Labs/, h1: /Explore the labs surface/i },
   { path: '/about', title: /About/, h1: /Built by practitioners/i },
   { path: '/contact', title: /Contact/, h1: /Request a confidential discussion/i },
   { path: '/programs', title: /Programs/, h1: /Industry IP for AI agents/i },
@@ -32,8 +32,16 @@ test.describe('Route Loading', () => {
       await expect(page).toHaveTitle(route.title);
 
       const h1 = page.locator('h1').first();
-      await expect(h1).toBeVisible();
-      await expect(h1).toHaveText(route.h1);
+      // /labs/themes renders its h1 as .sr-only (visually hidden for a11y);
+      // the on-screen "Explore the labs surface" heading is rendered by
+      // <Section title=…> as an <h2>. Validate the h1 text but skip the
+      // visibility check for that route.
+      if (route.path === '/labs/themes') {
+        await expect(h1).toHaveText(route.h1);
+      } else {
+        await expect(h1).toBeVisible();
+        await expect(h1).toHaveText(route.h1);
+      }
     });
   }
 });
