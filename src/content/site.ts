@@ -66,6 +66,10 @@ export const site = {
           title: 'M&A Execution & Integration',
           description: 'M&A introduces the highest execution risk organisations face — compressed timelines, regulatory continuity requirements, and complex data dependencies. We execute separation and integration programs where capital markets platforms, reporting obligations, and data integrity must continue uninterrupted.\n\nPre-deal execution planning, post-sign delivery leadership, and complex data migration where required — protecting value while enabling the target operating model.',
         },
+        {
+          title: 'Ontology-driven platforms in regulated environments',
+          description: 'Atheryon\'s delivery method treats semantics, lineage, validation, access control, and auditability as first-class concerns. Business concepts are modelled once and reused; pipelines carry their own evidence chains; controls are signed, not implied. The pattern is recognisable to anyone who has shipped a senior-led enterprise data platform in a regulated environment — and is exactly what regulator-grade AI workflows require to operate on trusted ground.\n\nOur clients are banks, market operators, asset managers, and the AI labs building for them. The common thread: a need for data that holds up under scrutiny, not just at audit, but every time a model, a desk, or a downstream system reads from it.',
+        },
       ],
       whatExperienceMeans: {
         title: 'What experience means to us',
