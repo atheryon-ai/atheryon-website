@@ -599,6 +599,35 @@ export const site = {
           { title: 'Working decision surface, not a slide deck.', body: 'Inspectable, deployable, extendable. Proof, not promise.' },
         ],
       },
+      engagement: {
+        anchor: 'engage',
+        badge: 'Three ways to engage',
+        title: 'Get what you need.',
+        intro: 'From self-serve code to expert-directed delivery — three ways to put Atheryon\'s method to work.',
+        cards: [
+          {
+            number: '01',
+            title: 'Get code',
+            body: 'License the Atheryon Labs platform code as a working banking reference implementation.',
+            ctaLabel: 'See the code →',
+            ctaHref: '/labs#code',
+          },
+          {
+            number: '02',
+            title: 'Get prompts',
+            body: 'License the prompt archive — instructions, corrections, and domain rules that turned AI from generic into useful.',
+            ctaLabel: 'See the prompts →',
+            ctaHref: '/labs#prompts',
+          },
+          {
+            number: '03',
+            title: 'Get consulting',
+            body: 'Engage Atheryon to apply the same method to your data, platform, or regulatory programme.',
+            ctaLabel: 'See advisory →',
+            ctaHref: '/labs#advisory',
+          },
+        ],
+      },
       proof: {
         badge: 'Proof — Atheryon Labs',
         title: 'We use this method. Here is the artifact.',
