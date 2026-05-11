@@ -1,7 +1,7 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/_next/*", "/images/*", "/*.ico", "/*.png", "/*.svg", "/*.jpg", "/*.css", "/*.js"]
+    "exclude": ["/_next/*", "/images/*", "/*.ico", "/*.png", "/*.svg", "/*.jpg", "/*.css", "/*.js", "/*.pdf", "/*.zip", "/*.tar.gz", "/*.webp", "/*.avif", "/*.mp4", "/*.woff", "/*.woff2", "/*.txt"]
   },
   "routes": [
     { "route": "/", "rewrite": "/index.html" },
