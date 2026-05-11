@@ -125,7 +125,7 @@ export const site = {
       description: 'Industry IP programs for AI agents — bootstrap a market-platform prototype with your AI agent in days.',
       hero: {
         headline: 'Industry IP for AI agents',
-        subheadline: 'Atheryon programs hand you agent-ready IP — prompts, schemas, designs, and reference architectures — so your AI agent can bootstrap a market-platform prototype in days.',
+        subheadline: 'Atheryon Market-in-a-Box (MiB) programs hand you agent-ready IP — prompts, schemas, designs, and reference architectures — so your AI agent can bootstrap a market-platform prototype in days.',
       },
       section: {
         badge: 'Programs',
