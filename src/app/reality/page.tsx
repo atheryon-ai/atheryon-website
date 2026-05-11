@@ -86,6 +86,36 @@ export default function RealityPage() {
 
       <SectionDivider />
 
+      {/* §5b Engagement teaser — always-visible "Three ways to engage" */}
+      <Section
+        id={reality.engagement.anchor}
+        badge={reality.engagement.badge}
+        title={reality.engagement.title}
+        description={reality.engagement.intro}
+      >
+        <div className="grid md:grid-cols-3 gap-6">
+          {reality.engagement.cards.map((card) => (
+            <article
+              key={card.number}
+              data-testid="reality-engagement-card"
+              className="p-8 bg-white border border-charcoal/10 rounded-2xl flex flex-col"
+            >
+              <div className="text-sm font-mono text-amber mb-4" style={{ color: '#D98B3E' }}>{card.number}</div>
+              <h3 className="font-display text-3xl text-charcoal tracking-tight mb-4">{card.title}</h3>
+              <p className="text-charcoal/80 leading-relaxed mb-6 flex-1">{card.body}</p>
+              <Link
+                href={card.ctaHref}
+                className="inline-block py-3 text-sm font-semibold text-charcoal underline-offset-4 hover:underline self-start"
+              >
+                {card.ctaLabel}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <SectionDivider />
+
       {/* §6 Proof — /labs */}
       <Section badge={reality.proof.badge}>
         <LabsTeaser
