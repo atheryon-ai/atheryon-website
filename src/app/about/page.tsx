@@ -11,6 +11,14 @@ export const metadata: Metadata = {
     title: about.title,
     description: about.description,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: about.title,
+    description: about.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/about',
+  },
 }
 
 export default function AboutPage() {

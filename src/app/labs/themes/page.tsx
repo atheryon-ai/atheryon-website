@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   title: themes.title,
   description: themes.description,
   openGraph: { title: themes.title, description: themes.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: themes.title,
+    description: themes.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/labs/themes',
+  },
 }
 
 const businessThemeCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(

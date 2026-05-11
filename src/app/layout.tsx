@@ -4,6 +4,7 @@ import { site } from '@/content/site'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://atheryon.com.au'),
   title: site.pages.reality.title,
   description: site.pages.reality.description,
   icons: {
@@ -22,6 +23,11 @@ export const metadata: Metadata = {
     description: site.pages.reality.description,
     type: 'website',
     siteName: site.name,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: site.pages.reality.title,
+    description: site.pages.reality.description,
   },
 }
 

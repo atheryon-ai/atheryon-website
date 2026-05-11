@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   title: aiDirection.title,
   description: aiDirection.description,
   openGraph: { title: aiDirection.title, description: aiDirection.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: aiDirection.title,
+    description: aiDirection.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/ai-direction',
+  },
 }
 
 export default function AiDirectionPage() {
