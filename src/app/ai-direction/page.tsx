@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function AiDirectionPage() {
   return (
-    <main className="bg-bone">
+    <div className="bg-bone">
       <PillarHero {...aiDirection.hero} />
 
       <SectionDivider />
@@ -112,6 +112,6 @@ export default function AiDirectionPage() {
           </Link>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

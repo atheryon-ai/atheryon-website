@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RealityPage() {
   return (
-    <main className="bg-bone">
+    <div className="bg-bone">
       {/* §1 Hero */}
       <RealityHero
         headline={reality.hero.headline}
@@ -149,6 +149,6 @@ export default function RealityPage() {
           </Link>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

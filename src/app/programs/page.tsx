@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function ProgramsPage() {
   return (
-    <main>
+    <div>
       <SimpleHero
         headline={programs.hero.headline}
         subheadline={programs.hero.subheadline}
@@ -75,6 +75,6 @@ export default function ProgramsPage() {
           ))}
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

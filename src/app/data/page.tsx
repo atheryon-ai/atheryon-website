@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function DataPage() {
   return (
-    <main className="bg-bone">
+    <div className="bg-bone">
       <PillarHero {...data.hero} isDataPillar />
 
       <SectionDivider />
@@ -112,6 +112,6 @@ export default function DataPage() {
           </Link>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }
