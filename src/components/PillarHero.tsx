@@ -19,17 +19,14 @@ export function PillarHero({
   breadcrumbLabel,
   isDataPillar = false,
 }: PillarHeroProps) {
-  const accentColor = isDataPillar ? '#0D4D7A' : '#D98B3E'
+  const accentClass = isDataPillar ? 'text-brand-deepblue' : 'text-brand-amber'
   return (
     <section className="px-6 pt-24 md:pt-32 pb-16 md:pb-20 bg-bone">
       <div className="max-w-container mx-auto">
         <Link href={breadcrumbHref} className="inline-block text-sm text-charcoal/70 mb-8 hover:text-charcoal">
           {breadcrumbLabel}
         </Link>
-        <div
-          className="text-xs font-semibold tracking-[0.18em] uppercase mb-5"
-          style={{ color: accentColor }}
-        >
+        <div className={`text-xs font-semibold tracking-[0.18em] uppercase mb-5 ${accentClass}`}>
           {eyebrow}
         </div>
         <h1 className="font-display text-5xl md:text-6xl lg:text-display-lg text-charcoal tracking-tight leading-[1.05] mb-6">
