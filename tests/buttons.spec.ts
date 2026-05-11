@@ -62,6 +62,29 @@ test.describe('Header Navigation', () => {
   });
 });
 
+test.describe('Top nav links (post-pivot IA)', () => {
+  const NAV_ITEMS: { label: string; path: string }[] = [
+    { label: 'Reality', path: '/reality' },
+    { label: 'Data', path: '/data' },
+    { label: 'AI Direction', path: '/ai-direction' },
+    { label: 'Transformation', path: '/transformation' },
+    { label: 'Labs', path: '/labs' },
+    { label: 'About', path: '/about' },
+  ];
+
+  for (const item of NAV_ITEMS) {
+    test(`top nav "${item.label}" link navigates to ${item.path}`, async ({ page, isMobile }) => {
+      if (isMobile) {
+        test.skip();
+        return;
+      }
+      await page.goto('/');
+      await page.locator(`nav >> a:has-text("${item.label}")`).first().click();
+      await expect(page).toHaveURL(new RegExp(item.path.replace(/\//g, '\\/')));
+    });
+  }
+});
+
 test.describe('Footer Links', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
