@@ -27,7 +27,9 @@ out/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-tests/*.spec.ts-snapshots/
+# Note: tests/*.spec.ts-snapshots/ used to be ignored. We track snapshots so
+# the visual suite has committed baselines on CI. Regenerate via:
+#   npx playwright test --update-snapshots tests/visual.spec.ts
 
 # Playwright MCP browser artifacts (snapshots, console logs)
 .playwright-mcp/
