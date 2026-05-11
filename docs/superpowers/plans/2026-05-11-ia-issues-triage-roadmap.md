@@ -1,5 +1,20 @@
 # IA Issues Triage Roadmap — Implementation Plan
 
+> ## SCOPE NARROWED 2026-05-11 — upstream IA pivot
+>
+> Between this plan being written and execution starting, 65+ commits landed on `main` that significantly restructured the site IA. Eight legacy routes were deleted (`/how-we-work`, `/reference-architectures`, `/cdm-platform`, `/recovery-migration`, `/m-and-a-execution`, `/capability-enablement`, `/ai-ready-data`, `/what-we-deliver`) and replaced with a new pillar structure (`/reality`, `/data`, `/ai-direction`, `/transformation`, `/labs/themes`).
+>
+> Most of this plan was designed against the deleted route structure and is therefore **obsolete as-written**.
+>
+> **Bundles still relevant against current main:**
+> - **B1 — Site hygiene** (privacy/terms still missing; sitemap needs re-audit against new routes; contact-form region copy still valid)
+> - **B4 — SEO metadata audit** (applies to whatever routes exist; was already designed to come last)
+> - **B8 — Editorial integration pass** (still useful as a final consistency sweep)
+>
+> **Bundles deferred / obsoleted:** B0 (claims ledger applies to a snapshot of the pre-pivot site), B2 (proof rewrite targets, B3a (jargon pages deleted), B3b (depends on B3a), B5 (IA was rewritten upstream — needs fresh review), B6 (service pages deleted), B7 (subheadings target deleted pages).
+>
+> Any future re-attempt at the full roadmap should start with a fresh IA review against current main, not reuse this plan.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Execute the nine-bundle IA roadmap from `docs/superpowers/specs/2026-05-11-ia-issues-triage-roadmap-design.md` — produce Wave 0 source-of-truth docs, then spawn and merge agent-implemented bundles across three waves to resolve 21 IA/content issues.
