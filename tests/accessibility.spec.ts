@@ -11,17 +11,21 @@ test.describe('Accessibility', () => {
   });
 
   test('logo images have alt text', async ({ page }) => {
-    const navLogo = page.locator('nav img[alt="Atheryon"]');
+    // Nav has the <img alt="Atheryon"> logo. Post-pivot footer uses a TEXT
+    // wordmark (no <img>), so the footer assertion was removed.
+    const navLogo = page.locator('nav img[alt="Atheryon"]').first();
     await expect(navLogo).toBeVisible();
-
-    const footerLogo = page.locator('footer img[alt="Atheryon"]');
-    await expect(footerLogo).toBeVisible();
   });
 
   test('page has meta description', async ({ page }) => {
     const metaDescription = page.locator('meta[name="description"]');
-    // Match "regulator-credible" or "regulated" — current copy uses the former
-    await expect(metaDescription).toHaveAttribute('content', /regulat/i);
+    // Post-pivot homepage uses /reality copy: "Atheryon helps enterprises
+    // structure their data, activate intelligence, and transform how
+    // decisions, systems, and operations work."
+    await expect(metaDescription).toHaveAttribute(
+      'content',
+      /structure their data|enterprises|intelligence/i,
+    );
   });
 
   test('navigation links are keyboard accessible', async ({ page }) => {
@@ -68,7 +72,9 @@ test.describe('Accessibility', () => {
   });
 
   test('interactive elements have focus indicators', async ({ page }) => {
-    const ctaLink = page.locator('section a:has-text("Request a confidential discussion")').first();
+    // Post-pivot homepage hero CTA is "Enter Floor 13" (#floor-13). Use that
+    // as the focus target — it's the canonical primary call-to-action.
+    const ctaLink = page.getByRole('link', { name: /Enter Floor 13/i }).first();
     await ctaLink.focus();
     await expect(ctaLink).toBeFocused();
   });

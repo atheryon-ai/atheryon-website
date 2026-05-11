@@ -5,10 +5,13 @@ test.describe('/labs page', () => {
     await page.goto('/labs');
   });
 
-  test('three hero CTAs are present', async ({ page }) => {
+  test('two hero CTAs are present', async ({ page }) => {
+    // Post PR #42: the "Download the pack" CTA was removed because the PDF
+    // didn't ship yet. Hero now has 2 CTAs: See it live + Request a confidential discussion.
     await expect(page.getByRole('link', { name: /See it live/i }).first()).toHaveAttribute('href', 'https://labs.atheryon.ai');
-    await expect(page.getByRole('link', { name: /Download the pack/i }).first()).toHaveAttribute('href', '/labs/atheryon-pitch-pack.pdf');
     await expect(page.getByRole('link', { name: /Request a confidential discussion/i }).first()).toHaveAttribute('href', '/contact');
+    // Sanity: ensure the removed CTA is genuinely gone from the hero section.
+    await expect(page.locator('section').first().getByRole('link', { name: /Download the pack/i })).toHaveCount(0);
   });
 
   test('Anthropic/Claude appears exactly once', async ({ page }) => {
