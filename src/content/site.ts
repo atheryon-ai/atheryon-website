@@ -49,6 +49,14 @@ export const site = {
         title: 'Why Atheryon exists',
         description: 'High-stakes environments — trading, risk, regulatory reporting — depend on data that is governed, consistent, and trusted. Too many platform programs consume significant investment and fail to produce outputs the business can rely on. Atheryon exists to close that gap: strategy, architecture, and delivery under real pressure.',
       },
+      founder: {
+        badge: 'Founder',
+        name: 'Terry Tsakiris',
+        role: 'Founder & Principal Practitioner',
+        photo: '/labs/terry-headshot.jpg',
+        photoAlt: 'Terry Tsakiris',
+        bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline. Atheryon is a Microsoft partner and S&P Global partner.",
+      },
       credibilityBoxes: [
         {
           title: '20+ Years in Capital Markets',
