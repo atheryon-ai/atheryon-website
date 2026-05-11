@@ -35,7 +35,7 @@ export const site = {
 
   pages: {
     about: {
-      title: 'About | Atheryon',
+      title: 'About — Atheryon',
       description: 'Senior practitioners who have carried the risk — building decision-grade data platforms for capital markets and institutional banking.',
       hero: {
         headline: 'Built by practitioners who\'ve carried the risk',
@@ -95,7 +95,7 @@ export const site = {
     },
 
     contact: {
-      title: 'Contact | Atheryon',
+      title: 'Contact — Atheryon',
       description: 'Request a confidential discussion about a high-stakes data challenge in capital markets or institutional banking.',
       hero: {
         headline: 'Request a confidential discussion',
@@ -129,7 +129,7 @@ export const site = {
     },
 
     programs: {
-      title: 'Programs | Atheryon',
+      title: 'Programs — Atheryon',
       description: 'Industry IP programs for AI agents — bootstrap a market-platform prototype with your AI agent in days.',
       hero: {
         headline: 'Industry IP for AI agents',
@@ -171,7 +171,7 @@ export const site = {
     },
 
     mibInsight: {
-      title: 'MiB Insight Program | Atheryon',
+      title: 'MiB Insight Program — Atheryon',
       description: 'Industry IP ready for AI agents. Bootstrap a market-platform prototype with your AI agent in days. Use within 30 days. $14,000 AUD + GST.',
       hero: {
         eyebrow: 'MiB Insight Program',
@@ -265,14 +265,14 @@ export const site = {
       },
     },
     mibInsightThanks: {
-      title: 'Welcome to the MiB Insight Program | Atheryon',
+      title: 'Welcome — MiB Insight Program',
       description: 'Thank you for joining the MiB Insight Program. Your welcome email is on the way.',
       headline: 'Welcome to the MiB Insight Program',
       message: 'Thank you for joining. You will receive a welcome email shortly with access details and a 15-minute Foundations module to get started. If anything is unclear, reply to that email — it goes straight to Terry.',
     },
 
     labs: {
-      title: 'Atheryon Labs — Banking AI platform from the S&P TeraHelix integration partner',
+      title: 'Atheryon Labs — Banking platform built by AI',
       description: 'A working CDM-native banking reference platform, built by one capital-markets expert directing AI. Buy the code. License the prompts. Engage the builder.',
       hero: {
         headlineLine1: 'Atheryon Labs',
@@ -480,7 +480,7 @@ export const site = {
     },
 
     labsCode: {
-      title: 'Buy the Labs Code | Atheryon',
+      title: 'Buy the code — Atheryon Labs',
       description: 'License the Atheryon Labs platform code as a working banking reference implementation.',
       hero: {
         eyebrow: '01 / Code',
@@ -522,7 +522,7 @@ export const site = {
     },
 
     labsPrompts: {
-      title: 'License the Labs Prompts | Atheryon',
+      title: 'License the prompts — Atheryon Labs',
       description: 'License the prompt archive that directed the AI build — the directorial track that makes the model ship.',
       hero: {
         eyebrow: '02 / Prompts',
@@ -562,7 +562,7 @@ export const site = {
     },
 
     labsAdvisory: {
-      title: 'Engage the Builder | Atheryon',
+      title: 'Engage the builder — Atheryon Labs',
       description: 'Engage Terry Tsakiris to apply the Atheryon method to your own data, platform, or S&P TeraHelix integration path.',
       hero: {
         eyebrow: '03 / Advisory',
@@ -603,7 +603,7 @@ export const site = {
     },
 
     reality: {
-      title: 'Atheryon — Architects of Your Reality',
+      title: 'Architects of Your Reality — Atheryon',
       description: 'Atheryon helps enterprises structure their data, activate intelligence, and transform how decisions, systems, and operations work.',
       hero: {
         headline: 'Reality is built on data. Architect yours.',
@@ -926,7 +926,7 @@ export const site = {
       },
     },
     themes: {
-      title: 'Labs Surface | Atheryon',
+      title: 'Themes — Atheryon Labs',
       description: '29 themes · 147 pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.',
       badge: 'Discovery',
       headline: 'Explore the labs surface',
