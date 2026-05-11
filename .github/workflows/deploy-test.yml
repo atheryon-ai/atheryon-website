@@ -1,8 +1,12 @@
 name: Deploy to Test Environment
 
 # Deploys to Azure Static Web Apps TEST environment
-# URL: https://icy-tree-093dcc800.azurestaticapps.net
-# NOT the production domain (www.atheryon.com.au)
+# URL: https://polite-flower-03ba3020f.7.azurestaticapps.net
+# Resource: atheryon-website-test (rg-atheryon-test) on Microsoft Azure Sponsorship sub
+#
+# Production lives on the icy-tree SWA via www.atheryon.com.au, deployed
+# only by deploy-production.yml on main pushes. This workflow is now
+# isolated — dev pushes deploy to the test SWA only, not production.
 
 on:
   push:
@@ -24,10 +28,10 @@ jobs:
     name: Build and Deploy to Test
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5  # v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020  # v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
@@ -45,9 +49,9 @@ jobs:
         run: cp staticwebapp.config.json out/
 
       - name: Deploy to Azure Static Web Apps (Test)
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9  # v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_TREE_093DCC800 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_TEST }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "out"
@@ -61,7 +65,7 @@ jobs:
     name: Close Pull Request
     steps:
       - name: Close Pull Request
-        uses: Azure/static-web-apps-deploy@v1
+        uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9  # v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_TREE_093DCC800 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_TEST }}
           action: "close"

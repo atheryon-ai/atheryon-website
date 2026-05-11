@@ -1,0 +1,15 @@
+# CODEOWNERS — auto-request review on protected paths.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-security/customizing-your-repository/about-code-owners
+
+# Workflow + deploy config: only the repo owner can change these.
+# Combined with branch protection requiring code-owner review on main,
+# this prevents an attacker who lands a malicious PR from modifying CI
+# to exfiltrate the AZURE_STATIC_WEB_APPS_API_TOKEN.
+/.github/workflows/    @terencetsakiris
+/.github/CODEOWNERS    @terencetsakiris
+/staticwebapp.config.json  @terencetsakiris
+
+# package-lock.json defines the supply chain reaching the build runner;
+# malicious lockfile edits could pull in compromised packages.
+/package-lock.json     @terencetsakiris
+/package.json          @terencetsakiris
