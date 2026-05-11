@@ -114,6 +114,10 @@ export const site = {
         text: 'Prefer email?',
         email: 'info@atheryon.com.au',
       },
+      coverage: {
+        title: 'Where we work',
+        body: 'Based in Sydney, Australia. Supporting clients across Australia, APAC, and EMEA timezones. London office relationships maintained for European delivery.',
+      },
     },
 
     programs: {
