@@ -6,7 +6,7 @@ interface LabsHeroProps {
   body: string
   disclaimer?: string
   primaryCta: { label: string; href: string }
-  secondaryCta: { label: string; href: string }
+  secondaryCta?: { label: string; href: string }
   tertiaryCta: { label: string; href: string }
 }
 
@@ -42,7 +42,9 @@ export function LabsHero({
 
         <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
           <Link href={primaryCta.href} className="btn-primary">{primaryCta.label}</Link>
-          <Link href={secondaryCta.href} className="btn-secondary">{secondaryCta.label}</Link>
+          {secondaryCta && (
+            <Link href={secondaryCta.href} className="btn-secondary">{secondaryCta.label}</Link>
+          )}
           <Link href={tertiaryCta.href} className="btn-secondary">{tertiaryCta.label}</Link>
         </div>
       </div>

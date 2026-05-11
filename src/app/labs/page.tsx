@@ -37,7 +37,6 @@ export default function LabsPage() {
         headlineLine2={labs.hero.headlineLine2}
         body={labs.hero.body}
         primaryCta={labs.hero.primaryCta}
-        secondaryCta={labs.hero.secondaryCta}
         tertiaryCta={labs.hero.tertiaryCta}
       />
 
@@ -224,7 +223,6 @@ export default function LabsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
             <Link href={labs.closing.primaryCta.href} className="btn-primary">{labs.closing.primaryCta.label}</Link>
-            <Link href={labs.closing.secondaryCta.href} className="btn-secondary">{labs.closing.secondaryCta.label}</Link>
             <Link href={labs.closing.tertiaryCta.href} className="btn-secondary">{labs.closing.tertiaryCta.label}</Link>
           </div>
         </div>
