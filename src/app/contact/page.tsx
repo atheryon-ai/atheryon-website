@@ -1,21 +1,129 @@
-import type { Metadata } from 'next'
+'use client'
+
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Section, ClientLogos } from '@/components'
 import { site } from '@/content/site'
 
 const { contact } = site.pages
 
-export const metadata: Metadata = {
-  title: contact.title,
-  description: contact.description,
-  openGraph: { title: contact.title, description: contact.description },
-  twitter: {
-    card: 'summary_large_image',
-    title: contact.title,
-    description: contact.description,
-  },
-  alternates: {
-    canonical: 'https://atheryon.com.au/contact',
-  },
+// Map ?topic= values to human-readable strings used in pre-fill.
+const TOPIC_LABELS: Record<string, string> = {
+  'labs-code': 'Labs platform code licensing',
+  'labs-prompts': 'Labs prompts archive licensing',
+  'labs-advisory': 'Labs advisory engagement',
+  'ai-direction': 'AI Direction',
+}
+
+function ContactForm() {
+  const searchParams = useSearchParams()
+  const topicParam = searchParams.get('topic') ?? ''
+  const topicLabel = TOPIC_LABELS[topicParam] ?? ''
+  const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
+
+  return (
+    <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      {/* Form - native HTML submission to Formspree */}
+      <form
+        action="https://formspree.io/f/xdkdynak"
+        method="POST"
+        className="space-y-6"
+      >
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            {contact.form.fields.name.label} {contact.form.fields.name.required && <span className="text-gray-400">*</span>}
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required={contact.form.fields.name.required}
+            placeholder={contact.form.fields.name.placeholder}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            {contact.form.fields.email.label} {contact.form.fields.email.required && <span className="text-gray-400">*</span>}
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required={contact.form.fields.email.required}
+            placeholder={contact.form.fields.email.placeholder}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+            {contact.form.fields.company.label}
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder={contact.form.fields.company.placeholder}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+          />
+        </div>
+
+        {/* Hidden topic field so Formspree submissions carry the inbound topic */}
+        {topicParam && (
+          <input type="hidden" name="topic" value={topicParam} />
+        )}
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            {contact.form.fields.message.label} {contact.form.fields.message.required && <span className="text-gray-400">*</span>}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required={contact.form.fields.message.required}
+            placeholder={contact.form.fields.message.placeholder}
+            defaultValue={defaultMessage}
+            rows={5}
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow resize-none"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full px-6 py-3 text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          {contact.form.submitLabel}
+        </button>
+      </form>
+
+      {/* What to Include */}
+      <div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          {contact.whatToInclude.title}
+        </h3>
+        <ul className="space-y-3 mb-8">
+          {contact.whatToInclude.items.map((item, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 mt-2" />
+              <span className="text-gray-600">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="p-6 bg-gray-50 rounded-lg">
+          <p className="text-gray-600 mb-2">{contact.alternative.text}</p>
+          <a
+            href={`mailto:${contact.alternative.email}`}
+            className="text-gray-900 font-medium hover:underline"
+          >
+            {contact.alternative.email}
+          </a>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function ContactPage() {
@@ -49,101 +157,9 @@ export default function ContactPage() {
       </section>
 
       <Section>
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          {/* Form - native HTML submission to Formspree */}
-          <form
-            action="https://formspree.io/f/xdkdynak"
-            method="POST"
-            className="space-y-6"
-          >
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                {contact.form.fields.name.label} {contact.form.fields.name.required && <span className="text-gray-400">*</span>}
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required={contact.form.fields.name.required}
-                placeholder={contact.form.fields.name.placeholder}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                {contact.form.fields.email.label} {contact.form.fields.email.required && <span className="text-gray-400">*</span>}
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required={contact.form.fields.email.required}
-                placeholder={contact.form.fields.email.placeholder}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                {contact.form.fields.company.label}
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                placeholder={contact.form.fields.company.placeholder}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                {contact.form.fields.message.label} {contact.form.fields.message.required && <span className="text-gray-400">*</span>}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required={contact.form.fields.message.required}
-                placeholder={contact.form.fields.message.placeholder}
-                rows={5}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full px-6 py-3 text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              {contact.form.submitLabel}
-            </button>
-          </form>
-
-          {/* What to Include */}
-          <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              {contact.whatToInclude.title}
-            </h3>
-            <ul className="space-y-3 mb-8">
-              {contact.whatToInclude.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 mt-2" />
-                  <span className="text-gray-600">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="p-6 bg-gray-50 rounded-lg">
-              <p className="text-gray-600 mb-2">{contact.alternative.text}</p>
-              <a
-                href={`mailto:${contact.alternative.email}`}
-                className="text-gray-900 font-medium hover:underline"
-              >
-                {contact.alternative.email}
-              </a>
-            </div>
-          </div>
-        </div>
+        <Suspense fallback={<div className="max-w-4xl mx-auto" />}>
+          <ContactForm />
+        </Suspense>
 
         {/* Geographic coverage */}
         <div className="max-w-4xl mx-auto mt-16 pt-10 border-t border-neutral-500/10">
