@@ -6,14 +6,7 @@ import { useState, useEffect } from 'react'
 import { site } from '@/content/site'
 
 // Flat navigation reflecting new IA (Reality + 3 pillars + Labs + About)
-const mainNav = [
-  { label: 'Reality', href: '/reality' },
-  { label: 'Data', href: '/data' },
-  { label: 'AI Direction', href: '/ai-direction' },
-  { label: 'Transformation', href: '/transformation' },
-  { label: 'Labs', href: '/labs' },
-  { label: 'About', href: '/about' },
-]
+const mainNav = site.nav
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
