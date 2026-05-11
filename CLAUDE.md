@@ -5,8 +5,8 @@ Next.js 14 **static export** (`output: 'export'`, `images.unoptimized: true`). N
 
 ## Key paths
 - `src/app/page.tsx` — re-exports `/reality` (homepage = Reality content)
-- `src/app/{reality,data,ai-direction,transformation,labs,labs/themes,about,contact,programs,programs/mib-insight}/page.tsx` — current IA
-- `src/content/site.ts` — ALL page copy lives here under `site.pages.<pageName>` (no inline strings in TSX)
+- `src/app/{reality,data,ai-direction,transformation,labs,labs/themes,about,contact,programs,programs/mib-insight,privacy,terms}/page.tsx` — current IA
+- `src/content/site.ts` — ALL page copy lives here under `site.pages.<pageName>` (no inline strings in TSX, except legal-pages carve-out below)
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy (29 themes / 147 pages); re-sync from sibling repo
 - `src/components/` — RealityHero, LabsHero, PillarHero, Section, LabsFlagship, ThemeCard, ThemeBand, etc.
 - `staticwebapp.config.json` — Azure SWA routes, redirects, auth (sp-clients role on `/integration/*`)
@@ -32,6 +32,7 @@ Re-sync after upstream changes; there is no build-time link.
 ## UI patterns
 - Page sections use `<Section badge title description>` wrapper; spacing via `<SectionDivider />` between every section
 - All copy/text goes in `site.ts` under `site.pages.<pageName>`, not inline in TSX
+- **Exception — legal pages:** `/privacy` and `/terms` may inline their content in TSX rather than `site.ts`. Reason: legal prose is long, deeply structured (sections, sub-sections, mixed rich bullets, external links), and changes rarely. Inlining keeps the content readable next to its rendering and avoids inventing a complex `site.pages.legal.{...}` shape that won't pay off for two pages.
 - Forms post to Formspree (https://formspree.io/f/xdkdynak) — 3rd-party PII processor
 
 ## Deploy topology

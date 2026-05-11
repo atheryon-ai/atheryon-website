@@ -11,6 +11,14 @@ export const metadata: Metadata = {
     title: mibInsight.title,
     description: mibInsight.description,
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: mibInsight.title,
+    description: mibInsight.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/programs/mib-insight',
+  },
 }
 
 export default function MibInsightPage() {

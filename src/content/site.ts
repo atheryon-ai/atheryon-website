@@ -4,22 +4,19 @@ export const site = {
   email: 'info@atheryon.com.au',
 
   nav: [
-    { label: 'How We Work', href: '/how-we-work' },
-    { label: 'Recovery & Migration', href: '/recovery-migration' },
-    { label: 'Capability Enablement', href: '/capability-enablement' },
-    { label: 'M&A Execution', href: '/m-and-a-execution' },
-    { label: 'CDM Platform', href: '/cdm-platform' },
-    { label: 'Reference Architectures', href: '/reference-architectures' },
-    { label: 'AI-Ready Data', href: '/ai-ready-data' },
+    { label: 'Reality', href: '/reality' },
+    { label: 'Data', href: '/data' },
+    { label: 'AI Direction', href: '/ai-direction' },
+    { label: 'Transformation', href: '/transformation' },
+    { label: 'Labs', href: '/labs' },
     { label: 'About', href: '/about' },
   ],
 
   // Services dropdown items (used in Header)
   servicesNav: [
-    { label: 'CDM Platform', href: '/cdm-platform' },
-    { label: 'Recovery & Migration', href: '/recovery-migration' },
-    { label: 'M&A Execution', href: '/m-and-a-execution' },
-    { label: 'Capability Enablement', href: '/capability-enablement' },
+    { label: 'Data', href: '/data' },
+    { label: 'AI Direction', href: '/ai-direction' },
+    { label: 'Transformation', href: '/transformation' },
   ],
 
   cta: {
@@ -46,7 +43,7 @@ export const site = {
       },
       whatWeAre: {
         title: 'What Atheryon is',
-        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise.',
+        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — built to withstand regulator scrutiny with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why.',
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
@@ -55,7 +52,7 @@ export const site = {
       credibilityBoxes: [
         {
           title: '20+ Years in Capital Markets',
-          description: 'Over two decades of delivery leadership across global capital markets — London and Australia. Tier-one banks, market infrastructure, and regulatory environments. Front-to-back data, risk, and regulatory reporting capability delivered under sustained operational and regulatory pressure.\n\nHands-on leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting aligned to APRA, ASIC, MiFID II, EMIR, and Dodd-Frank. Senior-led — principals on the ground, not juniors with slide decks.',
+          description: 'Over two decades of delivery leadership across global capital markets — London and Australia. Tier-one banks, market infrastructure, and regulatory environments. Front-to-back data, risk, and regulatory reporting capability delivered under sustained operational and regulatory pressure.\n\nHands-on leadership across live trading, market risk, credit risk, product control, payments, and regulatory reporting aligned to APRA (Australian Prudential Regulation Authority), ASIC (Australian Securities and Investments Commission), MiFID II (Markets in Financial Instruments Directive II, EU), EMIR (European Market Infrastructure Regulation), and Dodd-Frank (U.S. Dodd-Frank Wall Street Reform and Consumer Protection Act). Senior-led — principals on the ground, not juniors with slide decks.',
         },
         {
           title: 'M&A Execution & Integration',
@@ -116,6 +113,10 @@ export const site = {
       alternative: {
         text: 'Prefer email?',
         email: 'info@atheryon.com.au',
+      },
+      coverage: {
+        title: 'Where we work',
+        body: 'Based in Sydney, Australia. Supporting clients across Australia, APAC, and EMEA timezones. London office relationships maintained for European delivery.',
       },
     },
 
@@ -309,7 +310,7 @@ export const site = {
         title: 'What was built, how fast',
         statsItems: [
           { value: '8', label: 'banking functions covered' },
-          { value: '1', label: 'CDM data model — ISDA-compliant, end to end' },
+          { value: '1', label: 'CDM data model — ISDA (International Swaps and Derivatives Association)-compliant, end to end' },
           { value: '31', label: 'flagship surfaces shipped' },
           { value: 'Live', label: 'at atheryon.com.au' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
@@ -367,7 +368,7 @@ export const site = {
             sidebarVignette: {
               title: 'Schema modelling — extend vs wrap',
               aiProposed: 'The AI defaulted to extending CDM types whenever a bank-specific field was needed. Inheritance, by the textbook.',
-              bankerCorrected: 'Goldman SecDB taught the opposite: extend when the concept is genuinely a CDM concept with one more attribute; wrap when the concept is a bank-internal artefact that happens to reference CDM. The schema editor encodes both modes, and the rule for choosing.',
+              bankerCorrected: 'Colleagues who built Goldman SecDB taught the opposite: extend when the concept is genuinely a CDM concept with one more attribute; wrap when the concept is a bank-internal artefact that happens to reference CDM. The schema editor encodes both modes, and the rule for choosing.',
             },
           },
         ],
@@ -598,6 +599,35 @@ export const site = {
           { title: 'Working decision surface, not a slide deck.', body: 'Inspectable, deployable, extendable. Proof, not promise.' },
         ],
       },
+      engagement: {
+        anchor: 'engage',
+        badge: 'Three ways to engage',
+        title: 'Get what you need.',
+        intro: 'From self-serve code to expert-directed delivery — three ways to put Atheryon\'s method to work.',
+        cards: [
+          {
+            number: '01',
+            title: 'Get code',
+            body: 'License the Atheryon Labs platform code as a working banking reference implementation.',
+            ctaLabel: 'See the code →',
+            ctaHref: '/labs#code',
+          },
+          {
+            number: '02',
+            title: 'Get prompts',
+            body: 'License the prompt archive — instructions, corrections, and domain rules that turned AI from generic into useful.',
+            ctaLabel: 'See the prompts →',
+            ctaHref: '/labs#prompts',
+          },
+          {
+            number: '03',
+            title: 'Get consulting',
+            body: 'Engage Atheryon to apply the same method to your data, platform, or regulatory programme.',
+            ctaLabel: 'See advisory →',
+            ctaHref: '/labs#advisory',
+          },
+        ],
+      },
       proof: {
         badge: 'Proof — Atheryon Labs',
         title: 'We use this method. Here is the artifact.',
@@ -639,7 +669,7 @@ export const site = {
         badge: 'What we do',
         title: 'From fragmented sources to a decision-grade foundation.',
         cards: [
-          { title: 'CDM Platform', body: 'ISDA Common Domain Model implementations — schemas, validators, transforms, governance — for capital-markets data estates.' },
+          { title: 'CDM Platform', body: 'ISDA Common Domain Model (CDM): a single shared definition of every business concept — so "trade" means the same thing in trading, ops, risk, and compliance. Implementations include schemas, validators, transforms, governance — for capital-markets data estates.' },
           { title: 'Reference Architectures', body: 'Cloud-native architectures for trading, risk, ops, and reporting — built on CDM, deployable into your estate.' },
           { title: 'Data Foundations', body: 'Pipelines, modelling, governance, lineage, and unified visibility across your enterprise data estate.' },
           { title: 'Schema Modelling', body: 'CDM-first schema design with extension and wrapping patterns for bank-internal artefacts.' },
@@ -648,7 +678,7 @@ export const site = {
       proof: {
         badge: 'Proof',
         title: 'See the data foundation in Labs.',
-        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas.',
+        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 (international standard for financial messaging) messages, 14 FpML (Financial Products Markup Language) schemas.',
         screenshot: '/reality/labs-screenshot-data.png',
         screenshotAlt: 'Atheryon Labs schema editor and ODS surfaces',
         cta: { label: 'Explore Labs →', href: '/labs' },
@@ -776,17 +806,15 @@ export const site = {
   footer: {
     description: 'Decision-grade data platforms for capital markets and institutional banking. Senior-led. Regulator-credible. Production-grade.',
     links: {
-      services: [
-        { label: 'How We Work', href: '/how-we-work' },
-        { label: 'Recovery & Migration', href: '/recovery-migration' },
-        { label: 'M&A Execution', href: '/m-and-a-execution' },
-        { label: 'Capability Enablement', href: '/capability-enablement' },
-        { label: 'CDM Platform', href: '/cdm-platform' },
+      pillars: [
+        { label: 'Data', href: '/data' },
+        { label: 'AI Direction', href: '/ai-direction' },
+        { label: 'Transformation', href: '/transformation' },
       ],
       resources: [
+        { label: 'Labs', href: '/labs' },
         { label: 'Programs', href: '/programs' },
-        { label: 'Reference Architectures', href: '/reference-architectures' },
-        { label: 'AI-Ready Data', href: '/ai-ready-data' },
+        { label: 'MiB Insight', href: '/programs/mib-insight' },
       ],
       company: [
         { label: 'About', href: '/about' },

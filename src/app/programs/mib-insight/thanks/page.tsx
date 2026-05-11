@@ -7,6 +7,18 @@ const { mibInsightThanks } = site.pages
 export const metadata: Metadata = {
   title: mibInsightThanks.title,
   description: mibInsightThanks.description,
+  openGraph: {
+    title: mibInsightThanks.title,
+    description: mibInsightThanks.description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: mibInsightThanks.title,
+    description: mibInsightThanks.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/programs/mib-insight/thanks',
+  },
 }
 
 export default function MibInsightThanksPage() {

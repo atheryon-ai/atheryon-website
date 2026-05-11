@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   title: transformation.title,
   description: transformation.description,
   openGraph: { title: transformation.title, description: transformation.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: transformation.title,
+    description: transformation.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/transformation',
+  },
 }
 
 export default function TransformationPage() {

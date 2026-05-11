@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   title: data.title,
   description: data.description,
   openGraph: { title: data.title, description: data.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: data.title,
+    description: data.description,
+  },
+  alternates: {
+    canonical: 'https://atheryon.com.au/data',
+  },
 }
 
 export default function DataPage() {
