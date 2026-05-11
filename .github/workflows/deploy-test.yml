@@ -1,8 +1,12 @@
 name: Deploy to Test Environment
 
 # Deploys to Azure Static Web Apps TEST environment
-# URL: https://icy-tree-093dcc800.azurestaticapps.net
-# NOT the production domain (www.atheryon.com.au)
+# URL: https://polite-flower-03ba3020f.7.azurestaticapps.net
+# Resource: atheryon-website-test (rg-atheryon-test) on Microsoft Azure Sponsorship sub
+#
+# Production lives on the icy-tree SWA via www.atheryon.com.au, deployed
+# only by deploy-production.yml on main pushes. This workflow is now
+# isolated — dev pushes deploy to the test SWA only, not production.
 
 on:
   push:
@@ -47,7 +51,7 @@ jobs:
       - name: Deploy to Azure Static Web Apps (Test)
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9  # v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_TREE_093DCC800 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_TEST }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "out"
@@ -63,5 +67,5 @@ jobs:
       - name: Close Pull Request
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9  # v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_TREE_093DCC800 }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_TEST }}
           action: "close"
