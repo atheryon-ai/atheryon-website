@@ -43,7 +43,7 @@ export const site = {
       },
       whatWeAre: {
         title: 'What Atheryon is',
-        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — built to withstand regulator scrutiny with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why.',
+        description: 'A practitioner-led firm that builds decision-grade data platforms for capital markets and institutional banking. We combine decades of delivery leadership in regulated environments with modern architecture and governance to ship capability that the business can trust and regulators can scrutinise — with complete data lineage, immutable audit trails, and signed controls that show who changed what, when, and why.',
       },
       whyWeExist: {
         title: 'Why Atheryon exists',
@@ -317,7 +317,7 @@ export const site = {
         title: 'What was built, how fast',
         statsItems: [
           { value: '8', label: 'banking functions covered' },
-          { value: '1', label: 'CDM data model — ISDA (International Swaps and Derivatives Association)-compliant, end to end' },
+          { value: '1', label: 'CDM data model — compliant with ISDA (International Swaps and Derivatives Association), end to end' },
           { value: '31', label: 'flagship surfaces shipped' },
           { value: 'Live', label: 'at atheryon.com.au' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
