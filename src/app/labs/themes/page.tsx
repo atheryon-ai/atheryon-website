@@ -40,7 +40,7 @@ export default function ThemesPage() {
       <h1 className="sr-only">{themes.headline}</h1>
 
       <div className="max-w-container mx-auto px-6 pt-8 pb-2">
-        <Link href="/labs" className="text-sm font-semibold text-brand-orange hover:underline">
+        <Link href="/labs" className="inline-block py-3 text-sm font-semibold text-brand-orange hover:underline">
           ← Back to Labs
         </Link>
       </div>
