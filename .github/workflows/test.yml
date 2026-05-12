@@ -1,8 +1,16 @@
 name: Playwright tests
 
-# Runs the Playwright chromium suite on every PR to main. This is the
-# guardrail that catches test rot after content / IA changes — exactly the
-# class of regression that produced PR #42's "Download the pack" CTA gap.
+# Runs the Playwright chromium suite on every PR into main OR dev, plus pushes
+# to main. This is the guardrail that catches test rot after content / IA
+# changes — the class of regression that produced PR #42's "Download the pack"
+# CTA gap and PR #59's /reality canonicalization breaking pillars.spec.ts.
+#
+# Why PR-into-dev gating: dev is the integration branch and 95% of changes
+# land there first. Previously Playwright only ran at the dev → main promotion
+# gate, so a PR-against-dev could land breaking tests and the failure wouldn't
+# surface until the next prod-promotion PR (sometimes days later, across many
+# commits). Running Playwright on every dev-targeting PR catches regressions
+# at the smallest possible blast radius.
 #
 # Scope: chromium project only (firefox/webkit/mobile remain in playwright.config
 # for local use, but CI runs only chromium for speed).
@@ -21,6 +29,7 @@ on:
   pull_request:
     branches:
       - main
+      - dev
   push:
     branches:
       - main
