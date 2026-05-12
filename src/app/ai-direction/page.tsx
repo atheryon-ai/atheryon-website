@@ -6,6 +6,7 @@ import {
   PillarHero,
   PillarServiceGrid,
   LabsTeaser,
+  RelatedPillars,
 } from '@/components'
 import { site } from '@/content/site'
 
@@ -65,28 +66,6 @@ export default function AiDirectionPage() {
 
       <SectionDivider />
 
-      <Section badge={relatedHeading.badge} title={relatedHeading.title}>
-        <div className="grid md:grid-cols-2 gap-6">
-          {relatedPillars.map((pillar) => (
-            <Link
-              key={pillar.href}
-              href={pillar.href}
-              data-testid="related-pillar-card"
-              className="block p-8 bg-white border border-charcoal/10 rounded-2xl hover:border-charcoal/30 transition-colors"
-            >
-              <div className="text-sm font-mono text-brand-orange mb-4">{pillar.number}</div>
-              <h3 className="font-display text-3xl text-charcoal tracking-tight mb-4">{pillar.title}</h3>
-              <p className="text-charcoal/80 leading-relaxed mb-4">{pillar.body}</p>
-              <span className="inline-block text-sm font-semibold text-charcoal underline-offset-4 group-hover:underline">
-                Explore {pillar.title} →
-              </span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <SectionDivider />
-
       <Section centered>
         <p className="text-base text-charcoal/70 mb-4">{aiDirection.floor13Nudge.body}</p>
         <Link
@@ -112,6 +91,11 @@ export default function AiDirectionPage() {
           </Link>
         </div>
       </Section>
+
+      <RelatedPillars
+        label={relatedHeading.label}
+        pillars={relatedPillars.map((p) => ({ title: p.title, href: p.href }))}
+      />
     </div>
   )
 }

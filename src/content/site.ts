@@ -647,6 +647,11 @@ export const site = {
           },
         ],
         relatedHeading: {
+          // Inline-strip label (formerly a full section heading; demoted per
+          // nav-analysis item #3 — cross-pillar links are siblings, not next steps).
+          label: 'Related lenses',
+          // Legacy fields preserved for backwards compatibility in case other
+          // components reference them; safe to remove once nothing imports them.
           badge: 'Explore the other pillars',
           title: 'Two more lenses on enterprise reality.',
         },
