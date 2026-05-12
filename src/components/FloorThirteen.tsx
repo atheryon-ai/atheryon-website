@@ -150,7 +150,8 @@ export function FloorThirteen({
             data-testid="floor13-generate"
             type="button"
             onClick={handleGenerate}
-            className="px-6 py-3 text-sm font-semibold text-ink bg-bone rounded-full"
+            disabled={!selected && !customText.trim()}
+            className="px-6 py-3 text-sm font-semibold text-ink bg-bone rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {inputCta}
           </button>
