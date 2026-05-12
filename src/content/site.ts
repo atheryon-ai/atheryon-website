@@ -624,7 +624,7 @@ export const site = {
       pillars: {
         anchor: 'pillars',
         badge: 'Three pillars',
-        title: 'Data. Intelligence. Transformation.',
+        title: 'Data. AI Direction. Transformation.',
         intro: 'A simple three-pillar explanation of how we architect reality.',
         items: [
           {
