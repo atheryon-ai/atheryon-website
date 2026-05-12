@@ -924,6 +924,7 @@ export const site = {
           { title: 'M&A Execution', body: 'Day-1 readiness, Day-100 integration, divestiture carve-outs — the data and platform spine of M&A.' },
           { title: 'Capability Enablement', body: 'Build internal data, AI, and platform capability in the institutions we serve, not on top of them.' },
           { title: 'Engagement Shapes', body: '30-day diagnostic, prototype sprint, or full platform engagement — matched to the risk profile of the work.' },
+          { title: 'Partner Co-Sell', body: 'Joint engagements with major cloud and data platform partners — they bring the primitives, we bring the regulated-finance domain track.' },
         ],
       },
       proof: {
