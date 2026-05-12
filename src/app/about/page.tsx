@@ -62,7 +62,7 @@ export default function AboutPage() {
                 alt={about.founder.photoAlt}
                 width={400}
                 height={400}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <p className="mt-4 text-sm text-neutral-600">{about.founder.role}</p>

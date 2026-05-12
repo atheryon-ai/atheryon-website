@@ -133,7 +133,7 @@ export default function LabsPage() {
               alt={labs.bankerWedge.photoAlt}
               width={400}
               height={400}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
           <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
