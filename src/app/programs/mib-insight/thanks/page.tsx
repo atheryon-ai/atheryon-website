@@ -35,7 +35,7 @@ export default function MibInsightThanksPage() {
         </h1>
         <p className="text-lg text-neutral-700 leading-relaxed mb-10">{mibInsightThanks.message}</p>
         <Link
-          href="/"
+          href="/reality"
           className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-neutral-900 bg-white border border-neutral-200 rounded-full hover:bg-warm-100 transition-all"
         >
           Return home
