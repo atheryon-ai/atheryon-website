@@ -854,7 +854,7 @@ export const site = {
         eyebrow: '02 · AI Direction',
         title: 'AI Direction',
         definition: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
-        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it.',
+        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it. Model-agnostic and cloud-agnostic by design: the method runs on Anthropic Claude on Azure today, ports to Gemini on Vertex AI or any frontier model on any cloud tomorrow.',
         breadcrumbHref: '/reality',
         breadcrumbLabel: '← Back to Reality',
       },
@@ -874,7 +874,7 @@ export const site = {
           { title: 'Five worked corrections', body: 'Lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars — five places where AI proposed the textbook answer and a banker corrected it. Each pairs the prompt, the correction, and the resulting code on /labs.' },
           { title: 'The 10× method', body: 'Built from regulatory artefacts and operational controls, not user stories. Started from the data model, not the screen. Generate three implementation candidates, then narrow with judgment. Surface-to-control traceability enforced.' },
           { title: 'The directorial archive', body: "Every prompt paired with Terry’s reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
-          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic’s Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
+          { title: 'Model-agnostic and cloud-agnostic by design', body: "Atheryon Labs is currently built using Anthropic’s Claude on Microsoft Azure, with a working Vertex AI / Gemini reference under active development. The durable artefact is how a senior banker directs frontier AI — Claude, Gemini, or what comes next — not which model is on the other side of the chat or which cloud runs the inference." },
         ],
       },
       proof: {
