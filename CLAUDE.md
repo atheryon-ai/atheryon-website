@@ -37,8 +37,8 @@ Re-sync after upstream changes; there is no build-time link.
 
 ## Deploy topology
 - **Test:** push to `dev` → SWA `atheryon-website-test` (Sponsorship sub) at https://polite-flower-03ba3020f.7.azurestaticapps.net
-- **Prod:** push to `main` → SWA `icy-tree-093dcc800` (PAYG sub — currently DISABLED) at https://www.atheryon.com.au
-- These are now SEPARATE SWAs (split 2026-05-11). The PAYG sub disable is a ticking clock for production — migrate the prod SWA to Sponsorship before grace expires.
+- **Prod:** push to `main` → SWA `icy-tree-093dcc800` (PAYG sub) at https://www.atheryon.com.au
+- These are SEPARATE SWAs (split 2026-05-11) — prod stayed on PAYG, test was moved to Sponsorship.
 - Workflows: `.github/workflows/deploy-test.yml`, `.github/workflows/deploy-production.yml`. Actions are SHA-pinned. CODEOWNERS protects both workflows + package.json/lock + staticwebapp.config.json.
 
 ## Git workflow
