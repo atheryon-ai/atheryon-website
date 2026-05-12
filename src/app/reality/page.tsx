@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RealityPage() {
   return (
-    <main className="bg-bone">
+    <div className="bg-bone">
       {/* §1 Hero */}
       <RealityHero
         headline={reality.hero.headline}
@@ -100,7 +100,7 @@ export default function RealityPage() {
               data-testid="reality-engagement-card"
               className="p-8 bg-white border border-charcoal/10 rounded-2xl flex flex-col"
             >
-              <div className="text-sm font-mono text-amber mb-4" style={{ color: '#D98B3E' }}>{card.number}</div>
+              <div className="text-sm font-mono text-brand-amber mb-4">{card.number}</div>
               <h3 className="font-display text-3xl text-charcoal tracking-tight mb-4">{card.title}</h3>
               <p className="text-charcoal/80 leading-relaxed mb-6 flex-1">{card.body}</p>
               <Link
@@ -149,6 +149,6 @@ export default function RealityPage() {
           </Link>
         </div>
       </Section>
-    </main>
+    </div>
   )
 }

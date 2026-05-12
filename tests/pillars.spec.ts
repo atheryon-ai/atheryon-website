@@ -45,7 +45,7 @@ for (const p of pillars) {
     })
 
     test('Floor 13 nudge is present', async ({ page }) => {
-      await expect(page.getByRole('link', { name: /Generate a Reality Blueprint/i })).toHaveAttribute('href', '/#floor-13')
+      await expect(page.getByRole('link', { name: /Generate a Reality Blueprint/i })).toHaveAttribute('href', '/reality#floor-13')
     })
 
     test('proof band has the right screenshot alt text', async ({ page }) => {

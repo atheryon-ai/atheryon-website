@@ -38,7 +38,7 @@ export const site = {
       title: 'About — Atheryon',
       description: 'Senior practitioners who have carried the risk — building decision-grade data platforms for capital markets and institutional banking.',
       hero: {
-        headline: 'Built by practitioners who\'ve carried the risk',
+        headline: 'Built by practitioners who’ve carried the risk',
         subheadline: 'Senior-led. Regulator-credible. Production-grade.',
       },
       whatWeAre: {
@@ -55,7 +55,7 @@ export const site = {
         role: 'Founder & Principal Practitioner',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
-        bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline. Atheryon is a Microsoft partner and S&P Global partner.",
+        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline. Atheryon is a Microsoft partner and S&P Global partner.",
       },
       credibilityBoxes: [
         {
@@ -68,7 +68,7 @@ export const site = {
         },
         {
           title: 'Ontology-driven platforms in regulated environments',
-          description: 'Atheryon\'s delivery method treats semantics, lineage, validation, access control, and auditability as first-class concerns. Business concepts are modelled once and reused; pipelines carry their own evidence chains; controls are signed, not implied. The pattern is recognisable to anyone who has shipped a senior-led enterprise data platform in a regulated environment — and is exactly what regulator-credible AI workflows require to operate on trusted ground.\n\nOur clients are banks, market operators, asset managers, and the AI labs building for them. The common thread: a need for data that holds up under scrutiny, not just at audit, but every time a model, a desk, or a downstream system reads from it.',
+          description: 'Atheryon’s delivery method treats semantics, lineage, validation, access control, and auditability as first-class concerns. Business concepts are modelled once and reused; pipelines carry their own evidence chains; controls are signed, not implied. The pattern is recognisable to anyone who has shipped a senior-led enterprise data platform in a regulated environment — and is exactly what regulator-credible AI workflows require to operate on trusted ground.\n\nOur clients are banks, market operators, asset managers, and the AI labs building for them. The common thread: a need for data that holds up under scrutiny, not just at audit, but every time a model, a desk, or a downstream system reads from it.',
         },
       ],
       whatExperienceMeans: {
@@ -110,7 +110,7 @@ export const site = {
           name: { label: 'Name', placeholder: 'Your name', required: true },
           email: { label: 'Email', placeholder: 'your@email.com', required: true },
           company: { label: 'Company', placeholder: 'Your company', required: false },
-          message: { label: 'What\'s the problem?', placeholder: 'Describe the challenge you\'re facing...', required: true },
+          message: { label: 'What’s the problem?', placeholder: 'Describe the challenge you’re facing...', required: true },
         },
         submitLabel: 'Request a discussion',
       },
@@ -390,7 +390,7 @@ export const site = {
         intro: 'AI labs competing with the global SIs in regulated verticals hit the same wall: plausible models, missing domain judgement. Atheryon Labs is the working artefact of an ontology-driven banking platform — semantics, lineage, validation, and access control modelled in from day one, then handed to AI as the operating ground. The two corrections below show why that loop matters.',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
-        bio: "I'm Terry Tsakiris. At Credit Suisse I built the bank's first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank's prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
+        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
         vignettes: [
           {
             title: 'Lifecycle state model',
@@ -410,7 +410,7 @@ export const site = {
         principles: [
           {
             title: 'Built from banking controls, not user stories.',
-            body: 'Where most AI demos start "as a user I want…", this started with the regulatory artefact, the operational control, the risk view. Controls drive surfaces; surfaces do not drive controls.',
+            body: 'Where most AI demos start “as a user I want…”, this started with the regulatory artefact, the operational control, the risk view. Controls drive surfaces; surfaces do not drive controls.',
           },
           {
             title: 'Started from the product / event / data model, not the screen.',
@@ -439,7 +439,7 @@ export const site = {
           correctionShown: '{{TERRY_PROMPT_EXAMPLE_CORRECTION}}',
           prLink: '{{TERRY_PROMPT_EXAMPLE_PR_URL}}',
         },
-        disclosure: "Atheryon Labs is currently built using Anthropic's Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.",
+        disclosure: "Atheryon Labs is currently built using Anthropic’s Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.",
       },
       engagement: {
         badge: 'Three ways to use what is here',
@@ -540,7 +540,7 @@ export const site = {
           'The complete prompt archive used to build the labs-platform — every prompt paired with the correction that turned plausible AI output into shipped banking code.',
           'Five worked corrections explained in detail: lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars.',
           'Architecture decisions and design constraints documented as prompts, not as slides.',
-          "Each prompt paired with the banker's reasoning and the resulting code in the labs-platform repo, so the relationship between intent and output is explicit.",
+          "Each prompt paired with the banker’s reasoning and the resulting code in the labs-platform repo, so the relationship between intent and output is explicit.",
           'Model-agnostic — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.',
         ],
       },
@@ -624,7 +624,7 @@ export const site = {
       pillars: {
         anchor: 'pillars',
         badge: 'Three pillars',
-        title: 'Data. Intelligence. Transformation.',
+        title: 'Data. AI Direction. Transformation.',
         intro: 'A simple three-pillar explanation of how we architect reality.',
         items: [
           {
@@ -647,6 +647,11 @@ export const site = {
           },
         ],
         relatedHeading: {
+          // Inline-strip label (formerly a full section heading; demoted per
+          // nav-analysis item #3 — cross-pillar links are siblings, not next steps).
+          label: 'Related lenses',
+          // Legacy fields preserved for backwards compatibility in case other
+          // components reference them; safe to remove once nothing imports them.
           badge: 'Explore the other pillars',
           title: 'Two more lenses on enterprise reality.',
         },
@@ -668,9 +673,9 @@ export const site = {
         title: 'Choose the issue that best describes your current reality.',
         intro: 'The switchboard generates a Reality Blueprint below.',
         dials: [
-          { id: 'data', title: 'Data pain', body: '"Our data is fragmented, inconsistent, or inaccessible."', cta: 'Plug into Data' },
-          { id: 'aiDirection', title: 'AI direction pain', body: '"We need to study how senior domain expertise directs frontier AI from plausible code into shipped, regulated systems."', cta: 'Plug into AI Direction' },
-          { id: 'transformation', title: 'Transformation pain', body: '"We need change, but the roadmap and operating model are unclear."', cta: 'Plug into Transformation' },
+          { id: 'data', title: 'Data pain', body: '“Our data is fragmented, inconsistent, or inaccessible.”', cta: 'Plug into Data' },
+          { id: 'aiDirection', title: 'AI direction pain', body: '“We need to study how senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.”', cta: 'Plug into AI Direction' },
+          { id: 'transformation', title: 'Transformation pain', body: '“We need change, but the roadmap and operating model are unclear.”', cta: 'Plug into Transformation' },
         ],
         inputPlaceholder: 'Optional: type your biggest data or transformation challenge',
         inputCta: 'Generate Blueprint',
@@ -690,7 +695,7 @@ export const site = {
             bullets: [
               'Trace where a prompt produced a textbook-but-wrong implementation, and the domain rule that corrected it. Five worked examples live on /labs (lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars).',
               'Study the methodology — controls before user stories, data model before screen, generate-three-then-narrow — that compressed a multi-decade banking platform into weeks.',
-              "Take the directorial archive, not a prompt library: every prompt paired with the banker's reasoning, paired with the resulting code in the labs-platform repo.",
+              "Take the directorial archive, not a prompt library: every prompt paired with the banker’s reasoning, paired with the resulting code in the labs-platform repo.",
             ],
           },
           transformation: {
@@ -720,7 +725,7 @@ export const site = {
         },
         sellCards: [
           { id: 'code', title: 'Take the code', body: 'Fork the labs-platform repo. Inspect, deploy, extend.', ctaLabel: 'Inspect →', ctaHref: '/labs#code' },
-          { id: 'prompts', title: 'Take the prompts', body: "A curated archive of the prompts and corrections that produced the platform — paired with Terry's reasoning.", ctaLabel: 'License →', ctaHref: '/labs#prompts' },
+          { id: 'prompts', title: 'Take the prompts', body: "A curated archive of the prompts and corrections that produced the platform — paired with Terry’s reasoning.", ctaLabel: 'License →', ctaHref: '/labs#prompts' },
           { id: 'advisory', title: 'Take the advisory', body: 'Atheryon Advisory engagements: 30-day diagnostic, prototype sprint, or full data-platform recovery.', ctaLabel: 'Engage →', ctaHref: '/labs#advisory' },
         ],
         closingCta: { label: 'Or — book a Reality Architecture Session', href: '/contact' },
@@ -730,7 +735,7 @@ export const site = {
         badge: 'How we architect reality',
         title: 'Built from controls, not user stories.',
         principles: [
-          { title: 'Built from regulatory artefacts and operational controls.', body: 'Most platforms start "as a user I want…". We start with the artefact, the control, the risk view.' },
+          { title: 'Built from regulatory artefacts and operational controls.', body: 'Most platforms start “as a user I want…”. We start with the artefact, the control, the risk view.' },
           { title: 'Started from the data model, not the screen.', body: 'CDM-first, then surfaces. Every screen is a projection of the contract.' },
           { title: 'Generate variants, then narrow.', body: 'AI generates implementation candidates in minutes. Senior judgment chooses, corrects, and ships.' },
           { title: 'Working decision surface, not a slide deck.', body: 'Inspectable, deployable, extendable. Proof, not promise.' },
@@ -740,7 +745,7 @@ export const site = {
         anchor: 'engage',
         badge: 'Three ways to engage',
         title: 'Get what you need.',
-        intro: 'From self-serve code to expert-directed delivery — three ways to put Atheryon\'s method to work.',
+        intro: 'From self-serve code to expert-directed delivery — three ways to put Atheryon’s method to work.',
         cards: [
           {
             number: '01',
@@ -822,7 +827,7 @@ export const site = {
       },
       floor13Nudge: {
         body: 'Not sure where to start?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',
@@ -857,21 +862,21 @@ export const site = {
         cards: [
           { title: 'Five worked corrections', body: 'Lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars — five places where AI proposed the textbook answer and a banker corrected it. Each pairs the prompt, the correction, and the resulting code on /labs.' },
           { title: 'The 10× method', body: 'Built from regulatory artefacts and operational controls, not user stories. Started from the data model, not the screen. Generate three implementation candidates, then narrow with judgment. Surface-to-control traceability enforced.' },
-          { title: 'The directorial archive', body: "Every prompt paired with Terry's reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
-          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic's Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
+          { title: 'The directorial archive', body: "Every prompt paired with Terry’s reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
+          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic’s Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
         ],
       },
       proof: {
         badge: 'Proof',
         title: 'See the direction in action on Labs.',
-        body: 'Atheryon Labs is the working artefact: 31 banking surfaces shipped under directorial AI in weeks. Every surface traces to a regulatory artefact, an operational control, or a risk view — never a "as a user I want" story.',
+        body: 'Atheryon Labs is the working artefact: 31 banking surfaces shipped under directorial AI in weeks. Every surface traces to a regulatory artefact, an operational control, or a risk view — never a “as a user I want” story.',
         screenshot: '/reality/labs-screenshot-intelligence.png',
         screenshotAlt: 'Atheryon Labs analytics dashboard and ML workbench',
         cta: { label: 'Explore Labs →', href: '/labs' },
       },
       floor13Nudge: {
         body: 'Want the directorial track, not the platform?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',
@@ -920,7 +925,7 @@ export const site = {
       },
       floor13Nudge: {
         body: 'Not sure where to start?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',

@@ -3,6 +3,22 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
+// Brand tokens mirrored locally because this section sets inline styles on
+// dynamic states (active/inactive dials, recommended sell-cards). Tailwind
+// classes can't express the conditional logic without class-name explosion.
+// Source of truth: tailwind.config.ts (ink, bone, brand.amber, brand.deepblue).
+const COLORS = {
+  ink: '#0E1116',
+  bone: '#EFEAE0',
+  amber: '#D98B3E',
+  deepblue: '#0D4D7A',
+  boneAlpha30: 'rgba(239,234,224,0.3)',
+  boneAlpha20: 'rgba(239,234,224,0.2)',
+  boneAlpha04: 'rgba(239,234,224,0.04)',
+  blueprintBorder: 'rgba(184,215,239,0.4)',
+  blueprintBg: 'rgba(7,25,38,0.6)',
+} as const
+
 type PillarId = 'data' | 'aiDirection' | 'transformation'
 type Selection = PillarId | 'custom' | null
 
@@ -88,11 +104,11 @@ export function FloorThirteen({
     <section
       id={anchor}
       className="px-6 section-spacing"
-      style={{ backgroundColor: '#0E1116', color: '#EFEAE0' }}
+      style={{ backgroundColor: COLORS.ink, color: COLORS.bone }}
     >
       <div className="max-w-container mx-auto">
         <div className="mb-10 md:mb-14">
-          <div className="mb-5 text-xs font-semibold tracking-[0.18em] uppercase" style={{ color: '#D98B3E' }}>
+          <div className="mb-5 text-xs font-semibold tracking-[0.18em] uppercase" style={{ color: COLORS.amber }}>
             {badge}
           </div>
           <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] tracking-tight mb-5 leading-[1.05]">
@@ -112,8 +128,8 @@ export function FloorThirteen({
                 data-testid="floor13-dial"
                 className="p-6 border border-dashed rounded-xl"
                 style={{
-                  borderColor: isActive ? (isData ? '#0D4D7A' : '#D98B3E') : 'rgba(239,234,224,0.3)',
-                  backgroundColor: isActive ? 'rgba(239,234,224,0.04)' : 'transparent',
+                  borderColor: isActive ? (isData ? COLORS.deepblue : COLORS.amber) : COLORS.boneAlpha30,
+                  backgroundColor: isActive ? COLORS.boneAlpha04 : 'transparent',
                 }}
               >
                 <h3 className="text-xl font-bold mb-3">{dial.title}</h3>
@@ -124,9 +140,9 @@ export function FloorThirteen({
                   onClick={() => handleDial(dial.id)}
                   className="w-full px-4 py-2.5 text-sm font-semibold rounded-full transition-colors border-2"
                   style={{
-                    borderColor: '#EFEAE0',
-                    color: isActive ? '#0E1116' : '#EFEAE0',
-                    backgroundColor: isActive ? '#EFEAE0' : 'transparent',
+                    borderColor: COLORS.bone,
+                    color: isActive ? COLORS.ink : COLORS.bone,
+                    backgroundColor: isActive ? COLORS.bone : 'transparent',
                   }}
                 >
                   {dial.cta}
@@ -150,7 +166,8 @@ export function FloorThirteen({
             data-testid="floor13-generate"
             type="button"
             onClick={handleGenerate}
-            className="px-6 py-3 text-sm font-semibold text-ink bg-bone rounded-full"
+            disabled={!selected && !customText.trim()}
+            className="px-6 py-3 text-sm font-semibold text-ink bg-bone rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {inputCta}
           </button>
@@ -162,7 +179,7 @@ export function FloorThirteen({
             data-testid="floor13-blueprint"
             aria-live="polite"
             className="mt-10 p-8 rounded-xl border"
-            style={{ borderColor: 'rgba(184,215,239,0.4)', backgroundColor: 'rgba(7,25,38,0.6)' }}
+            style={{ borderColor: COLORS.blueprintBorder, backgroundColor: COLORS.blueprintBg }}
           >
             <h3 className="text-2xl font-bold mb-4">{activeBlueprint.title}</h3>
             <p className="opacity-90 leading-relaxed mb-6">{introText}</p>
@@ -172,7 +189,7 @@ export function FloorThirteen({
             <ul className="space-y-2 mb-8">
               {activeBlueprint.bullets.map((b) => (
                 <li key={b} className="flex gap-3">
-                  <span style={{ color: '#D98B3E' }}>•</span>
+                  <span style={{ color: COLORS.amber }}>•</span>
                   <span className="opacity-90 leading-relaxed">{b}</span>
                 </li>
               ))}
@@ -191,8 +208,8 @@ export function FloorThirteen({
                     data-recommended={isRecommended ? 'true' : 'false'}
                     className="p-5 rounded-xl border-2"
                     style={{
-                      borderColor: isRecommended ? '#D98B3E' : 'rgba(239,234,224,0.2)',
-                      backgroundColor: 'rgba(239,234,224,0.04)',
+                      borderColor: isRecommended ? COLORS.amber : COLORS.boneAlpha20,
+                      backgroundColor: COLORS.boneAlpha04,
                     }}
                   >
                     <h5 className="text-lg font-bold mb-2">{card.title}</h5>
@@ -200,7 +217,7 @@ export function FloorThirteen({
                     <Link
                       href={card.ctaHref}
                       className="text-sm font-semibold"
-                      style={{ color: isRecommended ? '#D98B3E' : '#EFEAE0' }}
+                      style={{ color: isRecommended ? COLORS.amber : COLORS.bone }}
                     >
                       {card.ctaLabel}
                     </Link>
@@ -212,7 +229,7 @@ export function FloorThirteen({
             <Link
               href={closingCta.href}
               className="inline-flex items-center text-sm font-semibold opacity-80 hover:opacity-100"
-              style={{ color: '#EFEAE0' }}
+              style={{ color: COLORS.bone }}
             >
               {closingCta.label} →
             </Link>
