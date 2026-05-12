@@ -822,7 +822,7 @@ export const site = {
       },
       floor13Nudge: {
         body: 'Not sure where to start?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',
@@ -871,7 +871,7 @@ export const site = {
       },
       floor13Nudge: {
         body: 'Want the directorial track, not the platform?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',
@@ -920,7 +920,7 @@ export const site = {
       },
       floor13Nudge: {
         body: 'Not sure where to start?',
-        cta: { label: 'Generate a Reality Blueprint', href: '/#floor-13' },
+        cta: { label: 'Generate a Reality Blueprint', href: '/reality#floor-13' },
       },
       closing: {
         badge: 'Next step',
