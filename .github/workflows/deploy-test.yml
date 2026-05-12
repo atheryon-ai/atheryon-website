@@ -13,10 +13,16 @@ on:
     branches:
       - dev
       - test
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - dev
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
 
 env:
   NODE_VERSION: '20'
