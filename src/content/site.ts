@@ -276,12 +276,12 @@ export const site = {
     },
 
     labs: {
-      title: 'Atheryon Labs — Banking platform built by AI',
+      title: 'Atheryon Labs — Marketplace-bound banking platform',
       description: 'A working CDM-native banking reference platform, built by one capital-markets expert directing AI. Buy the code. License the prompts. Engage the builder.',
       hero: {
         headlineLine1: 'Atheryon Labs',
         headlineLine2: 'The banking platform built by AI.',
-        body: 'Atheryon Labs is a working CDM-native banking reference platform built by one capital-markets expert directing AI. It demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software.',
+        body: 'Atheryon Labs is a marketplace-bound CDM-native banking platform — a working reference today, packaged for cloud marketplace distribution as it matures. Built by one capital-markets expert directing AI, it demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software that institutions can license, deploy, and extend.',
         primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
@@ -430,8 +430,8 @@ export const site = {
           },
         ],
         economics: {
-          heading: 'What this method displaces',
-          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. This is the licensable asset: not the model on the other side of the chat, but the directorial track that makes the model ship.',
+          heading: 'What this method displaces — and what it produces',
+          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. The licensable asset has two halves: the directorial track (how a banker directs AI to produce shipped code) and the platform IP it produces (CDM connectors, regulatory schema mapping, banking surfaces) — designed for cloud marketplace distribution once the partner channel is in place.',
         },
         artifact: {
           heading: 'One real prompt, one real correction',
@@ -621,6 +621,17 @@ export const site = {
           ],
         },
       },
+      standard: {
+        anchor: 'standard',
+        badge: 'The standard',
+        title: 'Decision-grade is the standard, not the recovery.',
+        body: 'Banking platforms used to be measured by years of program spend. Decision-grade is the new measurement: regulator-credible data, ontology-driven semantics, AI-readiness baked in. Atheryon builds to the standard from week one — and recovers programs that started without it. The compression is real: surfaces that consultancies scope in years ship in weeks, not as demos, as decision-grade software.',
+        weeksAnchor: {
+          label: 'The compression',
+          value: 'Weeks, not years.',
+          caption: 'vs. typical multi-year consultancy programmes for an equivalent scope.',
+        },
+      },
       pillars: {
         anchor: 'pillars',
         badge: 'Three pillars',
@@ -658,7 +669,7 @@ export const site = {
       },
       transition: {
         badge: 'The hidden reality',
-        title: 'Beneath every enterprise is a hidden operating reality.',
+        title: 'Architect the decision-grade reality beneath your enterprise.',
         body: 'Fragmented systems create fragmented decisions. Atheryon makes the underlying architecture visible, intelligent, and ready for transformation.',
         cta: { label: 'Reveal the hidden layer', href: '#floor-13' },
         steps: [
@@ -843,7 +854,7 @@ export const site = {
         eyebrow: '02 · AI Direction',
         title: 'AI Direction',
         definition: 'How senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.',
-        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it.',
+        positioning: 'Frontier AI generates plausible code. In a regulated domain, plausible is wrong. The durable artefact is not the model — it is the directorial track of the human who corrected it. Model-agnostic and cloud-agnostic by design: the method runs on Anthropic Claude on Azure today, ports to Gemini on Vertex AI or any frontier model on any cloud tomorrow.',
         breadcrumbHref: '/reality',
         breadcrumbLabel: '← Back to Reality',
       },
@@ -863,7 +874,7 @@ export const site = {
           { title: 'Five worked corrections', body: 'Lifecycle events vs trade states, MiFID evidence chains, FOBO P&L taxonomy, CDM extend-vs-wrap, Sydney 5pm cutoff calendars — five places where AI proposed the textbook answer and a banker corrected it. Each pairs the prompt, the correction, and the resulting code on /labs.' },
           { title: 'The 10× method', body: 'Built from regulatory artefacts and operational controls, not user stories. Started from the data model, not the screen. Generate three implementation candidates, then narrow with judgment. Surface-to-control traceability enforced.' },
           { title: 'The directorial archive', body: "Every prompt paired with Terry’s reasoning per surface. Every correction paired with the banking concept that drove it. Every decision linked to the running code in the labs-platform repo." },
-          { title: 'Model-agnostic by design', body: "Atheryon Labs is currently built using Anthropic’s Claude. The durable artefact is how a senior banker directs frontier AI, not which model is on the other side of the chat." },
+          { title: 'Model-agnostic and cloud-agnostic by design', body: "Atheryon Labs is currently built using Anthropic’s Claude on Microsoft Azure, with a working Vertex AI / Gemini reference under active development. The durable artefact is how a senior banker directs frontier AI — Claude, Gemini, or what comes next — not which model is on the other side of the chat or which cloud runs the inference." },
         ],
       },
       proof: {
@@ -913,6 +924,7 @@ export const site = {
           { title: 'M&A Execution', body: 'Day-1 readiness, Day-100 integration, divestiture carve-outs — the data and platform spine of M&A.' },
           { title: 'Capability Enablement', body: 'Build internal data, AI, and platform capability in the institutions we serve, not on top of them.' },
           { title: 'Engagement Shapes', body: '30-day diagnostic, prototype sprint, or full platform engagement — matched to the risk profile of the work.' },
+          { title: 'Partner Co-Sell', body: 'Joint engagements with major cloud and data platform partners — they bring the primitives, we bring the regulated-finance domain track.' },
         ],
       },
       proof: {

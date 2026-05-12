@@ -49,6 +49,32 @@ export default function RealityPage() {
 
       <SectionDivider />
 
+      {/* §2.5 The Atheryon Standard — CSP positioning anchor */}
+      <Section
+        id={reality.standard.anchor}
+        badge={reality.standard.badge}
+        title={reality.standard.title}
+      >
+        <div className="max-w-3xl">
+          <p className="text-lg text-charcoal/80 leading-relaxed mb-8">
+            {reality.standard.body}
+          </p>
+          <div className="p-6 bg-white border border-charcoal/10 rounded-2xl">
+            <div className="text-xs font-semibold uppercase tracking-wider text-brand-amber mb-2">
+              {reality.standard.weeksAnchor.label}
+            </div>
+            <div className="text-3xl font-bold text-charcoal tracking-tight mb-2">
+              {reality.standard.weeksAnchor.value}
+            </div>
+            <p className="text-sm italic text-charcoal/60">
+              {reality.standard.weeksAnchor.caption}
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <SectionDivider />
+
       {/* §3 Narrative transition */}
       <Section badge={reality.transition.badge}>
         <RealitySplit

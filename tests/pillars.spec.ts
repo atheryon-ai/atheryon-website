@@ -8,6 +8,7 @@ const pillars = [
     proofAlt: /schema editor/i,
     closingLabel: /Request a session/i,
     closingHref: '/contact',
+    whatWeDoCount: 4,
   },
   {
     path: '/ai-direction',
@@ -16,6 +17,7 @@ const pillars = [
     proofAlt: /analytics/i,
     closingLabel: /Request access/i,
     closingHref: '/contact?topic=ai-direction',
+    whatWeDoCount: 4,
   },
   {
     path: '/transformation',
@@ -24,6 +26,7 @@ const pillars = [
     proofAlt: /trade board/i,
     closingLabel: /Request a session/i,
     closingHref: '/contact',
+    whatWeDoCount: 5,
   },
 ]
 
@@ -39,9 +42,9 @@ for (const p of pillars) {
       await expect(page.getByRole('link', { name: /Back to Reality/i })).toHaveAttribute('href', '/reality')
     })
 
-    test('"What we do" grid renders 4 cards', async ({ page }) => {
+    test('"What we do" grid renders expected card count', async ({ page }) => {
       const cards = page.getByTestId('pillar-service-card')
-      await expect(cards).toHaveCount(4)
+      await expect(cards).toHaveCount(p.whatWeDoCount)
     })
 
     test('Floor 13 nudge is present', async ({ page }) => {
