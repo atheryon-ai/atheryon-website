@@ -276,12 +276,12 @@ export const site = {
     },
 
     labs: {
-      title: 'Atheryon Labs — Banking platform built by AI',
+      title: 'Atheryon Labs — Marketplace-bound banking platform',
       description: 'A working CDM-native banking reference platform, built by one capital-markets expert directing AI. Buy the code. License the prompts. Engage the builder.',
       hero: {
         headlineLine1: 'Atheryon Labs',
         headlineLine2: 'The banking platform built by AI.',
-        body: 'Atheryon Labs is a working CDM-native banking reference platform built by one capital-markets expert directing AI. It demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software.',
+        body: 'Atheryon Labs is a marketplace-bound CDM-native banking platform — a working reference today, packaged for cloud marketplace distribution as it matures. Built by one capital-markets expert directing AI, it demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software that institutions can license, deploy, and extend.',
         primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
@@ -430,8 +430,8 @@ export const site = {
           },
         ],
         economics: {
-          heading: 'What this method displaces',
-          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. This is the licensable asset: not the model on the other side of the chat, but the directorial track that makes the model ship.',
+          heading: 'What this method displaces — and what it produces',
+          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. The licensable asset has two halves: the directorial track (how a banker directs AI to produce shipped code) and the platform IP it produces (CDM connectors, regulatory schema mapping, banking surfaces) — designed for cloud marketplace distribution once the partner channel is in place.',
         },
         artifact: {
           heading: 'One real prompt, one real correction',

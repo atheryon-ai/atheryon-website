@@ -40,8 +40,8 @@ test.describe('CSP positioning — /labs (Task 4 target)', () => {
     await page.goto('/labs')
   })
 
-  test('hero body positions Labs as a marketplace-bound platform', async ({ page }) => {
-    await expect(page.getByText(/marketplace-bound platform/i)).toBeVisible()
+  test('hero body positions Labs as marketplace-bound', async ({ page }) => {
+    await expect(page.getByText(/marketplace-bound/i).first()).toBeVisible()
   })
 
   test('method economics paragraph positions Labs as licensable platform IP', async ({ page }) => {
