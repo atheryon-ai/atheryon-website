@@ -621,6 +621,17 @@ export const site = {
           ],
         },
       },
+      standard: {
+        anchor: 'standard',
+        badge: 'The standard',
+        title: 'Decision-grade is the standard, not the recovery.',
+        body: 'Banking platforms used to be measured by years of program spend. Decision-grade is the new measurement: regulator-credible data, ontology-driven semantics, AI-readiness baked in. Atheryon builds to the standard from week one — and recovers programs that started without it. The compression is real: surfaces that consultancies scope in years ship in weeks, not as demos, as decision-grade software.',
+        weeksAnchor: {
+          label: 'The compression',
+          value: 'Weeks, not years.',
+          caption: 'vs. typical multi-year consultancy programmes for an equivalent scope.',
+        },
+      },
       pillars: {
         anchor: 'pillars',
         badge: 'Three pillars',
@@ -658,7 +669,7 @@ export const site = {
       },
       transition: {
         badge: 'The hidden reality',
-        title: 'Beneath every enterprise is a hidden operating reality.',
+        title: 'Architect the decision-grade reality beneath your enterprise.',
         body: 'Fragmented systems create fragmented decisions. Atheryon makes the underlying architecture visible, intelligent, and ready for transformation.',
         cta: { label: 'Reveal the hidden layer', href: '#floor-13' },
         steps: [
