@@ -30,9 +30,15 @@ on:
     branches:
       - main
       - dev
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
 
 env:
   NODE_VERSION: '20'
