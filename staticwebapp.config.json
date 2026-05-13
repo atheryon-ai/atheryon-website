@@ -1,6 +1,6 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html",
+    "rewrite": "/404.html",
     "exclude": ["/_next/*", "/images/*", "/*.ico", "/*.png", "/*.svg", "/*.jpg", "/*.css", "/*.js", "/*.pdf", "/*.zip", "/*.tar.gz", "/*.webp", "/*.avif", "/*.mp4", "/*.woff", "/*.woff2", "/*.txt"]
   },
   "routes": [
@@ -33,6 +33,10 @@
     "401": {
       "redirect": "/.auth/login/aad?post_login_redirect_uri=/integration/atheryon-sp-integration.pdf",
       "statusCode": 302
+    },
+    "404": {
+      "rewrite": "/404.html",
+      "statusCode": 404
     }
   },
   "globalHeaders": {
