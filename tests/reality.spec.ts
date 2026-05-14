@@ -24,6 +24,11 @@ test.describe('/reality page', () => {
     await expect(dials).toHaveCount(3)
   })
 
+  test('no blueprint or input renders until a dial is clicked', async ({ page }) => {
+    await expect(page.getByTestId('floor13-blueprint')).toHaveCount(0)
+    await expect(page.getByTestId('floor13-input')).toHaveCount(0)
+  })
+
   test('clicking the Data dial reveals the Data blueprint', async ({ page }) => {
     await page.getByTestId('floor13-dial').nth(0).getByRole('button').click()
     await expect(page.getByTestId('floor13-blueprint')).toBeVisible()
@@ -38,9 +43,9 @@ test.describe('/reality page', () => {
     await expect(titles).toContainText('Reality Blueprint: AI Direction')
   })
 
-  test('typed challenge appears in the rendered intro line', async ({ page }) => {
+  test('optional context typed into the input augments the blueprint intro', async ({ page }) => {
+    await page.getByTestId('floor13-dial').nth(0).getByRole('button').click()
     await page.getByTestId('floor13-input').fill('our risk warehouse is a swamp')
-    await page.getByTestId('floor13-generate').click()
     await expect(page.getByTestId('floor13-blueprint')).toContainText('our risk warehouse is a swamp')
   })
 
@@ -59,13 +64,13 @@ test.describe('/reality page', () => {
     await expect(cards.nth(2).getByRole('link')).toHaveAttribute('href', '/labs#advisory')
   })
 
-  test('no fetch or POST happens when generating a blueprint', async ({ page }) => {
+  test('no fetch or POST happens when selecting a dial or typing context', async ({ page }) => {
     let networkCalls = 0
     page.on('request', (r) => {
       if (r.method() !== 'GET' || /\/api\//.test(r.url())) networkCalls++
     })
+    await page.getByTestId('floor13-dial').nth(0).getByRole('button').click()
     await page.getByTestId('floor13-input').fill('any text')
-    await page.getByTestId('floor13-generate').click()
     expect(networkCalls).toBe(0)
   })
 
