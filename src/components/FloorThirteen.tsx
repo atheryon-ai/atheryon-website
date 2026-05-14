@@ -20,7 +20,7 @@ const COLORS = {
 } as const
 
 type PillarId = 'data' | 'aiDirection' | 'transformation'
-type Selection = PillarId | 'custom' | null
+type Selection = PillarId | null
 
 interface Dial {
   id: PillarId
@@ -50,12 +50,10 @@ interface FloorThirteenProps {
   intro: string
   dials: Dial[]
   inputPlaceholder: string
-  inputCta: string
   blueprints: {
     data: Blueprint
     aiDirection: Blueprint
     transformation: Blueprint
-    custom: Blueprint
   }
   sellCardsHeading: string
   recommendation: Record<PillarId, string>
@@ -70,7 +68,6 @@ export function FloorThirteen({
   intro,
   dials,
   inputPlaceholder,
-  inputCta,
   blueprints,
   sellCardsHeading,
   recommendation,
@@ -84,16 +81,9 @@ export function FloorThirteen({
     setSelected(id)
   }
 
-  const handleGenerate = () => {
-    if (!selected && customText.trim()) {
-      setSelected('custom')
-    }
-  }
-
   const activeBlueprint: Blueprint | null = selected ? blueprints[selected] : null
 
-  const recommendedSellId =
-    selected && selected !== 'custom' ? recommendation[selected] : null
+  const recommendedSellId = selected ? recommendation[selected] : null
 
   const introText =
     activeBlueprint && customText.trim()
@@ -152,26 +142,19 @@ export function FloorThirteen({
           })}
         </div>
 
-        {/* Input row */}
-        <div className="mt-6 grid md:grid-cols-[1fr_auto] gap-3">
-          <input
-            data-testid="floor13-input"
-            type="text"
-            value={customText}
-            onChange={(e) => setCustomText(e.target.value)}
-            placeholder={inputPlaceholder}
-            className="px-4 py-3 rounded-full bg-transparent border border-bone/30 text-bone placeholder:text-bone/50 focus:outline-none focus:border-bone"
-          />
-          <button
-            data-testid="floor13-generate"
-            type="button"
-            onClick={handleGenerate}
-            disabled={!selected && !customText.trim()}
-            className="px-6 py-3 text-sm font-semibold text-ink bg-bone rounded-full disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {inputCta}
-          </button>
-        </div>
+        {/* Optional context input — only visible once a dial is selected */}
+        {selected && (
+          <div className="mt-6">
+            <input
+              data-testid="floor13-input"
+              type="text"
+              value={customText}
+              onChange={(e) => setCustomText(e.target.value)}
+              placeholder={inputPlaceholder}
+              className="w-full px-4 py-3 rounded-full bg-transparent border border-bone/30 text-bone placeholder:text-bone/50 focus:outline-none focus:border-bone"
+            />
+          </div>
+        )}
 
         {/* Blueprint panel */}
         {activeBlueprint && (

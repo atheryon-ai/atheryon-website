@@ -128,4 +128,26 @@ test.describe('Responsive Design', () => {
     await expect(footer).toContainText('Atheryon');
     await expect(footer.locator('a[href*="linkedin"]')).toBeVisible();
   });
+
+  // Regression for /qa 2026-05-14: the mobile menu overlay was a descendant
+  // of <header className="... backdrop-blur-xl ...">, so backdrop-filter
+  // created a containing block and the drawer's `fixed inset-0` resolved
+  // to the header's ~72px height instead of the full viewport. Visually
+  // the user saw only the logo + close X — all six nav links were clipped.
+  // The existing 'mobile menu opens and closes' test passes even with the
+  // bug because Playwright's toBeVisible() trusts bounding boxes set by
+  // layout; this stronger test asserts the drawer covers the viewport.
+  test('mobile menu drawer covers full viewport (not clipped to header)', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    await page.getByRole('button', { name: 'Toggle menu' }).click();
+    await page.waitForTimeout(150);
+
+    const drawer = page.locator('div.lg\\:hidden.fixed.inset-0').first();
+    const box = await drawer.boundingBox();
+    expect(box).not.toBeNull();
+    // Drawer must cover the full viewport, not just the 72px header strip.
+    expect(box!.height).toBeGreaterThan(700);
+  });
 });

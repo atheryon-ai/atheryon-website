@@ -688,8 +688,7 @@ export const site = {
           { id: 'aiDirection', title: 'AI direction pain', body: '“We need to study how senior domain expertise directs frontier AI from plausible code into shipped, regulated systems.”', cta: 'Plug into AI Direction' },
           { id: 'transformation', title: 'Transformation pain', body: '“We need change, but the roadmap and operating model are unclear.”', cta: 'Plug into Transformation' },
         ],
-        inputPlaceholder: 'Optional: type your biggest data or transformation challenge',
-        inputCta: 'Generate Blueprint',
+        inputPlaceholder: 'Optional: add context to refine this blueprint',
         blueprints: {
           data: {
             title: 'Reality Blueprint: Data Foundation',
@@ -716,15 +715,6 @@ export const site = {
               'Define the target operating reality and the systems required to support it.',
               'Sequence data, cloud, AI, process, and adoption initiatives into a practical roadmap.',
               'Connect transformation activity to measurable business outcomes.',
-            ],
-          },
-          custom: {
-            title: 'Reality Blueprint: Custom Challenge',
-            intro: 'Your custom challenge has been captured.',
-            bullets: [
-              'Classify the challenge across data, AI direction, and transformation.',
-              'Generate recommended first moves based on the selected pain point.',
-              'Continue the conversation in a Reality Architecture Session.',
             ],
           },
         },
