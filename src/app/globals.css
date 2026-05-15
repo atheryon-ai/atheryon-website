@@ -509,4 +509,8 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   .home-hero-section {
     padding: 40px 0 32px !important;
   }
+  /* Built-for-complexity 3-card grid stacks. */
+  .home-builtfor-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

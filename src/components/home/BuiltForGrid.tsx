@@ -45,7 +45,7 @@ const cardMeta: Record<DomainId, { body: string; href: string; icon: React.React
 export function BuiltForGrid() {
   return (
     <section style={{ padding: '16px 0 0', position: 'relative', zIndex: 1 }}>
-      <div style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
+      <div className="home-section-container" style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
         <div
           style={{
             textAlign: 'center',
@@ -59,7 +59,7 @@ export function BuiltForGrid() {
         >
           {v2.pages.home.v3.builtFor.headline}
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+        <div className="home-builtfor-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
           {v2.domains.map((d) => {
             const meta = cardMeta[d.id]
             return (
