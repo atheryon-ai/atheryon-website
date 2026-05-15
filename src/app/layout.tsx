@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Footer, RouteAwareHeader, HomeBodyClass } from '@/components'
+import { Footer, RouteAwareHeader } from '@/components'
 import { site, v2 } from '@/content/site'
 import './globals.css'
 
@@ -39,7 +39,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="text-charcoal antialiased">
-        <HomeBodyClass />
         <RouteAwareHeader />
         <main>{children}</main>
         <Footer />
