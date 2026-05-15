@@ -22,6 +22,12 @@ node_modules/
 .next/
 out/
 
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
+
+# Agent/session working context
+.context/
+
 # Playwright
 /test-results/
 /playwright-report/
