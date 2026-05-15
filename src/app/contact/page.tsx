@@ -2,17 +2,22 @@
 
 import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Section, ClientLogos } from '@/components'
-import { site } from '@/content/site'
+import { site, v2 } from '@/content/site'
 
-const { contact } = site.pages
+const page = v2.pages.contact
+const contact = site.pages.contact
 
-// Map ?topic= values to human-readable strings used in pre-fill.
+// ─────────────────────────────────────────────────────────────────────────────
+// /contact — Architectural-document framing. Form preserved (structural, not
+// marketing). No warm gradient, no orange eyebrow.
+// ─────────────────────────────────────────────────────────────────────────────
+
 const TOPIC_LABELS: Record<string, string> = {
   'labs-code': 'Labs platform code licensing',
   'labs-prompts': 'Labs prompts archive licensing',
   'labs-advisory': 'Labs advisory engagement',
   'ai-direction': 'AI Direction',
+  'system-assessment': 'System assessment',
 }
 
 function ContactForm() {
@@ -22,16 +27,17 @@ function ContactForm() {
   const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
 
   return (
-    <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-      {/* Form - native HTML submission to Formspree */}
+    <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
+      {/* Form — native HTML submission to Formspree (preserved) */}
       <form
         action="https://formspree.io/f/xdkdynak"
         method="POST"
-        className="space-y-6"
+        className="space-y-5"
       >
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            {contact.form.fields.name.label} {contact.form.fields.name.required && <span className="text-gray-400">*</span>}
+          <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
+            {contact.form.fields.name.label}
+            {contact.form.fields.name.required && <span className="text-charcoal/50"> *</span>}
           </label>
           <input
             type="text"
@@ -39,13 +45,14 @@ function ContactForm() {
             name="name"
             required={contact.form.fields.name.required}
             placeholder={contact.form.fields.name.placeholder}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-            {contact.form.fields.email.label} {contact.form.fields.email.required && <span className="text-gray-400">*</span>}
+          <label htmlFor="email" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
+            {contact.form.fields.email.label}
+            {contact.form.fields.email.required && <span className="text-charcoal/50"> *</span>}
           </label>
           <input
             type="email"
@@ -53,12 +60,12 @@ function ContactForm() {
             name="email"
             required={contact.form.fields.email.required}
             placeholder={contact.form.fields.email.placeholder}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="company" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.company.label}
           </label>
           <input
@@ -66,18 +73,18 @@ function ContactForm() {
             id="company"
             name="company"
             placeholder={contact.form.fields.company.placeholder}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
-        {/* Hidden topic field so Formspree submissions carry the inbound topic */}
         {topicParam && (
           <input type="hidden" name="topic" value={topicParam} />
         )}
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-            {contact.form.fields.message.label} {contact.form.fields.message.required && <span className="text-gray-400">*</span>}
+          <label htmlFor="message" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
+            {contact.form.fields.message.label}
+            {contact.form.fields.message.required && <span className="text-charcoal/50"> *</span>}
           </label>
           <textarea
             id="message"
@@ -85,92 +92,83 @@ function ContactForm() {
             required={contact.form.fields.message.required}
             placeholder={contact.form.fields.message.placeholder}
             defaultValue={defaultMessage}
-            rows={5}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-shadow resize-none"
+            rows={6}
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors resize-none"
           />
         </div>
 
         <button
           type="submit"
-          className="w-full px-6 py-3 text-base font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
         >
-          {contact.form.submitLabel}
+          {page.cta}
+          <span aria-hidden="true">→</span>
         </button>
       </form>
 
-      {/* What to Include */}
-      <div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          {contact.whatToInclude.title}
-        </h3>
-        <ul className="space-y-3 mb-8">
-          {contact.whatToInclude.items.map((item, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 mt-2" />
-              <span className="text-gray-600">{item}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className="p-6 bg-gray-50 rounded-lg">
-          <p className="text-gray-600 mb-2">{contact.alternative.text}</p>
+      <aside className="space-y-6">
+        <div className="border border-charcoal/30 bg-white p-6">
+          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-3">
+            Direct
+          </div>
           <a
-            href={`mailto:${contact.alternative.email}`}
-            className="text-gray-900 font-medium hover:underline"
+            href={`mailto:${site.email}`}
+            className="font-mono text-sm text-charcoal underline-offset-4 hover:underline break-all"
           >
-            {contact.alternative.email}
+            {site.email}
           </a>
         </div>
-      </div>
+      </aside>
     </div>
   )
 }
 
 export default function ContactPage() {
   return (
-    <>
-      {/* Custom hero with reduced height and accent word */}
-      <section className="relative py-16 md:py-24 overflow-hidden pt-28 md:pt-36">
-        {/* Warm gradient background */}
-        <div className="absolute inset-0 bg-gradient-warm" />
-
-        {/* Subtle decorative elements */}
-        <div className="absolute top-20 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-atheryon-blue/5 rounded-full blur-3xl" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-display font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
-            {contact.hero.headline}
-          </h1>
-
-          {/* Subheadline */}
-          <p className="text-lg md:text-subheading text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-            {contact.hero.subheadline}
-          </p>
-
-          {/* Client Logos */}
-          <div className="mt-12 pt-8 border-t border-neutral-500/10">
-            <ClientLogos />
+    <div className="bg-bone min-h-screen">
+      {/* Header banner */}
+      <section className="border-b border-charcoal/15">
+        <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
+            atheryon / contact / system-assessment
           </div>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-charcoal leading-[1.02] mb-6">
+            {page.cta}
+          </h1>
+          <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
+            {v2.identity}
+          </p>
         </div>
       </section>
 
-      <Section>
-        <Suspense fallback={<div className="max-w-4xl mx-auto" />}>
-          <ContactForm />
-        </Suspense>
-
-        {/* Geographic coverage */}
-        <div className="max-w-4xl mx-auto mt-16 pt-10 border-t border-neutral-500/10">
-          <h3 className="font-display text-xl font-semibold text-neutral-900 mb-3 tracking-tight">
-            {contact.coverage.title}
-          </h3>
-          <p className="text-neutral-600 leading-relaxed max-w-2xl">
-            {contact.coverage.body}
-          </p>
+      {/* Form */}
+      <section className="border-b border-charcoal/15">
+        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
+          <header className="mb-8 pb-4 border-b border-charcoal/15">
+            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
+              §01 / Request
+            </div>
+          </header>
+          <Suspense fallback={<div className="max-w-5xl" />}>
+            <ContactForm />
+          </Suspense>
         </div>
-      </Section>
-    </>
+      </section>
+
+      {/* End-of-document */}
+      <section>
+        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
+            atheryon / contact / end-of-document
+          </div>
+          <a
+            href={`mailto:${site.email}`}
+            className="font-mono text-sm text-charcoal underline-offset-4 hover:underline"
+          >
+            {site.email}
+          </a>
+        </div>
+      </section>
+    </div>
   )
 }

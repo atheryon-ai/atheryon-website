@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Section, SectionDivider, ThemeBand } from '@/components'
+import { DocPage, DocBanner, DocSection, DocFooter } from '@/components'
 import { site } from '@/content/site'
 import {
   ODS_THEMES,
   BUSINESS_THEMES_BY_FUNCTION,
   FUNCTION_META,
   FUNCTION_ORDER,
+  type Theme,
 } from '@/content/themes'
 
 const { themes } = site.pages
@@ -34,59 +35,116 @@ const businessPageCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(
   0,
 )
 
+function ThemeBlock({
+  tag,
+  title,
+  blurb,
+  themesList,
+}: {
+  tag: string
+  title: string
+  blurb?: string
+  themesList: ReadonlyArray<Theme>
+}) {
+  return (
+    <div className="border-b border-charcoal/15 py-12 last:border-b-0 last:pb-0">
+      <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-2">
+        {tag}
+      </div>
+      <h3 className="font-display text-2xl md:text-3xl font-medium text-charcoal tracking-tight mb-3">
+        {title}
+      </h3>
+      {blurb && (
+        <p className="text-base text-charcoal/80 leading-relaxed max-w-3xl mb-6">
+          {blurb}
+        </p>
+      )}
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
+        {themesList.map((theme) => (
+          <li key={theme.id} className="bg-bone p-4 flex flex-col">
+            <a
+              href={`https://labs.atheryon.ai${theme.primaryRoute}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display text-base font-medium text-charcoal tracking-tight underline-offset-4 hover:underline"
+            >
+              {theme.title}
+              <span aria-hidden="true" className="ml-1 font-mono text-xs text-charcoal/50">
+                ↗
+              </span>
+            </a>
+            {theme.blurb && (
+              <p className="font-mono text-xs text-charcoal/70 mt-2 leading-relaxed">
+                {theme.blurb}
+              </p>
+            )}
+            {theme.pages != null && (
+              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55 mt-3">
+                {theme.pages} pages
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 export default function ThemesPage() {
   return (
-    <div>
+    <DocPage>
       <h1 className="sr-only">{themes.headline}</h1>
 
-      <div className="max-w-container mx-auto px-6 pt-8 pb-2">
-        <Link href="/labs" className="inline-block py-3 text-sm font-semibold text-brand-orange hover:underline">
-          ← Back to Labs
-        </Link>
-      </div>
-
-      <Section badge={themes.badge} title={themes.headline} description={themes.intro}>
-        <p className="text-sm text-neutral-500">{themes.countsLine}</p>
-      </Section>
-
-      <SectionDivider />
-
-      <ThemeBand
-        testId="theme-band-ods"
-        tagLabel="ODS"
-        tagTone="ods"
-        title="Operational Data Store"
-        blurb="Schemas, validators, market data, lifecycle engine, entity intelligence, ops/dev tools, and the MSX workshop deck."
-        themes={ODS_THEMES}
+      <DocBanner
+        label="atheryon / labs / themes"
+        title={themes.headline}
+        body={themes.intro}
       />
 
-      <div className="max-w-container mx-auto px-6 py-6">
-        <div className="border-t border-neutral-500/10 pt-6 flex items-baseline gap-3 justify-center text-center">
-          <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
-            {themes.businessDividerLabel}
-          </span>
-          <span className="text-sm text-neutral-500">
-            · {businessThemeCount} themes · {businessPageCount}p
-          </span>
+      <DocSection label={themes.countsLine}>
+        <div className="mb-2">
+          <Link
+            href="/labs"
+            className="inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
+          >
+            <span aria-hidden="true">←</span>
+            Back to Labs
+          </Link>
         </div>
-      </div>
 
-      {FUNCTION_ORDER.map((fn) => {
-        const list = BUSINESS_THEMES_BY_FUNCTION[fn]
-        if (!list || list.length === 0) return null
-        const meta = FUNCTION_META[fn]
-        return (
-          <ThemeBand
-            key={fn}
-            testId={`theme-band-${fn}`}
-            tagLabel={meta?.office ?? fn}
-            tagTone="business"
-            title={meta?.label ?? fn}
-            blurb={meta?.blurb ?? ''}
-            themes={list}
-          />
-        )
-      })}
-    </div>
+        <ThemeBlock
+          tag="ODS"
+          title="Operational Data Store"
+          blurb="Schemas, validators, market data, lifecycle engine, entity intelligence, ops/dev tools, and the MSX workshop deck."
+          themesList={ODS_THEMES}
+        />
+
+        <div className="pt-12 border-t border-charcoal/15">
+          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-1">
+            {themes.businessDividerLabel}
+          </div>
+          <div className="font-mono text-sm text-charcoal/70 mb-8">
+            {businessThemeCount} themes · {businessPageCount} pages
+          </div>
+
+          {FUNCTION_ORDER.map((fn) => {
+            const list = BUSINESS_THEMES_BY_FUNCTION[fn]
+            if (!list || list.length === 0) return null
+            const meta = FUNCTION_META[fn]
+            return (
+              <ThemeBlock
+                key={fn}
+                tag={meta?.office ?? fn}
+                title={meta?.label ?? fn}
+                blurb={meta?.blurb ?? ''}
+                themesList={list}
+              />
+            )
+          })}
+        </div>
+      </DocSection>
+
+      <DocFooter label="atheryon / labs / themes / end-of-document" />
+    </DocPage>
   )
 }

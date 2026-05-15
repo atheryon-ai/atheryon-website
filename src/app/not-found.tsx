@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SimpleHero, Section, SectionDivider } from '@/components'
+import { DocPage, DocBanner, DocSection } from '@/components'
 
 export const metadata: Metadata = {
   title: 'Page not found — Atheryon',
@@ -8,70 +8,45 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
+const NAV = [
+  { label: 'System', tag: 'Reference architecture', href: '/system' },
+  { label: 'Approach', tag: 'Build method', href: '/approach' },
+  { label: 'Engagements', tag: 'Engagement model', href: '/engagements' },
+  { label: 'Workflows', tag: 'Capital markets AI workflows', href: '/workflows' },
+  { label: 'About', tag: 'Banking lineage', href: '/about' },
+  { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
+  { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
+] as const
+
 export default function NotFound() {
   return (
-    <>
-      <SimpleHero
-        headline="That page is not on the map."
-        subheadline="The URL you followed does not match a known page on Atheryon."
-        badge="404"
+    <DocPage>
+      <DocBanner
+        label="atheryon / 404 / not-found"
+        title="That page is not on the map."
+        body="The URL you followed does not match a known page on atheryon.com.au."
       />
 
-      <SectionDivider />
-
-      <Section>
-        <div className="max-w-2xl">
-          <p className="text-neutral-700 leading-relaxed mb-8">
-            If you arrived from an external link, the page may have moved or been retired.
-            The links below cover the current information architecture.
-          </p>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            <Link
-              href="/reality"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Start here</div>
-              <div className="font-semibold text-neutral-900">Reality</div>
-            </Link>
-            <Link
-              href="/data"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Pillar</div>
-              <div className="font-semibold text-neutral-900">Data</div>
-            </Link>
-            <Link
-              href="/ai-direction"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Pillar</div>
-              <div className="font-semibold text-neutral-900">AI Direction</div>
-            </Link>
-            <Link
-              href="/transformation"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Pillar</div>
-              <div className="font-semibold text-neutral-900">Transformation</div>
-            </Link>
-            <Link
-              href="/labs"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Working artefact</div>
-              <div className="font-semibold text-neutral-900">Labs</div>
-            </Link>
-            <Link
-              href="/contact"
-              className="block p-5 rounded-2xl border border-neutral-200 bg-white hover:bg-warm-50 transition-colors"
-            >
-              <div className="text-sm text-neutral-500 mb-1">Get in touch</div>
-              <div className="font-semibold text-neutral-900">Contact</div>
-            </Link>
-          </div>
-        </div>
-      </Section>
-    </>
+      <DocSection label="§01 / Navigation">
+        <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl mb-8">
+          If you arrived from an external link, the page may have moved or been retired. The links below cover the current information architecture.
+        </p>
+        <ol className="grid grid-cols-1 md:grid-cols-2 gap-px bg-charcoal/15 border border-charcoal/15">
+          {NAV.map((item, i) => (
+            <li key={item.href} className="bg-bone p-5 flex flex-col">
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-2">
+                {String(i + 1).padStart(2, '0')} · {item.tag}
+              </div>
+              <Link
+                href={item.href}
+                className="font-display text-xl font-medium text-charcoal tracking-tight underline-offset-4 hover:underline"
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
+    </DocPage>
   )
 }

@@ -23,7 +23,7 @@ export function Header() {
   return (
     <>
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-warm-100/90 backdrop-blur-xl ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-bone/90 backdrop-blur-xl ${
         scrolled
           ? 'py-3 shadow-[0_1px_0_0_rgba(10,26,47,0.06)]'
           : 'py-4'
@@ -94,7 +94,7 @@ export function Header() {
         creates a containing block, which would constrain `fixed inset-0`
         on a descendant to the header's height instead of the viewport. */}
     {mobileMenuOpen && (
-      <div className="lg:hidden fixed inset-0 bg-warm-100/98 backdrop-blur-xl z-50">
+      <div className="lg:hidden fixed inset-0 bg-bone/98 backdrop-blur-xl z-50">
         <div className="flex flex-col h-full">
           {/* Mobile Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-500/10">
