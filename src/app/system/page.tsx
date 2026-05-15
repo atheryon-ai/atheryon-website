@@ -36,14 +36,6 @@ function SectionHead({ label, title }: { label: string; title: string }) {
   )
 }
 
-function PendingNote({ token }: { token: string }) {
-  return (
-    <p className="font-mono text-xs uppercase tracking-[0.12em] text-charcoal/45">
-      {token}
-    </p>
-  )
-}
-
 export default function SystemPage() {
   return (
     <div className="bg-bone min-h-screen">
@@ -106,9 +98,7 @@ export default function SystemPage() {
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <SectionHead label={s.dataFlowLayer.label} title={s.dataFlowLayer.title} />
-          {isPending(s.dataFlowLayer.body) ? (
-            <PendingNote token={s.dataFlowLayer.body} />
-          ) : (
+          {!isPending(s.dataFlowLayer.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.dataFlowLayer.body}
             </p>
@@ -120,9 +110,7 @@ export default function SystemPage() {
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <SectionHead label={s.aiAgentLayer.label} title={s.aiAgentLayer.title} />
-          {isPending(s.aiAgentLayer.body) ? (
-            <PendingNote token={s.aiAgentLayer.body} />
-          ) : (
+          {!isPending(s.aiAgentLayer.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.aiAgentLayer.body}
             </p>
@@ -156,9 +144,7 @@ export default function SystemPage() {
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <SectionHead label={s.deploymentModel.label} title={s.deploymentModel.title} />
-          {isPending(s.deploymentModel.body) ? (
-            <PendingNote token={s.deploymentModel.body} />
-          ) : (
+          {!isPending(s.deploymentModel.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.deploymentModel.body}
             </p>
@@ -173,9 +159,7 @@ export default function SystemPage() {
           <p className="font-mono text-sm text-charcoal/70 mb-6 max-w-3xl">
             {s.proofArtifacts.directive}
           </p>
-          {isPending(s.proofArtifacts.body) ? (
-            <PendingNote token={s.proofArtifacts.body} />
-          ) : (
+          {!isPending(s.proofArtifacts.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.proofArtifacts.body}
             </p>

@@ -30,10 +30,10 @@ export function HomeNav() {
         style={{
           maxWidth: 1340,
           margin: '0 auto',
-          padding: '0 40px',
+          padding: '0 24px',
           display: 'grid',
           gridTemplateColumns: 'auto 1fr auto',
-          gap: 40,
+          gap: 24,
           alignItems: 'center',
         }}
       >
@@ -41,7 +41,7 @@ export function HomeNav() {
           <BrandLockup markSize={52} />
         </Link>
 
-        <div style={{ display: 'flex', gap: 36, justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
           {links.map((l) => (
             <Link
               key={l.href}
@@ -50,8 +50,8 @@ export function HomeNav() {
                 color: 'var(--homev3-text-soft)',
                 textDecoration: 'none',
                 fontWeight: 500,
-                fontSize: 14,
-                letterSpacing: '0.08em',
+                fontSize: 13,
+                letterSpacing: '0.06em',
                 textTransform: 'uppercase',
               }}
             >
@@ -66,14 +66,14 @@ export function HomeNav() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: 10,
-            padding: '12px 22px',
+            padding: '10px 16px',
             borderRadius: 4,
             background: 'transparent',
             border: '1px solid var(--homev3-blue)',
             color: 'var(--homev3-blue-bright)',
             fontWeight: 600,
-            fontSize: 13,
-            letterSpacing: '0.14em',
+            fontSize: 12,
+            letterSpacing: '0.10em',
             textTransform: 'uppercase',
             textDecoration: 'none',
             whiteSpace: 'nowrap',

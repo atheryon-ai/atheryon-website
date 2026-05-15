@@ -34,14 +34,6 @@ function SectionHead({ label, title }: { label: string; title: string }) {
   )
 }
 
-function PendingNote({ token }: { token: string }) {
-  return (
-    <p className="font-mono text-xs uppercase tracking-[0.12em] text-charcoal/45">
-      {token}
-    </p>
-  )
-}
-
 export default function AboutPage() {
   return (
     <div className="bg-bone min-h-screen">
@@ -108,9 +100,7 @@ export default function AboutPage() {
           <p className="font-mono text-base md:text-lg text-charcoal mb-8">
             {s.systemPhilosophy.formula}
           </p>
-          {isPending(s.systemPhilosophy.body) ? (
-            <PendingNote token={s.systemPhilosophy.body} />
-          ) : (
+          {!isPending(s.systemPhilosophy.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.systemPhilosophy.body}
             </p>
@@ -125,9 +115,7 @@ export default function AboutPage() {
           <p className="font-mono text-base md:text-lg text-charcoal mb-8">
             {s.whyNow.descriptor}
           </p>
-          {isPending(s.whyNow.body) ? (
-            <PendingNote token={s.whyNow.body} />
-          ) : (
+          {!isPending(s.whyNow.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.whyNow.body}
             </p>

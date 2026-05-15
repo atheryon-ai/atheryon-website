@@ -35,22 +35,7 @@ export default function ApproachPage() {
         </div>
       </section>
 
-      {/* Pending specification */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <header className="mb-8 pb-4 border-b border-charcoal/15">
-            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-              §01 / Specification
-            </div>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal leading-tight">
-              Build method
-            </h2>
-          </header>
-          <p className="font-mono text-xs uppercase tracking-[0.12em] text-charcoal/45">
-            {'{{PENDING_APPROACH_BUILD_METHOD}}'}
-          </p>
-        </div>
-      </section>
+      {/* Pending specification — hidden until content is authored */}
 
       {/* End-of-document action */}
       <section>

@@ -30,11 +30,7 @@ function StageCell({ stage, content }: { stage: string; content: string }) {
       <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-3">
         {stage}
       </div>
-      {pending ? (
-        <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-charcoal/40 break-words">
-          {content}
-        </div>
-      ) : (
+      {!pending && (
         <div className="font-mono text-xs md:text-sm text-charcoal/85 leading-relaxed">
           {content}
         </div>
