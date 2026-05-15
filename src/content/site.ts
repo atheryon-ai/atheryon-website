@@ -690,6 +690,35 @@ export const v2 = {
           secondary: { label: 'Explore Architecture', href: '/system' },
         },
       },
+      v3: {
+        hero: {
+          eyebrow: 'Capital Markets AI Systems',
+          headlineLeading: 'Designing and delivering capital markets AI systems using',
+          headlineAccent: 'AI agents.',
+          lede:
+            'Atheryon builds production-grade, front-to-back systems and data platforms that transform how financial institutions operate.',
+          primaryCta: { label: 'EXPLORE THE SYSTEM ARCHITECTURE', href: '/system' },
+          secondaryCta: { label: 'BOOK SYSTEM ASSESSMENT', href: '/contact' },
+        },
+        builtFor: {
+          headline: 'Built for the complexity of capital markets',
+        },
+        strip: {
+          experience: {
+            label: 'Proven Capital Markets Experience',
+            body:
+              'Deep experience building large-scale capital markets systems at leading global institutions.',
+          },
+          ecosystem: { label: 'Ecosystem Partners' },
+          engagement: { label: 'Engagement Model' },
+        },
+        cta: {
+          title: 'A Reference System. Proven Architecture.',
+          body:
+            'Our end-to-end capital markets AI reference system demonstrates how AI agents, data and workflows come together in production.',
+          link: { label: 'SEE THE SYSTEM ARCHITECTURE', href: '/system' },
+        },
+      },
     },
     system: {
       route: '/system',
