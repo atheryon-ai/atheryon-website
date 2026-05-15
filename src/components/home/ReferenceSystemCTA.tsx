@@ -4,8 +4,9 @@ import { BrandMark } from './BrandMark'
 export function ReferenceSystemCTA() {
   return (
     <section style={{ padding: '32px 0 60px', position: 'relative', zIndex: 1 }}>
-      <div style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
+      <div className="home-section-container" style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
         <div
+          className="home-ref-cta-grid"
           style={{
             background:
               'linear-gradient(90deg, var(--homev3-surface) 0%, var(--homev3-surface-2) 100%)',

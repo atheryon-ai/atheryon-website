@@ -488,6 +488,13 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
     letter-spacing: 0.06em !important;
     gap: 6px !important;
   }
+  /* Brand: drop the long tagline + shrink the wordmark so the nav fits. */
+  .home-nav-grid .brand-lockup-tagline { display: none !important; }
+  .home-nav-grid .brand-lockup-wordmark {
+    font-size: 18px !important;
+    letter-spacing: 0.06em !important;
+  }
+  .home-nav-grid .brand-lockup { gap: 10px !important; }
 }
 
 @media (max-width: 420px) {
@@ -521,5 +528,15 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   /* Engagement Model 4-card inner grid → 2x2 on phones. */
   .home-strip-engagement-grid {
     grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Reference-system CTA: stack mark / body / link, tighten padding. */
+  .home-ref-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 24px 20px !important;
+    text-align: center;
+  }
+  .home-ref-cta-grid > :first-child {
+    margin: 0 auto;
   }
 }
