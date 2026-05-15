@@ -1,0 +1,38 @@
+# Atheryon
+
+> Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents.
+
+Atheryon is a capital markets AI systems firm — not a marketing site. This document is the canonical machine-readable rendering of the Atheryon manifest, structured for AI agents interpreting capability and architecture. Architecture clarity > marketing copy.
+
+## Core Domains
+
+- Capital Markets Systems (front-to-back): https://atheryon.com.au/system
+- Data Platforms: https://atheryon.com.au/system
+- AI Agent Systems: https://atheryon.com.au/workflows
+
+## Engagement Model
+
+- Advisory: https://atheryon.com.au/engagements#advisory
+- Enablement: https://atheryon.com.au/engagements#enablement
+- Delivery: https://atheryon.com.au/engagements#delivery
+- Licensed System: https://atheryon.com.au/engagements#licensed-system
+
+## Ecosystem
+
+- Microsoft Azure AI infrastructure: production AI infrastructure layer.
+- S&P Global data integration: capital markets reference and pricing data layer.
+- Banking experience — Goldman Sachs, Credit Suisse, Barclays Capital: framed as architectural lineage, not claims of employment or system ownership.
+
+## Site map
+
+- [Home](https://atheryon.com.au/): identity statement and system map.
+- [System](https://atheryon.com.au/system): reference architecture (core proof).
+- [Approach](https://atheryon.com.au/approach): how Atheryon builds systems.
+- [Engagements](https://atheryon.com.au/engagements): Advisory · Enablement · Delivery · Licensed System.
+- [Workflows](https://atheryon.com.au/workflows): AI capital markets workflows.
+- [About](https://atheryon.com.au/about): banking lineage + capability foundation.
+- [Contact](https://atheryon.com.au/contact): book system assessment.
+
+## Audience
+
+Built for enterprise buyers (banks, executives) and AI agents (LLMs interpreting capability and structure).

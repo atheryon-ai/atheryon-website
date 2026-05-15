@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Section, SectionDivider, BulletList, ArrowRightIcon } from '@/components'
+import Link from 'next/link'
+import { DocPage, DocBanner, DocSection, DocBullets } from '@/components'
 import { site } from '@/content/site'
 
 const { labsCode } = site.pages
@@ -13,70 +14,50 @@ export const metadata: Metadata = {
     title: labsCode.title,
     description: labsCode.description,
   },
-  alternates: {
-    canonical: 'https://atheryon.com.au/labs/code',
-  },
+  alternates: { canonical: 'https://atheryon.com.au/labs/code' },
 }
 
 export default function LabsCodePage() {
   return (
-    <div>
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6 bg-gradient-to-br from-warm-50 to-warm-100">
-        <div className="max-w-container mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-brand-orange mb-4">
-            {labsCode.hero.eyebrow}
-          </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 mb-6 leading-[1.1]">
-            {labsCode.hero.headline}
-          </h1>
-          <p className="text-lg md:text-xl text-neutral-700 max-w-3xl leading-relaxed">
-            {labsCode.hero.lede}
-          </p>
-        </div>
-      </section>
+    <DocPage>
+      <DocBanner
+        label="atheryon / labs / code"
+        title={labsCode.hero.headline}
+        body={labsCode.hero.lede}
+      />
 
-      <SectionDivider />
-
-      {/* What you get */}
-      <Section badge={labsCode.whatYouGet.badge} title={labsCode.whatYouGet.title}>
+      <DocSection label="§01 / What You Get" title={labsCode.whatYouGet.title}>
         <div className="max-w-3xl">
-          <BulletList items={labsCode.whatYouGet.items} />
+          <DocBullets items={labsCode.whatYouGet.items} />
         </div>
-      </Section>
+      </DocSection>
 
-      <SectionDivider />
-
-      {/* Best for */}
-      <Section badge={labsCode.bestFor.badge} title={labsCode.bestFor.title}>
+      <DocSection label="§02 / Best For" title={labsCode.bestFor.title}>
         <div className="max-w-3xl">
-          <BulletList items={labsCode.bestFor.items} />
+          <DocBullets items={labsCode.bestFor.items} />
         </div>
-      </Section>
+      </DocSection>
 
-      <SectionDivider />
+      <DocSection label="§03 / Pricing" title={labsCode.pricing.title}>
+        <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
+          {labsCode.pricing.body}
+        </p>
+      </DocSection>
 
-      {/* Pricing */}
-      <Section badge={labsCode.pricing.badge} title={labsCode.pricing.title}>
-        <div className="max-w-3xl">
-          <p className="text-lg text-neutral-700 leading-relaxed">{labsCode.pricing.body}</p>
-        </div>
-      </Section>
-
-      <SectionDivider />
-
-      {/* Final CTA */}
-      <Section>
-        <div className="text-center">
-          <a
+      <section>
+        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
+            atheryon / labs / code / end-of-document
+          </div>
+          <Link
             href={labsCode.cta.href}
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all shadow-button"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
           >
             {labsCode.cta.label}
-            <ArrowRightIcon />
-          </a>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
-      </Section>
-    </div>
+      </section>
+    </DocPage>
   )
 }

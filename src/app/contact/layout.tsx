@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { site } from '@/content/site'
+import { v2 } from '@/content/site'
 
-const { contact } = site.pages
+const contact = v2.pages.contact
 
 export const metadata: Metadata = {
   title: contact.title,

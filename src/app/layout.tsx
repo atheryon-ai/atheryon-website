@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { Header, Footer } from '@/components'
-import { site } from '@/content/site'
+import { site, v2 } from '@/content/site'
 import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://atheryon.com.au'),
-  title: site.pages.reality.title,
-  description: site.pages.reality.description,
+  title: v2.pages.home.title,
+  description: v2.pages.home.description,
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   openGraph: {
-    title: site.pages.reality.title,
-    description: site.pages.reality.description,
+    title: v2.pages.home.title,
+    description: v2.pages.home.description,
     type: 'website',
     siteName: site.name,
   },
   twitter: {
     card: 'summary_large_image',
-    title: site.pages.reality.title,
-    description: site.pages.reality.description,
+    title: v2.pages.home.title,
+    description: v2.pages.home.description,
   },
 }
 
