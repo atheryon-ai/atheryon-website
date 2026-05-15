@@ -76,6 +76,7 @@ export function HomeNav() {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             textDecoration: 'none',
+            whiteSpace: 'nowrap',
           }}
         >
           BOOK SYSTEM ASSESSMENT <span>→</span>

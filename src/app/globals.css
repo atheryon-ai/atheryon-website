@@ -407,7 +407,7 @@ summary:focus-visible,
 .bg-bone-deep { background-color: var(--homev3-bg-soft) !important; }
 .bg-paper { background-color: var(--homev3-surface) !important; }
 .bg-white { background-color: var(--homev3-surface) !important; }
-.bg-charcoal { background-color: var(--homev3-bg-soft) !important; }
+.bg-charcoal { background-color: var(--homev3-blue) !important; }
 
 /* Text colors */
 .text-charcoal { color: #ffffff !important; }
@@ -416,7 +416,7 @@ summary:focus-visible,
 .text-charcoal\/60 { color: rgba(255, 255, 255, 0.60) !important; }
 .text-charcoal\/45 { color: rgba(255, 255, 255, 0.45) !important; }
 .text-charcoal\/30 { color: rgba(255, 255, 255, 0.30) !important; }
-.text-bone { color: var(--homev3-bg) !important; }
+.text-bone { color: #ffffff !important; }
 
 /* Borders (hairlines) */
 .border-charcoal\/15 { border-color: var(--homev3-border) !important; }
@@ -426,6 +426,20 @@ summary:focus-visible,
 
 /* Hover states */
 .hover\:bg-bone-deep:hover { background-color: var(--homev3-surface-2) !important; }
+.hover\:bg-ink:hover { background-color: var(--homev3-blue-deep) !important; }
+
+/* Form inputs — brighter surface than cards, more visible border */
+input.bg-white, textarea.bg-white, select.bg-white {
+  background-color: #11193a !important;
+  border-color: rgba(96, 165, 250, 0.45) !important;
+  color: #ffffff !important;
+}
+input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
+  border-color: var(--homev3-blue-bright) !important;
+  outline: none !important;
+}
+.placeholder\:text-charcoal\/40::placeholder { color: rgba(255, 255, 255, 0.4) !important; }
+.placeholder\:text-charcoal\/30::placeholder { color: rgba(255, 255, 255, 0.3) !important; }
 
 /* Display font on dark looks better one shade lighter; keep Fraunces but
    strengthen the rendering */
