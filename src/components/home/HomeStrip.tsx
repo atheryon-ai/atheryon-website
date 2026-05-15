@@ -1,46 +1,49 @@
-const engagements = [
-  {
-    name: 'Advisory',
+import { v2 } from '@/content/site'
+
+// Engagement names come from v2.engagement (canonical, per CLAUDE.md).
+// Short homepage-tuned descriptions and icons stay here — they're tighter
+// than v2.engagement.body for card display.
+type EngagementId = (typeof v2.engagement)[number]['id']
+
+const engagementMeta: Record<EngagementId, { desc: string; icon: React.ReactNode }> = {
+  advisory: {
     desc: 'System strategy and architecture design',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <circle cx="12" cy="12" r="9" />
         <circle cx="12" cy="12" r="4" />
         <circle cx="12" cy="12" r="1" fill="currentColor" />
       </svg>
     ),
   },
-  {
-    name: 'Enablement',
+  enablement: {
     desc: 'Reference architectures and AI workflows',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <polygon points="12,3 21,8 12,13 3,8" />
         <polyline points="3,12 12,17 21,12" />
         <polyline points="3,16 12,21 21,16" />
       </svg>
     ),
   },
-  {
-    name: 'Delivery',
+  delivery: {
     desc: 'End-to-end system delivery and deployment',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
       </svg>
     ),
   },
-  {
-    name: 'Licensed System',
+  'licensed-system': {
     desc: 'Deployable reference system architecture',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <rect x="5" y="3" width="14" height="18" rx="2" />
         <path d="M9 7h6M9 11h6M9 15h4" />
       </svg>
     ),
   },
-]
+}
 
 function StripCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -168,9 +171,11 @@ export function HomeStrip() {
 
           <StripCell label="Engagement Model">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-              {engagements.map((e) => (
+              {v2.engagement.map((e) => {
+                const meta = engagementMeta[e.id]
+                return (
                 <div
-                  key={e.name}
+                  key={e.id}
                   style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -193,7 +198,7 @@ export function HomeStrip() {
                       color: 'var(--homev3-blue-bright)',
                     }}
                   >
-                    <span style={{ width: 20, height: 20, display: 'block' }}>{e.icon}</span>
+                    <span style={{ width: 20, height: 20, display: 'block' }}>{meta.icon}</span>
                   </div>
                   <span
                     style={{
@@ -207,10 +212,11 @@ export function HomeStrip() {
                     {e.name}
                   </span>
                   <span style={{ fontSize: 11, color: 'var(--homev3-text-faint)', lineHeight: 1.45 }}>
-                    {e.desc}
+                    {meta.desc}
                   </span>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </StripCell>
         </div>

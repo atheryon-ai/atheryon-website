@@ -1,41 +1,36 @@
 import Link from 'next/link'
+import { v2 } from '@/content/site'
 
-type Card = {
-  title: string
-  body: string
-  href: string
-  icon: React.ReactNode
-}
+// Domain names come from v2.domains (canonical source of truth, per CLAUDE.md).
+// Body copy, href, and icons are homepage-specific and stay here.
+type DomainId = (typeof v2.domains)[number]['id']
 
-const cards: Card[] = [
-  {
-    title: 'Capital Markets Systems',
+const cardMeta: Record<DomainId, { body: string; href: string; icon: React.ReactNode }> = {
+  'capital-markets-systems': {
     body: 'Front-to-back trading, risk, pricing and operations systems built for financial institutions.',
     href: '/system',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <rect x="3" y="6" width="18" height="4" rx="1" />
         <rect x="3" y="14" width="18" height="4" rx="1" />
       </svg>
     ),
   },
-  {
-    title: 'Data Platforms',
+  'data-platforms': {
     body: 'Structured, real-time financial data platforms that power analytics, reporting and AI workflows.',
     href: '/system',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <ellipse cx="12" cy="5" rx="9" ry="3" />
         <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
       </svg>
     ),
   },
-  {
-    title: 'AI Agent Systems',
+  'ai-agent-systems': {
     body: 'AI agents orchestrate workflows, make decisions and automate complex financial processes.',
     href: '/workflows',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <circle cx="12" cy="12" r="3" />
         <circle cx="4" cy="6" r="2" />
         <circle cx="20" cy="6" r="2" />
@@ -45,7 +40,7 @@ const cards: Card[] = [
       </svg>
     ),
   },
-]
+}
 
 export function BuiltForGrid() {
   return (
@@ -62,72 +57,75 @@ export function BuiltForGrid() {
             marginBottom: 32,
           }}
         >
-          Built for the complexity of capital markets
+          {v2.pages.home.v3.builtFor.headline}
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-          {cards.map((c) => (
-            <article
-              key={c.title}
-              style={{
-                background: 'var(--homev3-surface)',
-                border: '1px solid var(--homev3-border)',
-                borderRadius: 8,
-                padding: '32px 28px',
-              }}
-            >
-              <div
+          {v2.domains.map((d) => {
+            const meta = cardMeta[d.id]
+            return (
+              <article
+                key={d.id}
                 style={{
-                  width: 56,
-                  height: 56,
-                  background: 'var(--homev3-surface-2)',
+                  background: 'var(--homev3-surface)',
                   border: '1px solid var(--homev3-border)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: 22,
-                  color: 'var(--homev3-blue-bright)',
+                  borderRadius: 8,
+                  padding: '32px 28px',
                 }}
               >
-                <span style={{ width: 26, height: 26, display: 'block' }}>{c.icon}</span>
-              </div>
-              <h3
-                style={{
-                  fontSize: 13,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                  margin: '0 0 14px',
-                  color: '#ffffff',
-                }}
-              >
-                {c.title}
-              </h3>
-              <p
-                style={{
-                  color: 'var(--homev3-text-soft)',
-                  fontSize: 14,
-                  lineHeight: 1.6,
-                  margin: '0 0 22px',
-                }}
-              >
-                {c.body}
-              </p>
-              <Link
-                href={c.href}
-                style={{
-                  fontSize: 12,
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  color: 'var(--homev3-blue-bright)',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                }}
-              >
-                LEARN MORE →
-              </Link>
-            </article>
-          ))}
+                <div
+                  style={{
+                    width: 56,
+                    height: 56,
+                    background: 'var(--homev3-surface-2)',
+                    border: '1px solid var(--homev3-border)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 22,
+                    color: 'var(--homev3-blue-bright)',
+                  }}
+                >
+                  <span style={{ width: 26, height: 26, display: 'block' }}>{meta.icon}</span>
+                </div>
+                <h3
+                  style={{
+                    fontSize: 13,
+                    letterSpacing: '0.18em',
+                    textTransform: 'uppercase',
+                    fontWeight: 700,
+                    margin: '0 0 14px',
+                    color: '#ffffff',
+                  }}
+                >
+                  {d.name}
+                </h3>
+                <p
+                  style={{
+                    color: 'var(--homev3-text-soft)',
+                    fontSize: 14,
+                    lineHeight: 1.6,
+                    margin: '0 0 22px',
+                  }}
+                >
+                  {meta.body}
+                </p>
+                <Link
+                  href={meta.href}
+                  style={{
+                    fontSize: 12,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    color: 'var(--homev3-blue-bright)',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                  }}
+                >
+                  LEARN MORE →
+                </Link>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
