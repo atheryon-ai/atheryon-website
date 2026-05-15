@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) */
+/* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) + display sans (Cinzel) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
 :root {
@@ -13,6 +14,19 @@
   --color-amber: #D98B3E;
   --color-amber-light: #E5A862;
   --color-deepblue: #0D4D7A;
+  --homev3-bg: #060b1c;
+  --homev3-bg-soft: #0a1228;
+  --homev3-surface: #0e1830;
+  --homev3-surface-2: #122042;
+  --homev3-border: rgba(96, 165, 250, 0.18);
+  --homev3-border-strong: rgba(96, 165, 250, 0.35);
+  --homev3-blue: #3b82f6;
+  --homev3-blue-bright: #60a5fa;
+  --homev3-blue-deep: #1d4ed8;
+  --homev3-orange: #f59e0b;
+  --homev3-orange-bright: #fbbf24;
+  --homev3-text-soft: rgba(255, 255, 255, 0.78);
+  --homev3-text-faint: rgba(255, 255, 255, 0.55);
 }
 
 @keyframes hero-glitch {
@@ -364,4 +378,26 @@ summary:focus-visible,
 
 .nav-link-active {
   @apply text-neutral-900 bg-white;
+}
+
+/* ========================
+   DARK NAVY HOMEPAGE (v3)
+   ======================== */
+/* When applied to <body>, opts the page into the dark navy homepage system. */
+body.home-v3 {
+  background: var(--homev3-bg);
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.home-v3::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 130, 246, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 30%, rgba(59, 130, 246, 0.06), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }

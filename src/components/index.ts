@@ -1,4 +1,6 @@
 export { Header } from './Header'
+export { RouteAwareHeader } from './RouteAwareHeader'
 export { Footer } from './Footer'
 export { EngagementModel } from './EngagementModel'
 export { DocPage, DocBanner, DocSection, DocFooter, DocPending, DocList, DocBullets } from './Doc'
+export { HomeBodyClass } from './HomeBodyClass'
