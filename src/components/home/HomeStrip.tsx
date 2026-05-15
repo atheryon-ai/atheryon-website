@@ -76,8 +76,9 @@ function StripCell({ label, children }: { label: string; children: React.ReactNo
 export function HomeStrip() {
   return (
     <section style={{ padding: '28px 0 0', position: 'relative', zIndex: 1 }}>
-      <div style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
+      <div className="home-section-container" style={{ maxWidth: 1340, margin: '0 auto', padding: '0 40px' }}>
         <div
+          className="home-strip-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 0.85fr 1.4fr',
@@ -170,7 +171,7 @@ export function HomeStrip() {
           </StripCell>
 
           <StripCell label="Engagement Model">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+            <div className="home-strip-engagement-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
               {v2.engagement.map((e) => {
                 const meta = engagementMeta[e.id]
                 return (

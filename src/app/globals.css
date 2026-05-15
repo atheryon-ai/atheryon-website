@@ -513,4 +513,13 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   .home-builtfor-grid {
     grid-template-columns: 1fr !important;
   }
+  /* Strip (Experience / Partners / Engagement Model) stacks. */
+  .home-strip-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  /* Engagement Model 4-card inner grid → 2x2 on phones. */
+  .home-strip-engagement-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
