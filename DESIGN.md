@@ -13,10 +13,12 @@ the canonical implementation of this system.
 
 ## Aesthetic posture
 
-**Scope of this section: interior pages only** (`/system`, `/approach`,
-`/engagements`, `/workflows`, `/about`, `/contact`). The homepage (`/`) has
-its own visual system documented at the bottom of this file under "Dark navy
-homepage system".
+**DEPRECATED — 2026-05-16.** The bone/charcoal "architectural document"
+system documented in this section is no longer in use. The site now runs a
+single dark navy AI platform system site-wide (see "Dark navy site system"
+section at the bottom of this file). The tokens, type scale, and patterns
+below are retained as a record of the previous aesthetic; do NOT use them
+for new work.
 
 - Architectural document, terminal/dossier energy, low decorative load.
 - Information density beats whitespace theater.
@@ -233,14 +235,15 @@ Before any visual change:
 
 ---
 
-## Dark navy homepage system (added 2026-05-15)
+## Dark navy site system (added 2026-05-15, universalized 2026-05-16)
 
-The homepage (`/`) uses a separate visual system from the rest of the IA. Other
-pages (`/system`, `/approach`, `/engagements`, `/workflows`, `/about`,
-`/contact`) continue to use the bone/charcoal architectural-document system
-documented above until they are individually migrated.
+The single visual system used across every page of atheryon-website (`/`,
+`/system`, `/approach`, `/engagements`, `/workflows`, `/about`, `/contact`,
+`/labs/*`, `/programs/*`, `/privacy`, `/terms`). The legacy bone/charcoal
+"architectural document" system in the earlier sections of this file is
+deprecated.
 
-### Aesthetic posture (homepage only)
+### Aesthetic posture (universal)
 
 - Capital markets AI platform aesthetic. Peer set: Databricks, Snowflake,
   Palantir Gotham.
@@ -250,7 +253,7 @@ documented above until they are individually migrated.
 - Branded — the Atheryon lockup (mark + Cinzel-serif wordmark + tri-color
   tagline) is shown in the nav and again at the orchestration center.
 
-### Color tokens (homepage)
+### Color tokens (universal)
 
 | Token             | Value                  | Use                                                 |
 | ----------------- | ---------------------- | --------------------------------------------------- |
@@ -276,7 +279,7 @@ documented above until they are individually migrated.
 No Fraunces, no JetBrains Mono on the homepage. Those families stay
 homepage-internal; the legacy bone pages continue to use them.
 
-### Decorative rules (homepage)
+### Decorative rules (universal)
 
 - Exactly one glow source on the page — the AI Agent Orchestration ring.
 - Background gradients allowed only as page-wide ambient (top-center bloom).
