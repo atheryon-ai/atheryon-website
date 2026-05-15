@@ -463,3 +463,35 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
 /* Display font on dark looks better one shade lighter; keep Fraunces but
    strengthen the rendering */
 .font-display { color: #ffffff; }
+
+/* ========================
+   HOME v3 — MOBILE RESPONSIVE OVERRIDES
+   The home components use inline grid styles. These rules collapse the
+   layout below 768px so the site doesn't overflow horizontally on phones.
+   ======================== */
+
+/* Show full CTA label on desktop, short label only on the smallest viewports. */
+.home-nav-cta-short { display: none; }
+
+@media (max-width: 768px) {
+  /* Nav: drop middle links, keep brand + CTA. */
+  .home-nav-grid {
+    grid-template-columns: auto auto !important;
+    gap: 12px !important;
+    padding: 0 16px !important;
+    justify-content: space-between;
+  }
+  .home-nav-links { display: none !important; }
+  .home-nav-cta {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  /* On very small screens, swap the long CTA label for "BOOK". */
+  .home-nav-cta-full { display: none; }
+  .home-nav-cta-short { display: inline; }
+}

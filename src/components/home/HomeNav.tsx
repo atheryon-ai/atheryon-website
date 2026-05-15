@@ -27,6 +27,7 @@ export function HomeNav() {
       }}
     >
       <div
+        className="home-nav-grid"
         style={{
           maxWidth: 1340,
           margin: '0 auto',
@@ -41,7 +42,7 @@ export function HomeNav() {
           <BrandLockup markSize={52} />
         </Link>
 
-        <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
+        <div className="home-nav-links" style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
           {links.map((l) => (
             <Link
               key={l.href}
@@ -62,6 +63,7 @@ export function HomeNav() {
 
         <Link
           href="/contact"
+          className="home-nav-cta"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -79,7 +81,9 @@ export function HomeNav() {
             whiteSpace: 'nowrap',
           }}
         >
-          BOOK SYSTEM ASSESSMENT <span>→</span>
+          <span className="home-nav-cta-full">BOOK SYSTEM ASSESSMENT</span>
+          <span className="home-nav-cta-short">BOOK</span>
+          <span>→</span>
         </Link>
       </div>
     </nav>
