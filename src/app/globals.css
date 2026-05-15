@@ -495,3 +495,18 @@ input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   .home-nav-cta-full { display: none; }
   .home-nav-cta-short { display: inline; }
 }
+
+@media (max-width: 768px) {
+  /* Shrink the generous 40px gutter to 20px so content can breathe. */
+  .home-section-container {
+    padding: 0 20px !important;
+  }
+  /* Hero stacks: text first, diagram below. */
+  .home-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .home-hero-section {
+    padding: 40px 0 32px !important;
+  }
+}

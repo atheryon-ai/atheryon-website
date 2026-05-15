@@ -3,8 +3,9 @@ import { OrchestrationDiagram } from './OrchestrationDiagram'
 
 export function HomeHero() {
   return (
-    <section style={{ padding: '60px 0 56px' }}>
+    <section className="home-hero-section" style={{ padding: '60px 0 56px' }}>
       <div
+        className="home-section-container"
         style={{
           maxWidth: 1340,
           margin: '0 auto',
@@ -14,6 +15,7 @@ export function HomeHero() {
         }}
       >
         <div
+          className="home-hero-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1.15fr',
