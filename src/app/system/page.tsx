@@ -8,6 +8,23 @@ const s = page.sections
 
 const isPending = (value: string) => value.startsWith('{{')
 
+// Split a stage name across at most 2 lines, balancing word lengths.
+// Used inside the /system §01 SVG where boxes are 160px wide and bold 13px
+// text wider than ~14 chars overflows.
+function wrapStageName(name: string): string[] {
+  if (name.length <= 14) return [name]
+  const words = name.split(' ')
+  if (words.length === 1) return [name]
+  let best = { split: 1, maxLen: Infinity }
+  for (let i = 1; i < words.length; i++) {
+    const a = words.slice(0, i).join(' ').length
+    const b = words.slice(i).join(' ').length
+    const max = Math.max(a, b)
+    if (max < best.maxLen) best = { split: i, maxLen: max }
+  }
+  return [words.slice(0, best.split).join(' '), words.slice(best.split).join(' ')]
+}
+
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
@@ -96,14 +113,22 @@ export default function SystemPage() {
                     <text x={x + 80} y={90} textAnchor="middle" fill="#60a5fa" fontSize={10} letterSpacing={2} fontWeight={600}>
                       §&nbsp;{String(i + 1).padStart(2, '0')}
                     </text>
-                    <text x={x + 80} y={112} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600}>
-                      {stage.name}
-                    </text>
-                    {stage.detail && (
-                      <text x={x + 80} y={128} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize={10}>
-                        {stage.detail.length > 38 ? stage.detail.slice(0, 35) + '…' : stage.detail}
-                      </text>
-                    )}
+                    {(() => {
+                      const lines = wrapStageName(stage.name)
+                      if (lines.length === 1) {
+                        return (
+                          <text x={x + 80} y={120} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600}>
+                            {lines[0]}
+                          </text>
+                        )
+                      }
+                      return (
+                        <>
+                          <text x={x + 80} y={110} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600}>{lines[0]}</text>
+                          <text x={x + 80} y={126} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600}>{lines[1]}</text>
+                        </>
+                      )
+                    })()}
                     {i < s.architectureDiagram.stages.length - 1 && (
                       <line
                         x1={x + 162}
