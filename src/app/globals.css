@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) */
+/* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) + display sans (Cinzel) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&display=swap');
 
 :root {
@@ -13,6 +14,19 @@
   --color-amber: #D98B3E;
   --color-amber-light: #E5A862;
   --color-deepblue: #0D4D7A;
+  --homev3-bg: #060b1c;
+  --homev3-bg-soft: #0a1228;
+  --homev3-surface: #0e1830;
+  --homev3-surface-2: #122042;
+  --homev3-border: rgba(96, 165, 250, 0.18);
+  --homev3-border-strong: rgba(96, 165, 250, 0.35);
+  --homev3-blue: #3b82f6;
+  --homev3-blue-bright: #60a5fa;
+  --homev3-blue-deep: #1d4ed8;
+  --homev3-orange: #f59e0b;
+  --homev3-orange-bright: #fbbf24;
+  --homev3-text-soft: rgba(255, 255, 255, 0.78);
+  --homev3-text-faint: rgba(255, 255, 255, 0.55);
 }
 
 @keyframes hero-glitch {
@@ -56,13 +70,24 @@ html {
 }
 
 body {
-  font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  background: var(--homev3-bg);
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
   font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #0A1A2F; /* Deep Navy (canonical) */
-  background: linear-gradient(180deg, #F7F6F3 0%, #E6E9ED 100%); /* Off-White to Warm Grey Light */
   min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 130, 246, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 30%, rgba(59, 130, 246, 0.06), transparent 70%);
 }
 
 /* ========================
@@ -364,4 +389,154 @@ summary:focus-visible,
 
 .nav-link-active {
   @apply text-neutral-900 bg-white;
+}
+
+/* =====================================================================
+   Dark navy global theme — interior page Tailwind class overrides
+   =====================================================================
+   The interior pages were originally built against a bone/charcoal
+   palette. We remap their Tailwind utility outputs to dark-navy
+   equivalents so the visual conversion happens once here instead of
+   in ~12 page files. Tailwind classes emit literal CSS like
+   `.bg-bone { background-color: #EFEAE0; }`; we override those rules
+   below. Specificity is enough because Tailwind utilities are flat.
+   ===================================================================== */
+
+/* Backgrounds */
+.bg-bone { background-color: var(--homev3-bg) !important; }
+.bg-bone-deep { background-color: var(--homev3-bg-soft) !important; }
+.bg-paper { background-color: var(--homev3-surface) !important; }
+.bg-white { background-color: var(--homev3-surface) !important; }
+.bg-charcoal { background-color: var(--homev3-blue) !important; }
+.bg-charcoal\/80 { background-color: var(--homev3-bg-soft) !important; }
+.bg-charcoal\/60 { background-color: rgba(255, 255, 255, 0.15) !important; }
+.bg-charcoal\/30 { background-color: var(--homev3-border-strong) !important; }
+.bg-charcoal\/15 { background-color: var(--homev3-border) !important; }
+
+/* Dividers */
+.divide-charcoal\/15 > * + * { border-color: var(--homev3-border) !important; }
+
+/* Text colors */
+.text-charcoal { color: #ffffff !important; }
+.text-charcoal\/90 { color: rgba(255, 255, 255, 0.90) !important; }
+.text-charcoal\/85 { color: rgba(255, 255, 255, 0.85) !important; }
+.text-charcoal\/80 { color: rgba(255, 255, 255, 0.80) !important; }
+.text-charcoal\/70 { color: rgba(255, 255, 255, 0.72) !important; }
+.text-charcoal\/65 { color: rgba(255, 255, 255, 0.65) !important; }
+.text-charcoal\/60 { color: rgba(255, 255, 255, 0.60) !important; }
+.text-charcoal\/55 { color: rgba(255, 255, 255, 0.55) !important; }
+.text-charcoal\/50 { color: rgba(255, 255, 255, 0.50) !important; }
+.text-charcoal\/45 { color: rgba(255, 255, 255, 0.10) !important; }
+.text-charcoal\/40 { color: rgba(255, 255, 255, 0.40) !important; }
+.text-charcoal\/30 { color: rgba(255, 255, 255, 0.30) !important; }
+.text-charcoal\/25 { color: rgba(255, 255, 255, 0.25) !important; }
+.text-charcoal\/20 { color: rgba(255, 255, 255, 0.20) !important; }
+.text-bone { color: #ffffff !important; }
+
+/* Borders (hairlines) */
+.border-charcoal\/50 { border-color: var(--homev3-border-strong) !important; }
+.border-charcoal\/40 { border-color: var(--homev3-border-strong) !important; }
+.border-charcoal\/30 { border-color: var(--homev3-border-strong) !important; }
+.border-charcoal\/20 { border-color: var(--homev3-border) !important; }
+.border-charcoal\/15 { border-color: var(--homev3-border) !important; }
+.border-charcoal\/10 { border-color: var(--homev3-border) !important; }
+.border-charcoal { border-color: var(--homev3-border-strong) !important; }
+
+/* Hover states */
+.hover\:bg-bone-deep:hover { background-color: var(--homev3-surface-2) !important; }
+.hover\:bg-ink:hover { background-color: var(--homev3-blue-deep) !important; }
+
+/* Form inputs — brighter surface than cards, more visible border */
+input.bg-white, textarea.bg-white, select.bg-white {
+  background-color: #11193a !important;
+  border-color: rgba(96, 165, 250, 0.45) !important;
+  color: #ffffff !important;
+}
+input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
+  border-color: var(--homev3-blue-bright) !important;
+  outline: none !important;
+}
+.placeholder\:text-charcoal\/50::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
+.placeholder\:text-charcoal\/40::placeholder { color: rgba(255, 255, 255, 0.4) !important; }
+.placeholder\:text-charcoal\/30::placeholder { color: rgba(255, 255, 255, 0.3) !important; }
+
+/* Display font on dark looks better one shade lighter; keep Fraunces but
+   strengthen the rendering */
+.font-display { color: #ffffff; }
+
+/* ========================
+   HOME v3 — MOBILE RESPONSIVE OVERRIDES
+   The home components use inline grid styles. These rules collapse the
+   layout below 768px so the site doesn't overflow horizontally on phones.
+   ======================== */
+
+/* Show full CTA label on desktop, short label only on the smallest viewports. */
+.home-nav-cta-short { display: none; }
+
+@media (max-width: 768px) {
+  /* Nav: drop middle links, keep brand + CTA. */
+  .home-nav-grid {
+    grid-template-columns: auto auto !important;
+    gap: 12px !important;
+    padding: 0 16px !important;
+    justify-content: space-between;
+  }
+  .home-nav-links { display: none !important; }
+  .home-nav-cta {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    gap: 6px !important;
+  }
+  /* Brand: drop the long tagline + shrink the wordmark so the nav fits. */
+  .home-nav-grid .brand-lockup-tagline { display: none !important; }
+  .home-nav-grid .brand-lockup-wordmark {
+    font-size: 18px !important;
+    letter-spacing: 0.06em !important;
+  }
+  .home-nav-grid .brand-lockup { gap: 10px !important; }
+}
+
+@media (max-width: 420px) {
+  /* On very small screens, swap the long CTA label for "BOOK". */
+  .home-nav-cta-full { display: none; }
+  .home-nav-cta-short { display: inline; }
+}
+
+@media (max-width: 768px) {
+  /* Shrink the generous 40px gutter to 20px so content can breathe. */
+  .home-section-container {
+    padding: 0 20px !important;
+  }
+  /* Hero stacks: text first, diagram below. */
+  .home-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+  .home-hero-section {
+    padding: 40px 0 32px !important;
+  }
+  /* Built-for-complexity 3-card grid stacks. */
+  .home-builtfor-grid {
+    grid-template-columns: 1fr !important;
+  }
+  /* Strip (Experience / Partners / Engagement Model) stacks. */
+  .home-strip-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  /* Engagement Model 4-card inner grid → 2x2 on phones. */
+  .home-strip-engagement-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* Reference-system CTA: stack mark / body / link, tighten padding. */
+  .home-ref-cta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 24px 20px !important;
+    text-align: center;
+  }
+  .home-ref-cta-grid > :first-child {
+    margin: 0 auto;
+  }
 }

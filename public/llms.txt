@@ -1,0 +1,43 @@
+# Atheryon
+
+> Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents.
+
+Atheryon is a capital markets AI systems firm — not a marketing site. This document is the canonical machine-readable rendering of the Atheryon manifest, structured for AI agents interpreting capability and architecture. Architecture clarity > marketing copy.
+
+## Core Domains
+
+- Capital Markets Systems (front-to-back): https://atheryon.com.au/system
+- Data Platforms: https://atheryon.com.au/system
+- AI Agent Systems: https://atheryon.com.au/workflows
+
+## Commercial Offers
+
+- Buy the Code (platform licence): https://atheryon.com.au/offers/code
+- License the Prompts (directorial prompt archive): https://atheryon.com.au/offers/prompts
+- Consult (senior-led advisory): https://atheryon.com.au/offers/consult
+
+The Prompts offer includes the productized Front Office bundle — a packaged directorial prompt set for capital markets front-office workflows, priced at $14,000 AUD.
+
+## Ecosystem
+
+- Microsoft Azure AI infrastructure: production AI infrastructure layer.
+- S&P Global data integration: capital markets reference and pricing data layer.
+- Banking experience — Goldman Sachs, Credit Suisse, Barclays Capital: framed as architectural lineage, not claims of employment or system ownership.
+
+## Site map
+
+- [Home](https://atheryon.com.au/): identity statement and system map.
+- [System](https://atheryon.com.au/system): reference architecture (core proof).
+- [Workflows](https://atheryon.com.au/workflows): AI capital markets workflows.
+- [Offers](https://atheryon.com.au/offers): commercial entry — three ways to engage.
+- [Buy the Code](https://atheryon.com.au/offers/code): platform licence.
+- [License the Prompts](https://atheryon.com.au/offers/prompts): directorial prompt archive; includes Front Office bundle.
+- [Consult](https://atheryon.com.au/offers/consult): senior-led advisory engagement.
+- [Labs](https://atheryon.com.au/labs): research themes and tooling.
+- [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
+- [About](https://atheryon.com.au/about): banking lineage + capability foundation.
+- [Contact](https://atheryon.com.au/contact): book system assessment.
+
+## Audience
+
+Built for enterprise buyers (banks, executives) and AI agents (LLMs interpreting capability and structure).

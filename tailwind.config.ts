@@ -48,11 +48,27 @@ const config: Config = {
         'bone': '#EFEAE0',            // new — body bg for /reality and pillars; replaces warm-50 in new code
         'ink': '#0E1116',             // new — Floor 13 band, dark sections
         'charcoal': '#15171A',        // new — text-on-bone alternative to neutral.900
+        'homev3': {
+          bg: '#060b1c',
+          'bg-soft': '#0a1228',
+          surface: '#0e1830',
+          'surface-2': '#122042',
+          border: 'rgba(96, 165, 250, 0.18)',
+          'border-strong': 'rgba(96, 165, 250, 0.35)',
+          blue: '#3b82f6',
+          'blue-bright': '#60a5fa',
+          'blue-deep': '#1d4ed8',
+          orange: '#f59e0b',
+          'orange-bright': '#fbbf24',
+          'text-soft': 'rgba(255, 255, 255, 0.78)',
+          'text-faint': 'rgba(255, 255, 255, 0.55)',
+        },
       },
       fontFamily: {
         sans: ['"Inter Tight"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         display: ['Fraunces', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
         body: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
+        'serif-cap': ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
       },
       fontSize: {
         // Social Grow typography scale

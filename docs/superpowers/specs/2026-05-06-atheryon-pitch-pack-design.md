@@ -203,7 +203,7 @@ Slot into existing atheryon-website conventions:
 ## 10. Open questions (need Terry input before / during implementation)
 
 1. **§3 — flagship surface count.** What number do we put? (Count from `themes.ts`? Count of "production-grade" themes only? — Terry's call.)
-2. **§5–§7 — flagship picks.** Trade Board / Risk Pricer / Schema Editor proposed. Confirmed, or substitute Cross-Schema, Reg Submissions, or MSX twin pages?
+2. **§5–§7 — flagship picks.** Trade Board / Risk Pricer / Schema Editor proposed. Confirmed, or substitute Cross-Schema or Reg Submissions?
 3. **§8 — the five vignettes.** Each one needs a specific PR / surface to anchor to. Terry to nominate the five (or I'll propose drafts from `git log` and Terry edits).
 4. **§9 — embedded artefacts.** Which prompt + correction example goes on the page? Which PR gets quoted? Needs Terry's choice — must be safe to publish.
 5. **§10 — "Take the prompts" copy.** Final wording for what the prompt archive actually contains. Pricing / packaging? Or just "request access"?

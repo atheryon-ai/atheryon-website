@@ -7,9 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
     "deploy:test": "git push origin dev",
     "preview": "npm run build && npx serve out",
     "verify:production-ready": "if grep -r REPLACE_ME src/; then echo '\\nERROR: REPLACE_ME placeholder found in src/. Update Stripe Payment Link URLs in site.ts before deploying to production.' >&2 && exit 1; else echo '\\u2713 No REPLACE_ME placeholders.'; fi"

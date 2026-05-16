@@ -1,40 +1,19 @@
-name: Playwright tests
+name: Test (Playwright)
 
-# Runs the Playwright chromium suite on every PR into main OR dev, plus pushes
-# to main. This is the guardrail that catches test rot after content / IA
-# changes — the class of regression that produced PR #42's "Download the pack"
-# CTA gap and PR #59's /reality canonicalization breaking pillars.spec.ts.
-#
-# Why PR-into-dev gating: dev is the integration branch and 95% of changes
-# land there first. Previously Playwright only ran at the dev → main promotion
-# gate, so a PR-against-dev could land breaking tests and the failure wouldn't
-# surface until the next prod-promotion PR (sometimes days later, across many
-# commits). Running Playwright on every dev-targeting PR catches regressions
-# at the smallest possible blast radius.
-#
-# Scope: chromium project only (firefox/webkit/mobile remain in playwright.config
-# for local use, but CI runs only chromium for speed).
-#
-# Visual tests (tests/visual.spec.ts) are EXCLUDED from CI because Playwright
-# screenshot baselines are OS-specific (font rendering, anti-aliasing). Baselines
-# are captured on darwin during local dev. Running them on ubuntu-latest needs
-# linux baselines that we deliberately don't maintain — the visual suite is a
-# local design-QA tool, not a cross-OS regression gate.
-#
-# To regenerate visual baselines after intentional UI changes (local only):
-#   npx playwright test --project=chromium --update-snapshots tests/visual.spec.ts
-# then commit the updated tests/visual.spec.ts-snapshots/*.png files.
+# Runs the Playwright smoke suite on PRs targeting dev or main, and on
+# direct pushes to dev/main. Replaces the legacy test.yml deleted in 3445a38.
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
       - dev
+      - main
     paths-ignore:
       - '**.md'
       - 'docs/**'
-  push:
+  pull_request:
     branches:
+      - dev
       - main
     paths-ignore:
       - '**.md'
@@ -47,7 +26,6 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     name: Playwright (chromium)
-    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5
@@ -61,18 +39,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Build Next.js (static export)
-        run: npm run build
+      - name: Run Playwright tests
+        run: npx playwright test --project=chromium
         env:
-          NODE_ENV: production
+          CI: true
 
-      - name: Run Playwright tests (excluding visual baselines — OS-specific)
-        run: npx playwright test --project=chromium --grep-invert "Visual Tests"
-        # On failure, the per-test screenshots and traces are still on the
-        # runner. Re-run locally with `npx playwright test --project=chromium`
-        # to reproduce. If you want to archive playwright-report/ in CI, add
-        # actions/upload-artifact here with a SHA-pinned version that matches
-        # the repo's CODEOWNERS-approved set.
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

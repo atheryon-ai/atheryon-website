@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://atheryon.com.au/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://atheryon.com.au/reality</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://atheryon.com.au/data</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://atheryon.com.au/ai-direction</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://atheryon.com.au/transformation</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://atheryon.com.au/labs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://atheryon.com.au/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://atheryon.com.au/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://atheryon.com.au/programs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://atheryon.com.au/programs/mib-insight</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/system</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atheryon.com.au/offers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atheryon.com.au/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/workflows</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/labs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/offers/code</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/offers/prompts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/offers/consult</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/labs/themes</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://atheryon.com.au/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://atheryon.com.au/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
