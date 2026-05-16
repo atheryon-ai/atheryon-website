@@ -105,6 +105,118 @@ Only if the brief flash of CM accent on direct-load to `/ma` is visually disrupt
 - **`/labs` is currently CM-only.** It stays under shared chrome (visible in all modes). If/when M&A grows a labs surface, that's a separate Phase 6+ decision.
 - **CDM-platform and labs-platform repos are separate.** This change touches only `atheryon-website`. The sibling-repo theme sync flow is unaffected.
 
+## Addendum (2026-05-17) — buyer-matrix merge + pipeline pattern + workflow dissolution
+
+This addendum captures architectural decisions made in a working session on 2026-05-17 that extend the original plan above. The merge is locked. Project memory: `~/.claude/projects/-Users-terencetsakiris-GitHub-atheryon-website/memory/{brand_architecture,buyer_theme_matrix,pipeline_pattern}.md`. Companion artefacts: `~/Downloads/atheryon-merged-architecture.html` (the merged-architecture poster), `~/Downloads/atheryon-matrix-substrate.html` (geometry diagram), `~/Downloads/strategy-poster 2.html` (the v4 strategic reframe).
+
+### CM mode gets a 4th canonical route — `/themes`
+
+The original plan's v2.pages shape is `{home, system, workflows, engagements}`. Add **`/themes`** (top-level CM route) plus **`/themes/[id]`** (per-buyer-row pages).
+
+- 7 buyer themes × 3 offers = 21-cell qualification matrix
+- 7 themes (top → bottom in nav): Front Office Trading · Middle Office Ops · Compliance & Surveillance · Risk & Analytics · Treasury (roadmap) · Entity Intelligence · Foundation / ODS (tech-sell)
+- Each `/themes/[id]` page = buyer header + speed pitch + workflow embed (where one exists) + filtered evidence + 3 offers framed for this buyer + CTA
+- New file: `src/content/buyerThemes.ts` — parallel to but distinct from the labs-platform `src/content/themes.ts` (the labs taxonomy)
+- `/labs/themes` (26-theme labs taxonomy) collapses UNDER `/themes/[id]` as proof material — the word "theme" only ever means buyer-row on the main site
+
+### `/workflows` dissolves into `/themes/[id]`
+
+The original plan's `/workflows` route does not survive the matrix merge. Codex's pushback ("strongest content, demote in nav if needed") is honoured by:
+
+- `/workflows` 301-redirects to `/themes` (preserves inbound links + SEO juice)
+- Each of the 5 existing workflows embeds in its matching `/themes/[id]` page:
+  - Trade Lifecycle Automation → MO Ops
+  - Risk Reporting Generation → Compliance & Surveillance
+  - Portfolio Analytics Pipeline → Risk & Analytics
+  - Research Summarisation Workflow → Risk & Analytics (2nd workflow on this row)
+  - Financial Data Ingestion & Structuring → Foundation / ODS
+- 3 themes (FO Trading, Treasury, Entity Intelligence) carry visible **ROADMAP** workflow markers until proof is built
+- `/system §04` (workflow examples) keeps its summary list, but anchor targets change from `/workflows#xxx` to `/themes/[id]#workflow`
+- `v2.pages.workflows.items` in `site.ts` stays as the source of truth — `/themes/[id]` reads from there; no content duplication
+
+### M&A asymmetry — workflows fold into `/ma/system`, not a parallel route
+
+M&A is one buyer pocket (post-deal execution) and has no buyer matrix. So:
+
+- `/ma/workflows` does NOT exist as a route
+- `/ma/workflows` 301-redirects to `/ma/system` §04 (where M&A workflows render inline)
+- M&A's IA collapses from 4 pages → 3: `/ma`, `/ma/system`, `/ma/offers`
+- The original plan's "v2Ma mirrors v2.pages.{home, system, workflows, engagements}" becomes "v2Ma mirrors v2.pages.{home, system, engagements} with workflows folded inline into system"
+
+### Pipeline pattern — status taxonomy + `/roadmap` aggregator
+
+Every gap on the site surfaces as visible delivery pipeline, not as a hole. Reinforces the AI-velocity narrative: every roadmap entry is an implicit speed promise.
+
+**Status taxonomy** (rendered as inline badges on theme/mode pages):
+- `SHIPPED` — blue badge, proof exists, page renders fully
+- `BUILDING` — amber-striped badge, in active dev, planned date if possible
+- `ROADMAP` — amber-outline badge, declared intent, no commitment date
+
+**Current pipeline items:**
+- Mortgages practice — BUILDING (stub launches Phase 2, full mode after)
+- M&A prose — BUILDING (this plan's Phase 4)
+- Treasury theme — ROADMAP (Bank ALM: IRRBB / liquidity / FTP — capital-markets-adjacent, NOT corporate treasury or central-bank ops)
+- FO Trading workflow — ROADMAP (pre-trade pricing pipeline)
+- Entity Intelligence workflow — ROADMAP (counterparty + KYC automation pipeline)
+
+**New shared-chrome route — `/roadmap`** (footer-linked, NOT in main nav):
+- Aggregates all BUILDING + ROADMAP items in one scrollable timeline
+- Inbound-marketing surface for "I want to co-build X" prospects
+- Reads as "Atheryon ships fast — here's what's next"
+
+### Mortgages stub copy correction
+
+Original plan line 57 says "CDM-native systems + AI agents to mortgage origination". This is wrong — ISDA CDM is a derivatives/securities data model, not retail mortgage. Correct framing for the `/mortgages` stub:
+
+> "The same AI-velocity that runs our CDM-native capital markets work also runs retail mortgage origination automation — same capability, different vertical."
+
+Capability transfers; the CDM literal does not. Fix before shipping Phase 2.
+
+### M&A scope — declared explicitly
+
+M&A scope is **post-deal execution only** (separation / integration / TSA reduction). NOT M&A advisory (sourcing / valuation / negotiation). Recovered `maExecution` content (commit `9526a7d`) sits in this scope. Don't let the practice drift toward deal-advisory marketing in Phase 4 prose.
+
+### Foundation = TECH SELL (not a business-line buyer row)
+
+Foundation / ODS is NOT a business-line buyer. Its buyers are CDO, CTO, Chief Architect, Head of Platform, Head of Data. Strongest labs-proof cluster (6 themes under ODS). Likely the biggest single deal on the matrix (7-figure CDM-native ODS platform builds). The `/themes/foundation` page copy + offer framing uses platform/engineering language, not desk-head language.
+
+### AI velocity narrative — universal across all themes and modes
+
+The differentiator on every page is the same: **"senior capital-markets architects direct AI agents that do the build, delivering in weeks what traditionally takes 6-18 months."** Each theme page leads with "[X normally takes N months] → with us, [Y weeks]." This is what justifies breadth (7 themes + 3 modes from a small senior team) and inverts the "broader than proof" critique — speed IS the proof.
+
+### Revised phasing — matrix slots into the toggle phasing
+
+Original phasing preserved with one addition between Phase 2 and Phase 3:
+
+| # | Step | Scope |
+|---|---|---|
+| 1 | Invisible colour-token refactor | Original toggle plan |
+| 2 | Toggle live + Mortgages stub (with corrected copy) | Original toggle plan |
+| **2.5** | **CM `/themes` matrix — 7 rows + `/roadmap` page + `/workflows` redirect** | **Matrix merge (new)** |
+| 3 | M&A IA scaffolding (3 pages: home / system-with-workflows-inline / offers) | Original toggle plan, with workflow fold |
+| 4 | M&A prose | Original toggle plan |
+| 5 (optional) | FOUC mitigation | Original toggle plan |
+
+Phase 2.5 ships independently per the plan's "no half-built feature visible" rule.
+
+### Files added/changed by this merge
+
+| File | Change |
+|------|--------|
+| `src/content/buyerThemes.ts` | **new** — 7-row data: id, name, buyer titles, pain, speed pitch, status (shipped/roadmap), workflowId ref into v2.pages.workflows.items, offer framings |
+| `src/app/themes/page.tsx` | **new** — matrix index (renders 7-row grid + per-row status badges) |
+| `src/app/themes/[id]/page.tsx` | **new** — per-buyer page; embeds workflow from `v2.pages.workflows.items[workflowId]` when present |
+| `src/app/roadmap/page.tsx` | **new** — aggregator across all themes/modes with BUILDING/ROADMAP status |
+| `src/components/StatusBadge.tsx` | **new** — shared SHIPPED/BUILDING/ROADMAP pill component |
+| `src/app/workflows/page.tsx` | **delete** — content folds into themes; route becomes a 301 redirect |
+| `src/app/ma/workflows/page.tsx` | **not created** (was in original plan); workflows fold into `/ma/system` instead |
+| `staticwebapp.config.json` | add `/workflows → /themes` 301; add `/ma/workflows → /ma/system` 301; add `/roadmap` rewrite; existing `/m-and-a-execution → /ma` rewrite stays |
+| `public/sitemap.xml` | add `/themes`, 7× `/themes/[id]`, `/roadmap`; drop `/workflows` |
+| `public/llms.txt` | reflect new IA (themes index, per-buyer pages, roadmap, dissolved workflows) |
+| `src/components/Footer.tsx` | add `/roadmap` link in a "What's next" slot |
+| `src/components/home/HomeNav.tsx` | swap `WORKFLOWS` slot for `THEMES`; ensure CM nav is THEMES · OFFERS · SYSTEM (3 concepts) |
+| `tests/themes.spec.ts` | **new** — index renders, per-row pages render, status badges work, `/workflows` 301-redirect verified, `/roadmap` aggregates correctly |
+
 ## Verification
 
 For each phase:
