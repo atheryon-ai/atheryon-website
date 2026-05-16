@@ -51,6 +51,19 @@ function ContactForm() {
         </div>
 
         <div>
+          <label htmlFor="company" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
+            {contact.form.fields.company.label}
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder={contact.form.fields.company.placeholder}
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+          />
+        </div>
+
+        <div>
           <label htmlFor="email" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.email.label}
             {contact.form.fields.email.required && <span className="text-charcoal/50"> *</span>}
@@ -61,19 +74,6 @@ function ContactForm() {
             name="email"
             required={contact.form.fields.email.required}
             placeholder={contact.form.fields.email.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="company" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
-            {contact.form.fields.company.label}
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            placeholder={contact.form.fields.company.placeholder}
             className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>

@@ -19,6 +19,9 @@ export function Footer() {
           <a href="https://www.linkedin.com/in/terencetsakiris/" className="inline-block px-3 py-3 hover:text-white">
             LinkedIn
           </a>
+          <a href={`mailto:${site.email}`} className="inline-block px-3 py-3 hover:text-white">
+            {site.email}
+          </a>
         </nav>
         <div>© {year} {site.name}</div>
       </div>
