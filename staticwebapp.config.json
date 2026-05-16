@@ -20,10 +20,10 @@
     { "route": "/labs/advisory",               "redirect": "/offers/consult", "statusCode": 301 },
     { "route": "/programs/mib-insight",        "redirect": "/offers/prompts", "statusCode": 301 },
     { "route": "/programs/mib-insight/thanks", "redirect": "/offers/prompts/thanks", "statusCode": 301 },
+    { "route": "/engagements",                 "redirect": "/offers",         "statusCode": 301 },
 
     { "route": "/system",      "rewrite": "/system.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
-    { "route": "/engagements", "rewrite": "/engagements.html" },
     { "route": "/workflows",   "rewrite": "/workflows.html" },
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },
