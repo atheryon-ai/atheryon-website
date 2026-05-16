@@ -9,7 +9,7 @@ const links = [
   { label: 'ENGAGEMENTS', href: '/engagements' },
   { label: 'WORKFLOWS', href: '/workflows' },
   { label: 'ABOUT', href: '/about' },
-  { label: 'INSIGHTS', href: '/labs' },
+  { label: 'OFFERS', href: '/offers' },
 ]
 
 export function HomeNav() {
