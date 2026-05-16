@@ -62,15 +62,74 @@ export default function SystemPage() {
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <SectionHead label={s.architectureDiagram.label} title={s.architectureDiagram.title} />
 
-          {/* Desktop: horizontal flow. Mobile: vertical stack. */}
-          <ol className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] gap-3 lg:gap-2 items-stretch">
+          {/* Desktop (md+): inline SVG flow with arrows */}
+          <div className="hidden md:block">
+            <svg
+              role="img"
+              aria-labelledby="system-arch-title"
+              viewBox="0 0 920 200"
+              className="w-full h-auto block"
+              style={{ fontFamily: "'Inter Tight', system-ui, sans-serif" }}
+            >
+              <title id="system-arch-title">
+                Atheryon system reference architecture — five stages from Data Sources to Operational Outputs
+              </title>
+              <defs>
+                <marker id="sysArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#60a5fa" />
+                </marker>
+                <linearGradient id="sysBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(96,165,250,0.10)" />
+                  <stop offset="100%" stopColor="rgba(96,165,250,0.02)" />
+                </linearGradient>
+              </defs>
+
+              {s.architectureDiagram.stages.map((stage, i) => {
+                const x = 10 + i * 185
+                const isHighlight = stage.id === 'ai-agent-orchestration-layer'
+                const fill = isHighlight ? 'rgba(96,165,250,0.18)' : 'url(#sysBoxGrad)'
+                const stroke = isHighlight ? '#60a5fa' : '#3b82f6'
+                const strokeWidth = isHighlight ? 1.6 : 1.4
+                return (
+                  <g key={stage.id}>
+                    <rect x={x} y={60} width={160} height={80} rx={6} fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+                    <text x={x + 80} y={90} textAnchor="middle" fill="#60a5fa" fontSize={10} letterSpacing={2} fontWeight={600}>
+                      §&nbsp;{String(i + 1).padStart(2, '0')}
+                    </text>
+                    <text x={x + 80} y={112} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600}>
+                      {stage.name}
+                    </text>
+                    {stage.detail && (
+                      <text x={x + 80} y={128} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize={10}>
+                        {stage.detail.length > 38 ? stage.detail.slice(0, 35) + '…' : stage.detail}
+                      </text>
+                    )}
+                    {i < s.architectureDiagram.stages.length - 1 && (
+                      <line
+                        x1={x + 162}
+                        y1={100}
+                        x2={x + 183}
+                        y2={100}
+                        stroke="#60a5fa"
+                        strokeWidth={1.4}
+                        markerEnd="url(#sysArrow)"
+                      />
+                    )}
+                  </g>
+                )
+              })}
+            </svg>
+          </div>
+
+          {/* Mobile fallback (< md): vertical OL with arrow glyphs */}
+          <ol className="md:hidden grid grid-cols-1 gap-3 items-stretch">
             {s.architectureDiagram.stages.map((stage, i) => (
               <Fragment key={stage.id}>
                 <li className="border border-charcoal/30 bg-white p-5 flex flex-col">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-2">
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <div className="font-display text-lg md:text-xl font-medium text-charcoal leading-snug">
+                  <div className="font-display text-lg font-medium text-charcoal leading-snug">
                     {stage.name}
                   </div>
                   {stage.detail && (
@@ -82,10 +141,9 @@ export default function SystemPage() {
                 {i < s.architectureDiagram.stages.length - 1 && (
                   <li
                     aria-hidden="true"
-                    className="flex items-center justify-center text-charcoal/40 font-mono text-2xl py-1 lg:py-0"
+                    className="flex items-center justify-center text-charcoal/40 font-mono text-2xl py-1"
                   >
-                    <span className="lg:hidden">↓</span>
-                    <span className="hidden lg:inline">→</span>
+                    ↓
                   </li>
                 )}
               </Fragment>
