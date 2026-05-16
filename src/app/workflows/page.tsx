@@ -23,12 +23,70 @@ export const metadata: Metadata = {
 // invented prose.
 // ─────────────────────────────────────────────────────────────────────────────
 
-function StageCell({ stage, content }: { stage: string; content: string }) {
+function StageIcon({ stage }: { stage: string }) {
+  const stroke = '#60a5fa'
+  const common = {
+    width: 14,
+    height: 14,
+    viewBox: '0 0 16 16',
+    fill: 'none',
+    stroke,
+    strokeWidth: 1.5,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  }
+  switch (stage) {
+    case 'Input':
+      return (
+        <svg {...common}>
+          <circle cx="11" cy="8" r="4" />
+          <path d="M2 8 L7 8" />
+          <path d="M5 5 L7 8 L5 11" />
+        </svg>
+      )
+    case 'AI agents':
+      return (
+        <svg {...common}>
+          <circle cx="8" cy="8" r="2" />
+          <circle cx="3" cy="3" r="1.4" />
+          <circle cx="13" cy="3" r="1.4" />
+          <circle cx="3" cy="13" r="1.4" />
+          <circle cx="13" cy="13" r="1.4" />
+          <path d="M4 4 L7 7 M12 4 L9 7 M4 12 L7 9 M12 12 L9 9" />
+        </svg>
+      )
+    case 'Processing':
+      return (
+        <svg {...common}>
+          <circle cx="8" cy="8" r="3.5" />
+          <path d="M8 1.5 L8 3.5 M8 12.5 L8 14.5 M1.5 8 L3.5 8 M12.5 8 L14.5 8" />
+        </svg>
+      )
+    case 'Output':
+      return (
+        <svg {...common}>
+          <circle cx="5" cy="8" r="4" />
+          <path d="M9 8 L14 8" />
+          <path d="M12 5 L14 8 L12 11" />
+        </svg>
+      )
+    default:
+      return null
+  }
+}
+
+function StageCell({ stage, content, isLastInRow }: { stage: string; content: string; isLastInRow: boolean }) {
   const pending = isPending(content)
   return (
-    <div className="border border-charcoal/30 bg-white p-4 flex flex-col h-full">
-      <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/60 mb-3">
-        {stage}
+    <div
+      className={`border border-charcoal/30 bg-white p-4 flex flex-col h-full ${isLastInRow ? '' : 'md:border-r-2 md:border-r-[rgba(96,165,250,0.32)]'}`}
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <StageIcon stage={stage} />
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/60">
+          {stage}
+        </div>
       </div>
       {!pending && (
         <div className="font-mono text-xs md:text-sm text-charcoal/85 leading-relaxed">
@@ -161,7 +219,11 @@ export default function WorkflowsPage() {
             <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
               {stageKeys.map((key, i) => (
                 <li key={key} className="flex flex-col h-full">
-                  <StageCell stage={s.schema.stages[i]} content={wf[key]} />
+                  <StageCell
+                    stage={s.schema.stages[i]}
+                    content={wf[key]}
+                    isLastInRow={i === stageKeys.length - 1}
+                  />
                 </li>
               ))}
             </ol>
