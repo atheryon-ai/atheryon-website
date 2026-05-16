@@ -15,7 +15,7 @@
 //   - compliance       — regulatory + control surfaces
 //   - treasury         — liquidity, payments, GL, finance
 //
-// 29 themes / 147 pages total. Sums enforced by the contract test in
+// 26 themes / 111 pages total. Sums enforced by the contract test in
 // __tests__/themes.test.ts (labs-platform).
 
 export type Domain = 'ODS' | 'BUSINESS';
@@ -67,7 +67,7 @@ export const FUNCTION_META: Record<
   operations: {
     label: 'Operations',
     blurb:
-      'Post-trade processing — confirmations, lifecycle events, netting, SSI, recs, commodities, MSX twin pages.',
+      'Post-trade processing — confirmations, lifecycle events, netting, SSI, recs, commodities.',
     office: 'BO',
   },
   compliance: {
@@ -93,7 +93,7 @@ export const FUNCTION_ORDER: readonly BusinessFunction[] = [
 
 const t = (id: string) => `/menu-themes-thumbs/${id}.png`;
 
-// ── ODS · Operational Data Store · 7 themes · 56 pages ────────────
+// ── ODS · Operational Data Store · 6 themes · 37 pages ────────────
 export const ODS_THEMES: readonly Theme[] = [
   {
     id: 't-schema-model',
@@ -212,41 +212,9 @@ export const ODS_THEMES: readonly Theme[] = [
     ],
     domain: 'ODS',
   },
-  {
-    id: 't-workshop-deck',
-    title: 'MSX Workshop Deck',
-    shortTitle: 'Workshop Deck',
-    pages: 19,
-    blurb:
-      '20-slide strategic narrative — domain map · canonical model · lifecycle · coverage (88 cells) · agents · shift-left · value · roadmap.',
-    thumb: t('t-workshop-deck'),
-    primaryRoute: '/msx/workshop/domainmap-v2',
-    routes: [
-      { label: 'Domain Map (canonical)', href: '/msx/workshop/domainmap-v2' },
-      { label: 'Agent Framework', href: '/msx/workshop/agents' },
-      { label: 'Canonical Model (v1)', href: '/msx/workshop/canonical' },
-      { label: 'Canonical Model (v2)', href: '/msx/workshop/canonical-v2' },
-      { label: 'Coverage Map (88 cells)', href: '/msx/workshop/coverage' },
-      { label: 'Data Model', href: '/msx/workshop/datamodel' },
-      { label: 'Domain Map (v1)', href: '/msx/workshop/domainmap' },
-      { label: 'Lifecycle (canonical)', href: '/msx/workshop/lifecycle-v2' },
-      { label: 'Lifecycle (v1)', href: '/msx/workshop/lifecycle' },
-      { label: 'Mapping', href: '/msx/workshop/mapping' },
-      { label: 'Overview', href: '/msx/workshop/overview' },
-      { label: 'Roadmap', href: '/msx/workshop/roadmap' },
-      { label: 'Shift Left', href: '/msx/workshop/shiftleft' },
-      { label: 'Value Story', href: '/msx/workshop/value' },
-      { label: 'Canonical Model', href: '/msx/canonical-v2' },
-      { label: 'Domain Map', href: '/msx/domainmap-v2' },
-      { label: 'Lifecycle Map', href: '/msx/lifecycle-v2' },
-      { label: 'MSX Intelligence', href: '/msx/intelligence' },
-      { label: 'Workshop Hub', href: '/msx/workshop' },
-    ],
-    domain: 'ODS',
-  },
 ];
 
-// ── BUSINESS · 22 themes · 91 pages ──────────────────────────────
+// ── BUSINESS · 20 themes · 74 pages ──────────────────────────────
 const FRONT_OFFICE: readonly Theme[] = [
   {
     id: 't-trade-board',
@@ -327,7 +295,7 @@ const OPERATIONS: readonly Theme[] = [
     id: 't-confirmations',
     title: 'Confirmations (D2)',
     shortTitle: 'Confirmations',
-    pages: 3,
+    pages: 2,
     blurb:
       'Trade confirmation matching — paper / electronic / physical commodity. CF-01..18 HLR coverage.',
     thumb: t('t-confirmations'),
@@ -335,7 +303,6 @@ const OPERATIONS: readonly Theme[] = [
     routes: [
       { label: 'Confirmations (D2)', href: '/post-trade/confirmations' },
       { label: 'Confirmations — Physical', href: '/post-trade/confirmations/physical' },
-      { label: 'MSX Confirmations', href: '/msx/confirmations' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -360,19 +327,14 @@ const OPERATIONS: readonly Theme[] = [
     id: 't-netting',
     title: 'Netting & Compression (D4)',
     shortTitle: 'Netting',
-    pages: 7,
+    pages: 2,
     blurb:
-      '$73.2B gross / $24.7B net · 66% benefit. Compression simulator, multilateral, payment netting, CLS / cascade / rules / lineage.',
+      '$73.2B gross / $24.7B net · 66% benefit. Compression simulator and physical commodity netting.',
     thumb: t('t-netting'),
     primaryRoute: '/post-trade/netting-compression',
     routes: [
       { label: 'Netting / Compression (D4)', href: '/post-trade/netting-compression' },
       { label: 'Netting — Physical', href: '/post-trade/netting/physical' },
-      { label: 'MSX Netting — CLS', href: '/msx/netting/cls' },
-      { label: 'MSX Netting — Cascade', href: '/msx/netting/cascade' },
-      { label: 'MSX Netting — Lineage', href: '/msx/netting/lineage' },
-      { label: 'MSX Netting — Rules', href: '/msx/netting/rules' },
-      { label: 'MSX Netting / Collateral', href: '/msx/netting-collateral' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -381,17 +343,15 @@ const OPERATIONS: readonly Theme[] = [
     id: 't-ssi',
     title: 'SSI Management (D5)',
     shortTitle: 'SSI',
-    pages: 5,
+    pages: 3,
     blurb:
-      '50 SSIs · DVP/FOP/PVP/RVP · real BICs (CHASUS33XXX, GLOSGB2LXXX). Propagation, rules, exception handling, physical commodity SSIs.',
+      '50 SSIs · DVP/FOP/PVP/RVP · real BICs (CHASUS33XXX, GLOSGB2LXXX). Management, exception handling, physical commodity SSIs.',
     thumb: t('t-ssi'),
     primaryRoute: '/post-trade/ssi-management',
     routes: [
       { label: 'SSI Management (D5)', href: '/post-trade/ssi-management' },
       { label: 'SSI Exceptions', href: '/post-trade/ssi-exceptions' },
       { label: 'SSI — Physical', href: '/post-trade/ssi/physical' },
-      { label: 'MSX SSI Propagation', href: '/msx/ssi/propagation' },
-      { label: 'MSX SSI Rules', href: '/msx/ssi/rules' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -452,26 +412,6 @@ const OPERATIONS: readonly Theme[] = [
       { label: 'Commodities Pricing', href: '/commodities/pricing' },
       { label: 'Commodities Validate', href: '/commodities/validate' },
       { label: 'REMIT', href: '/commodities/remit' },
-    ],
-    domain: 'BUSINESS',
-    primaryFunction: 'operations',
-  },
-  {
-    id: 't-msx-hub',
-    title: 'MSX Twin Pages',
-    shortTitle: 'MSX Twin Pages',
-    pages: 6,
-    blurb:
-      'MSX-branded hub + intake guardian / invoicing / reports / reconciliation — the operator-facing twin of the ODS surfaces.',
-    thumb: t('t-msx-hub'),
-    primaryRoute: '/msx',
-    routes: [
-      { label: 'MSX Hub', href: '/msx' },
-      { label: 'MSX Intake Guardian', href: '/msx/intake' },
-      { label: 'MSX Invoicing (D6)', href: '/msx/invoicing' },
-      { label: 'MSX Reports', href: '/msx/reports' },
-      { label: 'MSX Reconciliation', href: '/msx/reconciliation' },
-      { label: 'Post-Trade Hub', href: '/post-trade' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -632,31 +572,13 @@ const TREASURY: readonly Theme[] = [
     id: 't-settlements',
     title: 'Settlements (D7)',
     shortTitle: 'Settlements',
-    pages: 2,
+    pages: 1,
     blurb:
       '$22.5B today · 11 active runs · 8 pending tonight. PvP/DvP run tracking, cash-ladder by currency.',
     thumb: t('t-settlements'),
     primaryRoute: '/post-trade-ops/settlements',
     routes: [
       { label: 'Settlements (D7)', href: '/post-trade-ops/settlements' },
-      { label: 'MSX Settlements', href: '/msx/settlements' },
-    ],
-    domain: 'BUSINESS',
-    primaryFunction: 'treasury',
-    secondaryFunctions: ['operations'],
-  },
-  {
-    id: 't-payments-gl',
-    title: 'Payments & General Ledger',
-    shortTitle: 'Payments & GL',
-    pages: 2,
-    blurb:
-      'ISO 20022 pacs.008 / pain.001 messaging, BIC routing, GL postings. D7 PM-01..07 coverage.',
-    thumb: t('t-payments-gl'),
-    primaryRoute: '/msx/payments',
-    routes: [
-      { label: 'MSX Payments', href: '/msx/payments' },
-      { label: 'MSX General Ledger', href: '/msx/gl' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'treasury',

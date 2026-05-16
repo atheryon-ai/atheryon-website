@@ -68,7 +68,7 @@ export default function LabsPage() {
             href="/labs/themes"
             className="inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
           >
-            Browse the full surface — 29 themes · 147 pages
+            Browse the full surface — 26 themes · 111 pages
             <span aria-hidden="true">→</span>
           </Link>
         </div>

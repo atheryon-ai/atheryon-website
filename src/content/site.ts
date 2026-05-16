@@ -505,11 +505,11 @@ export const site = {
 
     themes: {
       title: 'Themes — Atheryon Labs',
-      description: '29 themes · 147 pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.',
+      description: '26 themes · 111 pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.',
       badge: 'Discovery',
       headline: 'Explore the labs surface',
-      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page that lives at labs.atheryon.ai, rendered here as a static map. Click any tile to open the live theme on the labs subdomain in a new tab. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops/dev tools, the MSX workshop deck) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
-      countsLine: '29 themes · 147 pages · 6 surfaces (1 ODS data store + 5 business units)',
+      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page that lives at labs.atheryon.ai, rendered here as a static map. Click any tile to open the live theme on the labs subdomain in a new tab. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops and dev tools) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
+      countsLine: '26 themes · 111 pages · 6 surfaces (1 ODS data store + 5 business units)',
       businessDividerLabel: 'Business Units',
     },
   },

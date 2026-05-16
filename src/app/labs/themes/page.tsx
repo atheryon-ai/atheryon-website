@@ -115,7 +115,7 @@ export default function ThemesPage() {
         <ThemeBlock
           tag="ODS"
           title="Operational Data Store"
-          blurb="Schemas, validators, market data, lifecycle engine, entity intelligence, ops/dev tools, and the MSX workshop deck."
+          blurb="Schemas, validators, market data, lifecycle engine, entity intelligence, ops and dev tools."
           themesList={ODS_THEMES}
         />
 
