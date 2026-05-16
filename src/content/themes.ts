@@ -101,7 +101,9 @@ export const ODS_THEMES: readonly Theme[] = [
     shortTitle: 'Schema Modelling',
     pages: 12,
     blurb:
-      '2,043 CDM types · 44 ISO 20022 messages · 14 FpML schemas. Editor, browser, graph explorer, comparer, samples, mappings library, Legend Studio.',
+      // Counts match the working-set in the labs-platform schema browser
+      // (CDM v7.0 = 1,019 types; ISO 20022 / FpML per the schema-explorer DB).
+      '1,019 CDM types · 42 ISO 20022 messages · 14 FpML schemas. Editor, browser, graph explorer, comparer, samples, mappings library, Legend Studio.',
     thumb: t('t-schema-model'),
     primaryRoute: '/explore/schema',
     routes: [

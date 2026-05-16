@@ -440,7 +440,7 @@ Insert after the `reality:` block:
       proof: {
         badge: 'Proof',
         title: 'See the data foundation in Labs.',
-        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas.',
+        body: 'The Schema Editor, ODS, and Validators in Atheryon Labs are the data layer in action — 1,019 CDM types, 42 ISO 20022 messages, 14 FpML schemas.',
         screenshot: '/reality/labs-screenshot-data.png',
         screenshotAlt: 'Atheryon Labs schema editor and ODS surfaces',
         cta: { label: 'Explore Labs →', href: '/labs' },

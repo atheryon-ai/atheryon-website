@@ -393,7 +393,10 @@ export const site = {
         title: 'A complete, CDM-native reference banking platform.',
         items: [
           'The full labs-platform monorepo as a licensable codebase — Trade Board, Operations, Risk Pricer, IRRBB, Schema Editor, CDM Intelligence, Reg Submissions, and more.',
-          'CDM-native data model — 2,043 CDM types, 44 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
+          // Counts sourced from labs-platform: CDM types per `src/components/ods/DataModelsFoundation.tsx`
+          // (CDM v7.0 = 1,019 types), ISO 20022 + FpML per `docs/requirements/REQ-schema-explorer-dynamic-data.md`
+          // (working-set counts from the schema browser DB). Verifiable by clicking through to /explore/schema.
+          'CDM-native data model — 1,019 CDM types, 42 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
           '31 flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.',
           'Deployment notes: built on Azure-friendly stack (Next.js + Python services). Deployable into your estate.',
           'Source paired with the directorial track (see License the prompts for the matching prompt archive).',
