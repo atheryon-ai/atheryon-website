@@ -125,15 +125,23 @@ export default function SystemPage() {
           <ul className="divide-y divide-charcoal/15 border-t border-charcoal/15">
             {s.workflowExamples.items.map((item, i) => (
               <li
-                key={item}
-                className="grid grid-cols-[auto_1fr] gap-4 items-baseline py-4"
+                key={item.id}
+                className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline py-6"
               >
-                <span className="font-mono text-xs text-charcoal/50 tabular-nums">
+                <span className="font-mono text-xs text-charcoal/50 tabular-nums pt-1">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span className="font-mono text-base md:text-lg text-charcoal">
-                  {item}
-                </span>
+                <div>
+                  <Link
+                    href={item.href}
+                    className="font-mono text-base md:text-lg text-charcoal underline-offset-4 hover:underline block mb-2"
+                  >
+                    {item.name}
+                  </Link>
+                  <p className="text-sm md:text-base text-charcoal/85 leading-relaxed max-w-3xl">
+                    {item.body}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>

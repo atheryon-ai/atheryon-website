@@ -668,10 +668,34 @@ export const v2 = {
           label: '§04 / Workflow Examples',
           title: 'Workflow examples',
           items: [
-            'trade lifecycle automation',
-            'risk reporting generation',
-            'portfolio analytics pipeline',
-            'financial data ingestion workflow',
+            {
+              id: 'trade-lifecycle-automation',
+              name: 'Trade lifecycle automation',
+              body:
+                'Match firm-vs-counterparty confirmations on economic terms; surface exceptions with field-level diffs. Electronic confirmation via MarkitWire and DTCC CTM; affirmation T+0, confirmation T+1/T+2. Aging analysis with SLA breach alerts.',
+              href: '/workflows#trade-lifecycle-automation',
+            },
+            {
+              id: 'risk-reporting-generation',
+              name: 'Risk reporting generation',
+              body:
+                'Score each trade against per-regime field-completeness rules (EMIR Refit, MiFID II, ASIC, CFTC). Generate the report payload in the regime’s prescribed format. Scheduled daily/T+1 runs into the submission queue with one-click trade-repository submission.',
+              href: '/workflows#risk-reporting-generation',
+            },
+            {
+              id: 'portfolio-analytics-pipeline',
+              name: 'Portfolio analytics pipeline',
+              body:
+                'Aggregate live positions; attribute P&L; detect anomalies in trade quality and counterparty data. KPI tiles, trend charts (7d / 30d / 90d), and anomaly feed with severity and recommended action. Drill-down into anomaly detection, data quality, and pattern mining.',
+              href: '/workflows#portfolio-analytics-pipeline',
+            },
+            {
+              id: 'financial-data-ingestion-and-structuring',
+              name: 'Financial data ingestion workflow',
+              body:
+                'Map source fields (S&P Global, internal ledgers, counterparty feeds) to ISDA CDM types. Validate against CDM, ISO 20022, and FpML schemas. Per-counterparty data-quality scoring with longitudinal trend; field-level lineage from origin to operational data store.',
+              href: '/workflows#financial-data-ingestion-and-structuring',
+            },
           ],
         },
         deploymentModel: {
