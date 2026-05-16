@@ -633,17 +633,17 @@ export const v2 = {
             {
               id: 'data-platform-layer',
               name: 'Data Platform Layer',
-              detail: '',
+              detail: 'Bespoke capital-markets data model · industry-anchored · field-level lineage',
             },
             {
               id: 'ai-agent-orchestration-layer',
               name: 'AI Agent Orchestration Layer',
-              detail: '',
+              detail: 'Multi-agent orchestrator · CDM-typed payloads · directorial archive',
             },
             {
               id: 'capital-markets-systems-layer',
               name: 'Capital Markets Systems Layer',
-              detail: '',
+              detail: 'trade lifecycle · regulatory reporting · risk · analytics',
             },
             {
               id: 'operational-outputs',
@@ -656,13 +656,13 @@ export const v2 = {
           label: '§02 / Data Flow Layer',
           title: 'Data Flow Layer',
           body:
-            'CDM-native by design. The Schema Service loads 1,019 ISDA CDM types, 42 ISO 20022 message types, and 14 FpML schemas — all parseable, queryable, and validatable at runtime. Source feeds from S&P Global, internal ledgers, and counterparty channels are mapped to CDM payloads on ingest, with field-level lineage tracked from origin through every transformation. The Schema Editor (extend / wrap patterns) lets domain experts model real bank-specific extensions on top of the canonical schemas without forking the spec.',
+            'A bespoke capital-markets data model, industry-anchored (ISDA, ISO 20022, FpML conventions) and shaped by 20+ years of front-to-back banking experience. 1,019 type definitions, 42 ISO 20022 message types, and 14 FpML schemas — all parseable, queryable, and validatable at runtime. Source feeds from S&P Global, internal ledgers, and counterparty channels are mapped to typed payloads on ingest, with field-level lineage tracked from origin through every transformation. The Schema Editor (extend / wrap patterns) lets domain experts model real bank-specific extensions on top of the canonical core without forking.',
         },
         aiAgentLayer: {
           label: '§03 / AI Agent Layer',
           title: 'AI Agent Layer',
           body:
-            'Multi-agent routing on top of Azure OpenAI. Function-specialised agents (trading, post-trade, risk, compliance, analytics) consume CDM-typed payloads and reason against the loaded schemas. Each agent generates candidate implementations; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
+            'A multi-agent orchestrator routes work to function-specialised agents (trading, post-trade, risk, compliance, analytics). Azure OpenAI is the inference runtime; the orchestrator owns routing, payload typing, retry, and audit. Each agent generates candidate implementations against the loaded schemas; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
         },
         workflowExamples: {
           label: '§04 / Workflow Examples',
@@ -679,7 +679,7 @@ export const v2 = {
               id: 'risk-reporting-generation',
               name: 'Risk reporting generation',
               body:
-                'Score each trade against per-regime field-completeness rules (EMIR Refit, MiFID II, ASIC, CFTC). Generate the report payload in the regime’s prescribed format. Scheduled daily/T+1 runs into the submission queue with one-click trade-repository submission.',
+                'Score each trade against per-regime field-completeness rules (EMIR Refit, MiFID II, ASIC, CFTC 43/45, SFTR, Dodd-Frank — six regulatory regimes). Generate the report payload in the regime’s prescribed format. Scheduled daily/T+1 runs into the submission queue with one-click trade-repository submission.',
               href: '/workflows#risk-reporting-generation',
             },
             {
@@ -711,7 +711,7 @@ export const v2 = {
           directive:
             'Reference system described as a working architecture (not screenshots or UI gallery).',
           body:
-            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable — a working architecture, not a screenshot gallery.',
+            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable — a working architecture, not a screenshot gallery. A detailed reference-architecture briefing — covering core services, agent clusters, deployment topology, and operational evidence — is available under MNDA.',
         },
       },
     },
