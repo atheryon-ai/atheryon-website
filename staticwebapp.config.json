@@ -19,7 +19,7 @@
     { "route": "/labs/prompts",                "redirect": "/offers/prompts", "statusCode": 301 },
     { "route": "/labs/advisory",               "redirect": "/offers/consult", "statusCode": 301 },
     { "route": "/programs/mib-insight",        "redirect": "/offers/prompts", "statusCode": 301 },
-    { "route": "/programs/mib-insight/thanks", "redirect": "/offers/prompts", "statusCode": 301 },
+    { "route": "/programs/mib-insight/thanks", "redirect": "/offers/prompts/thanks", "statusCode": 301 },
 
     { "route": "/system",      "rewrite": "/system.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
@@ -30,7 +30,8 @@
 
     { "route": "/offers",         "rewrite": "/offers.html" },
     { "route": "/offers/code",    "rewrite": "/offers/code.html" },
-    { "route": "/offers/prompts", "rewrite": "/offers/prompts.html" },
+    { "route": "/offers/prompts",        "rewrite": "/offers/prompts.html" },
+    { "route": "/offers/prompts/thanks", "rewrite": "/offers/prompts/thanks.html" },
     { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
 
     { "route": "/labs",        "rewrite": "/labs.html" },
