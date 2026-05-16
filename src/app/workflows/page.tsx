@@ -71,7 +71,55 @@ export default function WorkflowsPage() {
             </h2>
           </header>
 
-          <ol className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-3 lg:gap-2 items-stretch mb-6">
+          {/* Desktop (md+): inline SVG pipeline */}
+          <div className="hidden md:block mb-6">
+            <svg
+              role="img"
+              aria-labelledby="pipeline-title"
+              viewBox="0 0 760 140"
+              className="w-full h-auto block"
+              style={{ fontFamily: "'Inter Tight', system-ui, sans-serif" }}
+            >
+              <title id="pipeline-title">
+                Atheryon pipeline schema — Input then AI agents then Processing then Output
+              </title>
+              <defs>
+                <marker id="pipeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#60a5fa" />
+                </marker>
+                <linearGradient id="pipeBoxGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="rgba(96,165,250,0.10)" />
+                  <stop offset="100%" stopColor="rgba(96,165,250,0.02)" />
+                </linearGradient>
+              </defs>
+
+              {s.schema.stages.map((stage, i) => {
+                const x = 10 + i * 185
+                return (
+                  <g key={stage}>
+                    <rect x={x} y={30} width={160} height={80} rx={6} fill="url(#pipeBoxGrad)" stroke="#3b82f6" strokeWidth={1.4} />
+                    <text x={x + 80} y={75} textAnchor="middle" fill="#ffffff" fontSize={13} fontWeight={600} letterSpacing={2}>
+                      {stage.toUpperCase()}
+                    </text>
+                    {i < s.schema.stages.length - 1 && (
+                      <line
+                        x1={x + 162}
+                        y1={70}
+                        x2={x + 183}
+                        y2={70}
+                        stroke="#60a5fa"
+                        strokeWidth={1.4}
+                        markerEnd="url(#pipeArrow)"
+                      />
+                    )}
+                  </g>
+                )
+              })}
+            </svg>
+          </div>
+
+          {/* Mobile fallback (< md): vertical OL */}
+          <ol className="md:hidden grid grid-cols-1 gap-3 items-stretch mb-6">
             {s.schema.stages.map((stage, i) => (
               <Fragment key={stage}>
                 <li className="border border-charcoal/30 bg-white p-4 flex items-center justify-center">
@@ -84,8 +132,7 @@ export default function WorkflowsPage() {
                     aria-hidden="true"
                     className="flex items-center justify-center text-charcoal/40 font-mono text-xl"
                   >
-                    <span className="lg:hidden">↓</span>
-                    <span className="hidden lg:inline">→</span>
+                    ↓
                   </li>
                 )}
               </Fragment>
