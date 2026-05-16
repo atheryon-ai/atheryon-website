@@ -10,6 +10,7 @@
     { "route": "/m-and-a-execution",      "redirect": "/engagements", "statusCode": 301 },
     { "route": "/capability-enablement",  "redirect": "/engagements", "statusCode": 301 },
     { "route": "/how-we-work",            "redirect": "/approach",    "statusCode": 301 },
+    { "route": "/approach",               "redirect": "/system",      "statusCode": 301 },
     { "route": "/what-we-deliver",        "redirect": "/engagements", "statusCode": 301 },
     { "route": "/ai-ready-data",          "redirect": "/system",      "statusCode": 301 },
     { "route": "/intelligence",           "redirect": "/workflows",   "statusCode": 301 },
@@ -23,7 +24,6 @@
     { "route": "/engagements",                 "redirect": "/offers",         "statusCode": 301 },
 
     { "route": "/system",      "rewrite": "/system.html" },
-    { "route": "/approach",    "rewrite": "/approach.html" },
     { "route": "/workflows",   "rewrite": "/workflows.html" },
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },

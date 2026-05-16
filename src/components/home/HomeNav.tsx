@@ -5,7 +5,6 @@ import { BrandLockup } from './BrandLockup'
 
 const links = [
   { label: 'SYSTEM', href: '/system' },
-  { label: 'APPROACH', href: '/approach' },
   { label: 'WORKFLOWS', href: '/workflows' },
   { label: 'ABOUT', href: '/about' },
   { label: 'OFFERS', href: '/offers' },
