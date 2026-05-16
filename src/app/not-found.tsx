@@ -9,13 +9,13 @@ export const metadata: Metadata = {
 }
 
 const NAV = [
+  { label: 'Home', tag: 'Atheryon home', href: '/' },
   { label: 'System', tag: 'Reference architecture', href: '/system' },
-  { label: 'Approach', tag: 'Build method', href: '/approach' },
-  { label: 'Engagements', tag: 'Engagement model', href: '/engagements' },
   { label: 'Workflows', tag: 'Capital markets AI workflows', href: '/workflows' },
+  { label: 'Offers', tag: 'Engagement model', href: '/offers' },
   { label: 'About', tag: 'Banking lineage', href: '/about' },
-  { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
   { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
+  { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
 ] as const
 
 export default function NotFound() {
