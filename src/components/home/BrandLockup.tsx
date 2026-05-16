@@ -31,9 +31,11 @@ export function BrandLockup({ markSize = 52 }: Props) {
             whiteSpace: 'nowrap',
           }}
         >
-          <span style={{ color: 'var(--homev3-orange-bright)' }}>DATA.</span>{' '}
-          <span style={{ color: 'var(--homev3-blue-bright)' }}>INTELLIGENCE.</span>{' '}
-          <span style={{ color: '#ffffff' }}>TRANSFORMATION.</span>
+          <span style={{ color: 'var(--homev3-orange-bright)' }}>CAPITAL MARKETS.</span>
+          <span style={{ color: 'rgba(255,255,255,0.35)', padding: '0 6px' }}>|</span>
+          <span style={{ color: 'var(--homev3-blue-bright)' }}>M&amp;A.</span>
+          <span style={{ color: 'rgba(255,255,255,0.35)', padding: '0 6px' }}>|</span>
+          <span style={{ color: '#ffffff' }}>MORTGAGES.</span>
         </span>
       </span>
     </span>
