@@ -560,7 +560,6 @@ export const v2 = {
           badge: 'Engagement Model',
           // Verbatim from user spec.
           title: 'Advisory · Enablement · Delivery · Licensed System.',
-          // Tiers rendered from canonical v2.engagement via <EngagementModel />.
           fullLink: { label: 'See full engagement model', href: '/engagements' },
         },
         ecosystemStack: {
