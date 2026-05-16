@@ -15,6 +15,12 @@
     { "route": "/intelligence",           "redirect": "/workflows",   "statusCode": 301 },
     { "route": "/reference-architectures","redirect": "/system",      "statusCode": 301 },
 
+    { "route": "/labs/code",                   "redirect": "/offers/code",    "statusCode": 301 },
+    { "route": "/labs/prompts",                "redirect": "/offers/prompts", "statusCode": 301 },
+    { "route": "/labs/advisory",               "redirect": "/offers/consult", "statusCode": 301 },
+    { "route": "/programs/mib-insight",        "redirect": "/offers/prompts", "statusCode": 301 },
+    { "route": "/programs/mib-insight/thanks", "redirect": "/offers/prompts", "statusCode": 301 },
+
     { "route": "/system",      "rewrite": "/system.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
     { "route": "/engagements", "rewrite": "/engagements.html" },
@@ -22,10 +28,13 @@
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },
 
-    { "route": "/labs",                          "rewrite": "/labs.html" },
-    { "route": "/programs",                      "rewrite": "/programs.html" },
-    { "route": "/programs/mib-insight",          "rewrite": "/programs/mib-insight.html" },
-    { "route": "/programs/mib-insight/thanks",   "rewrite": "/programs/mib-insight/thanks.html" },
+    { "route": "/offers",         "rewrite": "/offers.html" },
+    { "route": "/offers/code",    "rewrite": "/offers/code.html" },
+    { "route": "/offers/prompts", "rewrite": "/offers/prompts.html" },
+    { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
+
+    { "route": "/labs",        "rewrite": "/labs.html" },
+    { "route": "/programs",    "rewrite": "/programs.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
     { "route": "/terms",                         "rewrite": "/terms.html" }
