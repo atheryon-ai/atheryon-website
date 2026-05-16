@@ -655,12 +655,14 @@ export const v2 = {
         dataFlowLayer: {
           label: '§02 / Data Flow Layer',
           title: 'Data Flow Layer',
-          body: '{{PENDING_SYSTEM_DATAFLOW_BODY}}',
+          body:
+            'CDM-native by design. The Schema Service loads 1,019 ISDA CDM types, 42 ISO 20022 message types, and 14 FpML schemas — all parseable, queryable, and validatable at runtime. Source feeds from S&P Global, internal ledgers, and counterparty channels are mapped to CDM payloads on ingest, with field-level lineage tracked from origin through every transformation. The Schema Editor (extend / wrap patterns) lets domain experts model real bank-specific extensions on top of the canonical schemas without forking the spec.',
         },
         aiAgentLayer: {
           label: '§03 / AI Agent Layer',
           title: 'AI Agent Layer',
-          body: '{{PENDING_SYSTEM_AIAGENT_BODY}}',
+          body:
+            'Multi-agent routing on top of Azure OpenAI. Function-specialised agents (trading, post-trade, risk, compliance, analytics) consume CDM-typed payloads and reason against the loaded schemas. Each agent generates candidate implementations; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
         },
         workflowExamples: {
           label: '§04 / Workflow Examples',
@@ -675,7 +677,8 @@ export const v2 = {
         deploymentModel: {
           label: '§05 / Deployment Model',
           title: 'Deployment model',
-          body: '{{PENDING_SYSTEM_DEPLOYMENT_BODY}}',
+          body:
+            'Azure-native. Azure OpenAI as the agent runtime, Postgres for the operational data store, Container Apps for the service mesh, Microsoft Entra ID for identity. APRA CPS 234-aligned operational-controls baseline. Marketplace-bound reference implementation: deployable into your Azure tenant, licensed as a reference platform, or operated under managed-service terms. Fully inspectable, extendable, and externally testable today — no demoware.',
         },
         proofArtifacts: {
           label: '§06 / Proof Artifacts',
@@ -683,7 +686,8 @@ export const v2 = {
           // Directive transcribed verbatim; body awaits user prose.
           directive:
             'Reference system described as a working architecture (not screenshots or UI gallery).',
-          body: '{{PENDING_SYSTEM_PROOF_ARTIFACTS_BODY}}',
+          body:
+            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable — a working architecture, not a screenshot gallery.',
         },
       },
     },
@@ -726,46 +730,66 @@ export const v2 = {
             id: 'trade-lifecycle-automation',
             label: '§01',
             name: 'Trade lifecycle automation',
-            input: '{{PENDING_WORKFLOW_TRADE_INPUT}}',
-            agents: '{{PENDING_WORKFLOW_TRADE_AGENTS}}',
-            processing: '{{PENDING_WORKFLOW_TRADE_PROCESSING}}',
-            output: '{{PENDING_WORKFLOW_TRADE_OUTPUT}}',
+            input:
+              'Trade execution events, counterparty confirmations, lifecycle messages (FpML, MarkitWire, DTCC CTM).',
+            agents:
+              'Match firm-vs-counterparty confirmations on economic terms; triage exceptions; surface aging breaches.',
+            processing:
+              'Affirmation (T+0) → confirmation (T+1/T+2) → exception queue → resolution.',
+            output:
+              'Confirmed trade book with audit chain; aged exception list with field-level diffs.',
           },
           {
             id: 'risk-reporting-generation',
             label: '§02',
             name: 'Risk reporting generation',
-            input: '{{PENDING_WORKFLOW_RISK_INPUT}}',
-            agents: '{{PENDING_WORKFLOW_RISK_AGENTS}}',
-            processing: '{{PENDING_WORKFLOW_RISK_PROCESSING}}',
-            output: '{{PENDING_WORKFLOW_RISK_OUTPUT}}',
+            input:
+              'Trade events under EMIR Refit, MiFID II, ASIC, and CFTC reporting regimes.',
+            agents:
+              'Score each trade against per-regime field-completeness rules; generate the report payload in the regime’s prescribed format.',
+            processing:
+              'Per-regime ruleset → field validation → numeric compliance score → report generation → submission queue.',
+            output:
+              'Submission-ready reports + per-trade compliance scores + remediation list.',
           },
           {
             id: 'portfolio-analytics-pipeline',
             label: '§03',
             name: 'Portfolio analytics pipeline',
-            input: '{{PENDING_WORKFLOW_PORTFOLIO_INPUT}}',
-            agents: '{{PENDING_WORKFLOW_PORTFOLIO_AGENTS}}',
-            processing: '{{PENDING_WORKFLOW_PORTFOLIO_PROCESSING}}',
-            output: '{{PENDING_WORKFLOW_PORTFOLIO_OUTPUT}}',
+            input:
+              'Live trade positions, market data, counterparty feeds.',
+            agents:
+              'Aggregate exposures, attribute P&L, detect anomalies in trade quality and counterparty data.',
+            processing:
+              'Position roll-up → scenario application → anomaly detection → KPI tile generation.',
+            output:
+              'Real-time dashboards with drill-down; trend charts; anomaly feed; aggregate compliance posture.',
           },
           {
             id: 'financial-data-ingestion-and-structuring',
             label: '§04',
             name: 'Financial data ingestion and structuring',
-            input: '{{PENDING_WORKFLOW_DATA_INPUT}}',
-            agents: '{{PENDING_WORKFLOW_DATA_AGENTS}}',
-            processing: '{{PENDING_WORKFLOW_DATA_PROCESSING}}',
-            output: '{{PENDING_WORKFLOW_DATA_OUTPUT}}',
+            input:
+              'Raw market data, internal ledger extracts, counterparty feeds, unstructured documents.',
+            agents:
+              'Map source fields to CDM types; validate against ISDA CDM, ISO 20022, and FpML schemas; flag schema drift.',
+            processing:
+              'Source field → CDM-typed payload → validator → operational data store.',
+            output:
+              'CDM-typed trade dataset with lineage; validation report; field-level data quality scoring.',
           },
           {
             id: 'research-summarisation-workflow',
             label: '§05',
             name: 'Research summarisation workflow',
-            input: '{{PENDING_WORKFLOW_RESEARCH_INPUT}}',
-            agents: '{{PENDING_WORKFLOW_RESEARCH_AGENTS}}',
-            processing: '{{PENDING_WORKFLOW_RESEARCH_PROCESSING}}',
-            output: '{{PENDING_WORKFLOW_RESEARCH_OUTPUT}}',
+            input:
+              'Trade dataset, analytics outputs, anomaly events, weekly performance data.',
+            agents:
+              'Generate natural-language summaries; surface predictive insights (settlement-failure risk, trade quality classification); explain model decisions.',
+            processing:
+              'Statistical roll-up → ML scoring → NL synthesis → explainability artifacts.',
+            output:
+              'Plain-English weekly summary + per-prediction explanations + risk-prioritised action list.',
           },
         ],
       },
