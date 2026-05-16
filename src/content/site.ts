@@ -552,7 +552,6 @@ export const site = {
       ],
       resources: [
         { label: 'Labs', href: '/labs' },
-        { label: 'Programs', href: '/programs' },
       ],
       company: [
         { label: 'About', href: '/about' },
