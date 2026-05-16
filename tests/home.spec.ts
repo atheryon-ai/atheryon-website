@@ -18,10 +18,10 @@ test('homepage renders the dark navy AI-platform hero', async ({ page }) => {
   await expect(page.getByText('Data Platforms', { exact: false }).first()).toBeVisible()
   await expect(page.getByText('AI Agent Systems', { exact: false }).first()).toBeVisible()
 
-  // Engagement model
-  await expect(page.getByText('Engagement Model', { exact: false })).toBeVisible()
-  await expect(page.getByText('Advisory', { exact: true }).first()).toBeVisible()
-  await expect(page.getByText('Licensed System', { exact: true }).first()).toBeVisible()
+  // 3-offer strip
+  await expect(page.getByText('Buy the code', { exact: false }).first()).toBeVisible()
+  await expect(page.getByText('License prompts', { exact: false }).first()).toBeVisible()
+  await expect(page.getByText('Consult', { exact: true }).first()).toBeVisible()
 
   // CTA card
   await expect(
