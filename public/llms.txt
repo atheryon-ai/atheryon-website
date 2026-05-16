@@ -10,12 +10,13 @@ Atheryon is a capital markets AI systems firm — not a marketing site. This doc
 - Data Platforms: https://atheryon.com.au/system
 - AI Agent Systems: https://atheryon.com.au/workflows
 
-## Engagement Model
+## Commercial Offers
 
-- Advisory: https://atheryon.com.au/engagements#advisory
-- Enablement: https://atheryon.com.au/engagements#enablement
-- Delivery: https://atheryon.com.au/engagements#delivery
-- Licensed System: https://atheryon.com.au/engagements#licensed-system
+- Buy the Code (platform licence): https://atheryon.com.au/offers/code
+- License the Prompts (directorial prompt archive): https://atheryon.com.au/offers/prompts
+- Consult (senior-led advisory): https://atheryon.com.au/offers/consult
+
+The Prompts offer includes the productized Front Office bundle — a packaged directorial prompt set for capital markets front-office workflows, priced at $14,000 AUD.
 
 ## Ecosystem
 
@@ -27,9 +28,13 @@ Atheryon is a capital markets AI systems firm — not a marketing site. This doc
 
 - [Home](https://atheryon.com.au/): identity statement and system map.
 - [System](https://atheryon.com.au/system): reference architecture (core proof).
-- [Approach](https://atheryon.com.au/approach): how Atheryon builds systems.
-- [Engagements](https://atheryon.com.au/engagements): Advisory · Enablement · Delivery · Licensed System.
 - [Workflows](https://atheryon.com.au/workflows): AI capital markets workflows.
+- [Offers](https://atheryon.com.au/offers): commercial entry — three ways to engage.
+- [Buy the Code](https://atheryon.com.au/offers/code): platform licence.
+- [License the Prompts](https://atheryon.com.au/offers/prompts): directorial prompt archive; includes Front Office bundle.
+- [Consult](https://atheryon.com.au/offers/consult): senior-led advisory engagement.
+- [Labs](https://atheryon.com.au/labs): research themes and tooling.
+- [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
 - [About](https://atheryon.com.au/about): banking lineage + capability foundation.
 - [Contact](https://atheryon.com.au/contact): book system assessment.
 
