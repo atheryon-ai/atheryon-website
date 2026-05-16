@@ -1,49 +1,4 @@
-import { v2 } from '@/content/site'
-
-// Engagement names come from v2.engagement (canonical, per CLAUDE.md).
-// Short homepage-tuned descriptions and icons stay here — they're tighter
-// than v2.engagement.body for card display.
-type EngagementId = (typeof v2.engagement)[number]['id']
-
-const engagementMeta: Record<EngagementId, { desc: string; icon: React.ReactNode }> = {
-  advisory: {
-    desc: 'System strategy and architecture design',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="12" cy="12" r="1" fill="currentColor" />
-      </svg>
-    ),
-  },
-  enablement: {
-    desc: 'Reference architectures and AI workflows',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <polygon points="12,3 21,8 12,13 3,8" />
-        <polyline points="3,12 12,17 21,12" />
-        <polyline points="3,16 12,21 21,16" />
-      </svg>
-    ),
-  },
-  delivery: {
-    desc: 'End-to-end system delivery and deployment',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      </svg>
-    ),
-  },
-  'licensed-system': {
-    desc: 'Deployable reference system architecture',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-        <rect x="5" y="3" width="14" height="18" rx="2" />
-        <path d="M9 7h6M9 11h6M9 15h4" />
-      </svg>
-    ),
-  },
-}
+import Link from 'next/link'
 
 function StripCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -170,54 +125,33 @@ export function HomeStrip() {
             </div>
           </StripCell>
 
-          <StripCell label="Engagement Model">
-            <div className="home-strip-engagement-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
-              {v2.engagement.map((e) => {
-                const meta = engagementMeta[e.id]
-                return (
-                <div
-                  key={e.id}
+          <StripCell label="Offers">
+            <div className="home-strip-engagement-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+              {[
+                { id: 'code',    title: 'Buy the code',    desc: 'License the labs platform code',  href: '/offers/code' },
+                { id: 'prompts', title: 'License prompts', desc: 'Directorial archive + bundles',   href: '/offers/prompts' },
+                { id: 'consult', title: 'Consult',         desc: 'Senior-led advisory engagement',   href: '/offers/consult' },
+              ].map((o) => (
+                <Link
+                  key={o.id}
+                  href={o.href}
                   style={{
+                    background: 'var(--homev3-surface)',
+                    border: '1px solid var(--homev3-border)',
+                    borderRadius: 6,
+                    padding: '14px 16px',
+                    textDecoration: 'none',
+                    color: 'inherit',
                     display: 'flex',
                     flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    gap: 8,
+                    gap: 4,
+                    minHeight: 84,
                   }}
                 >
-                  <div
-                    style={{
-                      width: 44,
-                      height: 44,
-                      background: 'var(--homev3-surface-2)',
-                      border: '1px solid var(--homev3-border)',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: 4,
-                      color: 'var(--homev3-blue-bright)',
-                    }}
-                  >
-                    <span style={{ width: 20, height: 20, display: 'block' }}>{meta.icon}</span>
-                  </div>
-                  <span
-                    style={{
-                      fontSize: 12,
-                      fontWeight: 700,
-                      letterSpacing: '0.14em',
-                      textTransform: 'uppercase',
-                      color: '#ffffff',
-                    }}
-                  >
-                    {e.name}
-                  </span>
-                  <span style={{ fontSize: 11, color: 'var(--homev3-text-faint)', lineHeight: 1.45 }}>
-                    {meta.desc}
-                  </span>
-                </div>
-                )
-              })}
+                  <span style={{ fontSize: 13, fontWeight: 700, color: '#ffffff' }}>{o.title}</span>
+                  <span style={{ fontSize: 11, color: 'var(--homev3-text-soft)' }}>{o.desc}</span>
+                </Link>
+              ))}
             </div>
           </StripCell>
         </div>
