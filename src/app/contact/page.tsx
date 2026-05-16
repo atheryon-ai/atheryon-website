@@ -15,6 +15,7 @@ const contact = site.pages.contact
 const TOPIC_LABELS: Record<string, string> = {
   'labs-code': 'Labs platform code licensing',
   'labs-prompts': 'Labs prompts archive licensing',
+  'front-office-bundle': 'I want the Front Office bundle ($14,000 AUD).',
   'labs-advisory': 'Labs advisory engagement',
   'ai-direction': 'AI Direction',
   'system-assessment': 'System assessment',
