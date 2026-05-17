@@ -4,9 +4,8 @@ export const site = {
 
   nav: [
     { label: 'System', href: '/system' },
-    { label: 'Approach', href: '/approach' },
-    { label: 'Engagements', href: '/engagements' },
-    { label: 'Workflows', href: '/workflows' },
+    { label: 'Themes', href: '/themes' },
+    { label: 'Offers', href: '/offers' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -410,7 +409,10 @@ export const site = {
     links: {
       pillars: [
         { label: 'System', href: '/system' },
-        { label: 'Workflows', href: '/workflows' },
+        { label: 'Themes', href: '/themes' },
+      ],
+      whatsNext: [
+        { label: 'Roadmap', href: '/roadmap' },
       ],
       resources: [
         { label: 'Labs', href: '/labs' },
