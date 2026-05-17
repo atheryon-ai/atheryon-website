@@ -70,3 +70,33 @@ test('/ma/approach renders 3 workflow examples (pre-sign + 2 delivery)', async (
   await expect(page.getByText('Separation/Integration Planning', { exact: false }).first()).toBeVisible()
   await expect(page.getByText('TSA Tracking & Reduction', { exact: false }).first()).toBeVisible()
 })
+
+test('/ma/offers route 200 + sets data-mode="ma"', async ({ page }) => {
+  const response = await page.goto('/ma/offers')
+  expect(response?.status()).toBe(200)
+  await expect.poll(async () =>
+    page.evaluate(() => document.documentElement.dataset.mode),
+  ).toBe('ma')
+})
+
+test('/ma/offers renders single Embedded Execution Specialists offer card', async ({ page }) => {
+  await page.goto('/ma/offers')
+  await expect(page.getByRole('heading', { name: 'Embedded Execution Specialists', exact: true })).toBeVisible()
+  await expect(page.getByText('Anna Contos leads the practice', { exact: false })).toBeVisible()
+})
+
+test('/ma/offers explains Code and Prompts are CM-only', async ({ page }) => {
+  await page.goto('/ma/offers')
+  await expect(page.getByText('Not offered for M&A', { exact: false })).toBeVisible()
+  await expect(page.getByText('We do not productise M&A separately', { exact: false })).toBeVisible()
+  await expect(page.getByRole('link', { name: /See capital-markets offers/ })).toBeVisible()
+})
+
+test('Clicking M&A pill in toggle navigates to /ma (no longer 301 to /)', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('link', { name: 'M&A.' }).click()
+  await page.waitForURL('**/ma')
+  await expect.poll(async () =>
+    page.evaluate(() => document.documentElement.dataset.mode),
+  ).toBe('ma')
+})
