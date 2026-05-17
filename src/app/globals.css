@@ -27,6 +27,29 @@
   --homev3-orange-bright: #fbbf24;
   --homev3-text-soft: rgba(255, 255, 255, 0.78);
   --homev3-text-faint: rgba(255, 255, 255, 0.55);
+  /* Semantic active-practice accent. Default = CM (blue), matching the
+     current rendered colour on every CM page. Overridden by [data-mode]
+     selectors further down for non-CM modes. */
+  --mode-accent: var(--homev3-blue);
+  --mode-accent-bright: var(--homev3-blue-bright);
+}
+
+:root[data-mode="cm"] {
+  --mode-accent: var(--homev3-blue);
+  --mode-accent-bright: var(--homev3-blue-bright);
+}
+
+:root[data-mode="ma"] {
+  /* M&A reuses blue; the toggle's M&A label is already blue. Phase 3 may
+     re-tune. */
+  --mode-accent: var(--homev3-blue);
+  --mode-accent-bright: var(--homev3-blue-bright);
+}
+
+:root[data-mode="mortgages"] {
+  /* Mortgages = white accent per the addendum. */
+  --mode-accent: #ffffff;
+  --mode-accent-bright: #ffffff;
 }
 
 @keyframes hero-glitch {
