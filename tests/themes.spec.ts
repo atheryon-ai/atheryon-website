@@ -54,3 +54,9 @@ for (const row of ROADMAP_ROWS) {
     await expect(page.getByText('ROADMAP', { exact: false }).first()).toBeVisible()
   })
 }
+
+test('legacy /workflows redirects to /themes', async ({ page }) => {
+  test.skip(SKIP_LOCAL_REDIRECTS, 'requires SWA_BASE_URL — skipped in local next dev')
+  const response = await page.goto('/workflows')
+  expect(response?.url()).toContain('/themes')
+})
