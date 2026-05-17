@@ -35,9 +35,7 @@ export function HomeNav() {
           alignItems: 'center',
         }}
       >
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <BrandLockup markSize={52} />
-        </Link>
+        <BrandLockup markSize={52} />
 
         <div className="home-nav-links" style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
           {links.map((l) => (
