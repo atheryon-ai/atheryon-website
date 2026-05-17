@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Footer } from '@/components'
 import { HomeNav } from '@/components/home'
+import { ModeSetter } from '@/components/ModeSetter'
 import { site, v2 } from '@/content/site'
 import './globals.css'
 
@@ -40,7 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <HomeNav />
+          <ModeSetter />
+          <HomeNav />
         <main>{children}</main>
         <Footer />
       </body>
