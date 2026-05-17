@@ -860,6 +860,16 @@ export const v2 = {
           body: '{{PENDING_ABOUT_WHY_NOW_BODY}}',
         },
       },
+      // Not a section — a practice-entry callout rendered inside §01.
+      // Added 2026-05-17 to surface the M&A practice and Anna Contos from /about.
+      maCallout: {
+        label: 'M&A practice',
+        title: 'M&A Execution & Integration',
+        description:
+          'Post-deal execution and pre-sign execution review. Senior execution specialists, AI-velocity on dependency mapping and TSA tracking. The M&A practice is led by Anna Contos.',
+        linkLabel: 'See M&A practice',
+        linkHref: '/ma',
+      },
     },
     contact: {
       route: '/contact',
