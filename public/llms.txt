@@ -35,6 +35,7 @@ The Prompts offer includes the productized Front Office bundle — a packaged di
 - [Consult](https://atheryon.com.au/offers/consult): senior-led advisory engagement.
 - [Labs](https://atheryon.com.au/labs): research themes and tooling.
 - [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
+- [Mortgages](https://atheryon.com.au/mortgages): retail mortgage origination automation — practice stub (BUILDING).
 - [About](https://atheryon.com.au/about): banking lineage + capability foundation.
 - [Contact](https://atheryon.com.au/contact): book system assessment.
 

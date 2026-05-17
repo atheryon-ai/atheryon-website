@@ -11,6 +11,7 @@
   <url><loc>https://atheryon.com.au/offers/prompts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/offers/consult</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/labs/themes</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://atheryon.com.au/mortgages</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://atheryon.com.au/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://atheryon.com.au/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
