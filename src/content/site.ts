@@ -1130,7 +1130,49 @@ export const v2Ma = {
       },
     },
   },
-  // offers block added in Task 7
+  offers: {
+    route: '/ma/offers',
+    title: 'M&A Offers — Atheryon',
+    description:
+      'How to engage Atheryon’s M&A practice. One way: embedded execution specialists. Pre-sign through post-sign, led by Anna Contos.',
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / offers',
+        title: 'How to engage the M&A practice',
+        subtitle: 'One way to engage. Embedded consulting.',
+      },
+      offer: {
+        label: '§01 / The offer',
+        title: 'Embedded Execution Specialists',
+        body:
+          'Atheryon’s M&A practice is sold one way: embedded execution specialists alongside your in-house team — pre-sign if you bring us in early, then continuous through Day-1, Day-2, and TSA exit.\n\nSenior specialists set direction. AI agents do the volume work. Outputs surface where your team can use them. Azure-native infrastructure. APRA CPS 234-aligned operational-controls baseline. Auditable directorial archive.\n\nAnna Contos leads the practice. Typical engagement: 6–18 months from term sheet to clean TSA exit. Pre-sign sprints possible as a stand-alone wedge or a precursor to full delivery.',
+        outcomeListIntro:
+          'What we deliver:',
+        outcomes: [
+          'Pre-sign execution clarity — sign with the traps already in your register',
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
+        cta: {
+          label: 'Book an M&A execution review',
+          href: '/contact?topic=ma-execution',
+        },
+      },
+      codeAndPrompts: {
+        label: '§02 / Code and Prompts',
+        title: 'Not offered for M&A',
+        body:
+          'Atheryon’s capital-markets practice offers two productised paths alongside Consult: license the code (the deployable banking reference implementation) or license the prompts (the directorial archive — methodology IP transfer). See /offers for both.\n\nFor M&A, the value is the senior specialist plus AI velocity, both inside the same embedded engagement. We do not productise M&A separately. The practice is sold as consulting, not as code or methodology IP.',
+        cmOffersLink: {
+          label: 'See capital-markets offers →',
+          href: '/offers',
+        },
+      },
+    },
+  },
 } as const
 
 export type V2Ma = typeof v2Ma
