@@ -874,4 +874,77 @@ export const v2 = {
   },
 } as const
 
+// =============================================================================
+// v2Mortgages — Mortgages practice stub (2026-05-17)
+// =============================================================================
+// Mortgages = retail mortgage origination automation. NOT CDM-native — see
+// the practice-toggle plan addendum. The capability narrative is "same
+// AI-velocity, different vertical." Status: BUILDING (stub only).
+// =============================================================================
+
+export const v2Mortgages = {
+  home: {
+    route: '/mortgages',
+    title: 'Mortgages — Atheryon',
+    intent: 'Retail mortgage origination automation.',
+    description:
+      'The same AI-velocity that runs our CDM-native capital markets work also runs retail mortgage origination automation — same capability, different vertical.',
+    status: 'building' as const,
+    sections: {
+      hero: {
+        label: 'atheryon / mortgages / practice-overview',
+        title: 'Mortgages',
+        body: 'Retail mortgage origination automation.',
+      },
+      thesis: {
+        label: '§01 / Thesis',
+        title: 'Same AI-velocity, different vertical',
+        body:
+          'The same AI-velocity that runs our CDM-native capital markets work also runs retail mortgage origination automation. Senior capital-markets architects directing AI agents that do the build, delivering in weeks what traditionally takes 6–18 months. The capability transfers; the vertical changes. Capital markets uses ISDA CDM as the canonical data model; mortgages uses LIXI (AU) and MISMO (US/intl) — different schemas, same architectural pattern: a typed data plane, an agent orchestration layer, and deterministic pipelines from ingest to operational output.',
+      },
+      scope: {
+        label: '§02 / Scope',
+        title: 'Where the capability applies',
+        items: [
+          {
+            id: 'origination',
+            name: 'Origination',
+            body: 'Application intake, document classification, income/expense extraction, eligibility scoring, conditional-approval pipelines.',
+          },
+          {
+            id: 'servicing',
+            name: 'Servicing',
+            body: 'Lifecycle events, hardship workflows, arrears triage, variation processing, customer-facing decisioning.',
+          },
+          {
+            id: 'risk-reporting',
+            name: 'Risk & reporting',
+            body: 'Portfolio analytics, regulatory reporting (APRA ARS 220, RBA CLF/SCV), stress testing, climate-risk overlay.',
+          },
+        ],
+      },
+      status: {
+        label: '§03 / Status',
+        title: 'BUILDING',
+        body:
+          'Practice stub is live. Reference architecture, agent topology, and pricing in active development. First engagement window: 2026 H2.',
+      },
+      cta: {
+        label: 'Talk about a mortgages engagement',
+        href: '/contact?topic=mortgages',
+      },
+    },
+  },
+  roadmap: {
+    // Aggregated by /roadmap. Single item for the stub state.
+    id: 'mortgages-practice',
+    name: 'Mortgages practice',
+    status: 'building' as const,
+    blurb: 'Retail mortgage origination automation — full mode launches after Phase 2 stub.',
+    href: '/mortgages',
+  },
+} as const
+
+export type V2Mortgages = typeof v2Mortgages
+
 export type V2 = typeof v2
