@@ -1041,7 +1041,96 @@ export const v2Ma = {
       },
     },
   },
-  // approach + offers blocks added in Tasks 4 and 7
+  approach: {
+    route: '/ma/approach',
+    title: 'M&A Approach — Atheryon',
+    description:
+      'How Atheryon delivers M&A execution. Senior consulting practice, AI data specialist work with S&P Global and Microsoft Azure, three M&A workflows, embedded delivery, led by Anna Contos.',
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / approach',
+        title: 'M&A Approach',
+        subtitle: 'How we deliver. Senior specialists, AI velocity, embedded.',
+      },
+      approach: {
+        label: '§01 / Approach',
+        title: 'Consulting practice, not a platform',
+        body:
+          'M&A execution is consulting work. Senior specialists in the term-sheet review room before signing, then senior specialists in the delivery seat from Day-1 through TSA exit. AI agents are tools we use to compress the analytical volume work — not a platform you license. The value is the specialist who reads the deal, sets direction, and owns the outcome. Atheryon does not sell M&A software. We sell senior execution capacity, augmented with AI velocity.\n\nThree lifecycle stages: pre-sign (term-sheet review for execution traps), Day-1/Day-2 readiness, and TSA exit. We are in those rooms. The eighty percent of our practice is post-sign delivery; the wedge is the pre-sign conversation that prevents the worst traps from being signed in.',
+      },
+      dataSpecialist: {
+        label: '§02 / AI Data Specialist Work',
+        title: 'Partners: S&P Global, Microsoft Azure',
+        body:
+          'Data is the dependency layer in any M&A deal. Carve-out perimeters are defined in legal entities; the operating reality is defined in data flows. Atheryon brings AI data specialist capability to the deal-execution data work: separation lineage, migration sequencing, regulatory continuity mapping, control re-anchoring.\n\nWe work with S&P Global for market and reference data continuity across the separation boundary, and on Microsoft Azure as the runtime for the AI agent work that traces dependencies, projects migration windows, and flags meaning-loss risks before they reach the wave plan. The same partner stack that runs Atheryon’s capital-markets practice runs the M&A data work — shared infrastructure, shared directorial archive, M&A-specific agent topology.',
+      },
+      workflowExamples: {
+        label: '§03 / Workflow Examples',
+        title: 'Three M&A workflows — pre-sign + delivery',
+        intro:
+          'Each workflow follows our standard pipeline — Input → AI agents → Processing → Output — adapted for M&A execution data and decisions. One is pre-sign execution review; two cover the spine and exit of post-sign delivery.',
+        stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
+        items: [
+          {
+            id: 'pre-sign-execution-review',
+            label: '§3a',
+            name: 'Pre-Sign Execution Review',
+            input:
+              'Draft deal terms, target perimeter definitions, data flow inventories, existing control map.',
+            agents:
+              'Clause-to-execution-risk mapping; TSA scope projection; control-continuity scoring.',
+            processing:
+              'Traps register → mitigations register → risk-weighted recommendation.',
+            output:
+              'Pre-sign execution risk report + mitigations playbook. Delivered before ink.',
+          },
+          {
+            id: 'separation-integration-planning',
+            label: '§3b',
+            name: 'Separation/Integration Planning',
+            input:
+              'Signed deal terms, perimeter definitions, target operating model.',
+            agents:
+              'Dependency tracing; wave-window sequencing; Day-1 requirements derivation; data lineage mapping.',
+            processing:
+              'Dependency graph → wave plan → Day-1 readiness checklist → data migration sequence.',
+            output:
+              'Separation/integration plan with contractual wave commitments, Day-1 readiness pack, data migration plan with field-level lineage.',
+          },
+          {
+            id: 'tsa-tracking-reduction',
+            label: '§3c',
+            name: 'TSA Tracking & Reduction',
+            input:
+              'TSA scope, time-boxed obligations, exit criteria, ongoing delivery status.',
+            agents:
+              'TSA dependency analysis; exit-criteria projection; scope-creep detection; control assurance verification.',
+            processing:
+              'TSA register → reduction roadmap → exit scenarios → executive surface.',
+            output:
+              'TSA exit plan with milestone gates and scope-creep alarms; delivery dashboard with audit trail to closure.',
+          },
+        ],
+      },
+      embeddedDelivery: {
+        label: '§04 / Embedded Delivery',
+        title: 'Senior specialist + AI agents, embedded',
+        body:
+          'Atheryon deploys M&A as embedded execution specialists. Senior specialists alongside your in-house team — pre-sign if you bring us in early, then continuous through Day-1, Day-2, and TSA exit. Typical engagement: 6–18 months from term sheet to clean exit. AI agents run on Atheryon infrastructure; outputs surface in your team’s tools.\n\nAzure-native. Azure OpenAI as the agent runtime. APRA CPS 234-aligned operational-controls baseline. Auditable directorial archive — every agent decision is replayable.\n\nNot a licensed platform. Not a marketplace product. Embedded consulting with AI velocity, delivered by people you can call.',
+      },
+      seniorSpecialist: {
+        label: '§05 / Senior Specialist',
+        title: 'Led by Anna Contos',
+        body:
+          'Atheryon’s M&A practice is led by Anna Contos — 25+ years in financial-services execution across Australia, the UK, and the US, with the recent two decades focused on M&A separations, integrations, divestments, and large-scale transformation.\n\nMost recently Head of Separation and Integration Advisory at Westpac Group (2023–2025), executive-leading separation and integration programs across Westpac’s divestment and acquisition initiatives. Prior: Head of Divestment Execution at Commonwealth Bank for the Wealth division (2018–2020), running the portfolio of finance programs that delivered CBA’s Count Financial divestment and the CommInsure sale. Earlier: Take to Market Lead for the BT Panorama platform launches; business consulting and strategy roles at Deutsche Bank, Deutsche Pfandbriefbank, Credit Suisse, and Capco across investment banking, wealth, and retail.\n\nTrack record across the deal lifecycle: separation/integration strategy, planning, commercial structuring, business readiness, execution, and stabilisation. Carve-outs, demergers, end-to-end transition management — in highly regulated, politically sensitive environments.\n\nThe M&A practice is structured around her as senior specialist. AI agents do the volume work; Anna sets direction and owns the outcome.',
+      },
+      cta: {
+        label: 'Book an M&A execution review',
+        href: '/contact?topic=ma-execution',
+      },
+    },
+  },
+  // offers block added in Task 7
 } as const
 
 export type V2Ma = typeof v2Ma
