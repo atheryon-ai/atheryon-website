@@ -7,7 +7,7 @@ import { StatusBadge, type Status } from '@/components/StatusBadge'
 export const metadata: Metadata = {
   title: 'Roadmap — Atheryon',
   description:
-    'What Atheryon is building next. Mortgages practice, M&A prose, and four buyer themes in active design or roadmap status.',
+    'What Atheryon is building next. Mortgages practice and three buyer themes in active design or roadmap status.',
   openGraph: {
     title: 'Roadmap — Atheryon',
     description: 'What Atheryon is building next.',

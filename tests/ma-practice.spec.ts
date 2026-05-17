@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test'
 
-const SKIP_LOCAL_REDIRECTS = !process.env.SWA_BASE_URL
-
 test('/ma route 200 + sets data-mode="ma" on <html>', async ({ page }) => {
   const response = await page.goto('/ma')
   expect(response?.status()).toBe(200)
