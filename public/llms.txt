@@ -37,6 +37,9 @@ The Prompts offer includes the productized Front Office bundle — a packaged di
 - [Labs](https://atheryon.com.au/labs): research themes and tooling.
 - [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
 - [Mortgages](https://atheryon.com.au/mortgages): retail mortgage origination automation — practice stub (BUILDING).
+- [M&A](https://atheryon.com.au/ma): M&A execution practice — pre-sign advice + post-deal delivery. Led by Anna Contos.
+- [M&A Approach](https://atheryon.com.au/ma/approach): how Atheryon delivers M&A — senior consulting + AI agents on Azure with S&P Global data partner. Three workflows: Pre-Sign Review, Separation/Integration Planning, TSA Tracking & Reduction.
+- [M&A Offers](https://atheryon.com.au/ma/offers): one offer — Embedded Execution Specialists. Pre-sign through post-sign engagement. Not productised separately.
 - [About](https://atheryon.com.au/about): banking lineage + capability foundation.
 - [Contact](https://atheryon.com.au/contact): book system assessment.
 

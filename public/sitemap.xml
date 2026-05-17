@@ -20,6 +20,9 @@
   <url><loc>https://atheryon.com.au/themes/foundation-ods</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/roadmap</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/mortgages</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://atheryon.com.au/ma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atheryon.com.au/ma/approach</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/ma/offers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://atheryon.com.au/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
