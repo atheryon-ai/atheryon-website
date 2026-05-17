@@ -46,6 +46,7 @@
 
     { "route": "/labs",        "rewrite": "/labs.html" },
     { "route": "/ma",          "rewrite": "/ma.html" },
+    { "route": "/ma/approach",            "rewrite": "/ma/approach.html" },
     { "route": "/mortgages",   "rewrite": "/mortgages.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
