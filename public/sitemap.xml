@@ -5,12 +5,20 @@
   <url><loc>https://atheryon.com.au/offers</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://atheryon.com.au/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://atheryon.com.au/workflows</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/labs</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/offers/code</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/offers/prompts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/offers/consult</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/labs/themes</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://atheryon.com.au/themes</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://atheryon.com.au/themes/front-office-trading</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/middle-office-ops</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/compliance-surveillance</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/risk-analytics</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/treasury</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/entity-intelligence</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/themes/foundation-ods</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://atheryon.com.au/roadmap</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://atheryon.com.au/mortgages</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://atheryon.com.au/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://atheryon.com.au/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
