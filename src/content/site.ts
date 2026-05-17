@@ -947,6 +947,105 @@ export const v2Mortgages = {
   },
 } as const
 
+// =============================================================================
+// v2Ma — M&A practice (2026-05-17)
+// =============================================================================
+// M&A practice is post-deal execution + pre-sign execution review. NOT M&A
+// advisory (no deal sourcing/valuation/negotiation). Consulting practice, not
+// platform. Led by Anna Contos. Status: shipped (full prose pre-written).
+// =============================================================================
+
+export const v2Ma = {
+  home: {
+    route: '/ma',
+    title: 'M&A — Atheryon',
+    description:
+      'M&A success is determined before the deal is signed. Senior execution specialists pre-sign and post-sign. AI agents accelerating dependency mapping, control tracing, TSA tracking — Day-1 readiness in weeks, not quarters.',
+    status: 'shipped' as const,
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / execution',
+        title: 'M&A Execution',
+        subtitle: 'M&A success is determined before the deal is signed.',
+      },
+      thesis: {
+        label: '§01 / Thesis',
+        title: 'Talk to us before signing',
+        body:
+          'M&A success is determined before the deal is signed. The clauses you agree shape what is and isn’t executable on Day-1 — and most of the operational, data, and regulatory traps in an M&A deal are visible at the term-sheet stage to a specialist who has run separations and integrations through to completion. Most firms don’t have this voice in the pre-sign room. We are that voice.\n\nPre-sign execution advice is the leverage. Delivery execution is the substance — the eighty percent of our practice. Once the deal lands, we drive the separation/integration plan as senior specialists in the delivery seat: reading the perimeter, sequencing the waves, mapping the controls, tracking the TSAs to clean exit. AI agents accelerate the dependency mapping, control tracing, and TSA tracking that traditionally consume the most analyst hours. Senior specialists set direction; agents do the volume work.\n\nDay-1 readiness in weeks. Clean exit to target operating model. Regulatory continuity preserved. Value realised post-sign, not eroded.\n\nThis is execution-specialist work, not deal advisory. We don’t price the deal, find the partner, or negotiate the terms — bankers and lawyers own that. We tell you what’s executable. Then we deliver.',
+      },
+      triggers: {
+        label: '§02 / When clients call us',
+        title: 'Triggers for engagement',
+        items: [
+          {
+            id: 'pre-sign-negotiation',
+            name: 'Late-stage deal negotiation — the highest-leverage moment to engage us',
+            body:
+              'Draft terms are forming. The execution implications need a specialist read before signing. Most clients don’t engage us here; this is the single most valuable moment to.',
+          },
+          {
+            id: 'transaction-delivery',
+            name: 'High-stakes transaction delivery — the most common engagement',
+            body:
+              'Deal is signed; integration or separation is underway. Specialist execution leadership in the delivery seat. AI-velocity on dependency mapping, control tracing, TSA tracking.',
+          },
+          {
+            id: 'capability-gaps',
+            name: 'Execution capability gaps',
+            body:
+              'Internal team is competent but stretched. We embed senior specialists alongside, with agent acceleration on the analytical work.',
+          },
+          {
+            id: 'planning-deficits',
+            name: 'Pre-deal planning deficits',
+            body:
+              'Day-1 plan is thin; carve-out perimeter unclear; control continuity undefined. We rebuild it fast, then drive the delivery.',
+          },
+          {
+            id: 'data-migration-risk',
+            name: 'Data migration risk in M&A',
+            body:
+              'Data is the dependency layer. Mapping, lineage, separation strategy. See /ma/approach §02.',
+          },
+        ],
+      },
+      execution: {
+        label: '§03 / How we execute',
+        title: 'Six capabilities',
+        items: [
+          'Pre-sign execution review (the wedge)',
+          'Separation/integration plan tied to deal outcomes',
+          'Day-1 requirements and transition operating model',
+          'Critical data, reporting, and control dependencies mapped',
+          'Separation/integration waves executed with clear contracts',
+          'TSA scope reduced; clean exit to target state',
+        ],
+      },
+      outcomes: {
+        label: '§04 / What we deliver',
+        title: 'Outcomes',
+        items: [
+          'Pre-sign execution clarity — sign with the traps already in your register',
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
+      },
+      cta: {
+        label: 'Book an M&A execution review',
+        href: '/contact?topic=ma-execution',
+        supportingLine: 'Pre-sign or post-sign. Senior specialist on call.',
+      },
+    },
+  },
+  // approach + offers blocks added in Tasks 4 and 7
+} as const
+
+export type V2Ma = typeof v2Ma
+
 export type V2Mortgages = typeof v2Mortgages
 
 export type V2 = typeof v2
