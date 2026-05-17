@@ -4,10 +4,9 @@ import Link from 'next/link'
 import { BrandLockup } from './BrandLockup'
 
 const links = [
-  { label: 'SYSTEM', href: '/system' },
-  { label: 'WORKFLOWS', href: '/workflows' },
-  { label: 'ABOUT', href: '/about' },
+  { label: 'THEMES', href: '/themes' },
   { label: 'OFFERS', href: '/offers' },
+  { label: 'SYSTEM', href: '/system' },
 ]
 
 export function HomeNav() {
