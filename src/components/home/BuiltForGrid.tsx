@@ -83,7 +83,7 @@ export function BuiltForGrid() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: 22,
-                    color: 'var(--homev3-blue-bright)',
+                    color: 'var(--mode-accent-bright)',
                   }}
                 >
                   <span style={{ width: 26, height: 26, display: 'block' }}>{meta.icon}</span>
@@ -116,7 +116,7 @@ export function BuiltForGrid() {
                     fontSize: 12,
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
-                    color: 'var(--homev3-blue-bright)',
+                    color: 'var(--mode-accent-bright)',
                     fontWeight: 600,
                     textDecoration: 'none',
                   }}

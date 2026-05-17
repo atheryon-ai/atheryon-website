@@ -63,7 +63,7 @@ export function ReferenceSystemCTA() {
           <Link
             href="/system"
             style={{
-              color: 'var(--homev3-blue-bright)',
+              color: 'var(--mode-accent-bright)',
               textDecoration: 'none',
               fontWeight: 700,
               fontSize: 13,

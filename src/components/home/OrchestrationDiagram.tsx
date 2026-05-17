@@ -121,7 +121,7 @@ function Node({ data }: { data: NodeData }) {
           alignItems: 'center',
           justifyContent: 'center',
           flexShrink: 0,
-          color: 'var(--homev3-blue-bright)',
+          color: 'var(--mode-accent-bright)',
         }}
       >
         <span style={{ width: 18, height: 18, display: 'block' }}>{data.icon}</span>

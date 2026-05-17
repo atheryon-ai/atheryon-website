@@ -17,7 +17,7 @@ function StripCell({ label, children }: { label: string; children: React.ReactNo
           fontSize: 12,
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          color: 'var(--homev3-blue-bright)',
+          color: 'var(--mode-accent-bright)',
           fontWeight: 600,
         }}
       >
