@@ -60,3 +60,20 @@ test('legacy /workflows redirects to /themes', async ({ page }) => {
   const response = await page.goto('/workflows')
   expect(response?.url()).toContain('/themes')
 })
+
+test('/roadmap aggregates BUILDING + ROADMAP items', async ({ page }) => {
+  const response = await page.goto('/roadmap')
+  expect(response?.status()).toBe(200)
+
+  // Mortgages = BUILDING
+  await expect(page.getByRole('heading', { name: 'Mortgages practice', exact: true })).toBeVisible()
+  await expect(page.locator('[data-status="building"]').first()).toBeVisible()
+
+  // Roadmap themes
+  await expect(page.getByRole('heading', { name: 'Front Office Trading', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Treasury', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Entity Intelligence', exact: true })).toBeVisible()
+
+  // SHIPPED items should NOT appear here (e.g., Middle Office Ops)
+  await expect(page.getByRole('heading', { name: 'Middle Office Ops', exact: true })).toHaveCount(0)
+})
