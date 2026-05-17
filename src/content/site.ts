@@ -548,7 +548,7 @@ export const v2 = {
           cards: [
             { name: 'Capital Markets Systems', qualifier: 'front-to-back', href: '/system' },
             { name: 'Data Platforms', qualifier: '', href: '/system' },
-            { name: 'AI Agent Systems', qualifier: '', href: '/workflows' },
+            { name: 'AI Agent Systems', qualifier: '', href: '/themes' },
           ],
         },
         proofSystem: {
@@ -675,28 +675,28 @@ export const v2 = {
               name: 'Trade lifecycle automation',
               body:
                 'Match firm-vs-counterparty confirmations on economic terms; surface exceptions with field-level diffs. Electronic confirmation via MarkitWire and DTCC CTM; affirmation T+0, confirmation T+1/T+2. Aging analysis with SLA breach alerts.',
-              href: '/workflows#trade-lifecycle-automation',
+              href: '/themes/middle-office-ops#workflow',
             },
             {
               id: 'risk-reporting-generation',
               name: 'Risk reporting generation',
               body:
                 'Score each trade against per-regime field-completeness rules (EMIR Refit, MiFID II, ASIC, CFTC 43/45, SFTR, Dodd-Frank — six regulatory regimes). Generate the report payload in the regime’s prescribed format. Scheduled daily/T+1 runs into the submission queue with one-click trade-repository submission.',
-              href: '/workflows#risk-reporting-generation',
+              href: '/themes/compliance-surveillance#workflow',
             },
             {
               id: 'portfolio-analytics-pipeline',
               name: 'Portfolio analytics pipeline',
               body:
                 'Aggregate live positions; attribute P&L; detect anomalies in trade quality and counterparty data. KPI tiles, trend charts (7d / 30d / 90d), and anomaly feed with severity and recommended action. Drill-down into anomaly detection, data quality, and pattern mining.',
-              href: '/workflows#portfolio-analytics-pipeline',
+              href: '/themes/risk-analytics#workflow',
             },
             {
               id: 'financial-data-ingestion-and-structuring',
               name: 'Financial data ingestion workflow',
               body:
                 'Map source fields (S&P Global, internal ledgers, counterparty feeds) to ISDA CDM types. Validate against CDM, ISO 20022, and FpML schemas. Per-counterparty data-quality scoring with longitudinal trend; field-level lineage from origin to operational data store.',
-              href: '/workflows#financial-data-ingestion-and-structuring',
+              href: '/themes/foundation-ods#workflow',
             },
           ],
         },

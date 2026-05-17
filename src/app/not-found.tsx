@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const NAV = [
   { label: 'Home', tag: 'Atheryon home', href: '/' },
   { label: 'System', tag: 'Reference architecture', href: '/system' },
-  { label: 'Workflows', tag: 'Capital markets AI workflows', href: '/workflows' },
+  { label: 'Themes', tag: 'Capital markets AI themes', href: '/themes' },
   { label: 'Offers', tag: 'Engagement model', href: '/offers' },
   { label: 'About', tag: 'Banking lineage', href: '/about' },
   { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
