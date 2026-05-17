@@ -8,8 +8,6 @@
     { "route": "/cdm-platform",           "redirect": "/system",  "statusCode": 301 },
     { "route": "/recovery-migration",     "redirect": "/offers",  "statusCode": 301 },
     { "route": "/m-and-a-execution",      "redirect": "/offers",  "statusCode": 301 },
-    { "route": "/ma",                     "redirect": "/",        "statusCode": 301 },
-    { "route": "/ma/*",                   "redirect": "/",        "statusCode": 301 },
     { "route": "/capability-enablement",  "redirect": "/offers",  "statusCode": 301 },
     { "route": "/how-we-work",            "redirect": "/system",  "statusCode": 301 },
     { "route": "/approach",               "redirect": "/system",  "statusCode": 301 },
@@ -47,6 +45,7 @@
     { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
 
     { "route": "/labs",        "rewrite": "/labs.html" },
+    { "route": "/ma",          "rewrite": "/ma.html" },
     { "route": "/mortgages",   "rewrite": "/mortgages.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
