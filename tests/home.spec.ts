@@ -5,7 +5,7 @@ test('homepage renders the dark navy AI-platform hero', async ({ page }) => {
 
   // Top nav lockup is visible
   await expect(page.getByText('ATHERYON', { exact: true })).toBeVisible()
-  await expect(page.getByText('DATA.', { exact: false }).first()).toBeVisible()
+  await expect(page.getByText('CAPITAL MARKETS.', { exact: false }).first()).toBeVisible()
 
   // Hero copy
   await expect(
