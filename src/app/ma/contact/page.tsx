@@ -1,21 +1,21 @@
-import { site, v2 } from '@/content/site'
+import { site } from '@/content/site'
 import { ContactForm } from '@/components/ContactForm'
 
-const page = v2.pages.contact
-
-export default function ContactPage() {
+export default function MAContactPage() {
   return (
     <div className="bg-bone min-h-screen">
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
-            atheryon / contact / system-assessment
+            atheryon / m-and-a / contact
           </div>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-charcoal leading-[1.02] mb-6">
-            {page.cta}
+            Book an M&amp;A execution review
           </h1>
           <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
-            {v2.identity}
+            Embedded execution specialists alongside your in-house team — pre-sign through post-sign,
+            led by Anna Contos. Tell us where you are in the deal and we will come back with how the
+            engagement maps to that stage.
           </p>
         </div>
       </section>
@@ -27,14 +27,14 @@ export default function ContactPage() {
               §01 / Request
             </div>
           </header>
-          <ContactForm />
+          <ContactForm defaultTopic="ma-execution" />
         </div>
       </section>
 
       <section>
         <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-            atheryon / contact / end-of-document
+            atheryon / m-and-a / contact / end-of-document
           </div>
           <a
             href={`mailto:${site.email}`}

@@ -32,7 +32,10 @@ export const shellConfig: Record<Mode, ShellConfig> = {
     cta: {
       label: 'BOOK M&A REVIEW',
       shortLabel: 'REVIEW',
-      href: '/contact?topic=ma-execution',
+      // Real route under the M&A group, NOT /contact?topic=ma-execution.
+      // Static export cannot vary shell/nav/title by query string, so a
+      // dedicated path keeps M&A users inside the M&A shell on arrival.
+      href: '/ma/contact',
     },
   },
   mortgages: {

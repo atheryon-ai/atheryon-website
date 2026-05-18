@@ -1051,7 +1051,7 @@ export const v2Ma = {
       },
       cta: {
         label: 'Book an M&A execution review',
-        href: '/contact?topic=ma-execution',
+        href: '/ma/contact',
         supportingLine: 'Pre-sign or post-sign. Senior specialist on call.',
       },
     },
@@ -1141,7 +1141,7 @@ export const v2Ma = {
       },
       cta: {
         label: 'Book an M&A execution review',
-        href: '/contact?topic=ma-execution',
+        href: '/ma/contact',
       },
     },
   },
@@ -1173,7 +1173,7 @@ export const v2Ma = {
         ],
         cta: {
           label: 'Book an M&A execution review',
-          href: '/contact?topic=ma-execution',
+          href: '/ma/contact',
         },
       },
       codeAndPrompts: {
