@@ -2,14 +2,16 @@
 
 import Link from 'next/link'
 import { BrandLockup } from './BrandLockup'
+import { shellConfig, type Mode } from '../shellConfig'
 
-const links = [
-  { label: 'THEMES', href: '/themes' },
-  { label: 'OFFERS', href: '/offers' },
-  { label: 'SYSTEM', href: '/system' },
-]
+/**
+ * HomeNav — global header. Renders nav links + CTA from shellConfig keyed
+ * by `mode`. Each route-group layout passes its mode (cm | ma | mortgages)
+ * so the correct content is server-rendered into the static export.
+ */
+export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
+  const config = shellConfig[mode]
 
-export function HomeNav() {
   return (
     <nav
       style={{
@@ -38,7 +40,7 @@ export function HomeNav() {
         <BrandLockup markSize={52} />
 
         <div className="home-nav-links" style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
-          {links.map((l) => (
+          {config.nav.map((l) => (
             <Link
               key={l.href}
               href={l.href}
@@ -57,7 +59,7 @@ export function HomeNav() {
         </div>
 
         <Link
-          href="/contact"
+          href={config.cta.href}
           className="home-nav-cta"
           style={{
             display: 'inline-flex',
@@ -76,8 +78,8 @@ export function HomeNav() {
             whiteSpace: 'nowrap',
           }}
         >
-          <span className="home-nav-cta-full">BOOK SYSTEM ASSESSMENT</span>
-          <span className="home-nav-cta-short">BOOK</span>
+          <span className="home-nav-cta-full">{config.cta.label}</span>
+          <span className="home-nav-cta-short">{config.cta.shortLabel}</span>
           <span>→</span>
         </Link>
       </div>

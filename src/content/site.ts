@@ -874,10 +874,14 @@ export const v2 = {
     },
     contact: {
       route: '/contact',
-      title: 'Contact — Book System Assessment',
-      intent: 'Book system assessment',
-      description: 'Book a system assessment with Atheryon.',
-      cta: 'Book system assessment',
+      // Title is intentionally neutral — /contact is reached from both CM and
+      // M&A practices (with ?topic= param). Static export cannot emit different
+      // <title> per query string, so a practice-specific title would mislabel
+      // half the visitors.
+      title: 'Contact — Atheryon',
+      intent: 'Talk to Atheryon',
+      description: 'Talk to Atheryon about a capital-markets system assessment or M&A execution review.',
+      cta: 'Talk to Atheryon',
     },
   },
 
