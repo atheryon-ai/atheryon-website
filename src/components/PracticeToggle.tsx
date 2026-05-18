@@ -5,10 +5,13 @@ import { usePathname } from 'next/navigation'
 
 type Mode = 'cm' | 'ma' | 'mortgages'
 
+// Mortgages is intentionally omitted from the visible toggle while the
+// practice is being built out — route, content, and mode-styling stay live;
+// re-add the line below to surface it again.
+// { mode: 'mortgages', label: 'MORTGAGES.', href: '/mortgages', color: '#ffffff' },
 const ITEMS: { mode: Mode; label: string; href: string; color: string }[] = [
   { mode: 'cm', label: 'CAPITAL MARKETS.', href: '/', color: 'var(--homev3-orange-bright)' },
   { mode: 'ma', label: 'M&A.', href: '/ma', color: 'var(--homev3-blue-bright)' },
-  { mode: 'mortgages', label: 'MORTGAGES.', href: '/mortgages', color: '#ffffff' },
 ]
 
 function modeFromPath(pathname: string): Mode {
@@ -18,9 +21,9 @@ function modeFromPath(pathname: string): Mode {
 }
 
 /**
- * PracticeToggle — three Links derived from the URL. Replaces the static
+ * PracticeToggle — Links derived from the URL. Replaces the static
  * BrandLockup tagline spans. Tagline colour stays literal per item (CM=orange,
- * M&A=blue, Mortgages=white) so all three practices are visible at once;
+ * M&A=blue) so each visible practice has its own accent;
  * --mode-accent reflects the ACTIVE practice (set by ModeSetter on <html>).
  */
 export function PracticeToggle() {

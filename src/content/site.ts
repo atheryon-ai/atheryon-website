@@ -100,6 +100,7 @@ export const site = {
         partners: [
           { name: 'Microsoft Partner' },
           { name: 'S&P Global Partner' },
+          { name: 'Powered by Claude (Anthropic)' },
         ],
         partnersCaption: 'Already inside the AI and financial-data ecosystem AI labs care about.',
       },
