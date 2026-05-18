@@ -8,7 +8,7 @@ Atheryon is a capital markets AI systems firm — not a marketing site. This doc
 
 - Capital Markets Systems (front-to-back): https://atheryon.com.au/system
 - Data Platforms: https://atheryon.com.au/system
-- AI Agent Systems: https://atheryon.com.au/workflows
+- AI Agent Systems: https://atheryon.com.au/themes
 
 ## Commercial Offers
 
@@ -28,13 +28,18 @@ The Prompts offer includes the productized Front Office bundle — a packaged di
 
 - [Home](https://atheryon.com.au/): identity statement and system map.
 - [System](https://atheryon.com.au/system): reference architecture (core proof).
-- [Workflows](https://atheryon.com.au/workflows): AI capital markets workflows.
+- [Themes](https://atheryon.com.au/themes): seven-row CM buyer matrix — desk-head pockets of pain joined to workflows.
+- [Roadmap](https://atheryon.com.au/roadmap): BUILDING + ROADMAP items across themes + practices.
 - [Offers](https://atheryon.com.au/offers): commercial entry — three ways to engage.
 - [Buy the Code](https://atheryon.com.au/offers/code): platform licence.
 - [License the Prompts](https://atheryon.com.au/offers/prompts): directorial prompt archive; includes Front Office bundle.
 - [Consult](https://atheryon.com.au/offers/consult): senior-led advisory engagement.
 - [Labs](https://atheryon.com.au/labs): research themes and tooling.
 - [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
+- [Mortgages](https://atheryon.com.au/mortgages): retail mortgage origination automation — practice stub (BUILDING).
+- [M&A](https://atheryon.com.au/ma): M&A execution practice — pre-sign advice + post-deal delivery. Led by Anna Contos.
+- [M&A Approach](https://atheryon.com.au/ma/approach): how Atheryon delivers M&A — senior consulting + AI agents on Azure with S&P Global data partner. Three workflows: Pre-Sign Review, Separation/Integration Planning, TSA Tracking & Reduction.
+- [M&A Offers](https://atheryon.com.au/ma/offers): one offer — Embedded Execution Specialists. Pre-sign through post-sign engagement. Not productised separately.
 - [About](https://atheryon.com.au/about): banking lineage + capability foundation.
 - [Contact](https://atheryon.com.au/contact): book system assessment.
 

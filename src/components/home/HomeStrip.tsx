@@ -17,7 +17,7 @@ function StripCell({ label, children }: { label: string; children: React.ReactNo
           fontSize: 12,
           letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          color: 'var(--homev3-blue-bright)',
+          color: 'var(--mode-accent-bright)',
           fontWeight: 600,
         }}
       >
@@ -84,7 +84,7 @@ export function HomeStrip() {
             </p>
           </StripCell>
 
-          <StripCell label="Ecosystem Partners">
+          <StripCell label="Ecosystem">
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22 }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -122,6 +122,24 @@ export function HomeStrip() {
                   and intelligence
                 </p>
               </div>
+            </div>
+            <div
+              style={{
+                marginTop: 18,
+                paddingTop: 14,
+                borderTop: '1px solid var(--homev3-border)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 6,
+                fontFamily: "'Poppins', system-ui, Arial, sans-serif",
+              }}
+            >
+              <span style={{ fontWeight: 500, fontSize: 14, color: '#ffffff', letterSpacing: '-0.005em' }}>
+                Powered by Claude
+              </span>
+              <p style={{ fontSize: 12, fontWeight: 400, color: 'var(--homev3-text-faint)', margin: 0, lineHeight: 1.5 }}>
+                Anthropic — AI agent reasoning
+              </p>
             </div>
           </StripCell>
 

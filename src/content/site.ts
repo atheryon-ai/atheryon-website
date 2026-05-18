@@ -4,9 +4,8 @@ export const site = {
 
   nav: [
     { label: 'System', href: '/system' },
-    { label: 'Approach', href: '/approach' },
-    { label: 'Engagements', href: '/engagements' },
-    { label: 'Workflows', href: '/workflows' },
+    { label: 'Themes', href: '/themes' },
+    { label: 'Offers', href: '/offers' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -101,6 +100,7 @@ export const site = {
         partners: [
           { name: 'Microsoft Partner' },
           { name: 'S&P Global Partner' },
+          { name: 'Powered by Claude (Anthropic)' },
         ],
         partnersCaption: 'Already inside the AI and financial-data ecosystem AI labs care about.',
       },
@@ -410,7 +410,10 @@ export const site = {
     links: {
       pillars: [
         { label: 'System', href: '/system' },
-        { label: 'Workflows', href: '/workflows' },
+        { label: 'Themes', href: '/themes' },
+      ],
+      whatsNext: [
+        { label: 'Roadmap', href: '/roadmap' },
       ],
       resources: [
         { label: 'Labs', href: '/labs' },
@@ -546,7 +549,7 @@ export const v2 = {
           cards: [
             { name: 'Capital Markets Systems', qualifier: 'front-to-back', href: '/system' },
             { name: 'Data Platforms', qualifier: '', href: '/system' },
-            { name: 'AI Agent Systems', qualifier: '', href: '/workflows' },
+            { name: 'AI Agent Systems', qualifier: '', href: '/themes' },
           ],
         },
         proofSystem: {
@@ -673,28 +676,28 @@ export const v2 = {
               name: 'Trade lifecycle automation',
               body:
                 'Match firm-vs-counterparty confirmations on economic terms; surface exceptions with field-level diffs. Electronic confirmation via MarkitWire and DTCC CTM; affirmation T+0, confirmation T+1/T+2. Aging analysis with SLA breach alerts.',
-              href: '/workflows#trade-lifecycle-automation',
+              href: '/themes/middle-office-ops#workflow',
             },
             {
               id: 'risk-reporting-generation',
               name: 'Risk reporting generation',
               body:
                 'Score each trade against per-regime field-completeness rules (EMIR Refit, MiFID II, ASIC, CFTC 43/45, SFTR, Dodd-Frank — six regulatory regimes). Generate the report payload in the regime’s prescribed format. Scheduled daily/T+1 runs into the submission queue with one-click trade-repository submission.',
-              href: '/workflows#risk-reporting-generation',
+              href: '/themes/compliance-surveillance#workflow',
             },
             {
               id: 'portfolio-analytics-pipeline',
               name: 'Portfolio analytics pipeline',
               body:
                 'Aggregate live positions; attribute P&L; detect anomalies in trade quality and counterparty data. KPI tiles, trend charts (7d / 30d / 90d), and anomaly feed with severity and recommended action. Drill-down into anomaly detection, data quality, and pattern mining.',
-              href: '/workflows#portfolio-analytics-pipeline',
+              href: '/themes/risk-analytics#workflow',
             },
             {
               id: 'financial-data-ingestion-and-structuring',
               name: 'Financial data ingestion workflow',
               body:
                 'Map source fields (S&P Global, internal ledgers, counterparty feeds) to ISDA CDM types. Validate against CDM, ISO 20022, and FpML schemas. Per-counterparty data-quality scoring with longitudinal trend; field-level lineage from origin to operational data store.',
-              href: '/workflows#financial-data-ingestion-and-structuring',
+              href: '/themes/foundation-ods#workflow',
             },
           ],
         },
@@ -858,13 +861,27 @@ export const v2 = {
           body: '{{PENDING_ABOUT_WHY_NOW_BODY}}',
         },
       },
+      // Not a section — a practice-entry callout rendered inside §01.
+      // Added 2026-05-17 to surface the M&A practice and Anna Contos from /about.
+      maCallout: {
+        label: 'M&A practice',
+        title: 'M&A Execution & Integration',
+        description:
+          'Post-deal execution and pre-sign execution review. Senior execution specialists, AI-velocity on dependency mapping and TSA tracking. The M&A practice is led by Anna Contos.',
+        linkLabel: 'See M&A practice',
+        linkHref: '/ma',
+      },
     },
     contact: {
       route: '/contact',
-      title: 'Contact — Book System Assessment',
-      intent: 'Book system assessment',
-      description: 'Book a system assessment with Atheryon.',
-      cta: 'Book system assessment',
+      // Title is intentionally neutral — /contact is reached from both CM and
+      // M&A practices (with ?topic= param). Static export cannot emit different
+      // <title> per query string, so a practice-specific title would mislabel
+      // half the visitors.
+      title: 'Contact — Atheryon',
+      intent: 'Talk to Atheryon',
+      description: 'Talk to Atheryon about a capital-markets system assessment or M&A execution review.',
+      cta: 'Talk to Atheryon',
     },
   },
 
@@ -873,5 +890,308 @@ export const v2 = {
     href: '/contact',
   },
 } as const
+
+// =============================================================================
+// v2Mortgages — Mortgages practice stub (2026-05-17)
+// =============================================================================
+// Mortgages = retail mortgage origination automation. NOT CDM-native — see
+// the practice-toggle plan addendum. The capability narrative is "same
+// AI-velocity, different vertical." Status: BUILDING (stub only).
+// =============================================================================
+
+export const v2Mortgages = {
+  home: {
+    route: '/mortgages',
+    title: 'Mortgages — Atheryon',
+    intent: 'Retail mortgage origination automation.',
+    description:
+      'The same AI-velocity that runs our CDM-native capital markets work also runs retail mortgage origination automation — same capability, different vertical.',
+    status: 'building' as const,
+    sections: {
+      hero: {
+        label: 'atheryon / mortgages / practice-overview',
+        title: 'Mortgages',
+        body: 'Retail mortgage origination automation.',
+      },
+      thesis: {
+        label: '§01 / Thesis',
+        title: 'Same AI-velocity, different vertical',
+        body:
+          'The same AI-velocity that runs our CDM-native capital markets work also runs retail mortgage origination automation. Senior capital-markets architects directing AI agents that do the build, delivering in weeks what traditionally takes 6–18 months. The capability transfers; the vertical changes. Capital markets uses ISDA CDM as the canonical data model; mortgages uses LIXI (AU) and MISMO (US/intl) — different schemas, same architectural pattern: a typed data plane, an agent orchestration layer, and deterministic pipelines from ingest to operational output.',
+      },
+      scope: {
+        label: '§02 / Scope',
+        title: 'Where the capability applies',
+        items: [
+          {
+            id: 'origination',
+            name: 'Origination',
+            body: 'Application intake, document classification, income/expense extraction, eligibility scoring, conditional-approval pipelines.',
+          },
+          {
+            id: 'servicing',
+            name: 'Servicing',
+            body: 'Lifecycle events, hardship workflows, arrears triage, variation processing, customer-facing decisioning.',
+          },
+          {
+            id: 'risk-reporting',
+            name: 'Risk & reporting',
+            body: 'Portfolio analytics, regulatory reporting (APRA ARS 220, RBA CLF/SCV), stress testing, climate-risk overlay.',
+          },
+        ],
+      },
+      status: {
+        label: '§03 / Status',
+        title: 'BUILDING',
+        body:
+          'Practice stub is live. Reference architecture, agent topology, and pricing in active development. First engagement window: 2026 H2.',
+      },
+      cta: {
+        label: 'Talk about a mortgages engagement',
+        href: '/contact?topic=mortgages',
+      },
+    },
+  },
+  roadmap: {
+    // Aggregated by /roadmap. Single item for the stub state.
+    id: 'mortgages-practice',
+    name: 'Mortgages practice',
+    status: 'building' as const,
+    blurb: 'Retail mortgage origination automation — full mode launches after Phase 2 stub.',
+    href: '/mortgages',
+  },
+} as const
+
+// =============================================================================
+// v2Ma — M&A practice (2026-05-17)
+// =============================================================================
+// M&A practice is post-deal execution + pre-sign execution review. NOT M&A
+// advisory (no deal sourcing/valuation/negotiation). Consulting practice, not
+// platform. Led by Anna Contos. Status: shipped (full prose pre-written).
+// =============================================================================
+
+export const v2Ma = {
+  home: {
+    route: '/ma',
+    title: 'M&A — Atheryon',
+    description:
+      'M&A success is determined before the deal is signed. Senior execution specialists pre-sign and post-sign. AI agents accelerating dependency mapping, control tracing, TSA tracking — Day-1 readiness in weeks, not quarters.',
+    status: 'shipped' as const,
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / execution',
+        title: 'M&A Execution',
+        subtitle: 'M&A success is determined before the deal is signed.',
+      },
+      thesis: {
+        label: '§01 / Thesis',
+        title: 'Talk to us before signing',
+        body:
+          'M&A success is determined before the deal is signed. The clauses you agree shape what is and isn’t executable on Day-1 — and most of the operational, data, and regulatory traps in an M&A deal are visible at the term-sheet stage to a specialist who has run separations and integrations through to completion. Most firms don’t have this voice in the pre-sign room. We are that voice.\n\nPre-sign execution advice is the leverage. Delivery execution is the substance — the eighty percent of our practice. Once the deal lands, we drive the separation/integration plan as senior specialists in the delivery seat: reading the perimeter, sequencing the waves, mapping the controls, tracking the TSAs to clean exit. AI agents accelerate the dependency mapping, control tracing, and TSA tracking that traditionally consume the most analyst hours. Senior specialists set direction; agents do the volume work.\n\nDay-1 readiness in weeks. Clean exit to target operating model. Regulatory continuity preserved. Value realised post-sign, not eroded.\n\nThis is execution-specialist work, not deal advisory. We don’t price the deal, find the partner, or negotiate the terms — bankers and lawyers own that. We tell you what’s executable. Then we deliver.',
+      },
+      triggers: {
+        label: '§02 / When clients call us',
+        title: 'Triggers for engagement',
+        items: [
+          {
+            id: 'pre-sign-negotiation',
+            name: 'Late-stage deal negotiation — the highest-leverage moment to engage us',
+            body:
+              'Draft terms are forming. The execution implications need a specialist read before signing. Most clients don’t engage us here; this is the single most valuable moment to.',
+          },
+          {
+            id: 'transaction-delivery',
+            name: 'High-stakes transaction delivery — the most common engagement',
+            body:
+              'Deal is signed; integration or separation is underway. Specialist execution leadership in the delivery seat. AI-velocity on dependency mapping, control tracing, TSA tracking.',
+          },
+          {
+            id: 'capability-gaps',
+            name: 'Execution capability gaps',
+            body:
+              'Internal team is competent but stretched. We embed senior specialists alongside, with agent acceleration on the analytical work.',
+          },
+          {
+            id: 'planning-deficits',
+            name: 'Pre-deal planning deficits',
+            body:
+              'Day-1 plan is thin; carve-out perimeter unclear; control continuity undefined. We rebuild it fast, then drive the delivery.',
+          },
+          {
+            id: 'data-migration-risk',
+            name: 'Data migration risk in M&A',
+            body:
+              'Data is the dependency layer. Mapping, lineage, separation strategy. See /ma/approach §02.',
+          },
+        ],
+      },
+      execution: {
+        label: '§03 / How we execute',
+        title: 'Six capabilities',
+        items: [
+          'Pre-sign execution review (the wedge)',
+          'Separation/integration plan tied to deal outcomes',
+          'Day-1 requirements and transition operating model',
+          'Critical data, reporting, and control dependencies mapped',
+          'Separation/integration waves executed with clear contracts',
+          'TSA scope reduced; clean exit to target state',
+        ],
+      },
+      outcomes: {
+        label: '§04 / What we deliver',
+        title: 'Outcomes',
+        items: [
+          'Pre-sign execution clarity — sign with the traps already in your register',
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
+      },
+      cta: {
+        label: 'Book an M&A execution review',
+        href: '/ma/contact',
+        supportingLine: 'Pre-sign or post-sign. Senior specialist on call.',
+      },
+    },
+  },
+  approach: {
+    route: '/ma/approach',
+    title: 'M&A Approach — Atheryon',
+    description:
+      'How Atheryon delivers M&A execution. Senior consulting practice, AI data specialist work with S&P Global and Microsoft Azure, three M&A workflows, embedded delivery, led by Anna Contos.',
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / approach',
+        title: 'M&A Approach',
+        subtitle: 'How we deliver. Senior specialists, AI velocity, embedded.',
+      },
+      approach: {
+        label: '§01 / Approach',
+        title: 'Consulting practice, not a platform',
+        body:
+          'M&A execution is consulting work. Senior specialists in the term-sheet review room before signing, then senior specialists in the delivery seat from Day-1 through TSA exit. AI agents are tools we use to compress the analytical volume work — not a platform you license. The value is the specialist who reads the deal, sets direction, and owns the outcome. Atheryon does not sell M&A software. We sell senior execution capacity, augmented with AI velocity.\n\nThree lifecycle stages: pre-sign (term-sheet review for execution traps), Day-1/Day-2 readiness, and TSA exit. We are in those rooms. The eighty percent of our practice is post-sign delivery; the wedge is the pre-sign conversation that prevents the worst traps from being signed in.',
+      },
+      dataSpecialist: {
+        label: '§02 / AI Data Specialist Work',
+        title: 'Partners: S&P Global, Microsoft Azure',
+        body:
+          'Data is the dependency layer in any M&A deal. Carve-out perimeters are defined in legal entities; the operating reality is defined in data flows. Atheryon brings AI data specialist capability to the deal-execution data work: separation lineage, migration sequencing, regulatory continuity mapping, control re-anchoring.\n\nWe work with S&P Global for market and reference data continuity across the separation boundary, and on Microsoft Azure as the runtime for the AI agent work that traces dependencies, projects migration windows, and flags meaning-loss risks before they reach the wave plan. The same partner stack that runs Atheryon’s capital-markets practice runs the M&A data work — shared infrastructure, shared directorial archive, M&A-specific agent topology.',
+      },
+      workflowExamples: {
+        label: '§03 / Workflow Examples',
+        title: 'Three M&A workflows — pre-sign + delivery',
+        intro:
+          'Each workflow follows our standard pipeline — Input → AI agents → Processing → Output — adapted for M&A execution data and decisions. One is pre-sign execution review; two cover the spine and exit of post-sign delivery.',
+        stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
+        items: [
+          {
+            id: 'pre-sign-execution-review',
+            label: '§3a',
+            name: 'Pre-Sign Execution Review',
+            input:
+              'Draft deal terms, target perimeter definitions, data flow inventories, existing control map.',
+            agents:
+              'Clause-to-execution-risk mapping; TSA scope projection; control-continuity scoring.',
+            processing:
+              'Traps register → mitigations register → risk-weighted recommendation.',
+            output:
+              'Pre-sign execution risk report + mitigations playbook. Delivered before ink.',
+          },
+          {
+            id: 'separation-integration-planning',
+            label: '§3b',
+            name: 'Separation/Integration Planning',
+            input:
+              'Signed deal terms, perimeter definitions, target operating model.',
+            agents:
+              'Dependency tracing; wave-window sequencing; Day-1 requirements derivation; data lineage mapping.',
+            processing:
+              'Dependency graph → wave plan → Day-1 readiness checklist → data migration sequence.',
+            output:
+              'Separation/integration plan with contractual wave commitments, Day-1 readiness pack, data migration plan with field-level lineage.',
+          },
+          {
+            id: 'tsa-tracking-reduction',
+            label: '§3c',
+            name: 'TSA Tracking & Reduction',
+            input:
+              'TSA scope, time-boxed obligations, exit criteria, ongoing delivery status.',
+            agents:
+              'TSA dependency analysis; exit-criteria projection; scope-creep detection; control assurance verification.',
+            processing:
+              'TSA register → reduction roadmap → exit scenarios → executive surface.',
+            output:
+              'TSA exit plan with milestone gates and scope-creep alarms; delivery dashboard with audit trail to closure.',
+          },
+        ],
+      },
+      embeddedDelivery: {
+        label: '§04 / Embedded Delivery',
+        title: 'Senior specialist + AI agents, embedded',
+        body:
+          'Atheryon deploys M&A as embedded execution specialists. Senior specialists alongside your in-house team — pre-sign if you bring us in early, then continuous through Day-1, Day-2, and TSA exit. Typical engagement: 6–18 months from term sheet to clean exit. AI agents run on Atheryon infrastructure; outputs surface in your team’s tools.\n\nAzure-native. Azure OpenAI as the agent runtime. APRA CPS 234-aligned operational-controls baseline. Auditable directorial archive — every agent decision is replayable.\n\nNot a licensed platform. Not a marketplace product. Embedded consulting with AI velocity, delivered by people you can call.',
+      },
+      seniorSpecialist: {
+        label: '§05 / Senior Specialist',
+        title: 'Led by Anna Contos',
+        body:
+          'Atheryon’s M&A practice is led by Anna Contos — 25+ years in financial-services execution across Australia, the UK, and the US, with the recent two decades focused on M&A separations, integrations, divestments, and large-scale transformation.\n\nMost recently Head of Separation and Integration Advisory at Westpac Group (2023–2025), executive-leading separation and integration programs across Westpac’s divestment and acquisition initiatives. Prior: Head of Divestment Execution at Commonwealth Bank for the Wealth division (2018–2020), running the portfolio of finance programs that delivered CBA’s Count Financial divestment and the CommInsure sale. Earlier: Take to Market Lead for the BT Panorama platform launches; business consulting and strategy roles at Deutsche Bank, Deutsche Pfandbriefbank, Credit Suisse, and Capco across investment banking, wealth, and retail.\n\nTrack record across the deal lifecycle: separation/integration strategy, planning, commercial structuring, business readiness, execution, and stabilisation. Carve-outs, demergers, end-to-end transition management — in highly regulated, politically sensitive environments.\n\nThe M&A practice is structured around her as senior specialist. AI agents do the volume work; Anna sets direction and owns the outcome.',
+      },
+      cta: {
+        label: 'Book an M&A execution review',
+        href: '/ma/contact',
+      },
+    },
+  },
+  offers: {
+    route: '/ma/offers',
+    title: 'M&A Offers — Atheryon',
+    description:
+      'How to engage Atheryon’s M&A practice. One way: embedded execution specialists. Pre-sign through post-sign, led by Anna Contos.',
+    sections: {
+      hero: {
+        label: 'atheryon / m-and-a / offers',
+        title: 'How to engage the M&A practice',
+        subtitle: 'One way to engage. Embedded consulting.',
+      },
+      offer: {
+        label: '§01 / The offer',
+        title: 'Embedded Execution Specialists',
+        body:
+          'Atheryon’s M&A practice is sold one way: embedded execution specialists alongside your in-house team — pre-sign if you bring us in early, then continuous through Day-1, Day-2, and TSA exit.\n\nSenior specialists set direction. AI agents do the volume work. Outputs surface where your team can use them. Azure-native infrastructure. APRA CPS 234-aligned operational-controls baseline. Auditable directorial archive.\n\nAnna Contos leads the practice. Typical engagement: 6–18 months from term sheet to clean TSA exit. Pre-sign sprints possible as a stand-alone wedge or a precursor to full delivery.',
+        outcomeListIntro:
+          'What we deliver:',
+        outcomes: [
+          'Pre-sign execution clarity — sign with the traps already in your register',
+          'Clean separation/integration delivered to timeline',
+          'Reduced TSA cost and duration',
+          'Lower operational disruption and delivery risk',
+          'Regulatory continuity across reporting and controls',
+          'Value realised post-sign, not eroded',
+        ],
+        cta: {
+          label: 'Book an M&A execution review',
+          href: '/ma/contact',
+        },
+      },
+      codeAndPrompts: {
+        label: '§02 / Code and Prompts',
+        title: 'Not offered for M&A',
+        body:
+          'Atheryon’s capital-markets practice offers two productised paths alongside Consult: license the code (the deployable banking reference implementation) or license the prompts (the directorial archive — methodology IP transfer). See /offers for both.\n\nFor M&A, the value is the senior specialist plus AI velocity, both inside the same embedded engagement. We do not productise M&A separately. The practice is sold as consulting, not as code or methodology IP.',
+        cmOffersLink: {
+          label: 'See capital-markets offers →',
+          href: '/offers',
+        },
+      },
+    },
+  },
+} as const
+
+export type V2Ma = typeof v2Ma
+
+export type V2Mortgages = typeof v2Mortgages
 
 export type V2 = typeof v2

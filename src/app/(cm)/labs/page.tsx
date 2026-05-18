@@ -109,11 +109,24 @@ export default function LabsPage() {
             Ecosystem
           </div>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-3">
-            {labs.evidence.partners.map((p) => (
-              <span key={p.name} className="font-mono text-sm text-charcoal">
-                {p.name}
-              </span>
-            ))}
+            {labs.evidence.partners.map((p) => {
+              // Anthropic brand-typography (Poppins) for the Claude attribution only;
+              // Microsoft/S&P stay in the site's mono treatment.
+              const isClaude = p.name.toLowerCase().includes('claude')
+              return isClaude ? (
+                <span
+                  key={p.name}
+                  className="text-sm text-charcoal"
+                  style={{ fontFamily: "'Poppins', system-ui, Arial, sans-serif", fontWeight: 500, letterSpacing: '-0.005em' }}
+                >
+                  {p.name}
+                </span>
+              ) : (
+                <span key={p.name} className="font-mono text-sm text-charcoal">
+                  {p.name}
+                </span>
+              )
+            })}
           </div>
           <p className="text-sm italic text-charcoal/70 max-w-3xl">{labs.evidence.partnersCaption}</p>
         </div>

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { Footer } from '@/components'
-import { HomeNav } from '@/components/home'
+import { ModeSetter } from '@/components/ModeSetter'
 import { site, v2 } from '@/content/site'
 import './globals.css'
 
@@ -32,6 +31,12 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Root layout — minimal shell. The HomeNav + Footer live inside route-group
+ * layouts ((cm), ma, mortgages) so each practice gets server-rendered nav +
+ * CTA + accent. ModeSetter stays here because it still drives the
+ * `data-mode` CSS variable for accent colours across all groups.
+ */
 export default function RootLayout({
   children,
 }: {
@@ -40,9 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <HomeNav />
-        <main>{children}</main>
-        <Footer />
+        <ModeSetter />
+        {children}
       </body>
     </html>
   )

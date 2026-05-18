@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { BrandMark } from './BrandMark'
+import { PracticeToggle } from '../PracticeToggle'
 
 type Props = {
   markSize?: number
@@ -7,9 +9,12 @@ type Props = {
 export function BrandLockup({ markSize = 52 }: Props) {
   return (
     <span className="brand-lockup" style={{ display: 'inline-flex', alignItems: 'center', gap: 14 }}>
-      <BrandMark size={markSize} />
+      <Link href="/" aria-label="Atheryon home" style={{ display: 'inline-flex', textDecoration: 'none' }}>
+        <BrandMark size={markSize} />
+      </Link>
       <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-        <span
+        <Link
+          href="/"
           className="brand-lockup-wordmark"
           style={{
             fontFamily: 'Cinzel, "Trajan Pro", Georgia, serif',
@@ -17,26 +22,12 @@ export function BrandLockup({ markSize = 52 }: Props) {
             fontSize: 24,
             letterSpacing: '0.08em',
             color: '#ffffff',
+            textDecoration: 'none',
           }}
         >
           ATHERYON
-        </span>
-        <span
-          className="brand-lockup-tagline"
-          style={{
-            fontSize: 9,
-            letterSpacing: '0.22em',
-            fontWeight: 500,
-            marginTop: 6,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          <span style={{ color: 'var(--homev3-orange-bright)' }}>CAPITAL MARKETS.</span>
-          <span style={{ color: 'rgba(255,255,255,0.35)', padding: '0 6px' }}>|</span>
-          <span style={{ color: 'var(--homev3-blue-bright)' }}>M&amp;A.</span>
-          <span style={{ color: 'rgba(255,255,255,0.35)', padding: '0 6px' }}>|</span>
-          <span style={{ color: '#ffffff' }}>MORTGAGES.</span>
-        </span>
+        </Link>
+        <PracticeToggle />
       </span>
     </span>
   )

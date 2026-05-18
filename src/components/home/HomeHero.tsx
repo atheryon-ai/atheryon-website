@@ -29,7 +29,7 @@ export function HomeHero() {
                 fontSize: 12,
                 letterSpacing: '0.16em',
                 textTransform: 'uppercase',
-                color: 'var(--homev3-blue-bright)',
+                color: 'var(--mode-accent-bright)',
                 fontWeight: 600,
               }}
             >
@@ -46,7 +46,7 @@ export function HomeHero() {
               }}
             >
               Designing and delivering capital markets AI systems using{' '}
-              <span style={{ color: 'var(--homev3-blue-bright)' }}>AI agents.</span>
+              <span style={{ color: 'var(--mode-accent-bright)' }}>AI agents.</span>
             </h1>
             <p
               style={{
@@ -69,8 +69,8 @@ export function HomeHero() {
                   gap: 10,
                   padding: '12px 22px',
                   borderRadius: 4,
-                  background: 'var(--homev3-blue)',
-                  border: '1px solid var(--homev3-blue)',
+                  background: 'var(--mode-accent)',
+                  border: '1px solid var(--mode-accent)',
                   color: '#ffffff',
                   fontWeight: 600,
                   fontSize: 13,
@@ -90,8 +90,8 @@ export function HomeHero() {
                   padding: '12px 22px',
                   borderRadius: 4,
                   background: 'transparent',
-                  border: '1px solid var(--homev3-blue)',
-                  color: 'var(--homev3-blue-bright)',
+                  border: '1px solid var(--mode-accent)',
+                  color: 'var(--mode-accent-bright)',
                   fontWeight: 600,
                   fontSize: 13,
                   letterSpacing: '0.14em',

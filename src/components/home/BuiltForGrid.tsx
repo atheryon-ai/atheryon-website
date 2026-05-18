@@ -28,7 +28,7 @@ const cardMeta: Record<DomainId, { body: string; href: string; icon: React.React
   },
   'ai-agent-systems': {
     body: 'AI agents orchestrate workflows, make decisions and automate complex financial processes.',
-    href: '/workflows',
+    href: '/themes',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
         <circle cx="12" cy="12" r="3" />
@@ -83,7 +83,7 @@ export function BuiltForGrid() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: 22,
-                    color: 'var(--homev3-blue-bright)',
+                    color: 'var(--mode-accent-bright)',
                   }}
                 >
                   <span style={{ width: 26, height: 26, display: 'block' }}>{meta.icon}</span>
@@ -116,7 +116,7 @@ export function BuiltForGrid() {
                     fontSize: 12,
                     letterSpacing: '0.14em',
                     textTransform: 'uppercase',
-                    color: 'var(--homev3-blue-bright)',
+                    color: 'var(--mode-accent-bright)',
                     fontWeight: 600,
                     textDecoration: 'none',
                   }}

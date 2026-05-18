@@ -8,6 +8,8 @@
     { "route": "/cdm-platform",           "redirect": "/system",  "statusCode": 301 },
     { "route": "/recovery-migration",     "redirect": "/offers",  "statusCode": 301 },
     { "route": "/m-and-a-execution",      "redirect": "/offers",  "statusCode": 301 },
+    { "route": "/ma/system",              "redirect": "/ma/approach", "statusCode": 301 },
+    { "route": "/ma/workflows",           "redirect": "/ma/approach", "statusCode": 301 },
     { "route": "/capability-enablement",  "redirect": "/offers",  "statusCode": 301 },
     { "route": "/how-we-work",            "redirect": "/system",  "statusCode": 301 },
     { "route": "/approach",               "redirect": "/system",  "statusCode": 301 },
@@ -25,7 +27,16 @@
     { "route": "/programs",                    "redirect": "/offers",         "statusCode": 301 },
 
     { "route": "/system",      "rewrite": "/system.html" },
-    { "route": "/workflows",   "rewrite": "/workflows.html" },
+    { "route": "/workflows",              "redirect": "/themes",      "statusCode": 301 },
+    { "route": "/themes",                 "rewrite": "/themes.html" },
+    { "route": "/themes/front-office-trading",     "rewrite": "/themes/front-office-trading.html" },
+    { "route": "/themes/middle-office-ops",        "rewrite": "/themes/middle-office-ops.html" },
+    { "route": "/themes/compliance-surveillance",  "rewrite": "/themes/compliance-surveillance.html" },
+    { "route": "/themes/risk-analytics",           "rewrite": "/themes/risk-analytics.html" },
+    { "route": "/themes/treasury",                 "rewrite": "/themes/treasury.html" },
+    { "route": "/themes/entity-intelligence",      "rewrite": "/themes/entity-intelligence.html" },
+    { "route": "/themes/foundation-ods",           "rewrite": "/themes/foundation-ods.html" },
+    { "route": "/roadmap",                "rewrite": "/roadmap.html" },
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },
 
@@ -36,6 +47,10 @@
     { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
 
     { "route": "/labs",        "rewrite": "/labs.html" },
+    { "route": "/ma",          "rewrite": "/ma.html" },
+    { "route": "/ma/approach",            "rewrite": "/ma/approach.html" },
+    { "route": "/ma/offers",              "rewrite": "/ma/offers.html" },
+    { "route": "/mortgages",   "rewrite": "/mortgages.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
     { "route": "/terms",                         "rewrite": "/terms.html" }

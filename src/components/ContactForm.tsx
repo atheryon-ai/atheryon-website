@@ -4,14 +4,14 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { site, v2 } from '@/content/site'
 
-const page = v2.pages.contact
 const contact = site.pages.contact
+const page = v2.pages.contact
 
-// ─────────────────────────────────────────────────────────────────────────────
-// /contact — Architectural-document framing. Form preserved (structural, not
-// marketing). No warm gradient, no orange eyebrow.
-// ─────────────────────────────────────────────────────────────────────────────
-
+/**
+ * Topic identifiers emitted by CTAs across the site, mapped to the
+ * human-readable label the contact form pre-fills into the message field.
+ * Keep in sync with shellConfig CTA hrefs and any page-level CTA query params.
+ */
 const TOPIC_LABELS: Record<string, string> = {
   'labs-code': 'Labs platform code licensing',
   'labs-prompts': 'Labs prompts archive licensing',
@@ -19,17 +19,20 @@ const TOPIC_LABELS: Record<string, string> = {
   'labs-advisory': 'Labs advisory engagement',
   'ai-direction': 'AI Direction',
   'system-assessment': 'System assessment',
+  'ma-execution': 'M&A execution review',
+  mortgages: 'Mortgages practice',
 }
 
-function ContactForm() {
+function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
   const searchParams = useSearchParams()
-  const topicParam = searchParams.get('topic') ?? ''
+  // Explicit `defaultTopic` from the page wins; otherwise fall back to the
+  // ?topic= query param so old CM links keep working.
+  const topicParam = defaultTopic ?? searchParams.get('topic') ?? ''
   const topicLabel = TOPIC_LABELS[topicParam] ?? ''
   const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
 
   return (
     <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
-      {/* Form — native HTML submission to Formspree (preserved) */}
       <form
         action="https://formspree.io/f/xdkdynak"
         method="POST"
@@ -124,52 +127,10 @@ function ContactForm() {
   )
 }
 
-export default function ContactPage() {
+export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
   return (
-    <div className="bg-bone min-h-screen">
-      {/* Header banner */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
-          <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
-            atheryon / contact / system-assessment
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-charcoal leading-[1.02] mb-6">
-            {page.cta}
-          </h1>
-          <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
-            {v2.identity}
-          </p>
-        </div>
-      </section>
-
-      {/* Form */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <header className="mb-8 pb-4 border-b border-charcoal/15">
-            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-              §01 / Request
-            </div>
-          </header>
-          <Suspense fallback={<div className="max-w-5xl" />}>
-            <ContactForm />
-          </Suspense>
-        </div>
-      </section>
-
-      {/* End-of-document */}
-      <section>
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-            atheryon / contact / end-of-document
-          </div>
-          <a
-            href={`mailto:${site.email}`}
-            className="font-mono text-sm text-charcoal underline-offset-4 hover:underline"
-          >
-            {site.email}
-          </a>
-        </div>
-      </section>
-    </div>
+    <Suspense fallback={<div className="max-w-5xl" />}>
+      <ContactFormInner defaultTopic={defaultTopic} />
+    </Suspense>
   )
 }

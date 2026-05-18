@@ -4,6 +4,7 @@ import { v2 } from '@/content/site'
 
 const page = v2.pages.about
 const s = page.sections
+const ma = page.maCallout
 
 const isPending = (value: string) => value.startsWith('{{')
 
@@ -62,6 +63,26 @@ export default function AboutPage() {
           <p className="text-lg md:text-xl text-charcoal/85 leading-relaxed max-w-3xl">
             {v2.identity}
           </p>
+
+          {/* M&A practice callout — not a new IA section */}
+          <div className="mt-12 pt-8 border-t border-charcoal/10 max-w-3xl">
+            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/50 mb-2">
+              {ma.label}
+            </div>
+            <h3 className="font-display text-xl md:text-2xl font-medium text-charcoal tracking-tight mb-3">
+              {ma.title}
+            </h3>
+            <p className="text-base text-charcoal/75 leading-relaxed mb-4">
+              {ma.description}
+            </p>
+            <Link
+              href={ma.linkHref}
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-charcoal/70 hover:text-charcoal transition-colors"
+            >
+              {ma.linkLabel}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
