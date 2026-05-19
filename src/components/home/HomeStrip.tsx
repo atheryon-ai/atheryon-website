@@ -1,5 +1,18 @@
 import Link from 'next/link'
 
+const whyClaudeLinkStyle: React.CSSProperties = {
+  marginTop: 8,
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 6,
+  fontSize: 11,
+  fontWeight: 600,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  color: 'var(--mode-accent-bright)',
+  textDecoration: 'none',
+}
+
 function StripCell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div
@@ -140,6 +153,10 @@ export function HomeStrip() {
               <p style={{ fontSize: 12, fontWeight: 400, color: 'var(--homev3-text-faint)', margin: 0, lineHeight: 1.5 }}>
                 Anthropic — AI agent reasoning
               </p>
+              <Link href="/blog/why-claude" style={whyClaudeLinkStyle}>
+                Why we chose Claude
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </StripCell>
 
