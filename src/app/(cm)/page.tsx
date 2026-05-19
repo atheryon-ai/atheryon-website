@@ -4,6 +4,7 @@ import {
   BuiltForGrid,
   HomeStrip,
   ReferenceSystemCTA,
+  HomeWritingStrip,
 } from '@/components/home'
 import { v2 } from '@/content/site'
 
@@ -28,6 +29,7 @@ export default function HomePage() {
       <BuiltForGrid />
       <HomeStrip />
       <ReferenceSystemCTA />
+      <HomeWritingStrip />
     </>
   )
 }
