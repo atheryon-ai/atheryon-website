@@ -368,7 +368,7 @@ textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #0A84FF; /* atheryon-blue */
+  outline: 2px solid #3b82f6; /* homev3-blue */
   outline-offset: 2px;
 }
 
@@ -479,6 +479,12 @@ input.bg-white, textarea.bg-white, select.bg-white {
 }
 input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   border-color: var(--homev3-blue-bright) !important;
+}
+/* Keep the keyboard focus-visible ring; only suppress the outline for
+   pointer focus so mouse users don't get a double indicator. */
+input.bg-white:focus:not(:focus-visible),
+textarea.bg-white:focus:not(:focus-visible),
+select.bg-white:focus:not(:focus-visible) {
   outline: none !important;
 }
 .placeholder\:text-charcoal\/50::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
