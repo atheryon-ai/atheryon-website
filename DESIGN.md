@@ -13,12 +13,18 @@ the canonical implementation of this system.
 
 ## Aesthetic posture
 
-**DEPRECATED — 2026-05-16.** The bone/charcoal "architectural document"
-system documented in this section is no longer in use. The site now runs a
-single dark navy AI platform system site-wide (see "Dark navy site system"
-section at the bottom of this file). The tokens, type scale, and patterns
-below are retained as a record of the previous aesthetic; do NOT use them
-for new work.
+**DEPRECATED — 2026-05-16, scope clarified 2026-05-29.** Everything in this
+file ABOVE the "Dark navy site system" section (aesthetic posture, the
+bone/charcoal color tokens, the Fraunces/JetBrains type scale, the
+`border-radius: 0` rule, the bone "Forbidden patterns" table, etc.) describes
+the previous bone/charcoal "architectural document" system and is HISTORICAL
+REFERENCE ONLY — do NOT use it for new work or treat its rules as binding.
+
+The single binding visual system is the **"Dark navy site system"** section at
+the bottom of this file. Where the bone sections and the navy section conflict
+(radius, glass/blur, glows, gradients, typography), **the navy section wins**.
+It was reconciled with the shipped site on 2026-05-29 so the doc matches what
+is actually built.
 
 - Architectural document, terminal/dossier energy, low decorative load.
 - Information density beats whitespace theater.
@@ -269,19 +275,88 @@ deprecated.
 | `homev3-orange`   | `#f59e0b`              | Logo accent only (not for UI surfaces).             |
 | `homev3-orange-bright` | `#fbbf24`         | Logo highlight, tagline `DATA.` word.               |
 
-### Typography (homepage)
+### Typography — two tiers within the navy system
+
+The navy system is universal at the color/background level (every page is
+`#060b1c`), but typography runs in two deliberate tiers.
+
+**Tier 1 — marketing / landing pages (`/`, `/ma`):** Cinzel wordmark + Inter
+body, no serif, no mono. Poster-style pages.
+
+#### Tier 1 families (landing)
 
 | Family          | Stack                                                  | Use                                  |
 | --------------- | ------------------------------------------------------ | ------------------------------------ |
 | Lockup serif    | `Cinzel`, Trajan Pro, Georgia, serif                   | `ATHERYON` wordmark only.            |
 | Body sans       | `Inter`, system-ui, sans-serif                         | Everything else on the homepage.     |
 
-No Fraunces, no JetBrains Mono on the homepage. Those families stay
-homepage-internal; the legacy bone pages continue to use them.
+**Tier 2 — document / interior pages** (`/system`, `/about`, `/contact`,
+`/themes`, `/labs`, `/blog`, `/offers`, `/roadmap`, `/programs`, `/privacy`,
+`/terms`, the 404, and anything built on `Doc`): the navy editorial-dossier
+treatment — Fraunces display serif headings + JetBrains Mono section labels on
+the navy background. This is intentional, not leftover bone styling: serif on
+dark reads as a sell-side research / dossier surface, which is the point.
+
+| Family          | Stack                                          | Use                                  |
+| --------------- | ---------------------------------------------- | ------------------------------------ |
+| Display serif   | `Fraunces`, Georgia, Cambria, serif            | Interior-page headings (h1–h3).      |
+| Mono labels     | `JetBrains Mono`, ui-monospace, monospace      | Section labels, breadcrumbs, meta.   |
+| Body sans       | `Inter Tight` / `Inter`, system-ui, sans-serif | Interior body copy.                  |
+
+This supersedes the earlier, self-contradictory note that said both "navy
+across every page" and "bone pages keep Fraunces." Both were half-right: navy
+backgrounds everywhere, serif typography on the interior tier.
+
+Font loading: both `Inter` and `Inter Tight` are imported in `globals.css`.
+Any `font-family: 'Inter'` reference MUST have a matching import — a missing
+plain-Inter import silently fell back to system-ui site-wide until 2026-05-29.
 
 ### Decorative rules (universal)
 
-- Exactly one glow source on the page — the AI Agent Orchestration ring.
-- Background gradients allowed only as page-wide ambient (top-center bloom).
-- Drop shadows: prohibited on cards, nodes, and CTAs. Only the glow ring
-  uses `box-shadow` (for radiance, not depth).
+- **Glow** is reserved for two elements only: the AI Agent Orchestration ring
+  (primary — `OrchestrationDiagram`) and the reference-system mark halo on the
+  homepage (a smaller secondary accent — `ReferenceSystemCTA`). Do not add glows
+  anywhere else. Glow is `box-shadow` used for radiance, not depth.
+- **Drop shadows** for depth remain prohibited on cards, nodes, and CTAs.
+- **Gradients** are permitted only in these specific roles: the page-wide
+  ambient bloom (top-center, may be layered), the orchestration wire/ring
+  gradients, and the subtle `surface → surface-2` wash on the reference-system
+  CTA card. No marketing hero gradients, no gradient text.
+
+### Border radius (universal — supersedes the bone "radius 0" rule)
+
+The navy system uses a small, deliberate radius scale. The bone-era
+`border-radius: 0` rule does NOT apply to navy components.
+
+| Element                                  | Radius |
+| ---------------------------------------- | ------ |
+| Buttons / CTAs (nav, hero)               | `4px`  |
+| Nodes, pills, secondary cards, badges    | `6px`  |
+| Primary cards / panels                   | `8px`  |
+| Orchestration ring, bullet/particle dots | `50%`  |
+
+Keep radii on this scale; do not introduce `12px`+ bubbly radii.
+
+### Elevation & blur (universal)
+
+- The sticky site nav uses a frosted-glass effect (`backdrop-filter: blur(12px)`
+  over a translucent navy). This is a deliberate part of the navy system; the
+  bone-era "no glass / backdrop-blur" rule does NOT apply to the nav.
+- Keep backdrop-blur scoped to the nav. Do not add glass surfaces elsewhere.
+
+### Known reconciliation backlog (drift — NOT yet design intent)
+
+Real inconsistencies found 2026-05-29. These are NOT blessed as the system —
+fix when convenient, and do not propagate them:
+
+- **Container width:** landing pages use `1340px`, interior pages `1280px` — a
+  visible ~60px jump on navigation. Pick one (1280px is the documented value).
+- **Copy location:** several home/ma components inline page copy instead of
+  pulling it from `src/content/site.ts` (see Voice rules above).
+- **"Senior-led" language** persists in offers/buyer copy despite the voice
+  rules; revisit alongside the constitution.
+- **Override shim:** ~13 interior pages render via bone Tailwind classes
+  (`text-charcoal`/`bg-bone`) recolored by the `globals.css` `!important`
+  override block rather than native navy tokens. The shim works but is fragile
+  — it caused the `text-charcoal/45` → 10%-opacity invisible-text bug (fixed
+  2026-05-29). Prefer native navy tokens for new interior work.
