@@ -1470,7 +1470,7 @@ Pure plumbing. Site looks pixel-identical after.
   ```
 
 - [ ] **Step 2: Delete the workflows page file.**
-  Run: `rm /Users/terencetsakiris/GitHub/atheryon-website/src/app/workflows/page.tsx`
+  Run: `rm /Users/terencetsakiris/repos/atheryon-website/src/app/workflows/page.tsx`
 
 - [ ] **Step 3: Update `staticwebapp.config.json`.**
   Edit `staticwebapp.config.json`. Find the line `{ "route": "/workflows",   "rewrite": "/workflows.html" },` (around line 28 currently) and REPLACE it with:

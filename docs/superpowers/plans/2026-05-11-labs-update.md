@@ -10,7 +10,7 @@
 
 **Tech stack:** Next.js 14 App Router (static export), TypeScript, Tailwind CSS, Playwright for tests, all page copy in `src/content/site.ts`.
 
-**Sibling repo (Phase B source):** `/Users/terencetsakiris/GitHub/labs-platform/` — taxonomy at `src/lib/themes/themes.ts`, thumbnails at `public/menu-themes-thumbs/`. Verify presence in B1 before starting Phase B.
+**Sibling repo (Phase B source):** `/Users/terencetsakiris/repos/labs-platform/` — taxonomy at `src/lib/themes/themes.ts`, thumbnails at `public/menu-themes-thumbs/`. Verify presence in B1 before starting Phase B.
 
 ---
 
@@ -628,21 +628,21 @@ If all green, Phase A is shippable. Phase B is optional from this point.
 ## Task B1: Verify sibling repo and create `src/content/themes.ts`
 
 **Files:**
-- Verify: `/Users/terencetsakiris/GitHub/labs-platform/src/lib/themes/themes.ts`
+- Verify: `/Users/terencetsakiris/repos/labs-platform/src/lib/themes/themes.ts`
 - Create: `src/content/themes.ts`
 
 - [ ] **Step 1: Verify labs-platform source exists**
 
 Run:
 ```bash
-ls -la /Users/terencetsakiris/GitHub/labs-platform/src/lib/themes/themes.ts
+ls -la /Users/terencetsakiris/repos/labs-platform/src/lib/themes/themes.ts
 ```
 
 Expected: file exists, ~25KB. If it does not exist or the path is different, **stop and ask** — Phase B cannot proceed without it.
 
 - [ ] **Step 2: Read the source**
 
-Read `/Users/terencetsakiris/GitHub/labs-platform/src/lib/themes/themes.ts` in full. Note: any imports referencing labs-platform internals (e.g. `@/lib/...`, store paths, test helpers) must be removed for the snapshot.
+Read `/Users/terencetsakiris/repos/labs-platform/src/lib/themes/themes.ts` in full. Note: any imports referencing labs-platform internals (e.g. `@/lib/...`, store paths, test helpers) must be removed for the snapshot.
 
 - [ ] **Step 3: Create `src/content/themes.ts` as a dependency-free snapshot**
 
@@ -739,7 +739,7 @@ git commit -m "feat(themes): add pages.themes copy block (Discovery surface)"
 
 Run:
 ```bash
-ls /Users/terencetsakiris/GitHub/labs-platform/public/menu-themes-thumbs/ | wc -l
+ls /Users/terencetsakiris/repos/labs-platform/public/menu-themes-thumbs/ | wc -l
 ```
 
 Expected: 30. The 30th file is the orphan `t-risk-pricing.png` which is **not** referenced by any theme — it must be skipped.
@@ -755,7 +755,7 @@ mkdir -p public/menu-themes-thumbs
 # For each id in ALL_THEMES, copy t-{id}.png:
 # (run this script, replacing the for-loop with the actual ids — easiest to grep them out of themes.ts)
 for id in $(grep -oE "id: '[a-z-]+'" src/content/themes.ts | sed -E "s/id: '(.*)'/\1/" | sort -u); do
-  cp "/Users/terencetsakiris/GitHub/labs-platform/public/menu-themes-thumbs/t-${id}.png" "public/menu-themes-thumbs/t-${id}.png" || echo "MISSING: t-${id}.png"
+  cp "/Users/terencetsakiris/repos/labs-platform/public/menu-themes-thumbs/t-${id}.png" "public/menu-themes-thumbs/t-${id}.png" || echo "MISSING: t-${id}.png"
 done
 ```
 
