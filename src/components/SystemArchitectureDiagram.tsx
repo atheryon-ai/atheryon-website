@@ -43,8 +43,10 @@ export function SystemArchitectureDiagram({ data }: { data: SystemArchitectureDa
   const c = data.control
   return (
     <>
-      {/* Desktop (md+): inline SVG */}
-      <div className="hidden md:block">
+      {/* Desktop (lg+): inline SVG. Below lg the SVG renders too small to read
+          (viewBox units scale with width; at the md range the densest labels
+          collapse to ~5px), so the legible vertical card layout covers tablet too. */}
+      <div className="hidden lg:block">
         <svg
           role="img"
           aria-labelledby="system-arch-title"
@@ -180,8 +182,8 @@ export function SystemArchitectureDiagram({ data }: { data: SystemArchitectureDa
         <p className="mt-4 font-mono text-xs text-charcoal/60 max-w-3xl">{data.mndaCaption}</p>
       </div>
 
-      {/* Mobile fallback (< md): vertical OL mirroring the same architecture */}
-      <div className="md:hidden">
+      {/* Mobile + tablet fallback (< lg): vertical OL mirroring the same architecture */}
+      <div className="lg:hidden">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-3">
           {c.orchestrator.name} ({c.orchestrator.runtime}) · {c.archive.name}
         </p>
