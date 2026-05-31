@@ -8,7 +8,7 @@
 
 **Tech Stack:** Next.js 14 (target: 15.5.16) static export, npm (lockfileVersion 3), Playwright 1.57 (Chromium-only), GitHub Actions deploy to Azure Static Web Apps (Node 20 runner).
 
-**Constraint reminders (from `/Users/terencetsakiris/GitHub/atheryon-website/CLAUDE.md`):**
+**Constraint reminders (from `/Users/terencetsakiris/repos/atheryon-website/CLAUDE.md`):**
 - `package.json` and `package-lock.json` are CODEOWNERS-protected (`@terencetsakiris`). All commits in this plan need owner approval on the PR before merging into `dev` → `main`.
 - Site is `output: 'export'`, `images.unoptimized: true`, no API routes, no middleware. This makes 8 of the Next.js CVEs unexploitable at runtime (server-only attack surfaces) — they are still remediated, but the urgency rating is lower than raw severity suggests.
 - Workflows are SHA-pinned (`Azure/static-web-apps-deploy@1a947af9...`). Do NOT modify workflows in this plan.
@@ -86,7 +86,7 @@ atheryon-website/
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm list next --depth=0
 npm audit --json | jq '{advisories_count: (.metadata.vulnerabilities | to_entries | map(.value) | add // 0), advisories: .metadata.vulnerabilities}'
 git status --short
@@ -104,7 +104,7 @@ If working tree is NOT clean, STOP and surface the dirty files before proceeding
 Verify the repo is not using Next 14 features that change behavior in Next 15. Run these greps and confirm zero matches (or document any matches before proceeding):
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 # Async request APIs (Next 15 made these async-only)
 grep -rn "from 'next/headers'" src/ || echo "OK: no next/headers usage"
 grep -rn "from 'next/cookies'" src/ || echo "OK: no next/cookies usage"
@@ -125,7 +125,7 @@ If a `beforeInteractive` Script is found, note the file path in execution notes 
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm install next@15.5.16 --save-exact=false
 ```
 
@@ -140,7 +140,7 @@ Expected output:
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm audit --omit=dev --json | jq '.metadata.vulnerabilities'
 npm audit --json | jq '.metadata.vulnerabilities'
 gh api 'repos/atheryon-ai/atheryon-website/dependabot/alerts?state=open&per_page=100' --paginate | jq '[.[] | {n: .number, pkg: .dependency.package.name, sev: .security_advisory.severity}] | group_by(.pkg) | map({pkg: .[0].pkg, count: length, severities: (map(.sev) | unique)})'
@@ -154,7 +154,7 @@ If a NEW alert appears (rare — transitive flux after major-version bump), capt
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx next build
 ```
 
@@ -169,7 +169,7 @@ If build fails for any OTHER reason: STOP, capture the full error, and surface t
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx playwright test tests/home.spec.ts --project=chromium
 npx playwright test tests/offers.spec.ts --project=chromium
 npx playwright test tests/grok-polish.spec.ts --project=chromium
@@ -185,7 +185,7 @@ The `tests/visual.spec.ts-snapshots/` directory contains pixel snapshots. Next 1
 - [ ] **Step 7: Commit**
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 git add package.json package-lock.json tests/visual.spec.ts-snapshots/ 2>/dev/null
 git status --short  # verify only intended files staged
 git commit -m "$(cat <<'EOF'
@@ -235,7 +235,7 @@ If the `tests/visual.spec.ts-snapshots/` directory was regenerated in step 6, th
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm list postcss
 ```
 
@@ -257,7 +257,7 @@ Edit `package.json` to add (after `devDependencies`):
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 rm -rf node_modules
 npm install
 npm list postcss
@@ -269,7 +269,7 @@ Expected: every `postcss` entry in the tree at ≥8.5.10.
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm audit --json | jq '.metadata.vulnerabilities'
 ```
 
@@ -279,7 +279,7 @@ Expected: `postcss` alert (GHSA-qx2v-qp2m-jg93) no longer present.
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx next build
 ```
 
@@ -290,7 +290,7 @@ Expected: build succeeds (Tailwind/PostCSS pipeline still resolves; same major v
 PostCSS affects CSS output. Run the visual/polish test that exercises rendered CSS:
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx playwright test tests/grok-polish.spec.ts --project=chromium
 npx playwright test tests/home.spec.ts --project=chromium
 ```
@@ -300,7 +300,7 @@ Expected: pass. No snapshot drift expected (same major), but if any drift appear
 - [ ] **Step 7: Commit**
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 git add package.json package-lock.json
 git commit -m "$(cat <<'EOF'
 chore(deps): pin postcss >=8.5.10 via overrides (CVE-2026-41305, medium)
@@ -327,7 +327,7 @@ EOF
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm list glob
 ```
 
@@ -350,7 +350,7 @@ If only Task 3 runs first (out of order), the block is just `{ "glob": "^10.5.0"
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 rm -rf node_modules
 npm install
 npm list glob
@@ -362,7 +362,7 @@ Expected: `glob@10.5.0` (or higher 10.x) under `@next/eslint-plugin-next`. Other
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm audit --json | jq '.metadata.vulnerabilities'
 ```
 
@@ -374,7 +374,7 @@ Expected: glob alert (GHSA-5j98-mcp5-4vw2) cleared.
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx next build
 ```
 
@@ -385,7 +385,7 @@ Expected: build succeeds, lint step passes, `out/` generated.
 `glob` doesn't affect runtime output. The build success in step 5 is the meaningful verification, but run one quick smoke test to confirm nothing broke:
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npx playwright test tests/home.spec.ts --project=chromium
 ```
 
@@ -394,7 +394,7 @@ Expected: pass.
 - [ ] **Step 7: Commit**
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 git add package.json package-lock.json
 git commit -m "$(cat <<'EOF'
 chore(deps): pin glob >=10.5.0 via overrides (CVE-2025-64756, high)
@@ -417,7 +417,7 @@ EOF
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm test
 ```
 
@@ -429,7 +429,7 @@ If failures: stop and surface. Likely cause is one of the Next 15 behavior chang
 
 Run:
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 npm run verify:production-ready
 ```
 
@@ -456,7 +456,7 @@ Confirm any remaining alerts are in the **Deferred items** block below. If they 
 Push to `dev` and open a PR to `main` (per CLAUDE.md `## Git workflow`):
 
 ```bash
-cd /Users/terencetsakiris/GitHub/atheryon-website
+cd /Users/terencetsakiris/repos/atheryon-website
 git push origin dev
 gh pr create --base main --head dev --title "chore(deps): clear all 16 Dependabot alerts (next 14→15, postcss + glob overrides)" --body "$(cat <<'EOF'
 Closes 16 open Dependabot alerts on `main`.

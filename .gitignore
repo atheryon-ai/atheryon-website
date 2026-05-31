@@ -54,3 +54,8 @@ tsconfig.tsbuildinfo
 /assets/~$*
 .gstack/
 .superpowers/
+
+# Recipe-bearing /system design docs — contain MNDA-only detail; keep OUT of
+# this PUBLIC repo. (Other docs/superpowers/* are committed by convention.)
+docs/superpowers/specs/2026-05-31-system-architecture-diagram-design.md
+docs/superpowers/plans/2026-05-31-system-architecture-diagram.md

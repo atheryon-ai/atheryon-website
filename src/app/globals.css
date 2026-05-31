@@ -2,14 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial display serif (Fraunces) + workhorse sans (Inter Tight) + display sans (Cinzel) */
+/* Editorial display serif (Fraunces) + workhorse sans (Inter / Inter Tight) + display sans (Cinzel) */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 /* Poppins — Anthropic brand-typography font, used ONLY for "Powered by Claude" attribution */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+/* JetBrains Mono — DESIGN.md Tier-2 mono for section labels, breadcrumbs, captions */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   --color-bone: #EFEAE0;
   --color-ink: #0E1116;
   --color-charcoal: #15171A;
@@ -368,7 +370,7 @@ textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #0A84FF; /* atheryon-blue */
+  outline: 2px solid #3b82f6; /* homev3-blue */
   outline-offset: 2px;
 }
 
@@ -451,7 +453,7 @@ summary:focus-visible,
 .text-charcoal\/60 { color: rgba(255, 255, 255, 0.60) !important; }
 .text-charcoal\/55 { color: rgba(255, 255, 255, 0.55) !important; }
 .text-charcoal\/50 { color: rgba(255, 255, 255, 0.50) !important; }
-.text-charcoal\/45 { color: rgba(255, 255, 255, 0.10) !important; }
+.text-charcoal\/45 { color: rgba(255, 255, 255, 0.45) !important; }
 .text-charcoal\/40 { color: rgba(255, 255, 255, 0.40) !important; }
 .text-charcoal\/30 { color: rgba(255, 255, 255, 0.30) !important; }
 .text-charcoal\/25 { color: rgba(255, 255, 255, 0.25) !important; }
@@ -479,6 +481,12 @@ input.bg-white, textarea.bg-white, select.bg-white {
 }
 input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   border-color: var(--homev3-blue-bright) !important;
+}
+/* Keep the keyboard focus-visible ring; only suppress the outline for
+   pointer focus so mouse users don't get a double indicator. */
+input.bg-white:focus:not(:focus-visible),
+textarea.bg-white:focus:not(:focus-visible),
+select.bg-white:focus:not(:focus-visible) {
   outline: none !important;
 }
 .placeholder\:text-charcoal\/50::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
