@@ -69,6 +69,7 @@ const config: Config = {
         display: ['Fraunces', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
         body: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
         'serif-cap': ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
         // Social Grow typography scale
