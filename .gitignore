@@ -54,3 +54,7 @@ tsconfig.tsbuildinfo
 /assets/~$*
 .gstack/
 .superpowers/
+
+# Design/spec/plan working docs — may contain MNDA-only detail.
+# Never commit to this PUBLIC repo; the MNDA briefing is their home.
+docs/superpowers/

@@ -616,7 +616,7 @@ export const v2 = {
       title: 'System — Reference Architecture',
       intent: 'Reference architecture (core proof)',
       description:
-        'Reference architecture: capital markets systems, data platforms, AI agent systems — built on Microsoft Azure AI infrastructure with S&P Global data integration.',
+        'Reference architecture: capital markets systems, data platforms, and AI agent systems — built on Anthropic’s Claude and deployed on Microsoft Azure, with S&P Global data integration.',
       // Section structure (user-locked 2026-05-15). Do not reorder. Do not add sections.
       // Must feel like a system architecture interface. No marketing language, no storytelling tone.
       sections: {
@@ -628,33 +628,49 @@ export const v2 = {
         architectureDiagram: {
           label: '§01 / Architecture',
           title: 'Architecture diagram',
-          stages: [
-            {
-              id: 'data-sources',
-              name: 'Data Sources',
-              detail: 'S&P Global + enterprise bank systems',
-            },
-            {
-              id: 'data-platform-layer',
-              name: 'Data Platform Layer',
-              detail: 'Bespoke capital-markets data model · industry-anchored · field-level lineage',
-            },
-            {
-              id: 'ai-agent-orchestration-layer',
-              name: 'AI Agent Orchestration Layer',
-              detail: 'Multi-agent orchestrator · CDM-typed payloads · directorial archive',
-            },
-            {
-              id: 'capital-markets-systems-layer',
-              name: 'Capital Markets Systems Layer',
-              detail: 'trade lifecycle · regulatory reporting · risk · analytics',
-            },
-            {
-              id: 'operational-outputs',
-              name: 'Operational Outputs',
-              detail: 'risk, trading, reporting',
-            },
-          ],
+          dataSources: {
+            name: 'Data Sources',
+            detail: 'S&P Global · enterprise bank systems · counterparty feeds',
+          },
+          etlAgents: {
+            label: 'ETL agents',
+            caption: 'CDM-native modelling · validation · ingestion',
+            output: 'validated · field-level lineage',
+          },
+          ods: {
+            name: 'Operational Data Store (ODS)',
+            detail: 'the CDM-typed foundation — validated · field-level lineage',
+            scale: '1,019 type defs · 42 ISO 20022 · 14 FpML',
+          },
+          operationsAgents: {
+            label: 'Operations agents',
+            caption: 'per business unit — run the workflows on the ODS',
+            units: [
+              { name: 'Front Office', detail: 'trade lifecycle' },
+              { name: 'Risk & Analytics', detail: 'P&L · limits · anomalies' },
+              { name: 'Operations', detail: 'confirms · settlement' },
+              { name: 'Compliance', detail: 'reg reporting · surveillance' },
+              { name: 'Treasury / Finance', detail: 'liquidity · funding' },
+            ],
+          },
+          control: {
+            orchestrator: { name: 'Orchestrator', detail: 'routes · types · retries · audits', runtime: 'built on Claude' },
+            signOff: { name: 'Expert sign-off', detail: 'senior capital-markets expert selects · edits · signs off every output' },
+            archive: { name: 'Directorial archive', detail: 'every agent decision replayable & auditable' },
+            deployment: 'deployed on Azure (Container Apps · Entra ID · Postgres)',
+          },
+          outputs: {
+            name: 'Operational Outputs',
+            detail: 'capital-markets systems · risk · trading · regulatory reporting',
+          },
+          mndaCaption:
+            'Specialist agents — independently deployable / licensable. Detailed reference-architecture briefing — agent clusters, deployment topology, operational evidence — available under MNDA.',
+          legend: {
+            data: 'data flow',
+            control: 'control / audit',
+            orchestrator: 'navy = orchestrator',
+            signoff: 'double-rule = expert sign-off',
+          },
         },
         dataFlowLayer: {
           label: '§02 / Data Flow Layer',
@@ -666,7 +682,7 @@ export const v2 = {
           label: '§03 / AI Agent Layer',
           title: 'AI Agent Layer',
           body:
-            'A multi-agent orchestrator routes work to function-specialised agents (trading, post-trade, risk, compliance, analytics). Azure OpenAI is the inference runtime; the orchestrator owns routing, payload typing, retry, and audit. Each agent generates candidate implementations against the loaded schemas; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
+            'Two classes of specialist agent, coordinated by a multi-agent orchestrator. ETL agents build the CDM-typed Operational Data Store — CDM-native modelling, validation, and ingestion with field-level lineage. Operations agents run the workflows on top of it, one set per business unit (front office, risk & analytics, operations, compliance, treasury / finance). The agents run on Anthropic’s Claude (Claude Agent SDK) — model-agnostic by design; the orchestrator owns routing, payload typing, retry, and audit. Each agent generates candidate implementations against the loaded schemas; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
         },
         workflowExamples: {
           label: '§04 / Workflow Examples',
@@ -706,7 +722,7 @@ export const v2 = {
           label: '§05 / Deployment Model',
           title: 'Deployment model',
           body:
-            'Azure-native. Azure OpenAI as the agent runtime, Postgres for the operational data store, Container Apps for the service mesh, Microsoft Entra ID for identity. APRA CPS 234-aligned operational-controls baseline. Marketplace-bound reference implementation: deployable into your Azure tenant, licensed as a reference platform, or operated under managed-service terms. Fully inspectable, extendable, and externally testable today — no demoware.',
+            'Azure-native. Claude (Anthropic) as the agent runtime, Postgres for the operational data store, Container Apps for the service mesh, Microsoft Entra ID for identity. APRA CPS 234-aligned operational-controls baseline. Marketplace-bound reference implementation: deployable into your Azure tenant, licensed as a reference platform, or operated under managed-service terms. Fully inspectable, extendable, and externally testable today — no demoware.',
         },
         proofArtifacts: {
           label: '§06 / Proof Artifacts',
