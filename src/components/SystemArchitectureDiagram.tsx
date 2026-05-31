@@ -50,7 +50,7 @@ export function SystemArchitectureDiagram({ data }: { data: SystemArchitectureDa
           aria-labelledby="system-arch-title"
           viewBox="0 0 980 540"
           className="w-full h-auto block"
-          style={{ fontFamily: "'Inter Tight', ui-monospace, Menlo, monospace" }}
+          style={{ fontFamily: "'JetBrains Mono', ui-monospace, Menlo, monospace" }}
         >
           <title id="system-arch-title">
             {`${data.dataSources.name} feed two classes of specialist agent: ETL agents build the ${data.ods.name}, and Operations agents run workflows on it, coordinated by the ${c.orchestrator.name} (${c.orchestrator.runtime}), gated by ${c.signOff.name}, and logged to the ${c.archive.name}, producing ${data.outputs.name}.`}
