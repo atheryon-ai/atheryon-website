@@ -50,7 +50,7 @@ export function SystemArchitectureDiagram({ data }: { data: SystemArchitectureDa
         <svg
           role="img"
           aria-labelledby="system-arch-title"
-          viewBox="0 0 980 540"
+          viewBox="0 0 920 540"
           className="w-full h-auto block"
           style={{ fontFamily: "'JetBrains Mono', ui-monospace, Menlo, monospace" }}
         >
