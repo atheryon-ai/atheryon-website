@@ -1,15 +1,17 @@
 // src/components/SystemArchitectureDiagram.tsx
 // /system §01 architecture diagram — public-safe orchestrator-worker depiction.
 // Two agent classes (ETL → ODS → Operations) framed by an orchestrator + expert
-// sign-off gate + directorial archive. Monochrome bone-on-navy to match the
-// dark interior-page theme (globals.css remaps bone/charcoal utilities to dark);
-// this inline SVG uses literal bone (#EFEAE0) since the remap can't reach it.
-// Stroke encodes meaning: solid = data plane, dashed = control/audit plane.
+// sign-off gate + directorial archive.
+//
+// "Layered bands" redraw (2026-06-01): rebuilt from a hand-coordinated SVG into a
+// responsive CSS-grid/flexbox DOM diagram. The browser owns alignment and reflow,
+// so the old SVG failure modes (shrink-to-unreadable on tablet, asymmetric viewBox
+// margins) can't recur. Colors come from Tailwind bone/charcoal tokens, which
+// globals.css remaps to the dark-navy interior theme — no hardcoded hex.
 //
 // DISCLOSURE: this is the PUBLIC version of the §01 diagram. The proprietary
 // agent-design details belong only in the internal MNDA reference briefing and
 // must not be added here or to site.ts — keep this depiction at public altitude.
-import { Fragment } from 'react'
 
 export type SystemArchitectureData = {
   label: string
@@ -33,185 +35,164 @@ export type SystemArchitectureData = {
   legend: { data: string; control: string; orchestrator: string; signoff: string }
 }
 
-// Fixed x-origin + width per Operations unit card (up to 5). Geometry is
-// presentational and intentionally hard-coded; text comes from `data`.
-const OPS_X = [140, 294, 448, 602, 756] as const
-// Last card is 144 (vs 140) to close the gap to the diagram's right edge.
-const OPS_W = [140, 140, 140, 140, 144] as const
+// Number of abstracted ETL agent nodes shown (public altitude — count is illustrative).
+const ETL_NODE_COUNT = 5
+
+const seclabel = 'font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/50'
+const arrow = 'flex items-center justify-center gap-2 text-charcoal/40 font-mono text-lg leading-none py-1.5'
+
+function AgentNode() {
+  return (
+    <div className="border border-charcoal/30 bg-bone-deep px-2 py-3 text-center">
+      <span className="mx-auto mb-2 block h-2 w-2 border border-charcoal/40" aria-hidden="true" />
+      <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-charcoal/55">agent</span>
+    </div>
+  )
+}
 
 export function SystemArchitectureDiagram({ data }: { data: SystemArchitectureData }) {
   const c = data.control
+  const summary = `${data.dataSources.name} feed two classes of specialist agent: ETL agents build the ${data.ods.name}, and Operations agents run workflows on it, coordinated by the ${c.orchestrator.name} (${c.orchestrator.runtime}), gated by ${c.signOff.name}, and logged to the ${c.archive.name}, producing ${data.outputs.name}.`
+
   return (
-    <>
-      {/* Desktop (md+): inline SVG */}
-      <div className="hidden md:block">
-        <svg
-          role="img"
-          aria-labelledby="system-arch-title"
-          viewBox="0 0 980 540"
-          className="w-full h-auto block"
-          style={{ fontFamily: "'JetBrains Mono', ui-monospace, Menlo, monospace" }}
-        >
-          <title id="system-arch-title">
-            {`${data.dataSources.name} feed two classes of specialist agent: ETL agents build the ${data.ods.name}, and Operations agents run workflows on it, coordinated by the ${c.orchestrator.name} (${c.orchestrator.runtime}), gated by ${c.signOff.name}, and logged to the ${c.archive.name}, producing ${data.outputs.name}.`}
-          </title>
-          <defs>
-            <marker id="sa-arch-arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M0 0 L10 5 L0 10 z" fill="#EFEAE0" />
-            </marker>
-          </defs>
+    <figure className="m-0">
+      <p className="sr-only">{summary}</p>
 
-          {/* Orchestrator left rail (navy = single emphasis) */}
-          <rect x="20" y="98" width="100" height="344" rx="4" fill="#0A1A2F" />
-          <text x="70" y="120" textAnchor="middle" fontSize="8" fill="#EFEAE0" fillOpacity="0.7">§03</text>
-          <text x="70" y="250" textAnchor="middle" fontSize="11" fill="#EFEAE0" fontWeight="700" transform="rotate(-90 70 250)" letterSpacing="1">
-            {c.orchestrator.name.toUpperCase()}
-          </text>
-          <text x="70" y="408" textAnchor="middle" fontSize="6.5" fill="#EFEAE0" fillOpacity="0.8">routes · types</text>
-          <text x="70" y="418" textAnchor="middle" fontSize="6.5" fill="#EFEAE0" fillOpacity="0.8">retries · audits</text>
-          <text x="70" y="432" textAnchor="middle" fontSize="6.5" fill="#EFEAE0" fillOpacity="0.95">· {c.orchestrator.runtime} ·</text>
+      <div className="lg:grid lg:grid-cols-[148px_1fr] lg:gap-5">
+        {/* Orchestrator rail — spans the full height of the stack on lg+ */}
+        <div className="mb-3 flex items-center justify-between gap-4 border border-charcoal/30 bg-bone-deep px-4 py-3 lg:mb-0 lg:flex-col lg:py-5">
+          <span className={`${seclabel} lg:order-first`}>§03</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.24em] text-charcoal lg:[writing-mode:vertical-rl] lg:rotate-180">
+            {c.orchestrator.name}
+          </span>
+          <span className="font-mono text-[10px] leading-relaxed text-charcoal/55 text-right lg:text-center">
+            {c.orchestrator.detail}
+            <span className="block text-charcoal/70">· {c.orchestrator.runtime} ·</span>
+          </span>
+        </div>
 
-          {/* Data sources */}
-          <rect x="140" y="24" width="760" height="38" fill="none" stroke="#EFEAE0" strokeOpacity="0.55" />
-          <text x="152" y="40" fontSize="9" fill="#EFEAE0" fillOpacity="0.55">§01</text>
-          <text x="152" y="52" fontSize="10.5" fill="#EFEAE0" fontWeight="600">{data.dataSources.name}</text>
-          <text x="520" y="47" fontSize="9" fill="#EFEAE0" fillOpacity="0.7">{data.dataSources.detail}</text>
-          <g stroke="#EFEAE0" strokeOpacity="0.5" fill="none">
-            <line x1="231" y1="62" x2="231" y2="98" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="421" y1="62" x2="421" y2="98" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="611" y1="62" x2="611" y2="98" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="801" y1="62" x2="801" y2="98" markerEnd="url(#sa-arch-arrow)" />
-          </g>
+        {/* Stacked layers */}
+        <div className="flex flex-col">
+          {/* §01 Data sources */}
+          <div className="flex flex-col gap-2 border border-charcoal/30 bg-paper px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <div>
+              <div className={seclabel}>§01</div>
+              <div className="mt-1 font-display text-lg font-semibold tracking-tight text-charcoal">
+                {data.dataSources.name}
+              </div>
+            </div>
+            <div className="font-mono text-[11px] text-charcoal/65 sm:text-right">{data.dataSources.detail}</div>
+          </div>
 
-          {/* ETL agents tier — unlabelled CDM-native cluster (abstracted) */}
-          <text x="140" y="84" fontSize="8.5" letterSpacing="1.5" fill="#EFEAE0" fontWeight="700">
-            {data.etlAgents.label.toUpperCase()}
-            <tspan fontWeight="400" fillOpacity="0.65" letterSpacing="0"> · {data.etlAgents.caption}</tspan>
-          </text>
-          {[170, 300, 430, 560, 690].map((gx) => (
-            <g key={gx}>
-              <rect x={gx} y="102" width="64" height="36" rx="3" fill="none" stroke="#EFEAE0" strokeOpacity="0.6" />
-              <circle cx={gx + 32} cy="116" r="4" fill="none" stroke="#EFEAE0" strokeOpacity="0.6" />
-              <text x={gx + 32} y="132" textAnchor="middle" fontSize="6.5" fill="#EFEAE0" fillOpacity="0.45">agent</text>
-            </g>
-          ))}
-          <text x="800" y="124" fontSize="14" fill="#EFEAE0" fillOpacity="0.4">· · ·</text>
+          <div className={arrow} aria-hidden="true">↓</div>
 
-          {/* ETL -> ODS */}
-          <g stroke="#EFEAE0" strokeOpacity="0.5" fill="none">
-            <line x1="332" y1="138" x2="332" y2="194" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="592" y1="138" x2="592" y2="194" markerEnd="url(#sa-arch-arrow)" />
-          </g>
-          <text x="470" y="166" fontSize="7.5" fill="#EFEAE0" fillOpacity="0.7">{data.etlAgents.output} →</text>
-
-          {/* ODS slab */}
-          <rect x="140" y="194" width="760" height="56" rx="3" fill="#EFEAE0" fillOpacity="0.04" stroke="#EFEAE0" strokeWidth="1.6" />
-          <text x="152" y="214" fontSize="9" fill="#EFEAE0" fillOpacity="0.55">§02</text>
-          <text x="152" y="228" fontSize="11" fill="#EFEAE0" fontWeight="700">{data.ods.name.toUpperCase()}</text>
-          <text x="152" y="242" fontSize="8" fill="#EFEAE0" fillOpacity="0.75">{data.ods.detail}</text>
-          <text x="888" y="224" textAnchor="end" fontSize="8" fill="#EFEAE0" fillOpacity="0.7">{data.ods.scale}</text>
-
-          {/* ODS -> Operations */}
-          <g stroke="#EFEAE0" strokeOpacity="0.5" fill="none">
-            {[210, 350, 490, 630, 770].map((rx, i) => (
-              <line key={i} x1={rx} y1="250" x2={rx} y2="292" markerEnd="url(#sa-arch-arrow)" />
+          {/* ETL agents */}
+          <div className={`${seclabel} mb-2.5`}>
+            {data.etlAgents.label.toUpperCase()} · {data.etlAgents.caption}
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+            {Array.from({ length: ETL_NODE_COUNT }).map((_, i) => (
+              <AgentNode key={i} />
             ))}
-          </g>
-          <text x="220" y="286" fontSize="7" fill="#EFEAE0" fillOpacity="0.6">read →</text>
+          </div>
 
-          {/* Operations agents tier (per business unit) */}
-          <text x="140" y="284" fontSize="8.5" letterSpacing="1.5" fill="#EFEAE0" fontWeight="700">
-            {data.operationsAgents.label.toUpperCase()}
-            <tspan fontWeight="400" fillOpacity="0.65" letterSpacing="0"> · {data.operationsAgents.caption}</tspan>
-          </text>
-          {data.operationsAgents.units.slice(0, 5).map((u, i) => (
-            <g key={u.name}>
-              <rect x={OPS_X[i]} y="292" width={OPS_W[i]} height="58" rx="3" fill="none" stroke="#EFEAE0" strokeOpacity="0.6" />
-              <rect x={OPS_X[i]} y="292" width={OPS_W[i]} height="16" fill="#EFEAE0" fillOpacity="0.06" />
-              <text x={OPS_X[i] + 8} y="304" fontSize="8.5" fill="#EFEAE0" fontWeight="600">{u.name}</text>
-              <text x={OPS_X[i] + 8} y="324" fontSize="7.5" fill="#EFEAE0" fillOpacity="0.7">{u.detail}</text>
-            </g>
-          ))}
+          <div className={arrow} aria-hidden="true">
+            ↓<span className="font-mono text-[11px] tracking-normal">{data.etlAgents.output}</span>
+          </div>
 
-          {/* Expert sign-off gate strip (ink double-rule) */}
-          <g stroke="#EFEAE0" strokeOpacity="0.5" fill="none">
-            <line x1="344" y1="350" x2="344" y2="378" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="520" y1="350" x2="520" y2="378" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="696" y1="350" x2="696" y2="378" markerEnd="url(#sa-arch-arrow)" />
-          </g>
-          <rect x="140" y="378" width="760" height="30" fill="none" stroke="#EFEAE0" strokeWidth="1" />
-          <rect x="143" y="381" width="754" height="24" fill="none" stroke="#EFEAE0" strokeWidth="1" />
-          <text x="152" y="396" fontSize="9" fill="#EFEAE0" fontWeight="700">⌂ {c.signOff.name.toUpperCase()}</text>
-          <text x="520" y="396" textAnchor="middle" fontSize="8" fill="#EFEAE0" fillOpacity="0.8">{c.signOff.detail}</text>
+          {/* §02 ODS — emphasized slab */}
+          <div className="flex flex-col gap-2 border border-charcoal bg-paper px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+            <div>
+              <div className={seclabel}>§02</div>
+              <div className="mt-1 font-display text-lg font-semibold tracking-tight text-charcoal">
+                {data.ods.name}
+              </div>
+              <div className="mt-1.5 font-mono text-[11px] text-charcoal/65">{data.ods.detail}</div>
+            </div>
+            <div className="font-mono text-[11px] text-charcoal/70 sm:text-right sm:whitespace-nowrap">
+              {data.ods.scale}
+            </div>
+          </div>
 
-          {/* Outputs */}
-          <line x1="520" y1="408" x2="520" y2="430" stroke="#EFEAE0" strokeOpacity="0.5" markerEnd="url(#sa-arch-arrow)" />
-          <rect x="140" y="430" width="760" height="38" fill="none" stroke="#EFEAE0" strokeOpacity="0.55" />
-          <text x="152" y="446" fontSize="9" fill="#EFEAE0" fillOpacity="0.55">§04 → §05</text>
-          <text x="152" y="458" fontSize="10.5" fill="#EFEAE0" fontWeight="600">{data.outputs.name}</text>
-          <text x="540" y="453" fontSize="9" fill="#EFEAE0" fillOpacity="0.7">{data.outputs.detail}</text>
+          {/* Operations agents */}
+          <div className={`${seclabel} mb-2.5 mt-5`}>
+            {data.operationsAgents.label.toUpperCase()} · {data.operationsAgents.caption}
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {data.operationsAgents.units.map((u) => (
+              <div key={u.name} className="border border-charcoal/30 bg-paper">
+                <div className="border-b border-charcoal/15 bg-bone-deep px-3 py-2.5 font-display text-sm font-semibold text-charcoal">
+                  {u.name}
+                </div>
+                <div className="px-3 py-2.5 font-mono text-[10.5px] tracking-[0.02em] text-charcoal/65">
+                  {u.detail}
+                </div>
+              </div>
+            ))}
+          </div>
 
-          {/* Orchestrator dashed control to both tiers */}
-          <g stroke="#EFEAE0" strokeOpacity="0.4" strokeDasharray="4 3" fill="none">
-            <line x1="120" y1="120" x2="138" y2="120" markerEnd="url(#sa-arch-arrow)" />
-            <line x1="120" y1="320" x2="138" y2="320" markerEnd="url(#sa-arch-arrow)" />
-          </g>
+          <div className={arrow} aria-hidden="true">↓</div>
 
-          {/* Directorial archive band (named only) */}
-          <rect x="20" y="484" width="880" height="40" fill="#EFEAE0" fillOpacity="0.05" stroke="#EFEAE0" strokeOpacity="0.35" />
-          <text x="34" y="504" fontSize="9.5" fill="#EFEAE0" fontWeight="700" letterSpacing="0.5">{c.archive.name.toUpperCase()}</text>
-          <text x="34" y="517" fontSize="8" fill="#EFEAE0" fillOpacity="0.7">{c.archive.detail} · {c.deployment}</text>
-          <path d="M820 408 C860 446 870 466 870 482" stroke="#EFEAE0" strokeOpacity="0.45" strokeDasharray="4 3" fill="none" markerEnd="url(#sa-arch-arrow)" />
-          <text x="828" y="436" fontSize="7" fill="#EFEAE0" fillOpacity="0.6">log ↓</text>
+          {/* Expert sign-off gate — double rule via nested border */}
+          <div className="border border-charcoal p-[3px]">
+            <div className="flex flex-col gap-2 border border-charcoal px-4 py-3 sm:flex-row sm:items-center sm:gap-4">
+              <span className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-charcoal sm:whitespace-nowrap">
+                ⌂ {c.signOff.name}
+              </span>
+              <span className="font-mono text-[11px] text-charcoal/65">{c.signOff.detail}</span>
+            </div>
+          </div>
 
-          {/* Legend */}
-          <g fontSize="8" fill="#EFEAE0" fillOpacity="0.75">
-            <line x1="20" y1="534" x2="44" y2="534" stroke="#EFEAE0" strokeOpacity="0.7" />
-            <text x="50" y="537">{data.legend.data}</text>
-            <line x1="150" y1="534" x2="174" y2="534" stroke="#EFEAE0" strokeOpacity="0.6" strokeDasharray="4 3" />
-            <text x="180" y="537">{data.legend.control}</text>
-            <rect x="300" y="528" width="12" height="12" fill="#0A1A2F" />
-            <text x="318" y="537">{data.legend.orchestrator}</text>
-            <rect x="448" y="528" width="12" height="12" fill="none" stroke="#EFEAE0" />
-            <rect x="450.5" y="530.5" width="7" height="7" fill="none" stroke="#EFEAE0" />
-            <text x="466" y="537">{data.legend.signoff}</text>
-          </g>
-        </svg>
-        <p className="mt-4 font-mono text-xs text-charcoal/60 max-w-3xl">{data.mndaCaption}</p>
+          <div className={arrow} aria-hidden="true">↓</div>
+
+          {/* §04 → §05 Outputs */}
+          <div className="flex flex-col gap-2 border border-charcoal/30 bg-paper px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <div>
+              <div className={seclabel}>§04 → §05</div>
+              <div className="mt-1 font-display text-lg font-semibold tracking-tight text-charcoal">
+                {data.outputs.name}
+              </div>
+            </div>
+            <div className="font-mono text-[11px] text-charcoal/65 sm:text-right">{data.outputs.detail}</div>
+          </div>
+
+          {/* Directorial archive — audit log footer */}
+          <div className="mt-3.5 flex flex-col gap-1.5 border border-charcoal/15 bg-bone-deep px-4 py-3 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-4">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-charcoal">
+              {c.archive.name}
+            </span>
+            <span className="font-mono text-[11px] text-charcoal/60">
+              {c.archive.detail} · {c.deployment}
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile fallback (< md): vertical OL mirroring the same architecture */}
-      <div className="md:hidden">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-3">
-          {c.orchestrator.name} ({c.orchestrator.runtime}) · {c.archive.name}
-        </p>
-        <ol className="grid grid-cols-1 gap-3">
-          {[
-            { k: '§01', name: data.dataSources.name, detail: data.dataSources.detail },
-            { k: 'ETL', name: data.etlAgents.label, detail: `${data.etlAgents.caption} → ${data.etlAgents.output}` },
-            { k: '§02', name: data.ods.name, detail: `${data.ods.detail} · ${data.ods.scale}` },
-            {
-              k: 'OPS',
-              name: data.operationsAgents.label,
-              detail: data.operationsAgents.units.map((u) => u.name).join(' · '),
-            },
-            { k: 'GATE', name: c.signOff.name, detail: c.signOff.detail },
-            { k: '§04→§05', name: data.outputs.name, detail: data.outputs.detail },
-          ].map((row, i, arr) => (
-            <Fragment key={row.k}>
-              <li className="border border-charcoal/30 bg-bone-deep p-5 flex flex-col">
-                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-2">{row.k}</div>
-                <div className="font-display text-lg font-medium text-charcoal leading-snug">{row.name}</div>
-                <div className="mt-2 font-mono text-xs text-charcoal/70 leading-relaxed">{row.detail}</div>
-              </li>
-              {i < arr.length - 1 && (
-                <li aria-hidden="true" className="flex items-center justify-center text-charcoal/40 font-mono text-2xl py-1">↓</li>
-              )}
-            </Fragment>
-          ))}
-        </ol>
-        <p className="mt-4 font-mono text-xs text-charcoal/60">{data.mndaCaption}</p>
+      {/* Legend */}
+      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.1em] text-charcoal/60">
+        <span className="inline-flex items-center gap-2">
+          <span className="h-px w-5 bg-charcoal/60" aria-hidden="true" />
+          {data.legend.data}
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span className="h-px w-5 border-t border-dashed border-charcoal/60" aria-hidden="true" />
+          {data.legend.control}
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span className="inline-block h-2.5 w-2.5 border border-charcoal" aria-hidden="true" />
+          {data.legend.orchestrator}
+        </span>
+        <span className="inline-flex items-center gap-2">
+          <span className="inline-block h-2.5 w-2.5 border border-charcoal p-px" aria-hidden="true">
+            <span className="block h-full w-full border border-charcoal" />
+          </span>
+          {data.legend.signoff}
+        </span>
       </div>
-    </>
+
+      <figcaption className="mt-4 max-w-3xl font-mono text-xs leading-relaxed text-charcoal/60">
+        {data.mndaCaption}
+      </figcaption>
+    </figure>
   )
 }
