@@ -1,15 +1,21 @@
 import { test, expect } from '@playwright/test'
 
-test('/system §01 has SVG diagram at desktop, OL fallback at mobile', async ({ page }) => {
+test('/system §01 renders the architecture diagram at desktop and mobile', async ({ page }) => {
+  // The §01 diagram is one responsive <figure> (no SVG, no separate mobile fallback);
+  // it must render its key layers at both desktop and mobile widths.
+  const figure = page.locator('figure').filter({ hasText: /Operational Data Store/i })
+
   await page.setViewportSize({ width: 1280, height: 800 })
   await page.goto('/system')
-  await expect(page.locator('svg[aria-labelledby="system-arch-title"]')).toBeVisible()
+  await expect(figure).toBeVisible()
+  await expect(figure.getByText('Data Sources', { exact: true })).toBeVisible()
+  await expect(figure.getByText('Operational Outputs', { exact: true })).toBeVisible()
 
   await page.setViewportSize({ width: 375, height: 812 })
   await page.goto('/system')
-  await expect(page.locator('svg[aria-labelledby="system-arch-title"]')).toBeHidden()
-  await expect(page.locator('ol').getByText('Data Sources')).toBeVisible()
-  await expect(page.locator('ol').getByText('Operational Outputs')).toBeVisible()
+  await expect(figure).toBeVisible()
+  await expect(figure.getByText('Data Sources', { exact: true })).toBeVisible()
+  await expect(figure.getByText('Operational Outputs', { exact: true })).toBeVisible()
 })
 
 test('/contact form field order is Name, Company, Email, Message', async ({ page }) => {
