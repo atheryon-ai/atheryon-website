@@ -14,23 +14,25 @@ test('/system renders 200 with no console errors', async ({ page }) => {
 test('§01 shows the two-class agent architecture', async ({ page }) => {
   await page.goto('/system')
   const body = page.locator('body')
-  await expect(page.locator('svg[role="img"]')).toBeVisible()
-  await expect(body).toContainText('ETL AGENTS')
-  await expect(body).toContainText('OPERATIONAL DATA STORE (ODS)')
-  await expect(body).toContainText('OPERATIONS AGENTS')
+  // §01 is a responsive <figure> diagram. Labels render as real mixed-case text
+  // with CSS uppercasing, so assert content case-insensitively.
+  await expect(page.locator('figure')).toBeVisible()
+  await expect(body).toContainText(/ETL AGENTS/i)
+  await expect(body).toContainText(/OPERATIONAL DATA STORE \(ODS\)/i)
+  await expect(body).toContainText(/OPERATIONS AGENTS/i)
   await expect(body).toContainText('Front Office')
   await expect(body).toContainText('Risk & Analytics')
   await expect(body).toContainText('Compliance')
   await expect(body).toContainText('Treasury / Finance')
-  await expect(body).toContainText('ORCHESTRATOR')
-  await expect(body).toContainText('EXPERT SIGN-OFF')
-  await expect(body).toContainText('DIRECTORIAL ARCHIVE')
+  await expect(body).toContainText(/ORCHESTRATOR/i)
+  await expect(body).toContainText(/EXPERT SIGN-OFF/i)
+  await expect(body).toContainText(/DIRECTORIAL ARCHIVE/i)
 })
 
 test('/system fits mobile viewport at 375px (no horizontal overflow)', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 })
   await page.goto('/system')
-  await expect(page.locator('body')).toContainText('ETL agents')
+  await expect(page.locator('body')).toContainText(/ETL agents/i)
   const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth)
   expect(scrollWidth).toBeLessThanOrEqual(375)
 })
