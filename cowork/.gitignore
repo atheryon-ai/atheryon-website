@@ -1,0 +1,17 @@
+# Keep cowork/ text-only. Binaries and sensitive files go to the team drive
+# (Box / OneDrive), never into git.
+*.pdf
+*.PDF
+*.xlsx
+*.xls
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.zip
+*.key
+*.pem
+*.p12
+.env
+.DS_Store
