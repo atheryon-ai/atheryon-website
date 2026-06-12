@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A — Operations Room · Atheryon</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <style>
+    :root {
+      --bg: #1a1410;
+      --bg-deep: #0f0c0a;
+      --bg-soft: #221b15;
+      --amber: #c8a04a;
+      --amber-dim: #8a6e2f;
+      --bone: #e5d8b8;
+      --bone-soft: rgba(229, 216, 184, 0.65);
+      --bone-faint: rgba(229, 216, 184, 0.30);
+      --hair: rgba(200, 160, 74, 0.30);
+      --hair-strong: rgba(200, 160, 74, 0.55);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      background: var(--bg);
+      color: var(--bone);
+      font-size: 13px;
+      line-height: 1.45;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 3px);
+      pointer-events: none; z-index: 2;
+    }
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .display { font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.005em; line-height: 1; text-transform: uppercase; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .grid { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; position: relative; z-index: 3; }
+
+    /* Sidebar */
+    aside.side {
+      background: var(--bg-deep);
+      border-right: 1px solid var(--hair);
+      padding: 20px 18px;
+      display: flex; flex-direction: column;
+    }
+    .brand { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding-bottom: 18px; border-bottom: 1px solid var(--hair); }
+    .brand .mark { display: inline-flex; align-items: center; gap: 8px; }
+    .brand svg { width: 36px; height: 36px; }
+    .brand .name { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: 0.12em; color: var(--amber); }
+    .label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bone-soft); font-weight: 500; }
+    .side .menu-label { margin-top: 22px; margin-bottom: 10px; }
+    .side nav { display: flex; flex-direction: column; gap: 2px; }
+    .side nav a {
+      font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--bone-soft); text-decoration: none;
+      padding: 10px 12px; border: 1px solid transparent;
+    }
+    .side nav a.active { background: var(--amber-dim); color: #18120a; border-color: var(--amber); font-weight: 600; }
+    .side nav a:hover:not(.active) { color: var(--amber); border-left: 1px solid var(--amber); }
+    .side .status {
+      margin-top: auto; padding-top: 18px; border-top: 1px solid var(--hair);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .side .status .row { display: flex; align-items: center; justify-content: space-between; }
+    .side .status .row .val { color: var(--amber); }
+    .seal {
+      margin-top: 18px; align-self: center;
+      width: 110px; height: 110px; border-radius: 50%;
+      border: 2px solid var(--amber-dim);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .seal::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 1px solid var(--amber-dim); }
+    .seal svg { width: 38px; height: 38px; }
+    .seal-text { position: absolute; inset: -2px; }
+
+    /* Main */
+    main { padding: 0; display: flex; flex-direction: column; }
+    .top-strip {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 28px; border-bottom: 1px solid var(--hair);
+      font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bone-soft);
+    }
+    .top-strip .right { color: var(--amber); }
+
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr 200px;
+      gap: 28px; padding: 36px 28px;
+      border-bottom: 1px solid var(--hair);
+    }
+    .hero .left .eyebrow {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--bone-soft); margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: clamp(40px, 5vw, 64px); line-height: 0.98;
+      text-transform: uppercase; letter-spacing: 0.005em;
+      margin: 0 0 22px; color: var(--bone);
+    }
+    .hero h1 .accent { color: var(--amber); }
+    .hero p.lede {
+      font-size: 13px; line-height: 1.55; color: var(--bone-soft);
+      max-width: 36ch; margin: 0 0 28px;
+    }
+    .cta {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #18120a; background: var(--amber);
+      border: 1px solid var(--amber);
+      padding: 12px 22px; text-decoration: none; font-weight: 600;
+    }
+    .cta:hover { background: var(--bone); }
+
+    /* CRT screen */
+    .crt {
+      border: 8px solid #3a2e1f; border-radius: 14px;
+      background: linear-gradient(180deg, #1a1410, #2a2018);
+      padding: 18px; position: relative;
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.6);
+      min-height: 320px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .crt::before {
+      content: '';
+      position: absolute; inset: 8px;
+      background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 3px);
+      pointer-events: none; border-radius: 6px;
+    }
+    .crt .label { color: var(--amber); margin-bottom: 4px; }
+    .crt .arch {
+      display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 1;
+    }
+    .crt .stage {
+      border: 1px solid var(--hair-strong);
+      padding: 10px 12px;
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(200,160,74,0.04);
+    }
+    .crt .stage .num { color: var(--amber); font-size: 10px; letter-spacing: 0.2em; min-width: 28px; }
+    .crt .stage .name { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 13px; letter-spacing: 0.08em; }
+    .crt .arrow { text-align: center; color: var(--amber-dim); font-size: 14px; }
+
+    .feed-rail { display: flex; flex-direction: column; gap: 14px; }
+    .feed-rail .blk { border: 1px solid var(--hair); padding: 14px 12px; }
+    .signal-bars { display: flex; align-items: flex-end; gap: 3px; height: 28px; margin-top: 6px; }
+    .signal-bars div { width: 5px; background: var(--amber); }
+    .signal-bars div:nth-child(1) { height: 30%; }
+    .signal-bars div:nth-child(2) { height: 45%; }
+    .signal-bars div:nth-child(3) { height: 65%; }
+    .signal-bars div:nth-child(4) { height: 80%; }
+    .signal-bars div:nth-child(5) { height: 95%; }
+    .signal-bars div:nth-child(6) { height: 70%; }
+    .signal-bars div:nth-child(7) { height: 85%; }
+    .signal-bars div:nth-child(8) { height: 100%; }
+
+    /* Capabilities + updates */
+    .row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; padding: 28px; border-bottom: 1px solid var(--hair); }
+    .panel { border: 1px solid var(--hair); padding: 18px; }
+    .panel-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--hair); margin-bottom: 14px; }
+    .panel-head h3 { margin: 0; font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+    .caps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .caps .cap {
+      border: 1px solid var(--hair); padding: 16px 10px;
+      text-align: center; aspect-ratio: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+      background: rgba(200,160,74,0.03);
+    }
+    .caps .cap svg { width: 32px; height: 32px; color: var(--amber); }
+    .caps .cap .name { font-family: 'Oswald', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.2; }
+    .updates { display: flex; flex-direction: column; gap: 0; }
+    .updates .u {
+      display: grid; grid-template-columns: 70px 1fr 20px; gap: 14px;
+      padding: 12px 0; border-bottom: 1px solid var(--hair); align-items: start;
+    }
+    .updates .u:last-child { border-bottom: none; }
+    .updates .u .date { color: var(--amber); font-size: 11px; letter-spacing: 0.12em; }
+    .updates .u .txt { color: var(--bone-soft); font-size: 12px; line-height: 1.5; }
+    .updates .u .plus { color: var(--amber); font-size: 14px; cursor: pointer; }
+
+    /* Footer */
+    footer.bar {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      align-items: center; padding: 14px 28px;
+      border-top: 1px solid var(--hair);
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bone-faint);
+    }
+    .morse { letter-spacing: 0; font-family: 'JetBrains Mono', monospace; color: var(--amber-dim); text-align: center; }
+    .morse span { display: inline-block; height: 10px; background: var(--amber-dim); margin-right: 2px; vertical-align: middle; }
+
+    a.preview-back { position: fixed; top: 14px; right: 14px; z-index: 99; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); background: var(--bg-deep); border: 1px solid var(--hair); padding: 6px 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <a class="preview-back" href="/preview/">← all variants</a>
+
+  <div class="grid">
+    <aside class="side">
+      <div class="brand">
+        <div class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04a" stroke-width="1.5"><path d="M12 3 L21 21 L3 21 Z"/></svg>
+          <span class="name">ATHERYON</span>
+        </div>
+        <span class="label">Capital Markets · AI Systems</span>
+      </div>
+
+      <div class="label menu-label">System Menu</div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Architecture</a>
+        <a href="#">Engagements</a>
+        <a href="#">Workflows</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <div class="status">
+        <div class="label">System Status</div>
+        <div class="row"><span>Build</span><span class="val">v2.0.0</span></div>
+        <div class="row"><span>Region</span><span class="val">SYD-01</span></div>
+        <div class="row"><span>State</span><span class="val">● ONLINE</span></div>
+        <div class="seal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8a04a" stroke-width="1.5"><path d="M12 3 L21 21 L3 21 Z"/></svg>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="top-strip">
+        <span>ATHERYON // CAPITAL MARKETS SYSTEMS</span>
+        <span class="right">CLEARANCE LEVEL · AUTHORISED</span>
+      </div>
+
+      <section class="hero">
+        <div class="left">
+          <div class="eyebrow">SYSTEMS | DATA PLATFORMS | AI AGENTS</div>
+          <h1>Capital<br/>markets<br/>systems.<br/><span class="accent">Front to back.</span></h1>
+          <p class="lede">Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents.</p>
+          <a class="cta" href="#">Explore the Architecture <span>→</span></a>
+        </div>
+        <div class="crt">
+          <div class="label">// Reference Architecture · CH 07</div>
+          <div class="arch">
+            <div class="stage"><span class="num">01</span><span class="name">Data Sources</span></div>
+            <div class="arrow">▼</div>
+            <div class="stage"><span class="num">02</span><span class="name">Data Platform</span></div>
+            <div class="arrow">▼</div>
+            <div class="stage"><span class="num">03</span><span class="name">AI Agents</span></div>
+            <div class="arrow">▼</div>
+            <div class="stage"><span class="num">04</span><span class="name">Capital Markets Systems</span></div>
+            <div class="arrow">▼</div>
+            <div class="stage"><span class="num">05</span><span class="name">Operational Outputs</span></div>
+          </div>
+        </div>
+        <div class="feed-rail">
+          <div class="blk">
+            <div class="label">System Feed</div>
+            <div style="font-size: 11px; color: var(--amber); margin-top: 6px;">CH 07</div>
+          </div>
+          <div class="blk">
+            <div class="label">Signal</div>
+            <div class="signal-bars"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+          </div>
+          <div class="blk">
+            <div class="label">Status</div>
+            <div style="font-size: 11px; color: var(--amber); margin-top: 6px;">STABLE</div>
+          </div>
+          <div class="blk">
+            <div class="label">Last Update</div>
+            <div style="font-size: 11px; color: var(--amber); margin-top: 6px;">20:53:17</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="row2">
+        <div class="panel">
+          <div class="panel-head"><h3>Capabilities</h3><span class="label">5 modules</span></div>
+          <div class="caps">
+            <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m-9-9h6m10 0h6"/></svg><span class="name">Pricing & Risk</span></div>
+            <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="14"/><path d="M8 7V5a4 4 0 1 1 8 0v2"/></svg><span class="name">Front Office</span></div>
+            <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg><span class="name">Data Platform</span></div>
+            <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16"/><path d="M9 9h6v6H9z"/></svg><span class="name">AI Orchestration</span></div>
+            <div class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M12 7v5l3 3"/></svg><span class="name">Lifecycle</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Latest Updates</h3><span class="label">Feed</span></div>
+          <div class="updates">
+            <div class="u"><span class="date">15.05.26</span><span class="txt">Atheryon ships Hobart-class pricing engine for tier-1 bank deployment.</span><span class="plus">+</span></div>
+            <div class="u"><span class="date">24.04.26</span><span class="txt">Delivering systems excellence across complex capital markets programs.</span><span class="plus">+</span></div>
+            <div class="u"><span class="date">10.04.26</span><span class="txt">New head of architecture strengthens AI agent capability across the platform.</span><span class="plus">+</span></div>
+            <div class="u"><span class="date">28.03.26</span><span class="txt">View all news →</span><span></span></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bar">
+        <div>ATHERYON PTY LTD · ABN 48 123 456 789</div>
+        <div class="morse"><span style="width:8px"></span><span style="width:18px"></span><span style="width:4px"></span><span style="width:22px"></span><span style="width:12px"></span><span style="width:6px"></span><span style="width:16px"></span><span style="width:9px"></span><span style="width:24px"></span><span style="width:7px"></span></div>
+        <div style="text-align:right">© ATHERYON 2026 · SECURE</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

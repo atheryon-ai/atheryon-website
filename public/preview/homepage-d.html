@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>D — System Document v2 · Atheryon</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <style>
+    :root {
+      --bone: #EFEAE0;
+      --paper: #F6F2E9;
+      --charcoal: #15171A;
+      --hair: rgba(21, 23, 26, 0.15);
+      --hair-strong: rgba(21, 23, 26, 0.30);
+      --muted: rgba(21, 23, 26, 0.60);
+      --muted-soft: rgba(21, 23, 26, 0.45);
+      --soft: rgba(21, 23, 26, 0.80);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      background: var(--bone);
+      color: var(--charcoal);
+      font-size: 14px; line-height: 1.6;
+      min-height: 100vh;
+    }
+    .display { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.04; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+    header.doc-head {
+      border-bottom: 1px solid var(--hair-strong);
+    }
+    header.doc-head .strip { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 10px 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--hair); }
+    header.doc-head .strip .center { text-align: center; }
+    header.doc-head .strip .right { text-align: right; }
+    header.doc-head .wordmark { font-family: 'Fraunces', serif; font-weight: 600; font-size: 28px; letter-spacing: -0.01em; text-align: center; padding: 22px 0 14px; }
+    header.doc-head nav { display: flex; justify-content: center; gap: 28px; padding: 12px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); }
+    header.doc-head nav a { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--soft); text-decoration: none; padding-bottom: 4px; border-bottom: 2px solid transparent; }
+    header.doc-head nav a.active { color: var(--charcoal); border-bottom-color: var(--charcoal); font-weight: 600; }
+
+    section.hero { padding: 72px 0 64px; border-bottom: 1px solid var(--hair); }
+    section.hero .eyebrow { display: block; margin-bottom: 28px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--muted); }
+    section.hero h1 { font-family: 'Fraunces', serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.04; font-size: clamp(44px, 5.6vw, 76px); margin: 0; }
+    section.hero h1 .line { display: block; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+    section.hero h1 .line:last-child { border-bottom: none; }
+    section.hero p.lede { font-size: 18px; line-height: 1.55; color: var(--soft); margin: 32px 0 0; max-width: 60ch; }
+
+    .canonical {
+      margin: 40px 0 0;
+      border: 1px solid var(--hair-strong);
+      background: var(--paper);
+    }
+    .canonical .head { padding: 12px 18px; border-bottom: 1px solid var(--hair); display: flex; justify-content: space-between; }
+    .canonical .row { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 14px 18px; border-bottom: 1px solid var(--hair); align-items: baseline; }
+    .canonical .row:last-child { border-bottom: none; }
+    .canonical .row .k { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    .canonical .row .v { font-family: 'Fraunces', serif; font-size: 17px; line-height: 1.4; }
+
+    section.arch { padding: 64px 0; border-bottom: 1px solid var(--hair); }
+    section.arch .head { padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 28px; }
+    section.arch .head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; letter-spacing: -0.01em; margin: 8px 0 0; }
+    .stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--hair-strong); }
+    .stages .stage { background: var(--paper); padding: 22px 16px; border-right: 1px solid var(--hair); display: flex; flex-direction: column; gap: 8px; }
+    .stages .stage:last-child { border-right: none; }
+    .stages .stage .n { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.2em; }
+    .stages .stage .t { font-family: 'Fraunces', serif; font-weight: 500; font-size: 18px; line-height: 1.15; }
+    .stages .stage .c { font-size: 13px; color: var(--soft); line-height: 1.5; }
+
+    section.engagement { padding: 64px 0; border-bottom: 1px solid var(--hair); }
+    section.engagement .head { padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 28px; }
+    section.engagement .head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; letter-spacing: -0.01em; margin: 8px 0 0; }
+    .eng-table { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--hair); }
+    .eng-table .row { padding: 22px 22px 22px 0; border-right: 1px solid var(--hair); }
+    .eng-table .row:last-child { border-right: none; padding-right: 0; }
+    .eng-table .row:not(:first-child) { padding-left: 22px; }
+    .eng-table .row .marker { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .eng-table .row h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 10px; }
+    .eng-table .row p { font-size: 14px; color: var(--soft); margin: 0; }
+
+    section.eco { padding: 56px 0; border-bottom: 1px solid var(--hair); }
+    section.eco .head { padding-bottom: 16px; border-bottom: 1px solid var(--hair); margin-bottom: 22px; }
+    section.eco .head h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 32px; letter-spacing: -0.01em; margin: 8px 0 0; }
+    section.eco .row { display: grid; grid-template-columns: 280px 1fr; gap: 28px; padding: 18px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+    section.eco .row:last-child { border-bottom: none; }
+    section.eco .row .name { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal); }
+    section.eco .row .desc { color: var(--soft); font-size: 15px; }
+
+    footer.doc-end {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      padding: 14px 0;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);
+      border-top: 1px solid var(--hair-strong);
+    }
+    footer.doc-end .right { text-align: right; }
+    footer.doc-end .center { text-align: center; }
+
+    a.preview-back { position: fixed; top: 14px; right: 14px; z-index: 99; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); background: var(--bone); border: 1px solid var(--hair-strong); padding: 6px 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <a class="preview-back" href="/preview/">← all variants</a>
+
+  <header class="doc-head">
+    <div class="container">
+      <div class="strip">
+        <span>atheryon / home / canonical</span>
+        <span class="center">Reference Architecture · v2.0.0</span>
+        <span class="right">2026-05-15</span>
+      </div>
+      <div class="wordmark">Atheryon</div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">System</a>
+        <a href="#">Approach</a>
+        <a href="#">Engagements</a>
+        <a href="#">Workflows</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">atheryon / home / identity</span>
+      <h1>
+        <span class="line">Capital markets systems.</span>
+        <span class="line">Data platforms.</span>
+        <span class="line">AI agents.</span>
+      </h1>
+      <p class="lede">Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents.</p>
+
+      <div class="canonical">
+        <div class="head"><span class="label">atheryon / home / canonical-statement</span><span class="label">tbl. 1</span></div>
+        <div class="row"><span class="k">Identity</span><span class="v">Capital markets AI systems firm</span></div>
+        <div class="row"><span class="k">Method</span><span class="v">AI agents as orchestration layer</span></div>
+        <div class="row"><span class="k">Stack</span><span class="v">Azure + S&P + production architecture</span></div>
+        <div class="row"><span class="k">Lineage</span><span class="v">Goldman, Credit Suisse, Barclays banking experience</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="arch">
+    <div class="container">
+      <div class="head"><span class="label">atheryon / home / architecture</span><h2>Reference architecture.</h2></div>
+      <div class="stages">
+        <div class="stage"><span class="n">01</span><span class="t">Data Sources</span><span class="c">S&P, FIX, market data, internal warehouses.</span></div>
+        <div class="stage"><span class="n">02</span><span class="t">Data Platform</span><span class="c">Canonical data model, lakehouse, governance.</span></div>
+        <div class="stage"><span class="n">03</span><span class="t">AI Agents</span><span class="c">Orchestration layer — not a feature.</span></div>
+        <div class="stage"><span class="n">04</span><span class="t">Capital Markets Systems</span><span class="c">Pricing, risk, lifecycle, front-office.</span></div>
+        <div class="stage"><span class="n">05</span><span class="t">Operational Outputs</span><span class="c">Trades, P&L, regulatory reports.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="engagement">
+    <div class="container">
+      <div class="head"><span class="label">atheryon / home / engagement-model</span><h2>Engagement model.</h2></div>
+      <div class="eng-table">
+        <div class="row"><div class="marker">§01 Advisory</div><h3>Architectural review</h3><p>Independent assessment of capital markets systems, target architecture, and AI agent integration.</p></div>
+        <div class="row"><div class="marker">§02 Enablement</div><h3>Team capability</h3><p>Standing up internal teams to design and deploy AI-agent-driven capital markets systems.</p></div>
+        <div class="row"><div class="marker">§03 Delivery</div><h3>Production systems</h3><p>End-to-end design, build, and deployment of pricing, risk, and lifecycle infrastructure.</p></div>
+        <div class="row"><div class="marker">§04 Licensed</div><h3>Atheryon Labs</h3><p>Licensed reference systems for institutional capital markets, deployed and supported.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="eco">
+    <div class="container">
+      <div class="head"><span class="label">atheryon / home / ecosystem</span><h2>Ecosystem.</h2></div>
+      <div class="row"><span class="name">Microsoft Azure AI</span><span class="desc">Primary AI infrastructure — Azure OpenAI, AKS, Cosmos DB, Application Insights for production telemetry.</span></div>
+      <div class="row"><span class="name">S&P Global</span><span class="desc">Institutional data backbone — capital markets datasets integrated into the canonical data model.</span></div>
+      <div class="row"><span class="name">Banking lineage</span><span class="desc">Goldman Sachs, Credit Suisse, Barclays Capital · architectural lineage, not employment claims.</span></div>
+    </div>
+  </section>
+
+  <footer class="doc-end">
+    <div class="container" style="display:grid; grid-template-columns: 1fr 1fr 1fr;">
+      <span>atheryon / home / end-of-document</span>
+      <span class="center">ATHERYON PTY LTD · ABN 48 123 456 789</span>
+      <span class="right">Sydney · Production · 2026</span>
+    </div>
+  </footer>
+</body>
+</html>

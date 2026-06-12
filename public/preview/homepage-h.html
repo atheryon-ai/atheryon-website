@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>H — Capital Markets AI Platform · Atheryon</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+  <style>
+    :root {
+      --bg: #060b1c;
+      --bg-soft: #0a1228;
+      --surface: #0e1830;
+      --surface-2: #122042;
+      --border: rgba(96, 165, 250, 0.18);
+      --border-strong: rgba(96, 165, 250, 0.35);
+      --blue: #3b82f6;
+      --blue-bright: #60a5fa;
+      --blue-deep: #1d4ed8;
+      --orange: #f59e0b;
+      --orange-bright: #fbbf24;
+      --text: #ffffff;
+      --text-soft: rgba(255, 255, 255, 0.78);
+      --text-faint: rgba(255, 255, 255, 0.55);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px; line-height: 1.55;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59,130,246,0.10), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 50% 30%, rgba(59,130,246,0.06), transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .container { max-width: 1340px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 1; }
+    .label { font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-bright); font-weight: 600; }
+
+    /* Logo / brand — uses the standalone mark-only asset (540×540 cropped from
+       the full brand lockup PNG). No CSS crop needed. */
+    .brand-mark {
+      --mark-size: 48px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: var(--mark-size); height: var(--mark-size);
+      flex-shrink: 0;
+    }
+    .brand-mark img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo {
+      display: inline-flex; align-items: center; gap: 14px;
+    }
+    .logo .text { display: flex; flex-direction: column; line-height: 1; }
+    .logo .name { font-family: 'Cinzel', 'Trajan Pro', Georgia, serif; font-weight: 600; font-size: 24px; letter-spacing: 0.08em; color: var(--text); }
+    .logo .tag { font-size: 9px; letter-spacing: 0.22em; font-weight: 500; margin-top: 6px; white-space: nowrap; }
+    .logo .tag .data { color: var(--orange-bright); }
+    .logo .tag .intel { color: var(--blue-bright); }
+    .logo .tag .trans { color: var(--text); }
+
+    /* Top nav */
+    nav.top {
+      padding: 22px 0;
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(6,11,28,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav.top .bar { display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
+    nav.top .links { display: flex; gap: 36px; justify-content: center; }
+    nav.top .links a {
+      color: var(--text-soft); text-decoration: none;
+      font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 160ms ease;
+    }
+    nav.top .links a:hover { color: var(--blue-bright); }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px; border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--blue);
+      color: var(--blue-bright);
+      font-weight: 600; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none;
+      transition: all 160ms ease;
+    }
+    .btn-primary:hover { background: var(--blue); color: white; }
+    .btn-primary.solid { background: var(--blue); color: white; }
+    .btn-primary.solid:hover { background: var(--blue-deep); }
+    .btn-primary svg { width: 16px; height: 16px; }
+
+    /* Hero */
+    section.hero { padding: 60px 0 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; }
+    .hero h1 {
+      font-size: clamp(36px, 4.4vw, 54px);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.08;
+      margin: 18px 0 22px;
+    }
+    .hero h1 .accent { color: var(--blue-bright); }
+    .hero p.lede {
+      font-size: 17px; line-height: 1.55;
+      color: var(--text-soft); margin: 0 0 32px;
+      max-width: 50ch;
+    }
+    .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    /* Orchestration diagram */
+    .orch { position: relative; min-height: 460px; }
+    .orch .nodes-left, .orch .nodes-right {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 16px;
+      z-index: 2;
+    }
+    .orch .nodes-left { left: 0; }
+    .orch .nodes-right { right: 0; }
+    .node {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      min-width: 200px;
+    }
+    .node .ico {
+      width: 36px; height: 36px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .node .ico svg { width: 18px; height: 18px; color: var(--blue-bright); }
+    .node .txt { display: flex; flex-direction: column; line-height: 1.2; }
+    .node .txt .t { font-size: 14px; font-weight: 600; color: var(--text); }
+    .node .txt .s { font-size: 11px; color: var(--text-faint); margin-top: 3px; }
+
+    .orch .center {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px; height: 200px;
+      z-index: 1;
+    }
+    .orch .center .ring {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--blue);
+      background: radial-gradient(circle at center, rgba(59,130,246,0.25) 0%, rgba(59,130,246,0.08) 50%, transparent 75%);
+      box-shadow:
+        0 0 80px rgba(59,130,246,0.4),
+        inset 0 0 60px rgba(59,130,246,0.25);
+    }
+    .orch .center .ring::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,0.25);
+    }
+    .orch .center .ring::after {
+      content: '';
+      position: absolute; inset: -24px;
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,0.12);
+    }
+    .orch .center .label-stack {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      text-align: center; padding: 0 12px;
+    }
+    .orch .center .label-stack .brand-mark { margin-bottom: 8px; }
+    .orch .center .label-stack .ttl { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--text); line-height: 1.3; }
+
+    .orch svg.wires {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Built-for section */
+    section.built {
+      padding: 16px 0 0;
+    }
+    section.built .headline {
+      text-align: center;
+      font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-soft); font-weight: 500;
+      margin-bottom: 32px;
+    }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 28px;
+    }
+    .card .ico {
+      width: 56px; height: 56px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .card .ico svg { width: 26px; height: 26px; color: var(--blue-bright); }
+    .card h3 {
+      font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+      font-weight: 700; margin: 0 0 14px; color: var(--text);
+    }
+    .card p { color: var(--text-soft); font-size: 14px; line-height: 1.6; margin: 0 0 22px; }
+    .card a.more {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue-bright); font-weight: 600; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .card a.more::after { content: '→'; }
+
+    /* 3-strip */
+    section.strip { padding: 28px 0 0; }
+    .strip-grid { display: grid; grid-template-columns: 1fr 0.85fr 1.4fr; gap: 24px; }
+    .strip-cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 26px 24px;
+    }
+    .strip-cell .l { display: block; margin-bottom: 22px; }
+    .strip-cell .partners {
+      display: flex; gap: 28px; align-items: center;
+      margin-bottom: 18px;
+    }
+    .strip-cell .partner-name {
+      font-weight: 700; font-size: 17px; color: var(--text);
+      line-height: 1.1;
+    }
+    .strip-cell .partner-name.serif { font-family: 'Georgia', serif; }
+    .strip-cell .partner-name.red { color: #e02020; }
+    .strip-cell .partner-name .sub { display: block; font-weight: 400; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-faint); margin-top: 2px; }
+    .strip-cell p.desc { color: var(--text-soft); font-size: 13px; line-height: 1.55; margin: 0; }
+
+    .eco-partners { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .eco-partner { display: flex; flex-direction: column; gap: 10px; }
+    .eco-partner .logo-row { display: flex; align-items: center; gap: 10px; }
+    .eco-partner .logo-row .azure-mark {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      width: 18px; height: 18px;
+    }
+    .eco-partner .logo-row .azure-mark span { display: block; }
+    .eco-partner .logo-row .azure-mark span:nth-child(1) { background: #f25022; }
+    .eco-partner .logo-row .azure-mark span:nth-child(2) { background: #7fba00; }
+    .eco-partner .logo-row .azure-mark span:nth-child(3) { background: #00a4ef; }
+    .eco-partner .logo-row .azure-mark span:nth-child(4) { background: #ffb900; }
+    .eco-partner .logo-row .name { font-weight: 600; font-size: 16px; color: var(--text); }
+    .eco-partner .logo-row .name.red { color: #e02020; font-weight: 700; }
+    .eco-partner p { font-size: 12px; color: var(--text-faint); margin: 0; line-height: 1.5; }
+
+    .engagement-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .eng {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      gap: 8px;
+    }
+    .eng .ico {
+      width: 44px; height: 44px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 4px;
+    }
+    .eng .ico svg { width: 20px; height: 20px; color: var(--blue-bright); }
+    .eng .name { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); }
+    .eng .desc { font-size: 11px; color: var(--text-faint); line-height: 1.45; }
+    .engagement-row .eng + .eng { position: relative; }
+    .engagement-row .eng + .eng::before {
+      content: ''; position: absolute; left: -10px; top: 18px;
+      width: 12px; border-top: 1px dashed var(--border-strong);
+    }
+
+    /* Bottom CTA */
+    section.cta { padding: 32px 0 60px; }
+    .cta-card {
+      background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 100%);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      padding: 30px 36px;
+      display: grid; grid-template-columns: 88px 1fr auto; gap: 28px; align-items: center;
+    }
+    .cta-card .glow-mark {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(59,130,246,0.35), transparent 65%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 40px rgba(59,130,246,0.35);
+    }
+    .cta-card .glow-mark .brand-mark { display: flex; }
+    .cta-card h3 {
+      font-size: 19px; letter-spacing: 0.14em; text-transform: uppercase;
+      margin: 0 0 8px; font-weight: 700;
+    }
+    .cta-card p { margin: 0; color: var(--text-soft); font-size: 14px; line-height: 1.55; max-width: 60ch; }
+    .cta-card a.link {
+      color: var(--blue-bright); text-decoration: none;
+      font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+      display: inline-flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+    }
+    .cta-card a.link::after { content: '→'; }
+
+    a.preview-back { position: fixed; top: 14px; right: 14px; z-index: 99; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-bright); background: var(--surface); border: 1px solid var(--blue); padding: 7px 12px; text-decoration: none; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a class="preview-back" href="/preview/index.html">← all variants</a>
+
+  <!-- Reusable SVG defs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#3b82f6"/>
+        <stop offset="100%" stop-color="#1d4ed8"/>
+      </linearGradient>
+      <linearGradient id="logoGradOrange" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#fbbf24"/>
+        <stop offset="100%" stop-color="#f59e0b"/>
+      </linearGradient>
+      <linearGradient id="wireGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="rgba(59,130,246,0)"/>
+        <stop offset="50%" stop-color="rgba(96,165,250,0.65)"/>
+        <stop offset="100%" stop-color="rgba(59,130,246,0)"/>
+      </linearGradient>
+      <linearGradient id="wireGradOrange" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="rgba(245,158,11,0)"/>
+        <stop offset="50%" stop-color="rgba(251,191,36,0.5)"/>
+        <stop offset="100%" stop-color="rgba(245,158,11,0)"/>
+      </linearGradient>
+      <symbol id="atheryon-mark" viewBox="0 0 44 44">
+        <path d="M22 4 L40 38 L24 38 L22 32 Z" fill="url(#logoGrad)"/>
+        <path d="M22 4 L20 32 L4 38 Z" fill="url(#logoGradOrange)" opacity="0.92"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <nav class="top">
+    <div class="container">
+      <div class="bar">
+        <a class="logo" href="#">
+          <span class="brand-mark" style="--mark-size: 52px;"><img src="/atheryon-mark.png" alt="Atheryon"/></span>
+          <span class="text">
+            <span class="name">ATHERYON</span>
+            <span class="tag"><span class="data">DATA.</span> <span class="intel">INTELLIGENCE.</span> <span class="trans">TRANSFORMATION.</span></span>
+          </span>
+        </a>
+        <div class="links">
+          <a href="#">SYSTEM</a>
+          <a href="#">APPROACH</a>
+          <a href="#">ENGAGEMENTS</a>
+          <a href="#">WORKFLOWS</a>
+          <a href="#">ABOUT</a>
+          <a href="#">INSIGHTS</a>
+        </div>
+        <a class="btn-primary" href="#">BOOK SYSTEM ASSESSMENT <span>→</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="label">Capital Markets AI Systems</span>
+          <h1>Designing and delivering capital markets AI systems using <span class="accent">AI agents.</span></h1>
+          <p class="lede">Atheryon builds production-grade, front-to-back systems and data platforms that transform how financial institutions operate.</p>
+          <div class="actions">
+            <a class="btn-primary solid" href="#">EXPLORE THE SYSTEM ARCHITECTURE <span>→</span></a>
+            <a class="btn-primary" href="#">BOOK SYSTEM ASSESSMENT <span>→</span></a>
+          </div>
+        </div>
+
+        <div class="orch">
+          <svg class="wires" viewBox="0 0 600 460" preserveAspectRatio="none">
+            <!-- left wires -->
+            <path d="M 210 60  C 280 60, 270 220, 300 230" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <path d="M 210 140 C 280 140, 270 225, 300 230" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <path d="M 210 220 C 280 220, 270 230, 300 230" fill="none" stroke="url(#wireGrad)" stroke-width="1.6"/>
+            <path d="M 210 300 C 280 300, 270 240, 300 230" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <path d="M 210 380 C 280 380, 270 280, 300 230" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <!-- right wires -->
+            <path d="M 300 230 C 330 220, 320 60,  390 60"  fill="none" stroke="url(#wireGradOrange)" stroke-width="1.2"/>
+            <path d="M 300 230 C 330 225, 320 140, 390 140" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <path d="M 300 230 C 330 235, 320 300, 390 300" fill="none" stroke="url(#wireGradOrange)" stroke-width="1.2"/>
+            <path d="M 300 230 C 330 240, 320 380, 390 380" fill="none" stroke="url(#wireGrad)" stroke-width="1.2"/>
+            <!-- particle dots -->
+            <g fill="#60a5fa">
+              <circle cx="260" cy="100" r="1.5" opacity="0.9"/>
+              <circle cx="270" cy="180" r="1.5" opacity="0.85"/>
+              <circle cx="265" cy="260" r="1.5" opacity="0.9"/>
+              <circle cx="270" cy="340" r="1.5" opacity="0.85"/>
+              <circle cx="345" cy="120" r="1.5" opacity="0.9"/>
+              <circle cx="350" cy="280" r="1.5" opacity="0.85"/>
+              <circle cx="345" cy="340" r="1.5" opacity="0.9"/>
+            </g>
+            <g fill="#fbbf24">
+              <circle cx="345" cy="80"  r="1.5" opacity="0.85"/>
+              <circle cx="345" cy="320" r="1.5" opacity="0.85"/>
+            </g>
+          </svg>
+
+          <div class="nodes-left">
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg></span>
+              <span class="txt"><span class="t">Market Data</span><span class="s">S&P Global</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+              <span class="txt"><span class="t">Enterprise Data</span><span class="s">Internal Systems</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h8M6 8v8M18 8v8M8 18h8"/></svg></span>
+              <span class="txt"><span class="t">Reference Data</span><span class="s">Static & Dynamic</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L20 6 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V6 Z"/></svg></span>
+              <span class="txt"><span class="t">Unstructured Data</span><span class="s">Research & News</span></span>
+            </div>
+          </div>
+
+          <div class="center">
+            <div class="ring"></div>
+            <div class="label-stack">
+              <span class="brand-mark" style="--mark-size: 44px;"><img src="/atheryon-mark.png" alt=""/></span>
+              <span class="ttl">AI Agent<br/>Orchestration<br/>Layer</span>
+            </div>
+          </div>
+
+          <div class="nodes-right">
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+              <span class="txt"><span class="t">Trading</span><span class="s">Systems</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 L20 6 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V6 Z"/><path d="M9 12l2 2 4-4"/></svg></span>
+              <span class="txt"><span class="t">Risk</span><span class="s">Management</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 6-8"/><circle cx="3" cy="17" r="1.5"/><circle cx="9" cy="11" r="1.5"/><circle cx="13" cy="15" r="1.5"/><circle cx="19" cy="7" r="1.5"/></svg></span>
+              <span class="txt"><span class="t">Portfolio</span><span class="s">Analytics</span></span>
+            </div>
+            <div class="node">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+              <span class="txt"><span class="t">Operations</span><span class="s">& Reporting</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="built">
+    <div class="container">
+      <div class="headline">Built for the complexity of capital markets</div>
+      <div class="cards">
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="4" rx="1"/><rect x="3" y="14" width="18" height="4" rx="1"/></svg></div>
+          <h3>Capital Markets Systems</h3>
+          <p>Front-to-back trading, risk, pricing and operations systems built for financial institutions.</p>
+          <a class="more" href="#">LEARN MORE</a>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6"/></svg></div>
+          <h3>Data Platforms</h3>
+          <p>Structured, real-time financial data platforms that power analytics, reporting and AI workflows.</p>
+          <a class="more" href="#">LEARN MORE</a>
+        </div>
+        <div class="card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M6 7l4 4M18 7l-4 4M6 17l4-4M18 17l-4-4"/></svg></div>
+          <h3>AI Agent Systems</h3>
+          <p>AI agents orchestrate workflows, make decisions and automate complex financial processes.</p>
+          <a class="more" href="#">LEARN MORE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-cell">
+          <span class="label l">Proven Capital Markets Experience</span>
+          <div class="partners">
+            <div class="partner-name serif">Goldman<br/>Sachs</div>
+            <div class="partner-name">CREDIT<br/>SUISSE</div>
+            <div class="partner-name">BARCLAYS<br/><span class="sub">CAPITAL</span></div>
+          </div>
+          <p class="desc">Deep experience building and operating large-scale capital markets systems at leading global institutions.</p>
+        </div>
+
+        <div class="strip-cell">
+          <span class="label l">Ecosystem Partners</span>
+          <div class="eco-partners">
+            <div class="eco-partner">
+              <div class="logo-row">
+                <div class="azure-mark"><span></span><span></span><span></span><span></span></div>
+                <span class="name">Microsoft<br/>Azure</span>
+              </div>
+              <p>Cloud infrastructure<br/>and AI services</p>
+            </div>
+            <div class="eco-partner">
+              <div class="logo-row">
+                <span class="name red">S&P Global</span>
+              </div>
+              <p>Market data<br/>and intelligence</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="strip-cell">
+          <span class="label l">Engagement Model</span>
+          <div class="engagement-row">
+            <div class="eng">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+              <span class="name">Advisory</span>
+              <span class="desc">System strategy and architecture design</span>
+            </div>
+            <div class="eng">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12,3 21,8 12,13 3,8"/><polyline points="3,12 12,17 21,12"/><polyline points="3,16 12,21 21,16"/></svg></div>
+              <span class="name">Enablement</span>
+              <span class="desc">Reference architectures and AI workflows</span>
+            </div>
+            <div class="eng">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+              <span class="name">Delivery</span>
+              <span class="desc">End-to-end system delivery and deployment</span>
+            </div>
+            <div class="eng">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></div>
+              <span class="name">Licensed System</span>
+              <span class="desc">Deployable reference system architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <div class="glow-mark"><span class="brand-mark" style="--mark-size: 56px;"><img src="/atheryon-mark.png" alt=""/></span></div>
+        <div>
+          <h3>A Reference System. Proven Architecture.</h3>
+          <p>Our end-to-end capital markets AI reference system demonstrates how AI agents, data and workflows come together in production.</p>
+        </div>
+        <a class="link" href="#">SEE THE SYSTEM ARCHITECTURE</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

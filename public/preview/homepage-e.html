@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E — Trading Terminal · Atheryon</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <style>
+    :root {
+      --bone: #EFEAE0;
+      --paper: #F6F2E9;
+      --charcoal: #15171A;
+      --hair: rgba(21, 23, 26, 0.30);
+      --hair-soft: rgba(21, 23, 26, 0.15);
+      --muted: rgba(21, 23, 26, 0.60);
+      --soft: rgba(21, 23, 26, 0.80);
+      --green: #3a5a3a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      background: var(--bone);
+      color: var(--charcoal);
+      font-size: 12px; line-height: 1.55;
+      min-height: 100vh;
+    }
+    .display { font-family: 'Fraunces', Georgia, serif; font-weight: 500; letter-spacing: -0.015em; line-height: 1.08; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+    /* Header status strip */
+    header.bar {
+      background: var(--charcoal);
+      color: var(--bone);
+      padding: 10px 24px;
+      display: grid; grid-template-columns: auto 1fr;
+      align-items: center; gap: 32px;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    header.bar .brand { font-family: 'Fraunces', serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; text-transform: none; }
+    header.bar .stats { display: flex; gap: 0; }
+    header.bar .stats .kv { display: flex; gap: 8px; padding: 0 18px; border-right: 1px solid rgba(239,234,224,0.25); }
+    header.bar .stats .kv:last-child { border-right: none; }
+    header.bar .stats .k { opacity: 0.6; }
+    header.bar .stats .v { color: var(--bone); }
+    header.bar .stats .v.green { color: #7eb87e; }
+    header.bar .stats .v.dot::before { content: '●'; color: var(--green); margin-right: 4px; }
+
+    /* Grid */
+    .terminal {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 1px;
+      background: var(--hair);
+      border: 1px solid var(--hair);
+      margin: 0;
+    }
+    .panel {
+      background: var(--bone);
+      padding: 0;
+      display: flex; flex-direction: column;
+    }
+    .panel .head {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--hair);
+      background: var(--paper);
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    }
+    .panel .body { padding: 18px; flex: 1; }
+
+    /* Panel 1: identity (spans 2 cols, row 1) */
+    .panel.identity { grid-column: 1 / 3; }
+    .panel.identity .body { display: grid; grid-template-columns: 1fr 320px; gap: 32px; padding: 28px 24px; }
+    .panel.identity h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); letter-spacing: -0.015em; line-height: 1.04; margin: 0 0 16px; }
+    .panel.identity p { font-size: 14px; line-height: 1.6; color: var(--soft); margin: 0; max-width: 60ch; }
+    .panel.identity .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); align-self: start; }
+    .panel.identity .meta-grid .cell { background: var(--paper); padding: 10px 12px; }
+    .panel.identity .meta-grid .k { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .panel.identity .meta-grid .v { font-size: 13px; color: var(--charcoal); font-weight: 600; }
+
+    /* Panel 2: arch (spans 2 cols, row 2) */
+    .panel.arch { grid-column: 1 / 3; }
+    .panel.arch .body { padding: 22px; }
+    .stages { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+    .stages .stage {
+      padding: 16px 14px;
+      border: 1px solid var(--hair);
+      margin-right: -1px;
+      background: var(--paper);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .stages .stage:last-child { margin-right: 0; }
+    .stages .stage .n { font-size: 10px; color: var(--muted); letter-spacing: 0.2em; }
+    .stages .stage .t { font-family: 'Fraunces', serif; font-weight: 500; font-size: 17px; line-height: 1.15; letter-spacing: -0.01em; }
+    .stages .stage .c { font-size: 11px; color: var(--soft); line-height: 1.45; letter-spacing: 0.02em; }
+
+    /* Panel 3: status (col 2, row 1 — but we collapsed row 1 to span; so we use bottom row) */
+
+    /* Row 3: engagement | ecosystem | feed */
+    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-top: none; }
+    .row3 .panel.eng { grid-column: 1; }
+    .row3 .panel.eco { grid-column: 2; }
+    .row3 .panel.feed { grid-column: 3; }
+
+    .eng-list { display: flex; flex-direction: column; }
+    .eng-list .row {
+      display: grid; grid-template-columns: 38px 1fr; gap: 12px;
+      padding: 12px 0; border-bottom: 1px solid var(--hair-soft);
+    }
+    .eng-list .row:last-child { border-bottom: none; }
+    .eng-list .row .marker { font-size: 10px; color: var(--muted); letter-spacing: 0.16em; padding-top: 3px; }
+    .eng-list .row .name { font-family: 'Fraunces', serif; font-weight: 500; font-size: 15px; margin-bottom: 3px; }
+    .eng-list .row .desc { font-size: 11px; color: var(--soft); line-height: 1.5; }
+
+    .eco-list .row {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 0; border-bottom: 1px solid var(--hair-soft);
+    }
+    .eco-list .row:last-child { border-bottom: none; }
+    .eco-list .row .name { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--charcoal); font-weight: 600; }
+    .eco-list .row .desc { font-size: 11px; color: var(--soft); line-height: 1.5; }
+
+    .feed-list .entry {
+      padding: 10px 0; border-bottom: 1px solid var(--hair-soft);
+      display: grid; grid-template-columns: 90px 1fr; gap: 10px; align-items: start;
+    }
+    .feed-list .entry:last-child { border-bottom: none; }
+    .feed-list .entry .ts { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; }
+    .feed-list .entry .msg { font-size: 11px; color: var(--soft); line-height: 1.5; }
+    .feed-list .entry.green .msg::before { content: '✓ '; color: var(--green); font-weight: 600; }
+
+    /* Footer */
+    footer.bar {
+      background: var(--charcoal);
+      color: var(--bone);
+      padding: 10px 24px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    footer.bar .right { text-align: right; opacity: 0.7; }
+
+    a.preview-back { position: fixed; top: 14px; right: 14px; z-index: 99; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bone); background: var(--charcoal); border: 1px solid var(--hair); padding: 6px 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <a class="preview-back" href="/preview/">← all variants</a>
+
+  <header class="bar">
+    <span class="brand">ATHERYON</span>
+    <div class="stats">
+      <div class="kv"><span class="k">Build</span><span class="v">2.0.0</span></div>
+      <div class="kv"><span class="k">Region</span><span class="v">SYD-01</span></div>
+      <div class="kv"><span class="k">Updated</span><span class="v">20:53:17</span></div>
+      <div class="kv"><span class="k">Status</span><span class="v dot">Production</span></div>
+      <div class="kv"><span class="k">Uptime</span><span class="v green">99.97%</span></div>
+    </div>
+  </header>
+
+  <div class="terminal">
+    <div class="panel identity">
+      <div class="head"><span>atheryon / home / identity</span><span>P01</span></div>
+      <div class="body">
+        <div>
+          <h1>Capital markets systems. Data platforms. AI agents.</h1>
+          <p>Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents. Engagement spans advisory through licensed system.</p>
+        </div>
+        <div class="meta-grid">
+          <div class="cell"><div class="k">Active engagements</div><div class="v">04</div></div>
+          <div class="cell"><div class="k">Production systems</div><div class="v">12</div></div>
+          <div class="cell"><div class="k">Agents online</div><div class="v">47</div></div>
+          <div class="cell"><div class="k">Latency p99</div><div class="v">8 ms</div></div>
+          <div class="cell"><div class="k">Data sources</div><div class="v">23</div></div>
+          <div class="cell"><div class="k">Region</div><div class="v">AU-SYD</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel arch">
+      <div class="head"><span>atheryon / home / architecture</span><span>P02 · 5 layers</span></div>
+      <div class="body">
+        <div class="stages">
+          <div class="stage"><span class="n">01</span><span class="t">Data Sources</span><span class="c">S&P, FIX, market data, internal</span></div>
+          <div class="stage"><span class="n">02</span><span class="t">Data Platform</span><span class="c">Canonical model · lakehouse</span></div>
+          <div class="stage"><span class="n">03</span><span class="t">AI Agents</span><span class="c">Orchestration layer</span></div>
+          <div class="stage"><span class="n">04</span><span class="t">Capital Markets Systems</span><span class="c">Pricing · risk · lifecycle</span></div>
+          <div class="stage"><span class="n">05</span><span class="t">Operational Outputs</span><span class="c">Trades · P&L · reports</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row3">
+    <div class="panel eng">
+      <div class="head"><span>atheryon / home / engagement</span><span>P03</span></div>
+      <div class="body">
+        <div class="eng-list">
+          <div class="row"><div class="marker">§01</div><div><div class="name">Advisory</div><div class="desc">Architectural review of target state and AI agent integration.</div></div></div>
+          <div class="row"><div class="marker">§02</div><div><div class="name">Enablement</div><div class="desc">Standing up internal teams to deliver AI-agent systems.</div></div></div>
+          <div class="row"><div class="marker">§03</div><div><div class="name">Delivery</div><div class="desc">End-to-end design and deployment of pricing, risk, lifecycle.</div></div></div>
+          <div class="row"><div class="marker">§04</div><div><div class="name">Licensed System</div><div class="desc">Atheryon Labs reference systems, deployed and supported.</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel eco">
+      <div class="head"><span>atheryon / home / ecosystem</span><span>P04</span></div>
+      <div class="body">
+        <div class="eco-list">
+          <div class="row"><span class="name">Microsoft Azure AI</span><span class="desc">Primary AI infrastructure · OpenAI, AKS, Cosmos DB.</span></div>
+          <div class="row"><span class="name">S&P Global</span><span class="desc">Institutional data backbone integrated into canonical model.</span></div>
+          <div class="row"><span class="name">Banking lineage</span><span class="desc">Goldman, Credit Suisse, Barclays — architectural lineage.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel feed">
+      <div class="head"><span>atheryon / home / feed</span><span>P05 · LIVE</span></div>
+      <div class="body">
+        <div class="feed-list">
+          <div class="entry green"><span class="ts">15.05 14:23</span><span class="msg">Hobart pricing engine deployed.</span></div>
+          <div class="entry green"><span class="ts">12.05 09:11</span><span class="msg">Agent fleet rebalanced.</span></div>
+          <div class="entry green"><span class="ts">08.05 16:44</span><span class="msg">Data platform v3.2 cutover complete.</span></div>
+          <div class="entry"><span class="ts">02.05 11:02</span><span class="msg">New tier-1 bank engagement opened.</span></div>
+          <div class="entry"><span class="ts">28.04 15:20</span><span class="msg">Architecture review · settlement workflow.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bar">
+    <span>atheryon / home / end-of-document</span>
+    <span class="right">ATHERYON PTY LTD · ABN 48 123 456 789 · SYDNEY</span>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Homepage variants · Atheryon design shotgun</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+  <style>
+    :root {
+      --bone: #EFEAE0;
+      --paper: #F6F2E9;
+      --charcoal: #15171A;
+      --hair: rgba(21, 23, 26, 0.15);
+      --hair-strong: rgba(21, 23, 26, 0.30);
+      --muted: rgba(21, 23, 26, 0.60);
+      --soft: rgba(21, 23, 26, 0.80);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      background: var(--bone);
+      color: var(--charcoal);
+      font-size: 14px; line-height: 1.6;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.20em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+    header.head { border-bottom: 1px solid var(--hair-strong); padding: 36px 0 28px; }
+    header.head h1 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 38px; letter-spacing: -0.015em; margin: 8px 0 12px; }
+    header.head p { color: var(--soft); margin: 0; max-width: 70ch; }
+    header.head .note { margin-top: 18px; padding: 14px 16px; border: 1px solid var(--hair-strong); background: var(--paper); font-size: 13px; color: var(--soft); }
+    header.head .note strong { color: var(--charcoal); }
+
+    section.grid { padding: 32px 0 64px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 24px; }
+    .card {
+      border: 1px solid var(--hair-strong);
+      background: var(--paper);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .card .frame {
+      aspect-ratio: 4 / 3;
+      border-bottom: 1px solid var(--hair);
+      overflow: hidden;
+      position: relative;
+      background: #fff;
+    }
+    .card .frame iframe {
+      border: 0; width: 1280px; height: 960px;
+      transform: scale(0.297); transform-origin: top left;
+      pointer-events: none;
+    }
+    .card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; }
+    .card .body .row { display: flex; justify-content: space-between; align-items: baseline; }
+    .card .body h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 20px; margin: 0; }
+    .card .body .badge { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .card .body p { margin: 0; color: var(--soft); font-size: 13px; line-height: 1.55; }
+    .card .body .links { display: flex; gap: 14px; padding-top: 6px; border-top: 1px solid var(--hair); }
+    .card .body .links a { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--charcoal); text-decoration: none; border-bottom: 1px solid var(--charcoal); padding-bottom: 1px; }
+    .card .body .links a:hover { color: var(--bone); background: var(--charcoal); border-color: var(--charcoal); }
+
+    .tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--hair-strong); color: var(--soft); }
+    .tag.amber { color: #8a6e2f; border-color: rgba(138,110,47,0.45); }
+    .tag.dark { color: var(--bone); background: var(--charcoal); border-color: var(--charcoal); }
+    .tag.bone { color: var(--charcoal); background: var(--bone); }
+    .tag.salmon { color: #8a3a3a; border-color: rgba(138,58,58,0.45); background: #fbe9d6; }
+    .tag.green { color: #2e5a2e; border-color: rgba(46,90,46,0.45); }
+    .tag.navy { color: #3b82f6; background: #0a1228; border-color: #3b82f6; }
+
+    .card.winner { border-color: #3b82f6; border-width: 2px; background: #fff; position: relative; }
+    .card.winner::before {
+      content: 'CHOSEN'; position: absolute; top: 12px; right: 12px;
+      background: #3b82f6; color: #fff; font-family: 'JetBrains Mono', monospace;
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+      padding: 4px 8px; z-index: 5; border-radius: 2px;
+    }
+
+    footer.foot { padding: 32px 0; border-top: 1px solid var(--hair); color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <header class="head">
+    <div class="container">
+      <span class="label">design-shotgun / homepage</span>
+      <h1>Seven homepage directions</h1>
+      <p>Visual brainstorm sparked by the vintage CRT/dossier reference. Each variant is a working HTML mockup with real type, real layout, and the locked homepage copy. Click any card to open the full page.</p>
+      <div class="note">
+        <strong>Note —</strong> AI-rendered image mockups were blocked on OpenAI org verification, so these are coded HTML wireframes. They're a closer step to production than PNG mockups, but lack photographic texture (CRT scanlines, aged paper) that the reference image used. Pick a direction; the chosen variant becomes the basis for the real site rewrite.
+      </div>
+    </div>
+  </header>
+
+  <section class="grid">
+    <div class="container">
+      <div class="cards">
+
+        <article class="card winner">
+          <div class="frame"><iframe src="/preview/homepage-h.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>H — Capital Markets AI Platform</h3><span class="badge">Winner</span></div>
+            <div><span class="tag navy">Deep navy</span> <span class="tag navy">Electric blue</span> <span class="tag amber">Orange logo accent</span> <span class="tag">AI platform polish</span></div>
+            <p>Dark navy with electric-blue and orange-logo accents. Glowing AI orchestration diagram, partner logos, engagement model strip. Capital markets AI platform aesthetic — Databricks/Snowflake peer set rather than Bloomberg/S&amp;P dossier.</p>
+            <div class="links"><a href="/preview/homepage-h.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-a.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>A — Operations Room</h3><span class="badge">Variant A</span></div>
+            <div><span class="tag amber">Dark sepia</span> <span class="tag amber">Amber</span> <span class="tag">CRT</span> <span class="tag">Defense-intel</span></div>
+            <p>Direct adoption of the reference image. CRT scan-lines, amber accents, sidebar nav, vintage TV frame around the architecture diagram. Highest visual deviation from DESIGN.md.</p>
+            <div class="links"><a href="/preview/homepage-a.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-b.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>B — Bloomberg Dossier</h3><span class="badge">Variant B</span></div>
+            <div><span class="tag bone">Bone</span> <span class="tag">Charcoal hairlines</span> <span class="tag">Sidebar nav</span></div>
+            <p>Terminal/dossier soul in DESIGN.md palette. Sidebar nav, mono section labels, framed architecture diagram, dense info panels. Reads like a sell-side research portal.</p>
+            <div class="links"><a href="/preview/homepage-b.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-c.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>C — Palantir Dark</h3><span class="badge">Variant C</span></div>
+            <div><span class="tag dark">Dark</span> <span class="tag amber">Single amber pill</span> <span class="tag">Intelligence platform</span></div>
+            <p>Dark charcoal-ink background with one restrained amber status pill. Modern intelligence-platform aesthetic. Dense, dark, but no CRT cliches.</p>
+            <div class="links"><a href="/preview/homepage-c.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-d.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>D — System Document v2</h3><span class="badge">Variant D</span></div>
+            <div><span class="tag bone">Bone</span> <span class="tag">No accent</span> <span class="tag">Treasury doc</span></div>
+            <p>Current /system page approach pushed harder. Horizontal nav, canonical statement table, paper-inset panels. Most conservative — what the locked constitution would produce at peak document-feel.</p>
+            <div class="links"><a href="/preview/homepage-d.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-e.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>E — Trading Terminal</h3><span class="badge">Variant E</span></div>
+            <div><span class="tag bone">Bone</span> <span class="tag">Mono-dominant</span> <span class="tag green">Status green</span> <span class="tag">Multi-pane</span></div>
+            <p>Bloomberg/Eikon multi-pane data screen. Charcoal status bars, 6 framed panels (identity, status, architecture, engagement, ecosystem, feed). Mostly mono, very few decorative flourishes.</p>
+            <div class="links"><a href="/preview/homepage-e.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-f.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>F — Classified Dossier</h3><span class="badge">Variant F</span></div>
+            <div><span class="tag salmon">Manila paper</span> <span class="tag salmon">Stamps</span> <span class="tag">Typewriter mono</span></div>
+            <p>Vintage classified file on aged manila paper. Hole-punch margin, faux rubber stamps, typewriter mono, exhibits A/B/C. Reference image's soul in light/paper mode.</p>
+            <div class="links"><a href="/preview/homepage-f.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage-g.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>G — FT Architecture</h3><span class="badge">Variant G</span></div>
+            <div><span class="tag salmon">FT salmon</span> <span class="tag">Fraunces dominant</span> <span class="tag">Editorial</span></div>
+            <p>Financial Times / Economist long-form research note. Salmon paper, drop-cap, two-column body, pull-quote, exhibits in right rail. Highest editorial gravitas, lowest decorative load.</p>
+            <div class="links"><a href="/preview/homepage-g.html">Open →</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="frame"><iframe src="/preview/homepage.html" loading="lazy"></iframe></div>
+          <div class="body">
+            <div class="row"><h3>Current — Density pass</h3><span class="badge">Baseline</span></div>
+            <div><span class="tag bone">Bone</span> <span class="tag">Top nav</span> <span class="tag">Density pass</span></div>
+            <p>The existing density-pass homepage mockup (commit 5ae7b4b). Reference baseline — compare each variant against this.</p>
+            <div class="links"><a href="/preview/homepage.html">Open →</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container">design-shotgun · 7 variants · atheryon / homepage / 2026-05-15</div>
+  </footer>
+</body>
+</html>
