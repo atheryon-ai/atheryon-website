@@ -12,7 +12,7 @@ Next.js 14 **static export** (`output: 'export'`, `images.unoptimized: true`). N
 - `staticwebapp.config.json` — Azure SWA routes, redirects, auth (sp-clients role on `/integration/*`)
 
 ## Sibling repo
-`/Users/terencetsakiris/repos/labs-platform/` is the source for:
+`~/repos/labs-platform/` is the source for:
 - `src/lib/themes/themes.ts` → manually copy to `src/content/themes.ts`
 - `public/menu-themes-thumbs/t-*.png` → manually copy to `public/menu-themes-thumbs/`
 
