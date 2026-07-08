@@ -48,3 +48,14 @@ Re-sync after upstream changes; there is no build-time link.
 - Single PR routinely promotes 10–60 commits (e.g. PR #15 had 64, PR #20 had 10)
 
 ## Imported Claude Cowork project instructions
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships. A `/graphify` skill (and the `graphify` CLI) is installed — use it instead of grepping.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- To (re)build or refresh the graph, run the `/graphify .` skill (or `graphify update .` for a code-only, no-LLM refresh).
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
