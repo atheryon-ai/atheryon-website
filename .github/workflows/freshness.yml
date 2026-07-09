@@ -1,0 +1,21 @@
+name: Docs Freshness
+
+# Fails if docs/ROUTES.md drifts from the src/app route structure.
+# Regenerate with scripts/gen-docs.sh. Pure bash — no npm install, no
+# secrets, no deploy interaction (Azure SWA deploys are untouched).
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd  # v5
+
+      - name: Check docs freshness
+        run: ./scripts/check-freshness.sh
