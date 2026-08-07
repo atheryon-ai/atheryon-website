@@ -691,13 +691,13 @@ export const v2 = {
           label: '§02 / Data Flow Layer',
           title: 'Data Flow Layer',
           body:
-            'A bespoke capital-markets data model, industry-anchored (ISDA, ISO 20022, FpML conventions) and shaped by 20+ years of front-to-back banking experience. 1,019 type definitions, 42 ISO 20022 message types, and 14 FpML schemas — all parseable, queryable, and validatable at runtime. Source feeds from S&P Global, internal ledgers, and counterparty channels are mapped to typed payloads on ingest, with field-level lineage tracked from origin through every transformation. The Schema Editor (extend / wrap patterns) lets domain experts model real bank-specific extensions on top of the canonical core without forking.',
+            'A bespoke capital-markets data model, industry-anchored (ISDA, ISO 20022, FpML conventions) and shaped by 20+ years of front-to-back banking experience. 1,019 type definitions, 42 ISO 20022 message types, and 14 FpML schemas, each parseable, queryable, and validatable at runtime. Source feeds from S&P Global, internal ledgers, and counterparty channels are mapped to typed payloads on ingest, with field-level lineage tracked from origin through every transformation. The Schema Editor (extend / wrap patterns) lets domain experts model real bank-specific extensions on top of the canonical core without forking.',
         },
         aiAgentLayer: {
           label: '§03 / AI Agent Layer',
           title: 'AI Agent Layer',
           body:
-            'Two classes of specialist agent, coordinated by a multi-agent orchestrator. ETL agents build the CDM-typed Operational Data Store — CDM-native modelling, validation, and ingestion with field-level lineage. Operations agents run the workflows on top of it, one set per business unit (front office, risk & analytics, operations, compliance, treasury / finance). The agents run on Anthropic’s Claude (Claude Agent SDK) — model-agnostic by design; the orchestrator owns routing, payload typing, retry, and audit. Each agent generates candidate implementations against the loaded schemas; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change is captured to the directorial archive — every agent decision is replayable and auditable.',
+            'Two classes of specialist agent, coordinated by a multi-agent orchestrator. ETL agents build the CDM-typed Operational Data Store: CDM-native modelling, validation, and ingestion with field-level lineage. Operations agents run the workflows on top of it, one set per business unit (front office, risk & analytics, operations, compliance, treasury / finance). The agents run on Anthropic’s Claude via the Claude Agent SDK; the orchestrator owns routing, payload typing, retry, and audit, and nothing in the design binds it to one model. Each agent generates candidate implementations against the loaded schemas; a senior capital-markets expert selects, edits, and signs off. Every prompt, context, correction, and resulting code change lands in the directorial archive for replay and audit.',
         },
         workflowExamples: {
           label: '§04 / Workflow Examples',
@@ -737,7 +737,7 @@ export const v2 = {
           label: '§05 / Deployment Model',
           title: 'Deployment model',
           body:
-            'Azure-native. Claude (Anthropic) as the agent runtime, Postgres for the operational data store, Container Apps for the service mesh, Microsoft Entra ID for identity. APRA CPS 234-aligned operational-controls baseline. Marketplace-bound reference implementation: deployable into your Azure tenant, licensed as a reference platform, or operated under managed-service terms. Fully inspectable, extendable, and externally testable today — no demoware.',
+            'Azure-native. Claude (Anthropic) as the agent runtime, Postgres for the operational data store, Container Apps for the service mesh, Microsoft Entra ID for identity. APRA CPS 234-aligned operational-controls baseline. The reference implementation is marketplace-bound: deployable into your Azure tenant, licensed as a reference platform, or operated under managed-service terms. Everything is inspectable, extendable, and externally testable today. No demoware.',
         },
         proofArtifacts: {
           label: '§06 / Proof Artifacts',
@@ -746,7 +746,7 @@ export const v2 = {
           directive:
             'Reference system described as a working architecture (not screenshots or UI gallery).',
           body:
-            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable — a working architecture, not a screenshot gallery. A detailed reference-architecture briefing — covering core services, agent clusters, deployment topology, and operational evidence — is available under MNDA.',
+            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable in a running system rather than a screenshot gallery. A deeper briefing on core services, agent clusters, deployment topology, and operational evidence is available under MNDA.',
         },
       },
     },
