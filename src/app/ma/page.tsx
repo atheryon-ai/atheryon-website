@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { MaHero, MaWhenClientsCallUs, MaStrip } from '@/components/ma'
-import { HomeWritingStrip } from '@/components/home'
 import { v2Ma } from '@/content/site'
 
 const page = v2Ma.home
@@ -32,7 +31,6 @@ export default function MaHomePage() {
       <MaHero />
       <MaWhenClientsCallUs />
       <MaStrip />
-      <HomeWritingStrip />
     </>
   )
 }

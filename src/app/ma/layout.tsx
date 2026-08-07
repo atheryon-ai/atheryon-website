@@ -16,7 +16,7 @@ export default function MALayout({
     <>
       <HomeNav mode="ma" />
       <main>{children}</main>
-      <Footer />
+      <Footer mode="ma" />
     </>
   )
 }

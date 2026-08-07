@@ -18,12 +18,12 @@ const CARDS: ReadonlyArray<Trigger> = [
   {
     kicker: 'Most common',
     title: 'Transaction delivery',
-    body: 'Deal is signed; integration or separation is underway. Senior execution leadership in the delivery seat. AI-velocity on dependency mapping, control tracing, TSA tracking.',
+    body: 'Deal is signed; integration or separation is underway. We take the delivery seat: dependency mapping, control tracing, and TSA tracking run at agent speed.',
   },
   {
     kicker: 'Capacity',
     title: 'Execution capability gaps',
-    body: 'Internal team is competent but stretched. We embed senior specialists alongside, with agent acceleration on the analytical work.',
+    body: 'Internal team is competent but stretched. We embed alongside them and take the analytical volume off their desk.',
   },
 ]
 

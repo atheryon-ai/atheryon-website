@@ -102,8 +102,8 @@ export function MaStrip() {
               Wealth division.
             </p>
             <p style={fineStyle}>
-              The practice is structured around her. AI agents do the volume work;
-              the senior specialist sets direction and owns the outcome.
+              The practice is structured around her: her read of the deal sets
+              the plan, and agent tooling keeps the analysis moving at her pace.
             </p>
             <Link href="/ma/approach" style={linkStyle}>
               Read her track record <span aria-hidden="true">→</span>
@@ -113,9 +113,9 @@ export function MaStrip() {
           <StripCell label="How we engage">
             <h3 style={headingStyle}>Embedded Execution Specialists</h3>
             <p style={bodyStyle}>
-              Senior specialists alongside your in-house team — pre-sign if you
-              bring us in early, continuous through Day-1, Day-2, and TSA exit.
-              Outputs surface where your team can use them.
+              We work alongside your in-house team — pre-sign if you bring us in
+              early, then continuous through Day-1, Day-2, and TSA exit. Outputs
+              surface where your team can use them.
             </p>
             <p style={fineStyle}>
               Azure-native. APRA CPS 234-aligned controls baseline. Typical
