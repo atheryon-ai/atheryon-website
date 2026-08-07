@@ -6,7 +6,7 @@ import { SystemArchitectureDiagram } from '@/components'
 const page = v2.pages.system
 const s = page.sections
 
-const isPending = (value: string) => value.startsWith('{{')
+const isPending = (value: string) => value.includes('{{')
 
 export const metadata: Metadata = {
   title: page.title,

@@ -6,7 +6,7 @@ import { site } from '@/content/site'
 
 const { labs } = site.pages
 
-const isPending = (value: string) => value.startsWith('{{')
+const isPending = (value: string) => value.includes('{{')
 
 export const metadata: Metadata = {
   title: labs.title,
@@ -159,8 +159,8 @@ export default function LabsPage() {
                   </div>
                   <div>
                     <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-1">
-                      CV anchor
-                    </div>
+                      Prior art
+</div>
                     <p>{f.metric}</p>
                   </div>
                   {!isPending(f.footer) && (

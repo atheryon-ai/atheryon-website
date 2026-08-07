@@ -41,7 +41,7 @@ export const site = {
       hero: {
         headlineLine1: 'Atheryon Labs',
         headlineLine2: 'The banking platform built by AI.',
-        body: 'Atheryon Labs is a marketplace-bound CDM-native banking platform — a working reference today, packaged for cloud marketplace distribution as it matures. Built by one capital-markets expert directing AI, it demonstrates how complex financial data can be modelled, linked, structured, and turned into usable banking software that institutions can license, deploy, and extend.',
+        body: 'Atheryon Labs is a CDM-native banking platform: a working reference today, packaged for cloud marketplace distribution as it matures. One capital-markets expert directed AI to build it, and the platform itself is the evidence that complex financial data can be modelled, linked, and turned into banking software institutions can license, deploy, and extend.',
         primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
@@ -52,7 +52,7 @@ export const site = {
           'Atheryon works in the same problem space that serious financial institutions are now prioritising: data modelling, linking, interoperability, and AI-ready enterprise data.',
           'S&P Global completed its acquisition of TeraHelix in June 2025 to strengthen advanced data modelling and linking capabilities. S&P described TeraHelix as helping solve complex enterprise-scale data challenges by structuring data models for interoperability across platforms, systems, and storage architectures.',
           'Atheryon Labs applies that same class of thinking to banking software: CDM-native data structures, expert-directed prompts, AI-assisted engineering, and practical platform surfaces across trading, operations, risk, treasury, compliance, and mortgages.',
-          'The result: a working banking AI platform you can inspect, license, or learn how to build.',
+          'What that produces is a working banking AI platform you can inspect, license, or learn how to build.',
         ],
       },
       offersPreview: {
@@ -113,9 +113,9 @@ export const site = {
             name: 'Trade Board + Operations',
             screenshot: '/labs/screenshots/ops-board.png',
             screenshotAlt: 'Atheryon Labs trade board and operations surface',
-            problem: 'Operations teams in capital markets reconcile breaks, manage confirmations, and process lifecycle events end-of-day under hard regulatory deadlines. Most platforms model this as a workflow tool. The result is reconciliation that misses the underlying CDM event.',
-            howItWorks: 'The /ops board is built directly on the CDM event model: every break, confirmation, and lifecycle action is an event with a typed payload. Operators triage breaks, run lifecycle actions, and the audit trail is the event stream itself — not an after-the-fact log.',
-            metric: 'CV anchor: CBA Markets ODS — Reg Trade Reporting, MiFID II, Surveillance.',
+            problem: 'End-of-day in a capital markets operations team means breaks to reconcile, confirmations to chase, and lifecycle events to process before a regulatory deadline. Platforms that treat this as workflow tooling reconcile the paperwork and miss the underlying CDM event.',
+            howItWorks: 'The /ops board is built directly on the CDM event model. Every break, confirmation, and lifecycle action is an event with a typed payload, so when an operator triages a break or runs a lifecycle action, the event stream is the audit trail. There is no separate log to reconcile against.',
+            metric: 'Same problem class I owned on CBA Markets ODS: Reg Trade Reporting, MiFID II, Surveillance.',
             footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
           },
           {
@@ -123,9 +123,9 @@ export const site = {
             name: 'Risk Pricer + IRRBB',
             screenshot: '/labs/screenshots/risk-pricer.png',
             screenshotAlt: 'Atheryon Labs risk pricer and IRRBB surface',
-            problem: 'Front-office and middle-office risk teams need pricing and risk views that are fast, correct, and inspectable. Most platforms separate the pricer from the risk view, then reconcile them downstream. The reconciliation is where errors live.',
-            howItWorks: '/risk/pricer and /risk/irrbb call a typed atheryon-risk client over a shared CDM trade payload. Pricing and Greeks come from the same source; IRRBB views layer balance-sheet sensitivity on top. One model, one wire format, one source of truth for explain.',
-            metric: 'CV anchor: Credit Suisse FOBO risk + Global P&L Attribution.',
+            problem: 'When the pricer and the risk view are separate systems, someone downstream reconciles them, and that reconciliation is where the errors live. Anyone who has run a FOBO break process knows the pattern: two numbers, both defensible, neither explainable.',
+            howItWorks: '/risk/pricer and /risk/irrbb call the same typed atheryon-risk client over a shared CDM trade payload. Pricing and Greeks come from a single source, and the IRRBB views layer balance-sheet sensitivity on top of it. When a number needs explaining, there is exactly one place to look.',
+            metric: 'I ran this reconciliation at Credit Suisse: FOBO risk and Global P&L Attribution.',
             footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
           },
           {
@@ -133,9 +133,9 @@ export const site = {
             name: 'Schema Editor + CDM Intelligence',
             screenshot: '/labs/screenshots/schema-editor.png',
             screenshotAlt: 'Atheryon Labs schema editor and CDM intelligence surfaces',
-            problem: 'The hardest part of any banking data platform is keeping the data model honest under change. Most platforms treat the schema as a database concern. The result is silent drift between the model the business agrees to and the model the system enforces.',
-            howItWorks: '/build/schema-editor edits CDM types directly. /explore/graph walks instances of those types. Reg Submissions reverse-map regulator artefacts back to CDM, so the schema and the regulator are always in the same conversation.',
-            metric: 'CV anchor: the data-modelling thesis — the Atheryon differentiator.',
+            problem: 'Every banking data platform drifts. The model the business signs off and the model the system enforces start identical, then diverge one change request at a time, silently, because the schema lives in a database migration nobody reads. Keeping the two honest under change is the hardest problem in the stack.',
+            howItWorks: '/build/schema-editor edits CDM types directly, and /explore/graph walks live instances of those types. Reg Submissions reverse-map regulator artefacts back to CDM, which keeps the schema and the regulator in the same conversation instead of six months apart.',
+            metric: 'The schema discipline here comes from colleagues who built Goldman SecDB. The vignette below is one of their rules.',
             footer: 'Built in {{WEEKS}} weeks · {{PRS}} PRs · vs. typical multi-year programmes for an equivalent scope.',
             sidebarVignette: {
               title: 'Schema modelling — extend vs wrap',
@@ -192,7 +192,7 @@ export const site = {
         ],
         economics: {
           heading: 'What this method displaces — and what it produces',
-          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement — armies of analysts running discovery, change requests, and reconciliation cycles. The five rules above are the operating system that compresses that scope into weeks. The licensable asset has two halves: the directorial track (how a banker directs AI to produce shipped code) and the platform IP it produces (CDM connectors, regulatory schema mapping, banking surfaces) — designed for cloud marketplace distribution once the partner channel is in place.',
+          body: 'A tier-1 systems integrator scopes a regulated-banking platform as a multi-year, eight-figure engagement: analysts running discovery, change requests, and reconciliation cycles. Working to the five rules above, one expert directing AI compressed that scope into weeks. The licensable asset has two halves. The directorial track is how a banker directs AI to produce shipped code; the platform IP is what that produces — CDM connectors, regulatory schema mapping, banking surfaces — packaged for cloud marketplace distribution once the partner channel is in place.',
         },
         artifact: {
           heading: 'One real prompt, one real correction',
@@ -200,7 +200,7 @@ export const site = {
           correctionShown: '{{TERRY_PROMPT_EXAMPLE_CORRECTION}}',
           prLink: '{{TERRY_PROMPT_EXAMPLE_PR_URL}}',
         },
-        disclosure: "Atheryon Labs is currently built using Anthropic’s Claude. The method is model-agnostic by design — the durable artefact is how a banker directs AI, not which model is on the other side of the chat.",
+        disclosure: "Atheryon Labs is currently built using Anthropic’s Claude. The method itself is model-agnostic: the prompts, corrections, and design constraints transfer to whichever frontier model is on the other side of the chat.",
       },
       engagement: {
         badge: 'Three ways to use what is here',
@@ -424,6 +424,21 @@ export const site = {
         { label: 'Contact', href: '/contact' },
       ],
     },
+    // M&A practice footer — practice-correct wayfinding for /ma/* pages.
+    // Cross-practice link back to Capital Markets is deliberate: the two
+    // practices share one brand, so the footer is where the other practice
+    // stays reachable without polluting the M&A nav.
+    maLinks: [
+      { label: 'M&A Overview', href: '/ma' },
+      { label: 'Approach', href: '/ma/approach' },
+      { label: 'Offers', href: '/ma/offers' },
+      { label: 'Contact', href: '/ma/contact' },
+      { label: 'Capital Markets', href: '/' },
+    ],
+    // Practice-lead LinkedIn per mode. The M&A practice is led by Anna
+    // Contos, so /ma/* pages show her profile, not Terry's. URL provided
+    // by Terry 2026-08-07. Empty string = Footer hides the link.
+    maLinkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
     legal: {
       links: [
         { label: 'Privacy Policy', href: '/privacy' },

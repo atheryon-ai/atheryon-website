@@ -9,7 +9,7 @@
     "lint": "next lint",
     "deploy:test": "git push origin dev",
     "preview": "npm run build && npx serve out",
-    "verify:production-ready": "if grep -r REPLACE_ME src/; then echo '\\nERROR: REPLACE_ME placeholder found in src/. Update Stripe Payment Link URLs in site.ts before deploying to production.' >&2 && exit 1; else echo '\\u2713 No REPLACE_ME placeholders.'; fi"
+    "verify:production-ready": "if [ ! -d out ]; then echo '\\nERROR: out/ not found. Run `next build` before verify:production-ready.' >&2 && exit 1; elif grep -rE --include='*.html' 'REPLACE_ME|\\{\\{[A-Za-z0-9_]+\\}\\}' out/; then echo '\\nERROR: unresolved placeholder found in built output above. Fill it in, or ensure the component hides its block via isPending(), before deploying to production.' >&2 && exit 1; else echo '\\u2713 No unresolved placeholders in built output.'; fi"
   },
   "dependencies": {
     "next": "^15.5.18",
