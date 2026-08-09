@@ -125,7 +125,7 @@ AC: all pages re-tokened; WCAG AA contrast; Playwright suite green (no layout re
 4. RESOLVED 2026-08-09: no partner names on /technology; S&P Global = data partner, Azure = technology runtime if referenced in body copy; detail stays at L3 (§3).
 5. RESOLVED 2026-08-09: figures confirmed for public use (Terry); `main` gate lifted (§4).
 6. `TODO(terry)`: technology-side experience cases for /experience (§3) — real engagements, facts only, no invention. Candidate to consider: the S&P Global TeraHelix cloud-migration engagement already referenced publicly in `v2` offers copy — confirm client consent for a named case entry.
-7. `TODO(terry)`: phase 4 — approve the serif/sans typeface pair and final hex palette before the design pass builds.
+7. RESOLVED 2026-08-09 (Terry): typefaces Newsreader (display serif) + Public Sans (body sans); palette deep navy #0E2A3A, charcoal #15171A, warm white #FAF9F7, slate grey #93A5B4, steel blue #52718E (bright #8FAECB, deep #3E5A75), bronze #B08D57.
 
 ---
 

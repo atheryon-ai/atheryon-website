@@ -117,7 +117,7 @@ function ContactFormInner({
         </button>
       </form>
 
-      <aside className="space-y-6">
+      <div className="space-y-6">
         <div className="border border-charcoal/30 bg-white p-6">
           <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-3">
             Direct
@@ -129,7 +129,7 @@ function ContactFormInner({
             {site.email}
           </a>
         </div>
-      </aside>
+      </div>
     </div>
   )
 }

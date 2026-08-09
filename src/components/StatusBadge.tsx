@@ -8,14 +8,15 @@ export type Status = 'shipped' | 'building' | 'roadmap'
 // Foreground colours darkened to meet WCAG AA contrast on the cream `bg-bone`
 // background that hosts the badges on /themes, /themes/[id], and /roadmap.
 // Previously used 400-level Tailwind hues (#60a5fa, #fbbf24) which dropped to
-// ~1.4:1 contrast for 10px text — failed contrast. Now uses 700-/800-level hues
-// against a light-tinted fill, which clears WCAG AA for small text.
+// ~1.4:1 contrast for 10px text — failed contrast. Now uses deep steel blue
+// (#3E5A75, brand palette 2026-08-09) and amber-800 against a light-tinted
+// fill, which clears WCAG AA for small text.
 const STYLES: Record<Status, { label: string; bg: string; fg: string; border: string }> = {
   shipped: {
     label: 'SHIPPED',
-    bg: 'rgba(59, 130, 246, 0.15)',
-    fg: '#1d4ed8', // blue-700
-    border: 'rgba(59, 130, 246, 0.55)',
+    bg: 'rgba(82, 113, 142, 0.15)',
+    fg: '#3E5A75', // deep steel blue
+    border: 'rgba(82, 113, 142, 0.55)',
   },
   building: {
     label: 'BUILDING',

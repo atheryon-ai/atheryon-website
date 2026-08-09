@@ -32,7 +32,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)] gap-12">
             <ContactForm defaultTopic="ma-execution" />
 
-            <aside aria-label="How your enquiry is handled" className="lg:border-l lg:border-charcoal/15 lg:pl-8">
+            <div aria-label="How your enquiry is handled" role="group" className="lg:border-l lg:border-charcoal/15 lg:pl-8">
               <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-4">
                 {s.disclosure.title}
               </h2>
@@ -49,7 +49,7 @@ export default function ContactPage() {
                   </Link>
                 </li>
               </ul>
-            </aside>
+            </div>
           </div>
         </div>
       </section>

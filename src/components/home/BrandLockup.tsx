@@ -20,7 +20,7 @@ export function BrandLockup({ markSize = 52 }: Props) {
             fontWeight: 600,
             fontSize: 24,
             letterSpacing: '0.08em',
-            color: '#ffffff',
+            color: '#FAF9F7',
             textDecoration: 'none',
           }}
         >

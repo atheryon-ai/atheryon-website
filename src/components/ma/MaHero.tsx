@@ -39,7 +39,7 @@ export function MaHero() {
               letterSpacing: '-0.02em',
               lineHeight: 1.08,
               margin: '18px 0 22px',
-              color: '#ffffff',
+              color: '#FAF9F7',
             }}
           >
             Talk to us before{' '}
@@ -83,7 +83,7 @@ export function MaHero() {
                 borderRadius: 4,
                 background: 'var(--mode-accent)',
                 border: '1px solid var(--mode-accent)',
-                color: '#ffffff',
+                color: '#FAF9F7',
                 fontWeight: 600,
                 fontSize: 13,
                 letterSpacing: '0.14em',

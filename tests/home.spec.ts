@@ -49,11 +49,11 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByRole('link', { name: 'Discuss a situation' }).first()).toHaveAttribute('href', '/contact')
   await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', '/contact')
 
-  // Background should be deep navy (sanity check, computed style on body)
+  // Background should be deep navy #0E2A3A (sanity check, computed style on body)
   const bg = await page.evaluate(() =>
     getComputedStyle(document.body).backgroundColor,
   )
-  expect(bg).toMatch(/rgb\((6|7|8), (10|11|12), (28|29|30)\)/)
+  expect(bg).toMatch(/rgb\((13|14|15), (41|42|43), (57|58|59)\)/)
 })
 
 test('about page renders positioning, story and genericised co-founder bios', async ({ page }) => {

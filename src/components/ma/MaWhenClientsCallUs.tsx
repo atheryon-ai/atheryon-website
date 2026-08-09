@@ -79,7 +79,7 @@ export function MaWhenClientsCallUs() {
                   fontWeight: 700,
                   lineHeight: 1.25,
                   margin: '0 0 14px',
-                  color: '#ffffff',
+                  color: '#FAF9F7',
                 }}
               >
                 {card.title}

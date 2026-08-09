@@ -22,7 +22,7 @@ export function Footer({ mode = 'cm' }: { mode?: Mode }) {
           </div>
           {v3.footer.groups.map((group) => (
             <div key={group.heading}>
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/45 mb-3">
+              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/60 mb-3">
                 {group.heading}
               </div>
               <ul className="space-y-1">

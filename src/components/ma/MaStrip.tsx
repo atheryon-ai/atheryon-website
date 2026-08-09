@@ -58,7 +58,7 @@ const linkStyle: React.CSSProperties = {
 const headingStyle: React.CSSProperties = {
   fontWeight: 700,
   fontSize: 16,
-  color: '#ffffff',
+  color: '#FAF9F7',
   letterSpacing: '-0.005em',
   margin: '0 0 10px',
   lineHeight: 1.3,
