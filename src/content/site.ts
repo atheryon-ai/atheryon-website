@@ -250,6 +250,10 @@ export const site = {
       code: {
         title: 'Buy the code — Atheryon Labs',
         description: 'License the Atheryon Labs platform code as a working banking reference implementation.',
+        // Short card copy for the /offers overview. Deliberately different from
+        // hero.lede, which opens the sub-page itself.
+        overviewBlurb:
+          'The working platform as a licensable asset: the CDM-native codebase, deployable into your own estate, with licensing scoped to modules and rights.',
         hero: {
           eyebrow: '01 / Code',
           headline: 'Buy the Labs code.',
@@ -295,10 +299,12 @@ export const site = {
       prompts: {
         title: 'License the prompts — Atheryon Labs',
         description: 'License the prompt archive that directed the AI build — the directorial track that makes the model ship.',
+        overviewBlurb:
+          'The record of how the platform was directed into existence. For teams who want the method and the reasoning, with or without the code.',
         hero: {
           eyebrow: '02 / Prompts',
           headline: 'License the prompts.',
-          lede: 'License the prompt archive that directed the AI build — instructions, corrections, domain constraints, architecture decisions, and banking reasoning paired with the resulting code.',
+          lede: 'License the prompt archive that directed the AI build. Each prompt is paired with the correction and the banking reasoning that turned model output into shipped code.',
         },
         whatYouGet: {
           badge: 'What you get',
@@ -327,7 +333,7 @@ export const site = {
           body: 'Prompt licensing is priced per scope: read-only access, internal-use rights, derivative-work rights, or exclusivity in a vertical. Send a short note about your intended use and we will come back with a tailored proposal.',
         },
         frontOfficeBundle: {
-          badge: 'Productized bundle',
+          badge: 'Productised bundle',
           title: 'Front Office bundle',
           price: '$14,000 AUD',
           body: 'A pre-packaged curriculum + IP slice for Front Office trading workflows — five modules, sample data, schemas, design specs, reference architectures, example transcripts. Used within 30 days of purchase.',
@@ -358,6 +364,8 @@ export const site = {
       consult: {
         title: 'Engage the builder — Atheryon Labs',
         description: 'Engage Terry Tsakiris to apply the Atheryon method to your own data, platform, or S&P TeraHelix integration path.',
+        overviewBlurb:
+          'Senior-led engagement with the architect of the platform, from a 30-day diagnostic through to a multi-quarter build.',
         hero: {
           eyebrow: '03 / Advisory',
           headline: 'Engage the builder.',

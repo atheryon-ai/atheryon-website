@@ -21,9 +21,9 @@ export const metadata: Metadata = {
 }
 
 const OFFER_LINKS = [
-  { href: '/offers/code', number: '01', title: 'Buy the code', blurb: offers.code.hero.lede },
-  { href: '/offers/prompts', number: '02', title: 'License the prompts', blurb: offers.prompts.hero.lede },
-  { href: '/offers/consult', number: '03', title: 'Consult', blurb: offers.consult.hero.lede },
+  { href: '/offers/code', number: '01', title: 'Buy the code', blurb: offers.code.overviewBlurb },
+  { href: '/offers/prompts', number: '02', title: 'License the prompts', blurb: offers.prompts.overviewBlurb },
+  { href: '/offers/consult', number: '03', title: 'Consult', blurb: offers.consult.overviewBlurb },
 ] as const
 
 export default function OffersPage() {
