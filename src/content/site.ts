@@ -1303,6 +1303,17 @@ const cmCases = [
   },
 ] as const
 
+// Shared by both arm contact pages.
+const contactDisclosure = {
+  title: 'How your enquiry is handled',
+  items: [
+    'Enquiries are treated as confidential.',
+    'Only the details entered in the form are submitted: name, company, email and message.',
+    'Submissions are processed by Formspree on Atheryon’s behalf.',
+  ],
+  privacyLink: { label: 'Privacy Policy', href: '/privacy' },
+} as const
+
 export const v3 = {
   // Appendix B, adopted verbatim (statement per rev 3 Brief 2 wording). The
   // "operational, technology and data" triad is load-bearing per the port note.
@@ -1329,6 +1340,7 @@ export const v3 = {
         links: [
           { label: 'M&A', href: '/ma' },
           { label: 'Capital Markets', href: '/capital-markets' },
+          { label: 'Data & AI', href: '/data-ai' },
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
@@ -1667,14 +1679,14 @@ export const v3 = {
       },
     },
 
-    experience: {
-      route: '/experience',
-      title: 'Representative Experience — Atheryon',
+    maExperience: {
+      route: '/ma/experience',
+      title: 'M&A Experience — Atheryon',
       description:
         'Representative transaction and transformation experience across financial services, led by Atheryon and its principals.',
       sections: {
         hero: {
-          label: 'atheryon / experience',
+          label: 'atheryon / ma / experience',
           title: 'Representative Experience',
           subtitle:
             'Selected transactions and transformations across financial services.',
@@ -1805,14 +1817,14 @@ export const v3 = {
       },
     },
 
-    approach: {
-      route: '/approach',
-      title: 'Our Approach — Atheryon',
+    maApproach: {
+      route: '/ma/approach',
+      title: 'M&A Approach — Atheryon',
       description:
         'Method and governance across the transaction lifecycle: pre-sign insight, Day 1 readiness, and the path to operational independence and TSA exit.',
       sections: {
         hero: {
-          label: 'atheryon / approach',
+          label: 'atheryon / ma / approach',
           title: 'Our Approach',
           subtitle: 'Method and governance across the transaction lifecycle.',
         },
@@ -1936,40 +1948,6 @@ export const v3 = {
             href: '/ma#technology-data-migration',
           },
         },
-        cases: {
-          label: 'Selected Cases',
-          title: 'Selected cases',
-          items: cmCases,
-        },
-        // The three delivery patterns (Appendix C) in place of the
-        // relocated transaction workflows.
-        examples: {
-          label: 'Delivery Examples',
-          title: 'Delivery examples',
-          items: [
-            {
-              id: 'program-recovery',
-              name: 'Program recovery',
-              body: 'Re-baseline a stalled data platform, restore delivery, hand to BAU.',
-            },
-            {
-              id: 'risk-and-market-data',
-              name: 'Front office risk and market data',
-              body: 'Near real-time risk builds with the market data function to sustain them.',
-            },
-            {
-              id: 'data-product-acceleration',
-              name: 'Data product acceleration',
-              body: 'Modelling, engineering and governance set up to ship at multiples of prior speed.',
-            },
-          ],
-        },
-        delivery: {
-          label: 'Delivery',
-          title: 'Embedded delivery',
-          body:
-            'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
-        },
         depth: {
           label: 'Platform Depth',
           title: 'Under the arm',
@@ -2046,24 +2024,168 @@ export const v3 = {
       },
     },
 
+    // Chooser pages (Terry 2026-08-09: two experiences, two approaches,
+    // two contacts — one per arm; the firm-level routes stay live as thin
+    // choosers).
+    experience: {
+      route: '/experience',
+      title: 'Experience — Atheryon',
+      description: 'Representative experience, by arm: M&A transactions and capital markets delivery.',
+      sections: {
+        hero: {
+          label: 'atheryon / experience',
+          title: 'Experience',
+          subtitle: 'Representative experience, by arm.',
+        },
+        links: [
+          {
+            label: 'M&A Experience',
+            href: '/ma/experience',
+            note: 'Transaction and separation experience across financial services.',
+          },
+          {
+            label: 'Capital Markets Experience',
+            href: '/capital-markets/experience',
+            note: 'Capital markets systems, data platforms and regulatory delivery.',
+          },
+        ],
+      },
+    },
+
+    approach: {
+      route: '/approach',
+      title: 'Approach — Atheryon',
+      description: 'How each arm works: method and governance for M&A, embedded delivery for capital markets.',
+      sections: {
+        hero: {
+          label: 'atheryon / approach',
+          title: 'Approach',
+          subtitle: 'How each arm works.',
+        },
+        links: [
+          {
+            label: 'M&A Approach',
+            href: '/ma/approach',
+            note: 'Method and governance across the transaction lifecycle.',
+          },
+          {
+            label: 'Capital Markets Approach',
+            href: '/capital-markets/approach',
+            note: 'Embedded delivery and the delivery patterns behind it.',
+          },
+        ],
+      },
+    },
+
     contact: {
       route: '/contact',
       title: 'Contact — Atheryon',
-      description: 'Talk to Atheryon about executing a complex transaction or transformation.',
+      description: 'Talk to Atheryon: M&A transactions or capital markets technology and data programs.',
       sections: {
         hero: {
           label: 'atheryon / contact',
           title: 'Contact',
+          body: 'Choose the conversation. Enquiries are treated as confidential.',
+        },
+        links: [
+          {
+            label: 'M&A',
+            href: '/ma/contact',
+            note: 'Discuss a transaction or transformation.',
+          },
+          {
+            label: 'Capital Markets',
+            href: '/capital-markets/contact',
+            note: 'Discuss a technology or data program.',
+          },
+        ],
+      },
+    },
+
+    maContact: {
+      route: '/ma/contact',
+      title: 'Contact — M&A — Atheryon',
+      description: 'Talk to the M&A arm about a transaction or transformation.',
+      sections: {
+        hero: {
+          label: 'atheryon / ma / contact',
+          title: 'Contact',
           body: 'Tell us about the transaction or transformation you are considering. Enquiries are treated as confidential.',
         },
-        disclosure: {
-          title: 'How your enquiry is handled',
+        disclosure: contactDisclosure,
+      },
+    },
+
+    cmContact: {
+      route: '/capital-markets/contact',
+      title: 'Contact — Capital Markets — Atheryon',
+      description: 'Talk to the Capital Markets arm about a technology or data program.',
+      sections: {
+        hero: {
+          label: 'atheryon / capital markets / contact',
+          title: 'Contact',
+          body: 'Tell us about the technology or data program you are considering. Enquiries are treated as confidential.',
+        },
+        disclosure: contactDisclosure,
+      },
+    },
+
+    cmExperience: {
+      route: '/capital-markets/experience',
+      title: 'Capital Markets Experience — Atheryon',
+      description: 'Capital markets delivery experience: program recovery, front office risk, regulatory platforms.',
+      sections: {
+        hero: {
+          label: 'atheryon / capital markets / experience',
+          title: 'Capital Markets Experience',
+          subtitle: 'Selected capital markets delivery, led by Atheryon principals in prior senior roles.',
+        },
+        cases: {
+          label: 'Selected Cases',
+          title: 'Selected cases',
+          items: cmCases,
+        },
+      },
+    },
+
+    cmApproach: {
+      route: '/capital-markets/approach',
+      title: 'Capital Markets Approach — Atheryon',
+      description: 'How the Capital Markets arm delivers: embedded senior specialists and AI-assisted delivery patterns.',
+      sections: {
+        hero: {
+          label: 'atheryon / capital markets / approach',
+          title: 'Our Approach',
+          subtitle: 'How the Capital Markets arm delivers.',
+        },
+        // The three delivery patterns (Appendix C) in place of the
+        // relocated transaction workflows.
+        examples: {
+          label: 'Delivery Examples',
+          title: 'Delivery examples',
           items: [
-            'Enquiries are treated as confidential.',
-            'Only the details entered in the form are submitted: name, company, email and message.',
-            'Submissions are processed by Formspree on Atheryon’s behalf.',
+            {
+              id: 'program-recovery',
+              name: 'Program recovery',
+              body: 'Re-baseline a stalled data platform, restore delivery, hand to BAU.',
+            },
+            {
+              id: 'risk-and-market-data',
+              name: 'Front office risk and market data',
+              body: 'Near real-time risk builds with the market data function to sustain them.',
+            },
+            {
+              id: 'data-product-acceleration',
+              name: 'Data product acceleration',
+              body: 'Modelling, engineering and governance set up to ship at multiples of prior speed.',
+            },
           ],
-          privacyLink: { label: 'Privacy Policy', href: '/privacy' },
+        },
+        delivery: {
+          label: 'Delivery',
+          title: 'Embedded delivery',
+          body:
+            'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
         },
       },
     },

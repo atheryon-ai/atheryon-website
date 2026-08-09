@@ -5,10 +5,28 @@ import { test, expect } from '@playwright/test'
 
 const routes = [
   { path: '/ma', heading: 'Making Transactions Executable' },
-  { path: '/experience', heading: 'Representative Experience' },
-  { path: '/approach', heading: 'Our Approach' },
+  { path: '/ma/experience', heading: 'Representative Experience' },
+  { path: '/ma/approach', heading: 'Our Approach' },
+  { path: '/capital-markets/experience', heading: 'Capital Markets Experience' },
+  { path: '/capital-markets/approach', heading: 'Our Approach' },
   { path: '/data-ai', heading: 'Data. Transformation. AI.' },
 ] as const
+
+// Chooser pages (Terry 2026-08-09): the firm-level routes stay live and
+// offer one link per arm.
+for (const [path, links] of [
+  ['/experience', [['M&A Experience', '/ma/experience'], ['Capital Markets Experience', '/capital-markets/experience']]],
+  ['/approach', [['M&A Approach', '/ma/approach'], ['Capital Markets Approach', '/capital-markets/approach']]],
+  ['/contact', [['M&A', '/ma/contact'], ['Capital Markets', '/capital-markets/contact']]],
+] as const) {
+  test(`${path} is a chooser between the two arms`, async ({ page }) => {
+    const response = await page.goto(path)
+    expect(response?.status()).toBe(200)
+    for (const [label, href] of links) {
+      await expect(page.locator('main').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+    }
+  })
+}
 
 test('/data-ai carries the underpinning principle', async ({ page }) => {
   await page.goto('/data-ai')
@@ -79,8 +97,8 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   }
 })
 
-test('/experience normalises cases to Context / Role / Outcome with RAMS first', async ({ page }) => {
-  await page.goto('/experience')
+test('/ma/experience normalises cases to Context / Role / Outcome with RAMS first', async ({ page }) => {
+  await page.goto('/ma/experience')
 
   await expect(page.getByText('Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.')).toBeVisible()
 
@@ -118,12 +136,9 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
     page.locator('main').getByRole('link', { name: /Technology, Data & Migration Readiness/ }),
   ).toHaveAttribute('href', '/ma#technology-data-migration')
 
-  // Appendix C content: three cases and three delivery patterns, no
-  // unresolved markers
-  await expect(page.getByRole('heading', { name: 'Selected cases' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
+  // Cases and delivery patterns live on the arm's sub-pages now; the
+  // landing carries the arm sub-nav
+  await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/capital-markets/experience')
   await expect(page.getByText('{{')).toHaveCount(0)
 
   // CM depth links out of /capital-markets. Scoped to <main> — the footer
@@ -137,6 +152,26 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
   ] as const) {
     await expect(page.locator('main').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }
+})
+
+test('/capital-markets/experience carries the three Appendix C cases', async ({ page }) => {
+  await page.goto('/capital-markets/experience')
+  for (const name of [
+    'Recovery of a Failed $84M Data & Analytics Program',
+    'First Near Real-Time Front Office Risk System',
+    'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping',
+  ]) {
+    await expect(page.getByRole('heading', { name })).toBeVisible()
+  }
+  await expect(page.getByText('{{')).toHaveCount(0)
+})
+
+test('/capital-markets/approach carries the delivery patterns and embedded delivery', async ({ page }) => {
+  await page.goto('/capital-markets/approach')
+  await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Embedded delivery' })).toBeVisible()
+  await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
 })
 
 test('CM legacy routes still resolve and the footer groups them under Technology', async ({ page }) => {
@@ -172,9 +207,7 @@ test.describe('retired-route redirects (SWA only)', () => {
 
   for (const [from, to] of [
     ['/services', '/ma'],
-    ['/ma/approach', '/approach'],
     ['/ma/offers', '/ma'],
-    ['/ma/contact', '/contact'],
     ['/ma/system', '/ma'],
     ['/ma/workflows', '/ma'],
     ['/technology', '/capital-markets'],
@@ -190,8 +223,8 @@ test.describe('retired-route redirects (SWA only)', () => {
   }
 })
 
-test('/contact renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
-  await page.goto('/contact')
+test('/ma/contact renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
+  await page.goto('/ma/contact')
 
   await expect(page.getByRole('heading', { level: 1, name: 'Contact' })).toBeVisible()
   await expect(page.getByText('How your enquiry is handled')).toBeVisible()
@@ -200,8 +233,14 @@ test('/contact renders the enquiry form with the privacy disclosure beside it', 
     page.getByLabel('How your enquiry is handled').getByRole('link', { name: 'Privacy Policy' }),
   ).toHaveAttribute('href', '/privacy')
 
-  // Default enquiry path is M&A execution; message label per REV 7 punch list
+  // M&A enquiry path; message label per REV 7 punch list
   await expect(page.getByLabel(/name/i)).toBeVisible()
   await expect(page.locator('label[for="message"]')).toContainText('Tell us about the situation')
   await expect(page.locator('textarea')).toHaveValue(/M&A execution review/)
+})
+
+test('/capital-markets/contact pre-fills the capital markets enquiry path', async ({ page }) => {
+  await page.goto('/capital-markets/contact')
+  await expect(page.getByText('technology or data program you are considering', { exact: false })).toBeVisible()
+  await expect(page.locator('textarea')).toHaveValue(/Capital markets engagement/)
 })

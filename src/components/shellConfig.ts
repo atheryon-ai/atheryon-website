@@ -16,10 +16,13 @@ export const shellConfig: Record<Mode, ShellConfig> = {
   // copy and footer); CM legacy pages are reached via /capital-markets and
   // the footer, not the header.
   cm: {
+    // Slim top bar (Terry 2026-08-09): arms + underpinning + about. The
+    // per-arm sub-pages (experience / approach / contact) hang off each
+    // arm's own sub-nav row, not the header.
     nav: [
       { label: 'M&A', href: '/ma' },
       { label: 'CAPITAL MARKETS', href: '/capital-markets' },
-      { label: 'EXPERIENCE', href: '/experience' },
+      { label: 'DATA & AI', href: '/data-ai' },
       { label: 'ABOUT', href: '/about' },
     ],
     cta: {

@@ -21,7 +21,7 @@ test.describe('mobile nav at 390×844', () => {
     await expect(openButton).toHaveAttribute('aria-expanded', 'true')
 
     const panel = page.locator('#home-nav-mobile-menu')
-    for (const label of ['M&A', 'CAPITAL MARKETS', 'EXPERIENCE', 'ABOUT']) {
+    for (const label of ['M&A', 'CAPITAL MARKETS', 'DATA & AI', 'ABOUT']) {
       await expect(panel.getByRole('link', { name: label })).toBeVisible()
     }
     await expect(panel.getByRole('link', { name: 'DISCUSS A SITUATION' })).toHaveAttribute('href', '/contact')

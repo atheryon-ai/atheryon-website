@@ -20,6 +20,7 @@ const TOPIC_LABELS: Record<string, string> = {
   'ai-direction': 'AI Direction',
   'system-assessment': 'System assessment',
   'ma-execution': 'M&A execution review',
+  'capital-markets': 'Capital markets engagement',
   mortgages: 'Mortgages practice',
 }
 

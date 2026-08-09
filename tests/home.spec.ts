@@ -13,11 +13,11 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(h1).toContainText('Executable.')
   await expect(page.getByText('Understanding implications early. Executing with confidence.')).toBeVisible()
 
-  // Executive nav (phase 2: M&A · CAPITAL MARKETS · EXPERIENCE · ABOUT; APPROACH out of nav)
+  // Slim top nav (Terry 2026-08-09): arms + underpinning + about
   for (const [label, href] of [
     ['M&A', '/ma'],
     ['CAPITAL MARKETS', '/capital-markets'],
-    ['EXPERIENCE', '/experience'],
+    ['DATA & AI', '/data-ai'],
     ['ABOUT', '/about'],
   ] as const) {
     await expect(

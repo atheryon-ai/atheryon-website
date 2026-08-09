@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArmSubNav } from '@/components/ArmSubNav'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
@@ -7,8 +8,6 @@ import { isPending } from '@/lib/pending'
 const page = v3.pages.capitalMarkets
 const s = page.sections
 
-// TODO(terry): {{CM_PRINCIPLE}} — the arm's principle statement renders
-// here once supplied (principles live with the sub pages, 2026-08-09).
 const showPrinciple = !isPending(s.principle.statement)
 
 export const metadata: Metadata = {
@@ -27,6 +26,7 @@ export default function CapitalMarketsPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+      <ArmSubNav base="/capital-markets" />
 
       {showPrinciple && (
         <DocSection>
@@ -53,74 +53,6 @@ export default function CapitalMarketsPage() {
             {s.outcomes.crossLink.text}
             <span aria-hidden="true">→</span>
           </Link>
-        </p>
-      </DocSection>
-
-      {/* The arm's experience section — CM cases render here only, never on
-          /experience (Terry 2026-08-09). Anchor: /capital-markets#experience */}
-      <DocSection id="experience" label={s.cases.label} title={s.cases.title}>
-        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.cases.items.map((entry, i) => (
-            <li
-              key={entry.id}
-              id={entry.id}
-              className="grid grid-cols-1 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-12 py-10 scroll-mt-24"
-            >
-              <header>
-                <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
-                  {entry.name}
-                </h3>
-                <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 leading-relaxed">
-                  {entry.engagement}
-                  <br />
-                  {entry.client}
-                </div>
-              </header>
-
-              <dl className="divide-y divide-charcoal/15 border-t border-charcoal/15 md:border-t-0">
-                {entry.details.map((detail) => (
-                  <div
-                    key={detail.label}
-                    className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-6 py-5 first:pt-5 md:first:pt-0"
-                  >
-                    <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60">
-                      {detail.label}
-                    </dt>
-                    <dd className="text-base md:text-lg text-charcoal/85 leading-relaxed">
-                      {detail.body}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </li>
-          ))}
-        </ol>
-      </DocSection>
-
-      <DocSection label={s.examples.label} title={s.examples.title}>
-        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.examples.items.map((example) => (
-            <li
-              key={example.id}
-              className="grid grid-cols-1 md:grid-cols-[minmax(16rem,0.5fr)_minmax(0,1.5fr)] gap-2 md:gap-8 py-6"
-            >
-              <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
-                {example.name}
-              </h3>
-              <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
-                {example.body}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </DocSection>
-
-      <DocSection label={s.delivery.label} title={s.delivery.title}>
-        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.delivery.body}
         </p>
       </DocSection>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ArmSubNav } from '@/components/ArmSubNav'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
@@ -22,6 +23,7 @@ export default function MaArmPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+      <ArmSubNav base="/ma" />
 
       {/* The arm's principle (Terry 2026-08-09: principles live with the
           sub pages). Unlabelled section — no § number, a statement moment. */}
