@@ -28,7 +28,7 @@ const OFFER_LINKS = [
 
 export default function OffersPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / offers"
         title="Three commercial paths"

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function OffersPromptsThanksPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / offers / prompts / thanks"
         title={t.headline}

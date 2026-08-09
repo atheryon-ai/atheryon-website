@@ -92,7 +92,7 @@ function ThemeBlock({
 
 export default function ThemesPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <h1 className="sr-only">{themes.headline}</h1>
 
       <DocBanner

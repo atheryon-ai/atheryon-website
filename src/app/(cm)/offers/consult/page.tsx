@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function OffersConsultPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / offers / consult"
         title={consult.hero.headline}

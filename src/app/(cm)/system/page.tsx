@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { DocPage, DocSection } from '@/components/Doc'
 import { v2 } from '@/content/site'
 import { SystemArchitectureDiagram } from '@/components'
 
@@ -38,7 +39,7 @@ function SectionHead({ label, title }: { label: string; title: string }) {
 
 export default function SystemPage() {
   return (
-    <div className="bg-bone min-h-screen">
+    <DocPage>
       {/* §00 SystemHero — technical document banner */}
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
@@ -58,41 +59,30 @@ export default function SystemPage() {
       </section>
 
       {/* §01 ArchitectureDiagram — two-class agent system */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.architectureDiagram.label} title={s.architectureDiagram.title} />
+      <DocSection label={s.architectureDiagram.label} title={s.architectureDiagram.title}>
           <SystemArchitectureDiagram data={s.architectureDiagram} />
-        </div>
-      </section>
+      </DocSection>
 
       {/* §02 DataFlowLayer */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.dataFlowLayer.label} title={s.dataFlowLayer.title} />
+      <DocSection label={s.dataFlowLayer.label} title={s.dataFlowLayer.title}>
           {!isPending(s.dataFlowLayer.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.dataFlowLayer.body}
             </p>
           )}
-        </div>
-      </section>
+      </DocSection>
 
       {/* §03 AIAgentLayer */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.aiAgentLayer.label} title={s.aiAgentLayer.title} />
+      <DocSection label={s.aiAgentLayer.label} title={s.aiAgentLayer.title}>
           {!isPending(s.aiAgentLayer.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.aiAgentLayer.body}
             </p>
           )}
-        </div>
-      </section>
+      </DocSection>
 
       {/* §04 WorkflowExamples */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.workflowExamples.label} title={s.workflowExamples.title} />
+      <DocSection label={s.workflowExamples.label} title={s.workflowExamples.title}>
           <ul className="divide-y divide-charcoal/15 border-t border-charcoal/15">
             {s.workflowExamples.items.map((item, i) => (
               <li
@@ -116,25 +106,19 @@ export default function SystemPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+      </DocSection>
 
       {/* §05 DeploymentModel */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.deploymentModel.label} title={s.deploymentModel.title} />
+      <DocSection label={s.deploymentModel.label} title={s.deploymentModel.title}>
           {!isPending(s.deploymentModel.body) && (
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
               {s.deploymentModel.body}
             </p>
           )}
-        </div>
-      </section>
+      </DocSection>
 
       {/* §06 ProofArtifacts */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.proofArtifacts.label} title={s.proofArtifacts.title} />
+      <DocSection label={s.proofArtifacts.label} title={s.proofArtifacts.title}>
           <p className="font-mono text-sm text-charcoal/70 mb-6 max-w-3xl">
             {s.proofArtifacts.directive}
           </p>
@@ -143,8 +127,7 @@ export default function SystemPage() {
               {s.proofArtifacts.body}
             </p>
           )}
-        </div>
-      </section>
+      </DocSection>
 
       {/* Footer — minimal contact action, no marketing CTA */}
       <section>
@@ -161,6 +144,6 @@ export default function SystemPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </DocPage>
   )
 }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function OffersPromptsPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / offers / prompts"
         title={prompts.hero.headline}

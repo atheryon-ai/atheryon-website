@@ -121,7 +121,7 @@ function NumberedSection({
 
 export default function WhyClaudePage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / blog / why-claude"
         title={TITLE}

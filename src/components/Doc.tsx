@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react'
 import { v2 } from '@/content/site'
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -10,8 +10,24 @@ import { v2 } from '@/content/site'
 // surfaces brought into the same visual language.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function DocPage({ children }: { children: ReactNode }) {
-  return <div className="bg-bone min-h-screen">{children}</div>
+// DocPage assigns § numbers to its labelled DocSection children in render
+// order (design standard §4: §01…§NN ascending, no gaps, display order).
+// Labels in content/pages carry NO § prefix — the number is derived here,
+// so inserting, hiding or reordering a section can never leave the chrome
+// out of sequence. Unlabelled DocSections (statement moments) are skipped.
+// `numbered={false}` keeps a page's labels plain — the 2026-08-09 §-strip
+// pass deliberately removed § chrome from the offers/legal/blog surfaces.
+export function DocPage({ children, numbered = true }: { children: ReactNode; numbered?: boolean }) {
+  if (!numbered) return <div className="bg-bone min-h-screen">{children}</div>
+  let n = 0
+  const sections = Children.map(children, (child) => {
+    if (isValidElement(child) && child.type === DocSection && (child.props as DocSectionProps).label) {
+      n += 1
+      return cloneElement(child as ReactElement<DocSectionProps>, { sectionNumber: n })
+    }
+    return child
+  })
+  return <div className="bg-bone min-h-screen">{sections}</div>
 }
 
 interface DocBannerProps {
@@ -44,10 +60,14 @@ interface DocSectionProps {
   label?: string
   title?: string
   id?: string
+  /** Injected by DocPage — never pass by hand. */
+  sectionNumber?: number
   children: ReactNode
 }
 
-export function DocSection({ label, title, id, children }: DocSectionProps) {
+export function DocSection({ label, title, id, sectionNumber, children }: DocSectionProps) {
+  const kicker =
+    label && sectionNumber ? `§${String(sectionNumber).padStart(2, '0')} / ${label}` : label
   return (
     <section id={id} className="border-b border-charcoal/15 scroll-mt-24">
       <div className="max-w-container mx-auto px-6 py-16 md:py-20">
@@ -55,7 +75,7 @@ export function DocSection({ label, title, id, children }: DocSectionProps) {
           <header className="mb-8 pb-4 border-b border-charcoal/15">
             {label && (
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-                {label}
+                {kicker}
               </div>
             )}
             {title && (

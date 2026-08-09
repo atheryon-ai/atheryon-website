@@ -37,7 +37,7 @@ export default function NotFound() {
             body="The URL you followed does not match a known page on atheryon.com.au."
           />
 
-          <DocSection label="§01 / Navigation">
+          <DocSection label="Navigation">
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl mb-8">
               If you arrived from an external link, the page may have moved or been retired. The links below cover the current information architecture.
             </p>

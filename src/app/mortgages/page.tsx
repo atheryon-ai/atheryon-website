@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { DocPage, DocSection } from '@/components/Doc'
 import { v2Mortgages } from '@/content/site'
 
 const page = v2Mortgages.home
@@ -28,7 +29,7 @@ function SectionHead({ label, title }: { label: string; title: string }) {
 
 export default function MortgagesPage() {
   return (
-    <div className="bg-bone min-h-screen">
+    <DocPage>
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
@@ -43,18 +44,13 @@ export default function MortgagesPage() {
         </div>
       </section>
 
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.thesis.label} title={s.thesis.title} />
+      <DocSection label={s.thesis.label} title={s.thesis.title}>
           <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
             {s.thesis.body}
           </p>
-        </div>
-      </section>
+      </DocSection>
 
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.scope.label} title={s.scope.title} />
+      <DocSection label={s.scope.label} title={s.scope.title}>
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
             {s.scope.items.map((it) => (
               <li key={it.id} className="bg-bone p-6 flex flex-col">
@@ -65,17 +61,13 @@ export default function MortgagesPage() {
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+      </DocSection>
 
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.status.label} title={s.status.title} />
+      <DocSection label={s.status.label} title={s.status.title}>
           <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
             {s.status.body}
           </p>
-        </div>
-      </section>
+      </DocSection>
 
       <section>
         <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
@@ -91,6 +83,6 @@ export default function MortgagesPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </DocPage>
   )
 }
