@@ -125,7 +125,7 @@ export default function WhyClaudePage() {
       <DocBanner
         label="atheryon / blog / why-claude"
         title={TITLE}
-        body="Long context that survives a prospectus, tool use that holds in a regulated environment, and a safety posture buyer-side compliance will sign off on. Here&rsquo;s the working."
+        body="Long context that survives a prospectus, tool use that holds in a regulated environment, and a safety posture buyer-side compliance will sign off on."
       />
 
       {/* Byline */}
@@ -153,13 +153,12 @@ export default function WhyClaudePage() {
       {/* TL;DR */}
       <DocSection label="TL;DR" title="The short version">
         <p className={prose}>
-          We built an evaluation framework around the dimensions that actually
-          matter for a production agent stack across trading, risk, and
-          operations workflows. We chose Claude. Three reasons: long context
-          that survives a real prospectus, tool use that holds up in a
-          regulated environment, and a safety posture that buyer-side
-          compliance functions will actually sign off on. Here&rsquo;s the
-          working.
+          We evaluated models against what a production agent stack has to
+          survive across trading, risk, and operations workflows. We chose
+          Claude. Three reasons: long context that survives a real prospectus,
+          tool use that holds up in a regulated environment, and a safety
+          posture that buyer-side compliance functions will sign off on.
+          Here&rsquo;s the working.
         </p>
       </DocSection>
 
@@ -197,9 +196,9 @@ export default function WhyClaudePage() {
       {/* §02 Evaluation framework */}
       <DocSection label="§ 02" title="Our evaluation framework">
         <p className={prose + ' mb-8'}>
-          We built an evaluation framework around the dimensions that actually
-          matter in a front office. Not benchmark scores — production
-          constraints.
+          We built the evaluation framework around the dimensions that matter
+          in a front office, weighting production constraints over benchmark
+          scores.
         </p>
         <div className="border border-charcoal/15 overflow-hidden max-w-3xl">
           <div
