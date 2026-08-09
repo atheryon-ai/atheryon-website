@@ -50,6 +50,14 @@ jobs:
         env:
           NODE_ENV: production
           COMMIT_SHA: ${{ github.sha }}
+          # Test SWA must not be indexed; drives noindex metadata + robots.txt
+          # disallow at build time (src/app/robots.ts, src/app/layout.tsx).
+          NEXT_PUBLIC_NOINDEX: 'true'
+
+      - name: Verify test build is noindexed
+        run: |
+          grep -q 'name="robots" content="noindex' out/index.html
+          grep -q 'Disallow: /' out/robots.txt
 
       - name: Copy staticwebapp.config.json to output
         run: cp staticwebapp.config.json out/

@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://atheryon.com.au'),
   title: v3.pages.home.title,
   description: v3.pages.home.description,
+  // Test SWA builds are excluded from indexing (deploy-test.yml sets
+  // NEXT_PUBLIC_NOINDEX=true); unset means indexable, so production cannot
+  // inherit a noindex by accident. Workflow verify steps assert both.
+  robots:
+    process.env.NEXT_PUBLIC_NOINDEX === 'true'
+      ? { index: false, follow: false }
+      : undefined,
   icons: {
     icon: [
       { url: '/favicon.ico' },
