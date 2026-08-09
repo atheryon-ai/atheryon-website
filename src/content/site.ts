@@ -1394,14 +1394,6 @@ export const v3 = {
             ],
           },
         },
-        // The firm belief (Terry, 2026-08-09, verbatim): closing statement
-        // moment. Distinct from the arm principles, which live with the
-        // sub pages.
-        belief: {
-          kicker: 'Our Belief',
-          statement: 'Better decisions are made when the implications of execution are understood early.',
-          support: 'That belief sits at the heart of everything we do.',
-        },
         // Terry 2026-08-09 (screenshots): the transaction proof strip and
         // the principle live INSIDE an M&A-labelled section; the parallel
         // Capital Markets section carries the $84M proof point. Front page
@@ -1504,6 +1496,14 @@ export const v3 = {
             'Transaction value is protected when separation and integration requirements are understood early.',
           support:
             'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
+        },
+        // Terry 2026-08-09 (21:41 review): Our Belief is M&A copy too —
+        // rendered as the arm page's closing statement moment. Note: it
+        // closely echoes the principle above ("understood early" in both).
+        belief: {
+          kicker: 'Our Belief',
+          statement: 'Better decisions are made when the implications of execution are understood early.',
+          support: 'That belief sits at the heart of everything we do.',
         },
         // Terry 2026-08-09 (21:28 review): this section is M&A copy — it
         // lives here, replacing the earlier transaction-specific Why

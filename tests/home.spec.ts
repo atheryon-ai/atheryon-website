@@ -42,11 +42,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Failed financial markets data program recovered and delivered')).toBeVisible()
 
-  // The firm belief closes the page; Why Clients Choose Atheryon is M&A
-  // copy and lives on /ma (Terry 2026-08-09 21:28 review)
+  // Why Clients Choose Atheryon and Our Belief are M&A copy and live on
+  // /ma (Terry 2026-08-09 reviews)
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
-  await expect(page.getByText('Better decisions are made when the implications of execution are understood early.')).toBeVisible()
-  await expect(page.getByText('That belief sits at the heart of everything we do.')).toBeVisible()
+  await expect(page.getByText('Better decisions are made when the implications of execution are understood early.')).toHaveCount(0)
 
   // Arm principles live with the sub pages (Terry 2026-08-09), not here
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toHaveCount(0)

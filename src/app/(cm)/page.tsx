@@ -91,21 +91,6 @@ export default function HomePage() {
         </Link>
       </DocSection>
 
-      {/* The firm belief — closing statement moment, unlabelled (no §). */}
-      <DocSection>
-        <div className="max-w-4xl py-4 md:py-8">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-6">
-            {s.belief.kicker}
-          </p>
-          <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
-            {s.belief.statement}
-          </p>
-          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
-            {s.belief.support}
-          </p>
-        </div>
-      </DocSection>
-
       <DocFooter label="atheryon / overview / end-of-document" cta={{ ...v3.cta }} />
     </DocPage>
   )

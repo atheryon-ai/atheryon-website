@@ -62,6 +62,7 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toBeVisible()
   await expect(page.getByText('The quality of outcomes is often determined before execution begins.')).toBeVisible()
+  await expect(page.getByText('That belief sits at the heart of everything we do.')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'How we work' })).toBeVisible()
 
   for (const line of [
