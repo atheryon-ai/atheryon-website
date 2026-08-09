@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
+import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
@@ -34,6 +34,20 @@ export default function MaArmPage() {
           <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
             {s.principle.support}
           </p>
+        </div>
+      </DocSection>
+
+      {/* Moved from the homepage (Terry 2026-08-09: M&A-specific). */}
+      <DocSection label={s.why.label} title={s.why.title}>
+        <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.why.body.split('\n\n').map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+
+        <div className="mt-10 max-w-3xl">
+          <p className="text-base md:text-lg text-charcoal/85 mb-4">{s.why.helpIntro}</p>
+          <DocBullets items={[...s.why.helpItems]} />
         </div>
       </DocSection>
 
@@ -120,6 +134,28 @@ export default function MaArmPage() {
           </div>
         </DocSection>
       )}
+
+      {/* Moved from the homepage (Terry 2026-08-09: M&A-specific). */}
+      <DocSection label={s.values.label} title={s.values.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.values.items.map((value, i) => (
+            <li
+              key={value.id}
+              className="grid grid-cols-[auto_1fr] md:grid-cols-[4rem_minmax(14rem,0.6fr)_minmax(0,1.4fr)] gap-x-5 md:gap-x-8 gap-y-2 py-6"
+            >
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 pt-1">
+                {String(i + 1).padStart(2, '0')}
+              </div>
+              <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {value.name}
+              </h3>
+              <p className="col-start-2 md:col-start-3 text-base text-charcoal/85 leading-relaxed max-w-3xl">
+                {value.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
 
       <DocFooter label="atheryon / ma / end-of-document" cta={{ ...v3.cta }} />
     </DocPage>

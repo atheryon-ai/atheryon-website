@@ -1429,55 +1429,6 @@ export const v3 = {
           line:
             'Capital markets systems and platform delivery, market data environments and reference data, platform transition and AI-enabled delivery.',
         },
-        // Homepage § labels follow render order in (cm)/page.tsx:
-        // M&A §01 → Capital Markets §02 → founders §03 → why §04 → values §05.
-        why: {
-          label: '§04 / Why Atheryon',
-          title: 'Why Atheryon',
-          body:
-            'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
-          helpIntro: 'We help clients:',
-          helpItems: [
-            'Understand operational implications before signing',
-            'Identify execution risks earlier',
-            'Build appropriate commercial protections and execution considerations into transaction agreements',
-            'Reduce reliance on TSAs',
-            'Accelerate operational independence',
-            'Improve transaction certainty',
-            'Protect and realise transaction value',
-          ],
-        },
-        values: {
-          label: '§05 / How we work',
-          title: 'How we work',
-          items: [
-            {
-              id: 'early-insight',
-              name: 'Early Insight',
-              body: 'Understanding the operational implications of separation and integration before commitments are made.',
-            },
-            {
-              id: 'commercial-discipline',
-              name: 'Commercial Discipline',
-              body: 'Practical advice aligned to commercial outcomes and stakeholder priorities.',
-            },
-            {
-              id: 'execution-focus',
-              name: 'Execution Focus',
-              body: 'Translating transaction strategy into operational reality.',
-            },
-            {
-              id: 'leadership-under-pressure',
-              name: 'Leadership Under Pressure',
-              body: 'Navigating complex stakeholder and regulatory environments with clarity and confidence.',
-            },
-            {
-              id: 'trusted-partnership',
-              name: 'Trusted Partnership',
-              body: 'Operating with discretion and accountability throughout the transaction lifecycle.',
-            },
-          ],
-        },
         // Arms (rev 6): rendered inside the viewport-1 poster band as label
         // rows with bronze ticks — M&A always first. Both link (phase 2
         // shipped /capital-markets).
@@ -1534,8 +1485,25 @@ export const v3 = {
           support:
             'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
         },
+        // Moved from the homepage (Terry 2026-08-09: M&A-specific).
+        why: {
+          label: '§01 / Why Atheryon',
+          title: 'Why Atheryon',
+          body:
+            'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
+          helpIntro: 'We help clients:',
+          helpItems: [
+            'Understand operational implications before signing',
+            'Identify execution risks earlier',
+            'Build appropriate commercial protections and execution considerations into transaction agreements',
+            'Reduce reliance on TSAs',
+            'Accelerate operational independence',
+            'Improve transaction certainty',
+            'Protect and realise transaction value',
+          ],
+        },
         lines: {
-          label: '§01 / Service Lines',
+          label: '§02 / Service Lines',
           title: 'Service lines',
           items: [
             {
@@ -1659,10 +1627,42 @@ export const v3 = {
         // Commercial shape decided 2026-08-09 (spec §8.3): embedded model
         // kept, stated durations dropped.
         engagement: {
-          label: '§02 / Engagement',
+          label: '§03 / Engagement',
           title: 'How we engage',
           body:
             'Atheryon engages as embedded senior specialists, working alongside your team from pre-sign review through Day 1 to operational independence and TSA exit. Pre-sign work can stand alone or lead into full delivery.',
+        },
+        // Moved from the homepage (Terry 2026-08-09: M&A-specific).
+        values: {
+          label: '§04 / How we work',
+          title: 'How we work',
+          items: [
+            {
+              id: 'early-insight',
+              name: 'Early Insight',
+              body: 'Understanding the operational implications of separation and integration before commitments are made.',
+            },
+            {
+              id: 'commercial-discipline',
+              name: 'Commercial Discipline',
+              body: 'Practical advice aligned to commercial outcomes and stakeholder priorities.',
+            },
+            {
+              id: 'execution-focus',
+              name: 'Execution Focus',
+              body: 'Translating transaction strategy into operational reality.',
+            },
+            {
+              id: 'leadership-under-pressure',
+              name: 'Leadership Under Pressure',
+              body: 'Navigating complex stakeholder and regulatory environments with clarity and confidence.',
+            },
+            {
+              id: 'trusted-partnership',
+              name: 'Trusted Partnership',
+              body: 'Operating with discretion and accountability throughout the transaction lifecycle.',
+            },
+          ],
         },
       },
     },
