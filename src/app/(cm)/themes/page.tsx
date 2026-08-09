@@ -31,7 +31,7 @@ export default function ThemesIndexPage() {
             Themes
           </h1>
           <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
-            Seven buyer themes across capital markets. Each theme is a desk-head pocket of pain, mapped to a workflow we have built or are building. Speed is the proof — every theme leads with the time we shorten.
+            Seven buyer themes across capital markets. Each theme is a desk-head pocket of pain, mapped to a workflow we have built or are building, with the proof point stated underneath.
           </p>
         </div>
       </section>
