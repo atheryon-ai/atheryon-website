@@ -97,6 +97,9 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
 
   await expect(page.getByRole('heading', { level: 1, name: 'Capital Markets' })).toBeVisible()
 
+  // The arm's principle (Terry, 2026-08-09)
+  await expect(page.getByText('Capital markets platforms succeed or fail on the data beneath them.')).toBeVisible()
+
   // Rev 7: capital markets and transaction content do not mix. The three
   // transaction workflows relocated to /ma; the page's transaction role is
   // exactly one cross-link line to the M&A service line.

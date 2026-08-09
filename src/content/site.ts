@@ -1909,12 +1909,13 @@ export const v3 = {
           subtitle:
             'The Capital Markets arm, led by Terry Tsakiris. Engaged standalone for technology and data programs.',
         },
-        // TODO(terry): the Capital Markets principle statement — one
-        // sentence in the arm's own register. Hidden until supplied; the
-        // transaction principle stays on /ma and is never reused here.
+        // The arm's principle (Terry, 2026-08-09): the data-foundation
+        // observation — evidenced by the $84M recovery case and the market
+        // data / reference data practice, pointing down at the
+        // DATA · TRANSFORMATION · AI strip.
         principle: {
           framing: '',
-          statement: '{{CM_PRINCIPLE}}',
+          statement: 'Capital markets platforms succeed or fail on the data beneath them.',
           support: '',
         },
         outcomes: {
