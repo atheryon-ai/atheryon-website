@@ -12,19 +12,17 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
-  // Firm shell (executive-first IA, 2026-08-09). Phase 2 inserts TECHNOLOGY
-  // after SERVICES. CM legacy pages (/system, /labs, /themes, /offers) are
-  // reached via /technology and the footer, not the header.
+  // Firm shell (rev 5 arms model). Phase 2 inserts CAPITAL MARKETS after M&A.
+  // /approach left the nav (linked from body copy and footer); CM legacy
+  // pages are reached via /capital-markets and the footer, not the header.
   cm: {
     nav: [
-      { label: 'SERVICES', href: '/services' },
-      { label: 'TECHNOLOGY', href: '/technology' },
+      { label: 'M&A', href: '/ma' },
       { label: 'EXPERIENCE', href: '/experience' },
-      { label: 'APPROACH', href: '/approach' },
       { label: 'ABOUT', href: '/about' },
     ],
     cta: {
-      label: 'DISCUSS A TRANSACTION',
+      label: 'DISCUSS A SITUATION',
       shortLabel: 'DISCUSS',
       href: '/contact',
     },

@@ -22,6 +22,15 @@ export default function AboutPage() {
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.body} />
 
+      <DocSection label={s.positioning.label} title={s.positioning.title}>
+        <p className="max-w-4xl font-display text-2xl md:text-3xl text-charcoal leading-snug mb-6">
+          {s.positioning.statement}
+        </p>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.positioning.audience}
+        </p>
+      </DocSection>
+
       <DocSection label={s.story.label} title={s.story.title}>
         <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
           {s.story.body.split('\n\n').map((paragraph) => (

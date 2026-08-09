@@ -21,10 +21,10 @@ test.describe('mobile nav at 390×844', () => {
     await expect(openButton).toHaveAttribute('aria-expanded', 'true')
 
     const panel = page.locator('#home-nav-mobile-menu')
-    for (const label of ['SERVICES', 'TECHNOLOGY', 'EXPERIENCE', 'APPROACH', 'ABOUT']) {
+    for (const label of ['M&A', 'EXPERIENCE', 'ABOUT']) {
       await expect(panel.getByRole('link', { name: label })).toBeVisible()
     }
-    await expect(panel.getByRole('link', { name: 'DISCUSS A TRANSACTION' })).toHaveAttribute('href', '/contact')
+    await expect(panel.getByRole('link', { name: 'DISCUSS A SITUATION' })).toHaveAttribute('href', '/contact')
   })
 
   test('Escape closes the menu and returns focus to the button', async ({ page }) => {
@@ -40,9 +40,9 @@ test.describe('mobile nav at 390×844', () => {
   test('selecting a route closes the menu and navigates', async ({ page }) => {
     await page.goto('/')
     await page.getByRole('button', { name: 'MENU' }).click()
-    await page.locator('#home-nav-mobile-menu').getByRole('link', { name: 'SERVICES' }).click()
+    await page.locator('#home-nav-mobile-menu').getByRole('link', { name: 'M&A', exact: true }).click()
 
-    await page.waitForURL('**/services')
+    await page.waitForURL('**/ma')
     await expect(page.locator('#home-nav-mobile-menu')).toHaveCount(0)
     await expect(page.getByRole('button', { name: 'MENU' })).toHaveAttribute('aria-expanded', 'false')
   })

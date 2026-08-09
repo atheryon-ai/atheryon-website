@@ -1,0 +1,30 @@
+<svg viewBox="0 0 840 1188" width="840" height="1188" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pt pd">
+  <title id="pt">Atheryon brand poster</title>
+  <desc id="pd">Minimal deep navy poster: Atheryon wordmark, the line Making Complex Change Executable, two arms M&amp;A and Capital Markets above a bronze foundation line reading data, transformation, AI, and the domain.</desc>
+
+  <rect x="0" y="0" width="840" height="1188" fill="#0E2A3A"/>
+
+  <!-- Wordmark -->
+  <text x="96" y="118" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="14" fill="#FAF9F7">ATHERYON</text>
+  <rect x="96" y="140" width="64" height="3" fill="#B08D57"/>
+
+  <!-- Hero -->
+  <text x="96" y="470" font-family="Georgia, 'Times New Roman', serif" font-size="80" fill="#FAF9F7">Making</text>
+  <text x="96" y="570" font-family="Georgia, 'Times New Roman', serif" font-size="80" fill="#FAF9F7">Complex Change</text>
+  <text x="96" y="670" font-family="Georgia, 'Times New Roman', serif" font-size="80" fill="#FAF9F7">Executable.</text>
+
+  <!-- Two arms -->
+  <rect x="96" y="756" width="40" height="2" fill="#B08D57"/>
+  <text x="96" y="796" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="3" fill="#FAF9F7">M&amp;A</text>
+  <rect x="460" y="756" width="40" height="2" fill="#B08D57"/>
+  <text x="460" y="796" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="3" fill="#FAF9F7">CAPITAL MARKETS</text>
+
+  <!-- Foundation -->
+  <rect x="96" y="836" width="648" height="1.5" fill="#B08D57" opacity="0.6"/>
+  <text x="96" y="876" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="4" fill="#B08D57">DATA · TRANSFORMATION · AI</text>
+
+  <!-- Footer -->
+  <rect x="96" y="1080" width="648" height="1" fill="#93A5B4" opacity="0.35"/>
+  <text x="96" y="1116" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="#FAF9F7" opacity="0.85">www.atheryon.com.au</text>
+  <text x="744" y="1116" text-anchor="end" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" fill="#B08D57">SPECIALIST ADVISORY</text>
+</svg>

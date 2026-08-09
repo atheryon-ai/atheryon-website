@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: v3.pages.home.description,
     type: 'website',
     siteName: site.name,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Atheryon — Making Transactions Executable' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Atheryon — Making Complex Change Executable' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -54,13 +54,13 @@ const jsonLd = {
     {
       '@type': 'Person',
       name: 'Anna Contos',
-      jobTitle: 'Co-Founder, Transaction Advisory & Execution',
+      jobTitle: 'Co-Founder, M&A',
       sameAs: 'https://www.linkedin.com/in/anna-contos-7685a7/',
     },
     {
       '@type': 'Person',
       name: 'Terry Tsakiris',
-      jobTitle: 'Co-Founder, Technology & Data',
+      jobTitle: 'Co-Founder, Capital Markets',
       sameAs: 'https://www.linkedin.com/in/terencetsakiris/',
     },
   ],

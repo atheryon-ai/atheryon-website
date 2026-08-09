@@ -3,7 +3,7 @@ import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
-const page = v3.pages.services
+const page = v3.pages.ma
 const s = page.sections
 
 export const metadata: Metadata = {
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     title: page.title,
     description: page.description,
   },
-  alternates: { canonical: 'https://atheryon.com.au/services' },
+  alternates: { canonical: 'https://atheryon.com.au/ma' },
 }
 
-export default function ServicesPage() {
+export default function MaArmPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
@@ -66,7 +66,7 @@ export default function ServicesPage() {
         </DocSection>
       )}
 
-      <DocFooter label="atheryon / services / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / ma / end-of-document" cta={{ ...v3.cta }} />
     </DocPage>
   )
 }

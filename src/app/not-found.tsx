@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 const NAV = [
   { label: 'Home', tag: 'Atheryon home', href: '/' },
-  { label: 'Services', tag: 'Transaction Advisory & Execution', href: '/services' },
+  { label: 'M&A', tag: 'Making Transactions Executable', href: '/ma' },
   { label: 'Experience', tag: 'Representative experience', href: '/experience' },
   { label: 'Approach', tag: 'Method and governance', href: '/approach' },
   { label: 'About', tag: 'Story and co-founders', href: '/about' },
   { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
-  { label: 'Contact', tag: 'Talk to Atheryon', href: '/contact' },
+  { label: 'Contact', tag: 'Discuss a situation', href: '/contact' },
 ] as const
 
 /**

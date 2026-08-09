@@ -499,6 +499,11 @@ select.bg-white:focus:not(:focus-visible) {
    strengthen the rendering */
 .font-display { color: #ffffff; }
 
+/* Muted copper accent (phase-4 palette direction; interim hex pending the
+   design pass). Used for the DATA · TRANSFORMATION · AI underpinning strip.
+   5.9:1 against the deep-navy ground. */
+.text-bronze { color: #b08a5a; }
+
 /* ========================
    HOME v3 — MOBILE RESPONSIVE OVERRIDES
    The home components use inline grid styles. These rules collapse the

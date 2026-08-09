@@ -1,25 +1,26 @@
 # Atheryon
 
-> Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.
+> Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.
 
 This document is the canonical machine-readable rendering of the Atheryon site, structured for AI agents interpreting capability and structure.
 
-## Practices
+## Arms
 
-- Transaction Advisory & Execution (flagship, led by Anna Contos): https://atheryon.com.au/services
-- Technology & Data (led by Terry Tsakiris): https://atheryon.com.au/technology
+Two business arms over a shared underpinning of data, transformation and AI:
+
+- M&A (led by Anna Contos): https://atheryon.com.au/ma — "Making Transactions Executable"
+- Capital Markets (led by Terry Tsakiris): ships at /capital-markets; interim depth at https://atheryon.com.au/technology
 
 ## Site map
 
-- [Home](https://atheryon.com.au/): executive landing — positioning, proof strip, principle, practices.
-- [Services](https://atheryon.com.au/services): the flagship practice — transaction readiness, separation & integration strategy, execution leadership, and technology, data & migration readiness.
-- [Technology](https://atheryon.com.au/technology): the Technology & Data practice — separation, migration, platform transition, AI-enabled analysis; engaged inside transactions and standalone.
+- [Home](https://atheryon.com.au/): executive landing — "Making Complex Change Executable"; proof strip, principle, arms, founders.
+- [M&A](https://atheryon.com.au/ma): the M&A arm — transaction readiness, separation & integration strategy, execution leadership, and technology, data & migration readiness.
 - [Experience](https://atheryon.com.au/experience): representative cases normalised to Context / Role / Outcome, RAMS mortgage portfolio acquisition first.
 - [Approach](https://atheryon.com.au/approach): method and governance across the transaction lifecycle.
-- [About](https://atheryon.com.au/about): firm story and co-founder biographies (Anna Contos, Terry Tsakiris).
+- [About](https://atheryon.com.au/about): positioning statement, firm story and co-founder biographies (Anna Contos, Terry Tsakiris).
 - [Contact](https://atheryon.com.au/contact): single enquiry path.
 
-## Technology depth (L3, reached via /technology)
+## Capital markets depth (L3)
 
 - [System](https://atheryon.com.au/system): reference architecture for the capital markets platform work.
 - [Labs](https://atheryon.com.au/labs): the working reference platform.

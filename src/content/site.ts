@@ -911,10 +911,10 @@ export const v2 = {
     },
   },
 
-  // Firm-wide page-end CTA label (decided 2026-08-09) — DocFooter default for
-  // the legacy L3 pages that still read v2.cta.
+  // Firm-wide page-end CTA label (rev 4) — DocFooter default for the legacy
+  // L3 pages that still read v2.cta.
   cta: {
-    label: 'Discuss a transaction',
+    label: 'Discuss a situation',
     href: '/contact',
   },
 } as const
@@ -1226,20 +1226,20 @@ export const v2Ma = {
 // =============================================================================
 
 export const v3 = {
-  // Appendix B, adopted verbatim. The "operational, technology and data" triad
-  // is load-bearing per the Appendix B port note.
+  // Appendix B, adopted verbatim (statement per rev 3 Brief 2 wording). The
+  // "operational, technology and data" triad is load-bearing per the port note.
   positioning: {
     statement:
-      'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.',
+      'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
     narrative:
       'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
     principle:
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // CTA decided 2026-08-09 (spec §2): page-end CTAs "Discuss a transaction".
+  // CTA (rev 4, spec §2): page-end CTAs "Discuss a situation".
   cta: {
-    label: 'Discuss a transaction',
+    label: 'Discuss a situation',
     href: '/contact',
   },
 
@@ -1249,8 +1249,7 @@ export const v3 = {
       {
         heading: 'Firm',
         links: [
-          { label: 'Services', href: '/services' },
-          { label: 'Technology', href: '/technology' },
+          { label: 'M&A', href: '/ma' },
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
@@ -1279,17 +1278,20 @@ export const v3 = {
   pages: {
     home: {
       route: '/',
-      title: 'Atheryon — Making Transactions Executable',
+      title: 'Atheryon — Making Complex Change Executable',
       description:
-        'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.',
+        'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
       sections: {
+        // Root hero stack — rev 5, Terry-authored, Appendix B verbatim. The
+        // subheading's fragments are accepted as display type only.
         hero: {
           label: 'atheryon / overview',
-          headline: 'Making Transactions Executable',
-          subhead:
-            'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes. We work with Boards, executive teams, investors, private equity sponsors and corporate development teams.',
-          primaryCta: { label: 'Discuss a transaction', href: '/contact' },
-          secondaryCta: { label: 'Explore services', href: '/services' },
+          headline: 'Making Complex Change Executable',
+          subheading: 'Understanding implications early. Executing with confidence.',
+          supporting:
+            'Atheryon helps organisations navigate transactions, transformation, capital markets, data and technology initiatives by bringing clarity to critical decisions and leadership to execution.',
+          primaryCta: { label: 'Discuss a situation', href: '/contact' },
+          secondaryCta: { label: 'Explore M&A', href: '/ma' },
         },
         proof: {
           items: [
@@ -1330,14 +1332,19 @@ export const v3 = {
             'Improve transaction certainty',
             'Protect and realise transaction value',
           ],
-          principleTitle: 'Our principle',
-          principle:
+        },
+        // Core IP statement: featured ONCE site-wide, here, in large type,
+        // framed as the founding observation (rev 5 §1).
+        principle: {
+          label: '§02 / Our Principle',
+          framing: 'Atheryon was founded on a simple observation:',
+          statement:
             'Transaction value is protected when separation and integration requirements are understood early.',
-          principleSupport:
+          support:
             'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
         },
         values: {
-          label: '§02 / How we work',
+          label: '§03 / How we work',
           title: 'How we work',
           items: [
             {
@@ -1367,46 +1374,75 @@ export const v3 = {
             },
           ],
         },
-        capabilities: {
-          label: '§03 / Practices',
-          title: 'Two practices, one firm',
+        // Arms model (rev 5): two equal cards, M&A always first, over the
+        // shared underpinning strip.
+        arms: {
+          label: '§04 / Two Arms',
+          title: 'Two arms, one firm',
           intro:
             'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
-          flagship: {
-            id: 'transaction-advisory-execution',
-            name: 'Transaction Advisory & Execution',
-            lead: 'Led by Anna Contos',
-            body:
-              'The flagship practice. Advisory and execution leadership across acquisitions, divestments, carve-outs, demergers and strategic exits, from pre-sign readiness through Day 1 to operational independence.',
-            href: '/services',
-            ctaLabel: 'Explore the practice',
+          items: [
+            {
+              id: 'ma',
+              name: 'M&A',
+              lead: 'Led by Anna Contos',
+              body:
+                'Advisory and execution leadership across acquisitions, divestments, carve-outs, demergers and strategic exits, from pre-sign readiness through Day 1 to operational independence.',
+              href: '/ma',
+              ctaLabel: 'Explore the arm',
+              live: 'live',
+            },
+            {
+              id: 'capital-markets',
+              name: 'Capital Markets',
+              lead: 'Led by Terry Tsakiris',
+              body:
+                'Capital markets systems, data and migration readiness, platform transition and AI-enabled analysis. Engaged inside transactions and standalone.',
+              href: '/capital-markets',
+              ctaLabel: 'Explore the arm',
+              // Phase 2 gate: card hidden until /capital-markets ships.
+              live: '{{CAPITAL_MARKETS_LIVE}}',
+            },
+          ],
+          underpinning: {
+            intro: 'Both arms draw on a shared foundation',
+            items: ['DATA', 'TRANSFORMATION', 'AI'],
           },
-          secondary: {
-            id: 'technology-data',
-            name: 'Technology & Data',
-            lead: 'Led by Terry Tsakiris',
-            body:
-              'The strategic capability behind the flagship practice: technology, data and migration readiness for transactions, with data-enabled and AI-assisted analysis inside the work. The practice is also engaged standalone.',
-            href: '/technology',
-            // Phase 2 shipped /technology; the entry is live.
-            live: 'live',
-            ctaLabel: 'Explore the practice',
-          },
+        },
+        // Primary credibility block (rev 5): one line per co-founder, no
+        // employer names. Links to /about.
+        founders: {
+          label: '§05 / Founders',
+          title: 'Co-founders',
+          items: [
+            {
+              id: 'anna-contos',
+              name: 'Anna Contos',
+              line: 'Transactions, Separation & Integration, Transformation',
+            },
+            {
+              id: 'terry-tsakiris',
+              name: 'Terry Tsakiris',
+              line: 'Capital Markets, Data, Technology & AI',
+            },
+          ],
+          href: '/about',
+          ctaLabel: 'About the co-founders',
         },
       },
     },
 
-    services: {
-      route: '/services',
-      title: 'Transaction Advisory & Execution — Atheryon',
+    ma: {
+      route: '/ma',
+      title: 'M&A — Atheryon',
       description:
-        'The flagship practice: transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.',
+        'The M&A arm: transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.',
       sections: {
         hero: {
-          label: 'atheryon / services',
-          title: 'Transaction Advisory & Execution',
+          label: 'atheryon / ma',
+          title: 'Making Transactions Executable',
           subtitle:
-            'The flagship practice. Advisory and execution leadership for transactions where execution risk can materially impact outcomes.',
+            'The M&A arm, led by Anna Contos. Advisory and execution leadership for transactions and the transformations they set in motion, where execution risk can materially impact outcomes.',
         },
         lines: {
           label: '§01 / Service Lines',
@@ -1649,7 +1685,7 @@ export const v3 = {
           label: '§01 / Lifecycle',
           title: 'From pre-sign to operational independence',
           body:
-            'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for execution risk so commercial terms reflect operational reality. From signing, we lead readiness for Day 1 and the early period of operation. Beyond Day 1, we manage the path to operational independence and TSA exit.\n\nThe earlier the engagement begins, the more options remain open. Pre-sign work shapes the agreement itself; post-sign work protects the value already committed.',
+            'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for execution risk so commercial terms reflect operational reality. From signing, we lead readiness for Day 1 and the early period of operation. Beyond Day 1, we manage the path to operational independence and TSA exit.\n\nThe earlier the engagement begins, the more options remain open. Pre-sign work shapes the agreement itself; post-sign work protects the value already committed. Transformation work draws on the same data and AI foundation that underpins both arms.',
         },
         governance: {
           label: '§02 / Governance',
@@ -1672,23 +1708,35 @@ export const v3 = {
           body:
             'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
         },
+        positioning: {
+          label: '§01 / Positioning',
+          title: 'What Atheryon is',
+          statement:
+            'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
+          audience:
+            'We work with Boards, executive teams, investors, private equity sponsors and corporate development teams.',
+        },
         story: {
-          label: '§01 / Our Story',
+          label: '§02 / Our Story',
           title: 'Our story',
           body:
-            'Atheryon was founded on a simple observation: transaction value is often lost when the realities of separation and integration are understood too late.\n\nAnna Contos spent more than two decades leading major separation, integration and transformation programs and watched the same pattern repeat: commercial decisions made before operational implications were fully understood. Together with Terry Tsakiris, she established Atheryon to bring that understanding into the transaction process earlier.\n\nWe help clients understand what a transaction will require before decisions are locked in. When execution begins, we provide the leadership needed to navigate complexity and deliver the intended outcomes. A signed deal is only the start; success is operational independence, value realised and outcomes delivered.',
+            'Anna Contos spent more than two decades leading major separation, integration and transformation programs and watched the same pattern repeat: commercial decisions made before operational implications were fully understood. Together with Terry Tsakiris, she established Atheryon to bring that understanding into the process earlier.\n\nWe help clients understand what a transaction or transformation will require before decisions are locked in. When execution begins, we provide the leadership needed to navigate complexity and deliver the intended outcomes. A signed deal is only the start; success is operational independence, value realised and outcomes delivered.',
         },
+        // Bios genericised per rev 5 §1 (Brief 2): no named employers; the
+        // "global investment banking" / "major Australian banks" register.
+        // Facts sourced from the earlier signed-off material; RAMS (a named,
+        // signed-off transaction) lives on /experience.
         founders: {
-          label: '§02 / Co-Founders',
+          label: '§03 / Co-Founders',
           title: 'Co-founders',
           items: [
             {
               id: 'anna-contos',
               name: 'Anna Contos',
-              role: 'Co-Founder, Transaction Advisory & Execution',
+              role: 'Co-Founder, M&A',
               paragraphs: [
-                'Anna Contos co-founded Atheryon and leads the Transaction Advisory & Execution practice. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
-                'Most recently Anna was Head of Separation and Integration Advisory at Westpac Group (2023–2025), executive-leading separation and integration programs across Westpac’s divestment and acquisition initiatives. Before that she was Head of Divestment Execution for Commonwealth Bank’s Wealth division (2018–2020), running the portfolio of programs that delivered CBA’s Count Financial divestment and the CommInsure sale. Earlier roles include Take to Market Lead for the BT Panorama platform launches, and business consulting and strategy roles at Deutsche Bank, Deutsche Pfandbriefbank, Credit Suisse and Capco across investment banking, wealth and retail.',
+                'Anna Contos co-founded Atheryon and leads the M&A arm. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
+                'Anna has led separation and integration advisory at executive level for one of Australia’s major banks, spanning its divestment and acquisition initiatives, and previously headed divestment execution for the wealth division of another major Australian bank, running the portfolio of programs that delivered a landmark financial-advice divestment and the sale of a major insurance business. Earlier roles include platform take-to-market leadership and business consulting and strategy positions across global investment banking, wealth and retail.',
                 'Her track record spans the deal lifecycle in highly regulated and politically sensitive environments: separation and integration strategy, planning, commercial structuring, business readiness, execution and stabilisation, including carve-outs, demergers and end-to-end transition management.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
@@ -1696,11 +1744,11 @@ export const v3 = {
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Technology & Data',
+              role: 'Co-Founder, Capital Markets',
               paragraphs: [
-                'Terry Tsakiris co-founded Atheryon and leads the Technology & Data practice. He has spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside Credit Suisse, Commonwealth Bank, Westpac and Barclays.',
-                'At Credit Suisse he built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank he owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II and Trade Surveillance. At Westpac Institutional Banking he rescued a distressed $84M data program and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline.',
-                'At Atheryon, Terry directs the technology and data capability: data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both practices.',
+                'Terry Tsakiris co-founded Atheryon and leads the Capital Markets arm. He has spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
+                'He built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. He owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. He also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
+                'At Atheryon, Terry directs the Capital Markets arm: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both arms.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
