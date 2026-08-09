@@ -29,10 +29,17 @@ const config: Config = {
           deepblue: '#0D4D7A',        // new — Data pillar / Floor 13 Data dial structural accent
           dark: '#0A1A2F',            // legacy
         },
+        // Design standard v1 tokens (docs/superpowers/specs/2026-08-09-design-standard.md).
+        // navy DEFAULT is the statement surface; 900/800 are legacy hues kept
+        // for any remaining numbered consumers.
         'navy': {
-          900: '#0A1A2F',  // Deep Navy (canonical)
+          DEFAULT: '#0E2A3A', // statement surface only, never text
+          900: '#0A1A2F',  // Deep Navy (canonical, legacy)
           800: '#1B2942',
         },
+        'bronze': '#B08D57',     // structural accent: ticks, rules, strips
+        'slate': '#93A5B4',      // secondary text on navy; hairlines at 35%
+        'warm-white': '#FAF9F7', // text on navy
         'atheryon': {
           blue: '#0A84FF',         // Atheryon Blue (canonical)
           'blue-light': '#4BC0FF',
@@ -69,6 +76,7 @@ const config: Config = {
         display: ['Newsreader', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
         body: ['"Public Sans"', 'system-ui', 'sans-serif'],
         'serif-cap': ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
+        poppins: ['Poppins', 'system-ui', 'Arial', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {

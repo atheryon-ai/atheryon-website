@@ -74,7 +74,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
           alignItems: 'center',
         }}
       >
-        <BrandLockup markSize={52} />
+        <BrandLockup />
 
         <div className="home-nav-links" style={{ display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
           {config.nav.map((l) => (
@@ -152,13 +152,12 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
       {open && (
         <div
           id="home-nav-mobile-menu"
-          className="home-nav-mobile-panel"
+          className="home-nav-mobile-panel bg-navy"
           style={{
             position: 'absolute',
             top: '100%',
             left: 0,
             right: 0,
-            background: '#0E2A3A',
             borderBottom: '1px solid var(--homev3-border)',
             maxHeight: 'calc(100dvh - 100px)',
             overflowY: 'auto',

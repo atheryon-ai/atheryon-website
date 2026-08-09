@@ -1,32 +1,23 @@
 import Link from 'next/link'
-import { BrandMark } from './BrandMark'
 
-type Props = {
-  markSize?: number
-}
-
-export function BrandLockup({ markSize = 52 }: Props) {
+// Wordmark is type only on firm pages (design standard §2): the legacy
+// gradient logo mark does not render in the shell.
+export function BrandLockup() {
   return (
-    <span className="brand-lockup" style={{ display: 'inline-flex', alignItems: 'center', gap: 14 }}>
-      <Link href="/" aria-label="Atheryon home" style={{ display: 'inline-flex', textDecoration: 'none' }}>
-        <BrandMark size={markSize} />
+    <span className="brand-lockup" style={{ display: 'inline-flex', alignItems: 'center' }}>
+      <Link
+        href="/"
+        aria-label="Atheryon home"
+        className="brand-lockup-wordmark font-serif-cap text-warm-white"
+        style={{
+          fontWeight: 600,
+          fontSize: 24,
+          letterSpacing: '0.08em',
+          textDecoration: 'none',
+        }}
+      >
+        ATHERYON
       </Link>
-      <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1 }}>
-        <Link
-          href="/"
-          className="brand-lockup-wordmark"
-          style={{
-            fontFamily: 'Cinzel, "Trajan Pro", Georgia, serif',
-            fontWeight: 600,
-            fontSize: 24,
-            letterSpacing: '0.08em',
-            color: '#FAF9F7',
-            textDecoration: 'none',
-          }}
-        >
-          ATHERYON
-        </Link>
-      </span>
     </span>
   )
 }

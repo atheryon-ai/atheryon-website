@@ -117,8 +117,8 @@ export default function LabsPage() {
               return isClaude ? (
                 <span
                   key={p.name}
-                  className="text-sm text-charcoal"
-                  style={{ fontFamily: "'Poppins', system-ui, Arial, sans-serif", fontWeight: 500, letterSpacing: '-0.005em' }}
+                  className="font-poppins text-sm text-charcoal"
+                  style={{ fontWeight: 500, letterSpacing: '-0.005em' }}
                 >
                   {p.name}
                 </span>

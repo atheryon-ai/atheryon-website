@@ -93,6 +93,10 @@ cutting edge). AI appears in the foundation strip and body copy only, never in a
 ## 8. Open items
 
 - TODO 7 (IA brief §8): serif/sans pair + final palette sign-off before full-site re-token.
-- Live defect 2026-08-09: homepage document register renders unstyled on the test SWA —
-  suspected Tailwind content-glob miss on new component paths; header shows both CTA labels;
-  legacy gradient logo still in the header. Fix against this standard.
+- Live defect 2026-08-09 — RESOLVED same day. Actual cause was not Tailwind (the content
+  globs cover all of src/): the SWA `globalHeaders` cached HTML for an hour
+  (`public, max-age=3600`), so after each deploy visitors held stale HTML pointing at
+  purged hashed CSS — pages rendered unstyled, which also exposed both CTA labels at once
+  (their show/hide lives in CSS). Fix: HTML now `max-age=0, must-revalidate` with
+  `/_next/static/*` served immutable. The legacy gradient logo is removed from the shell;
+  the wordmark is type only per §2.
