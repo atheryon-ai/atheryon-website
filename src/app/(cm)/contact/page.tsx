@@ -33,7 +33,7 @@ export default function ContactPage() {
             <ContactForm defaultTopic="ma-execution" />
 
             <div aria-label="How your enquiry is handled" role="group" className="lg:border-l lg:border-charcoal/15 lg:pl-8">
-              <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-4">
+              <h2 className="font-display text-xl font-medium tracking-tight text-charcoal mb-4">
                 {s.disclosure.title}
               </h2>
               <ul className="space-y-3 text-sm text-charcoal/75 leading-relaxed">

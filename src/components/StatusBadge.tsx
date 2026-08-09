@@ -37,6 +37,7 @@ export function StatusBadge({ status }: { status: Status }) {
   return (
     <span
       data-status={status}
+      className="font-mono"
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -49,7 +50,6 @@ export function StatusBadge({ status }: { status: Status }) {
         color: s.fg,
         border: `1px solid ${s.border}`,
         borderRadius: 3,
-        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
       }}
     >
       {s.label}
