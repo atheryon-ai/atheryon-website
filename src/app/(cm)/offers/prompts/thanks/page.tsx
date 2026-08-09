@@ -22,7 +22,7 @@ export default function OffersPromptsThanksPage() {
         title={t.headline}
         body={t.message}
       />
-      <DocSection label="§01 / Next" title="">
+      <DocSection label="Next" title="">
         <div className="max-w-3xl">
           <p className="text-base md:text-lg text-charcoal/85 leading-relaxed">
             Your Front Office bundle access has been confirmed. The welcome email contains

@@ -24,7 +24,7 @@ export default function ContactPage() {
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <header className="mb-8 pb-4 border-b border-charcoal/15">
             <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-              §01 / Request
+              Request
             </div>
           </header>
           <ContactForm />
@@ -32,10 +32,7 @@ export default function ContactPage() {
       </section>
 
       <section>
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-            atheryon / contact / end-of-document
-          </div>
+        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <a
             href={`mailto:${site.email}`}
             className="font-mono text-sm text-charcoal underline-offset-4 hover:underline"

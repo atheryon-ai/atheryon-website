@@ -878,7 +878,7 @@ export const v2 = {
       principals: [
         {
           id: 'terry-tsakiris',
-          label: '§ / Principal Biography',
+          label: 'Principal Biography',
           name: 'Terry Tsakiris',
           role: 'Founder & Systems Principal',
           paragraphs: [
@@ -888,7 +888,7 @@ export const v2 = {
         },
         {
           id: 'anna-contos',
-          label: '§ / Principal Biography',
+          label: 'Principal Biography',
           name: 'Anna Contos',
           role: 'Head of M&A Separation & Integration Advisory',
           paragraphs: [
