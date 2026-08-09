@@ -115,8 +115,8 @@ AC: /system, /labs, /themes, /offers all still 200 and reachable from /capital-m
 **Phase 3 — retire the /ma children.** Redirects per §5 (the /ma root stays live as the arm page), remove the old ma child pages, drop PracticeToggle component.
 AC: /ma still 200; /ma/approach, /ma/offers, /ma/contact 301 to correct targets on the test SWA.
 
-**Phase 4 — design pass (type + palette only).** Primary: deep navy, charcoal, white. Secondary: slate grey, steel blue. Accent: muted copper/bronze. Premium contemporary serif for headlines, clean sans for body, mapped onto Tailwind tokens. Typography carries the design weight; flat surfaces; no gradients, no imagery program (deferred), no startup aesthetics.
-AC: all pages re-tokened; WCAG AA contrast; Playwright suite green (no layout regressions).
+**Phase 4 — design pass (type + palette only).** Execute against the design standard: `docs/superpowers/specs/2026-08-09-design-standard.md` (two registers, tokens, devices, page anatomies). Typefaces gated on §8 TODO 7.
+AC: all pages conform to the standard; WCAG AA contrast; Playwright suite green (no layout regressions).
 
 ## 8. Open TODOs (blocking copy, not structure)
 

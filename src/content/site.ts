@@ -1235,7 +1235,7 @@ const cmCases = [
   {
     id: 'data-program-recovery',
     name: 'Recovery of a Failed $84M Data & Analytics Program',
-    client: 'Major Australian Bank — Financial Markets',
+    client: 'Major Australian Bank, Financial Markets',
     engagement: 'Program Recovery & Platform Delivery',
     details: [
       {
@@ -1258,7 +1258,7 @@ const cmCases = [
   {
     id: 'front-office-risk-system',
     name: 'First Near Real-Time Front Office Risk System',
-    client: 'Global Investment Bank — Commodities',
+    client: 'Global Investment Bank, Commodities',
     engagement: 'Risk & Market Data Platforms',
     details: [
       {
@@ -1281,7 +1281,7 @@ const cmCases = [
   {
     id: 'regulatory-markets-platform',
     name: 'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping',
-    client: 'Major Australian Bank — Institutional Banking & Markets',
+    client: 'Major Australian Bank, Institutional Banking & Markets',
     engagement: 'Regulatory Platform Delivery',
     details: [
       {
