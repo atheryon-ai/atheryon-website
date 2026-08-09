@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "copy-lint": "node scripts/copy-lint.mjs",
     "deploy:test": "git push origin dev",
     "preview": "npm run build && npx serve out",
     "verify:production-ready": "if [ ! -d out ]; then echo '\\nERROR: out/ not found. Run `next build` before verify:production-ready.' >&2 && exit 1; elif grep -rE --include='*.html' 'REPLACE_ME|\\{\\{[A-Za-z0-9_]+\\}\\}' out/; then echo '\\nERROR: unresolved placeholder found in built output above. Fill it in, or ensure the component hides its block via isPending(), before deploying to production.' >&2 && exit 1; else echo '\\u2713 No unresolved placeholders in built output.'; fi"
