@@ -1283,11 +1283,13 @@ export const v3 = {
       description:
         'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
       sections: {
-        // Root hero stack — rev 5, Terry-authored, Appendix B verbatim. The
-        // subheading's fragments are accepted as display type only.
+        // Root hero — rev 6: viewport 1 reproduces the approved poster
+        // (docs/superpowers/specs/atheryon-poster-2026-08-09.svg). Three
+        // serif lines, warm white on deep navy, arms + bronze foundation
+        // strip in the band. Supporting copy opens section 2 (Appendix B
+        // verbatim). Subheading fragments are display type only.
         hero: {
-          label: 'atheryon / overview',
-          headline: 'Making Complex Change Executable',
+          lines: ['Making', 'Complex Change', 'Executable.'],
           subheading: 'Understanding implications early. Executing with confidence.',
           supporting:
             'Atheryon helps organisations navigate transactions, transformation, capital markets, data and technology initiatives by bringing clarity to critical decisions and leadership to execution.',
@@ -1375,38 +1377,15 @@ export const v3 = {
             },
           ],
         },
-        // Arms model (rev 5): two equal cards, M&A always first, over the
-        // shared underpinning strip.
+        // Arms (rev 6): rendered inside the viewport-1 poster band as label
+        // rows with bronze ticks — M&A always first. Both link (phase 2
+        // shipped /capital-markets).
         arms: {
-          label: '§04 / Two Arms',
-          title: 'Two arms, one firm',
-          intro:
-            'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
           items: [
-            {
-              id: 'ma',
-              name: 'M&A',
-              lead: 'Led by Anna Contos',
-              body:
-                'Advisory and execution leadership across acquisitions, divestments, carve-outs, demergers and strategic exits, from pre-sign readiness through Day 1 to operational independence.',
-              href: '/ma',
-              ctaLabel: 'Explore the arm',
-              live: 'live',
-            },
-            {
-              id: 'capital-markets',
-              name: 'Capital Markets',
-              lead: 'Led by Terry Tsakiris',
-              body:
-                'Capital markets systems, data and migration readiness, platform transition and AI-enabled analysis. Engaged inside transactions and standalone.',
-              href: '/capital-markets',
-              ctaLabel: 'Explore the arm',
-              // Phase 2 shipped: /capital-markets is live.
-              live: 'live',
-            },
+            { id: 'ma', label: 'M&A', href: '/ma' },
+            { id: 'capital-markets', label: 'CAPITAL MARKETS', href: '/capital-markets' },
           ],
           underpinning: {
-            intro: 'Both arms draw on a shared foundation',
             items: ['DATA', 'TRANSFORMATION', 'AI'],
           },
         },

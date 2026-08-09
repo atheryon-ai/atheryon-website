@@ -6,11 +6,11 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   // Brand lockup (wordmark only)
   await expect(page.getByText('ATHERYON', { exact: true })).toBeVisible()
 
-  // Root hero stack (Appendix B verbatim)
-  await expect(page.getByRole('heading', {
-    level: 1,
-    name: 'Making Complex Change Executable',
-  })).toBeVisible()
+  // Viewport-1 poster band (rev 6): three-line serif hero + subheading
+  const h1 = page.locator('h1')
+  await expect(h1).toContainText('Making')
+  await expect(h1).toContainText('Complex Change')
+  await expect(h1).toContainText('Executable.')
   await expect(page.getByText('Understanding implications early. Executing with confidence.')).toBeVisible()
 
   // Executive nav (phase 2: M&A · CAPITAL MARKETS · EXPERIENCE · ABOUT; APPROACH out of nav)
@@ -34,10 +34,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
   await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
 
-  // Arms: M&A card live and first; Capital Markets card live (phase 2);
-  // underpinning strip beneath
+  // Arms inside the poster band: bronze-ticked labels, M&A first, both
+  // linking; foundation strip beneath
   await expect(page.locator('main').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('href', '/ma')
-  await expect(page.locator('main').getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
+  await expect(page.locator('main').getByRole('link', { name: 'CAPITAL MARKETS', exact: true })).toHaveAttribute('href', '/capital-markets')
   await expect(page.getByText('DATA · TRANSFORMATION · AI')).toBeVisible()
 
   // Founders block, no employer names, linking to /about

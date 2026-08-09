@@ -499,10 +499,9 @@ select.bg-white:focus:not(:focus-visible) {
    strengthen the rendering */
 .font-display { color: #ffffff; }
 
-/* Muted copper accent (phase-4 palette direction; interim hex pending the
-   design pass). Used for the DATA · TRANSFORMATION · AI underpinning strip.
-   5.9:1 against the deep-navy ground. */
-.text-bronze { color: #b08a5a; }
+/* Bronze accent — canonical hex from the approved poster (rev 6).
+   4.7:1 on the #0E2A3A hero band, 6.0:1 on the #060b1c page ground. */
+.text-bronze { color: #B08D57; }
 
 /* ========================
    HOME v3 — MOBILE RESPONSIVE OVERRIDES
