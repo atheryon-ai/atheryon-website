@@ -1394,6 +1394,44 @@ export const v3 = {
             ],
           },
         },
+        // Firm-level front-page copy (Terry, 2026-08-09 21:16, verbatim;
+        // "programmes" normalised to the site's "programs"). Arm-neutral —
+        // the transaction-specific Why Atheryon lives on /ma.
+        why: {
+          label: 'Why Clients Choose Atheryon',
+          title: 'Why Clients Choose Atheryon',
+          paragraphs: [
+            'The quality of outcomes is often determined before execution begins.',
+            'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
+            'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
+            'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
+            'We combine deep experience across transactions, transformation, capital markets, banking, wealth management, technology, data and AI to bring clarity to critical decisions and confidence to execution.',
+            'Our experience has been built across some of the world’s most complex and highly regulated environments, spanning global investment banking, capital markets, retail and business banking, wealth management, insurance and non-bank financial institutions. We understand the challenges of operating where commercial objectives, customer outcomes, operational resilience, technology, data and risk management must all be aligned.',
+            'From transaction strategy, commercial structuring and execution planning through to transformation, technology enablement and delivery leadership, we help clients align commercial objectives with operational reality and achieve outcomes with confidence.',
+          ],
+          engageIntro: 'Clients engage Atheryon to:',
+          engageItems: [
+            'Understand the implications of strategic decisions before commitments are made',
+            'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
+            'Assess execution requirements, risks and dependencies early',
+            'Identify operational, technology and data constraints before they become delivery challenges',
+            'Improve visibility of risks, interdependencies and readiness across complex programs and transactions',
+            'Leverage data, analytics and AI-enabled approaches to improve insight, decision-making and execution certainty',
+            'Design and modernise platforms, operating models and business processes',
+            'Unlock greater value from enterprise data and technology investments',
+            'Navigate complex stakeholder, regulatory and governance environments',
+            'Accelerate implementation, operational readiness and value realisation',
+            'Protect value and improve execution certainty',
+          ],
+        },
+        // The firm belief (Terry, 2026-08-09, verbatim): closing statement
+        // moment. Distinct from the arm principles, which live with the
+        // sub pages.
+        belief: {
+          kicker: 'Our Belief',
+          statement: 'Better decisions are made when the implications of execution are understood early.',
+          support: 'That belief sits at the heart of everything we do.',
+        },
         // Terry 2026-08-09 (screenshots): the transaction proof strip and
         // the principle live INSIDE an M&A-labelled section; the parallel
         // Capital Markets section carries the $84M proof point. Front page

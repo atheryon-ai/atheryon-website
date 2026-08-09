@@ -42,7 +42,13 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Failed financial markets data program recovered and delivered')).toBeVisible()
 
-  // Principle lives with the sub pages (Terry 2026-08-09), not here
+  // Firm-level argument + belief (Terry 2026-08-09)
+  await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toBeVisible()
+  await expect(page.getByText('The quality of outcomes is often determined before execution begins.')).toBeVisible()
+  await expect(page.getByText('Better decisions are made when the implications of execution are understood early.')).toBeVisible()
+  await expect(page.getByText('That belief sits at the heart of everything we do.')).toBeVisible()
+
+  // Arm principles live with the sub pages (Terry 2026-08-09), not here
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toHaveCount(0)
 
   // Parallel arm sections: M&A proof + Capital Markets proof
