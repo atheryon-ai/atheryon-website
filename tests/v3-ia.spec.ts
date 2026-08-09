@@ -137,7 +137,8 @@ test.describe('retired /ma redirects (SWA only)', () => {
         maxRedirects: 0,
       })
       expect(response.status()).toBe(301)
-      expect(response.headers()['location']).toBe(`${SWA_BASE_URL}${to}`)
+      // SWA emits a relative Location header.
+      expect(response.headers()['location']).toBe(to)
     })
   }
 })
