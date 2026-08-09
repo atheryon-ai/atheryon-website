@@ -76,9 +76,12 @@ test('/experience normalises cases to Context / Role / Outcome with RAMS first',
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
 
-  // Rev 7: the Capital Markets section is isPending-gated behind
-  // {{CM_CASE_1}} / {{CM_CASE_2}} — nothing renders while blank
-  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toHaveCount(0)
+  // Rev 7 + Appendix C: the Capital Markets section renders after the five
+  // transaction cases with the three approved cases, never mixed in
+  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'First Near Real-Time Front Office Risk System' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping' })).toBeVisible()
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
@@ -97,7 +100,12 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
     page.locator('main').getByRole('link', { name: /Technology, Data & Migration Readiness/ }),
   ).toHaveAttribute('href', '/ma#technology-data-migration')
 
-  // CM blanks ({{CM_CASE_*}}, {{CM_WORKFLOW_EXAMPLES}}) are isPending-gated
+  // Appendix C content: three cases and three delivery patterns, no
+  // unresolved markers
+  await expect(page.getByRole('heading', { name: 'Selected cases' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
   await expect(page.getByText('{{')).toHaveCount(0)
 
   // CM depth links out of /capital-markets. Scoped to <main> — the footer

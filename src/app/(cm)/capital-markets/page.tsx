@@ -2,37 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
-import { isPending } from '@/lib/pending'
 
 const page = v3.pages.capitalMarkets
 const s = page.sections
-
-// Rev 7: standalone capital-markets content only. The cases and examples
-// sections stay hidden while their {{...}} blanks are pending, so § numbers
-// are assigned to the visible sections at render time — a static sequence
-// would show gaps until Terry fills the blanks.
-const visibleCases = s.cases.items.filter((entry) => !isPending(entry.body))
-const showCases = visibleCases.length > 0
-const showExamples = !isPending(s.examples.body)
-
-const sectionOrder = [
-  ['outcomes', true],
-  ['cases', showCases],
-  ['examples', showExamples],
-  ['delivery', true],
-  ['depth', true],
-] as const
-
-const sectionNumber = new Map<string, string>()
-let n = 0
-for (const [id, visible] of sectionOrder) {
-  if (visible) {
-    n += 1
-    sectionNumber.set(id, `§${String(n).padStart(2, '0')}`)
-  }
-}
-
-const kicker = (id: string, name: string) => `${sectionNumber.get(id)} / ${name}`
 
 export const metadata: Metadata = {
   title: page.title,
@@ -51,7 +23,7 @@ export default function CapitalMarketsPage() {
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
 
-      <DocSection label={kicker('outcomes', s.outcomes.label)} title={s.outcomes.title}>
+      <DocSection label={s.outcomes.label} title={s.outcomes.title}>
         <div className="max-w-3xl mb-8">
           <DocBullets items={[...s.outcomes.items]} />
         </div>
@@ -69,37 +41,73 @@ export default function CapitalMarketsPage() {
         </p>
       </DocSection>
 
-      {showCases && (
-        <DocSection label={kicker('cases', s.cases.label)} title={s.cases.title}>
-          <div className="max-w-3xl space-y-10">
-            {visibleCases.map((entry) => (
-              <div key={entry.id} className="space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-                {entry.body.split('\n\n').map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+      <DocSection label={s.cases.label} title={s.cases.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.cases.items.map((entry, i) => (
+            <li
+              key={entry.id}
+              id={entry.id}
+              className="grid grid-cols-1 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-12 py-10 scroll-mt-24"
+            >
+              <header>
+                <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
+                  {entry.name}
+                </h3>
+                <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 leading-relaxed">
+                  {entry.engagement}
+                  <br />
+                  {entry.client}
+                </div>
+              </header>
+
+              <dl className="divide-y divide-charcoal/15 border-t border-charcoal/15 md:border-t-0">
+                {entry.details.map((detail) => (
+                  <div
+                    key={detail.label}
+                    className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-6 py-5 first:pt-5 md:first:pt-0"
+                  >
+                    <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60">
+                      {detail.label}
+                    </dt>
+                    <dd className="text-base md:text-lg text-charcoal/85 leading-relaxed">
+                      {detail.body}
+                    </dd>
+                  </div>
                 ))}
-              </div>
-            ))}
-          </div>
-        </DocSection>
-      )}
+              </dl>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
 
-      {showExamples && (
-        <DocSection label={kicker('examples', s.examples.label)} title={s.examples.title}>
-          <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-            {s.examples.body.split('\n\n').map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </DocSection>
-      )}
+      <DocSection label={s.examples.label} title={s.examples.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.examples.items.map((example) => (
+            <li
+              key={example.id}
+              className="grid grid-cols-1 md:grid-cols-[minmax(16rem,0.5fr)_minmax(0,1.5fr)] gap-2 md:gap-8 py-6"
+            >
+              <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {example.name}
+              </h3>
+              <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
+                {example.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
 
-      <DocSection label={kicker('delivery', s.delivery.label)} title={s.delivery.title}>
+      <DocSection label={s.delivery.label} title={s.delivery.title}>
         <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
           {s.delivery.body}
         </p>
       </DocSection>
 
-      <DocSection label={kicker('depth', s.depth.label)} title={s.depth.title}>
+      <DocSection label={s.depth.label} title={s.depth.title}>
         <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
           {s.depth.intro}
         </p>

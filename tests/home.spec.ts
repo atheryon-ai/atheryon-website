@@ -26,9 +26,12 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   }
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'APPROACH' })).toHaveCount(0)
 
-  // Proof strip figures (verbatim Appendix A claims)
+  // Proof strip figures (verbatim Appendix A claims; $84M is the fourth
+  // entry per spec Appendix C)
   await expect(page.getByText('$21.4bn')).toBeVisible()
   await expect(page.getByText('>$1bn')).toBeVisible()
+  await expect(page.getByText('$84M', { exact: true })).toBeVisible()
+  await expect(page.getByText('Failed financial markets data program recovered and delivered')).toBeVisible()
 
   // Principle: once site-wide, founding framing, large type
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()

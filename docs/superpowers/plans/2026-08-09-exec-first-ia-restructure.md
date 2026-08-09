@@ -125,10 +125,7 @@ AC: all pages re-tokened; WCAG AA contrast; Playwright suite green (no layout re
 3. RESOLVED 2026-08-09: embedded engagement model kept; stated durations dropped (§3).
 4. RESOLVED 2026-08-09: no partner names on /technology; S&P Global = data partner, Azure = technology runtime if referenced in body copy; detail stays at L3 (§3).
 5. RESOLVED 2026-08-09: figures confirmed for public use (Terry); `main` gate lifted (§4).
-6. `TODO(terry)` — the capital-markets blanks (rev 7). Fill these placeholders; each section stays hidden until its blank is filled:
-   - `{{CM_CASE_1}}`, `{{CM_CASE_2}}`: capital-markets/technology case studies (Context / Role / Outcome each) for /experience and /capital-markets. Candidate: the S&P Global TeraHelix cloud-migration engagement (already referenced publicly in v2 offers copy) — confirm client consent for a named entry.
-   - `{{CM_WORKFLOW_EXAMPLES}}`: capital-markets delivery examples for /capital-markets (replaces the relocated transaction workflows).
-   - `{{CM_PROOF_POINT}}`: one technology/capital-markets entry for the homepage proof strip.
+6. RESOLVED 2026-08-09: the capital-markets blanks are filled from Terry's CV — approved copy in **Appendix C** (three cases, workflow examples, proof point). All three cases ship. Anonymised client descriptors; no vendor names (Palantir may be named later at Terry's option). The S&P TeraHelix engagement remains a future candidate pending client consent.
 7. RESOLVED 2026-08-09 (Terry): typefaces Newsreader (display serif) + Public Sans (body sans); palette deep navy #0E2A3A, charcoal #15171A, warm white #FAF9F7, slate grey #93A5B4, steel blue #52718E (bright #8FAECB, deep #3E5A75), bronze #B08D57.
 
 ---
@@ -327,3 +324,38 @@ Core IP statement (stated once site-wide, on `/`):
 > Transaction value is protected when separation and integration requirements are understood early.
 
 Amendments applied versus the feedback as received: hero remains "Making Transactions Executable" rather than "Complex Change. Executed."; capabilities are presented asymmetrically with the flagship dominant rather than as equal cards; the technology practice name excludes "AI". Port note: the connective narrative above contains a rhythmic triad ("operational, technology and data") that is load-bearing and may stand; apply CLAUDE.md banned-construction rules to any copy derived from it.
+(Note: hero and card treatment later superseded by rev 4–6; practice names by rev 5. Kept for decision history.)
+
+---
+
+## Appendix C — approved capital markets case copy (from Terry's CV, approved 2026-08-09)
+
+Fills `{{CM_CASE_1}}`, `{{CM_CASE_2}}`, plus a third case; all three ship on /capital-markets and the /experience Capital Markets section. Quote verbatim; anonymised descriptors are deliberate; no vendor names.
+
+**Case 1 — Recovery of a Failed $84M Data & Analytics Program**
+Tag: PROGRAM RECOVERY & PLATFORM DELIVERY | MAJOR AUSTRALIAN BANK — FINANCIAL MARKETS
+Context: A strategic data and analytics transformation for the institutional bank's financial markets business had failed after $84M of investment, with regulatory capabilities depending on it.
+Role: Program Director. Recovered the program and delivered the strategic data and analytics platform, automated trade surveillance, and trade and record reconstruction, then redefined how the bank builds and maintains its strategic data capability.
+Outcome: The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.
+
+**Case 2 — First Near Real-Time Front Office Risk System**
+Tag: RISK & MARKET DATA PLATFORMS | GLOBAL INVESTMENT BANK — COMMODITIES
+Context: The commodities business needed front office risk at near real-time speed plus regulatory market risk capability, across desks spanning crude, natural gas and hybrids, during record crude oil volatility.
+Role: Global head of risk platforms. Designed, developed and delivered the system; delivered CAD2 market risk capability including Value-at-Risk and P&L attribution for trading and product control; established the market data team and its BAU function across New York, London and Zurich.
+Outcome: The bank's first near real-time front office risk system in production, sustained by the market data function built alongside it.
+
+**Case 3 — Regulatory Markets Platform: Surveillance, Reporting, Record Keeping**
+Tag: REGULATORY PLATFORM DELIVERY | MAJOR AUSTRALIAN BANK — INSTITUTIONAL BANKING & MARKETS
+Context: The markets business faced obligations spanning regulatory trade reporting, record keeping, MiFID II and trade surveillance, with no platform to carry them.
+Role: Business owner and delivery lead. Led trade surveillance from inception to BAU handover; delivered the supporting platform; introduced the data modelling and engineering capability behind it.
+Outcome: Regulatory obligations met on a platform that transitioned into business-as-usual operation.
+
+**Workflow examples (`{{CM_WORKFLOW_EXAMPLES}}`)** — three delivery patterns:
+1. Program recovery: re-baseline a stalled data platform, restore delivery, hand to BAU.
+2. Front office risk and market data: near real-time risk builds with the market data function to sustain them.
+3. Data product acceleration: modelling, engineering and governance set up to ship at multiples of prior speed.
+
+**Proof point (`{{CM_PROOF_POINT}}`)** — homepage strip, fourth entry:
+$84M — Failed financial markets data program recovered and delivered
+
+**/experience ordering**: the Capital Markets section renders after the five transaction cases, in the order above.

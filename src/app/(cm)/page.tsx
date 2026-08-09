@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
-import { isPending } from '@/lib/pending'
 
 const page = v3.pages.home
 const s = page.sections
@@ -106,10 +105,8 @@ export default function HomePage() {
             <span aria-hidden="true">→</span>
           </Link>
 
-          {/* The {{CM_PROOF_POINT}} slot stays hidden until Terry fills it
-              (spec §8 TODO 6) — nothing renders in its place. */}
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-charcoal/15 divide-y sm:divide-y-0 divide-charcoal/15">
-            {s.proof.items.filter((item) => !isPending(item.value) && !isPending(item.detail)).map((item) => (
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-charcoal/15 divide-y sm:divide-y-0 divide-charcoal/15">
+            {s.proof.items.map((item) => (
               <li key={item.id} className="py-6 sm:py-8 sm:px-6 first:sm:pl-0 lg:border-l lg:border-charcoal/15 lg:first:border-l-0">
                 <div className="font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal">
                   {item.value}

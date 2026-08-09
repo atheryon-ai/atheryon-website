@@ -1225,6 +1225,84 @@ export const v2Ma = {
 // by TODO(anna) sign-off before dev → main promotion (see docs/claims-ledger.md).
 // =============================================================================
 
+// Approved capital-markets case copy (spec Appendix C, Terry 2026-08-09,
+// quoted verbatim from Terry's CV). Shared by the /capital-markets Selected
+// Cases section and the /experience Capital Markets section; case indices
+// are assigned by each page at render time. Anonymised client descriptors
+// are deliberate; no vendor names (Palantir may be named later at Terry's
+// option).
+const cmCases = [
+  {
+    id: 'data-program-recovery',
+    name: 'Recovery of a Failed $84M Data & Analytics Program',
+    client: 'Major Australian Bank — Financial Markets',
+    engagement: 'Program Recovery & Platform Delivery',
+    details: [
+      {
+        label: 'Context',
+        body:
+          'A strategic data and analytics transformation for the institutional bank’s financial markets business had failed after $84M of investment, with regulatory capabilities depending on it.',
+      },
+      {
+        label: 'Role',
+        body:
+          'Program Director. Recovered the program and delivered the strategic data and analytics platform, automated trade surveillance, and trade and record reconstruction, then redefined how the bank builds and maintains its strategic data capability.',
+      },
+      {
+        label: 'Outcome',
+        body:
+          'The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
+      },
+    ],
+  },
+  {
+    id: 'front-office-risk-system',
+    name: 'First Near Real-Time Front Office Risk System',
+    client: 'Global Investment Bank — Commodities',
+    engagement: 'Risk & Market Data Platforms',
+    details: [
+      {
+        label: 'Context',
+        body:
+          'The commodities business needed front office risk at near real-time speed plus regulatory market risk capability, across desks spanning crude, natural gas and hybrids, during record crude oil volatility.',
+      },
+      {
+        label: 'Role',
+        body:
+          'Global head of risk platforms. Designed, developed and delivered the system; delivered CAD2 market risk capability including Value-at-Risk and P&L attribution for trading and product control; established the market data team and its BAU function across New York, London and Zurich.',
+      },
+      {
+        label: 'Outcome',
+        body:
+          'The bank’s first near real-time front office risk system in production, sustained by the market data function built alongside it.',
+      },
+    ],
+  },
+  {
+    id: 'regulatory-markets-platform',
+    name: 'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping',
+    client: 'Major Australian Bank — Institutional Banking & Markets',
+    engagement: 'Regulatory Platform Delivery',
+    details: [
+      {
+        label: 'Context',
+        body:
+          'The markets business faced obligations spanning regulatory trade reporting, record keeping, MiFID II and trade surveillance, with no platform to carry them.',
+      },
+      {
+        label: 'Role',
+        body:
+          'Business owner and delivery lead. Led trade surveillance from inception to BAU handover; delivered the supporting platform; introduced the data modelling and engineering capability behind it.',
+      },
+      {
+        label: 'Outcome',
+        body:
+          'Regulatory obligations met on a platform that transitioned into business-as-usual operation.',
+      },
+    ],
+  },
+] as const
+
 export const v3 = {
   // Appendix B, adopted verbatim (statement per rev 3 Brief 2 wording). The
   // "operational, technology and data" triad is load-bearing per the port note.
@@ -1313,19 +1391,17 @@ export const v3 = {
               value: 'Four sectors',
               detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
             },
+            // Fourth entry per spec Appendix C (§8 TODO 6 RESOLVED
+            // 2026-08-09): the capital-markets proof point.
+            {
+              id: 'data-program-recovery',
+              value: '$84M',
+              detail: 'Failed financial markets data program recovered and delivered',
+            },
             {
               id: 'jurisdictions',
               value: 'Four jurisdictions',
               detail: 'Australia, Europe, the United Kingdom and the United States',
-            },
-            // TODO(terry): spec §8 TODO 6 — one technology/capital-markets
-            // proof point. Hidden by the page's isPending filter until
-            // filled; the lg:grid-cols-4 strip needs a layout decision when
-            // a fifth item lands.
-            {
-              id: 'cm-proof-point',
-              value: '{{CM_PROOF_POINT}}',
-              detail: '{{CM_PROOF_POINT}}',
             },
           ],
         },
@@ -1700,16 +1776,12 @@ export const v3 = {
           ],
         },
         // Rev 7: Capital Markets section after the five transaction cases —
-        // never mixed into the transaction list. TODO(terry): spec §8 TODO 6,
-        // facts only, no invention. Hidden by the isPending guard until the
-        // blanks are filled (same markers feed /capital-markets).
+        // never mixed into the transaction list. Approved Appendix C copy
+        // (spec §8 TODO 6 RESOLVED 2026-08-09), shared with /capital-markets.
         capitalMarketsCases: {
           label: '§02 / Capital Markets',
           title: 'Capital markets experience',
-          items: [
-            { id: 'cm-case-1', body: '{{CM_CASE_1}}' },
-            { id: 'cm-case-2', body: '{{CM_CASE_2}}' },
-          ],
+          items: cmCases,
         },
       },
     },
@@ -1804,10 +1876,8 @@ export const v3 = {
     // Rev 7 (Terry 2026-08-09: "do not mix capital markets with transaction"):
     // this page carries standalone capital-markets material only. Its
     // transaction role is stated in exactly one place — the outcomes
-    // crossLink line. Section `label` values here are kicker names WITHOUT
-    // § numbers: the pending-guarded sections (cases, examples) hide until
-    // their {{...}} blanks are filled, so the page assigns § numbers to the
-    // visible sections at render time.
+    // crossLink line. Cases and delivery examples are the approved
+    // Appendix C copy (spec §8 TODO 6 RESOLVED 2026-08-09).
     capitalMarkets: {
       route: '/capital-markets',
       title: 'Capital Markets — Atheryon',
@@ -1821,7 +1891,7 @@ export const v3 = {
             'The Capital Markets arm, led by Terry Tsakiris. Engaged standalone for technology and data programs.',
         },
         outcomes: {
-          label: 'What the arm delivers',
+          label: '§01 / What the arm delivers',
           title: 'What the arm delivers',
           items: [
             'Capital markets systems and platform delivery',
@@ -1838,32 +1908,42 @@ export const v3 = {
             href: '/ma#technology-data-migration',
           },
         },
-        // TODO(terry): spec §8 TODO 6 — capital-markets case studies
-        // (Context / Role / Outcome each). Hidden until filled; never
-        // filled with transaction material.
         cases: {
-          label: 'Selected Cases',
+          label: '§02 / Selected Cases',
           title: 'Selected cases',
+          items: cmCases,
+        },
+        // The three delivery patterns (Appendix C) in place of the
+        // relocated transaction workflows.
+        examples: {
+          label: '§03 / Delivery Examples',
+          title: 'Delivery examples',
           items: [
-            { id: 'cm-case-1', body: '{{CM_CASE_1}}' },
-            { id: 'cm-case-2', body: '{{CM_CASE_2}}' },
+            {
+              id: 'program-recovery',
+              name: 'Program recovery',
+              body: 'Re-baseline a stalled data platform, restore delivery, hand to BAU.',
+            },
+            {
+              id: 'risk-and-market-data',
+              name: 'Front office risk and market data',
+              body: 'Near real-time risk builds with the market data function to sustain them.',
+            },
+            {
+              id: 'data-product-acceleration',
+              name: 'Data product acceleration',
+              body: 'Modelling, engineering and governance set up to ship at multiples of prior speed.',
+            },
           ],
         },
-        // TODO(terry): spec §8 TODO 6 — capital-markets delivery examples
-        // (replaces the relocated transaction workflows). Hidden until filled.
-        examples: {
-          label: 'Delivery Examples',
-          title: 'Delivery examples',
-          body: '{{CM_WORKFLOW_EXAMPLES}}',
-        },
         delivery: {
-          label: 'Delivery',
+          label: '§04 / Delivery',
           title: 'Embedded delivery',
           body:
             'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
         },
         depth: {
-          label: 'Platform Depth',
+          label: '§05 / Platform Depth',
           title: 'Under the arm',
           intro:
             'The arm is backed by a working reference implementation and its supporting material.',
