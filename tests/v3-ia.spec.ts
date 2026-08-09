@@ -47,6 +47,19 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByText('embedded senior specialists', { exact: false })).toBeVisible()
   await expect(page.getByText('6–18 months')).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
+
+  // Rev 7: the three transaction workflows live here as collapsed detail
+  // under service line 04
+  const workflowDetails = page.locator('details').filter({ hasText: 'Three transaction workflows' })
+  await expect(workflowDetails.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toBeHidden()
+  await workflowDetails.locator('summary').click()
+  for (const name of [
+    'Pre-Sign Execution Review',
+    'Separation/Integration Planning',
+    'TSA Tracking & Reduction',
+  ]) {
+    await expect(workflowDetails.getByRole('heading', { name })).toBeVisible()
+  }
 })
 
 test('/experience normalises cases to Context / Role / Outcome with RAMS first', async ({ page }) => {
@@ -63,7 +76,9 @@ test('/experience normalises cases to Context / Role / Outcome with RAMS first',
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
 
-  // Technology cases are TODO-gated
+  // Rev 7: the Capital Markets section is isPending-gated behind
+  // {{CM_CASE_1}} / {{CM_CASE_2}} — nothing renders while blank
+  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
@@ -73,11 +88,16 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
 
   await expect(page.getByRole('heading', { level: 1, name: 'Capital Markets' })).toBeVisible()
 
-  // Three delivery workflows (demoted v2Ma AI content)
-  await expect(page.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'TSA Tracking & Reduction' })).toBeVisible()
+  // Rev 7: capital markets and transaction content do not mix. The three
+  // transaction workflows relocated to /ma; the page's transaction role is
+  // exactly one cross-link line to the M&A service line.
+  await expect(page.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'TSA Tracking & Reduction' })).toHaveCount(0)
+  await expect(
+    page.locator('main').getByRole('link', { name: /Technology, Data & Migration Readiness/ }),
+  ).toHaveAttribute('href', '/ma#technology-data-migration')
 
-  // Partner names are TODO-gated
+  // CM blanks ({{CM_CASE_*}}, {{CM_WORKFLOW_EXAMPLES}}) are isPending-gated
   await expect(page.getByText('{{')).toHaveCount(0)
 
   // CM depth links out of /capital-markets. Scoped to <main> — the footer
@@ -154,7 +174,8 @@ test('/contact renders the enquiry form with the privacy disclosure beside it', 
     page.getByLabel('How your enquiry is handled').getByRole('link', { name: 'Privacy Policy' }),
   ).toHaveAttribute('href', '/privacy')
 
-  // Default enquiry path is M&A execution; form fields unchanged
+  // Default enquiry path is M&A execution; message label per REV 7 punch list
   await expect(page.getByLabel(/name/i)).toBeVisible()
+  await expect(page.locator('label[for="message"]')).toContainText('Tell us about the situation')
   await expect(page.locator('textarea')).toHaveValue(/M&A execution review/)
 })

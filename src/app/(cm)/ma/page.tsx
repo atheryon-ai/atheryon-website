@@ -51,6 +51,47 @@ export default function MaArmPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Rev 7: the three transaction workflows relocated from
+                  /capital-markets — collapsed secondary detail under line 04. */}
+              {line.id === 'technology-data-migration' && (
+                <details className="mt-8">
+                  <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 hover:text-charcoal transition-colors">
+                    {s.workflows.summary}
+                  </summary>
+                  <div className="pt-6">
+                    <p className="max-w-3xl text-base text-charcoal/85 leading-relaxed mb-8">
+                      {s.workflows.intro}
+                    </p>
+                    <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+                      {s.workflows.items.map((workflow) => (
+                        <li key={workflow.id} id={workflow.id} className="py-8 scroll-mt-24">
+                          <h4 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight mb-6">
+                            {workflow.name}
+                          </h4>
+                          <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {(
+                              [
+                                ['Input', workflow.input],
+                                ['AI agents', workflow.agents],
+                                ['Processing', workflow.processing],
+                                ['Output', workflow.output],
+                              ] as const
+                            ).map(([label, body]) => (
+                              <div key={label}>
+                                <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60 mb-2">
+                                  {label}
+                                </dt>
+                                <dd className="text-sm text-charcoal/85 leading-relaxed">{body}</dd>
+                              </div>
+                            ))}
+                          </dl>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </details>
+              )}
             </li>
           ))}
         </ol>

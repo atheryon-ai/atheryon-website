@@ -24,7 +24,7 @@ export const site = {
           name: { label: 'Name', placeholder: 'Your name', required: true },
           email: { label: 'Email', placeholder: 'your@email.com', required: true },
           company: { label: 'Company', placeholder: 'Your company', required: false },
-          message: { label: 'What’s the problem?', placeholder: 'Describe the challenge you’re facing...', required: true },
+          message: { label: 'Tell us about the situation', placeholder: 'Describe the challenge you’re facing...', required: true },
         },
         submitLabel: 'Book system assessment',
       },
@@ -1318,10 +1318,21 @@ export const v3 = {
               value: 'Four jurisdictions',
               detail: 'Australia, Europe, the United Kingdom and the United States',
             },
+            // TODO(terry): spec §8 TODO 6 — one technology/capital-markets
+            // proof point. Hidden by the page's isPending filter until
+            // filled; the lg:grid-cols-4 strip needs a layout decision when
+            // a fifth item lands.
+            {
+              id: 'cm-proof-point',
+              value: '{{CM_PROOF_POINT}}',
+              detail: '{{CM_PROOF_POINT}}',
+            },
           ],
         },
+        // Homepage § labels follow render order in (cm)/page.tsx:
+        // founders §01 → principle §02 → why §03 → values §04.
         why: {
-          label: '§01 / Why Atheryon',
+          label: '§03 / Why Atheryon',
           title: 'Why Atheryon',
           body:
             'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
@@ -1347,7 +1358,7 @@ export const v3 = {
             'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
         },
         values: {
-          label: '§03 / How we work',
+          label: '§04 / How we work',
           title: 'How we work',
           items: [
             {
@@ -1392,7 +1403,7 @@ export const v3 = {
         // Primary credibility block (rev 5): one line per co-founder, no
         // employer names. Links to /about.
         founders: {
-          label: '§05 / Founders',
+          label: '§01 / Founders',
           title: 'Co-founders',
           items: [
             {
@@ -1495,6 +1506,54 @@ export const v3 = {
               ],
               body:
                 'Data is often one of the most significant drivers of separation and integration effort. Understanding what information exists, where it resides, how it is used and what must transition can materially influence execution timelines, TSA requirements, operational readiness and transaction value.\n\nAtheryon leverages data-enabled and AI-assisted techniques to help clients identify dependencies, assess migration complexity, improve visibility of risks and support informed decision-making throughout planning and execution.',
+            },
+          ],
+        },
+        // Rev 7: the three transaction workflows relocated here from
+        // /capital-markets ("do not mix capital markets with transaction").
+        // Rendered as collapsed secondary detail under service line 04.
+        // Items ported verbatim from v2Ma.approach.sections.workflowExamples.
+        workflows: {
+          summary: 'Three transaction workflows',
+          intro:
+            'Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+          stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
+          items: [
+            {
+              id: 'pre-sign-execution-review',
+              name: 'Pre-Sign Execution Review',
+              input:
+                'Draft deal terms, target perimeter definitions, data flow inventories, existing control map.',
+              agents:
+                'Clause-to-execution-risk mapping; TSA scope projection; control-continuity scoring.',
+              processing:
+                'Traps register → mitigations register → risk-weighted recommendation.',
+              output:
+                'Pre-sign execution risk report + mitigations playbook. Delivered before ink.',
+            },
+            {
+              id: 'separation-integration-planning',
+              name: 'Separation/Integration Planning',
+              input:
+                'Signed deal terms, perimeter definitions, target operating model.',
+              agents:
+                'Dependency tracing; wave-window sequencing; Day-1 requirements derivation; data lineage mapping.',
+              processing:
+                'Dependency graph → wave plan → Day-1 readiness checklist → data migration sequence.',
+              output:
+                'Separation/integration plan with contractual wave commitments, Day-1 readiness pack, data migration plan with field-level lineage.',
+            },
+            {
+              id: 'tsa-tracking-reduction',
+              name: 'TSA Tracking & Reduction',
+              input:
+                'TSA scope, time-boxed obligations, exit criteria, ongoing delivery status.',
+              agents:
+                'TSA dependency analysis; exit-criteria projection; scope-creep detection; control assurance verification.',
+              processing:
+                'TSA register → reduction roadmap → exit scenarios → executive surface.',
+              output:
+                'TSA exit plan with milestone gates and scope-creep alarms; delivery dashboard with audit trail to closure.',
             },
           ],
         },
@@ -1640,12 +1699,17 @@ export const v3 = {
             },
           ],
         },
-        // TODO(terry): 1–2 technology-side case facts (spec §8.6) — facts only,
-        // no invention. Block hidden by the isPending guard until supplied.
-        technologyCases: {
-          label: '§02 / Technology & Transformation',
-          title: 'Technology and transformation experience',
-          body: '{{TECH_EXPERIENCE_CASES}}',
+        // Rev 7: Capital Markets section after the five transaction cases —
+        // never mixed into the transaction list. TODO(terry): spec §8 TODO 6,
+        // facts only, no invention. Hidden by the isPending guard until the
+        // blanks are filled (same markers feed /capital-markets).
+        capitalMarketsCases: {
+          label: '§02 / Capital Markets',
+          title: 'Capital markets experience',
+          items: [
+            { id: 'cm-case-1', body: '{{CM_CASE_1}}' },
+            { id: 'cm-case-2', body: '{{CM_CASE_2}}' },
+          ],
         },
       },
     },
@@ -1737,47 +1801,69 @@ export const v3 = {
       },
     },
 
+    // Rev 7 (Terry 2026-08-09: "do not mix capital markets with transaction"):
+    // this page carries standalone capital-markets material only. Its
+    // transaction role is stated in exactly one place — the outcomes
+    // crossLink line. Section `label` values here are kicker names WITHOUT
+    // § numbers: the pending-guarded sections (cases, examples) hide until
+    // their {{...}} blanks are filled, so the page assigns § numbers to the
+    // visible sections at render time.
     capitalMarkets: {
       route: '/capital-markets',
       title: 'Capital Markets — Atheryon',
       description:
-        'The Capital Markets arm: capital markets systems, data and migration readiness, platform transition and AI-enabled analysis, engaged inside transactions and standalone.',
+        'The Capital Markets arm: capital markets systems and platform delivery, market data environments and reference data, platform transition and AI-enabled delivery.',
       sections: {
         hero: {
-          label: 'atheryon / capital-markets',
+          label: 'atheryon / capital markets',
           title: 'Capital Markets',
           subtitle:
-            'The Capital Markets arm, led by Terry Tsakiris. Engaged inside transactions and standalone.',
+            'The Capital Markets arm, led by Terry Tsakiris. Engaged standalone for technology and data programs.',
         },
         outcomes: {
-          label: '§01 / What the arm delivers',
+          label: 'What the arm delivers',
           title: 'What the arm delivers',
           items: [
-            'Technology and data separation for divestments and carve-outs',
-            'Migration planning and delivery across structured and unstructured data',
+            'Capital markets systems and platform delivery',
+            'Market data environments and reference data',
             'Platform transition and application rationalisation',
             'AI-enabled analysis of dependencies, complexity and risk',
             'Delivery acceleration for transformation programs',
-            'Capital markets systems and platform delivery',
-            'Market data environments and reference data',
           ],
           body:
-            'The arm covers enterprise architecture, data platforms and the migration work that determines transaction timelines. Inside a transaction it runs the Technology, Data & Migration Readiness service line of the M&A arm. Outside transactions it is engaged standalone for technology and data programs.',
+            'The arm covers enterprise architecture and data platforms. It is engaged standalone for technology and data programs.',
+          // The single transaction mention on this page (rev 7 §1 rule).
+          crossLink: {
+            text: 'Inside a transaction, this arm runs the Technology, Data & Migration Readiness service line',
+            href: '/ma#technology-data-migration',
+          },
         },
-        workflows: {
-          label: '§02 / Workflows',
-          title: 'Three delivery workflows',
-          intro:
-            'AI sits inside the arm, never in front of it. Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+        // TODO(terry): spec §8 TODO 6 — capital-markets case studies
+        // (Context / Role / Outcome each). Hidden until filled; never
+        // filled with transaction material.
+        cases: {
+          label: 'Selected Cases',
+          title: 'Selected cases',
+          items: [
+            { id: 'cm-case-1', body: '{{CM_CASE_1}}' },
+            { id: 'cm-case-2', body: '{{CM_CASE_2}}' },
+          ],
+        },
+        // TODO(terry): spec §8 TODO 6 — capital-markets delivery examples
+        // (replaces the relocated transaction workflows). Hidden until filled.
+        examples: {
+          label: 'Delivery Examples',
+          title: 'Delivery examples',
+          body: '{{CM_WORKFLOW_EXAMPLES}}',
         },
         delivery: {
-          label: '§03 / Delivery',
+          label: 'Delivery',
           title: 'Embedded delivery',
           body:
             'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
         },
         depth: {
-          label: '§04 / Platform Depth',
+          label: 'Platform Depth',
           title: 'Under the arm',
           intro:
             'The arm is backed by a working reference implementation and its supporting material.',

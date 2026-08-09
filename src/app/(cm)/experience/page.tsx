@@ -6,6 +6,10 @@ import { isPending } from '@/lib/pending'
 const page = v3.pages.experience
 const s = page.sections
 
+// Rev 7: the Capital Markets section renders after the five transaction
+// cases and stays hidden while its {{CM_CASE_*}} blanks are pending.
+const cmCases = s.capitalMarketsCases.items.filter((entry) => !isPending(entry.body))
+
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
@@ -69,11 +73,15 @@ export default function ExperiencePage() {
         </ol>
       </DocSection>
 
-      {!isPending(s.technologyCases.body) && (
-        <DocSection label={s.technologyCases.label} title={s.technologyCases.title}>
-          <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-            {s.technologyCases.body.split('\n\n').map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+      {cmCases.length > 0 && (
+        <DocSection label={s.capitalMarketsCases.label} title={s.capitalMarketsCases.title}>
+          <div className="max-w-3xl space-y-10">
+            {cmCases.map((entry) => (
+              <div key={entry.id} className="space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+                {entry.body.split('\n\n').map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             ))}
           </div>
         </DocSection>
