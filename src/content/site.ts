@@ -1216,8 +1216,493 @@ export const v2Ma = {
   },
 } as const
 
+// =============================================================================
+// v3 — Executive-first IA (2026-08-09).
+// Source: docs/superpowers/plans/2026-08-09-exec-first-ia-restructure.md REV 2.
+// Appendix A content verbatim; Appendix B positioning verbatim. Figures gated
+// by TODO(anna) sign-off before dev → main promotion (see docs/claims-ledger.md).
+// =============================================================================
+
+export const v3 = {
+  // Appendix B, adopted verbatim. The "operational, technology and data" triad
+  // is load-bearing per the Appendix B port note.
+  positioning: {
+    statement:
+      'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.',
+    narrative:
+      'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
+    principle:
+      'Transaction value is protected when separation and integration requirements are understood early.',
+  },
+
+  // TODO(terry): CTA wording (spec §8.2) — interim neutral label until answered.
+  cta: {
+    label: 'Contact',
+    href: '/contact',
+  },
+
+  pages: {
+    home: {
+      route: '/',
+      title: 'Atheryon — Making Transactions Executable',
+      description:
+        'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.',
+      sections: {
+        hero: {
+          label: 'atheryon / overview',
+          headline: 'Making Transactions Executable',
+          subhead:
+            'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes. We work with Boards, executive teams, investors, private equity sponsors and corporate development teams.',
+          primaryCta: { label: 'Contact', href: '/contact' },
+          secondaryCta: { label: 'Explore services', href: '/services' },
+        },
+        proof: {
+          items: [
+            {
+              id: 'rams',
+              value: '$21.4bn',
+              detail: 'RAMS mortgage portfolio acquisition — integration leadership',
+            },
+            {
+              id: 'divestment-programs',
+              value: '>$1bn',
+              detail: 'Divestment and integration programs at a major Australian bank',
+            },
+            {
+              id: 'sectors',
+              value: 'Four sectors',
+              detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
+            },
+            {
+              id: 'jurisdictions',
+              value: 'Four jurisdictions',
+              detail: 'Australia, Europe, the United Kingdom and the United States',
+            },
+          ],
+        },
+        why: {
+          label: '§01 / Why Atheryon',
+          title: 'Why Atheryon',
+          body:
+            'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
+          helpIntro: 'We help clients:',
+          helpItems: [
+            'Understand operational implications before signing',
+            'Identify execution risks earlier',
+            'Build appropriate commercial protections and execution considerations into transaction agreements',
+            'Reduce reliance on TSAs',
+            'Accelerate operational independence',
+            'Improve transaction certainty',
+            'Protect and realise transaction value',
+          ],
+          principleTitle: 'Our principle',
+          principle:
+            'Transaction value is protected when separation and integration requirements are understood early.',
+          principleSupport:
+            'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
+        },
+        values: {
+          label: '§02 / How we work',
+          title: 'How we work',
+          items: [
+            {
+              id: 'early-insight',
+              name: 'Early Insight',
+              body: 'Understanding the operational implications of separation and integration before commitments are made.',
+            },
+            {
+              id: 'commercial-discipline',
+              name: 'Commercial Discipline',
+              body: 'Practical advice aligned to commercial outcomes and stakeholder priorities.',
+            },
+            {
+              id: 'execution-focus',
+              name: 'Execution Focus',
+              body: 'Translating transaction strategy into operational reality.',
+            },
+            {
+              id: 'leadership-under-pressure',
+              name: 'Leadership Under Pressure',
+              body: 'Navigating complex stakeholder and regulatory environments with clarity and confidence.',
+            },
+            {
+              id: 'trusted-partnership',
+              name: 'Trusted Partnership',
+              body: 'Operating with discretion and accountability throughout the transaction lifecycle.',
+            },
+          ],
+        },
+        capabilities: {
+          label: '§03 / Practices',
+          title: 'Two practices, one firm',
+          intro:
+            'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
+          flagship: {
+            id: 'transaction-advisory-execution',
+            name: 'Transaction Advisory & Execution',
+            lead: 'Led by Anna Contos',
+            body:
+              'The flagship practice. Advisory and execution leadership across acquisitions, divestments, carve-outs, demergers and strategic exits, from pre-sign readiness through Day 1 to operational independence.',
+            href: '/services',
+            ctaLabel: 'Explore the practice',
+          },
+          secondary: {
+            id: 'technology-data',
+            name: 'Technology & Data',
+            lead: 'Led by Terry Tsakiris',
+            body:
+              'The strategic capability behind the flagship practice: technology, data and migration readiness for transactions, with data-enabled and AI-assisted analysis inside the work. The practice is also engaged standalone.',
+            href: '/technology',
+            // Phase 2 gate: block hidden while the marker is present (no dead
+            // links before /technology ships). Cleared when phase 2 lands.
+            live: '{{TECHNOLOGY_LIVE}}',
+            ctaLabel: 'Explore the practice',
+          },
+        },
+      },
+    },
+
+    services: {
+      route: '/services',
+      title: 'Transaction Advisory & Execution — Atheryon',
+      description:
+        'The flagship practice: transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.',
+      sections: {
+        hero: {
+          label: 'atheryon / services',
+          title: 'Transaction Advisory & Execution',
+          subtitle:
+            'The flagship practice. Advisory and execution leadership for transactions where execution risk can materially impact outcomes.',
+        },
+        lines: {
+          label: '§01 / Service Lines',
+          title: 'Service lines',
+          items: [
+            {
+              id: 'transaction-readiness',
+              index: '01',
+              name: 'Transaction Readiness',
+              tagline: 'Understanding execution requirements before transaction commitments are made.',
+              items: [
+                'Operational feasibility assessments',
+                'Separation and integration diligence',
+                'Bid-phase separation and integration support',
+                'Transaction readiness reviews',
+                'TSA strategy',
+                'Execution risk assessments',
+                'Pre-sign operational dependency analysis',
+              ],
+              body:
+                'We help clients understand the operational, technology, data and organisational requirements that can materially influence transaction outcomes before commitments are made.',
+            },
+            {
+              id: 'separation-integration-strategy',
+              index: '02',
+              name: 'Separation & Integration Strategy',
+              tagline: 'Designing practical pathways to Day 1 readiness and operational independence.',
+              items: [
+                'Separation and integration strategy',
+                'Operating model design',
+                'Day 1 readiness planning',
+                'Transition sequencing',
+                'TSA design and exit planning',
+              ],
+              body:
+                'Our focus is on creating executable strategies that align commercial objectives with operational realities.',
+            },
+            {
+              id: 'execution-leadership',
+              index: '03',
+              name: 'Execution Leadership',
+              tagline: 'Leading complex transitions from signing through implementation.',
+              items: [
+                'Program mobilisation and governance',
+                'Executive stakeholder engagement',
+                'Contractual planning and milestone alignment',
+                'Risk and issue management',
+                'Day 1 execution',
+                'TSA establishment and exit management',
+                'Delivery oversight and execution assurance',
+              ],
+              body:
+                'We provide experienced leadership across transactions where execution certainty is critical to achieving intended outcomes.',
+            },
+            {
+              id: 'technology-data-migration',
+              index: '04',
+              name: 'Technology, Data & Migration Readiness',
+              tagline:
+                'Helping clients understand and plan for the information, technology and migration challenges that often determine transaction success.',
+              items: [
+                'Structured data separation and migration assessments',
+                'Unstructured data and content migration analysis',
+                'Application and platform landscape assessments',
+                'Data quality, ownership and reconciliation planning',
+                'Migration readiness and cutover support',
+                'Operational readiness analysis',
+                'Technology separation and integration planning',
+                'Analysis of the data dependencies that drive TSA scope',
+              ],
+              body:
+                'Data is often one of the most significant drivers of separation and integration effort. Understanding what information exists, where it resides, how it is used and what must transition can materially influence execution timelines, TSA requirements, operational readiness and transaction value.\n\nAtheryon leverages data-enabled and AI-assisted techniques to help clients identify dependencies, assess migration complexity, improve visibility of risks and support informed decision-making throughout planning and execution.',
+            },
+          ],
+        },
+        // TODO(terry): commercial shape (spec §8.3) — keep the v2Ma "embedded
+        // specialists, 6–18 months" model or drop stated durations. Block is
+        // hidden by the isPending guard until answered.
+        engagement: {
+          label: '§02 / Engagement',
+          title: 'How we engage',
+          body: '{{ENGAGEMENT_MODEL}}',
+        },
+      },
+    },
+
+    experience: {
+      route: '/experience',
+      title: 'Representative Experience — Atheryon',
+      description:
+        'Representative transaction and transformation experience across financial services, led by Atheryon and its principals.',
+      sections: {
+        hero: {
+          label: 'atheryon / experience',
+          title: 'Representative Experience',
+          subtitle:
+            'Selected transactions and transformations across financial services.',
+        },
+        cases: {
+          label: '§01 / Selected Cases',
+          title: 'Selected cases',
+          provenance:
+            'Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.',
+          items: [
+            {
+              id: 'rams-portfolio-acquisition',
+              index: '01',
+              name: 'Landmark RAMS Mortgage Portfolio Acquisition',
+              client: 'Specialist Mortgage Servicer',
+              engagement: 'Integration Leadership',
+              details: [
+                {
+                  label: 'Context',
+                  body:
+                    'A landmark transaction valued at approximately $21.4 billion at signing and recognised as one of the largest loan portfolio acquisitions in Australian history. The transaction involved compressed delivery timeframes, complex separation requirements, multiple service providers, significant operational dependencies and no seller TSA arrangements.',
+                },
+                {
+                  label: 'Role',
+                  body:
+                    'Atheryon leadership played a key role in the transition and integration of the RAMS mortgage portfolio acquisition.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Led the successful transition to a new servicing environment, delivering Day 1 operational readiness, seamless customer migration and ongoing regulatory compliance. Despite the scale and complexity of the transaction, timelines were achieved and hypercare issues remained exceptionally low, enabling immediate operational stand-up and value realisation.',
+                },
+              ],
+            },
+            {
+              id: 'enterprise-divestment-advisory',
+              index: '02',
+              name: 'Enterprise-Wide Divestment & Separation Advisory',
+              client: 'Major Australian Bank',
+              engagement: 'Separation & Integration Advisory',
+              details: [
+                {
+                  label: 'Context',
+                  body: 'Divestment and integration programs exceeding $1 billion in transaction value.',
+                },
+                {
+                  label: 'Role',
+                  body: 'Led separation and integration advisory across the divestment and integration programs.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Reduced separation complexity, accelerated readiness and materially limited TSA exposure across multiple strategic transactions.',
+                },
+              ],
+            },
+            {
+              id: 'financial-advice-sale-separation',
+              index: '03',
+              name: 'Sale & Separation of a Major Financial Advice Business',
+              client: 'Leading Retail Bank',
+              engagement: 'Separation Execution',
+              details: [
+                {
+                  label: 'Context',
+                  body: 'The sale of a major financial advice business requiring pre-sign and post-sign separation execution.',
+                },
+                {
+                  label: 'Role',
+                  body: 'Led pre-sign and post-sign separation execution for the sale.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Completed transaction execution within four months and achieved full operational separation within ten months, with minimal transitional arrangements.',
+                },
+              ],
+            },
+            {
+              id: 'wealth-demerger-insurance-divestment',
+              index: '04',
+              name: 'Wealth Demerger & Insurance Divestment',
+              client: 'Major Financial Services Organisation',
+              engagement: 'Separation Design & Readiness',
+              details: [
+                {
+                  label: 'Context',
+                  body: 'Significant wealth and insurance transactions requiring separation design and implementation readiness.',
+                },
+                {
+                  label: 'Role',
+                  body: 'Led separation design and implementation readiness activities supporting the transactions.',
+                },
+                {
+                  label: 'Outcome',
+                  body: 'Enabled standalone operation while meeting regulatory, financial and operational requirements.',
+                },
+              ],
+            },
+            {
+              id: 'operating-model-transformation',
+              index: '05',
+              name: 'Operating Model Transformation',
+              client: 'Global Investment Bank',
+              engagement: 'Transformation Leadership',
+              details: [
+                {
+                  label: 'Context',
+                  body: 'A large-scale operating model transformation across merged wealth and asset management businesses.',
+                },
+                {
+                  label: 'Role',
+                  body: 'Led the operating model transformation program.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Improved execution certainty, restored stakeholder confidence and re-established momentum on a strategically important initiative.',
+                },
+              ],
+            },
+          ],
+        },
+        // TODO(terry): 1–2 technology-side case facts (spec §8.6) — facts only,
+        // no invention. Block hidden by the isPending guard until supplied.
+        technologyCases: {
+          label: '§02 / Technology & Transformation',
+          title: 'Technology and transformation experience',
+          body: '{{TECH_EXPERIENCE_CASES}}',
+        },
+      },
+    },
+
+    approach: {
+      route: '/approach',
+      title: 'Our Approach — Atheryon',
+      description:
+        'Method and governance across the transaction lifecycle: pre-sign insight, Day 1 readiness, and the path to operational independence and TSA exit.',
+      sections: {
+        hero: {
+          label: 'atheryon / approach',
+          title: 'Our Approach',
+          subtitle: 'Method and governance across the transaction lifecycle.',
+        },
+        lifecycle: {
+          label: '§01 / Lifecycle',
+          title: 'From pre-sign to operational independence',
+          body:
+            'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for execution risk so commercial terms reflect operational reality. From signing, we lead readiness for Day 1 and the early period of operation. Beyond Day 1, we manage the path to operational independence and TSA exit.\n\nThe earlier the engagement begins, the more options remain open. Pre-sign work shapes the agreement itself; post-sign work protects the value already committed.',
+        },
+        governance: {
+          label: '§02 / Governance',
+          title: 'Governance and regulatory posture',
+          body:
+            'Engagements run under program governance with executive stakeholder engagement, milestone alignment and structured risk and issue management. Atheryon works in regulated environments and plans for regulatory continuity across reporting and controls through separation and integration.\n\nWhere the work benefits from scale, Atheryon applies data-enabled and AI-assisted techniques under the same governance, with senior specialists directing the work and owning the outcome.',
+        },
+      },
+    },
+
+    about: {
+      route: '/about',
+      title: 'About — Atheryon',
+      description:
+        'The story of Atheryon and biographies of co-founders Anna Contos and Terry Tsakiris.',
+      sections: {
+        hero: {
+          label: 'atheryon / about',
+          title: 'About Atheryon',
+          body:
+            'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
+        },
+        story: {
+          label: '§01 / Our Story',
+          title: 'Our story',
+          body:
+            'Atheryon was founded on a simple observation: transaction value is often lost when the realities of separation and integration are understood too late.\n\nAnna Contos spent more than two decades leading major separation, integration and transformation programs and watched the same pattern repeat: commercial decisions made before operational implications were fully understood. Together with Terry Tsakiris, she established Atheryon to bring that understanding into the transaction process earlier.\n\nWe help clients understand what a transaction will require before decisions are locked in. When execution begins, we provide the leadership needed to navigate complexity and deliver the intended outcomes. A signed deal is only the start; success is operational independence, value realised and outcomes delivered.',
+        },
+        founders: {
+          label: '§02 / Co-Founders',
+          title: 'Co-founders',
+          items: [
+            {
+              id: 'anna-contos',
+              name: 'Anna Contos',
+              role: 'Co-Founder, Transaction Advisory & Execution',
+              paragraphs: [
+                'Anna Contos co-founded Atheryon and leads the Transaction Advisory & Execution practice. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
+                'Most recently Anna was Head of Separation and Integration Advisory at Westpac Group (2023–2025), executive-leading separation and integration programs across Westpac’s divestment and acquisition initiatives. Before that she was Head of Divestment Execution for Commonwealth Bank’s Wealth division (2018–2020), running the portfolio of programs that delivered CBA’s Count Financial divestment and the CommInsure sale. Earlier roles include Take to Market Lead for the BT Panorama platform launches, and business consulting and strategy roles at Deutsche Bank, Deutsche Pfandbriefbank, Credit Suisse and Capco across investment banking, wealth and retail.',
+                'Her track record spans the deal lifecycle in highly regulated and politically sensitive environments: separation and integration strategy, planning, commercial structuring, business readiness, execution and stabilisation, including carve-outs, demergers and end-to-end transition management.',
+              ],
+              linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
+            },
+            {
+              id: 'terry-tsakiris',
+              name: 'Terry Tsakiris',
+              role: 'Co-Founder, Technology & Data',
+              paragraphs: [
+                'Terry Tsakiris co-founded Atheryon and leads the Technology & Data practice. He has spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside Credit Suisse, Commonwealth Bank, Westpac and Barclays.',
+                'At Credit Suisse he built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank he owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II and Trade Surveillance. At Westpac Institutional Banking he rescued a distressed $84M data program and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline.',
+                'At Atheryon, Terry directs the technology and data capability: data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both practices.',
+              ],
+              linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
+            },
+          ],
+        },
+      },
+    },
+
+    contact: {
+      route: '/contact',
+      title: 'Contact — Atheryon',
+      description: 'Talk to Atheryon about executing a complex transaction or transformation.',
+      sections: {
+        hero: {
+          label: 'atheryon / contact',
+          title: 'Contact',
+          body: 'Tell us about the transaction or transformation you are considering. Enquiries are treated as confidential.',
+        },
+        disclosure: {
+          title: 'How your enquiry is handled',
+          items: [
+            'Enquiries are treated as confidential.',
+            'Only the details entered in the form are submitted: name, company, email and message.',
+            'Submissions are processed by Formspree on Atheryon’s behalf.',
+          ],
+          privacyLink: { label: 'Privacy Policy', href: '/privacy' },
+        },
+      },
+    },
+  },
+} as const
+
 export type V2Ma = typeof v2Ma
 
 export type V2Mortgages = typeof v2Mortgages
 
 export type V2 = typeof v2
+
+export type V3 = typeof v3
