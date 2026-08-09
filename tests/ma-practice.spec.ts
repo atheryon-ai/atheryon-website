@@ -89,11 +89,7 @@ test('/ma/offers explains Code and Prompts are CM-only', async ({ page }) => {
   await expect(page.getByRole('link', { name: /See capital-markets offers/ })).toBeVisible()
 })
 
-test('Clicking M&A pill in toggle navigates to /ma (no longer 301 to /)', async ({ page }) => {
-  await page.goto('/')
-  await page.getByRole('link', { name: 'M&A.' }).click()
-  await page.waitForURL('**/ma')
-  await expect.poll(async () =>
-    page.evaluate(() => document.documentElement.dataset.mode),
-  ).toBe('ma')
-})
+// Toggle-pill navigation test removed 2026-08-09: the PracticeToggle is no
+// longer rendered (one front door — exec-first IA). Direct /ma rendering and
+// data-mode are covered by the first test in this file until phase 3 retires
+// the route group.
