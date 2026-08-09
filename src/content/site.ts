@@ -537,63 +537,93 @@ export const v2 = {
   pages: {
     home: {
       route: '/',
-      title: 'Atheryon — Capital Markets AI Systems',
+      title: 'Atheryon — Capital Markets Engineering & M&A',
       intent: 'Home',
       description:
-        'Atheryon designs and delivers production-grade capital markets AI systems using AI agents. Front-to-back systems and data platforms.',
-      // Section structure (user-locked 2026-05-15). Do not reorder. Do not add sections.
-      // Bodies marked {{PENDING_*}} are intentional placeholders — the user
-      // gave directives, not literal prose. Components hide containers with
-      // {{PENDING_*}} content until the user provides the copy.
+        'Atheryon is a capital markets engineering and M&A integration advisory firm delivering production-grade systems and data platforms with AI agents.',
       sections: {
         hero: {
-          // Verbatim from user spec.
-          headline:
-            'Atheryon designs and delivers production-grade capital markets AI systems using AI agents.',
-          subhead: 'Includes front-to-back systems and data platforms.',
+          label: 'atheryon / cm-ma / overview',
+          headline: 'ATHERYON CAPITAL MARKETS | M&A',
+          subhead:
+            'An elite capital markets engineering and integration advisory firm. We design and deliver production-grade front-to-back systems and data platforms using AI agents, compressing multi-year institutional delivery cycles into weeks.',
         },
-        transformation: {
-          badge: 'Transformation',
-          // Directive transcribed verbatim as title; body awaits user prose.
-          title:
-            'From decades-long banking system build cycles to ~18 months using AI agents.',
-          body: '{{PENDING_TRANSFORMATION_BODY}}',
-        },
-        capabilityOverview: {
-          badge: 'Capability Overview',
-          title: '',
-          cards: [
-            { name: 'Capital Markets Systems', qualifier: 'front-to-back', href: '/system' },
-            { name: 'Data Platforms', qualifier: '', href: '/system' },
-            { name: 'AI Agent Systems', qualifier: '', href: '/themes' },
+        selectedWork: {
+          label: '§01 / Selected Work',
+          title: 'Selected work',
+          entries: [
+            {
+              id: 'tier-1-australian-banking-divestment',
+              index: '01',
+              title: 'Tier-1 Australian Banking Divestment & TSA Exit',
+              details: [
+                {
+                  label: 'Context',
+                  body:
+                    'Commanded a multi-billion dollar wealth management carve-out requiring structural separation from legacy core banking infrastructure.',
+                },
+                {
+                  label: 'Execution',
+                  body:
+                    'Deployed automated AI agents to index corporate system architecture, reducing traditional analyst dependency mapping timelines from 6 months to 4 weeks.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Achieved clean Day-1 readiness under APRA CPS 234-aligned controls, eliminating post-deal TSA cost overruns.',
+                },
+              ],
+            },
+            {
+              id: 'front-to-back-cdm-implementation',
+              index: '02',
+              title: 'Front-to-Back Common Domain Model (CDM) Implementation',
+              details: [
+                {
+                  label: 'Context',
+                  body:
+                    'Modernisation of an institutional trading and market risk data lifecycle.',
+                },
+                {
+                  label: 'Execution',
+                  body:
+                    'Structured a marketplace-bound reference implementation using custom-orchestrated AI agent pipelines rather than legacy middleware.',
+                },
+                {
+                  label: 'Outcome',
+                  body:
+                    'Re-engineered front-office to back-office P&L taxonomy, compressing system delivery cycles by 60%.',
+                },
+              ],
+            },
           ],
         },
-        proofSystem: {
-          badge: 'Proof',
-          // Directive transcribed verbatim as title; body awaits user prose.
-          title: 'A working end-to-end capital markets AI reference system.',
-          body: '{{PENDING_PROOFSYSTEM_BODY}}',
-          cta: { label: 'Explore the reference architecture', href: '/system' },
-        },
-        engagementModelPreview: {
-          badge: 'Engagement Model',
-          // Verbatim from user spec.
-          title: 'Advisory · Enablement · Delivery · Licensed System.',
-          fullLink: { label: 'See full engagement model', href: '/engagements' },
-        },
-        ecosystemStack: {
-          badge: 'Ecosystem',
-          // Verbatim from user spec.
-          title: 'Microsoft Azure AI infrastructure + S&P Global integration.',
-          items: [
-            { name: 'Microsoft Azure AI infrastructure' },
-            { name: 'S&P Global data integration' },
+        practiceHierarchy: {
+          label: '§02 / Services & Practice Hierarchy',
+          title: 'Services & practice hierarchy',
+          entries: [
+            {
+              index: '01',
+              title: 'M&A Separation & Integration Advisory',
+              body:
+                'Post-deal execution, pre-sign execution reviews, and control tracing led by veteran institutional banking executives. Focus on Day-1 readiness, TSA tracking, carve-outs, and migration sequencing.',
+              href: '/ma',
+            },
+            {
+              index: '02',
+              title: 'Capital Markets System Engineering',
+              body:
+                'Direct implementation of front-to-back data platforms, algorithmic risk taxonomies, and declarative compliance architectures.',
+              href: '/system',
+            },
+            {
+              index: '03',
+              title: 'Proprietary Technology & IP Licensing',
+              body:
+                'Commercial access to the Atheryon Labs reference implementation platform, core CDM code assets, and our curated directorial prompt archives.',
+              href: '/offers',
+            },
           ],
-        },
-        cta: {
-          // Verbatim from user spec.
-          primary: { label: 'Book System Assessment', href: '/contact' },
-          secondary: { label: 'Explore Architecture', href: '/system' },
         },
       },
       v3: {
@@ -858,51 +888,34 @@ export const v2 = {
       title: 'About — Atheryon',
       intent: 'Capital markets AI systems firm.',
       description:
-        'Atheryon is a capital markets AI systems firm. Banking lineage: Goldman Sachs, Credit Suisse, Barclays Capital — as experience environments, not claims of employment or system ownership.',
-      // Section structure (user-locked 2026-05-15). Do not reorder. Do not add sections.
-      // Tone: institutional, not narrative or personal. Do not imply ownership of banking systems.
-      sections: {
-        whatAtheryonIs: {
-          label: '§01 / Identity',
-          title: 'What Atheryon is',
-          descriptor: 'Capital markets AI systems firm.',
-          // Body renders v2.identity verbatim.
-        },
-        bankingLineage: {
-          label: '§02 / Banking Lineage',
-          title: 'Banking lineage',
-          framing:
-            'Goldman Sachs, Credit Suisse, Barclays Capital — as experience environments.',
-          // Explicit disclaimer enforcing rule: do not imply ownership.
-          disclaimer:
-            'Not claims of employment or system ownership.',
-          institutions: ['Goldman Sachs', 'Credit Suisse', 'Barclays Capital'],
-        },
-        systemPhilosophy: {
-          label: '§03 / System Philosophy',
-          title: 'System philosophy',
-          // Verbatim from user spec.
-          formula: 'AI agents + capital markets infrastructure.',
-          body: '{{PENDING_ABOUT_SYSTEM_PHILOSOPHY_BODY}}',
-        },
-        whyNow: {
-          label: '§04 / Why Now',
-          title: 'Why now',
-          // Verbatim from user spec.
-          descriptor: 'AI compressing system delivery cycles.',
-          body: '{{PENDING_ABOUT_WHY_NOW_BODY}}',
-        },
+        'Principal biographies for Terry Tsakiris, Founder & Systems Principal, and Anna Contos, Head of M&A Separation & Integration Advisory.',
+      hero: {
+        label: 'atheryon / about / leadership',
+        title: 'About',
+        body: 'Capital markets engineering and M&A execution leadership.',
       },
-      // Not a section — a practice-entry callout rendered inside §01.
-      // Added 2026-05-17 to surface the M&A practice and Anna Contos from /about.
-      maCallout: {
-        label: 'M&A practice',
-        title: 'M&A Execution & Integration',
-        description:
-          'Post-deal execution and pre-sign execution review. Senior execution specialists, AI-velocity on dependency mapping and TSA tracking. The M&A practice is led by Anna Contos.',
-        linkLabel: 'See M&A practice',
-        linkHref: '/ma',
-      },
+      principals: [
+        {
+          id: 'terry-tsakiris',
+          label: '§ / Principal Biography',
+          name: 'Terry Tsakiris',
+          role: 'Founder & Systems Principal',
+          paragraphs: [
+            'Terry Tsakiris is the founder and technical architect of Atheryon. He has spent over two decades engineering core data infrastructure, front-office risk taxonomies, and algorithmic trading systems across the world’s leading financial environments, including Goldman Sachs, Credit Suisse, and Barclays Capital.',
+            'As an expert in capital markets reference data architectures, Terry formerly designed enterprise-scale data strategies, including integration vectors with platforms like S&P TeraHelix. At Atheryon, he directs the engineering of marketplace-bound, CDM-native banking platforms. His work focuses on leveraging LLM orchestration layers to render declarative compliance boundaries and eliminate the multi-million dollar overheads of traditional tier-1 system integrators.',
+          ],
+        },
+        {
+          id: 'anna-contos',
+          label: '§ / Principal Biography',
+          name: 'Anna Contos',
+          role: 'Head of M&A Separation & Integration Advisory',
+          paragraphs: [
+            'Anna Contos leads the M&A Separation and Integration Practice at Atheryon, bringing unprecedented institutional execution credibility to high-stakes corporate transactions. She is an elite corporate integration specialist with a proven track record of steering complex, highly regulated financial carve-outs.',
+            "Prior to joining Atheryon, Anna served as the Head of Separation & Integration Advisory at Westpac (2023–2025). She previously held the position of Head of Divestment Execution at Commonwealth Bank (CBA). Throughout her career at Australia's major tier-1 institutions, Anna has successfully commanded multi-billion dollar post-deal integrations, regulatory risk tracking under APRA mandates, and complex Transition Service Agreement (TSA) exits. At Atheryon, she pairs her deep institutional deal scar-tissue with AI-accelerated system mapping to ensure buyer execution is bulletproof before and after signing.",
+          ],
+        },
+      ],
     },
     contact: {
       route: '/contact',
