@@ -23,10 +23,9 @@ export const shellConfig: Record<Mode, ShellConfig> = {
       { label: 'APPROACH', href: '/approach' },
       { label: 'ABOUT', href: '/about' },
     ],
-    // TODO(terry): CTA wording (spec §8.2) — interim neutral label.
     cta: {
-      label: 'CONTACT',
-      shortLabel: 'CONTACT',
+      label: 'DISCUSS A TRANSACTION',
+      shortLabel: 'DISCUSS',
       href: '/contact',
     },
   },

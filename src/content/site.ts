@@ -911,8 +911,10 @@ export const v2 = {
     },
   },
 
+  // Firm-wide page-end CTA label (decided 2026-08-09) — DocFooter default for
+  // the legacy L3 pages that still read v2.cta.
   cta: {
-    label: 'Book system assessment',
+    label: 'Discuss a transaction',
     href: '/contact',
   },
 } as const
@@ -1235,9 +1237,9 @@ export const v3 = {
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // TODO(terry): CTA wording (spec §8.2) — interim neutral label until answered.
+  // CTA decided 2026-08-09 (spec §2): page-end CTAs "Discuss a transaction".
   cta: {
-    label: 'Contact',
+    label: 'Discuss a transaction',
     href: '/contact',
   },
 
@@ -1286,7 +1288,7 @@ export const v3 = {
           headline: 'Making Transactions Executable',
           subhead:
             'Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes. We work with Boards, executive teams, investors, private equity sponsors and corporate development teams.',
-          primaryCta: { label: 'Contact', href: '/contact' },
+          primaryCta: { label: 'Discuss a transaction', href: '/contact' },
           secondaryCta: { label: 'Explore services', href: '/services' },
         },
         proof: {
@@ -1480,13 +1482,13 @@ export const v3 = {
             },
           ],
         },
-        // TODO(terry): commercial shape (spec §8.3) — keep the v2Ma "embedded
-        // specialists, 6–18 months" model or drop stated durations. Block is
-        // hidden by the isPending guard until answered.
+        // Commercial shape decided 2026-08-09 (spec §8.3): embedded model
+        // kept, stated durations dropped.
         engagement: {
           label: '§02 / Engagement',
           title: 'How we engage',
-          body: '{{ENGAGEMENT_MODEL}}',
+          body:
+            'Atheryon engages as embedded senior specialists, working alongside your team from pre-sign review through Day 1 to operational independence and TSA exit. Pre-sign work can stand alone or lead into full delivery.',
         },
       },
     },
@@ -1756,13 +1758,10 @@ export const v3 = {
             { label: 'Offers', href: '/offers', note: 'License the code, license the prompts, or consult' },
           ],
         },
-        // TODO(terry): partner names on /technology (spec §8.4) — hidden by the
-        // isPending guard until answered.
-        partners: {
-          label: '§05 / Partners',
-          title: 'Partners',
-          body: '{{TECHNOLOGY_PARTNERS}}',
-        },
+        // Decided 2026-08-09 (spec §8.4): no partner section on /technology.
+        // If partners appear in body copy anywhere, S&P Global is the data
+        // partner and Microsoft Azure the technology runtime; detail stays on
+        // the L3 legacy pages.
       },
     },
 

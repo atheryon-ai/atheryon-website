@@ -21,7 +21,7 @@ for (const route of routes) {
     ).toBe('cm')
 
     // DocFooter CTA
-    await expect(page.getByRole('link', { name: /Contact/ }).last()).toHaveAttribute('href', '/contact')
+    await expect(page.getByRole('link', { name: 'Discuss a transaction' }).last()).toHaveAttribute('href', '/contact')
   })
 }
 
@@ -42,8 +42,10 @@ test('/services lists the four service lines with deduped TSA scope', async ({ p
   await expect(page.getByText('TSA design and exit planning', { exact: true })).toBeVisible()
   await expect(page.getByText('TSA establishment and exit management', { exact: true })).toBeVisible()
 
-  // Engagement model is TODO-gated: block must be hidden while pending
-  await expect(page.getByText('How we engage')).toHaveCount(0)
+  // Engagement model (decided 2026-08-09): embedded, no stated durations
+  await expect(page.getByRole('heading', { name: 'How we engage' })).toBeVisible()
+  await expect(page.getByText('embedded senior specialists', { exact: false })).toBeVisible()
+  await expect(page.getByText('6–18 months')).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v2Ma, v3 } from '@/content/site'
-import { isPending } from '@/lib/pending'
 
 const page = v3.pages.technology
 const s = page.sections
@@ -94,14 +93,6 @@ export default function TechnologyPage() {
           ))}
         </ul>
       </DocSection>
-
-      {!isPending(s.partners.body) && (
-        <DocSection label={s.partners.label} title={s.partners.title}>
-          <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
-            {s.partners.body}
-          </p>
-        </DocSection>
-      )}
 
       <DocFooter label="atheryon / technology / end-of-document" cta={{ ...v3.cta }} />
     </DocPage>

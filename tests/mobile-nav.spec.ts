@@ -24,7 +24,7 @@ test.describe('mobile nav at 390×844', () => {
     for (const label of ['SERVICES', 'TECHNOLOGY', 'EXPERIENCE', 'APPROACH', 'ABOUT']) {
       await expect(panel.getByRole('link', { name: label })).toBeVisible()
     }
-    await expect(panel.getByRole('link', { name: /CONTACT/ })).toHaveAttribute('href', '/contact')
+    await expect(panel.getByRole('link', { name: 'DISCUSS A TRANSACTION' })).toHaveAttribute('href', '/contact')
   })
 
   test('Escape closes the menu and returns focus to the button', async ({ page }) => {

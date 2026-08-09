@@ -35,8 +35,9 @@ test('homepage leads with the transaction story and executive nav', async ({ pag
   // Asymmetric capabilities: flagship practice leads
   await expect(page.getByRole('link', { name: 'Transaction Advisory & Execution' })).toHaveAttribute('href', '/services')
 
-  // End-of-document CTA
-  await expect(page.getByRole('link', { name: /Contact/ }).last()).toHaveAttribute('href', '/contact')
+  // Hero primary CTA + end-of-document CTA (decided label)
+  await expect(page.getByRole('link', { name: 'Discuss a transaction' }).first()).toHaveAttribute('href', '/contact')
+  await expect(page.getByRole('link', { name: 'Discuss a transaction' }).last()).toHaveAttribute('href', '/contact')
 
   // Background should be deep navy (sanity check, computed style on body)
   const bg = await page.evaluate(() =>

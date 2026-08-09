@@ -35,7 +35,7 @@ Source content: Appendix A (verbatim); adopted positioning language: Appendix B
 ```
 
 Header nav (single shell): phase 1 `SERVICES · EXPERIENCE · APPROACH · ABOUT`; phase 2 inserts `TECHNOLOGY` after SERVICES (five items, same count as the current CM nav). CTA button → `/contact`.
-CTA label: `TODO(terry): CTA wording — "BOOK M&A REVIEW" is practice-speak; needs executive phrasing.` Interim label until answered: `CONTACT` (neutral, makes no claim).
+CTA label (decided 2026-08-09): header button `DISCUSS A TRANSACTION`, shortLabel `DISCUSS`, page-end CTAs "Discuss a transaction" → `/contact`.
 The PracticeToggle disappears from the header (one front door). Do not delete the component in phase 1; stop rendering it.
 
 ## 3. Content mapping (source block → target, with required fixes)
@@ -108,7 +108,7 @@ AC: all four /ma URLs 301 to correct targets on the test SWA.
 ## 8. Open TODOs (blocking copy, not structure)
 
 1. RESOLVED (rev 2): firm descriptor is the Appendix B positioning statement ("specialist advisory firm…"); execution is carried in the flagship practice name.
-2. `TODO(terry)`: CTA label (header button + page-end CTAs). Interim: `CONTACT`.
+2. RESOLVED 2026-08-09: CTA is `DISCUSS A TRANSACTION` / short `DISCUSS` / page-end "Discuss a transaction" (§2).
 3. RESOLVED 2026-08-09: embedded engagement model kept; stated durations dropped (§3).
 4. RESOLVED 2026-08-09: no partner names on /technology; S&P Global = data partner, Azure = technology runtime if referenced in body copy; detail stays at L3 (§3).
 5. RESOLVED 2026-08-09: figures confirmed for public use (Terry); `main` gate lifted (§4).

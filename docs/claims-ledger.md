@@ -167,19 +167,19 @@ Specific Atheryon-attributed outcomes, recoveries, or delivery results — beyon
 
 ## v3 / Appendix A claims (added 2026-08-09, exec-first IA restructure)
 
-Source: `docs/superpowers/plans/2026-08-09-exec-first-ia-restructure.md` Appendix A (content authored by Anna, provided by Terry). These ship to the **test** SWA only; verdicts are gated on `TODO(anna)` sign-off (spec §4) before any `dev → main` promotion.
+Source: `docs/superpowers/plans/2026-08-09-exec-first-ia-restructure.md` Appendix A (content authored by Anna, provided by Terry). **Sign-off complete 2026-08-09 (Terry, spec §8.5): figures approved verbatim from Appendix A; the `dev → main` gate is lifted.**
 
 | # | Claim text | Where it appears | Verdict | Replacement copy |
 |---|---|---|---|---|
-| 1 | RAMS transaction `valued at approximately $21.4 billion at signing` | src/content/site.ts v3.pages.home.sections.proof + v3.pages.experience (RAMS case) | TBD — TODO(anna) | — |
-| 2 | `recognised as one of the largest loan portfolio acquisitions in Australian history` | v3.pages.experience (RAMS case) | TBD — TODO(anna) | — |
-| 3 | `divestment and integration programs exceeding $1 billion in transaction value` | v3.pages.home.sections.proof + v3.pages.experience (case 02) | TBD — TODO(anna) | — |
-| 4 | `Completed transaction execution within four months and achieved full operational separation within ten months` | v3.pages.experience (case 03) | TBD — TODO(anna) | — |
-| 5 | `hypercare issues remained exceptionally low` | v3.pages.experience (RAMS case) | TBD — TODO(anna) | — |
-| 6 | Four FS sectors: `retail banking, business banking, wealth management and non-bank financial institutions` | v3.pages.home.sections.proof | TBD — TODO(anna) | — |
-| 7 | Four jurisdictions: `Australia, Europe, the United Kingdom and the United States` | v3.pages.home.sections.proof | TBD — TODO(anna) | — |
-| 8 | Anna: `more than 25 years in financial-services execution across Australia, the UK, and the US` + Westpac (2023–2025) / CBA Wealth (2018–2020) / Count Financial / CommInsure / BT Panorama / Deutsche Bank / Deutsche Pfandbriefbank / Credit Suisse / Capco | v3.pages.about.sections.founders (ported from v2Ma.approach.sections.seniorSpecialist per spec §3) | TBD — TODO(anna) | — |
-| 9 | `Atheryon leadership played a key role in the transition and integration of the RAMS mortgage portfolio acquisition` (provenance framing) | v3.pages.experience (RAMS case) | TBD — TODO(anna) | — |
+| 1 | RAMS transaction `valued at approximately $21.4 billion at signing` | src/content/site.ts v3.pages.home.sections.proof + v3.pages.experience (RAMS case) | approved | — |
+| 2 | `recognised as one of the largest loan portfolio acquisitions in Australian history` | v3.pages.experience (RAMS case) | approved | — |
+| 3 | `divestment and integration programs exceeding $1 billion in transaction value` | v3.pages.home.sections.proof + v3.pages.experience (case 02) | approved | — |
+| 4 | `Completed transaction execution within four months and achieved full operational separation within ten months` | v3.pages.experience (case 03) | approved | — |
+| 5 | `hypercare issues remained exceptionally low` | v3.pages.experience (RAMS case) | approved | — |
+| 6 | Four FS sectors: `retail banking, business banking, wealth management and non-bank financial institutions` | v3.pages.home.sections.proof | approved | — |
+| 7 | Four jurisdictions: `Australia, Europe, the United Kingdom and the United States` | v3.pages.home.sections.proof | approved | — |
+| 8 | Anna: `more than 25 years in financial-services execution across Australia, the UK, and the US` + Westpac (2023–2025) / CBA Wealth (2018–2020) / Count Financial / CommInsure / BT Panorama / Deutsche Bank / Deutsche Pfandbriefbank / Credit Suisse / Capco | v3.pages.about.sections.founders (ported from v2Ma.approach.sections.seniorSpecialist per spec §3) | approved | — |
+| 9 | `Atheryon leadership played a key role in the transition and integration of the RAMS mortgage portfolio acquisition` (provenance framing) | v3.pages.experience (RAMS case) | approved | — |
 | 10 | Terry co-founder bio achievement set (CS near-real-time FO risk + global P&L Attribution; CBA Markets ODS; Westpac $84M rescue, 10× baseline) | v3.pages.about.sections.founders | approved | Carried verbatim from ledger rows: Named clients #3–#6, Case claims #5–#8 (all `approved`). Goldman Sachs and S&P TeraHelix references from the unsigned v2 bio were **not** carried into v3. |
 
 ## Notes for Abigail
