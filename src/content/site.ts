@@ -542,13 +542,13 @@ export const v2 = {
       title: 'Atheryon — Capital Markets Engineering & M&A',
       intent: 'Home',
       description:
-        'Atheryon is a capital markets engineering and M&A integration advisory firm delivering production-grade systems and data platforms with AI agents.',
+        'Atheryon is a capital markets engineering and M&A integration advisory firm delivering institutional systems and data platforms with AI agents.',
       sections: {
         hero: {
           label: 'atheryon / cm-ma / overview',
           headline: 'ATHERYON CAPITAL MARKETS | M&A',
           subhead:
-            'An elite capital markets engineering and integration advisory firm. We design and deliver production-grade front-to-back systems and data platforms using AI agents, compressing multi-year institutional delivery cycles into weeks.',
+            'A capital markets engineering and M&A integration advisory firm. Atheryon designs and delivers institutional systems and data platforms using AI agents, compressing multi-year delivery cycles into weeks.',
         },
         selectedWork: {
           label: '§01 / Selected Work',
@@ -615,7 +615,7 @@ export const v2 = {
               index: '02',
               title: 'Capital Markets System Engineering',
               body:
-                'Direct implementation of front-to-back data platforms, algorithmic risk taxonomies, and declarative compliance architectures.',
+                'Direct implementation of data platforms for trading businesses, from risk taxonomy design through declarative compliance architecture.',
               href: '/system',
             },
             {
@@ -626,35 +626,6 @@ export const v2 = {
               href: '/offers',
             },
           ],
-        },
-      },
-      v3: {
-        hero: {
-          eyebrow: 'Capital Markets AI Systems',
-          headlineLeading: 'Designing and delivering capital markets AI systems using',
-          headlineAccent: 'AI agents.',
-          lede:
-            'Atheryon builds production-grade, front-to-back systems and data platforms that transform how financial institutions operate.',
-          primaryCta: { label: 'EXPLORE THE SYSTEM ARCHITECTURE', href: '/system' },
-          secondaryCta: { label: 'BOOK SYSTEM ASSESSMENT', href: '/contact' },
-        },
-        builtFor: {
-          headline: 'Built for the complexity of capital markets',
-        },
-        strip: {
-          experience: {
-            label: 'Proven Capital Markets Experience',
-            body:
-              'Deep experience building large-scale capital markets systems at leading global institutions.',
-          },
-          ecosystem: { label: 'Ecosystem Partners' },
-          engagement: { label: 'Engagement Model' },
-        },
-        cta: {
-          title: 'A Reference System. Proven Architecture.',
-          body:
-            'Our end-to-end capital markets AI reference system demonstrates how AI agents, data and workflows come together in production.',
-          link: { label: 'SEE THE SYSTEM ARCHITECTURE', href: '/system' },
         },
       },
     },

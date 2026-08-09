@@ -11,7 +11,7 @@ test('homepage leads with evidence and the commercial practice hierarchy', async
     level: 1,
     name: 'ATHERYON CAPITAL MARKETS | M&A',
   })).toBeVisible()
-  await expect(page.getByText('compressing multi-year institutional delivery cycles into weeks')).toBeVisible()
+  await expect(page.getByText('compressing multi-year delivery cycles into weeks')).toBeVisible()
 
   // Anonymised proof is visible before the ordered service hierarchy.
   await expect(page.getByRole('heading', { name: 'Selected work' })).toBeVisible()
