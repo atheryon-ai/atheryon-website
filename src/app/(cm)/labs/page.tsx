@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { DocPage, DocBanner, DocSection, DocBullets } from '@/components'
 import { site } from '@/content/site'
+import { metrics } from '@/content/metrics'
 
 const { labs } = site.pages
 
@@ -68,7 +69,7 @@ export default function LabsPage() {
             href="/labs/themes"
             className="inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
           >
-            Browse the full surface — 26 themes · 111 pages
+            Browse the full surface — {metrics.labs.themes} themes · {metrics.labs.pages} pages
             <span aria-hidden="true">→</span>
           </Link>
         </div>

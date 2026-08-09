@@ -1,3 +1,5 @@
+import { metrics } from './metrics'
+
 export const site = {
   name: 'Atheryon',
   email: 'info@atheryon.com.au',
@@ -80,10 +82,10 @@ export const site = {
         badge: 'At a glance',
         title: 'What was built, how fast',
         statsItems: [
-          { value: '8', label: 'banking functions covered' },
+          { value: String(metrics.bankingFunctions), label: 'banking functions covered' },
           { value: '1', label: 'CDM data model — compliant with ISDA (International Swaps and Derivatives Association), end to end' },
-          { value: '31', label: 'flagship surfaces shipped' },
-          { value: 'Live', label: 'at atheryon.com.au' },
+          { value: String(metrics.flagshipSurfaces), label: 'flagship surfaces shipped' },
+          { value: 'Live', label: 'at labs.atheryon.ai' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
         ],
         boxes: [
@@ -240,7 +242,7 @@ export const site = {
         title: 'Atheryon partners with a small number of institutions per year.',
         body: 'If what you have just read maps to a problem on your desk — or to a deal you are pitching — the next step is a confidential conversation.',
         primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
-        tertiaryCta: { label: 'See it live', href: 'https://www.atheryon.com.au' },
+        tertiaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
       },
     },
 
@@ -251,7 +253,7 @@ export const site = {
         hero: {
           eyebrow: '01 / Code',
           headline: 'Buy the Labs code.',
-          lede: 'License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, 8 banking functions, 31 surfaces, deployable.',
+          lede: `License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, ${metrics.bankingFunctions} banking functions, ${metrics.flagshipSurfaces} surfaces, deployable.`,
         },
         whatYouGet: {
           badge: 'What you get',
@@ -262,7 +264,7 @@ export const site = {
             // (CDM v7.0 = 1,019 types), ISO 20022 + FpML per `docs/requirements/REQ-schema-explorer-dynamic-data.md`
             // (working-set counts from the schema browser DB). Verifiable by clicking through to /explore/schema.
             'CDM-native data model — 1,019 CDM types, 42 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
-            '31 flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.',
+            `${metrics.flagshipSurfaces} flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.`,
             'Deployment notes: built on Azure-friendly stack (Next.js + Python services). Deployable into your estate.',
             'Source paired with the directorial track (see License the prompts for the matching prompt archive).',
           ],
@@ -397,11 +399,11 @@ export const site = {
 
     themes: {
       title: 'Themes — Atheryon Labs',
-      description: '26 themes · 111 pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.',
+      description: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.`,
       badge: 'Discovery',
       headline: 'Explore the labs surface',
       intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page that lives at labs.atheryon.ai, rendered here as a static map. Click any tile to open the live theme on the labs subdomain in a new tab. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops and dev tools) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
-      countsLine: '26 themes · 111 pages · 6 surfaces (1 ODS data store + 5 business units)',
+      countsLine: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages · ${metrics.labs.surfaces} surfaces (1 ODS data store + ${metrics.labs.businessUnits} business units)`,
       businessDividerLabel: 'Business Units',
     },
   },
@@ -776,7 +778,7 @@ export const v2 = {
           directive:
             'Reference system described as a working architecture (not screenshots or UI gallery).',
           body:
-            'The reference system runs at labs.atheryon.ai. 26 themes across 111 pages span six operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus five business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable in a running system rather than a screenshot gallery. A deeper briefing on core services, agent clusters, deployment topology, and operational evidence is available under MNDA.',
+            `The reference system runs at labs.atheryon.ai. ${metrics.labs.themes} themes across ${metrics.labs.pages} pages span ${metrics.labs.surfaces} operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus ${metrics.labs.businessUnits} business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable in a running system rather than a screenshot gallery. A deeper briefing on core services, agent clusters, deployment topology, and operational evidence is available under MNDA.`,
         },
       },
     },
