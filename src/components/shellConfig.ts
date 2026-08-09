@@ -17,6 +17,8 @@ export const shellConfig: Record<Mode, ShellConfig> = {
       { label: 'THEMES', href: '/themes' },
       { label: 'OFFERS', href: '/offers' },
       { label: 'SYSTEM', href: '/system' },
+      { label: 'LABS', href: '/labs' },
+      { label: 'ABOUT', href: '/about' },
     ],
     cta: {
       label: 'BOOK SYSTEM ASSESSMENT',

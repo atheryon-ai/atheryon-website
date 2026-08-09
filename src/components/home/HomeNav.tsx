@@ -39,7 +39,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
       >
         <BrandLockup markSize={52} />
 
-        <div className="home-nav-links" style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
+        <div className="home-nav-links" style={{ display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
           {config.nav.map((l) => (
             <Link
               key={l.href}
