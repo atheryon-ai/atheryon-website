@@ -11,15 +11,12 @@ export const metadata: Metadata = {
 
 const NAV = [
   { label: 'Home', tag: 'Atheryon home', href: '/' },
-  { label: 'System', tag: 'Reference architecture', href: '/system' },
-  { label: 'Themes', tag: 'Capital markets AI themes', href: '/themes' },
-  { label: 'Offers', tag: 'Engagement model', href: '/offers' },
-  { label: 'About', tag: 'Banking lineage', href: '/about' },
-  { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
-  { label: 'Roadmap', tag: 'Delivery roadmap', href: '/roadmap' },
+  { label: 'Services', tag: 'Transaction Advisory & Execution', href: '/services' },
+  { label: 'Experience', tag: 'Representative experience', href: '/experience' },
+  { label: 'Approach', tag: 'Method and governance', href: '/approach' },
+  { label: 'About', tag: 'Story and co-founders', href: '/about' },
   { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
-  { label: 'M&A', tag: 'Separation and integration practice', href: '/ma' },
-  { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
+  { label: 'Contact', tag: 'Talk to Atheryon', href: '/contact' },
 ] as const
 
 /**

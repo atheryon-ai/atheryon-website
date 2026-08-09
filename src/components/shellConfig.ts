@@ -12,17 +12,20 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
+  // Firm shell (executive-first IA, 2026-08-09). Phase 2 inserts TECHNOLOGY
+  // after SERVICES. CM legacy pages (/system, /labs, /themes, /offers) are
+  // reached via /technology and the footer, not the header.
   cm: {
     nav: [
-      { label: 'THEMES', href: '/themes' },
-      { label: 'OFFERS', href: '/offers' },
-      { label: 'SYSTEM', href: '/system' },
-      { label: 'LABS', href: '/labs' },
+      { label: 'SERVICES', href: '/services' },
+      { label: 'EXPERIENCE', href: '/experience' },
+      { label: 'APPROACH', href: '/approach' },
       { label: 'ABOUT', href: '/about' },
     ],
+    // TODO(terry): CTA wording (spec §8.2) — interim neutral label.
     cta: {
-      label: 'BOOK SYSTEM ASSESSMENT',
-      shortLabel: 'BOOK',
+      label: 'CONTACT',
+      shortLabel: 'CONTACT',
       href: '/contact',
     },
   },

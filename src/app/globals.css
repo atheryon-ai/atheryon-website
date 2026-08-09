@@ -506,15 +506,26 @@ select.bg-white:focus:not(:focus-visible) {
 /* Show full CTA label on desktop, short label only on the smallest viewports. */
 .home-nav-cta-short { display: none; }
 
+/* Mobile menu button + panel: hidden on desktop, shown ≤768px. */
+.home-nav-menu-btn { display: none; }
+@media (min-width: 769px) {
+  .home-nav-mobile-panel { display: none !important; }
+}
+
 @media (max-width: 768px) {
-  /* Nav: drop middle links, keep brand + CTA. */
+  /* Nav: drop middle links, keep brand + CTA + menu button. */
   .home-nav-grid {
-    grid-template-columns: auto auto !important;
+    grid-template-columns: auto auto auto !important;
     gap: 12px !important;
     padding: 0 16px !important;
     justify-content: space-between;
   }
   .home-nav-links { display: none !important; }
+  .home-nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .home-nav-cta {
     padding: 8px 12px !important;
     font-size: 11px !important;

@@ -31,9 +31,10 @@ function ContactFormInner({
   submitLabel?: string
 }) {
   const searchParams = useSearchParams()
-  // Explicit `defaultTopic` from the page wins; otherwise fall back to the
-  // ?topic= query param so old CM links keep working.
-  const topicParam = defaultTopic ?? searchParams.get('topic') ?? ''
+  // An explicit ?topic= query param wins (mortgages CTA links
+  // /contact?topic=mortgages); otherwise the page's `defaultTopic` applies —
+  // the root /contact defaults to the M&A execution enquiry path.
+  const topicParam = searchParams.get('topic') ?? defaultTopic ?? ''
   const topicLabel = TOPIC_LABELS[topicParam] ?? ''
   const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
 
