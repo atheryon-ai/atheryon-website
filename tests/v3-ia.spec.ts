@@ -116,6 +116,32 @@ test('CM legacy routes still resolve and the footer groups them under Technology
   }
 })
 
+// Retired /ma routes 301 on the SWA (redirects live in
+// staticwebapp.config.json, which only applies on Azure — not `next dev`).
+// Gated behind SWA_BASE_URL like the legacy-redirect tests in offers.spec.ts.
+const SWA_BASE_URL = process.env.SWA_BASE_URL
+
+test.describe('retired /ma redirects (SWA only)', () => {
+  test.skip(!SWA_BASE_URL, 'Set SWA_BASE_URL to test deployed redirects')
+
+  for (const [from, to] of [
+    ['/ma', '/'],
+    ['/ma/approach', '/approach'],
+    ['/ma/offers', '/services'],
+    ['/ma/contact', '/contact'],
+    ['/ma/system', '/approach'],
+    ['/ma/workflows', '/approach'],
+  ] as const) {
+    test(`${from} 301s to ${to}`, async ({ request }) => {
+      const response = await request.get(`${SWA_BASE_URL}${from}`, {
+        maxRedirects: 0,
+      })
+      expect(response.status()).toBe(301)
+      expect(response.headers()['location']).toBe(`${SWA_BASE_URL}${to}`)
+    })
+  }
+})
+
 test('/contact renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
   await page.goto('/contact')
 

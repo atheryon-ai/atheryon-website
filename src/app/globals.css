@@ -534,8 +534,7 @@ select.bg-white:focus:not(:focus-visible) {
     letter-spacing: 0.06em !important;
     gap: 6px !important;
   }
-  /* Brand: drop the long tagline + shrink the wordmark so the nav fits. */
-  .home-nav-grid .brand-lockup-tagline { display: none !important; }
+  /* Brand: shrink the wordmark so the nav fits. */
   .home-nav-grid .brand-lockup-wordmark {
     font-size: 18px !important;
     letter-spacing: 0.06em !important;

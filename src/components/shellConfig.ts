@@ -4,7 +4,7 @@
 // correct HTML is emitted at static-export build time. No client mode
 // detection, no FOUC on direct loads to /ma or /mortgages.
 
-export type Mode = 'cm' | 'ma' | 'mortgages'
+export type Mode = 'cm' | 'mortgages'
 
 export type ShellConfig = {
   nav: { label: string; href: string }[]
@@ -28,20 +28,6 @@ export const shellConfig: Record<Mode, ShellConfig> = {
       label: 'CONTACT',
       shortLabel: 'CONTACT',
       href: '/contact',
-    },
-  },
-  ma: {
-    nav: [
-      { label: 'APPROACH', href: '/ma/approach' },
-      { label: 'OFFERS', href: '/ma/offers' },
-    ],
-    cta: {
-      label: 'BOOK M&A REVIEW',
-      shortLabel: 'REVIEW',
-      // Real route under the M&A group, NOT /contact?topic=ma-execution.
-      // Static export cannot vary shell/nav/title by query string, so a
-      // dedicated path keeps M&A users inside the M&A shell on arrival.
-      href: '/ma/contact',
     },
   },
   mortgages: {

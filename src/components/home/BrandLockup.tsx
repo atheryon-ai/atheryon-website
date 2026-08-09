@@ -26,8 +26,6 @@ export function BrandLockup({ markSize = 52 }: Props) {
         >
           ATHERYON
         </Link>
-        {/* PracticeToggle removed 2026-08-09 (one front door — exec-first IA).
-            Component retired fully in phase 3. */}
       </span>
     </span>
   )
