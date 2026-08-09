@@ -42,6 +42,7 @@
     { "route": "/services",    "rewrite": "/services.html" },
     { "route": "/experience",  "rewrite": "/experience.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
+    { "route": "/technology",  "rewrite": "/technology.html" },
 
     { "route": "/offers",         "rewrite": "/offers.html" },
     { "route": "/offers/code",    "rewrite": "/offers/code.html" },

@@ -1,48 +1,38 @@
 # Atheryon
 
-> Atheryon designs and delivers production-grade capital markets systems and data platforms using AI agents.
+> Atheryon is a specialist advisory firm helping organisations execute complex transactions and transformations where operational, technology and data dependencies materially impact outcomes.
 
-Atheryon is a capital markets AI systems firm — not a marketing site. This document is the canonical machine-readable rendering of the Atheryon manifest, structured for AI agents interpreting capability and architecture. Architecture clarity > marketing copy.
+This document is the canonical machine-readable rendering of the Atheryon site, structured for AI agents interpreting capability and structure.
 
-## Core Domains
+## Practices
 
-- Capital Markets Systems (front-to-back): https://atheryon.com.au/system
-- Data Platforms: https://atheryon.com.au/system
-- AI Agent Systems: https://atheryon.com.au/themes
-
-## Commercial Offers
-
-- Buy the Code (platform licence): https://atheryon.com.au/offers/code
-- License the Prompts (directorial prompt archive): https://atheryon.com.au/offers/prompts
-- Consult (senior-led advisory): https://atheryon.com.au/offers/consult
-
-The Prompts offer includes the productized Front Office bundle — a packaged directorial prompt set for capital markets front-office workflows, priced at $14,000 AUD.
-
-## Ecosystem
-
-- Microsoft Azure AI infrastructure: production AI infrastructure layer.
-- S&P Global data integration: capital markets reference and pricing data layer.
-- Banking experience — Goldman Sachs, Credit Suisse, Barclays Capital: framed as architectural lineage, not claims of employment or system ownership.
+- Transaction Advisory & Execution (flagship, led by Anna Contos): https://atheryon.com.au/services
+- Technology & Data (led by Terry Tsakiris): https://atheryon.com.au/technology
 
 ## Site map
 
-- [Home](https://atheryon.com.au/): identity statement and system map.
-- [System](https://atheryon.com.au/system): reference architecture (core proof).
-- [Themes](https://atheryon.com.au/themes): seven-row CM buyer matrix — desk-head pockets of pain joined to workflows.
-- [Roadmap](https://atheryon.com.au/roadmap): BUILDING + ROADMAP items across themes + practices.
-- [Offers](https://atheryon.com.au/offers): commercial entry — three ways to engage.
-- [Buy the Code](https://atheryon.com.au/offers/code): platform licence.
-- [License the Prompts](https://atheryon.com.au/offers/prompts): directorial prompt archive; includes Front Office bundle.
-- [Consult](https://atheryon.com.au/offers/consult): senior-led advisory engagement.
-- [Labs](https://atheryon.com.au/labs): research themes and tooling.
-- [Labs Themes](https://atheryon.com.au/labs/themes): full taxonomy of labs research themes.
+- [Home](https://atheryon.com.au/): executive landing — positioning, proof strip, principle, practices.
+- [Services](https://atheryon.com.au/services): the flagship practice — transaction readiness, separation & integration strategy, execution leadership, and technology, data & migration readiness.
+- [Technology](https://atheryon.com.au/technology): the Technology & Data practice — separation, migration, platform transition, AI-enabled analysis; engaged inside transactions and standalone.
+- [Experience](https://atheryon.com.au/experience): representative cases normalised to Context / Role / Outcome, RAMS mortgage portfolio acquisition first.
+- [Approach](https://atheryon.com.au/approach): method and governance across the transaction lifecycle.
+- [About](https://atheryon.com.au/about): firm story and co-founder biographies (Anna Contos, Terry Tsakiris).
+- [Contact](https://atheryon.com.au/contact): single enquiry path.
+
+## Technology depth (L3, reached via /technology)
+
+- [System](https://atheryon.com.au/system): reference architecture for the capital markets platform work.
+- [Labs](https://atheryon.com.au/labs): the working reference platform.
+- [Themes](https://atheryon.com.au/themes): platform themes by banking function.
+- [Offers](https://atheryon.com.au/offers): platform licensing and engagement paths (code, prompts, consult).
+- [Roadmap](https://atheryon.com.au/roadmap): building + roadmap items across themes and practices.
+
+## Other
+
+- [Writing](https://atheryon.com.au/blog): essays from the practice.
 - [Mortgages](https://atheryon.com.au/mortgages): retail mortgage origination automation — practice stub (BUILDING).
-- [M&A](https://atheryon.com.au/ma): M&A execution practice — pre-sign advice + post-deal delivery. Led by Anna Contos.
-- [M&A Approach](https://atheryon.com.au/ma/approach): how Atheryon delivers M&A — senior consulting + AI agents on Azure with S&P Global data partner. Three workflows: Pre-Sign Review, Separation/Integration Planning, TSA Tracking & Reduction.
-- [M&A Offers](https://atheryon.com.au/ma/offers): one offer — Embedded Execution Specialists. Pre-sign through post-sign engagement. Not productised separately.
-- [About](https://atheryon.com.au/about): banking lineage + capability foundation.
-- [Contact](https://atheryon.com.au/contact): book system assessment.
+- [Privacy](https://atheryon.com.au/privacy) · [Terms](https://atheryon.com.au/terms)
 
 ## Audience
 
-Built for enterprise buyers (banks, executives) and AI agents (LLMs interpreting capability and structure).
+Built for executive buyers in regulated financial services (Boards, executive teams, investors, private equity sponsors, corporate development teams) and for AI agents interpreting capability and structure.

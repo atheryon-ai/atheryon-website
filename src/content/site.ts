@@ -1241,6 +1241,39 @@ export const v3 = {
     href: '/contact',
   },
 
+  // Firm footer (phase 2): CM legacy pages regroup under a Technology heading.
+  footer: {
+    groups: [
+      {
+        heading: 'Firm',
+        links: [
+          { label: 'Services', href: '/services' },
+          { label: 'Technology', href: '/technology' },
+          { label: 'Experience', href: '/experience' },
+          { label: 'Approach', href: '/approach' },
+          { label: 'About', href: '/about' },
+          { label: 'Contact', href: '/contact' },
+        ],
+      },
+      {
+        heading: 'Technology',
+        links: [
+          { label: 'System', href: '/system' },
+          { label: 'Labs', href: '/labs' },
+          { label: 'Themes', href: '/themes' },
+          { label: 'Offers', href: '/offers' },
+        ],
+      },
+      {
+        heading: 'Resources',
+        links: [
+          { label: 'Writing', href: '/blog' },
+          { label: 'Roadmap', href: '/roadmap' },
+        ],
+      },
+    ],
+  },
+
   pages: {
     home: {
       route: '/',
@@ -1353,9 +1386,8 @@ export const v3 = {
             body:
               'The strategic capability behind the flagship practice: technology, data and migration readiness for transactions, with data-enabled and AI-assisted analysis inside the work. The practice is also engaged standalone.',
             href: '/technology',
-            // Phase 2 gate: block hidden while the marker is present (no dead
-            // links before /technology ships). Cleared when phase 2 lands.
-            live: '{{TECHNOLOGY_LIVE}}',
+            // Phase 2 shipped /technology; the entry is live.
+            live: 'live',
             ctaLabel: 'Explore the practice',
           },
         },
@@ -1671,6 +1703,65 @@ export const v3 = {
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
           ],
+        },
+      },
+    },
+
+    technology: {
+      route: '/technology',
+      title: 'Technology & Data — Atheryon',
+      description:
+        'The Technology & Data practice: technology and data separation, migration and platform transition for transactions, and a practice engaged standalone.',
+      sections: {
+        hero: {
+          label: 'atheryon / technology',
+          title: 'Technology & Data',
+          subtitle:
+            'The second practice, led by Terry Tsakiris. The strategic capability behind Transaction Advisory & Execution, and a practice engaged standalone.',
+        },
+        outcomes: {
+          label: '§01 / What the practice delivers',
+          title: 'What the practice delivers',
+          items: [
+            'Technology and data separation for divestments and carve-outs',
+            'Migration planning and delivery across structured and unstructured data',
+            'Platform transition and application rationalisation',
+            'AI-enabled analysis of dependencies, complexity and risk',
+            'Delivery acceleration for transformation programs',
+          ],
+          body:
+            'The practice covers enterprise architecture, data platforms and the migration work that determines transaction timelines. Inside a transaction it runs the Technology, Data & Migration Readiness service line. Outside transactions it is engaged standalone for technology and data programs.',
+        },
+        workflows: {
+          label: '§02 / Workflows',
+          title: 'Three delivery workflows',
+          intro:
+            'AI sits inside the practice, never in front of it. Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+        },
+        delivery: {
+          label: '§03 / Delivery',
+          title: 'Embedded delivery',
+          body:
+            'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
+        },
+        depth: {
+          label: '§04 / Platform Depth',
+          title: 'Under the practice',
+          intro:
+            'The practice is backed by a working reference implementation and its supporting material.',
+          links: [
+            { label: 'System', href: '/system', note: 'Reference architecture for the capital markets platform work' },
+            { label: 'Labs', href: '/labs', note: 'The working reference platform' },
+            { label: 'Themes', href: '/themes', note: 'Platform themes by banking function' },
+            { label: 'Offers', href: '/offers', note: 'License the code, license the prompts, or consult' },
+          ],
+        },
+        // TODO(terry): partner names on /technology (spec §8.4) — hidden by the
+        // isPending guard until answered.
+        partners: {
+          label: '§05 / Partners',
+          title: 'Partners',
+          body: '{{TECHNOLOGY_PARTNERS}}',
         },
       },
     },

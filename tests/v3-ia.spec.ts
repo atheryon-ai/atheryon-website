@@ -65,6 +65,57 @@ test('/experience normalises cases to Context / Role / Outcome with RAMS first',
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
+test('/technology is a practice page keeping CM depth reachable', async ({ page }) => {
+  const response = await page.goto('/technology')
+  expect(response?.status()).toBe(200)
+
+  await expect(page.getByRole('heading', { level: 1, name: 'Technology & Data' })).toBeVisible()
+
+  // Homepage capabilities secondary entry is live and the flagship still leads
+  // (asymmetric presentation), and the nav carries TECHNOLOGY.
+  await expect(
+    page.locator('.home-nav-links').getByRole('link', { name: 'TECHNOLOGY' }),
+  ).toHaveAttribute('href', '/technology')
+
+  // Three delivery workflows (demoted v2Ma AI content)
+  await expect(page.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'TSA Tracking & Reduction' })).toBeVisible()
+
+  // Partner names are TODO-gated
+  await expect(page.getByText('{{')).toHaveCount(0)
+
+  // CM depth links out of /technology
+  const depth = page.locator('section', { has: page.getByRole('heading', { name: 'Under the practice' }) })
+  for (const [label, href] of [
+    ['System', '/system'],
+    ['Labs', '/labs'],
+    ['Themes', '/themes'],
+    ['Offers', '/offers'],
+  ] as const) {
+    await expect(depth.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+  }
+})
+
+test('CM legacy routes still resolve and the footer groups them under Technology', async ({ page }) => {
+  for (const path of ['/system', '/labs', '/themes', '/offers']) {
+    const response = await page.goto(path)
+    expect(response?.status()).toBe(200)
+  }
+
+  await page.goto('/')
+  const footer = page.getByLabel('Footer navigation')
+  // Both the group heading and the /technology practice link carry the word.
+  await expect(footer.getByText('Technology', { exact: true })).toHaveCount(2)
+  for (const [label, href] of [
+    ['System', '/system'],
+    ['Labs', '/labs'],
+    ['Themes', '/themes'],
+    ['Offers', '/offers'],
+  ] as const) {
+    await expect(footer.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+  }
+})
+
 test('/contact renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
   await page.goto('/contact')
 

@@ -18,6 +18,7 @@ export const shellConfig: Record<Mode, ShellConfig> = {
   cm: {
     nav: [
       { label: 'SERVICES', href: '/services' },
+      { label: 'TECHNOLOGY', href: '/technology' },
       { label: 'EXPERIENCE', href: '/experience' },
       { label: 'APPROACH', href: '/approach' },
       { label: 'ABOUT', href: '/about' },

@@ -14,6 +14,7 @@ test('homepage leads with the transaction story and executive nav', async ({ pag
   // Executive nav
   for (const [label, href] of [
     ['SERVICES', '/services'],
+    ['TECHNOLOGY', '/technology'],
     ['EXPERIENCE', '/experience'],
     ['APPROACH', '/approach'],
     ['ABOUT', '/about'],
