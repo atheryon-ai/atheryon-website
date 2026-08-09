@@ -19,9 +19,9 @@ test('homepage leads with evidence and the commercial practice hierarchy', async
     name: 'Tier-1 Australian Banking Divestment & TSA Exit',
   })).toBeVisible()
   await expect(page.getByText('reducing traditional analyst dependency mapping timelines from 6 months to 4 weeks')).toBeVisible()
-  await expect(page.getByText('compressing system delivery cycles by 60%')).toBeVisible()
+  await expect(page.getByText('cutting system delivery cycles by 60%')).toBeVisible()
 
-  await expect(page.getByRole('heading', { name: 'Services & practice hierarchy' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Services', exact: true })).toBeVisible()
   await expect(page.getByRole('link', { name: 'M&A Separation & Integration Advisory' })).toHaveAttribute('href', '/ma')
   await expect(page.getByRole('link', { name: 'Capital Markets System Engineering' })).toHaveAttribute('href', '/system')
   await expect(page.getByRole('link', { name: 'Proprietary Technology & IP Licensing' })).toHaveAttribute('href', '/offers')

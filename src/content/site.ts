@@ -553,7 +553,7 @@ export const v2 = {
         'Atheryon is a capital markets engineering and M&A integration advisory firm delivering institutional systems and data platforms with AI agents.',
       sections: {
         hero: {
-          label: 'atheryon / cm-ma / overview',
+          label: 'atheryon / capital markets & m&a / overview',
           headline: 'ATHERYON CAPITAL MARKETS | M&A',
           subhead:
             'A capital markets engineering and M&A integration advisory firm. Atheryon designs and delivers institutional systems and data platforms using AI agents, compressing multi-year delivery cycles into weeks.',
@@ -570,7 +570,7 @@ export const v2 = {
                 {
                   label: 'Context',
                   body:
-                    'Commanded a multi-billion dollar wealth management carve-out requiring structural separation from legacy core banking infrastructure.',
+                    'A multi-billion dollar wealth management carve-out requiring structural separation from legacy core banking infrastructure.',
                 },
                 {
                   label: 'Execution',
@@ -602,15 +602,15 @@ export const v2 = {
                 {
                   label: 'Outcome',
                   body:
-                    'Re-engineered front-office to back-office P&L taxonomy, compressing system delivery cycles by 60%.',
+                    'Re-engineered front-office to back-office P&L taxonomy, cutting system delivery cycles by 60%.',
                 },
               ],
             },
           ],
         },
         practiceHierarchy: {
-          label: '§02 / Services & Practice Hierarchy',
-          title: 'Services & practice hierarchy',
+          label: '§02 / Services',
+          title: 'Services',
           entries: [
             {
               index: '01',
@@ -630,7 +630,7 @@ export const v2 = {
               index: '03',
               title: 'Proprietary Technology & IP Licensing',
               body:
-                'Commercial access to the Atheryon Labs reference implementation platform, core CDM code assets, and our curated directorial prompt archives.',
+                'Commercial access to the Atheryon Labs reference implementation platform, core CDM code assets, and the prompt archive that directed the AI build.',
               href: '/offers',
             },
           ],

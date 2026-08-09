@@ -61,6 +61,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
         <Link
           href={config.cta.href}
           className="home-nav-cta"
+          aria-label={config.cta.label}
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -80,7 +81,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
         >
           <span className="home-nav-cta-full">{config.cta.label}</span>
           <span className="home-nav-cta-short">{config.cta.shortLabel}</span>
-          <span>→</span>
+          <span aria-hidden="true">→</span>
         </Link>
       </div>
     </nav>

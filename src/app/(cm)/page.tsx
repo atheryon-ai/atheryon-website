@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { DocBanner, DocPage, DocSection } from '@/components/Doc'
+import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v2 } from '@/content/site'
 
 const page = v2.pages.home
@@ -92,6 +92,8 @@ export default function HomePage() {
           ))}
         </ol>
       </DocSection>
+
+      <DocFooter label="atheryon / overview / end-of-document" />
     </DocPage>
   )
 }
