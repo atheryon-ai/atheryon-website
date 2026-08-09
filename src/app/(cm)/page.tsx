@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
+import { DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { ProofStrip, StatementBand } from '@/components/brand'
 import { v3 } from '@/content/site'
 
@@ -53,20 +53,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Firm-level argument (Terry 2026-08-09, verbatim). */}
-      <DocSection label={s.why.label} title={s.why.title}>
-        <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.why.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-
-        <div className="mt-10 max-w-3xl">
-          <p className="text-base md:text-lg text-charcoal/85 mb-4">{s.why.engageIntro}</p>
-          <DocBullets items={[...s.why.engageItems]} />
-        </div>
-      </DocSection>
 
       {/* Parallel arm sections (Terry 2026-08-09): the front page splits
           evenly — transaction proof under M&A, the $84M proof point under

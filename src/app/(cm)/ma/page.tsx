@@ -39,17 +39,18 @@ export default function MaArmPage() {
         </div>
       </DocSection>
 
-      {/* Moved from the homepage (Terry 2026-08-09: M&A-specific). */}
+      {/* Terry 2026-08-09 (21:28 review): the Why Clients Choose Atheryon
+          copy is M&A copy and lives here. */}
       <DocSection label={s.why.label} title={s.why.title}>
         <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.why.body.split('\n\n').map((paragraph) => (
+          {s.why.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
 
         <div className="mt-10 max-w-3xl">
-          <p className="text-base md:text-lg text-charcoal/85 mb-4">{s.why.helpIntro}</p>
-          <DocBullets items={[...s.why.helpItems]} />
+          <p className="text-base md:text-lg text-charcoal/85 mb-4">{s.why.engageIntro}</p>
+          <DocBullets items={[...s.why.engageItems]} />
         </div>
       </DocSection>
 

@@ -1394,36 +1394,6 @@ export const v3 = {
             ],
           },
         },
-        // Firm-level front-page copy (Terry, 2026-08-09 21:16, verbatim;
-        // "programmes" normalised to the site's "programs"). Arm-neutral —
-        // the transaction-specific Why Atheryon lives on /ma.
-        why: {
-          label: 'Why Clients Choose Atheryon',
-          title: 'Why Clients Choose Atheryon',
-          paragraphs: [
-            'The quality of outcomes is often determined before execution begins.',
-            'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
-            'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
-            'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
-            'We combine deep experience across transactions, transformation, capital markets, banking, wealth management, technology, data and AI to bring clarity to critical decisions and confidence to execution.',
-            'Our experience has been built across some of the world’s most complex and highly regulated environments, spanning global investment banking, capital markets, retail and business banking, wealth management, insurance and non-bank financial institutions. We understand the challenges of operating where commercial objectives, customer outcomes, operational resilience, technology, data and risk management must all be aligned.',
-            'From transaction strategy, commercial structuring and execution planning through to transformation, technology enablement and delivery leadership, we help clients align commercial objectives with operational reality and achieve outcomes with confidence.',
-          ],
-          engageIntro: 'Clients engage Atheryon to:',
-          engageItems: [
-            'Understand the implications of strategic decisions before commitments are made',
-            'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
-            'Assess execution requirements, risks and dependencies early',
-            'Identify operational, technology and data constraints before they become delivery challenges',
-            'Improve visibility of risks, interdependencies and readiness across complex programs and transactions',
-            'Leverage data, analytics and AI-enabled approaches to improve insight, decision-making and execution certainty',
-            'Design and modernise platforms, operating models and business processes',
-            'Unlock greater value from enterprise data and technology investments',
-            'Navigate complex stakeholder, regulatory and governance environments',
-            'Accelerate implementation, operational readiness and value realisation',
-            'Protect value and improve execution certainty',
-          ],
-        },
         // The firm belief (Terry, 2026-08-09, verbatim): closing statement
         // moment. Distinct from the arm principles, which live with the
         // sub pages.
@@ -1535,21 +1505,34 @@ export const v3 = {
           support:
             'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
         },
-        // Moved from the homepage (Terry 2026-08-09: M&A-specific).
+        // Terry 2026-08-09 (21:28 review): this section is M&A copy — it
+        // lives here, replacing the earlier transaction-specific Why
+        // Atheryon (superseded; recoverable in git history).
         why: {
-          label: 'Why Atheryon',
-          title: 'Why Atheryon',
-          body:
-            'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
-          helpIntro: 'We help clients:',
-          helpItems: [
-            'Understand operational implications before signing',
-            'Identify execution risks earlier',
-            'Build appropriate commercial protections and execution considerations into transaction agreements',
-            'Reduce reliance on TSAs',
-            'Accelerate operational independence',
-            'Improve transaction certainty',
-            'Protect and realise transaction value',
+          label: 'Why Clients Choose Atheryon',
+          title: 'Why Clients Choose Atheryon',
+          paragraphs: [
+            'The quality of outcomes is often determined before execution begins.',
+            'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
+            'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
+            'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
+            'We combine deep experience across transactions, transformation, capital markets, banking, wealth management, technology, data and AI to bring clarity to critical decisions and confidence to execution.',
+            'Our experience has been built across some of the world’s most complex and highly regulated environments, spanning global investment banking, capital markets, retail and business banking, wealth management, insurance and non-bank financial institutions. We understand the challenges of operating where commercial objectives, customer outcomes, operational resilience, technology, data and risk management must all be aligned.',
+            'From transaction strategy, commercial structuring and execution planning through to transformation, technology enablement and delivery leadership, we help clients align commercial objectives with operational reality and achieve outcomes with confidence.',
+          ],
+          engageIntro: 'Clients engage Atheryon to:',
+          engageItems: [
+            'Understand the implications of strategic decisions before commitments are made',
+            'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
+            'Assess execution requirements, risks and dependencies early',
+            'Identify operational, technology and data constraints before they become delivery challenges',
+            'Improve visibility of risks, interdependencies and readiness across complex programs and transactions',
+            'Leverage data, analytics and AI-enabled approaches to improve insight, decision-making and execution certainty',
+            'Design and modernise platforms, operating models and business processes',
+            'Unlock greater value from enterprise data and technology investments',
+            'Navigate complex stakeholder, regulatory and governance environments',
+            'Accelerate implementation, operational readiness and value realisation',
+            'Protect value and improve execution certainty',
           ],
         },
         lines: {
