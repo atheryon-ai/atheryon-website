@@ -42,9 +42,12 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Failed financial markets data program recovered and delivered')).toBeVisible()
 
-  // Principle: once site-wide, founding framing, large type
-  await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
-  await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
+  // Principle lives with the sub pages (Terry 2026-08-09), not here
+  await expect(page.getByText('Atheryon was founded on a simple observation:')).toHaveCount(0)
+
+  // Parallel arm sections: M&A proof + Capital Markets proof
+  await expect(page.getByRole('heading', { name: 'M&A', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Capital Markets', exact: true })).toBeVisible()
 
   // Arms inside the poster band: bronze-ticked labels, M&A first, both
   // linking; foundation strip beneath

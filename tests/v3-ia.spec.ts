@@ -29,6 +29,10 @@ for (const route of routes) {
 test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async ({ page }) => {
   await page.goto('/ma')
 
+  // The transaction principle lives here now (Terry 2026-08-09)
+  await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
+  await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
+
   for (const line of [
     'Transaction Readiness',
     'Separation & Integration Strategy',

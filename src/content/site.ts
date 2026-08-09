@@ -1413,15 +1413,6 @@ export const v3 = {
               },
             ],
           },
-          // Core IP statement: featured ONCE site-wide, inside this section,
-          // large type, founding framing (rev 5 §1).
-          principle: {
-            framing: 'Atheryon was founded on a simple observation:',
-            statement:
-              'Transaction value is protected when separation and integration requirements are understood early.',
-            support:
-              'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
-          },
         },
         cmSection: {
           label: '§02 / Capital Markets',
@@ -1533,6 +1524,15 @@ export const v3 = {
           title: 'Making Transactions Executable',
           subtitle:
             'The M&A arm, led by Anna Contos. Advisory and execution leadership for transactions and the transformations they set in motion, where execution risk can materially impact outcomes.',
+        },
+        // The arm's principle (Terry 2026-08-09: principles live with the
+        // sub pages, not the homepage). Large type, founding framing.
+        principle: {
+          framing: 'Atheryon was founded on a simple observation:',
+          statement:
+            'Transaction value is protected when separation and integration requirements are understood early.',
+          support:
+            'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
         },
         lines: {
           label: '§01 / Service Lines',
@@ -1909,6 +1909,14 @@ export const v3 = {
           subtitle:
             'The Capital Markets arm, led by Terry Tsakiris. Engaged standalone for technology and data programs.',
         },
+        // TODO(terry): the Capital Markets principle statement — one
+        // sentence in the arm's own register. Hidden until supplied; the
+        // transaction principle stays on /ma and is never reused here.
+        principle: {
+          framing: '',
+          statement: '{{CM_PRINCIPLE}}',
+          support: '',
+        },
         outcomes: {
           label: '§01 / What the arm delivers',
           title: 'What the arm delivers',
@@ -1996,6 +2004,13 @@ export const v3 = {
           title: 'Data. Transformation. AI.',
           subtitle:
             'The shared foundation beneath the M&A and Capital Markets arms.',
+        },
+        // TODO(terry): the underpinning principle statement. Hidden until
+        // supplied.
+        principle: {
+          framing: '',
+          statement: '{{DATA_AI_PRINCIPLE}}',
+          support: '',
         },
         data: {
           label: '§01 / Data',

@@ -23,6 +23,20 @@ export default function MaArmPage() {
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
 
+      {/* The arm's principle (Terry 2026-08-09: principles live with the
+          sub pages). Unlabelled section — no § number, a statement moment. */}
+      <DocSection>
+        <div className="max-w-4xl py-4 md:py-8">
+          <p className="font-mono text-sm text-charcoal/70 mb-6">{s.principle.framing}</p>
+          <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
+            {s.principle.statement}
+          </p>
+          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
+            {s.principle.support}
+          </p>
+        </div>
+      </DocSection>
+
       <DocSection label={s.lines.label} title={s.lines.title}>
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.lines.items.map((line) => (

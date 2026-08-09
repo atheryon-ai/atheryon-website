@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
+import { isPending } from '@/lib/pending'
 
 const page = v3.pages.dataAi
 const s = page.sections
+
+// TODO(terry): {{DATA_AI_PRINCIPLE}} — the underpinning principle renders
+// here once supplied (principles live with the sub pages, 2026-08-09).
+const showPrinciple = !isPending(s.principle.statement)
 
 export const metadata: Metadata = {
   title: page.title,
@@ -22,6 +27,16 @@ export default function DataAiPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+
+      {showPrinciple && (
+        <DocSection>
+          <div className="max-w-4xl py-4 md:py-8">
+            <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
+              {s.principle.statement}
+            </p>
+          </div>
+        </DocSection>
+      )}
 
       {([s.data, s.transformation, s.ai] as const).map((section) => (
         <DocSection key={section.title} label={section.label} title={section.title}>
