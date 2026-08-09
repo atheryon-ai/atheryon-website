@@ -67,11 +67,11 @@ test('/experience normalises cases to Context / Role / Outcome with RAMS first',
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
-test('/technology is a practice page keeping CM depth reachable', async ({ page }) => {
-  const response = await page.goto('/technology')
+test('/capital-markets is the Capital Markets arm keeping CM depth reachable', async ({ page }) => {
+  const response = await page.goto('/capital-markets')
   expect(response?.status()).toBe(200)
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Technology & Data' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Capital Markets' })).toBeVisible()
 
   // Three delivery workflows (demoted v2Ma AI content)
   await expect(page.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toBeVisible()
@@ -80,15 +80,16 @@ test('/technology is a practice page keeping CM depth reachable', async ({ page 
   // Partner names are TODO-gated
   await expect(page.getByText('{{')).toHaveCount(0)
 
-  // CM depth links out of /technology
-  const depth = page.locator('section', { has: page.getByRole('heading', { name: 'Under the practice' }) })
+  // CM depth links out of /capital-markets. Scoped to <main> — the footer
+  // carries identically named links but sits outside <main> in the (cm)
+  // layout, so this cannot collide.
   for (const [label, href] of [
     ['System', '/system'],
     ['Labs', '/labs'],
     ['Themes', '/themes'],
     ['Offers', '/offers'],
   ] as const) {
-    await expect(depth.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+    await expect(page.locator('main').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }
 })
 
@@ -100,9 +101,10 @@ test('CM legacy routes still resolve and the footer groups them under Technology
 
   await page.goto('/')
   const footer = page.getByLabel('Footer navigation')
-  // Rev 5: only the depth-group heading carries the word (no /technology
-  // link in the Firm group; /capital-markets arrives in phase 2).
+  // Only the depth-group heading carries the bare word "Technology";
+  // phase 2 adds the Capital Markets link to the Firm group.
   await expect(footer.getByText('Technology', { exact: true })).toHaveCount(1)
+  await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
   for (const [label, href] of [
     ['System', '/system'],
     ['Labs', '/labs'],
@@ -129,6 +131,7 @@ test.describe('retired-route redirects (SWA only)', () => {
     ['/ma/contact', '/contact'],
     ['/ma/system', '/ma'],
     ['/ma/workflows', '/ma'],
+    ['/technology', '/capital-markets'],
   ] as const) {
     test(`${from} 301s to ${to}`, async ({ request }) => {
       const response = await request.get(`${SWA_BASE_URL}${from}`, {

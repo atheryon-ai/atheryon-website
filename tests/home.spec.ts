@@ -13,9 +13,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   })).toBeVisible()
   await expect(page.getByText('Understanding implications early. Executing with confidence.')).toBeVisible()
 
-  // Executive nav (rev 5: M&A · EXPERIENCE · ABOUT; APPROACH out of nav)
+  // Executive nav (phase 2: M&A · CAPITAL MARKETS · EXPERIENCE · ABOUT; APPROACH out of nav)
   for (const [label, href] of [
     ['M&A', '/ma'],
+    ['CAPITAL MARKETS', '/capital-markets'],
     ['EXPERIENCE', '/experience'],
     ['ABOUT', '/about'],
   ] as const) {
@@ -33,8 +34,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
   await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
 
-  // Arms: M&A card live and first; underpinning strip beneath
+  // Arms: M&A card live and first; Capital Markets card live (phase 2);
+  // underpinning strip beneath
   await expect(page.locator('main').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('href', '/ma')
+  await expect(page.locator('main').getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
   await expect(page.getByText('DATA · TRANSFORMATION · AI')).toBeVisible()
 
   // Founders block, no employer names, linking to /about

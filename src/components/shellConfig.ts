@@ -12,12 +12,13 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
-  // Firm shell (rev 5 arms model). Phase 2 inserts CAPITAL MARKETS after M&A.
-  // /approach left the nav (linked from body copy and footer); CM legacy
-  // pages are reached via /capital-markets and the footer, not the header.
+  // Firm shell (rev 5 arms model). /approach left the nav (linked from body
+  // copy and footer); CM legacy pages are reached via /capital-markets and
+  // the footer, not the header.
   cm: {
     nav: [
       { label: 'M&A', href: '/ma' },
+      { label: 'CAPITAL MARKETS', href: '/capital-markets' },
       { label: 'EXPERIENCE', href: '/experience' },
       { label: 'ABOUT', href: '/about' },
     ],

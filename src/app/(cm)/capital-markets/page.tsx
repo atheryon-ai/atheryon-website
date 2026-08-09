@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v2Ma, v3 } from '@/content/site'
 
-const page = v3.pages.technology
+const page = v3.pages.capitalMarkets
 const s = page.sections
 
 // The three delivery workflows are shared with the retiring M&A pages; the
@@ -19,10 +19,10 @@ export const metadata: Metadata = {
     title: page.title,
     description: page.description,
   },
-  alternates: { canonical: 'https://atheryon.com.au/technology' },
+  alternates: { canonical: 'https://atheryon.com.au/capital-markets' },
 }
 
-export default function TechnologyPage() {
+export default function CapitalMarketsPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
@@ -94,7 +94,7 @@ export default function TechnologyPage() {
         </ul>
       </DocSection>
 
-      <DocFooter label="atheryon / technology / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / capital-markets / end-of-document" cta={{ ...v3.cta }} />
     </DocPage>
   )
 }

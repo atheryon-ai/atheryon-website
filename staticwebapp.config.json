@@ -21,6 +21,7 @@
     { "route": "/ai-ready-data",          "redirect": "/system",      "statusCode": 301 },
     { "route": "/intelligence",           "redirect": "/workflows",   "statusCode": 301 },
     { "route": "/reference-architectures","redirect": "/system",      "statusCode": 301 },
+    { "route": "/technology",             "redirect": "/capital-markets", "statusCode": 301 },
 
     { "route": "/labs/code",                   "redirect": "/offers/code",    "statusCode": 301 },
     { "route": "/labs/prompts",                "redirect": "/offers/prompts", "statusCode": 301 },
@@ -46,7 +47,7 @@
     { "route": "/ma",          "rewrite": "/ma.html" },
     { "route": "/experience",  "rewrite": "/experience.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
-    { "route": "/technology",  "rewrite": "/technology.html" },
+    { "route": "/capital-markets", "rewrite": "/capital-markets.html" },
 
     { "route": "/offers",         "rewrite": "/offers.html" },
     { "route": "/offers/code",    "rewrite": "/offers/code.html" },

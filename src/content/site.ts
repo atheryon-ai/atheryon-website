@@ -1250,6 +1250,7 @@ export const v3 = {
         heading: 'Firm',
         links: [
           { label: 'M&A', href: '/ma' },
+          { label: 'Capital Markets', href: '/capital-markets' },
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
@@ -1400,8 +1401,8 @@ export const v3 = {
                 'Capital markets systems, data and migration readiness, platform transition and AI-enabled analysis. Engaged inside transactions and standalone.',
               href: '/capital-markets',
               ctaLabel: 'Explore the arm',
-              // Phase 2 gate: card hidden until /capital-markets ships.
-              live: '{{CAPITAL_MARKETS_LIVE}}',
+              // Phase 2 shipped: /capital-markets is live.
+              live: 'live',
             },
           ],
           underpinning: {
@@ -1757,36 +1758,38 @@ export const v3 = {
       },
     },
 
-    technology: {
-      route: '/technology',
-      title: 'Technology & Data — Atheryon',
+    capitalMarkets: {
+      route: '/capital-markets',
+      title: 'Capital Markets — Atheryon',
       description:
-        'The Technology & Data practice: technology and data separation, migration and platform transition for transactions, and a practice engaged standalone.',
+        'The Capital Markets arm: capital markets systems, data and migration readiness, platform transition and AI-enabled analysis, engaged inside transactions and standalone.',
       sections: {
         hero: {
-          label: 'atheryon / technology',
-          title: 'Technology & Data',
+          label: 'atheryon / capital-markets',
+          title: 'Capital Markets',
           subtitle:
-            'The second practice, led by Terry Tsakiris. The strategic capability behind Transaction Advisory & Execution, and a practice engaged standalone.',
+            'The Capital Markets arm, led by Terry Tsakiris. Engaged inside transactions and standalone.',
         },
         outcomes: {
-          label: '§01 / What the practice delivers',
-          title: 'What the practice delivers',
+          label: '§01 / What the arm delivers',
+          title: 'What the arm delivers',
           items: [
             'Technology and data separation for divestments and carve-outs',
             'Migration planning and delivery across structured and unstructured data',
             'Platform transition and application rationalisation',
             'AI-enabled analysis of dependencies, complexity and risk',
             'Delivery acceleration for transformation programs',
+            'Capital markets systems and platform delivery',
+            'Market data environments and reference data',
           ],
           body:
-            'The practice covers enterprise architecture, data platforms and the migration work that determines transaction timelines. Inside a transaction it runs the Technology, Data & Migration Readiness service line. Outside transactions it is engaged standalone for technology and data programs.',
+            'The arm covers enterprise architecture, data platforms and the migration work that determines transaction timelines. Inside a transaction it runs the Technology, Data & Migration Readiness service line of the M&A arm. Outside transactions it is engaged standalone for technology and data programs.',
         },
         workflows: {
           label: '§02 / Workflows',
           title: 'Three delivery workflows',
           intro:
-            'AI sits inside the practice, never in front of it. Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+            'AI sits inside the arm, never in front of it. Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
         },
         delivery: {
           label: '§03 / Delivery',
@@ -1796,9 +1799,9 @@ export const v3 = {
         },
         depth: {
           label: '§04 / Platform Depth',
-          title: 'Under the practice',
+          title: 'Under the arm',
           intro:
-            'The practice is backed by a working reference implementation and its supporting material.',
+            'The arm is backed by a working reference implementation and its supporting material.',
           links: [
             { label: 'System', href: '/system', note: 'Reference architecture for the capital markets platform work' },
             { label: 'Labs', href: '/labs', note: 'The working reference platform' },
@@ -1806,7 +1809,7 @@ export const v3 = {
             { label: 'Offers', href: '/offers', note: 'License the code, license the prompts, or consult' },
           ],
         },
-        // Decided 2026-08-09 (spec §8.4): no partner section on /technology.
+        // Decided 2026-08-09 (spec §8.4): no partner section on this page.
         // If partners appear in body copy anywhere, S&P Global is the data
         // partner and Microsoft Azure the technology runtime; detail stays on
         // the L3 legacy pages.
