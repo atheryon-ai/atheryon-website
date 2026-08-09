@@ -41,7 +41,9 @@ export default function CapitalMarketsPage() {
         </p>
       </DocSection>
 
-      <DocSection label={s.cases.label} title={s.cases.title}>
+      {/* The arm's experience section — CM cases render here only, never on
+          /experience (Terry 2026-08-09). Anchor: /capital-markets#experience */}
+      <DocSection id="experience" label={s.cases.label} title={s.cases.title}>
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.cases.items.map((entry, i) => (
             <li

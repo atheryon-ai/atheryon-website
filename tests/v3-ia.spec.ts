@@ -7,6 +7,7 @@ const routes = [
   { path: '/ma', heading: 'Making Transactions Executable' },
   { path: '/experience', heading: 'Representative Experience' },
   { path: '/approach', heading: 'Our Approach' },
+  { path: '/data-ai', heading: 'Data. Transformation. AI.' },
 ] as const
 
 for (const route of routes) {
@@ -76,12 +77,10 @@ test('/experience normalises cases to Context / Role / Outcome with RAMS first',
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
 
-  // Rev 7 + Appendix C: the Capital Markets section renders after the five
-  // transaction cases with the three approved cases, never mixed in
-  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'First Near Real-Time Front Office Risk System' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping' })).toBeVisible()
+  // Terry 2026-08-09: capital markets and M&A experience do not share a
+  // page — the CM cases live at /capital-markets#experience only
+  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 

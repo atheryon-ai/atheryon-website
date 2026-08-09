@@ -16,6 +16,15 @@
 
 Also required: varied sentence length; concrete nouns over abstractions.
 
+## Design standard (HARD RULES — apply to every UI edit)
+Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read it before any visual change. Non-negotiables:
+- **Two registers only.** Navy statement band = homepage viewport 1, nowhere else. Everything else is the bone document register.
+- **Tokens, not hexes.** Colours come from the Tailwind tokens (navy `#0E2A3A`, bronze `#B08D57`, slate `#93A5B4`, warm-white `#FAF9F7`, existing bone/charcoal). No raw hex in components, no new colours, no gradients, no shadows, no imagery, no new fonts (typefaces gated on the IA brief §8 TODO 7).
+- **Bronze is structural only** — ticks, rules, small-caps strips, labels on navy. Never body text.
+- **§ numbers ascend in display order.** Use the shared `Doc*` components; standard devices (tick, foundation rule, proof strip, statement band) are components, never hand-rolled per page.
+- **One CTA per viewport.** Header renders label OR shortLabel by breakpoint, never both.
+- **M&A before Capital Markets** wherever the arms appear.
+
 ## Project
 Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
 

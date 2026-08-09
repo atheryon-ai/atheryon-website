@@ -358,4 +358,4 @@ Outcome: Regulatory obligations met on a platform that transitioned into busines
 **Proof point (`{{CM_PROOF_POINT}}`)** — homepage strip, fourth entry:
 $84M — Failed financial markets data program recovered and delivered
 
-**/experience ordering**: the Capital Markets section renders after the five transaction cases, in the order above.
+**/experience ordering**: ~~the Capital Markets section renders after the five transaction cases, in the order above.~~ SUPERSEDED (Terry, 2026-08-09 evening: "the site mixes capital markets with M&A"): capital markets and M&A experience do not share a page. The three cases render only on /capital-markets (Selected Cases section, anchor `#experience`); /experience carries transactions only. The homepage proof strip keeps $84M as the fourth entry.

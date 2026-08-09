@@ -97,28 +97,70 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-charcoal/85 leading-relaxed max-w-3xl mb-8">
             {s.hero.supporting}
           </p>
-          <Link
-            href={s.hero.secondaryCta.href}
-            className="inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline mb-12"
-          >
-            {s.hero.secondaryCta.label}
-            <span aria-hidden="true">→</span>
-          </Link>
-
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 border-y border-charcoal/15 divide-y sm:divide-y-0 divide-charcoal/15">
-            {s.proof.items.map((item) => (
-              <li key={item.id} className="py-6 sm:py-8 sm:px-6 first:sm:pl-0 lg:border-l lg:border-charcoal/15 lg:first:border-l-0">
-                <div className="font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal">
-                  {item.value}
-                </div>
-                <div className="mt-2 text-sm text-charcoal/70 leading-relaxed">
-                  {item.detail}
-                </div>
-              </li>
+          {/* Three equal explore links (Terry 2026-08-09): the two arms and
+              the underpinning, M&A first. */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 mb-12">
+            {s.hero.explore.items.map((entry) => (
+              <Link
+                key={entry.id}
+                href={entry.href}
+                className="inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline"
+              >
+                {entry.label}
+                <span aria-hidden="true">→</span>
+              </Link>
             ))}
-          </ul>
+          </div>
+
         </div>
       </section>
+
+      {/* Parallel arm sections (Terry 2026-08-09): the front page splits
+          evenly — transaction proof + principle under M&A, the $84M proof
+          point under Capital Markets. */}
+      <DocSection label={s.maSection.label} title={s.maSection.title}>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-y border-charcoal/15 divide-y sm:divide-y-0 divide-charcoal/15">
+          {s.maSection.proof.items.map((item) => (
+            <li key={item.id} className="py-6 sm:py-8 sm:px-6 first:sm:pl-0 lg:border-l lg:border-charcoal/15 lg:first:border-l-0">
+              <div className="font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal">
+                {item.value}
+              </div>
+              <div className="mt-2 text-sm text-charcoal/70 leading-relaxed">
+                {item.detail}
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* The core IP statement: once site-wide, large type, founding framing. */}
+        <div className="max-w-4xl pt-12 md:pt-16">
+          <p className="font-mono text-sm text-charcoal/70 mb-6">{s.maSection.principle.framing}</p>
+          <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
+            {s.maSection.principle.statement}
+          </p>
+          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
+            {s.maSection.principle.support}
+          </p>
+        </div>
+      </DocSection>
+
+      <DocSection label={s.cmSection.label} title={s.cmSection.title}>
+        <ul className="grid grid-cols-1 lg:grid-cols-4 border-y border-charcoal/15">
+          {s.cmSection.proof.items.map((item) => (
+            <li key={item.id} className="py-6 sm:py-8">
+              <div className="font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal">
+                {item.value}
+              </div>
+              <div className="mt-2 text-sm text-charcoal/70 leading-relaxed">
+                {item.detail}
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.cmSection.line}
+        </p>
+      </DocSection>
 
       <DocSection label={s.founders.label} title={s.founders.title}>
         <ul className="border-y border-charcoal/15 divide-y divide-charcoal/15">
@@ -141,19 +183,6 @@ export default function HomePage() {
           {s.founders.ctaLabel}
           <span aria-hidden="true">→</span>
         </Link>
-      </DocSection>
-
-      {/* The core IP statement: once site-wide, large type, founding framing. */}
-      <DocSection label={s.principle.label}>
-        <div className="max-w-4xl py-4 md:py-8">
-          <p className="font-mono text-sm text-charcoal/70 mb-6">{s.principle.framing}</p>
-          <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
-            {s.principle.statement}
-          </p>
-          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
-            {s.principle.support}
-          </p>
-        </div>
       </DocSection>
 
       <DocSection label={s.why.label} title={s.why.title}>

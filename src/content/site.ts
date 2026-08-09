@@ -1372,43 +1372,76 @@ export const v3 = {
           supporting:
             'Atheryon helps organisations navigate transactions, transformation, capital markets, data and technology initiatives by bringing clarity to critical decisions and leadership to execution.',
           primaryCta: { label: 'Discuss a situation', href: '/contact' },
-          secondaryCta: { label: 'Explore M&A', href: '/ma' },
+          // Terry 2026-08-09: the front page splits evenly — three equal
+          // explore links, M&A first, the underpinning third.
+          explore: {
+            items: [
+              { id: 'ma', label: 'Explore M&A', href: '/ma' },
+              { id: 'capital-markets', label: 'Explore Capital Markets', href: '/capital-markets' },
+              { id: 'data-ai', label: 'Data. Transformation. AI.', href: '/data-ai' },
+            ],
+          },
         },
-        proof: {
-          items: [
-            {
-              id: 'rams',
-              value: '$21.4bn',
-              detail: 'RAMS mortgage portfolio acquisition — integration leadership',
-            },
-            {
-              id: 'divestment-programs',
-              value: '>$1bn',
-              detail: 'Divestment and integration programs at a major Australian bank',
-            },
-            {
-              id: 'sectors',
-              value: 'Four sectors',
-              detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
-            },
-            // Fourth entry per spec Appendix C (§8 TODO 6 RESOLVED
-            // 2026-08-09): the capital-markets proof point.
-            {
-              id: 'data-program-recovery',
-              value: '$84M',
-              detail: 'Failed financial markets data program recovered and delivered',
-            },
-            {
-              id: 'jurisdictions',
-              value: 'Four jurisdictions',
-              detail: 'Australia, Europe, the United Kingdom and the United States',
-            },
-          ],
+        // Terry 2026-08-09 (screenshots): the transaction proof strip and
+        // the principle live INSIDE an M&A-labelled section; the parallel
+        // Capital Markets section carries the $84M proof point. Front page
+        // splits evenly between the arms.
+        maSection: {
+          label: '§01 / M&A',
+          title: 'M&A',
+          proof: {
+            items: [
+              {
+                id: 'rams',
+                value: '$21.4bn',
+                detail: 'RAMS mortgage portfolio acquisition — integration leadership',
+              },
+              {
+                id: 'divestment-programs',
+                value: '>$1bn',
+                detail: 'Divestment and integration programs at a major Australian bank',
+              },
+              {
+                id: 'sectors',
+                value: 'Four sectors',
+                detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
+              },
+              {
+                id: 'jurisdictions',
+                value: 'Four jurisdictions',
+                detail: 'Australia, Europe, the United Kingdom and the United States',
+              },
+            ],
+          },
+          // Core IP statement: featured ONCE site-wide, inside this section,
+          // large type, founding framing (rev 5 §1).
+          principle: {
+            framing: 'Atheryon was founded on a simple observation:',
+            statement:
+              'Transaction value is protected when separation and integration requirements are understood early.',
+            support:
+              'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
+          },
+        },
+        cmSection: {
+          label: '§02 / Capital Markets',
+          title: 'Capital Markets',
+          proof: {
+            items: [
+              {
+                id: 'data-program-recovery',
+                value: '$84M',
+                detail: 'Failed financial markets data program recovered and delivered',
+              },
+            ],
+          },
+          line:
+            'Capital markets systems and platform delivery, market data environments and reference data, platform transition and AI-enabled delivery.',
         },
         // Homepage § labels follow render order in (cm)/page.tsx:
-        // founders §01 → principle §02 → why §03 → values §04.
+        // M&A §01 → Capital Markets §02 → founders §03 → why §04 → values §05.
         why: {
-          label: '§03 / Why Atheryon',
+          label: '§04 / Why Atheryon',
           title: 'Why Atheryon',
           body:
             'Many transactions encounter avoidable challenges because the operational implications of separation or integration are not fully understood before commercial commitments are made.\n\nSeparation requirements are underestimated. Integration challenges emerge late. Transitional Service Arrangements (TSAs) become larger and longer than anticipated. Costs increase, timelines extend and value is delayed or eroded.\n\nAtheryon brings separation and integration expertise into the transaction process early, helping clients understand what will be required and where the risks sit before decisions are locked in.',
@@ -1423,18 +1456,8 @@ export const v3 = {
             'Protect and realise transaction value',
           ],
         },
-        // Core IP statement: featured ONCE site-wide, here, in large type,
-        // framed as the founding observation (rev 5 §1).
-        principle: {
-          label: '§02 / Our Principle',
-          framing: 'Atheryon was founded on a simple observation:',
-          statement:
-            'Transaction value is protected when separation and integration requirements are understood early.',
-          support:
-            'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
-        },
         values: {
-          label: '§04 / How we work',
+          label: '§05 / How we work',
           title: 'How we work',
           items: [
             {
@@ -1479,7 +1502,7 @@ export const v3 = {
         // Primary credibility block (rev 5): one line per co-founder, no
         // employer names. Links to /about.
         founders: {
-          label: '§01 / Founders',
+          label: '§03 / Founders',
           title: 'Co-founders',
           items: [
             {
@@ -1775,14 +1798,10 @@ export const v3 = {
             },
           ],
         },
-        // Rev 7: Capital Markets section after the five transaction cases —
-        // never mixed into the transaction list. Approved Appendix C copy
-        // (spec §8 TODO 6 RESOLVED 2026-08-09), shared with /capital-markets.
-        capitalMarketsCases: {
-          label: '§02 / Capital Markets',
-          title: 'Capital markets experience',
-          items: cmCases,
-        },
+        // Terry 2026-08-09 (supersedes the rev 7 /experience placement):
+        // capital markets and M&A experience do not share a page. The three
+        // cmCases render only on /capital-markets (§ Selected Cases, anchor
+        // #experience); this page carries transactions only.
       },
     },
 
@@ -1958,6 +1977,52 @@ export const v3 = {
         // If partners appear in body copy anywhere, S&P Global is the data
         // partner and Microsoft Azure the technology runtime; detail stays on
         // the L3 legacy pages.
+      },
+    },
+
+    // The underpinning page (Terry 2026-08-09): Data. Transformation. AI.
+    // is the shared foundation, NOT a third arm — the rev 5 decision record
+    // rejected a standalone Transformation pillar, so this page presents the
+    // disciplines both arms use, in the foundation register. Copy assembled
+    // from already-approved sentences (rev 5 §1, /approach, /ma line 04).
+    dataAi: {
+      route: '/data-ai',
+      title: 'Data. Transformation. AI. — Atheryon',
+      description:
+        'The shared foundation beneath the M&A and Capital Markets arms: data, transformation and AI applied under one governance, with senior specialists directing the work.',
+      sections: {
+        hero: {
+          label: 'atheryon / data · transformation · ai',
+          title: 'Data. Transformation. AI.',
+          subtitle:
+            'The shared foundation beneath the M&A and Capital Markets arms.',
+        },
+        data: {
+          label: '§01 / Data',
+          title: 'Data',
+          body:
+            'Both arms run on data work: understanding what information exists, where it resides, how it is used and what must transition. Inside a transaction that understanding drives execution timelines and TSA scope. In capital markets it takes the form of data platforms, market data environments and reference data.',
+        },
+        transformation: {
+          label: '§02 / Transformation',
+          title: 'Transformation',
+          body:
+            'Transformation is a discipline both arms use rather than an offer in its own right. It follows a transaction or stands alone as a technology and data program, and it draws on the same data and AI foundation either way.',
+        },
+        ai: {
+          label: '§03 / AI',
+          title: 'AI',
+          body:
+            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome.',
+        },
+        arms: {
+          label: '§04 / Where it shows up',
+          title: 'Where it shows up',
+          links: [
+            { label: 'M&A', href: '/ma', note: 'Transaction readiness, separation and integration, execution leadership' },
+            { label: 'Capital Markets', href: '/capital-markets', note: 'Capital markets systems, data platforms and AI-enabled delivery' },
+          ],
+        },
       },
     },
 

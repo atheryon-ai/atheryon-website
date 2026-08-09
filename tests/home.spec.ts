@@ -26,6 +26,15 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   }
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'APPROACH' })).toHaveCount(0)
 
+  // Three equal explore links (Terry 2026-08-09): two arms + underpinning
+  for (const [label, href] of [
+    ['Explore M&A', '/ma'],
+    ['Explore Capital Markets', '/capital-markets'],
+    ['Data. Transformation. AI.', '/data-ai'],
+  ] as const) {
+    await expect(page.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+  }
+
   // Proof strip figures (verbatim Appendix A claims; $84M is the fourth
   // entry per spec Appendix C)
   await expect(page.getByText('$21.4bn')).toBeVisible()

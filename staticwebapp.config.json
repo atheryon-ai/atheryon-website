@@ -48,6 +48,7 @@
     { "route": "/experience",  "rewrite": "/experience.html" },
     { "route": "/approach",    "rewrite": "/approach.html" },
     { "route": "/capital-markets", "rewrite": "/capital-markets.html" },
+    { "route": "/data-ai",     "rewrite": "/data-ai.html" },
 
     { "route": "/offers",         "rewrite": "/offers.html" },
     { "route": "/offers/code",    "rewrite": "/offers/code.html" },
