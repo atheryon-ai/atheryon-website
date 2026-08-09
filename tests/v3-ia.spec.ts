@@ -10,6 +10,15 @@ const routes = [
   { path: '/data-ai', heading: 'Data. Transformation. AI.' },
 ] as const
 
+test('/data-ai carries the underpinning principle', async ({ page }) => {
+  await page.goto('/data-ai')
+  await expect(
+    page.getByText(
+      'Atheryon faces regulators on behalf of clients and knows what is required.',
+    ),
+  ).toBeVisible()
+})
+
 for (const route of routes) {
   test(`${route.path} renders the firm shell and ends in a contact CTA`, async ({ page }) => {
     const response = await page.goto(route.path)

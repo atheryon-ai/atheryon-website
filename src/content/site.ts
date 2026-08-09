@@ -2006,11 +2006,15 @@ export const v3 = {
           subtitle:
             'The shared foundation beneath the M&A and Capital Markets arms.',
         },
-        // TODO(terry): the underpinning principle statement. Hidden until
-        // supplied.
+        // The underpinning principle (Terry, 2026-08-09, revised same
+        // evening): delivery in regulated environments, grounded by the
+        // APRA engagement and regulatory platform delivery in the
+        // capital-markets cases. Wording lightly polished from Terry's
+        // text; meaning unchanged.
         principle: {
           framing: '',
-          statement: '{{DATA_AI_PRINCIPLE}}',
+          statement:
+            'Delivery in regulated environments takes solid knowledge of delivering regulatory outcomes. Atheryon faces regulators on behalf of clients and knows what is required.',
           support: '',
         },
         data: {
