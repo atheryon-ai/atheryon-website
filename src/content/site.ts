@@ -1831,7 +1831,7 @@ export const v3 = {
             'Delivery acceleration for transformation programs',
           ],
           body:
-            'The arm covers enterprise architecture and data platforms. It is engaged standalone for technology and data programs.',
+            'The arm covers enterprise architecture and data platforms.',
           // The single transaction mention on this page (rev 7 §1 rule).
           crossLink: {
             text: 'Inside a transaction, this arm runs the Technology, Data & Migration Readiness service line',
