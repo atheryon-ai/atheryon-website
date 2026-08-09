@@ -434,7 +434,8 @@ summary:focus-visible,
 .bg-bone-deep { background-color: var(--homev3-bg-soft) !important; }
 .bg-paper { background-color: var(--homev3-surface) !important; }
 .bg-white { background-color: var(--homev3-surface) !important; }
-.bg-charcoal { background-color: var(--homev3-blue) !important; }
+/* blue-deep, not blue: white 14px button labels need ≥4.5:1 (WCAG AA). */
+.bg-charcoal { background-color: var(--homev3-blue-deep) !important; }
 .bg-charcoal\/80 { background-color: var(--homev3-bg-soft) !important; }
 .bg-charcoal\/60 { background-color: rgba(255, 255, 255, 0.15) !important; }
 .bg-charcoal\/30 { background-color: var(--homev3-border-strong) !important; }
@@ -448,6 +449,7 @@ summary:focus-visible,
 .text-charcoal\/90 { color: rgba(255, 255, 255, 0.90) !important; }
 .text-charcoal\/85 { color: rgba(255, 255, 255, 0.85) !important; }
 .text-charcoal\/80 { color: rgba(255, 255, 255, 0.80) !important; }
+.text-charcoal\/75 { color: rgba(255, 255, 255, 0.76) !important; }
 .text-charcoal\/70 { color: rgba(255, 255, 255, 0.72) !important; }
 .text-charcoal\/65 { color: rgba(255, 255, 255, 0.65) !important; }
 .text-charcoal\/60 { color: rgba(255, 255, 255, 0.60) !important; }
