@@ -23,7 +23,13 @@ const TOPIC_LABELS: Record<string, string> = {
   mortgages: 'Mortgages practice',
 }
 
-function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
+function ContactFormInner({
+  defaultTopic,
+  submitLabel,
+}: {
+  defaultTopic?: string
+  submitLabel?: string
+}) {
   const searchParams = useSearchParams()
   // Explicit `defaultTopic` from the page wins; otherwise fall back to the
   // ?topic= query param so old CM links keep working.
@@ -105,7 +111,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
           type="submit"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
         >
-          {page.cta}
+          {submitLabel ?? page.cta}
           <span aria-hidden="true">→</span>
         </button>
       </form>
@@ -127,10 +133,16 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
   )
 }
 
-export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
+export function ContactForm({
+  defaultTopic,
+  submitLabel,
+}: {
+  defaultTopic?: string
+  submitLabel?: string
+}) {
   return (
     <Suspense fallback={<div className="max-w-5xl" />}>
-      <ContactFormInner defaultTopic={defaultTopic} />
+      <ContactFormInner defaultTopic={defaultTopic} submitLabel={submitLabel} />
     </Suspense>
   )
 }

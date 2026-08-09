@@ -16,6 +16,9 @@ const NAV = [
   { label: 'Offers', tag: 'Engagement model', href: '/offers' },
   { label: 'About', tag: 'Banking lineage', href: '/about' },
   { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
+  { label: 'Roadmap', tag: 'Delivery roadmap', href: '/roadmap' },
+  { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
+  { label: 'M&A', tag: 'Separation and integration practice', href: '/ma' },
   { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
 ] as const
 

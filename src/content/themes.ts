@@ -78,7 +78,7 @@ export const FUNCTION_META: Record<
   },
   treasury: {
     label: 'Treasury / Finance',
-    blurb: 'Liquidity, settlements, funding, payments oversight, general ledger.',
+    blurb: 'Settlements: PvP/DvP run tracking and cash ladders by currency.',
     office: 'cross',
   },
 };
@@ -504,7 +504,7 @@ const RISK_ANALYTICS: readonly Theme[] = [
     shortTitle: 'Risk Analytics',
     pages: 4,
     blurb:
-      'IRRBB Basel scenarios (real, in-process), plus Scenarios/Stress, VaR, and Correlation (page shells, v2 wiring).',
+      'IRRBB Basel scenarios, plus Scenarios/Stress, VaR, and Correlation.',
     thumb: t('t-risk-analytics'),
     primaryRoute: '/risk/irrbb',
     routes: [
@@ -522,7 +522,7 @@ const RISK_ANALYTICS: readonly Theme[] = [
     shortTitle: 'P&L',
     pages: 1,
     blurb:
-      'Daily P&L and advanced attribution. v1 ships the page shell with tab scaffolding; atheryon-risk pnl/pnl_advanced wiring is v2.',
+      'Daily P&L and advanced attribution.',
     thumb: t('t-risk-pnl'),
     primaryRoute: '/risk/pnl',
     routes: [

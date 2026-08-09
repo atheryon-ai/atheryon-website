@@ -1,5 +1,6 @@
 {
   "routes": [
+    { "route": "/writing",                "redirect": "/blog",        "statusCode": 301 },
     { "route": "/reality",                "redirect": "/",            "statusCode": 301 },
     { "route": "/data",                   "redirect": "/system",      "statusCode": 301 },
     { "route": "/ai-direction",           "redirect": "/workflows",   "statusCode": 301 },

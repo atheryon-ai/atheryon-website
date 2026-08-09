@@ -80,7 +80,7 @@ function ThemeBlock({
             )}
             {theme.pages != null && (
               <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55 mt-3">
-                {theme.pages} pages
+                {theme.pages} {theme.pages === 1 ? 'page' : 'pages'}
               </div>
             )}
           </li>

@@ -81,9 +81,8 @@ export default function TermsPage() {
               licensors and is protected by Australian and international copyright and trademark law.
               You may view the content for personal and internal business purposes. You may not
               reproduce, republish, distribute, or create derivative works from any content on the Site
-              without prior written permission from Atheryon. The name &ldquo;Atheryon&rdquo;, the
-              Atheryon logo, and program names (including &ldquo;MiB Insight&rdquo;) are trademarks of
-              Atheryon Pty Ltd.
+              without prior written permission from Atheryon. The name &ldquo;Atheryon&rdquo; and the
+              Atheryon logo are trademarks of Atheryon Pty Ltd.
             </p>
           </section>
 

@@ -27,7 +27,7 @@ export default function MAContactPage() {
               §01 / Request
             </div>
           </header>
-          <ContactForm defaultTopic="ma-execution" />
+          <ContactForm defaultTopic="ma-execution" submitLabel="Book M&A review" />
         </div>
       </section>
 
