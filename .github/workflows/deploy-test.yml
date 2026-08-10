@@ -52,12 +52,18 @@ jobs:
           COMMIT_SHA: ${{ github.sha }}
           # Test SWA must not be indexed; drives noindex metadata + robots.txt
           # disallow at build time (src/app/robots.ts, src/app/layout.tsx).
-          NEXT_PUBLIC_NOINDEX: 'true'
+          # TEMPORARY (Terry, 2026-08-10): noindex lifted so external review
+          # tools can fetch the test site. Restore the two lines below (env
+          # value + verify step) when the review round is done.
+          # NEXT_PUBLIC_NOINDEX: 'true'
 
       - name: Verify test build is noindexed
         run: |
-          grep -q 'name="robots" content="noindex' out/index.html
-          grep -q 'Disallow: /' out/robots.txt
+          # TEMPORARY (2026-08-10): checks disabled while noindex is lifted
+          # for external review. Restore with the env line above.
+          # grep -q 'name="robots" content="noindex' out/index.html
+          # grep -q 'Disallow: /' out/robots.txt
+          true
 
       - name: Copy staticwebapp.config.json to output
         run: cp staticwebapp.config.json out/
