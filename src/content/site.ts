@@ -1411,8 +1411,8 @@ export const v3 = {
             items: [
               {
                 id: 'rams',
-                value: '$21.4bn',
-                detail: 'RAMS mortgage portfolio acquisition — integration leadership',
+                value: '$20bn+',
+                detail: 'Mortgage portfolio acquisition, integration leadership',
               },
               {
                 id: 'divestment-programs',

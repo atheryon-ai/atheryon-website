@@ -35,9 +35,9 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     await expect(page.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }
 
-  // Proof strip figures (verbatim Appendix A claims; $84M is the fourth
-  // entry per spec Appendix C)
-  await expect(page.getByText('$21.4bn')).toBeVisible()
+  // Proof strip figures ($21.4bn tile rounded to $20bn+ and de-named per
+  // Terry 2026-08-10; $84M is the fourth entry per spec Appendix C)
+  await expect(page.getByText('$20bn+')).toBeVisible()
   await expect(page.getByText('>$1bn')).toBeVisible()
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
