@@ -1998,7 +1998,7 @@ export const v3 = {
                 'Alignment with industry conventions such as ISO 20022 and FpML',
               ],
               body:
-                'Market data and reference data change constantly, and downstream systems inherit every inconsistency in them. Atheryon builds environments where each source feed is mapped to typed payloads on ingest and validated against industry conventions such as ISO 20022 and FpML. Field-level lineage is tracked from origin through every transformation.\n\nThe result is a data environment downstream teams can rely on without re-deriving where each number came from.',
+                'Market data and reference data change constantly, and downstream systems inherit every inconsistency in them. Atheryon builds environments where each source feed is mapped to typed payloads on ingest and validated against industry conventions such as ISO 20022 and FpML. Field-level lineage is tracked from origin through every transformation.\n\nThe result is a data environment downstream teams can rely on without re-deriving where each number came from.\n\nAtheryon is a delivery partner to S&P Global, with integration work on TeraHelix.',
             },
             {
               id: 'data-platform-foundation',
@@ -2107,7 +2107,7 @@ export const v3 = {
           label: 'AI',
           title: 'AI',
           body:
-            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome.',
+            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome. Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
         },
         arms: {
           label: 'Where it shows up',
