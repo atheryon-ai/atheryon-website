@@ -66,7 +66,7 @@ export default function CmExperiencePage() {
         </ol>
       </DocSection>
 
-      <DocFooter label="atheryon / capital markets / experience / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / capital markets / experience / end-of-document" cta={{ ...v3.cmCta }} />
     </DocPage>
   )
 }

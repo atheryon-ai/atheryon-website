@@ -20,6 +20,16 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
   const btnRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
 
+  // Council review 2026-08-10: inside an arm the destination is
+  // unambiguous, so the primary CTA deep-links to that arm's contact
+  // instead of forking at the /contact chooser.
+  const ctaHref =
+    pathname === '/ma' || pathname.startsWith('/ma/')
+      ? '/ma/contact'
+      : pathname === '/capital-markets' || pathname.startsWith('/capital-markets/')
+        ? '/capital-markets/contact'
+        : config.cta.href
+
   // Close when the route changes (link selected from the panel).
   useEffect(() => {
     setOpen(false)
@@ -96,7 +106,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
         </div>
 
         <Link
-          href={config.cta.href}
+          href={ctaHref}
           className="home-nav-cta"
           aria-label={config.cta.label}
           style={{
@@ -186,7 +196,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
             ))}
             <li>
               <Link
-                href={config.cta.href}
+                href={ctaHref}
                 style={{
                   display: 'flex',
                   alignItems: 'center',

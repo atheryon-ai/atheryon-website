@@ -40,7 +40,7 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('$21.4bn')).toBeVisible()
   await expect(page.getByText('>$1bn')).toBeVisible()
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
-  await expect(page.getByText('Failed financial markets data program recovered and delivered')).toBeVisible()
+  await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
 
   // Why Clients Choose Atheryon and Our Belief are M&A copy and live on
   // /ma (Terry 2026-08-09 reviews)

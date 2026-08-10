@@ -73,7 +73,7 @@ export default function ExperiencePage() {
       {/* Capital markets and M&A experience do not share a page (Terry
           2026-08-09): the CM cases live at /capital-markets#experience. */}
 
-      <DocFooter label="atheryon / ma / experience / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / ma / experience / end-of-document" cta={{ ...v3.maCta }} />
     </DocPage>
   )
 }

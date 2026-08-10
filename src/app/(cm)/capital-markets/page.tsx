@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArmSubNav } from '@/components/ArmSubNav'
-import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
+import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
@@ -38,19 +38,43 @@ export default function CapitalMarketsPage() {
         </DocSection>
       )}
 
-      <DocSection label={s.outcomes.label} title={s.outcomes.title}>
-        <div className="max-w-3xl mb-8">
-          <DocBullets items={[...s.outcomes.items]} />
-        </div>
-        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.outcomes.body}
-        </p>
+      <DocSection label={s.lines.label} title={s.lines.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.lines.items.map((line) => (
+            <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
+                {line.index}
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
+                {line.name}
+              </h3>
+              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+                {line.tagline}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15">
+                  {line.items.map((item) => (
+                    <li key={item} className="py-3 font-mono text-sm text-charcoal">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="space-y-6 text-base text-charcoal/85 leading-relaxed">
+                  {line.body.split('\n\n').map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
         <p className="mt-8">
           <Link
-            href={s.outcomes.crossLink.href}
+            href={s.lines.crossLink.href}
             className="inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline"
           >
-            {s.outcomes.crossLink.text}
+            {s.lines.crossLink.text}
             <span aria-hidden="true">→</span>
           </Link>
         </p>
@@ -75,7 +99,7 @@ export default function CapitalMarketsPage() {
         </ul>
       </DocSection>
 
-      <DocFooter label="atheryon / capital markets / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / capital markets / end-of-document" cta={{ ...v3.cmCta }} />
     </DocPage>
   )
 }

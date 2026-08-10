@@ -176,7 +176,7 @@ export default function MaArmPage() {
         </div>
       </DocSection>
 
-      <DocFooter label="atheryon / ma / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / ma / end-of-document" cta={{ ...v3.maCta }} />
     </DocPage>
   )
 }

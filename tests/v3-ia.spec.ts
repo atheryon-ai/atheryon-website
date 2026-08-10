@@ -48,8 +48,9 @@ for (const route of routes) {
       page.evaluate(() => document.documentElement.dataset.mode),
     ).toBe('cm')
 
-    // DocFooter CTA
-    await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', '/contact')
+    // DocFooter CTA — arm pages deep-link to their own contact (council
+    // review 2026-08-10); neutral pages keep the /contact chooser
+    await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', /\/contact$/)
   })
 }
 
@@ -138,6 +139,16 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
     page.locator('main').getByRole('link', { name: /Technology, Data & Migration Readiness/ }),
   ).toHaveAttribute('href', '/ma#technology-data-migration')
 
+  // Council build 2026-08-10: four service lines in the /ma shape
+  for (const line of [
+    'Capital Markets Systems & Platform Delivery',
+    'Market Data & Reference Data Environments',
+    'Data Foundations',
+    'Regulatory Markets Platforms',
+  ]) {
+    await expect(page.getByRole('heading', { name: line })).toBeVisible()
+  }
+
   // Cases and delivery patterns live on the arm's sub-pages now; the
   // landing carries the arm sub-nav
   await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/capital-markets/experience')
@@ -172,8 +183,15 @@ test('/capital-markets/approach carries the delivery patterns and embedded deliv
   await page.goto('/capital-markets/approach')
   await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Embedded delivery' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Embedded delivery', exact: true })).toBeVisible()
   await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
+
+  // Council build 2026-08-10: method principles + engagement paths
+  await expect(page.getByRole('heading', { name: 'How the work is directed' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Controls come first' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the arm engages' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Advisory assessment' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Regulatory reporting', exact: true })).toBeVisible()
 })
 
 test('CM legacy routes still resolve and the footer groups them under Technology', async ({ page }) => {
@@ -182,20 +200,29 @@ test('CM legacy routes still resolve and the footer groups them under Technology
     expect(response?.status()).toBe(200)
   }
 
-  await page.goto('/')
-  const footer = page.getByLabel('Footer navigation')
-  // Only the depth-group heading carries the bare word "Technology";
-  // phase 2 adds the Capital Markets link to the Firm group.
-  await expect(footer.getByText('Technology', { exact: true })).toHaveCount(1)
-  await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
+  // Council review 2026-08-10: the Technology column is Capital Markets
+  // material — it renders on CM surfaces only, never on M&A or neutral ones.
+  await page.goto('/capital-markets')
+  const cmFooter = page.getByLabel('Footer navigation')
+  await expect(cmFooter.getByText('Technology', { exact: true })).toHaveCount(1)
   for (const [label, href] of [
     ['System', '/system'],
     ['Labs', '/labs'],
     ['Themes', '/themes'],
     ['Offers', '/offers'],
   ] as const) {
-    await expect(footer.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+    await expect(cmFooter.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }
+
+  await page.goto('/ma')
+  const maFooter = page.getByLabel('Footer navigation')
+  await expect(maFooter.getByText('Technology', { exact: true })).toHaveCount(0)
+  await expect(maFooter.getByRole('link', { name: 'Labs', exact: true })).toHaveCount(0)
+
+  await page.goto('/')
+  const footer = page.getByLabel('Footer navigation')
+  await expect(footer.getByText('Technology', { exact: true })).toHaveCount(0)
+  await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
 })
 
 // Retired routes 301 on the SWA (redirects live in staticwebapp.config.json,

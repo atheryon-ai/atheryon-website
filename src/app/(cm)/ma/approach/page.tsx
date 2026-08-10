@@ -40,7 +40,7 @@ export default function ApproachPage() {
         </div>
       </DocSection>
 
-      <DocFooter label="atheryon / ma / approach / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / ma / approach / end-of-document" cta={{ ...v3.maCta }} />
     </DocPage>
   )
 }

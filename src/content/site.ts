@@ -1326,10 +1326,19 @@ export const v3 = {
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // CTA (rev 4, spec §2): page-end CTAs "Discuss a situation".
+  // CTA (rev 4, spec §2): page-end CTAs "Discuss a situation". The arm
+  // variants deep-link to the arm's own contact (council review 2026-08-10).
   cta: {
     label: 'Discuss a situation',
     href: '/contact',
+  },
+  maCta: {
+    label: 'Discuss a situation',
+    href: '/ma/contact',
+  },
+  cmCta: {
+    label: 'Discuss a situation',
+    href: '/capital-markets/contact',
   },
 
   // Firm footer (phase 2): CM legacy pages regroup under a Technology heading.
@@ -1340,7 +1349,7 @@ export const v3 = {
         links: [
           { label: 'M&A', href: '/ma' },
           { label: 'Capital Markets', href: '/capital-markets' },
-          { label: 'Data & AI', href: '/data-ai' },
+          { label: 'Data. Transformation. AI.', href: '/data-ai' },
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
@@ -1434,7 +1443,7 @@ export const v3 = {
               {
                 id: 'data-program-recovery',
                 value: '$84M',
-                detail: 'Failed financial markets data program recovered and delivered',
+                detail: 'Recovery and delivery of a failed financial markets data program',
               },
             ],
           },
@@ -1660,7 +1669,7 @@ export const v3 = {
         // Commercial shape decided 2026-08-09 (spec §8.3): embedded model
         // kept, stated durations dropped.
         engagement: {
-          label: 'Engagement',
+          label: 'How We Engage',
           title: 'How we engage',
           body:
             'Atheryon engages as embedded senior specialists, working alongside your team from pre-sign review through Day 1 to operational independence and TSA exit. Pre-sign work can stand alone or lead into full delivery.',
@@ -1951,34 +1960,103 @@ export const v3 = {
           statement: 'Capital markets platforms succeed or fail on the data beneath them.',
           support: '',
         },
-        outcomes: {
-          label: 'What the arm delivers',
-          title: 'What the arm delivers',
+        // Council build 2026-08-10: the arm's four service lines, mirroring
+        // the /ma shape. Ported from cited production passages, claims-gated
+        // (no counts, no named entities, no speed claims); "Platform
+        // transition and application rationalisation" carries over from the
+        // arm's previously approved outcomes list. Supersedes the outcomes
+        // bullet list.
+        lines: {
+          label: 'Service Lines',
+          title: 'Service lines',
           items: [
-            'Capital markets systems and platform delivery',
-            'Market data environments and reference data',
-            'Platform transition and application rationalisation',
-            'AI-enabled analysis of dependencies, complexity and risk',
-            'Delivery acceleration for transformation programs',
+            {
+              id: 'capital-markets-systems-platform-delivery',
+              index: '01',
+              name: 'Capital Markets Systems & Platform Delivery',
+              tagline:
+                'Designing and delivering the systems a markets business runs on, from trading and risk through to operations and reporting.',
+              items: [
+                'Trading, risk, pricing and operations system delivery',
+                'Trade lifecycle automation and confirmation matching',
+                'Exception management and ageing analysis',
+                'Portfolio analytics and P&L attribution',
+                'Platform transition and application rationalisation',
+              ],
+              body:
+                'A markets business runs on connected systems: pricing and risk on the desk, confirmation and settlement behind it. Analytics and reporting sit across the whole book. Atheryon designs and delivers these platforms for financial institutions, covering the trade lifecycle from execution through confirmation and settlement to the daily risk and P&L view.\n\nDelivery is senior-led from design through to production.',
+            },
+            {
+              id: 'market-reference-data-environments',
+              index: '02',
+              name: 'Market Data & Reference Data Environments',
+              tagline:
+                'Building market data and reference data environments where every feed is typed and validated on arrival, with lineage back to its source.',
+              items: [
+                'Market data environment design and build',
+                'Reference data platforms, static and dynamic',
+                'Vendor and counterparty feed onboarding',
+                'Typed payload mapping and validation on ingest',
+                'Field-level lineage from origin through every transformation',
+                'Alignment with industry conventions such as ISO 20022 and FpML',
+              ],
+              body:
+                'Market data and reference data change constantly, and downstream systems inherit every inconsistency in them. Atheryon builds environments where each source feed is mapped to typed payloads on ingest and validated against industry conventions such as ISO 20022 and FpML. Field-level lineage is tracked from origin through every transformation.\n\nThe result is a data environment downstream teams can rely on without re-deriving where each number came from.',
+            },
+            {
+              id: 'data-platform-foundation',
+              index: '03',
+              name: 'Data Foundations',
+              tagline:
+                'Rebuilding the operational data foundation that every new markets build depends on.',
+              items: [
+                'Operational data store design and build',
+                'Canonical data model design and governance',
+                'Remediation of vendor-locked and untyped pipelines',
+                'Data quality scoring and monitoring',
+                'Reconciliation and break management',
+                'Schema governance as the model changes',
+              ],
+              body:
+                'An operational data store assembled over a decade of vendor-locked, partially typed pipelines taxes every new initiative before it starts: mapping and reconciliation effort is paid again on each build. Atheryon rebuilds that foundation as a typed and validated operational data store built around a canonical model. Data quality is scored feed by feed, with reconciliation designed in.\n\nThe hardest problem in a data platform is keeping the model the business signs off aligned with the model the system enforces. The foundation work is structured around exactly that.',
+            },
+            {
+              id: 'regulatory-markets-platforms',
+              index: '04',
+              name: 'Regulatory Markets Platforms',
+              tagline:
+                'Delivering the platforms behind regulatory reporting and trade surveillance, with the records to evidence both.',
+              items: [
+                'Regulatory trade reporting across regimes including EMIR Refit, MiFID II, ASIC and CFTC',
+                'Per-regime completeness and validation rules',
+                'Submission workflows and evidence chains',
+                'Trade surveillance data foundations',
+                'Auditable evidence records for every submission',
+                'Managing schema drift across reporting regimes',
+              ],
+              body:
+                'Reporting obligations multiply by regime, and each regime tends to absorb its own build team while schema drift quietly breaks submissions. Atheryon delivers reporting platforms where every trade is scored against per-regime completeness rules and each report is generated in the regime\'s prescribed format.\n\nThe design principle comes from how these platforms are examined: an audit asks for the evidence chain behind each submission, covering what was reported, what changed, who approved it and when. Surveillance sits on the same data foundation, so the evidence exists as a by-product of the workflow rather than a reconstruction after the fact.',
+            },
           ],
-          body:
-            'The arm covers enterprise architecture and data platforms.',
           // The single transaction mention on this page (rev 7 §1 rule).
           crossLink: {
             text: 'Inside a transaction, this arm runs the Technology, Data & Migration Readiness service line',
             href: '/ma#technology-data-migration',
           },
         },
+        // Council build 2026-08-10: proof paragraph and executive link
+        // notes (claims-gated; no counts, no URL — labs.atheryon.ai is
+        // offline).
         depth: {
           label: 'Platform Depth',
-          title: 'Under the arm',
+          title: 'Platform depth',
           intro:
-            'The arm is backed by a working reference implementation and its supporting material.',
+            'The arm maintains a working reference implementation of a capital markets platform, built with the same method it offers clients. The linked pages carry the technical depth. A deeper briefing, covering deployment topology and operational evidence, is available under MNDA.',
           links: [
-            { label: 'System', href: '/system', note: 'Reference architecture for the capital markets platform work' },
-            { label: 'Labs', href: '/labs', note: 'The working reference platform' },
-            { label: 'Themes', href: '/themes', note: 'Platform themes by banking function' },
-            { label: 'Offers', href: '/offers', note: 'License the code, license the prompts, or consult' },
+            { label: 'System', href: '/system', note: 'Reference architecture for data, workflow, control and audit design' },
+            { label: 'Labs', href: '/labs', note: 'The working platform and the method that built it' },
+            { label: 'Themes', href: '/themes', note: 'Where the work applies, mapped by banking function' },
+            { label: 'Offers', href: '/offers', note: 'Licensing and consulting paths for the platform and the method behind it' },
           ],
         },
         // Decided 2026-08-09 (spec §8.4): no partner section on this page.
@@ -2000,7 +2078,7 @@ export const v3 = {
         'The shared foundation beneath the M&A and Capital Markets arms: data, transformation and AI applied under one governance, with senior specialists directing the work.',
       sections: {
         hero: {
-          label: 'atheryon / data · transformation · ai',
+          label: 'atheryon / data-ai',
           title: 'Data. Transformation. AI.',
           subtitle:
             'The shared foundation beneath the M&A and Capital Markets arms.',
@@ -2200,13 +2278,71 @@ export const v3 = {
               name: 'Data product acceleration',
               body: 'Modelling, engineering and governance set up to ship at multiples of prior speed.',
             },
+            // Council build 2026-08-10 (sourced from the prod reference
+            // system's reporting workflow; the arm's case 03 proves it).
+            {
+              id: 'regulatory-reporting',
+              name: 'Regulatory reporting',
+              body: 'The arm stands up trade reporting across regulatory regimes: validation against each regime’s rules and submissions in the prescribed format, with an audit trail behind every report.',
+            },
+          ],
+        },
+        // Council build 2026-08-10: method principles ported from the
+        // production reference-platform material, rewritten to the house
+        // register and claims-gated (no counts, no named entities).
+        method: {
+          label: 'How The Work Is Directed',
+          title: 'How the work is directed',
+          intro: 'Five principles govern how the arm’s senior specialists direct AI-assisted delivery.',
+          principles: [
+            {
+              name: 'Controls come first',
+              body: 'The work starts with the regulatory obligation and the operational control rather than a feature list. Controls determine what gets built; screens follow.',
+            },
+            {
+              name: 'The data model is the contract',
+              body: 'Delivery starts from the product and event model, and every screen is a projection of it.',
+            },
+            {
+              name: 'Generate variants, then narrow them',
+              body: 'AI produces several candidate implementations for each piece of work. Senior capital-markets judgement rejects the weak ones and corrects what remains before anything ships.',
+            },
+            {
+              name: 'Every surface is traceable',
+              body: 'Each delivered surface must map to a banking function and an operating control. If it cannot be mapped, it does not ship.',
+            },
+            {
+              name: 'The deliverable is working software',
+              body: 'Engagements end in systems a client team can inspect and extend, with the decisions behind them on record.',
+            },
           ],
         },
         delivery: {
-          label: 'Delivery',
+          label: 'Embedded Delivery',
           title: 'Embedded delivery',
           body:
-            'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
+            'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.\n\nAgents generate candidate outputs against the agreed data model; a senior capital-markets specialist reviews each one, selects the strongest, edits it where judgement is required, and signs it off before it reaches a client system.',
+        },
+        // Council build 2026-08-10: the arm's three engagement paths,
+        // ported from the production offers and select-engagements posture.
+        engage: {
+          label: 'How The Arm Engages',
+          title: 'How the arm engages',
+          intro: 'The arm engages through three paths.',
+          paths: [
+            {
+              name: 'Advisory assessment',
+              body: 'A senior-led review of a platform or a data program, producing a clear read of dependencies and execution risk. The assessment stands alone or leads into delivery.',
+            },
+            {
+              name: 'Embedded delivery program',
+              body: 'Senior specialists work alongside the client team and lead the program end to end, under the delivery controls described on this page.',
+            },
+            {
+              name: 'Platform licensing',
+              body: 'The working reference implementation and its supporting material can be licensed; the arm’s depth pages carry the detail.',
+            },
+          ],
         },
       },
     },

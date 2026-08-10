@@ -1,14 +1,28 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { site, v3 } from '@/content/site'
 import type { Mode } from '@/components/shellConfig'
+
+// Surfaces that may show the Technology column (capital-markets depth
+// pages). Council review 2026-08-10: the Technology links are Capital
+// Markets material and must not render on M&A or neutral surfaces —
+// the arms never share a surface.
+const TECH_SURFACES = ['/capital-markets', '/system', '/labs', '/themes', '/offers']
 
 // Firm footer (exec-first IA): grouped columns — Firm / Technology /
 // Resources — with the legal links and contact details on a closing row.
 // The `mode` prop remains for the mortgages shell, which shares this footer.
 export function Footer({ mode = 'cm' }: { mode?: Mode }) {
   void mode
+  const pathname = usePathname()
   const year = new Date().getFullYear()
   const legalLinks = site.footer.legal.links
+  const showTech = TECH_SURFACES.some((p) => pathname === p || pathname.startsWith(`${p}/`))
+  const groups = v3.footer.groups.filter(
+    (group) => group.heading !== 'Technology' || showTech,
+  )
 
   return (
     <footer className="bg-homev3-bg-soft border-t border-homev3-border py-12 relative z-10">
@@ -20,7 +34,7 @@ export function Footer({ mode = 'cm' }: { mode?: Mode }) {
           <div className="col-span-2 md:col-span-1">
             <div className="font-display text-xl text-white">{site.name}</div>
           </div>
-          {v3.footer.groups.map((group) => (
+          {groups.map((group) => (
             <div key={group.heading}>
               <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/60 mb-3">
                 {group.heading}
