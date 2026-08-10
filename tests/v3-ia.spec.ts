@@ -100,17 +100,20 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   }
 })
 
-test('/ma/experience normalises cases to Context / Role / Outcome with RAMS first', async ({ page }) => {
+test('/ma/experience normalises cases to Context / Role / Outcome with the mortgage acquisition first', async ({ page }) => {
   await page.goto('/ma/experience')
 
   await expect(page.getByText('Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.')).toBeVisible()
 
   const firstCase = page.locator('ol > li').first()
-  await expect(firstCase.getByRole('heading', { name: /RAMS/ })).toBeVisible()
+  await expect(firstCase.getByRole('heading', { name: 'Landmark Mortgage Portfolio Acquisition' })).toBeVisible()
   await expect(firstCase.getByText('Context', { exact: true })).toBeVisible()
   await expect(firstCase.getByText('Role', { exact: true })).toBeVisible()
   await expect(firstCase.getByText('Outcome', { exact: true })).toBeVisible()
-  await expect(firstCase.getByText('approximately $21.4 billion at signing', { exact: false })).toBeVisible()
+  await expect(firstCase.getByText('more than $20 billion at signing', { exact: false })).toBeVisible()
+  // De-named per Terry 2026-08-10: the deal name must not appear anywhere.
+  // Exact + case-sensitive, else "programs" matches on a substring.
+  await expect(page.getByText(/\bRAMS\b/)).toHaveCount(0)
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
 

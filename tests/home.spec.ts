@@ -32,7 +32,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     ['Explore Capital Markets', '/capital-markets'],
     ['Data. Transformation. AI.', '/data-ai'],
   ] as const) {
-    await expect(page.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+    // Scoped to main: the footer also links "Data. Transformation. AI."
+    await expect(
+      page.getByRole('main').getByRole('link', { name: label, exact: true }),
+    ).toHaveAttribute('href', href)
   }
 
   // Proof strip figures ($21.4bn tile rounded to $20bn+ and de-named per

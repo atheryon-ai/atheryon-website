@@ -1725,21 +1725,21 @@ export const v3 = {
             'Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.',
           items: [
             {
-              id: 'rams-portfolio-acquisition',
+              id: 'mortgage-portfolio-acquisition',
               index: '01',
-              name: 'Landmark RAMS Mortgage Portfolio Acquisition',
+              name: 'Landmark Mortgage Portfolio Acquisition',
               client: 'Specialist Mortgage Servicer',
               engagement: 'Integration Leadership',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'A landmark transaction valued at approximately $21.4 billion at signing and recognised as one of the largest loan portfolio acquisitions in Australian history. The transaction involved compressed delivery timeframes, complex separation requirements, multiple service providers, significant operational dependencies and no seller TSA arrangements.',
+                    'A landmark transaction valued at more than $20 billion at signing and recognised as one of the largest loan portfolio acquisitions in Australian history. The transaction involved compressed delivery timeframes, complex separation requirements, multiple service providers, significant operational dependencies and no seller TSA arrangements.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Atheryon leadership played a key role in the transition and integration of the RAMS mortgage portfolio acquisition.',
+                    'Atheryon leadership played a key role in the transition and integration of the mortgage portfolio acquisition.',
                 },
                 {
                   label: 'Outcome',
@@ -1898,8 +1898,9 @@ export const v3 = {
         },
         // Bios genericised per rev 5 §1 (Brief 2): no named employers; the
         // "global investment banking" / "major Australian banks" register.
-        // Facts sourced from the earlier signed-off material; RAMS (a named,
-        // signed-off transaction) lives on /experience.
+        // Facts sourced from the earlier signed-off material. The mortgage
+        // portfolio acquisition on /ma/experience was de-named and rounded
+        // to "more than $20 billion" (Terry, 2026-08-10).
         founders: {
           label: 'Co-Founders',
           title: 'Co-founders',
