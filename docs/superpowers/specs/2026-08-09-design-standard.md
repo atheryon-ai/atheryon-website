@@ -32,8 +32,10 @@ The seam between the two registers is a single bronze rule.
 | bone | existing site token | Document surface (unchanged). |
 | charcoal / ink | existing site tokens | Document text (unchanged). |
 
-Two surfaces, one accent. No gradients, no shadows, no additional colours. The legacy
-gradient logo mark does not appear on firm pages; the wordmark is type only.
+Two surfaces, one accent. No gradients, no shadows, no additional colours. The logo mark
+renders in the header lockup only (Terry's ruling 2026-08-10, reversing the earlier
+type-only wordmark decision); `BrandMark.tsx` is the sole imagery exception in the
+firm shell, enforced by the design lint.
 
 ## 3. Typography roles
 
@@ -98,5 +100,5 @@ cutting edge). AI appears in the foundation strip and body copy only, never in a
   (`public, max-age=3600`), so after each deploy visitors held stale HTML pointing at
   purged hashed CSS — pages rendered unstyled, which also exposed both CTA labels at once
   (their show/hide lives in CSS). Fix: HTML now `max-age=0, must-revalidate` with
-  `/_next/static/*` served immutable. The legacy gradient logo is removed from the shell;
-  the wordmark is type only per §2.
+  `/_next/static/*` served immutable. The logo mark was removed from the shell in this
+  batch, then restored on Terry's 2026-08-10 ruling — see §2 for the current rule.

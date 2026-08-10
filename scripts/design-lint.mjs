@@ -5,8 +5,9 @@
 //      the single home for colour values)
 //   2. gradient or shadow utility classes (two surfaces, one accent, flat)
 //   3. font-family declarations in TSX (typefaces live in tailwind.config)
-//   4. <img>/next-image usage inside firm-shell components (wordmark is
-//      type only; no imagery program)
+//   4. <img>/next-image usage inside firm-shell components (no imagery
+//      program). Sole exception: BrandMark.tsx renders the logo mark
+//      (Terry's ruling 2026-08-10).
 //   5. more than one usage of the StatementBand component (full-band navy
 //      is reserved for homepage viewport 1)
 // Comments are stripped before matching so explanatory notes may reference
@@ -60,8 +61,12 @@ for (const file of tsxFiles) {
     if (/font-family|fontFamily/.test(line)) {
       violations.push(`${at}  font-family in TSX — typefaces live in tailwind.config: ${line.trim().slice(0, 90)}`)
     }
-    if (FIRM_SHELL.some((p) => rel.startsWith(p)) && /<img\b|from ['"]next\/image['"]/.test(line)) {
-      violations.push(`${at}  imagery in a firm-shell component — wordmark is type only: ${line.trim().slice(0, 90)}`)
+    if (
+      FIRM_SHELL.some((p) => rel.startsWith(p)) &&
+      !rel.endsWith('BrandMark.tsx') &&
+      /<img\b|from ['"]next\/image['"]/.test(line)
+    ) {
+      violations.push(`${at}  imagery in a firm-shell component — only BrandMark carries the logo: ${line.trim().slice(0, 90)}`)
     }
   })
 }

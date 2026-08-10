@@ -1,13 +1,16 @@
 import Link from 'next/link'
+import { BrandMark } from './BrandMark'
 
-// Wordmark is type only on firm pages (design standard §2): the legacy
-// gradient logo mark does not render in the shell.
-export function BrandLockup() {
+// The lockup pairs the sanctioned logo mark (design standard §2 exception,
+// 2026-08-10) with the type wordmark. Wordmark colours come from tokens.
+export function BrandLockup({ markSize = 52 }: { markSize?: number }) {
   return (
-    <span className="brand-lockup" style={{ display: 'inline-flex', alignItems: 'center' }}>
+    <span className="brand-lockup" style={{ display: 'inline-flex', alignItems: 'center', gap: 14 }}>
+      <Link href="/" aria-label="Atheryon home" style={{ display: 'inline-flex', textDecoration: 'none' }}>
+        <BrandMark size={markSize} />
+      </Link>
       <Link
         href="/"
-        aria-label="Atheryon home"
         className="brand-lockup-wordmark font-serif-cap text-warm-white"
         style={{
           fontWeight: 600,
