@@ -54,3 +54,16 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+      # Visual baselines are platform-namespaced by Playwright, so the
+      # -darwin snapshots committed from a Mac are invisible to these Linux
+      # runners. On failure the run writes the -linux files it wanted; this
+      # uploads them so they can be committed once and compared thereafter.
+      - name: Upload generated Linux snapshots
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        with:
+          name: linux-snapshots
+          path: tests/visual.spec.ts-snapshots/*-linux.png
+          retention-days: 7
+          if-no-files-found: ignore
