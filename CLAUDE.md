@@ -1,15 +1,44 @@
 # CLAUDE.md — atheryon-website
 
+## Copy rules (HARD RULES — apply to every edit)
+- **Never invent a number, client, date, timeline, credential or capability.** If a rewrite needs a fact Terry hasn't given, write `TODO(terry): <the question>` and move on. Twenty TODOs beat one confident fabrication.
+- **Australian spelling throughout** (productise, summarise, organise — not -ize).
+- **Voice:** first person for Terry on `/labs` and `/about`; third person everywhere else. Never switch mid-page.
+- Don't touch routing, links or component APIs unless the task explicitly says to.
+
+### Banned constructions
+- **"not X — Y" corrective contrast** ("Not benchmark scores — production constraints", "Consulting practice, not a platform", "weeks, not minutes"). The single biggest AI tell on this site. Max one per page.
+- **Em dashes.** Max one per page.
+- **"actually" as an intensifier** — delete every instance.
+- **Rhythmic three-item lists** ("instructions, corrections, domain constraints").
+- **Filler adjectives** "production-grade" and "front-to-back" where not load-bearing.
+- **Sentence fragments as standalone paragraphs.**
+
+Also required: varied sentence length; concrete nouns over abstractions.
+
+## Design standard (HARD RULES — apply to every UI edit)
+Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read it before any visual change. Non-negotiables:
+- **Two registers only.** Navy statement band = homepage viewport 1, nowhere else. Everything else is the bone document register.
+- **Tokens, not hexes.** Colours come from the Tailwind tokens (navy `#0E2A3A`, bronze `#B08D57`, slate `#93A5B4`, warm-white `#FAF9F7`, existing bone/charcoal). No raw hex in components, no new colours, no gradients, no shadows, no imagery, no new fonts (typefaces gated on the IA brief §8 TODO 7).
+- **Bronze is structural only** — ticks, rules, small-caps strips, labels on navy. Never body text.
+- **§ numbers ascend in display order.** Use the shared `Doc*` components; standard devices (tick, foundation rule, proof strip, statement band) are components, never hand-rolled per page.
+- **One CTA per viewport.** Header renders label OR shortLabel by breakpoint, never both.
+- **M&A before Capital Markets** wherever the arms appear.
+
 ## Project
-Next.js 14 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
+Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
 
 ## Key paths
-- `src/app/page.tsx` — re-exports `/reality` (homepage = Reality content)
-- `src/app/{reality,data,ai-direction,transformation,labs,labs/themes,about,contact,programs,programs/mib-insight,privacy,terms}/page.tsx` — current IA
-- `src/content/site.ts` — ALL page copy lives here under `site.pages.<pageName>` (no inline strings in TSX, except legal-pages carve-out below)
-- `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy (29 themes / 147 pages); re-sync from sibling repo
-- `src/components/` — RealityHero, LabsHero, PillarHero, Section, LabsFlagship, ThemeCard, ThemeBand, etc.
-- `staticwebapp.config.json` — Azure SWA routes, redirects, auth (sp-clients role on `/integration/*`)
+Three route groups, each rendering its own nav + footer shell:
+- `src/app/(cm)/` — Capital Markets shell: homepage (`page.tsx`), plus `{themes,themes/[id],offers,offers/{code,prompts,consult},system,labs,labs/themes,about,contact,blog,blog/why-claude,roadmap,privacy,terms}/page.tsx`
+- `src/app/ma/` — M&A practice: `{page,approach,offers,contact}`
+- `src/app/mortgages/` — buried stub (hidden from nav)
+- `src/content/site.ts` — exports TWO content generations: `site` (older pages: labs, offers, footer links, legal labels) and `v2` (newer pages: home, system, about, contact, ma)
+- `src/content/buyerThemes.ts` — the seven `/themes` entries
+- `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo
+- Inline TSX copy (not in site.ts): `/labs`, `/blog/why-claude`, `/privacy`, `/terms`
+- `src/components/` — `Doc.tsx` (DocPage/DocBanner/DocSection/DocFooter/DocBullets — §-numbered document chrome), `shellConfig.ts` (header nav per mode), `Footer.tsx` (reads `site.footer.*`), ContactForm, StatusBadge, PracticeToggle, `home/*`, `ma/*`
+- `staticwebapp.config.json` — Azure SWA routes, redirects, auth (sp-clients role on `/integration/*`). All redirects go here (static export = no Next redirects).
 
 ## Sibling repo
 `/Users/terencetsakiris/repos/labs-platform/` is the source for:
@@ -20,7 +49,7 @@ Re-sync after upstream changes; there is no build-time link.
 
 ## Data patterns
 - Theme IDs in `src/content/themes.ts` already include the `t-` prefix (`t-schema-model`). Use `theme.thumb` (preformed path) for `<img src>` — do NOT prepend `t-` again, or you get `/menu-themes-thumbs/t-t-schema-model.png` and a 404.
-- `{{PLACEHOLDER_NAME}}` strings in `site.ts` (e.g. `{{TERRY_PROMPT_EXAMPLE_PROMPT}}`, `{{WEEKS}}`, `{{PRS}}`) are intentional TODO markers. Components MUST hide their containing block when present — see `LabsFlagship.tsx` (footer) and `src/app/labs/page.tsx` (method.artifact) for the pattern.
+- `{{PLACEHOLDER_NAME}}` strings in `site.ts` (e.g. `{{TERRY_PROMPT_EXAMPLE_PROMPT}}`, `{{WEEKS}}`, `{{PRS}}`) are intentional TODO markers. Components MUST hide their containing block when present — see the `isPending` guards in `src/app/(cm)/labs/page.tsx` and `src/app/(cm)/system/page.tsx` for the pattern.
 
 ## Commands
 - `npx next build` — build + typecheck
@@ -30,8 +59,8 @@ Re-sync after upstream changes; there is no build-time link.
 - `npm run verify:production-ready` — greps `src/` for `REPLACE_ME` placeholders before deploy
 
 ## UI patterns
-- Page sections use `<Section badge title description>` wrapper; spacing via `<SectionDivider />` between every section
-- All copy/text goes in `site.ts` under `site.pages.<pageName>`, not inline in TSX
+- Newer pages use the `Doc*` family from `src/components/Doc.tsx` (DocPage wrapper, DocBanner header, DocSection with § numbering, DocFooter)
+- Prefer `site.ts` (`site` or `v2` export) for page copy on structured pages; `/labs` and `/blog/why-claude` carry long-form copy inline in TSX
 - **Exception — legal pages:** `/privacy` and `/terms` may inline their content in TSX rather than `site.ts`. Reason: legal prose is long, deeply structured (sections, sub-sections, mixed rich bullets, external links), and changes rarely. Inlining keeps the content readable next to its rendering and avoids inventing a complex `site.pages.legal.{...}` shape that won't pay off for two pages.
 - Forms post to Formspree (https://formspree.io/f/xdkdynak) — 3rd-party PII processor
 

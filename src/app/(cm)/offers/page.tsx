@@ -21,20 +21,20 @@ export const metadata: Metadata = {
 }
 
 const OFFER_LINKS = [
-  { href: '/offers/code', number: '01', title: 'Buy the code', blurb: offers.code.hero.lede },
-  { href: '/offers/prompts', number: '02', title: 'License the prompts', blurb: offers.prompts.hero.lede },
-  { href: '/offers/consult', number: '03', title: 'Consult', blurb: offers.consult.hero.lede },
+  { href: '/offers/code', number: '01', title: 'Buy the code', blurb: offers.code.overviewBlurb },
+  { href: '/offers/prompts', number: '02', title: 'License the prompts', blurb: offers.prompts.overviewBlurb },
+  { href: '/offers/consult', number: '03', title: 'Consult', blurb: offers.consult.overviewBlurb },
 ] as const
 
 export default function OffersPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / offers"
         title="Three commercial paths"
         body="The Atheryon platform is available as licensable code, as a directorial prompt archive, or as a senior-led consult engagement. Pick the one that matches how you want to absorb the work."
       />
-      <DocSection label="§01 / Choose your path" title="">
+      <DocSection label="Choose your path" title="">
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
           {OFFER_LINKS.map((o) => (
             <li key={o.href} className="bg-bone p-6 flex flex-col">

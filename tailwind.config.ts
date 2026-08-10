@@ -29,10 +29,17 @@ const config: Config = {
           deepblue: '#0D4D7A',        // new — Data pillar / Floor 13 Data dial structural accent
           dark: '#0A1A2F',            // legacy
         },
+        // Design standard v1 tokens (docs/superpowers/specs/2026-08-09-design-standard.md).
+        // navy DEFAULT is the statement surface; 900/800 are legacy hues kept
+        // for any remaining numbered consumers.
         'navy': {
-          900: '#0A1A2F',  // Deep Navy (canonical)
+          DEFAULT: '#0E2A3A', // statement surface only, never text
+          900: '#0A1A2F',  // Deep Navy (canonical, legacy)
           800: '#1B2942',
         },
+        'bronze': '#B08D57',     // structural accent: ticks, rules, strips
+        'slate': '#93A5B4',      // secondary text on navy; hairlines at 35%
+        'warm-white': '#FAF9F7', // text on navy
         'atheryon': {
           blue: '#0A84FF',         // Atheryon Blue (canonical)
           'blue-light': '#4BC0FF',
@@ -49,27 +56,29 @@ const config: Config = {
         'ink': '#0E1116',             // new — Floor 13 band, dark sections
         'charcoal': '#15171A',        // new — text-on-bone alternative to neutral.900
         'homev3': {
-          bg: '#060b1c',
-          'bg-soft': '#0a1228',
-          surface: '#0e1830',
-          'surface-2': '#122042',
-          border: 'rgba(96, 165, 250, 0.18)',
-          'border-strong': 'rgba(96, 165, 250, 0.35)',
-          blue: '#3b82f6',
-          'blue-bright': '#60a5fa',
-          'blue-deep': '#1d4ed8',
+          bg: '#0E2A3A',
+          'bg-soft': '#123243',
+          surface: '#16394C',
+          'surface-2': '#1B4459',
+          border: 'rgba(147, 165, 180, 0.22)',
+          'border-strong': 'rgba(147, 165, 180, 0.45)',
+          blue: '#52718E',
+          'blue-bright': '#8FAECB',
+          'blue-deep': '#3E5A75',
           orange: '#f59e0b',
           'orange-bright': '#fbbf24',
-          'text-soft': 'rgba(255, 255, 255, 0.78)',
-          'text-faint': 'rgba(255, 255, 255, 0.55)',
+          'text-soft': 'rgba(250, 249, 247, 0.78)',
+          'text-faint': 'rgba(250, 249, 247, 0.55)',
         },
       },
+      // Families are self-hosted via next/font in src/app/layout.tsx; the
+      // CSS variables carry metric-adjusted fallbacks generated there.
       fontFamily: {
-        sans: ['"Inter Tight"', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        display: ['Fraunces', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
-        body: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
-        'serif-cap': ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        sans: ['var(--font-public-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-newsreader)', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+        body: ['var(--font-public-sans)', 'system-ui', 'sans-serif'],
+        'serif-cap': ['var(--font-cinzel)', 'Trajan Pro', 'Georgia', 'serif'],
+        mono: ['var(--font-jetbrains)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
         // Social Grow typography scale

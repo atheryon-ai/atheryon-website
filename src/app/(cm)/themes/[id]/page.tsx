@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { buyerThemes, getBuyerTheme } from '@/content/buyerThemes'
+import { DocPage, DocSection } from '@/components/Doc'
 import { StatusBadge } from '@/components/StatusBadge'
 import { v2 } from '@/content/site'
 
@@ -36,7 +37,7 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
     : null
 
   return (
-    <div className="bg-bone min-h-screen">
+    <DocPage>
       {/* Header */}
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
@@ -61,17 +62,8 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
         </div>
       </section>
 
-      {/* Workflow embed */}
-      <section id="workflow" className="border-b border-charcoal/15 scroll-mt-24">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <header className="mb-8 pb-4 border-b border-charcoal/15">
-            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-              §01 / Workflow
-            </div>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal leading-tight">
-              {workflow ? workflow.name : 'ROADMAP — workflow planned'}
-            </h2>
-          </header>
+      {/* Workflow embed — § number derived by DocPage */}
+      <DocSection id="workflow" label="Workflow" title={workflow ? workflow.name : 'ROADMAP — workflow planned'}>
           {workflow ? (
             <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
               {(
@@ -97,20 +89,10 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
               ROADMAP — workflow for {theme.name} is planned. The speed promise above is what we will ship. Talk to us if you want to co-build it.
             </p>
           )}
-        </div>
-      </section>
+      </DocSection>
 
-      {/* Offers framed for this buyer */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <header className="mb-8 pb-4 border-b border-charcoal/15">
-            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-              §02 / Offers for this theme
-            </div>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal leading-tight">
-              Three ways to engage
-            </h2>
-          </header>
+      {/* Offers framed for this buyer — § number derived by DocPage */}
+      <DocSection label="Offers for this theme" title="Three ways to engage">
           <ul className="grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
             {(
               [
@@ -132,8 +114,7 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+      </DocSection>
 
       {/* CTA */}
       <section>
@@ -150,6 +131,6 @@ export default async function ThemePage({ params }: { params: Promise<Params> })
           </Link>
         </div>
       </section>
-    </div>
+    </DocPage>
   )
 }

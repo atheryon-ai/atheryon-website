@@ -20,14 +20,22 @@ const TOPIC_LABELS: Record<string, string> = {
   'ai-direction': 'AI Direction',
   'system-assessment': 'System assessment',
   'ma-execution': 'M&A execution review',
+  'capital-markets': 'Capital markets engagement',
   mortgages: 'Mortgages practice',
 }
 
-function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
+function ContactFormInner({
+  defaultTopic,
+  submitLabel,
+}: {
+  defaultTopic?: string
+  submitLabel?: string
+}) {
   const searchParams = useSearchParams()
-  // Explicit `defaultTopic` from the page wins; otherwise fall back to the
-  // ?topic= query param so old CM links keep working.
-  const topicParam = defaultTopic ?? searchParams.get('topic') ?? ''
+  // An explicit ?topic= query param wins (mortgages CTA links
+  // /contact?topic=mortgages); otherwise the page's `defaultTopic` applies —
+  // the root /contact defaults to the M&A execution enquiry path.
+  const topicParam = searchParams.get('topic') ?? defaultTopic ?? ''
   const topicLabel = TOPIC_LABELS[topicParam] ?? ''
   const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
 
@@ -41,7 +49,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
         <div>
           <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.name.label}
-            {contact.form.fields.name.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.name.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <input
             type="text"
@@ -49,7 +57,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
             name="name"
             required={contact.form.fields.name.required}
             placeholder={contact.form.fields.name.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
@@ -62,14 +70,14 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
             id="company"
             name="company"
             placeholder={contact.form.fields.company.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
         <div>
           <label htmlFor="email" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.email.label}
-            {contact.form.fields.email.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.email.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <input
             type="email"
@@ -77,7 +85,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
             name="email"
             required={contact.form.fields.email.required}
             placeholder={contact.form.fields.email.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
@@ -88,7 +96,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
         <div>
           <label htmlFor="message" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.message.label}
-            {contact.form.fields.message.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.message.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <textarea
             id="message"
@@ -97,7 +105,7 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
             placeholder={contact.form.fields.message.placeholder}
             defaultValue={defaultMessage}
             rows={6}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors resize-none"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors resize-none"
           />
         </div>
 
@@ -105,12 +113,12 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
           type="submit"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
         >
-          {page.cta}
+          {submitLabel ?? page.cta}
           <span aria-hidden="true">→</span>
         </button>
       </form>
 
-      <aside className="space-y-6">
+      <div className="space-y-6">
         <div className="border border-charcoal/30 bg-white p-6">
           <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-3">
             Direct
@@ -122,15 +130,21 @@ function ContactFormInner({ defaultTopic }: { defaultTopic?: string }) {
             {site.email}
           </a>
         </div>
-      </aside>
+      </div>
     </div>
   )
 }
 
-export function ContactForm({ defaultTopic }: { defaultTopic?: string }) {
+export function ContactForm({
+  defaultTopic,
+  submitLabel,
+}: {
+  defaultTopic?: string
+  submitLabel?: string
+}) {
   return (
     <Suspense fallback={<div className="max-w-5xl" />}>
-      <ContactFormInner defaultTopic={defaultTopic} />
+      <ContactFormInner defaultTopic={defaultTopic} submitLabel={submitLabel} />
     </Suspense>
   )
 }

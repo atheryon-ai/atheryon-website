@@ -4,7 +4,7 @@
 // correct HTML is emitted at static-export build time. No client mode
 // detection, no FOUC on direct loads to /ma or /mortgages.
 
-export type Mode = 'cm' | 'ma' | 'mortgages'
+export type Mode = 'cm' | 'mortgages'
 
 export type ShellConfig = {
   nav: { label: string; href: string }[]
@@ -12,30 +12,23 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
+  // Firm shell (rev 5 arms model). /approach left the nav (linked from body
+  // copy and footer); CM legacy pages are reached via /capital-markets and
+  // the footer, not the header.
   cm: {
+    // Slim top bar (Terry 2026-08-09): arms + underpinning + about. The
+    // per-arm sub-pages (experience / approach / contact) hang off each
+    // arm's own sub-nav row, not the header.
     nav: [
-      { label: 'THEMES', href: '/themes' },
-      { label: 'OFFERS', href: '/offers' },
-      { label: 'SYSTEM', href: '/system' },
+      { label: 'M&A', href: '/ma' },
+      { label: 'CAPITAL MARKETS', href: '/capital-markets' },
+      { label: 'DATA & AI', href: '/data-ai' },
+      { label: 'ABOUT', href: '/about' },
     ],
     cta: {
-      label: 'BOOK SYSTEM ASSESSMENT',
-      shortLabel: 'BOOK',
+      label: 'DISCUSS A SITUATION',
+      shortLabel: 'DISCUSS',
       href: '/contact',
-    },
-  },
-  ma: {
-    nav: [
-      { label: 'APPROACH', href: '/ma/approach' },
-      { label: 'OFFERS', href: '/ma/offers' },
-    ],
-    cta: {
-      label: 'BOOK M&A REVIEW',
-      shortLabel: 'REVIEW',
-      // Real route under the M&A group, NOT /contact?topic=ma-execution.
-      // Static export cannot vary shell/nav/title by query string, so a
-      // dedicated path keeps M&A users inside the M&A shell on arrival.
-      href: '/ma/contact',
     },
   },
   mortgages: {

@@ -50,6 +50,11 @@ jobs:
           NODE_ENV: production
           COMMIT_SHA: ${{ github.sha }}
 
+      - name: Verify production build is indexable
+        run: |
+          ! grep -q 'name="robots" content="noindex' out/index.html
+          grep -q 'Allow: /' out/robots.txt
+
       - name: Copy staticwebapp.config.json to output
         run: cp staticwebapp.config.json out/
 

@@ -1,5 +1,8 @@
 {
   "routes": [
+    { "route": "/_next/static/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+
+    { "route": "/writing",                "redirect": "/blog",        "statusCode": 301 },
     { "route": "/reality",                "redirect": "/",            "statusCode": 301 },
     { "route": "/data",                   "redirect": "/system",      "statusCode": 301 },
     { "route": "/ai-direction",           "redirect": "/workflows",   "statusCode": 301 },
@@ -8,15 +11,17 @@
     { "route": "/cdm-platform",           "redirect": "/system",  "statusCode": 301 },
     { "route": "/recovery-migration",     "redirect": "/offers",  "statusCode": 301 },
     { "route": "/m-and-a-execution",      "redirect": "/offers",  "statusCode": 301 },
-    { "route": "/ma/system",              "redirect": "/ma/approach", "statusCode": 301 },
-    { "route": "/ma/workflows",           "redirect": "/ma/approach", "statusCode": 301 },
+    { "route": "/ma/system",              "redirect": "/ma",       "statusCode": 301 },
+    { "route": "/ma/workflows",           "redirect": "/ma",       "statusCode": 301 },
+    { "route": "/ma/offers",              "redirect": "/ma",       "statusCode": 301 },
+    { "route": "/services",               "redirect": "/ma",       "statusCode": 301 },
     { "route": "/capability-enablement",  "redirect": "/offers",  "statusCode": 301 },
     { "route": "/how-we-work",            "redirect": "/system",  "statusCode": 301 },
-    { "route": "/approach",               "redirect": "/system",  "statusCode": 301 },
     { "route": "/what-we-deliver",        "redirect": "/offers",  "statusCode": 301 },
     { "route": "/ai-ready-data",          "redirect": "/system",      "statusCode": 301 },
     { "route": "/intelligence",           "redirect": "/workflows",   "statusCode": 301 },
     { "route": "/reference-architectures","redirect": "/system",      "statusCode": 301 },
+    { "route": "/technology",             "redirect": "/capital-markets", "statusCode": 301 },
 
     { "route": "/labs/code",                   "redirect": "/offers/code",    "statusCode": 301 },
     { "route": "/labs/prompts",                "redirect": "/offers/prompts", "statusCode": 301 },
@@ -39,6 +44,17 @@
     { "route": "/roadmap",                "rewrite": "/roadmap.html" },
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },
+    { "route": "/ma",          "rewrite": "/ma.html" },
+    { "route": "/ma/experience",   "rewrite": "/ma/experience.html" },
+    { "route": "/ma/approach",     "rewrite": "/ma/approach.html" },
+    { "route": "/ma/contact",      "rewrite": "/ma/contact.html" },
+    { "route": "/experience",  "rewrite": "/experience.html" },
+    { "route": "/approach",    "rewrite": "/approach.html" },
+    { "route": "/capital-markets", "rewrite": "/capital-markets.html" },
+    { "route": "/capital-markets/experience", "rewrite": "/capital-markets/experience.html" },
+    { "route": "/capital-markets/approach",   "rewrite": "/capital-markets/approach.html" },
+    { "route": "/capital-markets/contact",    "rewrite": "/capital-markets/contact.html" },
+    { "route": "/data-ai",     "rewrite": "/data-ai.html" },
 
     { "route": "/offers",         "rewrite": "/offers.html" },
     { "route": "/offers/code",    "rewrite": "/offers/code.html" },
@@ -47,9 +63,6 @@
     { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
 
     { "route": "/labs",        "rewrite": "/labs.html" },
-    { "route": "/ma",          "rewrite": "/ma.html" },
-    { "route": "/ma/approach",            "rewrite": "/ma/approach.html" },
-    { "route": "/ma/offers",              "rewrite": "/ma/offers.html" },
     { "route": "/mortgages",   "rewrite": "/mortgages.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
@@ -66,7 +79,7 @@
     }
   },
   "globalHeaders": {
-    "Cache-Control": "public, max-age=3600",
+    "Cache-Control": "public, max-age=0, must-revalidate",
     "X-Content-Type-Options": "nosniff",
     "X-Frame-Options": "DENY"
   },

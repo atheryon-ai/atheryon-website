@@ -1,164 +1,93 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { v2 } from '@/content/site'
+import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
+import { v3 } from '@/content/site'
 
-const page = v2.pages.about
+const page = v3.pages.about
 const s = page.sections
-const ma = page.maCallout
-
-const isPending = (value: string) => value.includes('{{')
 
 export const metadata: Metadata = {
   title: page.title,
   description: page.description,
   openGraph: { title: page.title, description: page.description },
-  twitter: { card: 'summary_large_image', title: page.title, description: page.description },
+  twitter: {
+    card: 'summary_large_image',
+    title: page.title,
+    description: page.description,
+  },
   alternates: { canonical: 'https://atheryon.com.au/about' },
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// /about — Institutional, not narrative or personal.
-// Banking-lineage framing: experience environments, NOT employment or
-// system-ownership claims. Aesthetic matches /system + /engagements.
-// ─────────────────────────────────────────────────────────────────────────────
-
-function SectionHead({ label, title }: { label: string; title: string }) {
-  return (
-    <header className="mb-8 pb-4 border-b border-charcoal/15">
-      <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-        {label}
-      </div>
-      <h2 className="mt-2 font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal leading-tight">
-        {title}
-      </h2>
-    </header>
-  )
 }
 
 export default function AboutPage() {
   return (
-    <div className="bg-bone min-h-screen">
-      {/* Header banner */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
-          <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
-            atheryon / about / firm-overview
-          </div>
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-charcoal leading-[1.02] mb-6">
-            About
-          </h1>
-          <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
-            {page.intent}
-          </p>
+    <DocPage>
+      <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.body} />
+
+      <DocSection label={s.positioning.label} title={s.positioning.title}>
+        <p className="max-w-4xl font-display text-2xl md:text-3xl text-charcoal leading-snug mb-6">
+          {s.positioning.statement}
+        </p>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.positioning.audience}
+        </p>
+      </DocSection>
+
+      <DocSection label={s.story.label} title={s.story.title}>
+        <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.story.body.split('\n\n').map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
-      </section>
+      </DocSection>
 
-      {/* §01 What Atheryon is */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.whatAtheryonIs.label} title={s.whatAtheryonIs.title} />
-          <p className="font-mono text-sm uppercase tracking-[0.12em] text-charcoal/60 mb-4">
-            {s.whatAtheryonIs.descriptor}
-          </p>
-          <p className="text-lg md:text-xl text-charcoal/85 leading-relaxed max-w-3xl">
-            {v2.identity}
-          </p>
-
-          {/* M&A practice callout — not a new IA section */}
-          <div className="mt-12 pt-8 border-t border-charcoal/10 max-w-3xl">
-            <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/50 mb-2">
-              {ma.label}
-            </div>
-            <h3 className="font-display text-xl md:text-2xl font-medium text-charcoal tracking-tight mb-3">
-              {ma.title}
-            </h3>
-            <p className="text-base text-charcoal/75 leading-relaxed mb-4">
-              {ma.description}
-            </p>
-            <Link
-              href={ma.linkHref}
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-charcoal/70 hover:text-charcoal transition-colors"
+      <DocSection label={s.founders.label} title={s.founders.title}>
+        <div className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.founders.items.map((founder) => (
+            <article
+              key={founder.id}
+              id={founder.id}
+              className={
+                founder.photo
+                  ? 'py-10 md:py-12 scroll-mt-24 grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-8 md:gap-12'
+                  : 'py-10 md:py-12 scroll-mt-24'
+              }
             >
-              {ma.linkLabel}
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+              {founder.photo && (
+                <img
+                  src={founder.photo}
+                  alt={`${founder.name}, ${founder.role}`}
+                  width={founder.photoWidth}
+                  height={founder.photoHeight}
+                  className="w-40 md:w-full h-auto border border-charcoal/15"
+                />
+              )}
+              <div>
+                <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
+                  {founder.name}
+                </h3>
+                <div className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
+                  {founder.role}
+                </div>
+                <div className="mt-6 max-w-4xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+                  {founder.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <a
+                  href={founder.linkedin}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="mt-6 inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
+                >
+                  LinkedIn profile
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
+      </DocSection>
 
-      {/* §02 Banking Lineage */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.bankingLineage.label} title={s.bankingLineage.title} />
-          <p className="font-mono text-sm uppercase tracking-[0.12em] text-charcoal/60 mb-3">
-            {s.bankingLineage.framing}
-          </p>
-          <p className="text-sm md:text-base text-charcoal/70 italic mb-8 max-w-3xl">
-            {s.bankingLineage.disclaimer}
-          </p>
-          <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15 max-w-2xl">
-            {s.bankingLineage.institutions.map((name, i) => (
-              <li
-                key={name}
-                className="grid grid-cols-[auto_1fr] gap-4 items-baseline py-4"
-              >
-                <span className="font-mono text-xs text-charcoal/50 tabular-nums">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="font-display text-xl md:text-2xl font-medium text-charcoal tracking-tight">
-                  {name}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* §03 System Philosophy */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.systemPhilosophy.label} title={s.systemPhilosophy.title} />
-          <p className="font-mono text-base md:text-lg text-charcoal mb-8">
-            {s.systemPhilosophy.formula}
-          </p>
-          {!isPending(s.systemPhilosophy.body) && (
-            <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
-              {s.systemPhilosophy.body}
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* §04 Why Now */}
-      <section className="border-b border-charcoal/15">
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <SectionHead label={s.whyNow.label} title={s.whyNow.title} />
-          <p className="font-mono text-base md:text-lg text-charcoal mb-8">
-            {s.whyNow.descriptor}
-          </p>
-          {!isPending(s.whyNow.body) && (
-            <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl">
-              {s.whyNow.body}
-            </p>
-          )}
-        </div>
-      </section>
-
-      {/* End-of-document action */}
-      <section>
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-          <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
-            atheryon / about / end-of-document
-          </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
-          >
-            {v2.cta.label}
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-      </section>
-    </div>
+      <DocFooter label="atheryon / about / end-of-document" cta={{ ...v3.cta }} />
+    </DocPage>
   )
 }

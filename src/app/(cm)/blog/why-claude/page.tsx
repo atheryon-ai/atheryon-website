@@ -105,7 +105,7 @@ function NumberedSection({
   return (
     <section className="border-t border-charcoal/15 pt-10">
       <div className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline">
-        <span className="font-mono text-xs text-charcoal/50 tabular-nums">
+        <span className="font-mono text-xs text-charcoal/55 tabular-nums">
           {String(index).padStart(2, '0')}
         </span>
         <div>
@@ -121,11 +121,11 @@ function NumberedSection({
 
 export default function WhyClaudePage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / blog / why-claude"
         title={TITLE}
-        body="Long context that survives a prospectus, tool use that holds in a regulated environment, and a safety posture buyer-side compliance will sign off on. Here&rsquo;s the working."
+        body="Long context that survives a prospectus, tool use that holds in a regulated environment, and a safety posture buyer-side compliance will sign off on."
       />
 
       {/* Byline */}
@@ -153,13 +153,12 @@ export default function WhyClaudePage() {
       {/* TL;DR */}
       <DocSection label="TL;DR" title="The short version">
         <p className={prose}>
-          We built an evaluation framework around the dimensions that actually
-          matter for a production agent stack across trading, risk, and
-          operations workflows. We chose Claude. Three reasons: long context
-          that survives a real prospectus, tool use that holds up in a
-          regulated environment, and a safety posture that buyer-side
-          compliance functions will actually sign off on. Here&rsquo;s the
-          working.
+          We evaluated models against what a production agent stack has to
+          survive across trading, risk, and operations workflows. We chose
+          Claude. Three reasons: long context that survives a real prospectus,
+          tool use that holds up in a regulated environment, and a safety
+          posture that buyer-side compliance functions will sign off on.
+          Here&rsquo;s the working.
         </p>
       </DocSection>
 
@@ -197,9 +196,9 @@ export default function WhyClaudePage() {
       {/* §02 Evaluation framework */}
       <DocSection label="§ 02" title="Our evaluation framework">
         <p className={prose + ' mb-8'}>
-          We built an evaluation framework around the dimensions that actually
-          matter in a front office. Not benchmark scores — production
-          constraints.
+          We built the evaluation framework around the dimensions that matter
+          in a front office, weighting production constraints over benchmark
+          scores.
         </p>
         <div className="border border-charcoal/15 overflow-hidden max-w-3xl">
           <div
@@ -317,7 +316,7 @@ export default function WhyClaudePage() {
                 key={g.name}
                 className="border border-charcoal/30 bg-bone px-5 py-4 flex flex-col"
               >
-                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-2">
+                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/55 mb-2">
                   Agent {String(i + 1).padStart(2, '0')}
                 </div>
                 <div className="font-display text-base md:text-lg font-medium text-charcoal leading-snug mb-3">
@@ -371,7 +370,7 @@ export default function WhyClaudePage() {
               key={i}
               className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline py-6"
             >
-              <span className="font-mono text-xs text-charcoal/50 tabular-nums pt-1">
+              <span className="font-mono text-xs text-charcoal/55 tabular-nums pt-1">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>

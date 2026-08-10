@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial display serif (Fraunces) + workhorse sans (Inter / Inter Tight) + display sans (Cinzel) */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-/* Poppins — Anthropic brand-typography font, used ONLY for "Powered by Claude" attribution */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-/* JetBrains Mono — DESIGN.md Tier-2 mono for section labels, breadcrumbs, captions */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Fonts (Newsreader, Public Sans, JetBrains Mono, Cinzel) are self-hosted via
+   next/font in src/app/layout.tsx — no Google Fonts requests at runtime.
+   Poppins was removed entirely (council #3, 2026-08-10). */
 
 :root {
   color-scheme: dark;
@@ -18,19 +14,19 @@
   --color-amber: #D98B3E;
   --color-amber-light: #E5A862;
   --color-deepblue: #0D4D7A;
-  --homev3-bg: #060b1c;
-  --homev3-bg-soft: #0a1228;
-  --homev3-surface: #0e1830;
-  --homev3-surface-2: #122042;
-  --homev3-border: rgba(96, 165, 250, 0.18);
-  --homev3-border-strong: rgba(96, 165, 250, 0.35);
-  --homev3-blue: #3b82f6;
-  --homev3-blue-bright: #60a5fa;
-  --homev3-blue-deep: #1d4ed8;
+  --homev3-bg: #0E2A3A;
+  --homev3-bg-soft: #123243;
+  --homev3-surface: #16394C;
+  --homev3-surface-2: #1B4459;
+  --homev3-border: rgba(147, 165, 180, 0.22);
+  --homev3-border-strong: rgba(147, 165, 180, 0.45);
+  --homev3-blue: #52718E;
+  --homev3-blue-bright: #8FAECB;
+  --homev3-blue-deep: #3E5A75;
   --homev3-orange: #f59e0b;
   --homev3-orange-bright: #fbbf24;
-  --homev3-text-soft: rgba(255, 255, 255, 0.78);
-  --homev3-text-faint: rgba(255, 255, 255, 0.55);
+  --homev3-text-soft: rgba(250, 249, 247, 0.78);
+  --homev3-text-faint: rgba(250, 249, 247, 0.55);
   /* Semantic active-practice accent. Default = CM (blue), matching the
      current rendered colour on every CM page. Overridden by [data-mode]
      selectors further down for non-CM modes. */
@@ -51,9 +47,9 @@
 }
 
 :root[data-mode="mortgages"] {
-  /* Mortgages = white accent per the addendum. */
-  --mode-accent: #ffffff;
-  --mode-accent-bright: #ffffff;
+  /* Mortgages = white accent per the addendum (warm white on the navy ground). */
+  --mode-accent: #FAF9F7;
+  --mode-accent-bright: #FAF9F7;
 }
 
 @keyframes hero-glitch {
@@ -99,22 +95,14 @@ html {
 body {
   margin: 0;
   background: var(--homev3-bg);
-  color: #ffffff;
-  font-family: 'Inter', system-ui, sans-serif;
+  color: #FAF9F7;
+  font-family: var(--font-public-sans), system-ui, sans-serif;
   font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   font-size: 16px;
   line-height: 1.55;
-}
-
-body::before {
-  content: '';
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(59, 130, 246, 0.10), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 50% 30%, rgba(59, 130, 246, 0.06), transparent 70%);
 }
 
 /* ========================
@@ -370,7 +358,8 @@ textarea:focus-visible,
 select:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #3b82f6; /* homev3-blue */
+  outline: 2px solid #8FAECB; /* homev3-blue-bright — the base #52718E is only ~2.9:1
+     against the #0E2A3A ground; focus indicators need ≥3:1, and #8FAECB gives 6.4:1. */
   outline-offset: 2px;
 }
 
@@ -434,9 +423,11 @@ summary:focus-visible,
 .bg-bone-deep { background-color: var(--homev3-bg-soft) !important; }
 .bg-paper { background-color: var(--homev3-surface) !important; }
 .bg-white { background-color: var(--homev3-surface) !important; }
-.bg-charcoal { background-color: var(--homev3-blue) !important; }
+/* blue-deep, not blue: warm-white 14px button labels need ≥4.5:1 (WCAG AA);
+   #FAF9F7 on #3E5A75 is 6.8:1. */
+.bg-charcoal { background-color: var(--homev3-blue-deep) !important; }
 .bg-charcoal\/80 { background-color: var(--homev3-bg-soft) !important; }
-.bg-charcoal\/60 { background-color: rgba(255, 255, 255, 0.15) !important; }
+.bg-charcoal\/60 { background-color: rgba(250, 249, 247, 0.15) !important; }
 .bg-charcoal\/30 { background-color: var(--homev3-border-strong) !important; }
 .bg-charcoal\/15 { background-color: var(--homev3-border) !important; }
 
@@ -444,21 +435,22 @@ summary:focus-visible,
 .divide-charcoal\/15 > * + * { border-color: var(--homev3-border) !important; }
 
 /* Text colors */
-.text-charcoal { color: #ffffff !important; }
-.text-charcoal\/90 { color: rgba(255, 255, 255, 0.90) !important; }
-.text-charcoal\/85 { color: rgba(255, 255, 255, 0.85) !important; }
-.text-charcoal\/80 { color: rgba(255, 255, 255, 0.80) !important; }
-.text-charcoal\/70 { color: rgba(255, 255, 255, 0.72) !important; }
-.text-charcoal\/65 { color: rgba(255, 255, 255, 0.65) !important; }
-.text-charcoal\/60 { color: rgba(255, 255, 255, 0.60) !important; }
-.text-charcoal\/55 { color: rgba(255, 255, 255, 0.55) !important; }
-.text-charcoal\/50 { color: rgba(255, 255, 255, 0.50) !important; }
-.text-charcoal\/45 { color: rgba(255, 255, 255, 0.45) !important; }
-.text-charcoal\/40 { color: rgba(255, 255, 255, 0.40) !important; }
-.text-charcoal\/30 { color: rgba(255, 255, 255, 0.30) !important; }
-.text-charcoal\/25 { color: rgba(255, 255, 255, 0.25) !important; }
-.text-charcoal\/20 { color: rgba(255, 255, 255, 0.20) !important; }
-.text-bone { color: #ffffff !important; }
+.text-charcoal { color: #FAF9F7 !important; }
+.text-charcoal\/90 { color: rgba(250, 249, 247, 0.90) !important; }
+.text-charcoal\/85 { color: rgba(250, 249, 247, 0.85) !important; }
+.text-charcoal\/80 { color: rgba(250, 249, 247, 0.80) !important; }
+.text-charcoal\/75 { color: rgba(250, 249, 247, 0.76) !important; }
+.text-charcoal\/70 { color: rgba(250, 249, 247, 0.72) !important; }
+.text-charcoal\/65 { color: rgba(250, 249, 247, 0.65) !important; }
+.text-charcoal\/60 { color: rgba(250, 249, 247, 0.60) !important; }
+.text-charcoal\/55 { color: rgba(250, 249, 247, 0.55) !important; }
+.text-charcoal\/50 { color: rgba(250, 249, 247, 0.50) !important; }
+.text-charcoal\/45 { color: rgba(250, 249, 247, 0.45) !important; }
+.text-charcoal\/40 { color: rgba(250, 249, 247, 0.40) !important; }
+.text-charcoal\/30 { color: rgba(250, 249, 247, 0.30) !important; }
+.text-charcoal\/25 { color: rgba(250, 249, 247, 0.25) !important; }
+.text-charcoal\/20 { color: rgba(250, 249, 247, 0.20) !important; }
+.text-bone { color: #FAF9F7 !important; }
 
 /* Borders (hairlines) */
 .border-charcoal\/50 { border-color: var(--homev3-border-strong) !important; }
@@ -475,9 +467,9 @@ summary:focus-visible,
 
 /* Form inputs — brighter surface than cards, more visible border */
 input.bg-white, textarea.bg-white, select.bg-white {
-  background-color: #11193a !important;
-  border-color: rgba(96, 165, 250, 0.45) !important;
-  color: #ffffff !important;
+  background-color: #1F4A60 !important;
+  border-color: rgba(143, 174, 203, 0.45) !important;
+  color: #FAF9F7 !important;
 }
 input.bg-white:focus, textarea.bg-white:focus, select.bg-white:focus {
   border-color: var(--homev3-blue-bright) !important;
@@ -489,13 +481,19 @@ textarea.bg-white:focus:not(:focus-visible),
 select.bg-white:focus:not(:focus-visible) {
   outline: none !important;
 }
-.placeholder\:text-charcoal\/50::placeholder { color: rgba(255, 255, 255, 0.5) !important; }
-.placeholder\:text-charcoal\/40::placeholder { color: rgba(255, 255, 255, 0.4) !important; }
-.placeholder\:text-charcoal\/30::placeholder { color: rgba(255, 255, 255, 0.3) !important; }
+/* /50 bumped to 0.65 alpha: on the #1F4A60 input ground, 0.5 falls to 3.6:1;
+   0.65 restores 4.9:1 (WCAG AA for placeholder text). */
+.placeholder\:text-charcoal\/50::placeholder { color: rgba(250, 249, 247, 0.65) !important; }
+.placeholder\:text-charcoal\/40::placeholder { color: rgba(250, 249, 247, 0.4) !important; }
+.placeholder\:text-charcoal\/30::placeholder { color: rgba(250, 249, 247, 0.3) !important; }
 
-/* Display font on dark looks better one shade lighter; keep Fraunces but
+/* Display font on dark looks better one shade lighter; keep Newsreader but
    strengthen the rendering */
-.font-display { color: #ffffff; }
+.font-display { color: #FAF9F7; }
+
+/* Bronze accent — canonical hex from the approved poster (rev 6).
+   4.8:1 on the #0E2A3A page and band grounds. */
+.text-bronze { color: #B08D57; }
 
 /* ========================
    HOME v3 — MOBILE RESPONSIVE OVERRIDES
@@ -506,23 +504,33 @@ select.bg-white:focus:not(:focus-visible) {
 /* Show full CTA label on desktop, short label only on the smallest viewports. */
 .home-nav-cta-short { display: none; }
 
+/* Mobile menu button + panel: hidden on desktop, shown ≤768px. */
+.home-nav-menu-btn { display: none; }
+@media (min-width: 769px) {
+  .home-nav-mobile-panel { display: none !important; }
+}
+
 @media (max-width: 768px) {
-  /* Nav: drop middle links, keep brand + CTA. */
+  /* Nav: drop middle links, keep brand + CTA + menu button. */
   .home-nav-grid {
-    grid-template-columns: auto auto !important;
+    grid-template-columns: auto auto auto !important;
     gap: 12px !important;
     padding: 0 16px !important;
     justify-content: space-between;
   }
   .home-nav-links { display: none !important; }
+  .home-nav-menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
   .home-nav-cta {
     padding: 8px 12px !important;
     font-size: 11px !important;
     letter-spacing: 0.06em !important;
     gap: 6px !important;
   }
-  /* Brand: drop the long tagline + shrink the wordmark so the nav fits. */
-  .home-nav-grid .brand-lockup-tagline { display: none !important; }
+  /* Brand: shrink the wordmark so the nav fits. */
   .home-nav-grid .brand-lockup-wordmark {
     font-size: 18px !important;
     letter-spacing: 0.06em !important;

@@ -6,27 +6,29 @@
 export type Status = 'shipped' | 'building' | 'roadmap'
 
 // Foreground colours darkened to meet WCAG AA contrast on the cream `bg-bone`
-// background that hosts the badges on /themes, /themes/[id], and /roadmap.
-// Previously used 400-level Tailwind hues (#60a5fa, #fbbf24) which dropped to
-// ~1.4:1 contrast for 10px text — failed contrast. Now uses 700-/800-level hues
-// against a light-tinted fill, which clears WCAG AA for small text.
-const STYLES: Record<Status, { label: string; bg: string; fg: string; border: string }> = {
+// background that hosts the badges. Previously used 400-level Tailwind hues
+// which dropped to ~1.4:1 contrast for 10px text. Now deep steel blue
+// (homev3-blue-deep, brand palette 2026-08-09) and amber-800 against a
+// light-tinted fill, which clears WCAG AA for small text. Foregrounds are
+// Tailwind token classes per the design standard (no raw hex in components);
+// the rgba fills stay inline because they are alpha blends of those tokens.
+const STYLES: Record<Status, { label: string; bg: string; fgClass: string; border: string }> = {
   shipped: {
     label: 'SHIPPED',
-    bg: 'rgba(59, 130, 246, 0.15)',
-    fg: '#1d4ed8', // blue-700
-    border: 'rgba(59, 130, 246, 0.55)',
+    bg: 'rgba(82, 113, 142, 0.15)',
+    fgClass: 'text-homev3-blue-deep',
+    border: 'rgba(82, 113, 142, 0.55)',
   },
   building: {
     label: 'BUILDING',
     bg: 'rgba(245, 158, 11, 0.18)',
-    fg: '#92400e', // amber-800
+    fgClass: 'text-amber-800',
     border: 'rgba(245, 158, 11, 0.6)',
   },
   roadmap: {
     label: 'ROADMAP',
     bg: 'rgba(245, 158, 11, 0.08)', // was transparent — adds subtle fill so the pill reads
-    fg: '#92400e', // amber-800
+    fgClass: 'text-amber-800',
     border: 'rgba(245, 158, 11, 0.6)',
   },
 }
@@ -36,6 +38,7 @@ export function StatusBadge({ status }: { status: Status }) {
   return (
     <span
       data-status={status}
+      className={`font-mono ${s.fgClass}`}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -45,10 +48,8 @@ export function StatusBadge({ status }: { status: Status }) {
         fontWeight: 700,
         textTransform: 'uppercase',
         background: s.bg,
-        color: s.fg,
         border: `1px solid ${s.border}`,
         borderRadius: 3,
-        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
       }}
     >
       {s.label}

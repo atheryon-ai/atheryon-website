@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 const NAV = [
   { label: 'Home', tag: 'Atheryon home', href: '/' },
-  { label: 'System', tag: 'Reference architecture', href: '/system' },
-  { label: 'Themes', tag: 'Capital markets AI themes', href: '/themes' },
-  { label: 'Offers', tag: 'Engagement model', href: '/offers' },
-  { label: 'About', tag: 'Banking lineage', href: '/about' },
-  { label: 'Labs', tag: 'Working reference platform', href: '/labs' },
-  { label: 'Contact', tag: 'Book system assessment', href: '/contact' },
+  { label: 'M&A', tag: 'Making Transactions Executable', href: '/ma' },
+  { label: 'Experience', tag: 'Representative experience', href: '/experience' },
+  { label: 'Approach', tag: 'Method and governance', href: '/approach' },
+  { label: 'About', tag: 'Story and co-founders', href: '/about' },
+  { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
+  { label: 'Contact', tag: 'Discuss a situation', href: '/contact' },
 ] as const
 
 /**
@@ -37,7 +37,7 @@ export default function NotFound() {
             body="The URL you followed does not match a known page on atheryon.com.au."
           />
 
-          <DocSection label="§01 / Navigation">
+          <DocSection label="Navigation">
             <p className="text-base md:text-lg text-charcoal/80 leading-relaxed max-w-3xl mb-8">
               If you arrived from an external link, the page may have moved or been retired. The links below cover the current information architecture.
             </p>

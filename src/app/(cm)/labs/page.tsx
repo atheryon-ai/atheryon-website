@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { DocPage, DocBanner, DocSection, DocBullets } from '@/components'
 import { site } from '@/content/site'
+import { metrics } from '@/content/metrics'
 
 const { labs } = site.pages
 
@@ -32,7 +33,7 @@ export default function LabsPage() {
       />
 
       {/* §01 Why credible */}
-      <DocSection label="§01 / Why Credible" title={labs.whyCredible.title}>
+      <DocSection label="Why Credible" title={labs.whyCredible.title}>
         <div className="space-y-5 max-w-3xl">
           {labs.whyCredible.paragraphs.map((p) => (
             <p key={p.slice(0, 24)} className="text-base md:text-lg text-charcoal/85 leading-relaxed">
@@ -43,7 +44,7 @@ export default function LabsPage() {
       </DocSection>
 
       {/* §02 Offers preview */}
-      <DocSection label="§02 / Offers" title={labs.offersPreview.title}>
+      <DocSection label="Offers" title={labs.offersPreview.title}>
         <ol className="grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
           {labs.offersPreview.items.map((item, i) => (
             <li key={item.title} className="bg-bone p-6 flex flex-col">
@@ -68,14 +69,14 @@ export default function LabsPage() {
             href="/labs/themes"
             className="inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
           >
-            Browse the full surface — 26 themes · 111 pages
+            Browse the full surface — {metrics.labs.themes} themes · {metrics.labs.pages} pages
             <span aria-hidden="true">→</span>
           </Link>
         </div>
       </DocSection>
 
       {/* §03 Evidence */}
-      <DocSection label="§03 / Evidence" title={labs.evidence.title}>
+      <DocSection label="Evidence" title={labs.evidence.title}>
         <ol className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-charcoal/15 border border-charcoal/15 mb-10">
           {labs.evidence.statsItems.map((s) => (
             <li key={s.label} className="bg-bone p-5 flex flex-col">
@@ -110,14 +111,14 @@ export default function LabsPage() {
           </div>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-3">
             {labs.evidence.partners.map((p) => {
-              // Anthropic brand-typography (Poppins) for the Claude attribution only;
-              // Microsoft/S&P stay in the site's mono treatment.
+              // Claude attribution renders in the site sans (Poppins was
+              // dropped, council #3); Microsoft/S&P stay in the mono treatment.
               const isClaude = p.name.toLowerCase().includes('claude')
               return isClaude ? (
                 <span
                   key={p.name}
-                  className="text-sm text-charcoal"
-                  style={{ fontFamily: "'Poppins', system-ui, Arial, sans-serif", fontWeight: 500, letterSpacing: '-0.005em' }}
+                  className="font-sans text-sm text-charcoal"
+                  style={{ fontWeight: 500, letterSpacing: '-0.005em' }}
                 >
                   {p.name}
                 </span>
@@ -133,7 +134,7 @@ export default function LabsPage() {
       </DocSection>
 
       {/* §04 Flagships */}
-      <DocSection label="§04 / Flagships" title={labs.flagships.title}>
+      <DocSection label="Flagships" title={labs.flagships.title}>
         <div className="space-y-16">
           {labs.flagships.items.map((f) => (
             <article key={f.number} className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-start">
@@ -205,7 +206,7 @@ export default function LabsPage() {
       </DocSection>
 
       {/* §05 Banker × AI */}
-      <DocSection label="§05 / Banker × AI" title={labs.bankerWedge.title}>
+      <DocSection label="Banker × AI" title={labs.bankerWedge.title}>
         <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl mb-10">
           {labs.bankerWedge.intro}
         </p>
@@ -250,7 +251,7 @@ export default function LabsPage() {
       </DocSection>
 
       {/* §06 Method */}
-      <DocSection id="method" label="§06 / Method" title={labs.method.title}>
+      <DocSection id="method" label="Method" title={labs.method.title}>
         <ul className="space-y-6 mb-12 max-w-3xl">
           {labs.method.principles.map((p, i) => (
             <li key={p.title}>
@@ -304,7 +305,7 @@ export default function LabsPage() {
       </DocSection>
 
       {/* §07 Engagement */}
-      <DocSection label="§07 / Engagement" title={labs.engagement.title}>
+      <DocSection label="Engagement" title={labs.engagement.title}>
         <ol className="grid grid-cols-1 md:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15 mb-12">
           {labs.engagement.cards.map((c) => (
             <li key={c.id} id={c.anchorId} className="bg-bone p-6 lg:p-7 flex flex-col scroll-mt-24">
@@ -342,13 +343,6 @@ export default function LabsPage() {
               {labs.closing.primaryCta.label}
               <span aria-hidden="true">→</span>
             </Link>
-            <a
-              href={labs.closing.tertiaryCta.href}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-charcoal border border-charcoal hover:bg-charcoal hover:text-bone transition-colors"
-            >
-              {labs.closing.tertiaryCta.label}
-              <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
       </DocSection>

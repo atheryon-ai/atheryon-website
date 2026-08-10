@@ -165,6 +165,29 @@ Specific Atheryon-attributed outcomes, recoveries, or delivery results — beyon
 
 ---
 
+## v3 / Appendix A claims (added 2026-08-09, exec-first IA restructure)
+
+Source: `docs/superpowers/plans/2026-08-09-exec-first-ia-restructure.md` Appendix A (content authored by Anna, provided by Terry). **Sign-off complete 2026-08-09 (Terry, spec §8.5): figures approved verbatim from Appendix A; the `dev → main` gate is lifted.**
+
+| # | Claim text | Where it appears | Verdict | Replacement copy |
+|---|---|---|---|---|
+| 1 | RAMS transaction `valued at approximately $21.4 billion at signing` | src/content/site.ts v3.pages.home.sections.proof + v3.pages.experience (RAMS case) | approved | — |
+| 2 | `recognised as one of the largest loan portfolio acquisitions in Australian history` | v3.pages.experience (RAMS case) | approved | — |
+| 3 | `divestment and integration programs exceeding $1 billion in transaction value` | v3.pages.home.sections.proof + v3.pages.experience (case 02) | approved | — |
+| 4 | `Completed transaction execution within four months and achieved full operational separation within ten months` | v3.pages.experience (case 03) | approved | — |
+| 5 | `hypercare issues remained exceptionally low` | v3.pages.experience (RAMS case) | approved | — |
+| 6 | Four FS sectors: `retail banking, business banking, wealth management and non-bank financial institutions` | v3.pages.home.sections.proof | approved | — |
+| 7 | Four jurisdictions: `Australia, Europe, the United Kingdom and the United States` | v3.pages.home.sections.proof | approved | — |
+| 8 | Anna: `more than 25 years in financial-services execution across Australia, the UK, and the US` + Westpac (2023–2025) / CBA Wealth (2018–2020) / Count Financial / CommInsure / BT Panorama / Deutsche Bank / Deutsche Pfandbriefbank / Credit Suisse / Capco | v3.pages.about.sections.founders (ported from v2Ma.approach.sections.seniorSpecialist per spec §3) | approved | — |
+| 9 | `Atheryon leadership played a key role in the transition and integration of the RAMS mortgage portfolio acquisition` (provenance framing) | v3.pages.experience (RAMS case) | approved | — |
+| 10 | Terry co-founder bio achievement set (CS near-real-time FO risk + global P&L Attribution; CBA Markets ODS; Westpac $84M rescue, 10× baseline) | v3.pages.about.sections.founders | approved | Carried verbatim from ledger rows: Named clients #3–#6, Case claims #5–#8 (all `approved`). Goldman Sachs and S&P TeraHelix references from the unsigned v2 bio were **not** carried into v3. |
+| 11 | CM case 1: `failed after $84M of investment` / `shipped strategic data assets at ten times prior speed, a first for the bank` / `APRA engagement led at executive level` (anonymised: Major Australian Bank, Financial Markets) | site.ts `cmCases[0]` → /capital-markets + /experience; `$84M` also v3.pages.home.sections.proof (fourth entry) | approved | Appendix C verbatim (Terry, 2026-08-09, from CV). Consistent with row 10's Westpac $84M rescue; employer anonymised. |
+| 12 | CM case 2: bank's `first near real-time front office risk system` / CAD2 VaR + P&L attribution / market data BAU across New York, London and Zurich (anonymised: Global Investment Bank, Commodities) | site.ts `cmCases[1]` → /capital-markets + /experience | approved | Appendix C verbatim (Terry, 2026-08-09, from CV). Consistent with row 10's CS near-real-time FO risk claim; employer anonymised. |
+| 13 | CM case 3: regulatory trade reporting, record keeping, MiFID II and trade surveillance platform, inception to BAU (anonymised: Major Australian Bank, Institutional Banking & Markets) | site.ts `cmCases[2]` → /capital-markets + /experience | approved | Appendix C verbatim (Terry, 2026-08-09, from CV). Consistent with row 10's CBA Markets ODS claim; employer anonymised. |
+| 14 | Three CM delivery patterns (program recovery; front office risk and market data; data product acceleration `at multiples of prior speed`) | v3.pages.capitalMarkets.sections.examples | approved | Appendix C verbatim (Terry, 2026-08-09). No vendor names (Palantir may be named later at Terry's option). |
+| 15 | 2026-08-10 Capital Markets build-out: four service lines, method principles, engagement paths, platform-proof paragraph on /capital-markets and /capital-markets/approach | site.ts v3.pages.capitalMarkets.sections.lines + cmApproach | approved | Every sentence ported from already-published production copy (www.atheryon.com.au /, /system, /labs, /themes, /offers) through an adversarial claims gate: no counts, no named entities, no speed claims promoted to arm level; regime names (EMIR Refit, MiFID II, ASIC, CFTC) retained as scope only. $84M homepage tile reworded to lead with recovery (facts unchanged, per Appendix C). |
+| 16 | "Atheryon is a delivery partner to S&P Global, with integration work on TeraHelix." (/capital-markets, Market Data service line) and "Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner." (/data-ai, AI section) | site.ts capitalMarkets.lines items[1].body + dataAi.sections.ai.body | approved (option B) | Council #4 (2026-08-10) unanimously ruled: lowercase descriptive sentences on the two delivery arms only; no homepage, /ma, strips or footer placement. Terry chose option B over the Title Case "S&P Global Delivery Partner" designation after reviewing the MPSA (which styles the firm "Vendor" and does not contain the phrase). Basis: 3-year S&P Global MPSA covering advisory on AI-integrated product offerings and project delivery; Microsoft-partner and TeraHelix-integration wordings reused from shipped /labs copy. OPEN CHECKS with Terry: (a) MPSA counterparty is Direct2client Pty Ltd, site entity is Atheryon Pty Ltd — relationship to be confirmed; (b) MPSA publicity/use-of-name clause not yet sighted — S&P naming consent to be confirmed (applies equally to the pre-existing /labs S&P claims). |
+
 ## Notes for Abigail
 
 A few items worth flagging while filling verdicts:

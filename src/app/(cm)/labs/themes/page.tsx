@@ -62,17 +62,9 @@ function ThemeBlock({
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
         {themesList.map((theme) => (
           <li key={theme.id} className="bg-bone p-4 flex flex-col">
-            <a
-              href={`https://labs.atheryon.ai${theme.primaryRoute}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-display text-base font-medium text-charcoal tracking-tight underline-offset-4 hover:underline"
-            >
+            <span className="font-display text-base font-medium text-charcoal tracking-tight">
               {theme.title}
-              <span aria-hidden="true" className="ml-1 font-mono text-xs text-charcoal/50">
-                ↗
-              </span>
-            </a>
+            </span>
             {theme.blurb && (
               <p className="font-mono text-xs text-charcoal/70 mt-2 leading-relaxed">
                 {theme.blurb}
@@ -80,7 +72,7 @@ function ThemeBlock({
             )}
             {theme.pages != null && (
               <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55 mt-3">
-                {theme.pages} pages
+                {theme.pages} {theme.pages === 1 ? 'page' : 'pages'}
               </div>
             )}
           </li>
@@ -92,7 +84,7 @@ function ThemeBlock({
 
 export default function ThemesPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <h1 className="sr-only">{themes.headline}</h1>
 
       <DocBanner

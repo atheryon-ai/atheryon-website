@@ -33,7 +33,7 @@ const linkClass = 'text-charcoal underline underline-offset-4 hover:text-ink'
 
 export default function PrivacyPage() {
   return (
-    <DocPage>
+    <DocPage numbered={false}>
       <DocBanner
         label="atheryon / legal / privacy"
         title="Privacy Policy"
