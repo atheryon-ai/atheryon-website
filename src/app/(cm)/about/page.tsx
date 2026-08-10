@@ -55,8 +55,8 @@ export default function AboutPage() {
                 <img
                   src={founder.photo}
                   alt={`${founder.name}, ${founder.role}`}
-                  width={533}
-                  height={800}
+                  width={founder.photoWidth}
+                  height={founder.photoHeight}
                   className="w-40 md:w-full h-auto border border-charcoal/15"
                 />
               )}

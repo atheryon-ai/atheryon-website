@@ -1909,6 +1909,8 @@ export const v3 = {
               name: 'Anna Contos',
               role: 'Co-Founder, M&A',
               photo: '/anna-contos.jpg',
+              photoWidth: 533,
+              photoHeight: 800,
               paragraphs: [
                 'Anna Contos co-founded Atheryon and leads the M&A arm. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
                 'Anna has led separation and integration advisory at executive level for one of Australia’s major banks, spanning its divestment and acquisition initiatives, and previously headed divestment execution for the wealth division of another major Australian bank, running the portfolio of programs that delivered a landmark financial-advice divestment and the sale of a major insurance business. Earlier roles include platform take-to-market leadership and business consulting and strategy positions across global investment banking, wealth and retail.',
@@ -1920,8 +1922,9 @@ export const v3 = {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
               role: 'Co-Founder, Capital Markets',
-              // Slot for Terry's headshot when supplied.
-              photo: null as string | null,
+              photo: '/terry-tsakiris.jpg',
+              photoWidth: 400,
+              photoHeight: 400,
               paragraphs: [
                 'Terry Tsakiris co-founded Atheryon and leads the Capital Markets arm. He has spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
                 'He built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. He owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. He also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
