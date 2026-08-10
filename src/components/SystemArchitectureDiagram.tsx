@@ -38,8 +38,8 @@ export type SystemArchitectureData = {
 // Number of abstracted ETL agent nodes shown (public altitude — count is illustrative).
 const ETL_NODE_COUNT = 5
 
-const seclabel = 'font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/50'
-const arrow = 'flex items-center justify-center gap-2 text-charcoal/40 font-mono text-lg leading-none py-1.5'
+const seclabel = 'font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/55'
+const arrow = 'flex items-center justify-center gap-2 text-charcoal/55 font-mono text-lg leading-none py-1.5'
 
 function AgentNode() {
   return (

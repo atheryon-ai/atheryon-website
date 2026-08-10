@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Editorial display serif (Newsreader) + workhorse sans (Public Sans) + display sans (Cinzel) */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Public+Sans:wght@400;500;600;700&display=swap');
-/* Poppins — Anthropic brand-typography font, used ONLY for "Powered by Claude" attribution */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-/* JetBrains Mono — DESIGN.md Tier-2 mono for section labels, breadcrumbs, captions */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Fonts (Newsreader, Public Sans, JetBrains Mono, Cinzel) are self-hosted via
+   next/font in src/app/layout.tsx — no Google Fonts requests at runtime.
+   Poppins was removed entirely (council #3, 2026-08-10). */
 
 :root {
   color-scheme: dark;
@@ -100,7 +96,7 @@ body {
   margin: 0;
   background: var(--homev3-bg);
   color: #FAF9F7;
-  font-family: 'Public Sans', system-ui, sans-serif;
+  font-family: var(--font-public-sans), system-ui, sans-serif;
   font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

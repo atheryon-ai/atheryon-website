@@ -33,7 +33,7 @@ export default function CmExperiencePage() {
               className="grid grid-cols-1 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-12 py-10 scroll-mt-24"
             >
               <header>
-                <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
+                <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">

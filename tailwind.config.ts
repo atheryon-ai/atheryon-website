@@ -71,13 +71,14 @@ const config: Config = {
           'text-faint': 'rgba(250, 249, 247, 0.55)',
         },
       },
+      // Families are self-hosted via next/font in src/app/layout.tsx; the
+      // CSS variables carry metric-adjusted fallbacks generated there.
       fontFamily: {
-        sans: ['"Public Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-        display: ['Newsreader', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
-        body: ['"Public Sans"', 'system-ui', 'sans-serif'],
-        'serif-cap': ['Cinzel', 'Trajan Pro', 'Georgia', 'serif'],
-        poppins: ['Poppins', 'system-ui', 'Arial', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+        sans: ['var(--font-public-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        display: ['var(--font-newsreader)', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+        body: ['var(--font-public-sans)', 'system-ui', 'sans-serif'],
+        'serif-cap': ['var(--font-cinzel)', 'Trajan Pro', 'Georgia', 'serif'],
+        mono: ['var(--font-jetbrains)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
       fontSize: {
         // Social Grow typography scale

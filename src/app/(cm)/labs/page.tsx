@@ -111,13 +111,13 @@ export default function LabsPage() {
           </div>
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 mb-3">
             {labs.evidence.partners.map((p) => {
-              // Anthropic brand-typography (Poppins) for the Claude attribution only;
-              // Microsoft/S&P stay in the site's mono treatment.
+              // Claude attribution renders in the site sans (Poppins was
+              // dropped, council #3); Microsoft/S&P stay in the mono treatment.
               const isClaude = p.name.toLowerCase().includes('claude')
               return isClaude ? (
                 <span
                   key={p.name}
-                  className="font-poppins text-sm text-charcoal"
+                  className="font-sans text-sm text-charcoal"
                   style={{ fontWeight: 500, letterSpacing: '-0.005em' }}
                 >
                   {p.name}

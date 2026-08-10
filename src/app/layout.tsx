@@ -1,7 +1,37 @@
 import type { Metadata } from 'next'
+import { Cinzel, JetBrains_Mono, Newsreader, Public_Sans } from 'next/font/google'
 import { ModeSetter } from '@/components/ModeSetter'
 import { site, v3 } from '@/content/site'
 import './globals.css'
+
+// Self-hosted via next/font (council #3): subsetted files served from
+// /_next/static, no render-blocking Google CSS, metric-adjusted fallbacks.
+// Poppins was dropped entirely; its one attribution line is Public Sans now.
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  style: 'normal', // no display italics in use
+  axes: ['opsz'],
+  variable: '--font-newsreader',
+  display: 'swap',
+})
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-public-sans',
+  display: 'swap',
+})
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  style: 'normal',
+  variable: '--font-jetbrains',
+  display: 'swap',
+})
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: '600', // wordmark only
+  variable: '--font-cinzel',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://atheryon.com.au'),
@@ -78,7 +108,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${publicSans.variable} ${jetbrainsMono.variable} ${cinzel.variable}`}
+    >
       <body className="antialiased">
         <script
           type="application/ld+json"

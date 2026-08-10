@@ -118,7 +118,7 @@ export function DocFooter({ label, cta }: DocFooterProps) {
 
 export function DocPending({ token }: { token: string }) {
   return (
-    <p className="font-mono text-xs uppercase tracking-[0.12em] text-charcoal/45">
+    <p className="font-mono text-xs uppercase tracking-[0.12em] text-charcoal/60">
       {token}
     </p>
   )
@@ -131,7 +131,7 @@ export function DocList({ items }: { items: ReadonlyArray<string> }) {
     <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15">
       {items.map((item, i) => (
         <li key={item} className="grid grid-cols-[auto_1fr] gap-4 items-baseline py-4">
-          <span className="font-mono text-xs text-charcoal/50 tabular-nums">
+          <span className="font-mono text-xs text-charcoal/55 tabular-nums">
             {String(i + 1).padStart(2, '0')}
           </span>
           <span className="font-mono text-base text-charcoal">{item}</span>

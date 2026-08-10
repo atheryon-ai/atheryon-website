@@ -49,7 +49,7 @@ function ContactFormInner({
         <div>
           <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.name.label}
-            {contact.form.fields.name.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.name.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <input
             type="text"
@@ -57,7 +57,7 @@ function ContactFormInner({
             name="name"
             required={contact.form.fields.name.required}
             placeholder={contact.form.fields.name.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
@@ -70,14 +70,14 @@ function ContactFormInner({
             id="company"
             name="company"
             placeholder={contact.form.fields.company.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
         <div>
           <label htmlFor="email" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.email.label}
-            {contact.form.fields.email.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.email.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <input
             type="email"
@@ -85,7 +85,7 @@ function ContactFormInner({
             name="email"
             required={contact.form.fields.email.required}
             placeholder={contact.form.fields.email.placeholder}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors"
           />
         </div>
 
@@ -96,7 +96,7 @@ function ContactFormInner({
         <div>
           <label htmlFor="message" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.message.label}
-            {contact.form.fields.message.required && <span className="text-charcoal/50"> *</span>}
+            {contact.form.fields.message.required && <span className="text-charcoal/55"> *</span>}
           </label>
           <textarea
             id="message"
@@ -105,7 +105,7 @@ function ContactFormInner({
             placeholder={contact.form.fields.message.placeholder}
             defaultValue={defaultMessage}
             rows={6}
-            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/40 focus:outline-none focus:border-charcoal transition-colors resize-none"
+            className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal placeholder:text-charcoal/50 focus:outline-none focus:border-charcoal transition-colors resize-none"
           />
         </div>
 

@@ -72,7 +72,7 @@ export default function BlogIndexPage() {
                   >
                     {post.date}
                   </time>
-                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-charcoal/50">
+                  <span className="font-mono text-xs uppercase tracking-[0.16em] text-charcoal/55">
                     · {post.readingTime} read
                   </span>
                 </div>

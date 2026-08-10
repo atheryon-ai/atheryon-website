@@ -42,7 +42,7 @@ export default function CapitalMarketsPage() {
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.lines.items.map((line) => (
             <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
                 {line.index}
               </div>
               <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">

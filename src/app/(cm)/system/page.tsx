@@ -89,7 +89,7 @@ export default function SystemPage() {
                 key={item.id}
                 className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline py-6"
               >
-                <span className="font-mono text-xs text-charcoal/50 tabular-nums pt-1">
+                <span className="font-mono text-xs text-charcoal/55 tabular-nums pt-1">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <div>

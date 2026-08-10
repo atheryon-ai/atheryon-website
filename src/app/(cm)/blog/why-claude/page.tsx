@@ -105,7 +105,7 @@ function NumberedSection({
   return (
     <section className="border-t border-charcoal/15 pt-10">
       <div className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline">
-        <span className="font-mono text-xs text-charcoal/50 tabular-nums">
+        <span className="font-mono text-xs text-charcoal/55 tabular-nums">
           {String(index).padStart(2, '0')}
         </span>
         <div>
@@ -316,7 +316,7 @@ export default function WhyClaudePage() {
                 key={g.name}
                 className="border border-charcoal/30 bg-bone px-5 py-4 flex flex-col"
               >
-                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/50 mb-2">
+                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-charcoal/55 mb-2">
                   Agent {String(i + 1).padStart(2, '0')}
                 </div>
                 <div className="font-display text-base md:text-lg font-medium text-charcoal leading-snug mb-3">
@@ -370,7 +370,7 @@ export default function WhyClaudePage() {
               key={i}
               className="grid grid-cols-[auto_1fr] gap-4 md:gap-6 items-baseline py-6"
             >
-              <span className="font-mono text-xs text-charcoal/50 tabular-nums pt-1">
+              <span className="font-mono text-xs text-charcoal/55 tabular-nums pt-1">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <div>

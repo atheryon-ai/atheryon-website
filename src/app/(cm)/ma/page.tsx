@@ -58,7 +58,7 @@ export default function MaArmPage() {
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.lines.items.map((line) => (
             <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 mb-3">
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
                 {line.index}
               </div>
               <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
@@ -146,7 +146,7 @@ export default function MaArmPage() {
               key={value.id}
               className="grid grid-cols-[auto_1fr] md:grid-cols-[4rem_minmax(14rem,0.6fr)_minmax(0,1.4fr)] gap-x-5 md:gap-x-8 gap-y-2 py-6"
             >
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/50 pt-1">
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 pt-1">
                 {String(i + 1).padStart(2, '0')}
               </div>
               <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
