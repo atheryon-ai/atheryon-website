@@ -44,7 +44,6 @@ export const site = {
         headlineLine1: 'Atheryon Labs',
         headlineLine2: 'The banking platform built by AI.',
         body: 'Atheryon Labs is a CDM-native banking platform: a working reference today, packaged for cloud marketplace distribution as it matures. One capital-markets expert directed AI to build it, and the platform itself is the evidence that complex financial data can be modelled, linked, and turned into banking software institutions can license, deploy, and extend.',
-        primaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
         tertiaryCta: { label: 'Request a confidential discussion', href: '/contact' },
       },
       whyCredible: {
@@ -85,7 +84,6 @@ export const site = {
           { value: String(metrics.bankingFunctions), label: 'banking functions covered' },
           { value: '1', label: 'CDM data model — compliant with ISDA (International Swaps and Derivatives Association), end to end' },
           { value: String(metrics.flagshipSurfaces), label: 'flagship surfaces shipped' },
-          { value: 'Live', label: 'at labs.atheryon.ai' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
         ],
         boxes: [
@@ -242,7 +240,6 @@ export const site = {
         title: 'Atheryon partners with a small number of institutions per year.',
         body: 'If what you have just read maps to a problem on your desk — or to a deal you are pitching — the next step is a confidential conversation.',
         primaryCta: { label: 'Request a confidential discussion', href: '/contact' },
-        tertiaryCta: { label: 'See it live', href: 'https://labs.atheryon.ai' },
       },
     },
 
@@ -410,7 +407,7 @@ export const site = {
       description: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.`,
       badge: 'Discovery',
       headline: 'Explore the labs surface',
-      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page that lives at labs.atheryon.ai, rendered here as a static map. Click any tile to open the live theme on the labs subdomain in a new tab. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops and dev tools) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
+      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page, rendered here as a static map. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops and dev tools) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
       countsLine: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages · ${metrics.labs.surfaces} surfaces (1 ODS data store + ${metrics.labs.businessUnits} business units)`,
       businessDividerLabel: 'Business Units',
     },
@@ -757,7 +754,7 @@ export const v2 = {
           directive:
             'Reference system described as a working architecture (not screenshots or UI gallery).',
           body:
-            `The reference system runs at labs.atheryon.ai. ${metrics.labs.themes} themes across ${metrics.labs.pages} pages span ${metrics.labs.surfaces} operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus ${metrics.labs.businessUnits} business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable in a running system rather than a screenshot gallery. A deeper briefing on core services, agent clusters, deployment topology, and operational evidence is available under MNDA.`,
+            `${metrics.labs.themes} themes across ${metrics.labs.pages} pages span ${metrics.labs.surfaces} operational surfaces: the Operational Data Store (schemas, validators, lineage, entity intelligence) plus ${metrics.labs.businessUnits} business units (Front Office, Risk & Analytics, Operations, Compliance, Treasury / Finance). Every surface is reachable, browsable, and verifiable in a running system rather than a screenshot gallery. A deeper briefing on core services, agent clusters, deployment topology, and operational evidence is available under MNDA.`,
         },
       },
     },

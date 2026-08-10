@@ -343,13 +343,6 @@ export default function LabsPage() {
               {labs.closing.primaryCta.label}
               <span aria-hidden="true">→</span>
             </Link>
-            <a
-              href={labs.closing.tertiaryCta.href}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-charcoal border border-charcoal hover:bg-charcoal hover:text-bone transition-colors"
-            >
-              {labs.closing.tertiaryCta.label}
-              <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
       </DocSection>
