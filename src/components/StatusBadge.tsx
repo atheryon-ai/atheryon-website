@@ -5,30 +5,40 @@
 //   roadmap — amber-outline, declared intent
 export type Status = 'shipped' | 'building' | 'roadmap'
 
-// Foreground colours darkened to meet WCAG AA contrast on the cream `bg-bone`
-// background that hosts the badges. Previously used 400-level Tailwind hues
-// which dropped to ~1.4:1 contrast for 10px text. Now deep steel blue
-// (homev3-blue-deep, brand palette 2026-08-09) and amber-800 against a
-// light-tinted fill, which clears WCAG AA for small text. Foregrounds are
-// Tailwind token classes per the design standard (no raw hex in components);
-// the rgba fills stay inline because they are alpha blends of those tokens.
+// Foregrounds are light-on-dark. The earlier dark foregrounds (homev3-blue-deep
+// and amber-800) were chosen for a cream `bg-bone` ground, but globals.css
+// remaps `.bg-bone` to the navy surface, so those pills landed at roughly
+// 1.6:1 for 10px text and the BUILDING state was close to unreadable on
+// /roadmap. Hues are unchanged (blue = shipped, amber = building/roadmap,
+// Terry 2026-08-12); only the lightness moved.
+//
+// Measured against the #16394C panel surface with each pill's own fill blended
+// in, which is the worst case on /themes and /roadmap:
+//   shipped  #8FAECB over 15% blue fill  → 4.7:1
+//   building #E5A862 over 10% amber fill → 5.1:1
+//   roadmap  #E5A862 over  8% amber fill → 5.3:1
+// The BUILDING fill dropped 0.18 → 0.10 to buy that margin; at 0.18 the blend
+// warmed the ground enough to pull the text to 4.4:1, just under AA.
+//
+// Foregrounds stay Tailwind token classes per the design standard (no raw hex
+// in components); the rgba fills stay inline because they are alpha blends.
 const STYLES: Record<Status, { label: string; bg: string; fgClass: string; border: string }> = {
   shipped: {
     label: 'SHIPPED',
     bg: 'rgba(82, 113, 142, 0.15)',
-    fgClass: 'text-homev3-blue-deep',
-    border: 'rgba(82, 113, 142, 0.55)',
+    fgClass: 'text-homev3-blue-bright',
+    border: 'rgba(143, 174, 203, 0.5)',
   },
   building: {
     label: 'BUILDING',
-    bg: 'rgba(245, 158, 11, 0.18)',
-    fgClass: 'text-amber-800',
+    bg: 'rgba(245, 158, 11, 0.10)',
+    fgClass: 'text-brand-amber-light',
     border: 'rgba(245, 158, 11, 0.6)',
   },
   roadmap: {
     label: 'ROADMAP',
-    bg: 'rgba(245, 158, 11, 0.08)', // was transparent — adds subtle fill so the pill reads
-    fgClass: 'text-amber-800',
+    bg: 'rgba(245, 158, 11, 0.08)', // subtle fill so the pill reads without a solid block
+    fgClass: 'text-brand-amber-light',
     border: 'rgba(245, 158, 11, 0.6)',
   },
 }

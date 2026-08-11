@@ -48,7 +48,7 @@ export const site = {
       },
       whyCredible: {
         badge: 'Why this is credible',
-        title: 'Atheryon is the integration partner for S&P TeraHelix.',
+        title: 'Atheryon is a delivery partner for S&P TeraHelix.',
         paragraphs: [
           'Atheryon works in the same problem space that serious financial institutions are now prioritising: data modelling, linking, interoperability, and AI-ready enterprise data.',
           'S&P Global completed its acquisition of TeraHelix in June 2025 to strengthen advanced data modelling and linking capabilities. S&P described TeraHelix as helping solve complex enterprise-scale data challenges by structuring data models for interoperability across platforms, systems, and storage architectures.',
@@ -374,7 +374,7 @@ export const site = {
           items: [
             'Direct engagement with Terry Tsakiris (architect of the Labs platform) — no junior hand-offs.',
             'The Atheryon method applied to your specific problem — CDM-first modelling, controls-before-user-stories, AI-pair engineering.',
-            'S&P TeraHelix integration paths where applicable — Atheryon is the integration partner for S&P TeraHelix.',
+            'S&P TeraHelix integration paths where applicable; Atheryon is a delivery partner for S&P TeraHelix.',
             'Engagement shapes: 30-day diagnostic, 6-12 week prototype sprint, or multi-quarter platform recovery / build.',
             'Capital markets delivery across live trading, market risk, credit risk, product control, payments, and regulatory reporting.',
           ],
