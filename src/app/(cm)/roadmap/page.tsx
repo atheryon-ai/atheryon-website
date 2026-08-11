@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buyerThemes } from '@/content/buyerThemes'
-import { v2Mortgages } from '@/content/site'
+import { mortgagesRoadmap } from '@/content/site'
 import { StatusBadge, type Status } from '@/components/StatusBadge'
 
 export const metadata: Metadata = {
@@ -20,12 +20,14 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://atheryon.com.au/roadmap' },
 }
 
+// href is optional: an item can be declared intent with nothing to link to
+// yet. Mortgages is the current case — the practice is real, the page is not.
 type RoadmapItem = {
   id: string
   name: string
   status: Status
   blurb: string
-  href: string
+  href?: string
 }
 
 function aggregate(): RoadmapItem[] {
@@ -40,11 +42,10 @@ function aggregate(): RoadmapItem[] {
     }))
 
   const mortgages: RoadmapItem = {
-    id: v2Mortgages.roadmap.id,
-    name: v2Mortgages.roadmap.name,
-    status: v2Mortgages.roadmap.status,
-    blurb: v2Mortgages.roadmap.blurb,
-    href: v2Mortgages.roadmap.href,
+    id: mortgagesRoadmap.id,
+    name: mortgagesRoadmap.name,
+    status: mortgagesRoadmap.status,
+    blurb: mortgagesRoadmap.blurb,
   }
 
   // BUILDING first, then ROADMAP, stable within each group.
@@ -82,9 +83,13 @@ export default function RoadmapPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="font-display text-2xl md:text-3xl font-medium text-charcoal tracking-tight mb-2">
-                  <Link href={it.href} className="underline-offset-4 hover:underline">
-                    {it.name}
-                  </Link>
+                  {it.href ? (
+                    <Link href={it.href} className="underline-offset-4 hover:underline">
+                      {it.name}
+                    </Link>
+                  ) : (
+                    it.name
+                  )}
                 </h2>
                 <p className="font-mono text-xs md:text-sm text-charcoal/75 leading-relaxed">{it.blurb}</p>
               </div>

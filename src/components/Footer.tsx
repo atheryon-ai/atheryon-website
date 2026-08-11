@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { site, v3 } from '@/content/site'
-import type { Mode } from '@/components/shellConfig'
 
 // Surfaces that may show the Technology column (capital-markets depth
 // pages). Council review 2026-08-10: the Technology links are Capital
@@ -13,9 +12,9 @@ const TECH_SURFACES = ['/capital-markets', '/system', '/labs', '/themes', '/offe
 
 // Firm footer (exec-first IA): grouped columns — Firm / Technology /
 // Resources — with the legal links and contact details on a closing row.
-// The `mode` prop remains for the mortgages shell, which shares this footer.
-export function Footer({ mode = 'cm' }: { mode?: Mode }) {
-  void mode
+// The `mode` prop was dropped on 2026-08-12: it was already unused (`void
+// mode`) and existed only for the mortgages shell, which no longer exists.
+export function Footer() {
   const pathname = usePathname()
   const year = new Date().getFullYear()
   const legalLinks = site.footer.legal.links

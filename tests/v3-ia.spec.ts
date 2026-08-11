@@ -44,9 +44,9 @@ for (const route of routes) {
 
     await expect(page.getByRole('heading', { level: 1, name: route.heading })).toBeVisible()
 
-    await expect.poll(async () =>
-      page.evaluate(() => document.documentElement.dataset.mode),
-    ).toBe('cm')
+    // The <html data-mode> assertion that sat here was removed on 2026-08-12
+    // with ModeSetter and the [data-mode] CSS blocks. Every surface is CM
+    // blue, resolved from :root, so there is no per-mode attribute to check.
 
     // DocFooter CTA — arm pages deep-link to their own contact (council
     // review 2026-08-10); neutral pages keep the /contact chooser

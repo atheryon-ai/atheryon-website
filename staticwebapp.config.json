@@ -63,7 +63,6 @@
     { "route": "/offers/consult", "rewrite": "/offers/consult.html" },
 
     { "route": "/labs",        "rewrite": "/labs.html" },
-    { "route": "/mortgages",   "rewrite": "/mortgages.html" },
     { "route": "/integration/*",                 "allowedRoles": ["sp-clients"] },
     { "route": "/privacy",                       "rewrite": "/privacy.html" },
     { "route": "/terms",                         "rewrite": "/terms.html" }

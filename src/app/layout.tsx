@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Cinzel, JetBrains_Mono, Newsreader, Public_Sans } from 'next/font/google'
-import { ModeSetter } from '@/components/ModeSetter'
 import { site, v3 } from '@/content/site'
 import './globals.css'
 
@@ -97,10 +96,13 @@ const jsonLd = {
 }
 
 /**
- * Root layout — minimal shell. The HomeNav + Footer live inside route-group
- * layouts ((cm), ma, mortgages) so each practice gets server-rendered nav +
- * CTA + accent. ModeSetter stays here because it still drives the
- * `data-mode` CSS variable for accent colours across all groups.
+ * Root layout — minimal shell. HomeNav + Footer live inside the (cm)
+ * route-group layout, which covers every route, so the nav and CTA are
+ * server-rendered at static-export build time.
+ *
+ * ModeSetter was removed on 2026-08-12 along with the mortgages route: it
+ * wrote `data-mode` onto <html>, and every remaining [data-mode] selector
+ * resolved to the same accent as the :root default.
  */
 export default function RootLayout({
   children,
@@ -117,7 +119,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ModeSetter />
         {children}
       </body>
     </html>
