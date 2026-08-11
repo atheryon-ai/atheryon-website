@@ -3,11 +3,10 @@ import Link from 'next/link'
 import { DocPage, DocSection } from '@/components/Doc'
 import { v2 } from '@/content/site'
 import { SystemArchitectureDiagram } from '@/components'
+import { isPending } from '@/lib/pending'
 
 const page = v2.pages.system
 const s = page.sections
-
-const isPending = (value: string) => value.includes('{{')
 
 export const metadata: Metadata = {
   title: page.title,

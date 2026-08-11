@@ -1,11 +1,16 @@
-// Per-mode shell configuration — drives nav + CTA in HomeNav.
-// Route-group layouts (app/(cm)/layout.tsx, app/mortgages/layout.tsx) pass
-// the matching mode to HomeNav, so the correct HTML is emitted at
-// static-export build time. No client mode detection, no FOUC on direct
-// loads to /mortgages. /ma has no layout of its own — it sits inside the
-// (cm) group and inherits the firm shell.
+// Shell configuration — drives nav + CTA in HomeNav.
+//
+// There is one shell. `app/(cm)/layout.tsx` renders it for every route and
+// passes its mode to HomeNav, so the correct HTML is emitted at static-export
+// build time with no client mode detection. Route-group folders `(name)` do
+// not affect URLs, so /ma and /capital-markets sit inside that group and
+// inherit the firm shell rather than carrying layouts of their own.
+//
+// The mortgages mode and its separate layout were removed on 2026-08-12; see
+// mortgagesRoadmap in content/site.ts. `Mode` stays a union so that a second
+// practice shell can be reinstated without rethreading HomeNav and Footer.
 
-export type Mode = 'cm' | 'mortgages'
+export type Mode = 'cm'
 
 export type ShellConfig = {
   nav: { label: string; href: string }[]
@@ -30,18 +35,6 @@ export const shellConfig: Record<Mode, ShellConfig> = {
       label: 'DISCUSS A SITUATION',
       shortLabel: 'DISCUSS',
       href: '/contact',
-    },
-  },
-  mortgages: {
-    // Mortgages is buried (hidden from the practice toggle) while it's
-    // being built out. The practice toggle still derives wayfinding; this
-    // shell config gives the page a sensible CTA in case visitors arrive
-    // via a direct link.
-    nav: [],
-    cta: {
-      label: 'TALK ABOUT MORTGAGES',
-      shortLabel: 'TALK',
-      href: '/contact?topic=mortgages',
     },
   },
 }

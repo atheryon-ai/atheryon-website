@@ -7,8 +7,6 @@ import { metrics } from '@/content/metrics'
 
 const { labs } = site.pages
 
-const isPending = (value: string) => value.includes('{{')
-
 export const metadata: Metadata = {
   title: labs.title,
   description: labs.description,
@@ -164,9 +162,6 @@ export default function LabsPage() {
 </div>
                     <p>{f.metric}</p>
                   </div>
-                  {!isPending(f.footer) && (
-                    <p className="font-mono text-xs text-charcoal/60">{f.footer}</p>
-                  )}
                 </div>
                 {'sidebarVignette' in f && f.sidebarVignette && (
                   <div className="mt-8 pt-6 border-t border-charcoal/15">
@@ -276,30 +271,9 @@ export default function LabsPage() {
           <p className="text-base text-charcoal/85 leading-relaxed">{labs.method.economics.body}</p>
         </div>
 
-        {!isPending(labs.method.artifact.promptShown) && !isPending(labs.method.artifact.correctionShown) && (
-          <div className="border border-charcoal/30 bg-white p-6 md:p-8 mb-10">
-            <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-2">
-              Artifact
-            </div>
-            <h3 className="font-display text-xl font-medium text-charcoal tracking-tight mb-4">
-              {labs.method.artifact.heading}
-            </h3>
-            <div className="font-mono text-sm bg-bone border border-charcoal/30 p-5 mb-4 text-charcoal/90 whitespace-pre-wrap">
-              {labs.method.artifact.promptShown}
-            </div>
-            <div className="font-mono text-sm bg-bone border border-charcoal p-5 mb-4 text-charcoal whitespace-pre-wrap">
-              {labs.method.artifact.correctionShown}
-            </div>
-            {labs.method.artifact.prLink && !isPending(labs.method.artifact.prLink) && (
-              <a
-                href={labs.method.artifact.prLink}
-                className="font-mono text-sm text-charcoal underline-offset-4 hover:underline"
-              >
-                View the PR →
-              </a>
-            )}
-          </div>
-        )}
+        {/* The Artifact card (worked prompt, correction, PR link) was removed on
+            2026-08-12. Its three values were never filled in, so the block had
+            never rendered. Reinstate it here if a real worked example lands. */}
 
         <p className="text-sm italic text-charcoal/70 max-w-3xl">{labs.method.disclosure}</p>
       </DocSection>

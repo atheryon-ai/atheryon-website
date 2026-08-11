@@ -8,8 +8,9 @@ import { shellConfig, type Mode } from '../shellConfig'
 
 /**
  * HomeNav — global header. Renders nav links + CTA from shellConfig keyed
- * by `mode`. Each route-group layout passes its mode (cm | ma | mortgages)
- * so the correct content is server-rendered into the static export.
+ * by `mode`. The (cm) route-group layout passes its mode so the correct
+ * content is server-rendered into the static export. `Mode` has one member
+ * since the mortgages shell was removed on 2026-08-12.
  *
  * ≤768px the inline link row is hidden (globals.css) and a disclosure-pattern
  * MENU button reveals the same links + CTA in a panel under the header.

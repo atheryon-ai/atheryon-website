@@ -30,15 +30,14 @@ Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read i
 Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
 
 ## Key paths
-Two route groups, each rendering its own nav + footer shell:
-- `src/app/(cm)/` — the firm shell, holding every page except the mortgages stub. Homepage (`page.tsx`), plus:
+One route group, `(cm)`, rendering the nav + footer shell for every route:
+- `src/app/(cm)/` — the firm shell. Homepage (`page.tsx`), plus:
   - arms: `ma`, `capital-markets`, `data-ai`
   - per-arm sub-pages: `ma/{experience,approach,contact}`, `capital-markets/{experience,approach,contact}`
   - firm-level: `about`, `contact`, `experience`, `approach`
   - legacy/CM surfaces: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`, `roadmap`
   - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
-  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own.
-- `src/app/mortgages/` — buried stub with its own layout (hidden from nav)
+  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12; the practice still appears as an unlinked item on `/roadmap`.
 - `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, capital-markets, data-ai, about, contact, experience, approach and the per-arm sub-pages). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`.
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo
