@@ -48,7 +48,7 @@ export const site = {
       },
       whyCredible: {
         badge: 'Why this is credible',
-        title: 'Atheryon is the integration partner for S&P TeraHelix.',
+        title: 'Atheryon is a delivery partner for S&P TeraHelix.',
         paragraphs: [
           'Atheryon works in the same problem space that serious financial institutions are now prioritising: data modelling, linking, interoperability, and AI-ready enterprise data.',
           'S&P Global completed its acquisition of TeraHelix in June 2025 to strengthen advanced data modelling and linking capabilities. S&P described TeraHelix as helping solve complex enterprise-scale data challenges by structuring data models for interoperability across platforms, systems, and storage architectures.',
@@ -374,7 +374,7 @@ export const site = {
           items: [
             'Direct engagement with Terry Tsakiris (architect of the Labs platform) — no junior hand-offs.',
             'The Atheryon method applied to your specific problem — CDM-first modelling, controls-before-user-stories, AI-pair engineering.',
-            'S&P TeraHelix integration paths where applicable — Atheryon is the integration partner for S&P TeraHelix.',
+            'S&P TeraHelix integration paths where applicable; Atheryon is a delivery partner for S&P TeraHelix.',
             'Engagement shapes: 30-day diagnostic, 6-12 week prototype sprint, or multi-quarter platform recovery / build.',
             'Capital markets delivery across live trading, market risk, credit risk, product control, payments, and regulatory reporting.',
           ],
@@ -1492,7 +1492,7 @@ export const v3 = {
           label: 'atheryon / ma',
           title: 'Making Transactions Executable',
           subtitle:
-            'The M&A arm, led by Anna Contos. Advisory and execution leadership for transactions and the transformations they set in motion, where execution risk can materially impact outcomes.',
+            'Advisory and execution leadership for acquisitions, divestments, separations and integrations, where execution risk can materially impact outcomes. The M&A arm is led by Anna Contos.',
         },
         // The arm's principle (Terry 2026-08-09: principles live with the
         // sub pages, not the homepage). Large type, founding framing.
@@ -1522,9 +1522,6 @@ export const v3 = {
             'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
             'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
             'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
-            'We combine deep experience across transactions, transformation, capital markets, banking, wealth management, technology, data and AI to bring clarity to critical decisions and confidence to execution.',
-            'Our experience has been built across some of the world’s most complex and highly regulated environments, spanning global investment banking, capital markets, retail and business banking, wealth management, insurance and non-bank financial institutions. We understand the challenges of operating where commercial objectives, customer outcomes, operational resilience, technology, data and risk management must all be aligned.',
-            'From transaction strategy, commercial structuring and execution planning through to transformation, technology enablement and delivery leadership, we help clients align commercial objectives with operational reality and achieve outcomes with confidence.',
           ],
           engageIntro: 'Clients engage Atheryon to:',
           engageItems: [
@@ -1532,12 +1529,7 @@ export const v3 = {
             'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
             'Assess execution requirements, risks and dependencies early',
             'Identify operational, technology and data constraints before they become delivery challenges',
-            'Improve visibility of risks, interdependencies and readiness across complex programs and transactions',
-            'Leverage data, analytics and AI-enabled approaches to improve insight, decision-making and execution certainty',
-            'Design and modernise platforms, operating models and business processes',
-            'Unlock greater value from enterprise data and technology investments',
             'Navigate complex stakeholder, regulatory and governance environments',
-            'Accelerate implementation, operational readiness and value realisation',
             'Protect value and improve execution certainty',
           ],
         },

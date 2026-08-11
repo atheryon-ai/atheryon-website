@@ -54,3 +54,18 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+      # Visual baselines are platform-namespaced by Playwright, so snapshots
+      # generated on a Mac never match these Linux runners. Uploading the
+      # renders this run actually produced lets a drifted -linux baseline be
+      # refreshed from CI. Note the source must be test-results/ (the
+      # *-actual.png files): globbing the snapshots directory would just
+      # return the committed baselines and refresh nothing.
+      - name: Upload Linux renders for baseline refresh
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+        with:
+          name: linux-renders
+          path: test-results/**/*-actual.png
+          retention-days: 7
+          if-no-files-found: ignore

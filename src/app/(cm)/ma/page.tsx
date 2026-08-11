@@ -29,7 +29,7 @@ export default function MaArmPage() {
           sub pages). Unlabelled section — no § number, a statement moment. */}
       <DocSection>
         <div className="max-w-4xl py-4 md:py-8">
-          <p className="font-mono text-sm text-charcoal/70 mb-6">{s.principle.framing}</p>
+          <p className="text-base text-charcoal/75 mb-6">{s.principle.framing}</p>
           <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
             {s.principle.statement}
           </p>
@@ -71,7 +71,7 @@ export default function MaArmPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15">
                   {line.items.map((item) => (
-                    <li key={item} className="py-3 font-mono text-sm text-charcoal">
+                    <li key={item} className="py-3 text-sm md:text-base text-charcoal/85">
                       {item}
                     </li>
                   ))}
