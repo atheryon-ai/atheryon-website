@@ -12,13 +12,24 @@ export type Status = 'shipped' | 'building' | 'roadmap'
 // /roadmap. Hues are unchanged (blue = shipped, amber = building/roadmap,
 // Terry 2026-08-12); only the lightness moved.
 //
-// Measured against the #16394C panel surface with each pill's own fill blended
-// in, which is the worst case on /themes and /roadmap:
-//   shipped  #8FAECB over 15% blue fill  → 4.7:1
-//   building #E5A862 over 10% amber fill → 5.1:1
-//   roadmap  #E5A862 over  8% amber fill → 5.3:1
-// The BUILDING fill dropped 0.18 → 0.10 to buy that margin; at 0.18 the blend
-// warmed the ground enough to pull the text to 4.4:1, just under AA.
+// Measured with each pill's own fill blended into the surface beneath it.
+// Both live pages put these badges on the page ground (#0E2A3A), inside
+// bordered rows rather than lifted cards, so the first column is what ships.
+// The panel column applies only if a badge is ever placed inside a bg-paper
+// card (#16394C), which nothing does today; it is the tighter of the two, so
+// it is kept as the design ceiling.
+//
+//                                    on #0E2A3A   on #16394C
+//   shipped  #8FAECB over 15% blue     5.6:1        4.6:1
+//   building #E5A862 over 10% amber    6.1:1        5.1:1
+//   roadmap  #E5A862 over  8% amber    6.3:1        5.2:1
+//
+// Verified in the browser on the test deploy, 2026-08-12: all 11 badges across
+// /themes and /roadmap pass, worst case 5.57:1 (SHIPPED).
+//
+// The BUILDING fill dropped 0.18 → 0.10 to buy margin. At 0.18 it still passed
+// on the live ground (5.3:1) but fell to 4.4:1 on a panel, just under AA, so
+// the reduction is headroom against the ceiling rather than a live fix.
 //
 // Foregrounds stay Tailwind token classes per the design standard (no raw hex
 // in components); the rgba fills stay inline because they are alpha blends.
