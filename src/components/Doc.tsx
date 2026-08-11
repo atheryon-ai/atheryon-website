@@ -3,9 +3,14 @@ import { Children, cloneElement, isValidElement, type ReactElement, type ReactNo
 import { v2 } from '@/content/site'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Doc — shared building blocks for v2 architectural-document pages.
-// Aesthetic: bone bg, charcoal hairlines, monospace section labels, Fraunces
-// titles. No marketing chrome (no orange, no gradients, no shadows).
+// Doc — shared building blocks for the architectural-document pages.
+// Aesthetic: the dark navy ground (#0E2A3A), slate hairlines, warm-white
+// prose, monospace section labels, serif display titles. No marketing chrome
+// (no gradients, no shadows).
+// NOTE: the `bg-bone` / `text-charcoal` classes below are role names whose
+// colour globals.css decides. It intercepts them, so `bg-bone` paints the
+// navy ground and `text-charcoal` paints warm white. See design standard §9
+// before reasoning about contrast here.
 // Used by every page in the v2 IA + the preserved /labs, /programs, legal
 // surfaces brought into the same visual language.
 // ─────────────────────────────────────────────────────────────────────────────

@@ -1,8 +1,9 @@
 // Per-mode shell configuration — drives nav + CTA in HomeNav.
-// Route-group layouts (app/(cm)/layout.tsx, app/ma/layout.tsx,
-// app/mortgages/layout.tsx) pass the matching mode to HomeNav, so the
-// correct HTML is emitted at static-export build time. No client mode
-// detection, no FOUC on direct loads to /ma or /mortgages.
+// Route-group layouts (app/(cm)/layout.tsx, app/mortgages/layout.tsx) pass
+// the matching mode to HomeNav, so the correct HTML is emitted at
+// static-export build time. No client mode detection, no FOUC on direct
+// loads to /mortgages. /ma has no layout of its own — it sits inside the
+// (cm) group and inherits the firm shell.
 
 export type Mode = 'cm' | 'mortgages'
 
