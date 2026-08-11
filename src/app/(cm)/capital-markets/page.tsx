@@ -55,7 +55,7 @@ export default function CapitalMarketsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15">
                   {line.items.map((item) => (
-                    <li key={item} className="py-3 font-mono text-sm text-charcoal">
+                    <li key={item} className="py-3 text-sm md:text-base text-charcoal/85">
                       {item}
                     </li>
                   ))}

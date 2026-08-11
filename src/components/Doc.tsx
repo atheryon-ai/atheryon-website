@@ -47,7 +47,7 @@ export function DocBanner({ label, title, body }: DocBannerProps) {
           {title}
         </h1>
         {body && (
-          <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
+          <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
             {body}
           </p>
         )}
@@ -134,7 +134,7 @@ export function DocList({ items }: { items: ReadonlyArray<string> }) {
           <span className="font-mono text-xs text-charcoal/55 tabular-nums">
             {String(i + 1).padStart(2, '0')}
           </span>
-          <span className="font-mono text-base text-charcoal">{item}</span>
+          <span className="text-base text-charcoal/85 leading-relaxed">{item}</span>
         </li>
       ))}
     </ul>
