@@ -1,7 +1,13 @@
 # AGENTS.md — atheryon-website
 
+> **Read `CLAUDE.md` first — it is the current file.** The Project, Key paths
+> and UI patterns sections below describe the pre-IA-refactor site (a `/reality`
+> homepage, `/data`, `/ai-direction`, `/transformation`, `/programs`) and are
+> wrong as of 2026-08-12. The Sibling repo, Deploy topology, Git workflow and
+> graphify sections are still accurate. Reconciling the rest is TODO(terry).
+
 ## Project
-Next.js 14 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
+Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
 
 ## Key paths
 - `src/app/page.tsx` — re-exports `/reality` (homepage = Reality content)
@@ -46,6 +52,21 @@ Re-sync after upstream changes; there is no build-time link.
 - Promote dev → main via PR with `gh pr merge --merge` (not squash; preserves history)
 - After merging the PR, **fast-forward dev to match main** so future branches start aligned: `git checkout dev && git merge --ff-only origin/main && git push origin dev`
 - Single PR routinely promotes 10–60 commits (e.g. PR #15 had 64, PR #20 had 10)
+
+### There is no reviewer — Terry is the only person on this repo
+**Never wait for review, approval, or a second pair of eyes on a PR.** Terry is
+the sole developer. A PR here exists to satisfy CODEOWNERS branch protection
+and to record what shipped, not to gate on a human.
+
+When asked to push to main: open the PR and merge it in the same step
+(`gh pr merge <n> --merge --admin`), then fast-forward `dev`. Do not stop after
+opening the PR and ask whether to merge, and do not describe the work as
+"waiting on review" — there is nobody to wait for. `--admin` is expected here
+and is not a bypass of anything meaningful.
+
+Still confirm before promoting when the diff is genuinely risky (destructive
+migrations, secrets, infrastructure). Routine content, copy, docs and component
+work needs no confirmation beyond the request to push.
 
 ## Imported Claude Cowork project instructions
 
