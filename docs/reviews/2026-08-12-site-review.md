@@ -18,7 +18,7 @@ Pages walked: `/`, `/ma`, `/capital-markets`, `/about`, `/contact`, `/labs`, `/o
 | 2 | ~~Global dark re-theme contradicts the design standard~~ **Decided: colours stay** | **High** | Design governance |
 | 3 | ~~Status badges fail contrast on the navy ground~~ **Fixed** | **High** | Accessibility |
 | 4 | Banned copy constructions are systemic, not occasional | Medium | Copy |
-| 5 | `/labs`, `/themes`, `/offers`, `/system` are orphaned from navigation | Medium | IA |
+| 5 | `/labs`, `/themes`, `/offers`, `/system` gated behind `/capital-markets` | Medium | IA |
 | 6 | Lede typography inconsistent across pages (mono vs sans) | Medium | Design |
 | 7 | `/system` runs two conflicting § numbering schemes | Medium | Design |
 | 8 | Unverified counts still shipping in copy | Medium | Copy / accuracy |
@@ -127,13 +127,25 @@ CLAUDE.md caps em dashes and "not X — Y" corrective contrast at one per page a
 
 This is a rewrite pass, not a quick fix. Suggest working `site.ts` page-by-page rather than globally, so the one-per-page allowance is used deliberately.
 
-## 5. Orphaned routes — Medium
+## 5. Gated routes — Medium — CORRECTED 12 Aug
 
-`src/components/shellConfig.ts:22-27` gives the header four links: M&A, Capital Markets, Data & AI, About. The footer adds Writing, Roadmap, Experience, Approach, Contact.
+**I had this wrong on first pass.** I recorded `/labs`, `/themes`, `/offers` and `/system` as orphaned with no inbound links. They are not orphaned. They are gated, which is a different problem with a different fix.
 
-Nothing links to `/labs`, `/themes`, `/offers`, `/system` or `/offers/{code,prompts,consult}`. They render fine and carry substantial content — `/labs` holds the TeraHelix argument, `/offers` holds the three commercial paths — but they are reachable only by typing the URL.
+`src/components/Footer.tsx:12` defines the gate:
 
-If that is deliberate (soft-launch, sales-only links), fine, and worth a comment in `shellConfig.ts` saying so. If not, the offers surface is invisible to buyers.
+```ts
+const TECH_SURFACES = ['/capital-markets', '/system', '/labs', '/themes', '/offers']
+```
+
+The footer's Technology column, which holds the only links to those four pages, renders only when the current path is one of those five or a child of one. The comment above it explains the intent (council review 2026-08-10: the Technology links are Capital Markets material and must not appear on M&A or neutral surfaces). That reasoning is sound.
+
+The consequence is not. Of the five gate paths, four are the destinations themselves, so `/capital-markets` is the single doorway. Reaching `/offers` from a cold visit requires: land on the homepage, click Capital Markets in the header, scroll past the full arm page to the footer, notice a third column that was not there a moment ago, click Offers. Once inside, the column self-sustains, because every destination is also a gate path.
+
+So the commercial surface is two hops and a full-page scroll behind a nav item that does not advertise it, and it is invisible from the homepage entirely.
+
+Worth deciding whether that is the intended level of discoverability for `/offers` in particular. Options, roughly in order of effort: add a body-copy link from `/capital-markets` above the fold; add `/offers` to the Firm column so it always renders; or widen `TECH_SURFACES` to include `/` and `/data-ai`.
+
+Separately, `src/content/site.ts:441` points at `/ma/offers`, which has no route. It sits in the superseded `v2Ma` generation and does not render today, so it is latent rather than live, but it will 404 if that generation is ever revived.
 
 ## 6. Lede typography inconsistent — Medium
 
