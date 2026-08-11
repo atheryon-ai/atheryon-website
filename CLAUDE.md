@@ -60,9 +60,9 @@ Re-sync after upstream changes; there is no build-time link.
 ## Commands
 - `npx next build` — build + typecheck
 - `npx next dev` — local dev (port 3000)
-- `npm test` — Playwright full suite (5 browsers, ~15 min via webServer in `playwright.config.ts`)
+- `npx playwright test --project=chromium` — the suite CI runs (68 tests, ~1 min). There is no `npm test` script; `playwright.config.ts` defines a single `chromium` project and starts `next dev` itself via `webServer`.
 - `npx playwright test tests/<file>` — targeted
-- `npm run verify:production-ready` — greps `src/` for `REPLACE_ME` placeholders before deploy
+- `npm run verify:production-ready` — runs the design lint, then greps the BUILT `out/` for `REPLACE_ME` and `{{PLACEHOLDER}}` leaks. Run `next build` first; it errors if `out/` is missing.
 
 ## UI patterns
 - Newer pages use the `Doc*` family from `src/components/Doc.tsx` (DocPage wrapper, DocBanner header, DocSection with § numbering, DocFooter)
