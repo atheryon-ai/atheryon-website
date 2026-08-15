@@ -1,32 +1,41 @@
 import { test, expect } from '@playwright/test'
 
-// Executive-first IA (2026-08-09): L2 routes exist, carry the firm shell,
-// and every page ends in a CTA to /contact.
+// Executive-first IA (2026-08-09): L2 routes exist and carry the firm
+// shell. Contact Us lives in the header only (Terry 2026-08-15).
 
 const routes = [
   { path: '/ma', heading: 'Making Transactions Executable' },
   { path: '/ma/experience', heading: 'Representative Experience' },
   { path: '/ma/approach', heading: 'Our Approach' },
-  { path: '/capital-markets/experience', heading: 'Capital Markets Experience' },
-  { path: '/capital-markets/approach', heading: 'Our Approach' },
-  { path: '/data-ai', heading: 'Data. Transformation. AI.' },
+  { path: '/data-ai/experience', heading: 'Experience' },
+  { path: '/data-ai/approach', heading: 'Our Approach' },
+  { path: '/data-ai', heading: 'Data, Transformation, AI' },
   { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
 
 // The firm-level routes stopped being choosers on 2026-08-15 (Terry): each one
-// is a destination that stacks both arms, M&A first, rather than a fork the
-// visitor has to resolve before seeing anything.
+// is a destination that stacks both functions, function 1 first, rather than a
+// fork the visitor has to resolve before seeing anything.
 for (const [path, throughLinks] of [
-  ['/experience', ['/ma/experience', '/capital-markets/experience']],
-  ['/approach', ['/ma/approach', '/capital-markets/approach']],
+  ['/experience', ['/ma/experience', '/data-ai/experience']],
+  ['/approach', ['/ma/approach', '/data-ai/approach']],
 ] as const) {
-  test(`${path} stacks both arms, M&A first, and links through`, async ({ page }) => {
+  test(`${path} stacks both functions, function 1 first, and links through`, async ({ page }) => {
     const response = await page.goto(path)
     expect(response?.status()).toBe(200)
 
     const sections = page.locator('main section')
-    await expect(sections.filter({ hasText: 'M&A' }).first()).toBeVisible()
-    await expect(sections.filter({ hasText: 'Capital Markets' }).first()).toBeVisible()
+    await expect(sections.filter({ hasText: 'M&A Transaction Services' }).first()).toBeVisible()
+    await expect(sections.filter({ hasText: 'Data, Transformation, AI' }).first()).toBeVisible()
+
+    // Order is a rule (spec §7: function 1 before function 2 wherever both
+    // appear), so assert it rather than trusting the section titles above,
+    // which pass in either order.
+    const ordered = await page
+      .locator('main')
+      .locator(`a[href="${throughLinks[0]}"], a[href="${throughLinks[1]}"]`)
+      .evaluateAll((links) => links.map((l) => l.getAttribute('href')))
+    expect(ordered).toEqual([...throughLinks])
 
     for (const href of throughLinks) {
       await expect(page.locator('main').locator(`a[href="${href}"]`)).toHaveCount(1)
@@ -40,45 +49,73 @@ test('/contact is the firm enquiry form, not a fork', async ({ page }) => {
 
   // The form itself, with a practice to choose rather than a page to choose.
   await expect(page.locator('form select#topic')).toBeVisible()
-  for (const value of ['ma-execution', 'capital-markets', 'data-ai']) {
+  for (const value of ['ma-execution', 'data-ai']) {
     await expect(page.locator(`form select#topic option[value="${value}"]`)).toHaveCount(1)
   }
+  // Capital markets is a sector, not something to choose (spec §4).
+  await expect(page.locator('form select#topic option[value="capital-markets"]')).toHaveCount(0)
   await expect(page.locator('main').locator('a[href="/ma/contact"]')).toHaveCount(0)
 })
 
-test('Discuss from /data-ai reaches the form with the practice preset', async ({ page }) => {
-  await page.goto('/data-ai')
-  await expect(
-    page.getByRole('link', { name: /Discuss a situation/i }).first(),
-  ).toHaveAttribute('href', '/contact?topic=data-ai')
+// The slug outlived the arm: old ?topic=capital-markets links must still
+// pre-fill rather than silently landing on an empty message (spec §4).
+test('an old capital-markets topic link still pre-fills the enquiry', async ({ page }) => {
+  await page.goto('/contact?topic=capital-markets')
+  await expect(page.locator('form textarea#message')).toHaveValue(
+    /Data, transformation and AI program/,
+  )
 })
 
-test('/data-ai carries the underpinning principle', async ({ page }) => {
+test('Contact Us from /data-ai goes to the function-2 contact page', async ({ page }) => {
+  await page.goto('/data-ai')
+  await expect(page.locator('.home-nav-cta')).toHaveAttribute('href', '/data-ai/contact')
+})
+
+test('/data-ai carries the function principle and its three disciplines', async ({ page }) => {
   await page.goto('/data-ai')
   await expect(
     page.getByText(
-      'Atheryon faces regulators on behalf of clients and knows what is required.',
+      'Atheryon has delivered those platforms and has led APRA engagement at executive level.',
     ),
   ).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'How the foundation works' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the function works' })).toBeVisible()
   for (const discipline of ['Data', 'Transformation', 'AI']) {
     await expect(page.getByRole('heading', { level: 3, name: discipline, exact: true })).toBeVisible()
   }
 })
 
-test('global and arm navigation expose the current location', async ({ page }) => {
+test('/data-ai absorbed the markets depth and platform links', async ({ page }) => {
+  await page.goto('/data-ai')
+  await expect(page.getByRole('heading', { name: 'Published depth: capital markets' })).toBeVisible()
+  for (const line of [
+    'Capital Markets Systems & Platform Delivery',
+    'Market Data & Reference Data Environments',
+    'Data Foundations',
+    'Regulatory Markets Platforms',
+  ]) {
+    await expect(page.getByRole('heading', { level: 3, name: line })).toBeVisible()
+  }
+  // The one cross-link back into a transaction (spec §4.6).
+  await expect(
+    page.locator('main').locator('a[href="/ma#technology-data-migration"]'),
+  ).toHaveCount(1)
+})
+
+test('global and function navigation expose the current location', async ({ page }) => {
   await page.goto('/ma/experience')
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('aria-current', 'page')
   const armNav = page.getByRole('navigation', { name: 'Arm sections' })
   await expect(armNav.getByRole('link', { name: 'Experience' })).toHaveAttribute('aria-current', 'page')
   await expect(armNav.getByRole('link', { name: 'Overview' })).not.toHaveAttribute('aria-current', 'page')
 
+  // The function-2 depth pages have no header item of their own, so they
+  // light up DATA & AI (spec §5).
   await page.goto('/labs')
-  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'CAPITAL MARKETS', exact: true })).toHaveAttribute('aria-current', 'page')
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'DATA & AI', exact: true })).toHaveAttribute('aria-current', 'page')
 })
 
 for (const route of routes) {
-  test(`${route.path} renders the firm shell and ends in a contact CTA`, async ({ page }) => {
+  test(`${route.path} renders the firm shell and keeps Contact Us in the header`, async ({ page }) => {
     const response = await page.goto(route.path)
     expect(response?.status()).toBe(200)
 
@@ -88,9 +125,8 @@ for (const route of routes) {
     // with ModeSetter and the [data-mode] CSS blocks. Every surface is CM
     // blue, resolved from :root, so there is no per-mode attribute to check.
 
-    // DocFooter CTA — arm pages deep-link to their own contact (council
-    // review 2026-08-10); everything else lands on the firm form at /contact
-    await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', /\/contact$/)
+    await expect(page.locator('.home-nav-cta')).toBeVisible()
+    await expect(page.locator('main').getByRole('link', { name: /discuss a situation|contact us/i })).toHaveCount(0)
   })
 }
 
@@ -169,42 +205,26 @@ test('/ma/experience normalises cases to Context / Role / Outcome with the mortg
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
-test('/capital-markets is the Capital Markets arm keeping CM depth reachable', async ({ page }) => {
-  const response = await page.goto('/capital-markets')
+test('/data-ai is function 2, keeping the depth pages reachable', async ({ page }) => {
+  const response = await page.goto('/data-ai')
   expect(response?.status()).toBe(200)
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Capital Markets' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Data, Transformation, AI' })).toBeVisible()
 
-  // The arm's principle (Terry, 2026-08-09)
-  await expect(page.getByText('Capital markets platforms succeed or fail on the data beneath them.')).toBeVisible()
-
-  // Rev 7: capital markets and transaction content do not mix. The three
-  // transaction workflows relocated to /ma; the page's transaction role is
-  // exactly one cross-link line to the M&A service line.
+  // Content separation (rev 7, renamed by the functions spec §1): the two
+  // functions do not mix. The three transaction workflows live on /ma, and
+  // this page's transaction role is exactly one cross-link line.
   await expect(page.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'TSA Tracking & Reduction' })).toHaveCount(0)
-  await expect(
-    page.locator('main').getByRole('link', { name: /Technology, Data & Migration Readiness/ }),
-  ).toHaveAttribute('href', '/ma#technology-data-migration')
 
-  // Council build 2026-08-10: four service lines in the /ma shape
-  for (const line of [
-    'Capital Markets Systems & Platform Delivery',
-    'Market Data & Reference Data Environments',
-    'Data Foundations',
-    'Regulatory Markets Platforms',
-  ]) {
-    await expect(page.getByRole('heading', { name: line })).toBeVisible()
-  }
-
-  // Cases and delivery patterns live on the arm's sub-pages now; the
-  // landing carries the arm sub-nav
-  await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/capital-markets/experience')
+  // Cases and delivery patterns live on the function's sub-pages; the
+  // landing carries the function sub-nav.
+  await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/data-ai/experience')
   await expect(page.getByText('{{')).toHaveCount(0)
 
-  // CM depth links out of /capital-markets. Scoped to <main> — the footer
-  // carries identically named links but sits outside <main> in the (cm)
-  // layout, so this cannot collide.
+  // Depth links out of /data-ai. Scoped to <main> — the footer carries
+  // identically named links but sits outside <main> in the (cm) layout, so
+  // this cannot collide.
   for (const [label, href] of [
     ['System', '/system'],
     ['Labs', '/labs'],
@@ -215,8 +235,17 @@ test('/capital-markets is the Capital Markets arm keeping CM depth reachable', a
   }
 })
 
-test('/capital-markets/experience carries the three Appendix C cases', async ({ page }) => {
-  await page.goto('/capital-markets/experience')
+// Capital Markets stopped being a function on 2026-08-15 and became one of
+// four sectors. The route must not come back as a page, and it must not
+// appear in the header.
+test('/capital-markets is retired as a route and a nav item', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'CAPITAL MARKETS' })).toHaveCount(0)
+  await expect(page.locator('.home-nav-links a')).toHaveCount(3)
+})
+
+test('/data-ai/experience carries the three Appendix C cases', async ({ page }) => {
+  await page.goto('/data-ai/experience')
   for (const name of [
     'Recovery of a Failed $84M Data & Analytics Program',
     'First Near Real-Time Front Office Risk System',
@@ -227,8 +256,8 @@ test('/capital-markets/experience carries the three Appendix C cases', async ({ 
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
-test('/capital-markets/approach carries the delivery patterns and embedded delivery', async ({ page }) => {
-  await page.goto('/capital-markets/approach')
+test('/data-ai/approach carries the delivery patterns and embedded delivery', async ({ page }) => {
+  await page.goto('/data-ai/approach')
   await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Embedded delivery', exact: true })).toBeVisible()
@@ -248,9 +277,10 @@ test('CM legacy routes still resolve and the footer groups them under Technology
     expect(response?.status()).toBe(200)
   }
 
-  // Council review 2026-08-10: the Technology column is Capital Markets
-  // material — it renders on CM surfaces only, never on M&A or neutral ones.
-  await page.goto('/capital-markets')
+  // Council review 2026-08-10: the Technology column is function-2 material.
+  // It renders on function-2 surfaces only, never on function 1 or neutral
+  // ones.
+  await page.goto('/data-ai')
   const cmFooter = page.getByLabel('Footer navigation')
   await expect(cmFooter.getByText('Technology', { exact: true })).toHaveCount(1)
   for (const [label, href] of [
@@ -270,7 +300,10 @@ test('CM legacy routes still resolve and the footer groups them under Technology
   await page.goto('/')
   const footer = page.getByLabel('Footer navigation')
   await expect(footer.getByText('Technology', { exact: true })).toHaveCount(0)
-  await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveAttribute('href', '/capital-markets')
+  // One row per function: the Capital Markets and Data. Transformation. AI.
+  // pair collapsed into one when the arm retired into function 2 (spec §5).
+  await expect(footer.getByRole('link', { name: 'Data, Transformation, AI', exact: true })).toHaveAttribute('href', '/data-ai')
+  await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveCount(0)
 })
 
 // Retired routes 301 on the SWA (redirects live in staticwebapp.config.json,
@@ -287,7 +320,7 @@ test.describe('retired-route redirects (SWA only)', () => {
     ['/ma/offers', '/ma'],
     ['/ma/system', '/ma'],
     ['/ma/workflows', '/ma'],
-    ['/technology', '/capital-markets'],
+    ['/technology', '/data-ai'],
   ] as const) {
     test(`${from} 301s to ${to}`, async ({ request }) => {
       const response = await request.get(`${SWA_BASE_URL}${from}`, {
@@ -316,8 +349,8 @@ test('/ma/contact renders the enquiry form with the privacy disclosure beside it
   await expect(page.locator('textarea')).toHaveValue(/M&A execution review/)
 })
 
-test('/capital-markets/contact pre-fills the capital markets enquiry path', async ({ page }) => {
-  await page.goto('/capital-markets/contact')
-  await expect(page.getByText('technology or data program you are considering', { exact: false })).toBeVisible()
-  await expect(page.locator('textarea')).toHaveValue(/Capital markets engagement/)
+test('/data-ai/contact pre-fills the function-2 enquiry path', async ({ page }) => {
+  await page.goto('/data-ai/contact')
+  await expect(page.getByText('technology, data or transformation program you are considering', { exact: false })).toBeVisible()
+  await expect(page.locator('textarea')).toHaveValue(/Data, transformation and AI program/)
 })

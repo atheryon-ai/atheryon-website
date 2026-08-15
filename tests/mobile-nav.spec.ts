@@ -26,10 +26,10 @@ test.describe('mobile nav at 390×844', () => {
     await expect(openButton).toHaveAttribute('aria-expanded', 'true')
 
     const panel = page.locator('#home-nav-mobile-menu')
-    for (const label of ['M&A', 'CAPITAL MARKETS', 'DATA & AI', 'ABOUT']) {
+    for (const label of ['M&A', 'DATA & AI', 'ABOUT']) {
       await expect(panel.getByRole('link', { name: label })).toBeVisible()
     }
-    await expect(panel.getByRole('link', { name: 'DISCUSS A SITUATION' })).toHaveAttribute('href', '/contact')
+    await expect(panel.getByRole('link', { name: 'CONTACT US' })).toHaveAttribute('href', '/contact')
   })
 
   test('Escape closes the menu and returns focus to the button', async ({ page }) => {
@@ -77,7 +77,7 @@ test.describe('narrow mobile header at 320×700', () => {
 
     await menu.click()
     const panel = page.locator('#home-nav-mobile-menu')
-    await expect(panel.getByRole('link', { name: 'DISCUSS A SITUATION' })).toBeVisible()
+    await expect(panel.getByRole('link', { name: 'CONTACT US' })).toBeVisible()
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
   })
 })

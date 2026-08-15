@@ -13,10 +13,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(h1).toContainText('Executable.')
   await expect(page.getByText('Understanding implications early. Executing with confidence.')).toBeVisible()
 
-  // Slim top nav (Terry 2026-08-09): arms + underpinning + about
+  // Slim top nav (functions spec §5): the two functions plus about. Three
+  // items — Capital Markets left the header when it became a sector.
   for (const [label, href] of [
     ['M&A', '/ma'],
-    ['CAPITAL MARKETS', '/capital-markets'],
     ['DATA & AI', '/data-ai'],
     ['ABOUT', '/about'],
   ] as const) {
@@ -25,14 +25,14 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     ).toHaveAttribute('href', href)
   }
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'APPROACH' })).toHaveCount(0)
+  await expect(page.locator('.home-nav-links a')).toHaveCount(3)
 
-  // Three equal explore links (Terry 2026-08-09): two arms + underpinning
+  // Two explore links (spec §4), function 1 first. The third went when Data,
+  // Transformation, AI stopped being an underpinning and became function 2.
   for (const [label, href] of [
-    ['Explore M&A', '/ma'],
-    ['Explore Capital Markets', '/capital-markets'],
-    ['Data. Transformation. AI.', '/data-ai'],
+    ['Explore M&A Transaction Services', '/ma'],
+    ['Explore Data, Transformation, AI', '/data-ai'],
   ] as const) {
-    // Scoped to main: the footer also links "Data. Transformation. AI."
     await expect(
       page.getByRole('main').getByRole('link', { name: label, exact: true }),
     ).toHaveAttribute('href', href)
@@ -55,27 +55,34 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
   await expect(page.getByText('Better decisions are made when the implications of execution are understood early.')).toHaveCount(0)
 
-  // Arm principles live with the sub pages (Terry 2026-08-09), not here
+  // Function principles live with the sub pages (Terry 2026-08-09), not here
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toHaveCount(0)
 
-  // Parallel arm sections: M&A proof + Capital Markets proof
-  await expect(page.getByRole('heading', { name: 'M&A', exact: true })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Capital Markets', exact: true })).toBeVisible()
+  // Parallel function sections: function 1 proof + function 2 proof
+  await expect(page.getByRole('heading', { name: 'M&A Transaction Services', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Data, Transformation, AI', exact: true })).toBeVisible()
 
-  // Arms inside the poster band: bronze-ticked labels, M&A first, both
-  // linking; foundation strip beneath
-  await expect(page.locator('main').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('href', '/ma')
-  await expect(page.locator('main').getByRole('link', { name: 'CAPITAL MARKETS', exact: true })).toHaveAttribute('href', '/capital-markets')
-  await expect(page.getByText('DATA · TRANSFORMATION · AI')).toBeVisible()
+  // Functions inside the poster band: bronze-ticked labels, function 1 first,
+  // both linking. The bronze rule beneath them now carries the four sectors;
+  // it used to carry DATA · TRANSFORMATION · AI, which became function 2's
+  // own name (spec §4).
+  await expect(page.locator('main').getByRole('link', { name: 'M&A TRANSACTION SERVICES', exact: true })).toHaveAttribute('href', '/ma')
+  await expect(page.locator('main').getByRole('link', { name: 'DATA, TRANSFORMATION, AI', exact: true })).toHaveAttribute('href', '/data-ai')
+  await expect(page.getByText('DATA · TRANSFORMATION · AI')).toHaveCount(0)
+  for (const sector of ['CAPITAL MARKETS', 'BANKING', 'WEALTH', 'NBFIs']) {
+    await expect(page.getByText(sector, { exact: true })).toBeVisible()
+  }
 
-  // Founders block, no employer names, linking to /about
-  await expect(page.getByText('Transactions, Separation & Integration, Transformation')).toBeVisible()
-  await expect(page.getByText('Capital Markets, Data, Technology & AI')).toBeVisible()
+  // Founders block, no employer names, linking to /about. "Transformation"
+  // left Anna's line: the word now names function 2 (spec §4).
+  await expect(page.getByText('Transactions, Separation & Integration', { exact: true })).toBeVisible()
+  await expect(page.getByText('Data, Transformation, AI', { exact: true }).first()).toBeVisible()
   await expect(page.getByRole('link', { name: 'About the co-founders' })).toHaveAttribute('href', '/about')
 
   // CTAs (rev 4 label)
-  await expect(page.getByRole('link', { name: 'Discuss a situation' }).first()).toHaveAttribute('href', '/contact')
-  await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', '/contact')
+  await expect(page.locator('.home-nav-cta')).toHaveAttribute('href', '/contact')
+  await expect(page.locator('.home-nav-cta')).toHaveAttribute('aria-label', 'CONTACT US')
+  await expect(page.locator('main').getByRole('link', { name: /discuss a situation|contact us/i })).toHaveCount(0)
 
   // Background should be deep navy #0E2A3A (sanity check, computed style on body)
   const bg = await page.evaluate(() =>
@@ -94,10 +101,10 @@ test('about page renders positioning, story and genericised co-founder bios', as
   await expect(page.getByRole('heading', { name: 'Our story' })).toBeVisible()
 
   await expect(page.getByRole('heading', { level: 3, name: 'Anna Contos' })).toBeVisible()
-  await expect(page.getByText('Co-Founder, M&A')).toBeVisible()
+  await expect(page.getByText('Co-Founder, M&A Transaction Services')).toBeVisible()
 
   await expect(page.getByRole('heading', { level: 3, name: 'Terry Tsakiris' })).toBeVisible()
-  await expect(page.getByText('Co-Founder, Capital Markets')).toBeVisible()
+  await expect(page.getByText('Co-Founder, Data, Transformation, AI')).toBeVisible()
 
   // Bios are genericised: no named employers anywhere on the page
   const bodyText = await page.locator('main').innerText()
