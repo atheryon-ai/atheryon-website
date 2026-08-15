@@ -32,8 +32,15 @@ export const shellConfig: Record<Mode, ShellConfig> = {
       { label: 'ABOUT', href: '/about' },
     ],
     cta: {
+      // shortLabel MUST stay shorter than label. It renders below 420px via
+      // .home-nav-cta-short, and the header is a 3-column grid (brand · CTA ·
+      // MENU) with no room to spare at 375px. When the CTA became "Contact Us"
+      // in 6636eb7 both fields were set to the same string — the earlier values
+      // were BOOK / TALK / REVIEW — which made the small-viewport swap render
+      // an identical-width label and saved nothing. That silently overflowed
+      // the header by 4px on every page using this shell.
       label: 'CONTACT US',
-      shortLabel: 'CONTACT US',
+      shortLabel: 'CONTACT',
       href: '/contact',
     },
   },
