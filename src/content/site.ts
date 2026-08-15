@@ -1137,7 +1137,7 @@ export const v3 = {
           title: 'Making Transactions Executable',
           // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'Advisory and execution leadership for acquisitions, divestments, separations and integrations, where execution risk can materially impact outcomes. M&A Transaction Services is led by Anna Contos and is engaged across capital markets, banking, wealth and non-bank financial institutions.',
+            'Advisory and execution leadership for acquisitions, divestments, separations and integrations, where execution risk can materially impact outcomes. Engaged across capital markets, banking, wealth and non-bank financial institutions.',
         },
         // The function's principle (Terry 2026-08-09: principles live with
         // the sub pages, not the homepage). Large type, founding framing.
