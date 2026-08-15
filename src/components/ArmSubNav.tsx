@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-// Function sub-navigation (Terry 2026-08-09: slim top nav; each function
-// carries its own row). Rendered directly under the DocBanner on a function's
-// landing page and its experience / approach / contact sub-pages, and on
-// /data-ai/supply-chain so the application can get back to the function.
+// Function sub-navigation (slim top nav; each function carries its own row).
+// Overview stays on the function landing; Experience and Approach point at
+// the firm pages with #ma / #data-ai. Rendered under DocBanner on function
+// landings and on /data-ai/supply-chain. Contact Us is header-only.
 // The component name stays ArmSubNav by decision (functions spec §9).
 const ITEMS = [
   { id: 'overview', label: 'Overview' },

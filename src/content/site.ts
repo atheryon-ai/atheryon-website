@@ -856,13 +856,12 @@ export const v2 = {
 // =============================================================================
 
 // Approved case copy (spec Appendix C, Terry 2026-08-09, quoted verbatim from
-// Terry's CV). Consumed in exactly one place: the cmExperience key, which
-// renders /data-ai/experience and is pulled through by the firm-level
-// /experience page via its sourceKey. Case indices are assigned at render
-// time. Anonymised client descriptors are deliberate; no vendor names
-// (Palantir may be named later at Terry's option). These are markets cases,
-// which is honest depth for function 2 — do not add invented banking, wealth
-// or NBFI cases to balance them.
+// Terry's CV). Consumed via the cmExperience key on firm /experience
+// (#data-ai). Case indices are assigned at render time. Anonymised client
+// descriptors are deliberate; no vendor names (Palantir may be named later
+// at Terry's option). These are markets cases, which is honest depth for
+// function 2 — do not add invented banking, wealth or NBFI cases to balance
+// them.
 const cmCases = [
   {
     id: 'data-program-recovery',
@@ -958,19 +957,19 @@ export const v3 = {
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // Header is the only Contact Us control (Terry 2026-08-15). These
-  // destinations remain for the header's context-sensitive href.
+  // Header is the only Contact Us control (Terry 2026-08-15). Topic queries
+  // preset the firm form; there are no per-function contact pages.
   cta: {
     label: 'Contact us',
     href: '/contact',
   },
   maCta: {
     label: 'Contact us',
-    href: '/ma/contact',
+    href: '/contact?topic=ma-execution',
   },
   cmCta: {
     label: 'Contact us',
-    href: '/data-ai/contact',
+    href: '/contact?topic=data-ai',
   },
 
   // Firm footer: function-2 depth pages group under a Technology heading.
@@ -1302,8 +1301,10 @@ export const v3 = {
       },
     },
 
+    // Cases for firm /experience (function 1 block). Route field is documentary;
+    // the live URL is /experience#ma.
     maExperience: {
-      route: '/ma/experience',
+      route: '/experience#ma',
       title: 'M&A Experience — Atheryon',
       description:
         'Representative transaction and transformation experience across financial services, led by Atheryon and its principals.',
@@ -1433,14 +1434,13 @@ export const v3 = {
             },
           ],
         },
-        // Content separation (rev 7, renamed by the functions spec §1): the
-        // two functions' experience does not share a page. The three cmCases
-        // render on /data-ai/experience; this page carries transactions only.
+        // Content keys stay function-scoped; firm /experience stacks both.
       },
     },
 
+    // Method for firm /approach (function 1 block). Live URL: /approach#ma.
     maApproach: {
-      route: '/ma/approach',
+      route: '/approach#ma',
       title: 'M&A Approach — Atheryon',
       description:
         'Method and governance across the transaction lifecycle: pre-sign insight, Day 1 readiness, and the path to operational independence and TSA exit.',
@@ -1837,11 +1837,9 @@ export const v3 = {
       title: 'Contact — Atheryon',
       description: 'Talk to Atheryon: M&A transactions or capital markets technology and data programs.',
       sections: {
-        // /contact carries the form itself as of 2026-08-15 (Terry). It used
-        // to fork to the two arms' contact pages, which put a page between
-        // the visitor and the form and could not address Data & AI at all.
-        // The arm contact pages stay: inside an arm the header CTA still
-        // deep-links there, and the practice is preset rather than asked.
+        // The only form (Terry 2026-08-15). Header Contact Us always lands
+        // here; on function surfaces it may add ?topic= so the practice is
+        // preset rather than asked. Per-function contact pages are gone.
         hero: {
           label: 'atheryon / contact',
           title: 'Contact',
@@ -1851,8 +1849,10 @@ export const v3 = {
       },
     },
 
+    // Orphan content blocks: pages deleted 2026-08-15; firm /contact is the
+    // only form. Kept so nothing else that keyed off the names breaks.
     maContact: {
-      route: '/ma/contact',
+      route: '/contact?topic=ma-execution',
       title: 'Contact — M&A — Atheryon',
       description: 'Talk to the M&A arm about a transaction or transformation.',
       sections: {
@@ -1865,11 +1865,10 @@ export const v3 = {
       },
     },
 
-    // Function-2 sub-pages. The cm* key names are kept so the component
-    // contracts stay put (spec §1 permits this); the routes and copy are
-    // function 2's.
+    // Function-2 content keys (cm*). Firm /experience and /approach read the
+    // experience and approach blocks; contact is firm-only.
     cmContact: {
-      route: '/data-ai/contact',
+      route: '/contact?topic=data-ai',
       title: 'Contact — Data, Transformation, AI — Atheryon',
       description: 'Talk to Atheryon about a technology, data or transformation program.',
       sections: {
@@ -1883,7 +1882,7 @@ export const v3 = {
     },
 
     cmExperience: {
-      route: '/data-ai/experience',
+      route: '/experience#data-ai',
       title: 'Experience — Data, Transformation, AI — Atheryon',
       description: 'Delivery experience: program recovery, front office risk, regulatory platforms.',
       sections: {
@@ -1901,7 +1900,7 @@ export const v3 = {
     },
 
     cmApproach: {
-      route: '/data-ai/approach',
+      route: '/approach#data-ai',
       title: 'Approach — Data, Transformation, AI — Atheryon',
       description: 'How the function delivers: embedded senior specialists and AI-assisted delivery patterns.',
       sections: {

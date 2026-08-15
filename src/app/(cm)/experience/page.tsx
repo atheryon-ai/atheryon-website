@@ -3,8 +3,7 @@ import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
 // One Experience page (Terry 2026-08-15): full Context / Role / Outcome for
-// both functions, function 1 first. The function-path copies stay until
-// Task 5 301s them at /experience#ma and /experience#data-ai.
+// both functions, function 1 first. Function-path URLs 301 here with hashes.
 const page = v3.pages.experience
 const s = page.sections
 

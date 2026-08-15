@@ -28,9 +28,9 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
 
   const isWithin = (route: string) => pathname === route || pathname.startsWith(`${route}/`)
 
-  // One firm Contact Us destination. Function context is carried as a topic
-  // query so the /contact form can preselect; per-function /ma/contact and
-  // /data-ai/contact pages still exist for direct/deep links.
+  // One firm Contact Us destination. Function context is a topic query so
+  // the /contact form can preselect. Old /ma/contact and /data-ai/contact
+  // URLs 301 here (staticwebapp.config.json).
   const ctaHref = isWithin('/ma')
     ? '/contact?topic=ma-execution'
     : isWithin('/data-ai') || FUNCTION_2_DEPTH.some(isWithin)

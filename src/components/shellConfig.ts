@@ -24,8 +24,8 @@ export const shellConfig: Record<Mode, ShellConfig> = {
   cm: {
     // Slim top bar: the two functions plus about. Three items — Capital
     // Markets left the header when it stopped being a function and became
-    // one of four sectors. The per-function sub-pages (experience /
-    // approach / contact) hang off each function's own sub-nav row.
+    // one of four sectors. Function sub-nav is Overview · Experience ·
+    // Approach (firm URLs with hashes); Contact Us is header-only.
     nav: [
       { label: 'M&A SERVICES', href: '/ma' },
       { label: 'DATA & AI', href: '/data-ai' },

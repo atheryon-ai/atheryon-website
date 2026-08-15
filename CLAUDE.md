@@ -23,8 +23,8 @@ Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read i
 - **Tokens, not hexes.** Colours come from the Tailwind tokens and the `--homev3-*` variables in `globals.css` (ground `#0E2A3A`, elevated `#16394C`, bronze `#B08D57`, slate `#93A5B4`, warm-white `#FAF9F7`). No raw hex in components, no new colours, no gradients, no shadows, no imagery, no new fonts (typefaces gated on the IA brief §8 TODO 7). Amber `text-brand-amber-light` is a named exception for status badges only. Real platform screenshots on the `/labs/themes` theme cards are a named exception to the imagery rule (Terry, 2026-08-15; design standard §7) — nowhere else.
 - **Bronze is structural only.** Ticks, rules, small-caps strips, labels. Never body text.
 - **§ numbers ascend in display order.** Use the shared `Doc*` components; standard devices (tick, foundation rule, proof strip, statement band) are components, never hand-rolled per page.
-- **One CTA per viewport.** Header renders label OR shortLabel by breakpoint, never both.
-- **Function 1 before function 2** wherever both appear: M&A Transaction Services (`/ma`), then Data, Transformation, AI (`/data-ai`). Asserted on DOM order in `tests/v3-ia.spec.ts`, not just by convention.
+- **One CTA per viewport.** Header **CONTACT US** is the only primary CTA (label OR shortLabel by breakpoint, never both). There is no page-end CTA.
+- **Function 1 before function 2** wherever both appear: M&A Transaction Services (`/ma`), then Data, Transformation, AI (`/data-ai`). Header short form for function 1 is always **M&A Services** (`M&A SERVICES`), never bare `M&A`. Asserted on DOM order in `tests/v3-ia.spec.ts`, not just by convention.
 
 ## Project
 Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
@@ -32,14 +32,13 @@ Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`).
 ## Key paths
 One route group, `(cm)`, rendering the nav + footer shell for every route:
 - `src/app/(cm)/` — the firm shell. Homepage (`page.tsx`), plus:
-  - functions: `ma`, `data-ai`
-  - per-function sub-pages: `ma/{experience,approach,contact}`, `data-ai/{experience,approach,contact}`, plus `data-ai/supply-chain` (an application of function 2, not a sector)
-  - firm-level: `about`, `contact`, `experience`, `approach`
+  - functions: `ma`, `data-ai`, plus `data-ai/supply-chain` (an application of function 2, not a sector)
+  - firm-level (one of each): `experience`, `approach`, `about`, `contact`
   - function-2 depth: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
   - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
   - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision.
-  - **The firm presents two FUNCTIONS and four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`, Terry 2026-08-15). Functions: M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`). Sectors: capital markets, banking, wealth, non-bank financial institutions — an audience line, never routes and never nav items. `/capital-markets` was an arm until 2026-08-15; it retired into `/data-ai` and its four URLs 301 there. Do not build sector pages or per-sector service catalogues.
-- `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, data-ai, about, contact, experience, approach and the per-function sub-pages). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`. NOTE: the function-2 sub-page keys are still named `cmCta`, `cmSection`, `cmContact`, `cmExperience`, `cmApproach` and `cmCases` — kept deliberately so component contracts did not churn during the rename; they carry function-2 content.
+  - **The firm presents two FUNCTIONS and four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`, Terry 2026-08-15). Functions: M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`). Sectors: capital markets, banking, wealth, non-bank financial institutions — an audience line, never routes and never nav items. `/capital-markets` was an arm until 2026-08-15; it retired into `/data-ai` and 301s there. Function-path copies `/ma/{experience,approach,contact}` and `/data-ai/{experience,approach,contact}` are deleted and 301 to the firm pages (hashes or `?topic=`). Header is `M&A SERVICES · DATA & AI · ABOUT` plus Contact Us → `/contact`. Do not build sector pages or per-sector service catalogues.
+- `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, data-ai, about, contact, experience, approach). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`. NOTE: function-2 content keys are still named `cm*` (`cmCta`, `cmExperience`, `cmApproach`, `cmCases`, …) — kept deliberately so component contracts did not churn; firm `/experience` and `/approach` read them as data sources.
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo
 - Inline TSX copy (not in site.ts): `/labs`, `/blog/why-claude`, `/privacy`, `/terms`

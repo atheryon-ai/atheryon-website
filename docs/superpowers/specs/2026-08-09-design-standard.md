@@ -118,26 +118,28 @@ while pages that hand-roll their own banner markup chose mono independently (for
 - **Hairline divider**: 1px slate at 35% opacity, or `--homev3-border`. Separates blocks.
 - **Proof strip**: figure (large) + one-line descriptor (small), 4–6 entries. Figures lead.
 - **§ chrome**: sections numbered §01…§NN in DISPLAY ORDER, ascending, no gaps. Breadcrumb
-  at page top, `atheryon / <section> / end-of-document` + CTA at page end. `DocPage` derives
+  at page top, `atheryon / <section> / end-of-document` label at page end. `DocPage` derives
   the numbers from render order, so they cannot drift.
-- **CTA**: one primary per viewport. Header button renders label OR shortLabel (breakpoint
-  choice), never both. Page-end CTA is the sentence form ("Discuss a situation →").
+- **CTA**: one primary per viewport. That primary is the header **CONTACT US** control
+  (label OR shortLabel by breakpoint, never both). There is no page-end CTA.
 
 ## 5. Page anatomies
 
-**Homepage** (`src/app/(cm)/page.tsx`): nav → statement band (claim 3 lines, subheading, arms +
-foundation strip, primary CTA) → supporting copy with three equal explore links → §01 M&A with
-proof strip → §02 Data, Transformation, AI with proof strip and one line → §03 Founders → end-of-document
-CTA. Three numbered sections in total.
+**Homepage** (`src/app/(cm)/page.tsx`): nav → statement band (claim 3 lines, subheading,
+functions + sector foundation strip; contact is header-only) → supporting copy with two
+explore links → §01 M&A Transaction Services with proof strip → §02 Data, Transformation, AI
+with proof strip → §03 Founders → end-of-document label. Three numbered sections in total.
 
-**Function page** (`/ma`, `/data-ai`): document chrome throughout. Breadcrumb,
-serif claim, lede, § sections, end-of-document CTA. `/data-ai` opens with an unlabelled
-serif pull-quote before its first numbered section, which is why its §01 is the second block on
-the page. Arms never restate the foundation strip; it belongs to the homepage and the poster.
+**Function page** (`/ma`, `/data-ai`): document chrome throughout. Breadcrumb, serif claim,
+lede, § sections, end-of-document label. Function sub-nav is Overview · Experience · Approach
+(firm URLs with hashes). `/data-ai` may open with an unlabelled serif pull-quote before its
+first numbered section. Function landings never restate the foundation strip; it belongs to
+the homepage and the poster.
 
-**Document page** (`/experience`, `/approach`, `/about`, `/contact`, and the per-arm
-`{experience,approach,contact}` sub-pages): document chrome only, no statement moment. Case
-entries use tag line (small caps) + client descriptor (small caps) + Context / Role / Outcome.
+**Document page** (`/experience`, `/approach`, `/about`, `/contact`): document chrome only,
+no statement moment. `/experience` and `/approach` stack both functions, F1 first, with
+`#ma` / `#data-ai` section anchors. Case entries use tag line (small caps) + client
+descriptor (small caps) + Context / Role / Outcome.
 
 ## 6. Copy registers
 
