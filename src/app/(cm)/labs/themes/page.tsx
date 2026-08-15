@@ -84,26 +84,42 @@ function ThemeBlock({
         {themesList.map((theme, index) => (
           <li
             key={theme.id}
-            className={`bg-bone p-5 flex flex-col gap-2 ${lastRowSpan(themesList.length, index)}`}
+            className={`bg-bone flex flex-col ${lastRowSpan(themesList.length, index)}`}
           >
-            <div className="flex items-baseline gap-3">
-              <span className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span className="font-display text-lg font-medium text-charcoal tracking-tight leading-tight">
-                {theme.title}
-              </span>
+            {/* Real platform screenshot for the theme. theme.thumb is a
+                preformed path (/menu-themes-thumbs/t-*.png) — never prepend
+                t- again. Fixed aspect box prevents layout shift while the
+                lazy image loads; max-h keeps a spanning last-row card from
+                turning its screenshot into a hero. */}
+            <div className="aspect-[16/10] max-h-64 w-full overflow-hidden border-b border-charcoal/15">
+              <img
+                src={theme.thumb}
+                alt={`${theme.title} screen`}
+                loading="lazy"
+                decoding="async"
+                className="h-full w-full object-cover object-top"
+              />
             </div>
-            {theme.blurb && (
-              <p className="text-sm text-charcoal/70 leading-relaxed">
-                {theme.blurb}
-              </p>
-            )}
-            {theme.pages != null && (
-              <div className="mt-auto pt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55">
-                {theme.pages} {theme.pages === 1 ? 'page' : 'pages'}
+            <div className="p-5 flex flex-1 flex-col gap-2">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="font-display text-lg font-medium text-charcoal tracking-tight leading-tight">
+                  {theme.title}
+                </span>
               </div>
-            )}
+              {theme.blurb && (
+                <p className="text-sm text-charcoal/70 leading-relaxed">
+                  {theme.blurb}
+                </p>
+              )}
+              {theme.pages != null && (
+                <div className="mt-auto pt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55">
+                  {theme.pages} {theme.pages === 1 ? 'page' : 'pages'}
+                </div>
+              )}
+            </div>
           </li>
         ))}
       </ul>

@@ -169,6 +169,14 @@ appears in the foundation strip and body copy only, never in a claim.
 building and roadmap states in `StatusBadge.tsx`. The rule against a further accent still
 stands everywhere else; amber outside status badges is a violation.
 
+**Named exception to the imagery rule.** Real labs-platform screenshots are sanctioned on the
+`/labs/themes` theme cards (Terry, 2026-08-15), rendered from the preformed `theme.thumb`
+paths in `src/content/themes.ts` (assets in `public/menu-themes-thumbs/`, synced by hand from
+the labs-platform repo). The dark platform UI sits on the navy ground behind a hairline
+border. Scope is the theme cards on that page: no illustration, no stock imagery, no
+screenshots elsewhere in the firm shell, and `BrandMark.tsx` remains the sole imagery in the
+shared shell components the lint watches.
+
 ## 8. Open items
 
 - TODO 7 (IA brief §8): serif/sans pair + final palette sign-off.
