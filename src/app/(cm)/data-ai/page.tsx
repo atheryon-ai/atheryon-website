@@ -38,13 +38,23 @@ export default function DataAiPage() {
         </DocSection>
       )}
 
-      {([s.data, s.transformation, s.ai] as const).map((section) => (
-        <DocSection key={section.title} label={section.label} title={section.title}>
-          <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
-            {section.body}
-          </p>
-        </DocSection>
-      ))}
+      <DocSection label={s.operatingModel.label} title={s.operatingModel.title}>
+        <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px border border-charcoal/15 bg-charcoal/15">
+          {([s.data, s.transformation, s.ai] as const).map((section, index) => (
+            <li key={section.title} className="bg-bone p-6 md:p-8">
+              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-5">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
+                {section.title}
+              </h3>
+              <p className="mt-5 text-base text-charcoal/85 leading-relaxed">
+                {section.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
 
       <DocSection label={s.arms.label} title={s.arms.title}>
         <ul className="border-y border-charcoal/15 divide-y divide-charcoal/15">

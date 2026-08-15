@@ -31,6 +31,19 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
         ? '/capital-markets/contact'
         : config.cta.href
 
+  const isNavItemActive = (href: string) => {
+    if (href === '/capital-markets') {
+      return (
+        pathname === href ||
+        pathname.startsWith(`${href}/`) ||
+        ['/system', '/labs', '/themes', '/offers'].some(
+          (route) => pathname === route || pathname.startsWith(`${route}/`),
+        )
+      )
+    }
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
+
   // Close when the route changes (link selected from the panel).
   useEffect(() => {
     setOpen(false)
@@ -88,22 +101,30 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
         <BrandLockup />
 
         <div className="home-nav-links" style={{ display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
-          {config.nav.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              style={{
-                color: 'var(--homev3-text-soft)',
-                textDecoration: 'none',
-                fontWeight: 500,
-                fontSize: 13,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-              }}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {config.nav.map((l) => {
+            const active = isNavItemActive(l.href)
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? 'page' : undefined}
+                className={active ? 'text-warm-white' : 'text-homev3-text-soft'}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  minHeight: 44,
+                  borderBottom: active ? '2px solid var(--mode-accent)' : '2px solid transparent',
+                  textDecoration: 'none',
+                  fontWeight: 500,
+                  fontSize: 13,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {l.label}
+              </Link>
+            )
+          })}
         </div>
 
         <Link
@@ -114,6 +135,7 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: 10,
+            minHeight: 44,
             padding: '10px 16px',
             borderRadius: 4,
             background: 'transparent',
@@ -175,26 +197,32 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
           }}
         >
           <ul style={{ listStyle: 'none', margin: 0, padding: '8px 16px 16px' }}>
-            {config.nav.map((l) => (
-              <li key={l.href} style={{ borderBottom: '1px solid var(--homev3-border)' }}>
-                <Link
-                  href={l.href}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    minHeight: 48,
-                    color: 'var(--homev3-text-soft)',
-                    textDecoration: 'none',
-                    fontWeight: 500,
-                    fontSize: 14,
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
+            {config.nav.map((l) => {
+              const active = isNavItemActive(l.href)
+              return (
+                <li key={l.href} style={{ borderBottom: '1px solid var(--homev3-border)' }}>
+                  <Link
+                    href={l.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={active ? 'text-warm-white' : 'text-homev3-text-soft'}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      minHeight: 48,
+                      paddingLeft: active ? 12 : 0,
+                      boxShadow: active ? 'inset 3px 0 var(--mode-accent)' : 'none',
+                      textDecoration: 'none',
+                      fontWeight: 500,
+                      fontSize: 14,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              )
+            })}
             <li>
               <Link
                 href={ctaHref}

@@ -4,25 +4,41 @@ import Link from 'next/link'
 // own row). Rendered directly under the DocBanner on an arm's landing page
 // and its experience / approach / contact sub-pages.
 const ITEMS = [
-  { label: 'Overview', segment: '' },
-  { label: 'Experience', segment: '/experience' },
-  { label: 'Approach', segment: '/approach' },
-  { label: 'Contact', segment: '/contact' },
+  { id: 'overview', label: 'Overview', segment: '' },
+  { id: 'experience', label: 'Experience', segment: '/experience' },
+  { id: 'approach', label: 'Approach', segment: '/approach' },
+  { id: 'contact', label: 'Contact', segment: '/contact' },
 ] as const
 
-export function ArmSubNav({ base }: { base: '/ma' | '/capital-markets' }) {
+type ArmSection = (typeof ITEMS)[number]['id']
+
+export function ArmSubNav({
+  base,
+  active,
+}: {
+  base: '/ma' | '/capital-markets'
+  active: ArmSection
+}) {
   return (
     <nav aria-label="Arm sections" className="border-b border-charcoal/15">
-      <div className="max-w-container mx-auto px-6 py-4 flex flex-wrap gap-x-8 gap-y-2">
-        {ITEMS.map((item) => (
-          <Link
-            key={item.label}
-            href={`${base}${item.segment}`}
-            className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 hover:text-charcoal transition-colors"
-          >
-            {item.label}
-          </Link>
-        ))}
+      <div className="max-w-container mx-auto px-6 py-2 flex flex-wrap gap-x-6 md:gap-x-8 gap-y-1">
+        {ITEMS.map((item) => {
+          const isActive = item.id === active
+          return (
+            <Link
+              key={item.label}
+              href={`${base}${item.segment}`}
+              aria-current={isActive ? 'page' : undefined}
+              className={`inline-flex min-h-11 items-center border-b-2 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
+                isActive
+                  ? 'border-bronze text-charcoal'
+                  : 'border-transparent text-charcoal/60 hover:text-charcoal'
+              }`}
+            >
+              {item.label}
+            </Link>
+          )
+        })}
       </div>
     </nav>
   )

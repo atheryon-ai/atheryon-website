@@ -12,6 +12,11 @@ test.describe('mobile nav at 390×844', () => {
     const button = page.getByRole('button', { name: 'MENU' })
     await expect(button).toBeVisible()
     await expect(button).toHaveAttribute('aria-expanded', 'false')
+    expect((await button.boundingBox())?.height).toBeGreaterThanOrEqual(44)
+
+    const headerCta = page.locator('.home-nav-cta')
+    await expect(headerCta).toBeVisible()
+    expect((await headerCta.boundingBox())?.height).toBeGreaterThanOrEqual(44)
 
     // Inline desktop links are hidden at this width
     await expect(page.locator('.home-nav-links')).toBeHidden()
@@ -57,6 +62,32 @@ test.describe('mobile nav at 390×844', () => {
     await expect(page.locator('#home-nav-mobile-menu')).toBeVisible()
     expect(await overflow()).toBeLessThanOrEqual(0)
   })
+})
+
+test.describe('narrow mobile header at 320×700', () => {
+  test.use({ viewport: { width: 320, height: 700 } })
+
+  test('keeps the menu visible, moves the CTA into it and does not overflow', async ({ page }) => {
+    await page.goto('/')
+
+    await expect(page.locator('.home-nav-cta')).toBeHidden()
+    const menu = page.getByRole('button', { name: 'MENU' })
+    await expect(menu).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+
+    await menu.click()
+    const panel = page.locator('#home-nav-mobile-menu')
+    await expect(panel.getByRole('link', { name: 'DISCUSS A SITUATION' })).toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0)
+  })
+})
+
+test('deployed/static-export menu reaches its open state', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+  await page.getByRole('button', { name: 'MENU' }).click()
+  await expect(page.getByRole('button', { name: 'CLOSE' })).toHaveAttribute('aria-expanded', 'true')
+  await expect(page.locator('#home-nav-mobile-menu')).toBeVisible()
 })
 
 test.describe('tablet width 768', () => {

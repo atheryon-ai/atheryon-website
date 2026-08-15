@@ -36,7 +36,7 @@ export default function MaContactPage() {
         </div>
       </section>
 
-      <ArmSubNav base="/ma" />
+      <ArmSubNav base="/ma" active="contact" />
 
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">

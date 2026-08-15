@@ -22,7 +22,7 @@ export default function ApproachPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/ma" />
+      <ArmSubNav base="/ma" active="approach" />
 
       <DocSection label={s.lifecycle.label} title={s.lifecycle.title}>
         <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">

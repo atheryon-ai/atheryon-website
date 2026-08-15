@@ -10,6 +10,7 @@ const routes = [
   { path: '/capital-markets/experience', heading: 'Capital Markets Experience' },
   { path: '/capital-markets/approach', heading: 'Our Approach' },
   { path: '/data-ai', heading: 'Data. Transformation. AI.' },
+  { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
 
 // Chooser pages (Terry 2026-08-09): the firm-level routes stay live and
@@ -35,6 +36,21 @@ test('/data-ai carries the underpinning principle', async ({ page }) => {
       'Atheryon faces regulators on behalf of clients and knows what is required.',
     ),
   ).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the foundation works' })).toBeVisible()
+  for (const discipline of ['Data', 'Transformation', 'AI']) {
+    await expect(page.getByRole('heading', { level: 3, name: discipline, exact: true })).toBeVisible()
+  }
+})
+
+test('global and arm navigation expose the current location', async ({ page }) => {
+  await page.goto('/ma/experience')
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('aria-current', 'page')
+  const armNav = page.getByRole('navigation', { name: 'Arm sections' })
+  await expect(armNav.getByRole('link', { name: 'Experience' })).toHaveAttribute('aria-current', 'page')
+  await expect(armNav.getByRole('link', { name: 'Overview' })).not.toHaveAttribute('aria-current', 'page')
+
+  await page.goto('/labs')
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'CAPITAL MARKETS', exact: true })).toHaveAttribute('aria-current', 'page')
 })
 
 for (const route of routes) {
@@ -75,6 +91,10 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
     await expect(page.getByRole('heading', { name: line })).toBeVisible()
   }
 
+  const serviceIndex = page.getByRole('navigation', { name: 'Service line index' })
+  await expect(serviceIndex.getByRole('link')).toHaveCount(4)
+  await expect(serviceIndex.getByRole('link', { name: /Transaction Readiness/ })).toHaveAttribute('href', '#transaction-readiness')
+
   // TSA dedupe: each line owns distinct scope
   await expect(page.getByText('TSA strategy', { exact: true })).toBeVisible()
   await expect(page.getByText('TSA design and exit planning', { exact: true })).toBeVisible()
@@ -89,6 +109,7 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   // Rev 7: the three transaction workflows live here as collapsed detail
   // under service line 04
   const workflowDetails = page.locator('details').filter({ hasText: 'Three transaction workflows' })
+  await expect(workflowDetails.locator('summary')).toContainText('Inputs, AI agents, processing and outputs')
   await expect(workflowDetails.getByRole('heading', { name: 'Pre-Sign Execution Review' })).toBeHidden()
   await workflowDetails.locator('summary').click()
   for (const name of [

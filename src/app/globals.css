@@ -529,6 +529,29 @@ select.bg-white:focus:not(:focus-visible) {
   .home-nav-cta-short { display: inline; }
 }
 
+@media (max-width: 359px) {
+  /* The full three-control header is wider than a 320px viewport. Keep the
+     decision CTA in the disclosure panel and reserve the top bar for brand
+     identity plus navigation. */
+  .home-nav-grid {
+    grid-template-columns: auto auto !important;
+  }
+  .home-nav-cta { display: none !important; }
+}
+
+.workflow-details > summary {
+  list-style: none;
+}
+.workflow-details > summary::-webkit-details-marker {
+  display: none;
+}
+.workflow-details .details-indicator::before {
+  content: '+';
+}
+.workflow-details[open] .details-indicator::before {
+  content: '−';
+}
+
 @media (max-width: 768px) {
   /* Shrink the generous 40px gutter to 20px so content can breathe. */
   .home-section-container {
