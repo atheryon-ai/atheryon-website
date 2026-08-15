@@ -85,17 +85,15 @@ test('Contact Us from /data-ai presets the function-2 topic on the firm form', a
   )
 })
 
-test('/data-ai carries the function principle and its three disciplines', async ({ page }) => {
+test('/data-ai carries the function principle', async ({ page }) => {
   await page.goto('/data-ai')
   await expect(
     page.getByText(
       'Atheryon has delivered those platforms and has led APRA engagement at executive level.',
     ),
   ).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'How the function works' })).toBeVisible()
-  for (const discipline of ['Data', 'Transformation', 'AI']) {
-    await expect(page.getByRole('heading', { level: 3, name: discipline, exact: true })).toBeVisible()
-  }
+  // Three-discipline grid cut 2026-08-15 (MECE): the landing is boxes + three links.
+  await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
 })
 
 test('/data-ai absorbed the markets depth and platform links', async ({ page }) => {
@@ -113,6 +111,25 @@ test('/data-ai absorbed the markets depth and platform links', async ({ page }) 
   await expect(
     page.locator('main').locator('a[href="/ma#technology-data-migration"]'),
   ).toHaveCount(1)
+})
+
+test('/ma is offer then engage, not a repeated sermon', async ({ page }) => {
+  await page.goto('/ma')
+  await expect(page.getByRole('heading', { name: 'Transaction Readiness' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How we engage' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'How we work' })).toHaveCount(0)
+  await expect(page.getByText('Our Belief')).toHaveCount(0)
+})
+
+test('/data-ai is boxes plus three links, not three indexes', async ({ page }) => {
+  await page.goto('/data-ai')
+  await expect(page.getByRole('heading', { name: 'Capital Markets Systems & Platform Delivery' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Where it shows up' })).toHaveCount(0)
+  await expect(page.locator('main').locator('a[href="/labs"]')).toHaveCount(1)
+  await expect(page.locator('main').locator('a[href="/ma#technology-data-migration"]')).toHaveCount(1)
+  await expect(page.locator('main').locator('a[href="/data-ai/supply-chain"]')).toHaveCount(1)
 })
 
 test('global and function navigation expose the current location', async ({ page }) => {
@@ -147,16 +164,12 @@ for (const route of routes) {
 test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async ({ page }) => {
   await page.goto('/ma')
 
-  // The transaction principle and Why Atheryon live here (Terry 2026-08-09:
-  // M&A-specific content leaves the homepage).
+  // The transaction principle lives here (Terry 2026-08-09: M&A-specific
+  // content leaves the homepage). Why / values / belief cut 2026-08-15 so
+  // the landing is offer then engage, not a repeated sermon.
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
   await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toBeVisible()
-
-  // Trimmed 2026-08-15 (Terry): the page stated one idea six times. These
-  // three sections were the principle again in other words, so the page is
-  // hero → principle → why → service lines → how we engage. Asserted absent
-  // so they cannot creep back.
+  await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Our Belief' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'How we work' })).toHaveCount(0)
   await expect(page.getByText('Clients engage Atheryon to:')).toHaveCount(0)
@@ -242,14 +255,13 @@ test('/data-ai is function 2, keeping the depth pages reachable', async ({ page 
   await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#data-ai')
   await expect(page.getByText('{{')).toHaveCount(0)
 
-  // Depth links out of /data-ai. Scoped to <main> — the footer carries
-  // identically named links but sits outside <main> in the (cm) layout, so
-  // this cannot collide.
+  // Related links out of /data-ai (MECE cut 2026-08-15): Labs + M&A line-04
+  // + supply chain. Scoped to <main> — footer Technology still has the
+  // platform group and sits outside <main>.
   for (const [label, href] of [
-    ['System', '/system'],
     ['Labs', '/labs'],
-    ['Themes', '/themes'],
-    ['Offers', '/offers'],
+    ['M&A Transaction Services', '/ma#technology-data-migration'],
+    ['Supply Chain', '/data-ai/supply-chain'],
   ] as const) {
     await expect(page.locator('main').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }

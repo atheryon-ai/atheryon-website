@@ -42,17 +42,8 @@ export default function MaArmPage() {
         </div>
       </DocSection>
 
-      {/* Terry 2026-08-09 (21:28 review): the Why Clients Choose Atheryon
-          copy is M&A copy and lives here. */}
-      {/* The "Clients engage Atheryon to" bullet list was removed on
-          2026-08-15 (Terry): it restated the four service lines below. */}
-      <DocSection label={s.why.label} title={s.why.title}>
-        <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.why.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-      </DocSection>
+      {/* Why / values / belief cut 2026-08-15 (MECE): they restated the
+          principle and the four boxes. Landing is offer then engage. */}
 
       <DocSection label={s.lines.label} title={s.lines.title}>
         <ServiceLineIndex
@@ -116,13 +107,6 @@ export default function MaArmPage() {
           </div>
         </DocSection>
       )}
-
-      {/* How we work was removed on 2026-08-15 (Terry): the five values were
-          the Why bullets and the service lines again with softer nouns. */}
-
-      {/* Our Belief was removed on 2026-08-15 (Terry): it restated the
-          principle at the top of the page in the same large type, so the
-          page closed by repeating its own opening. */}
 
       <DocFooter label="atheryon / ma / end-of-document" />
     </DocPage>

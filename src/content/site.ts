@@ -1150,13 +1150,9 @@ export const v3 = {
           // pull-quote. The statement carries the idea once.
           support: '',
         },
-        // Trimmed 2026-08-15 (Terry): the page stated one idea six times.
-        // "Our Belief" went entirely (it restated the principle in the same
-        // large type, so the page closed by repeating its opening), and this
-        // section dropped from four paragraphs plus a six-bullet list to the
-        // two paragraphs that carry something the principle does not: what
-        // actually goes wrong, and what it costs. The bullets were the four
-        // service lines restated.
+        // Not rendered on /ma as of the 2026-08-15 MECE cut (landing is
+        // offer then engage). Kept for git history; do not re-surface without
+        // a fresh decision — it restated the principle and the four boxes.
         why: {
           label: 'Why Clients Choose Atheryon',
           title: 'Why Clients Choose Atheryon',
@@ -1545,8 +1541,9 @@ export const v3 = {
     // absorbed the retired /capital-markets arm. The markets service lines
     // below are that arm's approved copy, reframed as published depth in one
     // sector rather than as the function's name. Display order follows spec
-    // §4: banner, principle, three disciplines, markets depth, platform
-    // depth, where else it shows up.
+    // §4 + MECE 2026-08-15: banner, principle, markets depth boxes, three
+    // related links (Labs from depth.links, M&A + supply chain from arms).
+    // Discipline grid and the "Where it shows up" index are not rendered.
     dataAi: {
       route: '/data-ai',
       title: 'Data, Transformation, AI — Atheryon',
@@ -1570,6 +1567,8 @@ export const v3 = {
             'Data programs in regulated businesses have to produce the evidence an examination will ask for. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
           support: '',
         },
+        // Discipline grid not rendered on /data-ai (MECE 2026-08-15). Kept
+        // for git history; the landing is boxes + three links.
         operatingModel: {
           label: 'Operating Model',
           title: 'How the function works',
@@ -1672,8 +1671,8 @@ export const v3 = {
             },
           ],
         },
-        // Platform depth (council build 2026-08-10; claims-gated, no counts,
-        // no URL — labs.atheryon.ai is offline). Ported from the retired arm.
+        // Full platform-depth index not rendered on /data-ai (MECE 2026-08-15).
+        // The Labs entry still supplies the note for the three related links.
         depth: {
           label: 'Platform Depth',
           title: 'Platform depth',
@@ -1686,9 +1685,8 @@ export const v3 = {
             { label: 'Offers', href: '/offers', note: 'Licensing and consulting paths for the platform and the method behind it' },
           ],
         },
-        // Two links only (spec §4.6): function 1 for work inside a deal, and
-        // the supply chain application. No Banking / Wealth / NBFI links —
-        // sectors are an audience line, not destinations.
+        // M&A + supply chain notes reused on the landing as two of the three
+        // related links (with Labs). Title not rendered — it was a third index.
         arms: {
           label: 'Where else it shows up',
           title: 'Where else it shows up',
