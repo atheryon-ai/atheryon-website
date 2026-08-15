@@ -1603,10 +1603,14 @@ export const v3 = {
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
+              // First person (Terry 2026-08-15): the copy rule gives Terry his
+              // own voice on /about and /labs, and this bio was still third
+              // person. Employers stay genericised — home.spec.ts asserts that
+              // no bank is named anywhere on the page.
               paragraphs: [
-                'Terry Tsakiris co-founded Atheryon and leads the Capital Markets arm. He has spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
-                'He built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. He owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. He also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
-                'At Atheryon, Terry directs the Capital Markets arm: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both arms.',
+                'I co-founded Atheryon and lead the Capital Markets arm. I have spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
+                'I built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. I owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. I also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
+                'At Atheryon I direct the Capital Markets arm: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both arms.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
