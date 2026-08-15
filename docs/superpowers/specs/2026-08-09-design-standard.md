@@ -19,7 +19,7 @@ the code.
 palette actually in force, and adds §9 documenting the override block. Nothing in the rendered
 output changed with this revision. The v1 text is preserved in git history; the substantive
 decisions it recorded (bronze as a structural accent, one CTA per viewport, § numbers in
-display order, M&A before Capital Markets, no imagery beyond `BrandMark`) all survive intact.
+display order, function 1 before function 2, no imagery beyond `BrandMark`) all survive intact.
 
 ## 1. The format: one ground, statement moments
 
@@ -38,7 +38,7 @@ add depth within the single register.
 to get wrong: the homepage `StatementBand` uses `bg-navy`, which is #0E2A3A, the same value as
 the ground. The band no longer separates itself by colour. It separates itself by scale (serif
 display at 5xl to 7xl), by the bronze ticks on the arms, by the foundation rule, and by its
-word budget of roughly twenty. The pull-quote opening `/capital-markets` does the same work at
+word budget of roughly twenty. The pull-quote opening `/data-ai` does the same work at
 smaller scale with serif display at 3xl to 5xl and no section label.
 
 The brand argument is unchanged from v1: executive clarity up front, disciplined execution
@@ -103,7 +103,7 @@ the surface distinction gone, this is load-bearing rather than aspirational: typ
 now the only things separating a statement from a paragraph.
 
 **Open inconsistency, recorded here for tracking.** The lede paragraph under a page title renders mono
-on `/themes`, `/roadmap` and `/blog`, and body sans on `/about`, `/capital-markets`, `/contact`,
+on `/themes` and `/blog`, and body sans on `/about`, `/data-ai`, `/contact`,
 `/privacy` and `/offers`. The rule in this table is that mono belongs to chrome and prose
 belongs to the body font, so the mono ledes are the deviation. The mechanical cause is that
 pages routed through the shared `DocBanner` component get sans (`src/components/Doc.tsx:50`),
@@ -127,11 +127,11 @@ while pages that hand-roll their own banner markup chose mono independently (for
 
 **Homepage** (`src/app/(cm)/page.tsx`): nav → statement band (claim 3 lines, subheading, arms +
 foundation strip, primary CTA) → supporting copy with three equal explore links → §01 M&A with
-proof strip → §02 Capital Markets with proof strip and one line → §03 Founders → end-of-document
+proof strip → §02 Data, Transformation, AI with proof strip and one line → §03 Founders → end-of-document
 CTA. Three numbered sections in total.
 
-**Arm page** (`/ma`, `/capital-markets`, `/data-ai`): document chrome throughout. Breadcrumb,
-serif claim, lede, § sections, end-of-document CTA. `/capital-markets` opens with an unlabelled
+**Function page** (`/ma`, `/data-ai`): document chrome throughout. Breadcrumb,
+serif claim, lede, § sections, end-of-document CTA. `/data-ai` opens with an unlabelled
 serif pull-quote before its first numbered section, which is why its §01 is the second block on
 the page. Arms never restate the foundation strip; it belongs to the homepage and the poster.
 
@@ -149,7 +149,7 @@ appears in the foundation strip and body copy only, never in a claim.
 ## 7. Do / don't
 
 - Do let whitespace and type scale carry hierarchy. With one ground, scale is the separator.
-- Do keep M&A first wherever the arms appear.
+- Do keep function 1 (M&A Transaction Services) first wherever both functions appear.
 - Do calculate every contrast ratio against the dark ground. Text on the page ground is being
   checked against #0E2A3A, and text inside an elevated panel against #16394C.
 - Do use `bg-bone` and `text-charcoal` as the document surface and document text roles, and
