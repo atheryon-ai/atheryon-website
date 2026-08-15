@@ -10,6 +10,11 @@
 //      (Terry's ruling 2026-08-10).
 //   5. more than one usage of the StatementBand component (full-band navy
 //      is reserved for homepage viewport 1)
+//   6. a shell CTA whose shortLabel is not shorter than its label. The header
+//      swaps to shortLabel below 420px to fit the brand · CTA · MENU grid; a
+//      shortLabel that is equal or longer makes that swap inert and overflows
+//      the viewport (d805bd6 — the two were identical for months, costing 4px
+//      of overflow on every shell page).
 // Comments are stripped before matching so explanatory notes may reference
 // hexes or class names freely.
 
@@ -84,6 +89,47 @@ if (bandTotal > 1) {
   violations.push(
     `StatementBand rendered ${bandTotal} times — full-band navy is reserved for homepage viewport 1: ${bandUsages.join(', ')}`,
   )
+}
+
+// Rule 6: every shell CTA's shortLabel must be strictly shorter than its
+// label. Parsed from source rather than imported because this is a .mjs script
+// and shellConfig.ts is TypeScript. Each `cta: { ... }` block is matched whole,
+// so a future second shell mode is covered automatically.
+const shellConfigPath = join(SRC, 'components/shellConfig.ts')
+const shellSrc = stripComments(readFileSync(shellConfigPath, 'utf8'))
+// Only cta blocks holding a quoted value — this skips the `cta: { label:
+// string; ... }` type annotation, whose fields are bare type names.
+const ctaBlocks = [...shellSrc.matchAll(/\bcta\s*:\s*\{([\s\S]*?)\}/g)].filter(([, body]) =>
+  /['"`]/.test(body),
+)
+
+if (ctaBlocks.length === 0) {
+  violations.push(
+    'src/components/shellConfig.ts  no cta block found — the shortLabel rule cannot run. ' +
+      'If the CTA shape changed, update rule 6 in scripts/design-lint.mjs.',
+  )
+}
+
+for (const [, body] of ctaBlocks) {
+  // Only literal values are checkable; a computed label is skipped loudly.
+  const label = body.match(/\blabel\s*:\s*['"`](.*?)['"`]/)?.[1]
+  const shortLabel = body.match(/\bshortLabel\s*:\s*['"`](.*?)['"`]/)?.[1]
+
+  if (label === undefined || shortLabel === undefined) {
+    violations.push(
+      `src/components/shellConfig.ts  cta block missing a literal label/shortLabel — ` +
+        `rule 6 needs both as string literals (got label=${JSON.stringify(label)}, shortLabel=${JSON.stringify(shortLabel)})`,
+    )
+    continue
+  }
+
+  if (shortLabel.length >= label.length) {
+    violations.push(
+      `src/components/shellConfig.ts  shortLabel ${JSON.stringify(shortLabel)} (${shortLabel.length} chars) is not shorter than ` +
+        `label ${JSON.stringify(label)} (${label.length} chars) — the header swaps to shortLabel below 420px to fit the ` +
+        `brand · CTA · MENU grid, so an equal or longer value makes the swap inert and overflows the viewport`,
+    )
+  }
 }
 
 if (violations.length > 0) {
