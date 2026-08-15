@@ -89,13 +89,16 @@ function ThemeBlock({
             {/* Real platform screenshot for the theme. theme.thumb is a
                 preformed path (/menu-themes-thumbs/t-*.png) — never prepend
                 t- again. Fixed aspect box prevents layout shift while the
-                lazy image loads; max-h keeps a spanning last-row card from
-                turning its screenshot into a hero. */}
+                image loads; max-h keeps a spanning last-row card from
+                turning its screenshot into a hero. The first row loads
+                eagerly: lazy-loading everything leaves the top of each
+                surface showing empty bordered boxes on a fast scroll, which
+                reads as missing content rather than as loading. */}
             <div className="aspect-[16/10] max-h-64 w-full overflow-hidden border-b border-charcoal/15">
               <img
                 src={theme.thumb}
                 alt={`${theme.title} screen`}
-                loading="lazy"
+                loading={index < 3 ? 'eager' : 'lazy'}
                 decoding="async"
                 className="h-full w-full object-cover object-top"
               />

@@ -484,24 +484,6 @@ export const v2 = {
     },
   ] as const,
 
-  // Ecosystem
-  ecosystem: [
-    {
-      id: 'azure',
-      name: 'Microsoft Azure AI infrastructure',
-    },
-    {
-      id: 's-and-p-global',
-      name: 'S&P Global data integration',
-    },
-    {
-      id: 'lineage',
-      name: 'Banking experience',
-      detail:
-        'Goldman Sachs, Credit Suisse, Barclays Capital — as architectural lineage, not claims of employment or system ownership.',
-    },
-  ] as const,
-
   // Page intents (verbatim from user spec). Pages render these as the
   // primary content slot. No invented prose.
   pages: {
@@ -835,28 +817,10 @@ export const v2 = {
         title: 'About',
         body: 'Capital markets engineering and M&A execution leadership.',
       },
-      principals: [
-        {
-          id: 'terry-tsakiris',
-          label: 'Principal Biography',
-          name: 'Terry Tsakiris',
-          role: 'Founder & Systems Principal',
-          paragraphs: [
-            'Terry Tsakiris is the founder and technical architect of Atheryon. He has spent over two decades engineering core data infrastructure, front-office risk taxonomies, and algorithmic trading systems across the world’s leading financial environments, including Goldman Sachs, Credit Suisse, and Barclays Capital.',
-            'As an expert in capital markets reference data architectures, Terry formerly designed enterprise-scale data strategies, including integration vectors with platforms like S&P TeraHelix. At Atheryon, he directs the engineering of marketplace-bound, CDM-native banking platforms. His work focuses on leveraging LLM orchestration layers to render declarative compliance boundaries and eliminate the multi-million dollar overheads of traditional tier-1 system integrators.',
-          ],
-        },
-        {
-          id: 'anna-contos',
-          label: 'Principal Biography',
-          name: 'Anna Contos',
-          role: 'Head of M&A Separation & Integration Advisory',
-          paragraphs: [
-            'Anna Contos leads the M&A Separation and Integration Practice at Atheryon, bringing unprecedented institutional execution credibility to high-stakes corporate transactions. She is an elite corporate integration specialist with a proven track record of steering complex, highly regulated financial carve-outs.',
-            "Prior to joining Atheryon, Anna served as the Head of Separation & Integration Advisory at Westpac (2023–2025). She previously held the position of Head of Divestment Execution at Commonwealth Bank (CBA). Throughout her career at Australia's major tier-1 institutions, Anna has successfully commanded multi-billion dollar post-deal integrations, regulatory risk tracking under APRA mandates, and complex Transition Service Agreement (TSA) exits. At Atheryon, she pairs her deep institutional deal scar-tissue with AI-accelerated system mapping to ensure buyer execution is bulletproof before and after signing.",
-          ],
-        },
-      ],
+      // The principal biographies that used to sit here were removed on
+      // 2026-08-15. Nothing rendered them (/about reads v3.pages.about), and
+      // Terry's listed Goldman Sachs and Barclays Capital as employers, which
+      // is wrong: he has never worked for either. The live bios are in v3.
     },
     contact: {
       route: '/contact',
