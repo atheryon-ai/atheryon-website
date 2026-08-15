@@ -28,15 +28,13 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
 
   const isWithin = (route: string) => pathname === route || pathname.startsWith(`${route}/`)
 
-  // Council review 2026-08-10: inside a function the destination is
-  // unambiguous, so the primary CTA deep-links to that function's contact
-  // instead of forking at the /contact chooser. Function-2 depth pages send
-  // the visitor to the function-2 form (spec §5); before the two-function
-  // IA, /data-ai had no contact page and presets a topic on the firm form.
+  // One firm Contact Us destination. Function context is carried as a topic
+  // query so the /contact form can preselect; per-function /ma/contact and
+  // /data-ai/contact pages still exist for direct/deep links.
   const ctaHref = isWithin('/ma')
-    ? '/ma/contact'
+    ? '/contact?topic=ma-execution'
     : isWithin('/data-ai') || FUNCTION_2_DEPTH.some(isWithin)
-      ? '/data-ai/contact'
+      ? '/contact?topic=data-ai'
       : config.cta.href
 
   const isNavItemActive = (href: string) => {

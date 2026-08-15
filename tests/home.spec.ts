@@ -16,7 +16,7 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   // Slim top nav (functions spec §5): the two functions plus about. Three
   // items — Capital Markets left the header when it became a sector.
   for (const [label, href] of [
-    ['M&A', '/ma'],
+    ['M&A SERVICES', '/ma'],
     ['DATA & AI', '/data-ai'],
     ['ABOUT', '/about'],
   ] as const) {

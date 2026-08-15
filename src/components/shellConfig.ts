@@ -27,13 +27,13 @@ export const shellConfig: Record<Mode, ShellConfig> = {
     // one of four sectors. The per-function sub-pages (experience /
     // approach / contact) hang off each function's own sub-nav row.
     nav: [
-      { label: 'M&A', href: '/ma' },
+      { label: 'M&A SERVICES', href: '/ma' },
       { label: 'DATA & AI', href: '/data-ai' },
       { label: 'ABOUT', href: '/about' },
     ],
     cta: {
-      label: 'DISCUSS A SITUATION',
-      shortLabel: 'DISCUSS',
+      label: 'CONTACT US',
+      shortLabel: 'CONTACT US',
       href: '/contact',
     },
   },

@@ -66,9 +66,20 @@ test('an old capital-markets topic link still pre-fills the enquiry', async ({ p
   )
 })
 
-test('Contact Us from /data-ai goes to the function-2 contact page', async ({ page }) => {
+test('Contact Us from /ma presets the M&A topic on the firm form', async ({ page }) => {
+  await page.goto('/ma')
+  await expect(page.locator('.home-nav-cta')).toHaveAttribute(
+    'href',
+    '/contact?topic=ma-execution',
+  )
+})
+
+test('Contact Us from /data-ai presets the function-2 topic on the firm form', async ({ page }) => {
   await page.goto('/data-ai')
-  await expect(page.locator('.home-nav-cta')).toHaveAttribute('href', '/data-ai/contact')
+  await expect(page.locator('.home-nav-cta')).toHaveAttribute(
+    'href',
+    '/contact?topic=data-ai',
+  )
 })
 
 test('/data-ai carries the function principle and its three disciplines', async ({ page }) => {
@@ -103,7 +114,7 @@ test('/data-ai absorbed the markets depth and platform links', async ({ page }) 
 
 test('global and function navigation expose the current location', async ({ page }) => {
   await page.goto('/ma/experience')
-  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'M&A', exact: true })).toHaveAttribute('aria-current', 'page')
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'M&A SERVICES', exact: true })).toHaveAttribute('aria-current', 'page')
   const armNav = page.getByRole('navigation', { name: 'Arm sections' })
   await expect(armNav.getByRole('link', { name: 'Experience' })).toHaveAttribute('aria-current', 'page')
   await expect(armNav.getByRole('link', { name: 'Overview' })).not.toHaveAttribute('aria-current', 'page')
