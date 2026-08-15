@@ -39,9 +39,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   }
 
   // Proof strip figures ($21.4bn tile rounded to $20bn+ and de-named per
-  // Terry 2026-08-10; $84M is the fourth entry per spec Appendix C)
+  // Terry 2026-08-10; the >$1bn tile was the same metric and was removed
+  // 2026-08-15; $84M is the function-2 proof per spec Appendix C)
   await expect(page.getByText('$20bn+')).toBeVisible()
-  await expect(page.getByText('>$1bn')).toBeVisible()
+  await expect(page.getByText('>$1bn')).toHaveCount(0)
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
 

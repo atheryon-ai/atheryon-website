@@ -1048,11 +1048,6 @@ export const v3 = {
                 detail: 'Mortgage portfolio acquisition, integration leadership',
               },
               {
-                id: 'divestment-programs',
-                value: '>$1bn',
-                detail: 'Divestment and integration programs at a major Australian bank',
-              },
-              {
                 id: 'sectors',
                 value: 'Four sectors',
                 detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
@@ -1384,7 +1379,7 @@ export const v3 = {
               details: [
                 {
                   label: 'Context',
-                  body: 'Divestment and integration programs exceeding $1 billion in transaction value.',
+                  body: 'Divestment and integration programs at a major Australian bank.',
                 },
                 {
                   label: 'Role',
