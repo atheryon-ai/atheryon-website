@@ -45,8 +45,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.getByText('>$1bn')).toHaveCount(0)
   await expect(page.getByText('4 months', { exact: true })).toBeVisible()
   await expect(page.getByText('10 months')).toHaveCount(0)
-  await expect(page.getByText('NBFIs', { exact: true })).toBeVisible()
-  await expect(page.getByText('NBFIS', { exact: true })).toHaveCount(0)
+  // Casing check: the sector is NBFIs, never NBFIS. It renders inside the
+  // FoundationRule's joined string, so match on substring.
+  await expect(page.getByText(/NBFIs/)).toBeVisible()
+  await expect(page.getByText(/NBFIS/)).toHaveCount(0)
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
 
@@ -69,9 +71,11 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   await expect(page.locator('main').getByRole('link', { name: 'M&A TRANSACTION SERVICES', exact: true })).toHaveAttribute('href', '/ma')
   await expect(page.locator('main').getByRole('link', { name: 'DATA, TRANSFORMATION, AI', exact: true })).toHaveAttribute('href', '/data-ai')
   await expect(page.getByText('DATA · TRANSFORMATION · AI')).toHaveCount(0)
-  for (const sector of ['CAPITAL MARKETS', 'BANKING', 'WEALTH', 'NBFIs']) {
-    await expect(page.getByText(sector, { exact: true })).toBeVisible()
-  }
+  // FoundationRule joins its items into one interpuncted string, so assert
+  // the strip rather than each sector as a separate element.
+  await expect(
+    page.getByText('CAPITAL MARKETS · BANKING · WEALTH · NBFIs'),
+  ).toBeVisible()
 
   // Founders block, no employer names, linking to /about. "Transformation"
   // left Anna's line: the word now names function 2 (spec §4).

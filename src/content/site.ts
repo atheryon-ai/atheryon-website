@@ -9,7 +9,6 @@ export const site = {
     { label: 'Themes', href: '/themes' },
     { label: 'Offers', href: '/offers' },
     { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
   ],
 
   // site.pages.* holds data for the preserved routes (/labs/*, /programs/*).
@@ -838,7 +837,7 @@ export const v2 = {
   // Firm-wide page-end CTA label (rev 4) — DocFooter default for the legacy
   // L3 pages that still read v2.cta.
   cta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/contact',
   },
 } as const
@@ -959,21 +958,18 @@ export const v3 = {
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // CTA (rev 4, spec §2): page-end CTAs "Discuss a situation". The arm
-  // variants deep-link to the function's own contact (council review
-  // 2026-08-10).
+  // Header is the only Contact Us control (Terry 2026-08-15). These
+  // destinations remain for the header's context-sensitive href.
   cta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/contact',
   },
   maCta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/ma/contact',
   },
-  // Function-2 CTA. The key stays cmCta so the component contract is
-  // untouched; it points at the function-2 contact page.
   cmCta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/data-ai/contact',
   },
 
@@ -991,7 +987,6 @@ export const v3 = {
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
-          { label: 'Contact', href: '/contact' },
         ],
       },
       {
@@ -1029,7 +1024,7 @@ export const v3 = {
           subheading: 'Understanding implications early. Executing with confidence.',
           supporting:
             'Atheryon runs two functions: M&A Transaction Services, and Data, Transformation, AI. Both are engaged across capital markets, banking, wealth and non-bank financial institutions, bringing clarity to critical decisions and leadership to execution.',
-          primaryCta: { label: 'Discuss a situation', href: '/contact' },
+          primaryCta: { label: 'Contact us', href: '/contact' },
           // Functions-and-sectors IA (Terry 2026-08-15, spec §4): two explore
           // links, function 1 first. The third link went when Data,
           // Transformation, AI stopped being an underpinning and became
@@ -1202,7 +1197,7 @@ export const v3 = {
                 'Pre-sign operational dependency analysis',
               ],
               body:
-                'We help clients understand the operational, technology, data and organisational requirements that can materially influence transaction outcomes before commitments are made.',
+                'Operational, technology, data and organisational requirements can materially influence a transaction outcome. We surface them while the terms are still open.',
             },
             {
               id: 'separation-integration-strategy',
@@ -1217,7 +1212,7 @@ export const v3 = {
                 'TSA design and exit planning',
               ],
               body:
-                'Our focus is on creating executable strategies that align commercial objectives with operational realities.',
+                'Strategies that hold up in delivery, aligning the commercial objective with what the business can operationally sustain.',
             },
             {
               id: 'execution-leadership',
@@ -1234,14 +1229,14 @@ export const v3 = {
                 'Delivery oversight and execution assurance',
               ],
               body:
-                'We provide experienced leadership across transactions where execution certainty is critical to achieving intended outcomes.',
+                'Senior leadership held across the transaction, for the moments where execution certainty decides whether the intended outcome arrives.',
             },
             {
               id: 'technology-data-migration',
               index: '04',
               name: 'Technology, Data & Migration Readiness',
               tagline:
-                'Helping clients understand and plan for the information, technology and migration challenges that often determine transaction success.',
+                'Planning for the information, technology and migration work that often decides whether a transaction lands.',
               items: [
                 'Structured data separation and migration assessments',
                 'Unstructured data and content migration analysis',
@@ -1253,7 +1248,7 @@ export const v3 = {
                 'Analysis of the data dependencies that drive TSA scope',
               ],
               body:
-                'Data is often one of the most significant drivers of separation and integration effort. Understanding what information exists, where it resides, how it is used and what must transition can materially influence execution timelines, TSA requirements, operational readiness and transaction value.\n\nAtheryon leverages data-enabled and AI-assisted techniques to help clients identify dependencies, assess migration complexity, improve visibility of risks and support informed decision-making throughout planning and execution.',
+                'Data is one of the largest drivers of separation and integration effort. What exists, where it sits and what has to move shapes execution timelines, TSA scope and the value that survives the transaction. Atheryon works this out using data-enabled and AI-assisted techniques, with senior specialists directing the work.',
             },
           ],
         },
@@ -1596,22 +1591,23 @@ export const v3 = {
       route: '/data-ai',
       title: 'Data, Transformation, AI — Atheryon',
       description:
-        'Data, Transformation, AI: data platforms, transformation programs and AI-assisted delivery, engaged standalone across capital markets, banking, wealth and non-bank financial institutions.',
+        'Data, Transformation, AI: data platforms, transformation programs and AI-assisted delivery across capital markets, banking, wealth and non-bank financial institutions.',
       sections: {
         hero: {
           label: 'atheryon / data-ai',
           title: 'Data, Transformation, AI',
           // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'Led by Terry Tsakiris and engaged standalone for technology, data and transformation programs, across capital markets, banking, wealth and non-bank financial institutions.',
+            'Technology, data and transformation programs across capital markets, banking, wealth and non-bank financial institutions.',
         },
-        // The function's principle (Terry, 2026-08-09, revised same evening):
-        // delivery in regulated environments, grounded by the APRA engagement
-        // and the regulatory platform delivery in the markets cases.
+        // The function's principle. Reworked 2026-08-15 (Terry: the prior
+        // wording was a motherhood statement). Grounded in the approved
+        // markets cases: trade reporting / surveillance platforms, and APRA
+        // engagement at executive level on the $84M recovery.
         principle: {
           framing: '',
           statement:
-            'Delivery in regulated environments takes solid knowledge of delivering regulatory outcomes. Atheryon faces regulators on behalf of clients and knows what is required.',
+            'Trade reporting and surveillance hold when the evidence chain can be produced under examination. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
           support: '',
         },
         operatingModel: {
