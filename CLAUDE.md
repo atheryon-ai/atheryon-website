@@ -24,7 +24,7 @@ Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read i
 - **Bronze is structural only.** Ticks, rules, small-caps strips, labels. Never body text.
 - **§ numbers ascend in display order.** Use the shared `Doc*` components; standard devices (tick, foundation rule, proof strip, statement band) are components, never hand-rolled per page.
 - **One CTA per viewport.** Header **CONTACT US** is the only primary CTA (label OR shortLabel by breakpoint, never both). There is no page-end CTA.
-- **Function 1 before function 2** wherever both appear: M&A Transaction Services (`/ma`), then Data, Transformation, AI (`/data-ai`). Header short form for function 1 is always **M&A Services** (`M&A SERVICES`), never bare `M&A`. Asserted on DOM order in `tests/v3-ia.spec.ts`, not just by convention.
+- **Function 1 before function 2** wherever both appear: M&A Transaction Services (`/ma`), then Data, Transformation, AI (`/data-ai`). Header short form for function 1 is always **M&A Services** (`M&A SERVICES`), never bare `M&A`.
 
 ## Project
 Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.

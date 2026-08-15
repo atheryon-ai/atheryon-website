@@ -247,7 +247,6 @@ Experience
 Approach
 About
 Writing
-Contact
 ```
 
 ## 5. Navigation surfaces
