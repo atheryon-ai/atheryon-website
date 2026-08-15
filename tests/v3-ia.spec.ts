@@ -13,35 +13,38 @@ const routes = [
   { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
 
-// The firm-level routes stopped being choosers on 2026-08-15 (Terry): each one
-// is a destination that stacks both functions, function 1 first, rather than a
-// fork the visitor has to resolve before seeing anything.
-for (const [path, throughLinks] of [
-  ['/experience', ['/ma/experience', '/data-ai/experience']],
-  ['/approach', ['/ma/approach', '/data-ai/approach']],
-] as const) {
-  test(`${path} stacks both functions, function 1 first, and links through`, async ({ page }) => {
-    const response = await page.goto(path)
-    expect(response?.status()).toBe(200)
+// One Experience, one Approach (Terry 2026-08-15): the firm pages carry the
+// full function copy. Function sub-nav points at hashes, not at the copies
+// Task 5 will 301 away.
+test('/experience is the only cases page and carries full CRO for both functions', async ({ page }) => {
+  await page.goto('/experience')
+  await expect(page.locator('#ma')).toBeVisible()
+  await expect(page.locator('#data-ai')).toBeVisible()
+  await expect(page.getByText('Context').first()).toBeVisible()
+  await expect(page.getByText('more than $20 billion at signing', { exact: false })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
+  await expect(page.locator('main').locator('a[href="/ma/experience"]')).toHaveCount(0)
+})
 
-    const sections = page.locator('main section')
-    await expect(sections.filter({ hasText: 'M&A Transaction Services' }).first()).toBeVisible()
-    await expect(sections.filter({ hasText: 'Data, Transformation, AI' }).first()).toBeVisible()
+test('/approach is the only method page and carries both functions in full', async ({ page }) => {
+  await page.goto('/approach')
+  await expect(page.locator('#ma')).toBeVisible()
+  await expect(page.locator('#data-ai')).toBeVisible()
+  await expect(page.getByText('From pre-sign to operational independence')).toBeVisible()
+  await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
+  await expect(page.locator('main').locator('a[href="/ma/approach"]')).toHaveCount(0)
+})
 
-    // Order is a rule (spec §7: function 1 before function 2 wherever both
-    // appear), so assert it rather than trusting the section titles above,
-    // which pass in either order.
-    const ordered = await page
-      .locator('main')
-      .locator(`a[href="${throughLinks[0]}"], a[href="${throughLinks[1]}"]`)
-      .evaluateAll((links) => links.map((l) => l.getAttribute('href')))
-    expect(ordered).toEqual([...throughLinks])
-
-    for (const href of throughLinks) {
-      await expect(page.locator('main').locator(`a[href="${href}"]`)).toHaveCount(1)
-    }
-  })
-}
+test('function sub-nav Experience and Approach point at the firm pages', async ({ page }) => {
+  await page.goto('/ma')
+  const nav = page.getByRole('navigation', { name: 'Arm sections' })
+  await expect(nav.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#ma')
+  await expect(nav.getByRole('link', { name: 'Approach' })).toHaveAttribute('href', '/approach#ma')
+  await page.goto('/data-ai')
+  const nav2 = page.getByRole('navigation', { name: 'Arm sections' })
+  await expect(nav2.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#data-ai')
+  await expect(nav2.getByRole('link', { name: 'Approach' })).toHaveAttribute('href', '/approach#data-ai')
+})
 
 test('/contact is the firm enquiry form, not a fork', async ({ page }) => {
   const response = await page.goto('/contact')
@@ -236,7 +239,7 @@ test('/data-ai is function 2, keeping the depth pages reachable', async ({ page 
 
   // Cases and delivery patterns live on the function's sub-pages; the
   // landing carries the function sub-nav.
-  await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/data-ai/experience')
+  await expect(page.getByRole('navigation', { name: 'Arm sections' }).getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#data-ai')
   await expect(page.getByText('{{')).toHaveCount(0)
 
   // Depth links out of /data-ai. Scoped to <main> — the footer carries

@@ -1796,29 +1796,22 @@ export const v3 = {
       },
     },
 
-    // Firm-level pages: one experience and one approach per function, stacked
-    // in function order (spec §4). Each function's own page carries the full
-    // detail.
+    // Firm-level pages: one experience and one approach, both functions
+    // stacked in function order (spec §4). Full CRO / method copy lives here;
+    // the function-path copies stay until Task 5 301s them away.
     experience: {
       route: '/experience',
       title: 'Experience — Atheryon',
       description: 'Representative experience across both functions: transaction execution, and data, transformation and AI delivery.',
       sections: {
-        // Stacked, not a chooser (Terry 2026-08-15). This page used to be two
-        // links and nothing else. It now shows both functions' cases in
-        // order, function 1 first.
         hero: {
           label: 'atheryon / experience',
           title: 'Experience',
           subtitle: 'Representative experience across both functions.',
         },
         arms: [
-          { label: 'M&A Transaction Services', href: '/ma/experience', sourceKey: 'maExperience' },
-          {
-            label: 'Data, Transformation, AI',
-            href: '/data-ai/experience',
-            sourceKey: 'cmExperience',
-          },
+          { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maExperience' },
+          { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmExperience' },
         ],
       },
     },
@@ -1828,29 +1821,14 @@ export const v3 = {
       title: 'Approach — Atheryon',
       description: 'How each function works: method and governance for transactions, embedded delivery for data, transformation and AI programs.',
       sections: {
-        // Stacked, not a chooser (Terry 2026-08-15). Each function's block
-        // carries its own lead paragraph, and the link goes through for the
-        // rest.
         hero: {
           label: 'atheryon / approach',
           title: 'Approach',
           subtitle: 'How each function works.',
         },
         arms: [
-          {
-            label: 'M&A Transaction Services',
-            href: '/ma/approach',
-            title: 'Method and governance across the transaction lifecycle',
-            body:
-              'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for the operational, technology and data requirements that execution will demand. Between signing and Day 1, we plan and run separation or integration. After Day 1, we hold delivery through to operational independence and TSA exit.',
-          },
-          {
-            label: 'Data, Transformation, AI',
-            href: '/data-ai/approach',
-            title: 'Embedded delivery',
-            body:
-              'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
-          },
+          { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maApproach' },
+          { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmApproach' },
         ],
       },
     },

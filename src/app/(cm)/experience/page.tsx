@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
-// Stacked, not a chooser (Terry 2026-08-15). This route used to be a title and
-// two links: a fork the visitor had to resolve before seeing anything. It now
-// lists both arms' cases in order, M&A first, with each arm's own page holding
-// the full context / role / outcome detail.
+// One Experience page (Terry 2026-08-15): full Context / Role / Outcome for
+// both functions, function 1 first. The function-path copies stay until
+// Task 5 301s them at /experience#ma and /experience#data-ai.
 const page = v3.pages.experience
 const s = page.sections
 
@@ -33,43 +31,60 @@ export default function ExperiencePage() {
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
 
       {s.arms.map((arm) => {
-        const source = SOURCES[arm.sourceKey as keyof typeof SOURCES]
+        const source = SOURCES[arm.sourceKey]
         const cases = source.sections.cases
         return (
-          <DocSection key={arm.href} label={arm.label} title={cases.title}>
+          <DocSection key={arm.id} id={arm.id} label={arm.label} title={cases.title}>
+            {'provenance' in cases && cases.provenance && (
+              <p className="max-w-3xl font-mono text-sm text-charcoal/70 leading-relaxed mb-10">
+                {cases.provenance}
+              </p>
+            )}
+
             <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-              {cases.items.map((item, index) => (
+              {cases.items.map((entry, i) => (
                 <li
-                  key={item.id}
-                  className="grid grid-cols-[auto_1fr] md:grid-cols-[4rem_minmax(0,1fr)] gap-x-5 md:gap-x-8 gap-y-2 py-6"
+                  key={entry.id}
+                  id={entry.id}
+                  className="grid grid-cols-1 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-12 py-10 scroll-mt-24"
                 >
-                  <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 pt-1">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <div>
-                    <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
-                      {item.name}
+                  <header>
+                    <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
+                      {'index' in entry ? entry.index : String(i + 1).padStart(2, '0')}
+                    </div>
+                    <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
+                      {entry.name}
                     </h3>
-                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-charcoal/60">
-                      {item.client} · {item.engagement}
-                    </p>
-                  </div>
+                    <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 leading-relaxed">
+                      {entry.engagement}
+                      <br />
+                      {entry.client}
+                    </div>
+                  </header>
+
+                  <dl className="divide-y divide-charcoal/15 border-t border-charcoal/15 md:border-t-0">
+                    {entry.details.map((detail) => (
+                      <div
+                        key={detail.label}
+                        className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-6 py-5 first:pt-5 md:first:pt-0"
+                      >
+                        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60">
+                          {detail.label}
+                        </dt>
+                        <dd className="text-base md:text-lg text-charcoal/85 leading-relaxed">
+                          {detail.body}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
                 </li>
               ))}
             </ol>
-
-            <Link
-              href={arm.href}
-              className="mt-8 inline-flex min-h-11 items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/70 hover:text-charcoal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze"
-            >
-              {arm.label} in full
-              <span aria-hidden="true">→</span>
-            </Link>
           </DocSection>
         )
       })}
 
-      <DocFooter label="atheryon / experience / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / experience / end-of-document" />
     </DocPage>
   )
 }

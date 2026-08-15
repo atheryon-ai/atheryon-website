@@ -6,13 +6,12 @@ import Link from 'next/link'
 // /data-ai/supply-chain so the application can get back to the function.
 // The component name stays ArmSubNav by decision (functions spec §9).
 const ITEMS = [
-  { id: 'overview', label: 'Overview', segment: '' },
-  { id: 'experience', label: 'Experience', segment: '/experience' },
-  { id: 'approach', label: 'Approach', segment: '/approach' },
-  { id: 'contact', label: 'Contact', segment: '/contact' },
+  { id: 'overview', label: 'Overview' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'approach', label: 'Approach' },
 ] as const
 
-type ArmSection = (typeof ITEMS)[number]['id']
+type ArmSection = (typeof ITEMS)[number]['id'] | 'contact'
 
 export function ArmSubNav({
   base,
@@ -21,6 +20,12 @@ export function ArmSubNav({
   base: '/ma' | '/data-ai'
   active: ArmSection
 }) {
+  const hrefs = {
+    overview: base,
+    experience: base === '/ma' ? '/experience#ma' : '/experience#data-ai',
+    approach: base === '/ma' ? '/approach#ma' : '/approach#data-ai',
+  } as const
+
   return (
     <nav aria-label="Arm sections" className="border-b border-charcoal/15">
       <div className="max-w-container mx-auto px-6 py-2 flex flex-wrap gap-x-6 md:gap-x-8 gap-y-1">
@@ -29,7 +34,7 @@ export function ArmSubNav({
           return (
             <Link
               key={item.label}
-              href={`${base}${item.segment}`}
+              href={hrefs[item.id]}
               aria-current={isActive ? 'page' : undefined}
               className={`inline-flex min-h-11 items-center border-b-2 font-mono text-xs uppercase tracking-[0.18em] transition-colors ${
                 isActive
