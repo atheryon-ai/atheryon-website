@@ -383,8 +383,11 @@ test.describe('retired-route redirects (SWA only)', () => {
         maxRedirects: 0,
       })
       expect(response.status()).toBe(301)
-      // SWA emits a relative Location header.
-      expect(response.headers()['location']).toBe(to)
+      // SWA emits a relative Location. Fragments in Location are often
+      // dropped; assert path + query only. Hashes stay on in-app ArmSubNav.
+      const location = response.headers()['location'] ?? ''
+      const pathAndQuery = (href: string) => href.split('#')[0]
+      expect(pathAndQuery(location)).toBe(pathAndQuery(to))
     })
   }
 })
