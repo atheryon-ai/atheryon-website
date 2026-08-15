@@ -36,7 +36,7 @@ export default function CmContactPage() {
         </div>
       </section>
 
-      <ArmSubNav base="/capital-markets" />
+      <ArmSubNav base="/capital-markets" active="contact" />
 
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">

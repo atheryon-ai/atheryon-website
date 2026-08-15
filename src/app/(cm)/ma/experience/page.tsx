@@ -22,7 +22,7 @@ export default function ExperiencePage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/ma" />
+      <ArmSubNav base="/ma" active="experience" />
 
       <DocSection label={s.cases.label} title={s.cases.title}>
         <p className="max-w-3xl font-mono text-sm text-charcoal/70 leading-relaxed mb-10">

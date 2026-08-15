@@ -22,7 +22,7 @@ export default function CmApproachPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/capital-markets" />
+      <ArmSubNav base="/capital-markets" active="approach" />
 
       <DocSection label={s.examples.label} title={s.examples.title}>
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">

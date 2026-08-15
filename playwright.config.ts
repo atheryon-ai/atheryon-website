@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const externalBaseURL = process.env.PLAYWRIGHT_BASE_URL
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
@@ -8,7 +10,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: externalBaseURL ?? 'http://localhost:3000',
     trace: 'on-first-retry',
   },
   projects: [
@@ -17,10 +19,12 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
-  webServer: {
-    command: 'npx next dev',
-    url: 'http://localhost:3000',
-    timeout: 60_000,
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: externalBaseURL
+    ? undefined
+    : {
+        command: 'npx next dev',
+        url: 'http://localhost:3000',
+        timeout: 60_000,
+        reuseExistingServer: !process.env.CI,
+      },
 })

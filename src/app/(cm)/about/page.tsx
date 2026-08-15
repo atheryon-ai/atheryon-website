@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
@@ -52,13 +53,15 @@ export default function AboutPage() {
               }
             >
               {founder.photo && (
-                <img
-                  src={founder.photo}
-                  alt={`${founder.name}, ${founder.role}`}
-                  width={founder.photoWidth}
-                  height={founder.photoHeight}
-                  className="w-40 md:w-full h-auto border border-charcoal/15"
-                />
+                <div className="relative aspect-[4/5] w-40 md:w-full max-w-[13rem] overflow-hidden border border-charcoal/15 bg-white">
+                  <Image
+                    src={founder.photo}
+                    alt={`${founder.name}, ${founder.role}`}
+                    fill
+                    sizes="(min-width: 768px) 208px, 160px"
+                    className="object-cover object-top"
+                  />
+                </div>
               )}
               <div>
                 <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">

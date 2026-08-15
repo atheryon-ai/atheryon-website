@@ -103,4 +103,14 @@ test('about page renders positioning, story and genericised co-founder bios', as
   ]) {
     expect(bodyText).not.toContain(name)
   }
+
+  const portraits = page.locator('main img[alt*="Co-Founder"]')
+  await expect(portraits).toHaveCount(2)
+  const ratios = await portraits.evaluateAll((images) =>
+    images.map((image) => {
+      const rect = image.parentElement!.getBoundingClientRect()
+      return Number((rect.width / rect.height).toFixed(2))
+    }),
+  )
+  expect(ratios).toEqual([0.8, 0.8])
 })

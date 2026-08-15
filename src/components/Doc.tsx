@@ -22,8 +22,17 @@ import { v2 } from '@/content/site'
 // out of sequence. Unlabelled DocSections (statement moments) are skipped.
 // `numbered={false}` keeps a page's labels plain — the 2026-08-09 §-strip
 // pass deliberately removed § chrome from the offers/legal/blog surfaces.
-export function DocPage({ children, numbered = true }: { children: ReactNode; numbered?: boolean }) {
-  if (!numbered) return <div className="bg-bone min-h-screen">{children}</div>
+export function DocPage({
+  children,
+  numbered = true,
+  compact = false,
+}: {
+  children: ReactNode
+  numbered?: boolean
+  compact?: boolean
+}) {
+  const pageClassName = compact ? 'bg-bone' : 'bg-bone min-h-screen'
+  if (!numbered) return <div className={pageClassName}>{children}</div>
   let n = 0
   const sections = Children.map(children, (child) => {
     if (isValidElement(child) && child.type === DocSection && (child.props as DocSectionProps).label) {
@@ -32,7 +41,7 @@ export function DocPage({ children, numbered = true }: { children: ReactNode; nu
     }
     return child
   })
-  return <div className="bg-bone min-h-screen">{sections}</div>
+  return <div className={pageClassName}>{sections}</div>
 }
 
 interface DocBannerProps {

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { DocPage, DocBanner, DocSection, DocBullets } from '@/components'
 import { site } from '@/content/site'
 import { metrics } from '@/content/metrics'
+import { ProofStrip } from '@/components/brand'
 
 const { labs } = site.pages
 
@@ -75,18 +76,15 @@ export default function LabsPage() {
 
       {/* §03 Evidence */}
       <DocSection label="Evidence" title={labs.evidence.title}>
-        <ol className="grid grid-cols-2 lg:grid-cols-5 gap-px bg-charcoal/15 border border-charcoal/15 mb-10">
-          {labs.evidence.statsItems.map((s) => (
-            <li key={s.label} className="bg-bone p-5 flex flex-col">
-              <div className="font-display text-3xl md:text-4xl font-medium text-charcoal tracking-tight leading-none mb-3">
-                {s.value}
-              </div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/65 leading-snug">
-                {s.label}
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="mb-10">
+          <ProofStrip
+            items={labs.evidence.statsItems.map((stat, index) => ({
+              id: `labs-evidence-${index + 1}`,
+              value: stat.value,
+              detail: stat.label,
+            }))}
+          />
+        </div>
 
         <div className="mb-3 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
           Coverage

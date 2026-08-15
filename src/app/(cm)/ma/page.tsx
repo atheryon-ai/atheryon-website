@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ArmSubNav } from '@/components/ArmSubNav'
+import { ServiceLineIndex } from '@/components/ServiceLineIndex'
 import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
@@ -23,7 +24,7 @@ export default function MaArmPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/ma" />
+      <ArmSubNav base="/ma" active="overview" />
 
       {/* The arm's principle (Terry 2026-08-09: principles live with the
           sub pages). Unlabelled section — no § number, a statement moment. */}
@@ -55,6 +56,13 @@ export default function MaArmPage() {
       </DocSection>
 
       <DocSection label={s.lines.label} title={s.lines.title}>
+        <ServiceLineIndex
+          items={s.lines.items.map((line) => ({
+            id: line.id,
+            label: line.name,
+            note: line.tagline,
+          }))}
+        />
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.lines.items.map((line) => (
             <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">
@@ -86,9 +94,15 @@ export default function MaArmPage() {
               {/* Rev 7: the three transaction workflows relocated from
                   /capital-markets — collapsed secondary detail under line 04. */}
               {line.id === 'technology-data-migration' && (
-                <details className="mt-8">
-                  <summary className="cursor-pointer font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 hover:text-charcoal transition-colors">
-                    {s.workflows.summary}
+                <details className="workflow-details mt-8 border-y border-charcoal/15">
+                  <summary className="cursor-pointer min-h-14 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/70 hover:text-charcoal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze">
+                    <span>
+                      {s.workflows.summary}
+                      <span className="block mt-1 font-sans text-sm normal-case tracking-normal text-charcoal/70">
+                        {s.workflows.subline}
+                      </span>
+                    </span>
+                    <span className="details-indicator text-xl" aria-hidden="true" />
                   </summary>
                   <div className="pt-6">
                     <p className="max-w-3xl text-base text-charcoal/85 leading-relaxed mb-8">

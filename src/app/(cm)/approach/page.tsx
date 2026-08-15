@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { ArmChooser } from '@/components/ArmChooser'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
@@ -22,23 +22,11 @@ export const metadata: Metadata = {
 
 export default function ApproachChooserPage() {
   return (
-    <DocPage>
+    <DocPage compact>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
 
       <DocSection>
-        <ul className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.links.map((link) => (
-            <li key={link.href} className="grid grid-cols-1 sm:grid-cols-[18rem_1fr] gap-2 sm:gap-6 py-6">
-              <Link
-                href={link.href}
-                className="font-display text-xl md:text-2xl font-medium text-charcoal border-b border-charcoal/30 hover:border-charcoal transition-colors w-fit"
-              >
-                {link.label}
-              </Link>
-              <p className="text-base text-charcoal/75 leading-relaxed">{link.note}</p>
-            </li>
-          ))}
-        </ul>
+        <ArmChooser items={s.links} />
       </DocSection>
 
       <DocFooter label="atheryon / approach / end-of-document" cta={{ ...v3.cta }} />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArmSubNav } from '@/components/ArmSubNav'
+import { ServiceLineIndex } from '@/components/ServiceLineIndex'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
@@ -26,7 +27,7 @@ export default function CapitalMarketsPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/capital-markets" />
+      <ArmSubNav base="/capital-markets" active="overview" />
 
       {showPrinciple && (
         <DocSection>
@@ -39,6 +40,13 @@ export default function CapitalMarketsPage() {
       )}
 
       <DocSection label={s.lines.label} title={s.lines.title}>
+        <ServiceLineIndex
+          items={s.lines.items.map((line) => ({
+            id: line.id,
+            label: line.name,
+            note: line.tagline,
+          }))}
+        />
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {s.lines.items.map((line) => (
             <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">

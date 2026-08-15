@@ -1297,6 +1297,7 @@ export const v3 = {
         // was deleted on 2026-08-12 once this was its only surviving content.
         workflows: {
           summary: 'Three transaction workflows',
+          subline: 'Inputs, AI agents, processing and outputs',
           intro:
             'Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
           stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
@@ -1774,6 +1775,10 @@ export const v3 = {
             'Delivery in regulated environments takes solid knowledge of delivering regulatory outcomes. Atheryon faces regulators on behalf of clients and knows what is required.',
           support: '',
         },
+        operatingModel: {
+          label: 'Operating Model',
+          title: 'How the foundation works',
+        },
         data: {
           label: 'Data',
           title: 'Data',
@@ -1798,7 +1803,100 @@ export const v3 = {
           links: [
             { label: 'M&A', href: '/ma', note: 'Transaction readiness, separation and integration, execution leadership' },
             { label: 'Capital Markets', href: '/capital-markets', note: 'Capital markets systems, data platforms and AI-enabled delivery' },
+            // Supply chain practice (Terry 2026-08-15): an application of the
+            // foundation, not a third arm — the rev 5 two-arm decision stands.
+            { label: 'Supply Chain', href: '/data-ai/supply-chain', note: 'The foundation applied to physical operations, with a focus on pharmaceutical and health supply chains' },
           ],
+        },
+      },
+    },
+
+    // Supply chain practice page (Terry 2026-08-15): the Data & AI foundation
+    // applied to physical operations, aimed at regulated health and
+    // pharmaceutical supply chains. Positioning kept generic by decision (no
+    // target-company names). History sourced from Terry's CV and
+    // bluestarglobal.com.au; the family business is referenced generically by
+    // decision (no company name, no role claims beyond "grew up in and worked
+    // in"). NOTE: this page spends its one permitted corrective contrast in
+    // the parallel section's lead sentence — do not add another.
+    dataAiSupplyChain: {
+      route: '/data-ai/supply-chain',
+      title: 'Supply Chain — Atheryon',
+      description:
+        'Supply chain work on the Atheryon Data & AI foundation: business process re-engineering and governed AI for regulated sectors, including pharmaceutical and health.',
+      sections: {
+        hero: {
+          label: 'atheryon / data-ai / supply-chain',
+          title: 'Supply Chain',
+          subtitle:
+            'The Data & AI foundation applied to physical operations, with a particular focus on pharmaceutical and health supply chains.',
+        },
+        work: {
+          label: 'The Work',
+          title: 'Supply chain programmes are process and data programmes',
+          body:
+            'A supply chain runs on events the way a trading floor does. Purchase orders, goods receipts, stock movements and dispatches are raised in one system and consumed in another, and the operational questions that matter, starting with what is held and where, can only be answered when those systems agree. In most organisations they do not, and the disagreement is expensive. Safety stock is held to cover uncertainty that better data would remove, and product is written off because nobody saw it age.\n\nThe discipline this calls for is business process re-engineering with a data spine: map the physical flow, map the information flow beside it, close the gaps between the two, then automate what the re-engineered process supports. That discipline predates the current vocabulary of supply chain analytics. Atheryon’s principal has been applying it since the 1990s.',
+        },
+        history: {
+          label: 'Where It Started',
+          title: 'A history in physical operations',
+          entries: [
+            {
+              name: 'Family logistics',
+              body:
+                'Atheryon’s principal, Terence Tsakiris, grew up in and worked in the family freight and logistics business his parents founded in Melbourne in 1987. Freight teaches the fundamentals early: goods arrive on time and intact, or the customer is on the phone.',
+            },
+            {
+              name: 'Factory automation',
+              body:
+                'He trained as a mechanical engineer (BEng, Swinburne University), then founded Melbourne Systems Engineering, a start-up that automated factories. He led a company-wide business process re-engineering programme at a manufacturer and designed a high-precision automated assembly machine for Siemens. He also re-implemented the ISO9000 quality system that kept a client’s ratings in force.',
+            },
+            {
+              name: 'National retail',
+              body:
+                'At ColesMyer, at the time Australia’s largest retailer, he managed risk on a programme that implemented GST overnight across 500 locations.',
+            },
+            {
+              name: 'Regulated markets',
+              body:
+                'More than two decades in financial services followed, including organisation-wide process re-engineering for a superannuation fund managing AUD 16.5 billion, near real-time risk platforms, automated trade surveillance and regulatory programmes at the $70 million scale.',
+            },
+          ],
+        },
+        parallel: {
+          label: 'The Parallel',
+          title: 'Re-engineering under physical constraints',
+          lead:
+            'Atheryon does not claim a career of supply chain advisory; it claims a tested method. Supply chain transformation is business process re-engineering under physical constraints, and the record above demonstrates that discipline repeatedly.',
+          entries: [
+            {
+              name: 'Traceability',
+              body:
+                'Trade surveillance and regulatory reporting are traceability problems: every event evidenced, every change attributable to a person and a time. Batch tracking and serialisation in pharmaceutical distribution demand the same evidence chain.',
+            },
+            {
+              name: 'Live visibility',
+              body:
+                'A near real-time risk system exists to answer one question: what is the position now. Stock, in transit and on shelf, is a position.',
+            },
+            {
+              name: 'Regulated delivery',
+              body:
+                'Pharmaceutical and health supply chains carry regulatory obligation through every movement of product. Atheryon’s platform work is built for examination, with the evidence chain designed in rather than reconstructed for the audit.',
+            },
+          ],
+        },
+        services: {
+          label: 'Services',
+          title: 'What Atheryon takes on',
+          items: [
+            'Supply chain data foundations: feeds from ERP, warehouse, transport and point-of-sale systems typed and validated on arrival, with lineage to source',
+            'A reconciled view of stock position and movement across sites and systems',
+            'Planning and replenishment processes re-engineered around data the business can trust',
+            'Traceability and evidence chains for regulated product',
+            'AI-assisted demand forecasting and exception management, governed like the rest of the delivery',
+          ],
+          closing: 'Delivery is senior-led from design through to production.',
         },
       },
     },

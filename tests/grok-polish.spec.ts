@@ -41,3 +41,13 @@ test('/system mobile page does not horizontally overflow', async ({ page }) => {
   const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth)
   expect(scrollWidth, 'mobile overflow on /system').toBeLessThanOrEqual(375)
 })
+
+test('/labs evidence strip has exactly four populated proof items', async ({ page }) => {
+  await page.goto('/labs')
+  const evidence = page.getByRole('heading', { name: 'What was built, how fast' }).locator('..').locator('..')
+  const proofItems = evidence.locator('ul').first().locator(':scope > li')
+  await expect(proofItems).toHaveCount(4)
+  for (const item of await proofItems.all()) {
+    await expect(item).not.toBeEmpty()
+  }
+})
