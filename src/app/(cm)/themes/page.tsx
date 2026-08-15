@@ -4,16 +4,16 @@ import { buyerThemes } from '@/content/buyerThemes'
 import { StatusBadge } from '@/components/StatusBadge'
 
 export const metadata: Metadata = {
-  title: 'Themes — Atheryon',
+  title: 'Buyer themes — Atheryon',
   description:
     'Seven buyer themes across capital markets. Each one is a desk-head pocket of pain, mapped to a workflow we have built or are building.',
   openGraph: {
-    title: 'Themes — Atheryon',
+    title: 'Buyer themes — Atheryon',
     description: 'Seven buyer themes across capital markets.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Themes — Atheryon',
+    title: 'Buyer themes — Atheryon',
     description: 'Seven buyer themes across capital markets.',
   },
   alternates: { canonical: 'https://atheryon.com.au/themes' },
@@ -25,10 +25,10 @@ export default function ThemesIndexPage() {
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 pt-16 md:pt-20 pb-12 md:pb-16">
           <div className="font-mono text-xs uppercase tracking-[0.2em] text-charcoal/60 mb-6">
-            atheryon / themes / buyer-matrix
+            atheryon / themes / buyer-themes
           </div>
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-charcoal leading-[1.02] mb-6">
-            Themes
+            Buyer themes
           </h1>
           <p className="font-mono text-sm md:text-base text-charcoal/80 max-w-3xl">
             Seven buyer themes across capital markets. Each theme is a desk-head pocket of pain, mapped to a workflow we have built or are building, with the proof point stated underneath.

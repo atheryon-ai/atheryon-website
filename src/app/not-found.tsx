@@ -20,7 +20,6 @@ const NAV = [
   { label: 'Approach', tag: 'Method and governance', href: '/approach' },
   { label: 'About', tag: 'Story and co-founders', href: '/about' },
   { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
-  { label: 'Contact', tag: 'Discuss a situation', href: '/contact' },
 ] as const
 
 /**

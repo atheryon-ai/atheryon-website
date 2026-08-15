@@ -133,11 +133,9 @@ function ThemeBlock({
 export default function ThemesPage() {
   return (
     <DocPage numbered={false}>
-      <h1 className="sr-only">{themes.headline}</h1>
-
       <DocBanner
         label="atheryon / labs / themes"
-        title={themes.headline}
+        title="Platform themes"
         body={themes.intro}
       />
 

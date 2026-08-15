@@ -311,18 +311,19 @@ test('CM legacy routes still resolve and the footer groups them under Technology
 
   // Council review 2026-08-10: the Technology column is function-2 material.
   // It renders on function-2 surfaces only, never on function 1 or neutral
-  // ones.
+  // ones. Themes dropped 2026-08-15 so two different "Themes" pages are not
+  // collapsed into one footer row.
   await page.goto('/data-ai')
   const cmFooter = page.getByLabel('Footer navigation')
   await expect(cmFooter.getByText('Technology', { exact: true })).toHaveCount(1)
   for (const [label, href] of [
-    ['System', '/system'],
     ['Labs', '/labs'],
-    ['Themes', '/themes'],
+    ['System', '/system'],
     ['Offers', '/offers'],
   ] as const) {
     await expect(cmFooter.getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
   }
+  await expect(cmFooter.getByRole('link', { name: 'Themes', exact: true })).toHaveCount(0)
 
   await page.goto('/ma')
   const maFooter = page.getByLabel('Footer navigation')
@@ -336,6 +337,27 @@ test('CM legacy routes still resolve and the footer groups them under Technology
   // pair collapsed into one when the arm retired into function 2 (spec §5).
   await expect(footer.getByRole('link', { name: 'Data, Transformation, AI', exact: true })).toHaveAttribute('href', '/data-ai')
   await expect(footer.getByRole('link', { name: 'Capital Markets', exact: true })).toHaveCount(0)
+})
+
+test('footer Firm matches the unique URLs and Technology has no Themes', async ({ page }) => {
+  await page.goto('/')
+  const firm = page.getByLabel('Footer navigation')
+  await expect(firm.getByRole('link', { name: 'M&A Transaction Services', exact: true })).toHaveAttribute('href', '/ma')
+  await expect(firm.getByRole('link', { name: 'Experience', exact: true })).toHaveAttribute('href', '/experience')
+  await expect(firm.getByRole('link', { name: 'Contact', exact: true })).toHaveCount(0)
+  await expect(firm.getByText('Technology', { exact: true })).toHaveCount(0)
+
+  await page.goto('/labs')
+  const tech = page.getByLabel('Footer navigation')
+  await expect(tech.getByRole('link', { name: 'Labs', exact: true })).toBeVisible()
+  await expect(tech.getByRole('link', { name: 'Themes', exact: true })).toHaveCount(0)
+})
+
+test('/themes is Buyer themes and /labs/themes is Platform themes', async ({ page }) => {
+  await page.goto('/themes')
+  await expect(page.getByRole('heading', { level: 1, name: 'Buyer themes' })).toBeVisible()
+  await page.goto('/labs/themes')
+  await expect(page.getByRole('heading', { name: /Platform themes/i })).toBeVisible()
 })
 
 // Retired routes 301 on the SWA (redirects live in staticwebapp.config.json,
