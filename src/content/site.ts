@@ -1835,7 +1835,7 @@ export const v3 = {
     contact: {
       route: '/contact',
       title: 'Contact — Atheryon',
-      description: 'Talk to Atheryon: M&A transactions or capital markets technology and data programs.',
+      description: 'Talk to Atheryon: M&A transactions or data, transformation and AI programs.',
       sections: {
         // The only form (Terry 2026-08-15). Header Contact Us always lands
         // here; on function surfaces it may add ?topic= so the practice is

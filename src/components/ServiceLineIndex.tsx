@@ -1,40 +1,39 @@
-import Link from 'next/link'
-
 type ServiceLineIndexItem = {
   id: string
   label: string
   note: string
+  items?: ReadonlyArray<string>
 }
 
-/** In-page register for long arm pages; destinations remain ordinary anchors. */
+/** Four-up register of service lines. When `items` is present the box
+ *  carries the full line; it is not a jump link to a later section. */
 export function ServiceLineIndex({ items }: { items: ReadonlyArray<ServiceLineIndexItem> }) {
   return (
-    <nav aria-label="Service line index" className="mb-12">
-      <ol className="grid grid-cols-1 md:grid-cols-2 gap-px border border-charcoal/15 bg-charcoal/15">
-        {items.map((item, index) => (
-          <li key={item.id} className="bg-bone">
-            <Link
-              href={`#${item.id}`}
-              className="group grid grid-cols-[2.5rem_1fr_auto] gap-3 min-h-28 p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-bronze"
-            >
-              <span className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 pt-1">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span>
-                <span className="block font-display text-xl md:text-2xl font-medium leading-tight text-charcoal">
-                  {item.label}
-                </span>
-                <span className="block mt-2 text-sm leading-relaxed text-charcoal/70">
-                  {item.note}
-                </span>
-              </span>
-              <span aria-hidden="true" className="text-charcoal/55 group-hover:text-charcoal transition-colors">
-                ↓
-              </span>
-            </Link>
-          </li>
-        ))}
-      </ol>
-    </nav>
+    <ol
+      aria-label="Service lines"
+      className="grid grid-cols-1 md:grid-cols-2 gap-px border border-charcoal/15 bg-charcoal/15"
+    >
+      {items.map((item, index) => (
+        <li key={item.id} id={item.id} className="bg-bone p-5 md:p-6 scroll-mt-24">
+          <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
+            {String(index + 1).padStart(2, '0')}
+          </div>
+          <h3 className="font-display text-xl md:text-2xl font-medium leading-tight text-charcoal">
+            {item.label}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-charcoal/70">{item.note}</p>
+          {item.items && item.items.length > 0 && (
+            <ul className="mt-5 space-y-2">
+              {item.items.map((entry) => (
+                <li key={entry} className="flex items-start gap-3">
+                  <span aria-hidden="true" className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-charcoal/60 mt-2" />
+                  <span className="text-sm text-charcoal/85 leading-relaxed">{entry}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ol>
   )
 }

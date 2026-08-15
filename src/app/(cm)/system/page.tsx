@@ -128,19 +128,11 @@ export default function SystemPage() {
           )}
       </DocSection>
 
-      {/* Footer — minimal contact action, no marketing CTA */}
       <section>
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
           <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
             atheryon / system / end-of-document
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
-          >
-            {v2.cta.label}
-            <span aria-hidden="true">→</span>
-          </Link>
         </div>
       </section>
     </DocPage>

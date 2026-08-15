@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Children, cloneElement, isValidElement, type ReactElement, type ReactNode } from 'react'
-import { v2 } from '@/content/site'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Doc — shared building blocks for the architectural-document pages.
@@ -111,20 +110,21 @@ interface DocFooterProps {
 }
 
 export function DocFooter({ label, cta }: DocFooterProps) {
-  const action = cta ?? { label: v2.cta.label, href: v2.cta.href }
   return (
     <section>
       <div className="max-w-container mx-auto px-6 py-16 md:py-20 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60">
           {label}
         </div>
-        <Link
-          href={action.href}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
-        >
-          {action.label}
-          <span aria-hidden="true">→</span>
-        </Link>
+        {cta && (
+          <Link
+            href={cta.href}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm font-medium text-bone bg-charcoal hover:bg-ink transition-colors"
+          >
+            {cta.label}
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
     </section>
   )

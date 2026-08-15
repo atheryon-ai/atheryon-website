@@ -288,11 +288,13 @@ test('/approach#data-ai carries the delivery patterns and embedded delivery', as
   await expect(page.getByRole('heading', { name: 'Embedded delivery', exact: true })).toBeVisible()
   await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
 
-  // Method principles live on the firm page. Engagement paths (How the
-  // arm engages) were only on the function copy Task 5 301s away.
+  // Method principles and the three engagement paths live on the firm page
+  // (promoted from the deleted /data-ai/approach copy).
   await expect(page.getByRole('heading', { name: 'How the work is directed' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Controls come first' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Regulatory reporting', exact: true })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the arm engages' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Advisory assessment' })).toBeVisible()
 })
 
 test('CM legacy routes still resolve and the footer groups them under Technology', async ({ page }) => {

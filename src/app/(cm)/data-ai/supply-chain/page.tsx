@@ -85,7 +85,7 @@ export default function DataAiSupplyChainPage() {
         </div>
       </DocSection>
 
-      <DocFooter label="atheryon / data-ai / supply-chain / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / data-ai / supply-chain / end-of-document" />
     </DocPage>
   )
 }

@@ -29,7 +29,6 @@ export default function HomePage() {
         subheading={s.hero.subheading}
         arms={s.arms.items}
         underpinning={s.arms.underpinning.items}
-        cta={s.hero.primaryCta}
       />
 
       {/* Section 2 — document register opens: supporting copy (Appendix B
@@ -91,7 +90,7 @@ export default function HomePage() {
         </Link>
       </DocSection>
 
-      <DocFooter label="atheryon / overview / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / overview / end-of-document" />
     </DocPage>
   )
 }

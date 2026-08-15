@@ -97,6 +97,28 @@ export default function ApproachPage() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+
+        <h3 className="mt-12 mb-4 font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
+          {cm.engage.title}
+        </h3>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+          {cm.engage.intro}
+        </p>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {cm.engage.paths.map((path) => (
+            <li
+              key={path.name}
+              className="grid grid-cols-1 md:grid-cols-[minmax(16rem,0.5fr)_minmax(0,1.5fr)] gap-2 md:gap-8 py-6"
+            >
+              <h4 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {path.name}
+              </h4>
+              <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
+                {path.body}
+              </p>
+            </li>
+          ))}
+        </ol>
       </DocSection>
 
       <DocFooter label="atheryon / approach / end-of-document" />
