@@ -21,32 +21,31 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
   const btnRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
 
-  // Council review 2026-08-10: inside an arm the destination is
-  // unambiguous, so the primary CTA deep-links to that arm's contact
-  // instead of forking at the /contact chooser.
-  // Data & AI has no contact page of its own, so it presets the practice on
-  // the firm form instead of dropping the visitor somewhere that cannot
-  // describe the enquiry they came to make.
-  const ctaHref =
-    pathname === '/ma' || pathname.startsWith('/ma/')
-      ? '/ma/contact'
-      : pathname === '/capital-markets' || pathname.startsWith('/capital-markets/')
-        ? '/capital-markets/contact'
-        : pathname === '/data-ai' || pathname.startsWith('/data-ai/')
-          ? '/contact?topic=data-ai'
-          : config.cta.href
+  // The function-2 depth pages: reached from /data-ai and the footer, never
+  // the header. They drive both the CTA destination and the nav highlight
+  // below, so they are named once (functions spec §5).
+  const FUNCTION_2_DEPTH = ['/system', '/labs', '/themes', '/offers']
+
+  const isWithin = (route: string) => pathname === route || pathname.startsWith(`${route}/`)
+
+  // Council review 2026-08-10: inside a function the destination is
+  // unambiguous, so the primary CTA deep-links to that function's contact
+  // instead of forking at the /contact chooser. Function-2 depth pages send
+  // the visitor to the function-2 form (spec §5); before the two-function
+  // IA, /data-ai had no contact page and presets a topic on the firm form.
+  const ctaHref = isWithin('/ma')
+    ? '/ma/contact'
+    : isWithin('/data-ai') || FUNCTION_2_DEPTH.some(isWithin)
+      ? '/data-ai/contact'
+      : config.cta.href
 
   const isNavItemActive = (href: string) => {
-    if (href === '/capital-markets') {
-      return (
-        pathname === href ||
-        pathname.startsWith(`${href}/`) ||
-        ['/system', '/labs', '/themes', '/offers'].some(
-          (route) => pathname === route || pathname.startsWith(`${route}/`),
-        )
-      )
+    // DATA & AI also lights up across the function-2 depth pages, which have
+    // no header item of their own.
+    if (href === '/data-ai') {
+      return isWithin(href) || FUNCTION_2_DEPTH.some(isWithin)
     }
-    return pathname === href || pathname.startsWith(`${href}/`)
+    return isWithin(href)
   }
 
   // Close when the route changes (link selected from the panel).

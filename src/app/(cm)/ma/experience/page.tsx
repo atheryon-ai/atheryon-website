@@ -70,8 +70,8 @@ export default function ExperiencePage() {
         </ol>
       </DocSection>
 
-      {/* Capital markets and M&A experience do not share a page (Terry
-          2026-08-09): the CM cases live at /capital-markets#experience. */}
+      {/* The two functions' experience does not share a page (Terry
+          2026-08-09): the function-2 cases live at /data-ai/experience. */}
 
       <DocFooter label="atheryon / ma / experience / end-of-document" cta={{ ...v3.maCta }} />
     </DocPage>

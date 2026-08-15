@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: page.title,
     description: page.description,
   },
-  alternates: { canonical: 'https://atheryon.com.au/capital-markets/contact' },
+  alternates: { canonical: 'https://atheryon.com.au/data-ai/contact' },
 }
 
 export default function CmContactPage() {
@@ -36,7 +36,7 @@ export default function CmContactPage() {
         </div>
       </section>
 
-      <ArmSubNav base="/capital-markets" active="contact" />
+      <ArmSubNav base="/data-ai" active="contact" />
 
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-16 md:py-20">
@@ -46,7 +46,7 @@ export default function CmContactPage() {
             </div>
           </header>
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)] gap-12">
-            <ContactForm defaultTopic="capital-markets" />
+            <ContactForm defaultTopic="data-ai" />
 
             <div aria-label="How your enquiry is handled" role="group" className="lg:border-l lg:border-charcoal/15 lg:pl-8">
               <h2 className="font-display text-xl font-medium tracking-tight text-charcoal mb-4">

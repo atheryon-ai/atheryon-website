@@ -1051,8 +1051,10 @@ export const v3 = {
           // Strip rebuilt 2026-08-15 (Terry): figures lead, per the design
           // standard's proof-strip anatomy. The word-count entries (sectors,
           // jurisdictions) went; geography dropped from the strip entirely.
-          // Every figure traces to published copy: $20bn+ and 10 months from
-          // maExperience cases 01 and 03, 25+ years from Anna's /about bio.
+          // Every figure traces to published copy: $20bn+ from maExperience
+          // case 01, 4 months from case 03 (Terry 2026-08-15: the sale-to-
+          // separation figure is four months, not ten), 25+ years from
+          // Anna's /about bio.
           proof: {
             items: [
               {
@@ -1062,7 +1064,7 @@ export const v3 = {
               },
               {
                 id: 'advice-separation',
-                value: '10 months',
+                value: '4 months',
                 detail: 'Sale to full operational separation of a major financial advice business',
               },
               {
@@ -1430,7 +1432,7 @@ export const v3 = {
                 {
                   label: 'Outcome',
                   body:
-                    'Completed transaction execution within four months and achieved full operational separation within ten months, with minimal transitional arrangements.',
+                    'Completed the sale and full operational separation within four months, with minimal transitional arrangements.',
                 },
               ],
             },

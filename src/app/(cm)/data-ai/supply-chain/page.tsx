@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { ArmSubNav } from '@/components/ArmSubNav'
 import { DocBanner, DocFooter, DocList, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
@@ -21,6 +22,9 @@ export default function DataAiSupplyChainPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+      {/* Supply chain is an application of function 2, not a fifth sub-nav
+          item: the row marks Overview so the visitor can get back (spec §4). */}
+      <ArmSubNav base="/data-ai" active="overview" />
 
       <DocSection label={s.work.label} title={s.work.title}>
         <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">

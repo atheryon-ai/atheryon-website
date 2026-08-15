@@ -174,7 +174,7 @@ Source: `docs/superpowers/plans/2026-08-09-exec-first-ia-restructure.md` Appendi
 | 1 | RAMS transaction `valued at approximately $21.4 billion at signing` | src/content/site.ts v3.pages.home.sections.proof + v3.pages.experience (RAMS case) | approved | — |
 | 2 | `recognised as one of the largest loan portfolio acquisitions in Australian history` | v3.pages.experience (RAMS case) | approved | — |
 | 3 | `divestment and integration programs exceeding $1 billion in transaction value` | withdrawn 2026-08-15 (Terry: same metric as the $20bn+ RAMS figure). Homepage tile removed; case 02 context now `Divestment and integration programs at a major Australian bank.` | withdrawn | — |
-| 4 | `Completed transaction execution within four months and achieved full operational separation within ten months` | v3.pages.experience (case 03) | approved | — |
+| 4 | `Completed the sale and full operational separation within four months` (homepage tile `4 months`). Was `four months` / `ten months`; Terry 2026-08-15: the sale-to-separation figure is four months. | v3.pages.home.sections.maSection.proof + v3.pages.maExperience (case 03) | approved | — |
 | 5 | `hypercare issues remained exceptionally low` | v3.pages.experience (RAMS case) | approved | — |
 | 6 | Four FS sectors: `retail banking, business banking, wealth management and non-bank financial institutions` | v3.pages.home.sections.proof | approved | — |
 | 7 | Four jurisdictions: `Australia, Europe, the United Kingdom and the United States` | v3.pages.home.sections.proof | approved | — |

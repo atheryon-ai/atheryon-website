@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { site, v3 } from '@/content/site'
 
-// Surfaces that may show the Technology column (capital-markets depth
-// pages). Council review 2026-08-10: the Technology links are Capital
-// Markets material and must not render on M&A or neutral surfaces —
-// the arms never share a surface.
-const TECH_SURFACES = ['/capital-markets', '/system', '/labs', '/themes', '/offers']
+// Surfaces that may show the Technology column (function-2 depth pages).
+// Council review 2026-08-10: the Technology links are function-2 material and
+// must not render on M&A or neutral surfaces. The two functions never share a
+// surface.
+const TECH_SURFACES = ['/data-ai', '/system', '/labs', '/themes', '/offers']
 
 // Firm footer (exec-first IA): grouped columns — Firm / Technology /
 // Resources — with the legal links and contact details on a closing row.

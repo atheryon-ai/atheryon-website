@@ -15,14 +15,14 @@ export const metadata: Metadata = {
     title: page.title,
     description: page.description,
   },
-  alternates: { canonical: 'https://atheryon.com.au/capital-markets/approach' },
+  alternates: { canonical: 'https://atheryon.com.au/data-ai/approach' },
 }
 
 export default function CmApproachPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
-      <ArmSubNav base="/capital-markets" active="approach" />
+      <ArmSubNav base="/data-ai" active="approach" />
 
       <DocSection label={s.examples.label} title={s.examples.title}>
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
@@ -95,7 +95,7 @@ export default function CmApproachPage() {
         </ol>
       </DocSection>
 
-      <DocFooter label="atheryon / capital markets / approach / end-of-document" cta={{ ...v3.cmCta }} />
+      <DocFooter label="atheryon / data-ai / approach / end-of-document" cta={{ ...v3.cmCta }} />
     </DocPage>
   )
 }

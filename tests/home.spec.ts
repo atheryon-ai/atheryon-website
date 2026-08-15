@@ -43,6 +43,10 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   // 2026-08-15; $84M is the function-2 proof per spec Appendix C)
   await expect(page.getByText('$20bn+')).toBeVisible()
   await expect(page.getByText('>$1bn')).toHaveCount(0)
+  await expect(page.getByText('4 months', { exact: true })).toBeVisible()
+  await expect(page.getByText('10 months')).toHaveCount(0)
+  await expect(page.getByText('NBFIs', { exact: true })).toBeVisible()
+  await expect(page.getByText('NBFIS', { exact: true })).toHaveCount(0)
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
   await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
 

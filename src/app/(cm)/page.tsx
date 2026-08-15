@@ -54,9 +54,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Parallel arm sections (Terry 2026-08-09): the front page splits
-          evenly — transaction proof under M&A, the $84M proof point under
-          Capital Markets. Principles live with the sub pages. */}
+      {/* Parallel function sections (Terry 2026-08-09): the front page splits
+          evenly, with the transaction proof under function 1 and the $84M
+          proof point under function 2. Principles live with the sub pages. */}
       <DocSection label={s.maSection.label} title={s.maSection.title}>
         <ProofStrip items={s.maSection.proof.items} />
       </DocSection>

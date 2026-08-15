@@ -1,8 +1,10 @@
 import Link from 'next/link'
 
-// Arm sub-navigation (Terry 2026-08-09: slim top nav; each arm carries its
-// own row). Rendered directly under the DocBanner on an arm's landing page
-// and its experience / approach / contact sub-pages.
+// Function sub-navigation (Terry 2026-08-09: slim top nav; each function
+// carries its own row). Rendered directly under the DocBanner on a function's
+// landing page and its experience / approach / contact sub-pages, and on
+// /data-ai/supply-chain so the application can get back to the function.
+// The component name stays ArmSubNav by decision (functions spec §9).
 const ITEMS = [
   { id: 'overview', label: 'Overview', segment: '' },
   { id: 'experience', label: 'Experience', segment: '/experience' },
@@ -16,7 +18,7 @@ export function ArmSubNav({
   base,
   active,
 }: {
-  base: '/ma' | '/capital-markets'
+  base: '/ma' | '/data-ai'
   active: ArmSection
 }) {
   return (

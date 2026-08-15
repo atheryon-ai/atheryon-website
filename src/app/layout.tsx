@@ -83,13 +83,13 @@ const jsonLd = {
     {
       '@type': 'Person',
       name: 'Anna Contos',
-      jobTitle: 'Co-Founder, M&A',
+      jobTitle: 'Co-Founder, M&A Transaction Services',
       sameAs: 'https://www.linkedin.com/in/anna-contos-7685a7/',
     },
     {
       '@type': 'Person',
       name: 'Terry Tsakiris',
-      jobTitle: 'Co-Founder, Capital Markets',
+      jobTitle: 'Co-Founder, Data, Transformation, AI',
       sameAs: 'https://www.linkedin.com/in/terencetsakiris/',
     },
   ],
