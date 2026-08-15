@@ -5,10 +5,8 @@ import { test, expect } from '@playwright/test'
 
 const routes = [
   { path: '/ma', heading: 'Making Transactions Executable' },
-  { path: '/ma/experience', heading: 'Representative Experience' },
-  { path: '/ma/approach', heading: 'Our Approach' },
-  { path: '/data-ai/experience', heading: 'Experience' },
-  { path: '/data-ai/approach', heading: 'Our Approach' },
+  { path: '/experience', heading: 'Experience' },
+  { path: '/approach', heading: 'Approach' },
   { path: '/data-ai', heading: 'Data, Transformation, AI' },
   { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
@@ -133,11 +131,11 @@ test('/data-ai is boxes plus three links, not three indexes', async ({ page }) =
 })
 
 test('global and function navigation expose the current location', async ({ page }) => {
-  await page.goto('/ma/experience')
+  await page.goto('/ma')
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'M&A SERVICES', exact: true })).toHaveAttribute('aria-current', 'page')
   const armNav = page.getByRole('navigation', { name: 'Arm sections' })
-  await expect(armNav.getByRole('link', { name: 'Experience' })).toHaveAttribute('aria-current', 'page')
-  await expect(armNav.getByRole('link', { name: 'Overview' })).not.toHaveAttribute('aria-current', 'page')
+  await expect(armNav.getByRole('link', { name: 'Overview' })).toHaveAttribute('aria-current', 'page')
+  await expect(armNav.getByRole('link', { name: 'Experience' })).not.toHaveAttribute('aria-current', 'page')
 
   // The function-2 depth pages have no header item of their own, so they
   // light up DATA & AI (spec §5).
@@ -214,8 +212,8 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   }
 })
 
-test('/ma/experience normalises cases to Context / Role / Outcome with the mortgage acquisition first', async ({ page }) => {
-  await page.goto('/ma/experience')
+test('/experience#ma normalises cases to Context / Role / Outcome with the mortgage acquisition first', async ({ page }) => {
+  await page.goto('/experience#ma')
 
   await expect(page.getByText('Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.')).toBeVisible()
 
@@ -230,11 +228,6 @@ test('/ma/experience normalises cases to Context / Role / Outcome with the mortg
   await expect(page.getByText(/\bRAMS\b/)).toHaveCount(0)
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
-
-  // Terry 2026-08-09: capital markets and M&A experience do not share a
-  // page — the CM cases live at /capital-markets#experience only
-  await expect(page.getByRole('heading', { name: 'Capital markets experience' })).toHaveCount(0)
-  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
@@ -276,8 +269,8 @@ test('/capital-markets is retired as a route and a nav item', async ({ page }) =
   await expect(page.locator('.home-nav-links a')).toHaveCount(3)
 })
 
-test('/data-ai/experience carries the three Appendix C cases', async ({ page }) => {
-  await page.goto('/data-ai/experience')
+test('/experience#data-ai carries the three Appendix C cases', async ({ page }) => {
+  await page.goto('/experience#data-ai')
   for (const name of [
     'Recovery of a Failed $84M Data & Analytics Program',
     'First Near Real-Time Front Office Risk System',
@@ -288,18 +281,17 @@ test('/data-ai/experience carries the three Appendix C cases', async ({ page }) 
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
-test('/data-ai/approach carries the delivery patterns and embedded delivery', async ({ page }) => {
-  await page.goto('/data-ai/approach')
+test('/approach#data-ai carries the delivery patterns and embedded delivery', async ({ page }) => {
+  await page.goto('/approach#data-ai')
   await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Embedded delivery', exact: true })).toBeVisible()
   await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
 
-  // Council build 2026-08-10: method principles + engagement paths
+  // Method principles live on the firm page. Engagement paths (How the
+  // arm engages) were only on the function copy Task 5 301s away.
   await expect(page.getByRole('heading', { name: 'How the work is directed' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Controls come first' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'How the arm engages' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Advisory assessment' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Regulatory reporting', exact: true })).toBeVisible()
 })
 
@@ -375,6 +367,16 @@ test.describe('retired-route redirects (SWA only)', () => {
     ['/ma/system', '/ma'],
     ['/ma/workflows', '/ma'],
     ['/technology', '/data-ai'],
+    ['/ma/experience', '/experience#ma'],
+    ['/ma/approach', '/approach#ma'],
+    ['/ma/contact', '/contact?topic=ma-execution'],
+    ['/data-ai/experience', '/experience#data-ai'],
+    ['/data-ai/approach', '/approach#data-ai'],
+    ['/data-ai/contact', '/contact?topic=data-ai'],
+    ['/capital-markets', '/data-ai'],
+    ['/capital-markets/experience', '/experience#data-ai'],
+    ['/capital-markets/approach', '/approach#data-ai'],
+    ['/capital-markets/contact', '/contact?topic=data-ai'],
   ] as const) {
     test(`${from} 301s to ${to}`, async ({ request }) => {
       const response = await request.get(`${SWA_BASE_URL}${from}`, {
@@ -387,8 +389,8 @@ test.describe('retired-route redirects (SWA only)', () => {
   }
 })
 
-test('/ma/contact renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
-  await page.goto('/ma/contact')
+test('/contact?topic=ma-execution renders the enquiry form with the privacy disclosure beside it', async ({ page }) => {
+  await page.goto('/contact?topic=ma-execution')
 
   await expect(page.getByRole('heading', { level: 1, name: 'Contact' })).toBeVisible()
   await expect(page.getByText('How your enquiry is handled')).toBeVisible()
@@ -403,8 +405,7 @@ test('/ma/contact renders the enquiry form with the privacy disclosure beside it
   await expect(page.locator('textarea')).toHaveValue(/M&A execution review/)
 })
 
-test('/data-ai/contact pre-fills the function-2 enquiry path', async ({ page }) => {
-  await page.goto('/data-ai/contact')
-  await expect(page.getByText('technology, data or transformation program you are considering', { exact: false })).toBeVisible()
+test('/contact?topic=data-ai pre-fills the function-2 enquiry path', async ({ page }) => {
+  await page.goto('/contact?topic=data-ai')
   await expect(page.locator('textarea')).toHaveValue(/Data, transformation and AI program/)
 })
