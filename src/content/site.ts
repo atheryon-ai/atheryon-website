@@ -1,5 +1,23 @@
 import { metrics } from './metrics'
 
+// The banking domains Terry has worked, listed on the /labs evidence strip.
+// The "banking functions covered" stat derives its number from this array, so
+// the figure and the list beneath it can never disagree. This is a
+// biographical career claim, not a count of the labs platform taxonomy —
+// which is why it does not match the platform theme counts in metrics.ts.
+// Mortgages stays: the retired mortgages PRACTICE was an offering, while this
+// line is career history and survived that retirement deliberately.
+const evidenceBoxes = [
+  'Operational Data Store',
+  'Front Office',
+  'Operations',
+  'Compliance & Reporting',
+  'Market Risk',
+  'Credit Risk',
+  'Treasury',
+  'Mortgages',
+] as const
+
 export const site = {
   name: 'Atheryon',
   email: 'info@atheryon.com.au',
@@ -79,22 +97,19 @@ export const site = {
       evidence: {
         badge: 'At a glance',
         title: 'What was built, how fast',
+        // 2026-08-16: the two counts here used to be hardcoded 8 and 31. The 8
+        // is real but was never a platform-taxonomy figure — it counts the
+        // career domain boxes listed directly below, so it now derives from
+        // that array and cannot drift from the list it summarises. The 31 had
+        // no source anywhere in labs-platform and is replaced by the derived
+        // published theme count.
         statsItems: [
-          { value: String(metrics.bankingFunctions), label: 'banking functions covered' },
+          { value: String(evidenceBoxes.length), label: 'banking functions covered' },
           { value: '1', label: 'CDM data model — compliant with ISDA (International Swaps and Derivatives Association), end to end' },
-          { value: String(metrics.flagshipSurfaces), label: 'flagship surfaces shipped' },
+          { value: String(metrics.labs.themes), label: 'platform themes shipped' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
         ],
-        boxes: [
-          'Operational Data Store',
-          'Front Office',
-          'Operations',
-          'Compliance & Reporting',
-          'Market Risk',
-          'Credit Risk',
-          'Treasury',
-          'Mortgages',
-        ],
+        boxes: evidenceBoxes,
         caption: 'The bank as Terry has worked it. Each function maps to a domain shipped inside a tier-1 institution.',
         partners: [
           { name: 'Microsoft Partner' },
@@ -244,7 +259,7 @@ export const site = {
         hero: {
           eyebrow: '01 / Code',
           headline: 'Buy the Labs code.',
-          lede: `License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, ${metrics.bankingFunctions} banking functions, ${metrics.flagshipSurfaces} surfaces, deployable.`,
+          lede: `License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, ${metrics.labs.themes} themes across ${metrics.labs.surfaces} operational surfaces, deployable.`,
         },
         whatYouGet: {
           badge: 'What you get',
@@ -255,7 +270,11 @@ export const site = {
             // (CDM v7.0 = 1,019 types), ISO 20022 + FpML per `docs/requirements/REQ-schema-explorer-dynamic-data.md`
             // (working-set counts from the schema browser DB). Verifiable by clicking through to /explore/schema.
             'CDM-native data model — 1,019 CDM types, 42 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
-            `${metrics.flagshipSurfaces} flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.`,
+            // 2026-08-16: "and mortgages" dropped from the enumeration. The
+            // count is now derived and excludes the retired mortgages themes,
+            // so listing mortgages here would describe a domain the number in
+            // the same sentence does not include.
+            `${metrics.labs.themes} platform themes shipped across trading, post-trade, risk, treasury and compliance.`,
             'Deployment notes: built on Azure-friendly stack (Next.js + Python services). Deployable into your estate.',
             'Source paired with the directorial track (see License the prompts for the matching prompt archive).',
           ],
