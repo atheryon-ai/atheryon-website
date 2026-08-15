@@ -1,4 +1,7 @@
-// Shared status pill. Used on /themes, /themes/[id], /roadmap.
+// Shared status pill. Used on /themes and /themes/[id]. It also served
+// /roadmap until that page was removed on 2026-08-15; BUILDING no longer
+// appears in any rendered output, since the mortgages entry was its only
+// user, but the variant stays because the taxonomy below is locked.
 // Status taxonomy (locked, addendum 2026-05-17):
 //   shipped — blue, proof exists, page renders fully
 //   building — amber-striped, in active dev
@@ -9,7 +12,8 @@ export type Status = 'shipped' | 'building' | 'roadmap'
 // and amber-800) were chosen for a cream `bg-bone` ground, but globals.css
 // remaps `.bg-bone` to the navy surface, so those pills landed at roughly
 // 1.6:1 for 10px text and the BUILDING state was close to unreadable on
-// /roadmap. Hues are unchanged (blue = shipped, amber = building/roadmap,
+// what was then /roadmap. Hues are unchanged (blue = shipped, amber =
+// building/roadmap,
 // Terry 2026-08-12); only the lightness moved.
 //
 // Measured with each pill's own fill blended into the surface beneath it.
@@ -24,8 +28,8 @@ export type Status = 'shipped' | 'building' | 'roadmap'
 //   building #E5A862 over 10% amber    6.1:1        5.1:1
 //   roadmap  #E5A862 over  8% amber    6.3:1        5.2:1
 //
-// Verified in the browser on the test deploy, 2026-08-12: all 11 badges across
-// /themes and /roadmap pass, worst case 5.57:1 (SHIPPED).
+// Verified in the browser on the test deploy, 2026-08-12: all 11 badges then
+// rendered across /themes and /roadmap pass, worst case 5.57:1 (SHIPPED).
 //
 // The BUILDING fill dropped 0.18 → 0.10 to buy margin. At 0.18 it still passed
 // on the live ground (5.3:1) but fell to 4.4:1 on a panel, just under AA, so

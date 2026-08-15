@@ -35,9 +35,9 @@ One route group, `(cm)`, rendering the nav + footer shell for every route:
   - arms: `ma`, `capital-markets`, `data-ai`
   - per-arm sub-pages: `ma/{experience,approach,contact}`, `capital-markets/{experience,approach,contact}`
   - firm-level: `about`, `contact`, `experience`, `approach`
-  - legacy/CM surfaces: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`, `roadmap`
+  - legacy/CM surfaces: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
   - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
-  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12; the practice still appears as an unlinked item on `/roadmap`.
+  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision. The firm presents two arms, M&A and Capital Markets.
 - `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, capital-markets, data-ai, about, contact, experience, approach and the per-arm sub-pages). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`.
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo

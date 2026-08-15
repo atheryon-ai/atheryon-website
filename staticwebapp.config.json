@@ -41,7 +41,6 @@
     { "route": "/themes/treasury",                 "rewrite": "/themes/treasury.html" },
     { "route": "/themes/entity-intelligence",      "rewrite": "/themes/entity-intelligence.html" },
     { "route": "/themes/foundation-ods",           "rewrite": "/themes/foundation-ods.html" },
-    { "route": "/roadmap",                "rewrite": "/roadmap.html" },
     { "route": "/about",       "rewrite": "/about.html" },
     { "route": "/contact",     "rewrite": "/contact.html" },
     { "route": "/ma",          "rewrite": "/ma.html" },

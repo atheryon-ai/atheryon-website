@@ -331,11 +331,8 @@ export default function WhyClaudePage() {
         </div>
 
         <p className={proseSmall + ' italic mt-6 mb-8'}>
-          Reference architecture. Components shipped / building / roadmap — see{' '}
-          <Link href="/roadmap" className={linkClass}>
-            /roadmap
-          </Link>
-          .
+          Reference architecture, with components at differing stages of
+          completeness.
         </p>
 
         <p className={prose}>

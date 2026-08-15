@@ -843,24 +843,11 @@ export const v2 = {
   },
 } as const
 
-// =============================================================================
-// mortgagesRoadmap — Mortgages practice, roadmap entry only
-// =============================================================================
-// The /mortgages route, its shell and the full v2Mortgages page content were
-// removed on 2026-08-12: the page was unreachable from any navigation yet
-// still indexed, and it dragged a whole practice-mode system behind it
-// (a second Mode, a data-mode CSS branch, ModeSetter, a duplicate layout).
-// The practice itself is still real and still intended, so it keeps its
-// roadmap entry. Restore the page when there is something to put on it.
-// =============================================================================
-
-export const mortgagesRoadmap = {
-  // Aggregated by /roadmap. No href: the practice has no page yet.
-  id: 'mortgages-practice',
-  name: 'Mortgages practice',
-  status: 'building' as const,
-  blurb: 'Retail mortgage origination automation. Full practice page follows the build.',
-} as const
+// The mortgages practice was retired from the public site on 2026-08-15
+// (Terry). The /mortgages route went on 2026-08-12; /roadmap carried the last
+// mention of the practice as a BUILDING entry, and /roadmap has now gone too,
+// taking the mortgagesRoadmap export with it. The firm presents two arms:
+// M&A and Capital Markets.
 
 // =============================================================================
 // v3 — Executive-first IA (2026-08-09).
@@ -1013,7 +1000,6 @@ export const v3 = {
         heading: 'Resources',
         links: [
           { label: 'Writing', href: '/blog' },
-          { label: 'Roadmap', href: '/roadmap' },
         ],
       },
     ],
@@ -2100,8 +2086,6 @@ export const v3 = {
     },
   },
 } as const
-
-export type MortgagesRoadmap = typeof mortgagesRoadmap
 
 export type V2 = typeof v2
 
