@@ -1826,8 +1826,14 @@ export const v3 = {
             },
             {
               name: 'Regulated markets',
+              // The AUD 16.5 billion is the fund's money under management and
+              // belongs to the superannuation engagement alone (Terry,
+              // 2026-08-15). It sits in its own sentence so the programmes
+              // listed after it do not read as carrying that figure. An
+              // earlier draft also put regulatory programmes "at the $70
+              // million scale"; that number had no source and is gone.
               body:
-                'More than two decades in financial services followed, including organisation-wide process re-engineering for a superannuation fund managing AUD 16.5 billion, near real-time risk platforms, automated trade surveillance and regulatory programmes at the $70 million scale.',
+                'More than two decades in financial services followed. He led organisation-wide process re-engineering for a superannuation fund managing AUD 16.5 billion in members’ money, and delivered near real-time risk platforms, automated trade surveillance and regulatory programmes inside major banks.',
             },
           ],
         },
