@@ -398,7 +398,7 @@ export const site = {
       description: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.`,
       badge: 'Discovery',
       headline: 'Explore the labs surface',
-      intro: 'A public preview of the Atheryon labs discovery surface — every theme and every sub-page, rendered here as a static map. The lattice mirrors the operational shape of a tier-1 capital-markets bank: an Operational Data Store (schemas, validators, lifecycle, entity intelligence, ops and dev tools) plus five business-unit surfaces — Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
+      intro: 'A public preview of the Atheryon labs discovery surface: every theme and every sub-page, rendered here as a static map. The lattice mirrors the operational shape of a tier-1 capital-markets bank. An Operational Data Store carries the schemas, validators, lifecycle, entity intelligence, ops and dev tools; five business-unit surfaces sit beside it, covering Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
       countsLine: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages · ${metrics.labs.surfaces} surfaces (1 ODS data store + ${metrics.labs.businessUnits} business units)`,
       businessDividerLabel: 'Business Units',
     },

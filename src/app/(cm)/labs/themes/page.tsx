@@ -35,6 +35,18 @@ const businessPageCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(
   0,
 )
 
+// A short final row would otherwise leave bordered empty cells. The last card
+// stretches across the tracks its row does not fill, per breakpoint: 2 columns
+// at md, 3 at lg. Class strings are written out in full so Tailwind emits them.
+function lastRowSpan(total: number, index: number): string {
+  if (index !== total - 1) return ''
+  const shortAtMd = total >= 2 ? (2 - (total % 2)) % 2 : 0
+  const shortAtLg = total >= 3 ? (3 - (total % 3)) % 3 : 0
+  const md = shortAtMd === 1 ? 'md:col-span-2' : ''
+  const lg = shortAtLg === 2 ? 'lg:col-span-3' : shortAtLg === 1 ? 'lg:col-span-2' : 'lg:col-span-1'
+  return `${md} ${lg}`.trim()
+}
+
 function ThemeBlock({
   tag,
   title,
@@ -59,19 +71,36 @@ function ThemeBlock({
           {blurb}
         </p>
       )}
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-charcoal/15 border border-charcoal/15">
-        {themesList.map((theme) => (
-          <li key={theme.id} className="bg-bone p-4 flex flex-col">
-            <span className="font-display text-base font-medium text-charcoal tracking-tight">
-              {theme.title}
-            </span>
+      {/* The gap-px grid draws its rules by letting the parent ground through,
+          so a short final row leaves bordered empty boxes that read as missing
+          content. Two things prevent that: cap the track count at the number of
+          themes (a one-theme surface gets a single full-width card), and let the
+          last row's cards stretch across whatever tracks remain. */}
+      <ul
+        className={`grid grid-cols-1 gap-px bg-charcoal/15 border border-charcoal/15 ${
+          themesList.length >= 2 ? 'md:grid-cols-2' : ''
+        } ${themesList.length >= 3 ? 'lg:grid-cols-3' : ''}`}
+      >
+        {themesList.map((theme, index) => (
+          <li
+            key={theme.id}
+            className={`bg-bone p-5 flex flex-col gap-2 ${lastRowSpan(themesList.length, index)}`}
+          >
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="font-display text-lg font-medium text-charcoal tracking-tight leading-tight">
+                {theme.title}
+              </span>
+            </div>
             {theme.blurb && (
-              <p className="font-mono text-xs text-charcoal/70 mt-2 leading-relaxed">
+              <p className="text-sm text-charcoal/70 leading-relaxed">
                 {theme.blurb}
               </p>
             )}
             {theme.pages != null && (
-              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55 mt-3">
+              <div className="mt-auto pt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-charcoal/55">
                 {theme.pages} {theme.pages === 1 ? 'page' : 'pages'}
               </div>
             )}
@@ -94,10 +123,10 @@ export default function ThemesPage() {
       />
 
       <DocSection label={themes.countsLine}>
-        <div className="mb-2">
+        <div className="mb-6 pb-6 border-b border-charcoal/15">
           <Link
             href="/labs"
-            className="inline-flex items-center gap-2 font-mono text-sm text-charcoal underline-offset-4 hover:underline"
+            className="inline-flex min-h-11 items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/70 hover:text-charcoal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze"
           >
             <span aria-hidden="true">←</span>
             Back to Labs
