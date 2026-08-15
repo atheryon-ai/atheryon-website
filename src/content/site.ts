@@ -1261,44 +1261,44 @@ export const v3 = {
           summary: 'Three transaction workflows',
           subline: 'Inputs, AI agents, processing and outputs',
           intro:
-            'Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+            'Three points in a transaction where the operational answer arrives too late to be useful: before signing, through planning, and across the TSA period. Each workflow runs the same way, from the deal inputs available at that stage through to a deliverable the transaction can be governed against. Senior specialists direct the work, review every output and own the result.',
           stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
           items: [
             {
               id: 'pre-sign-execution-review',
               name: 'Pre-Sign Execution Review',
               input:
-                'Draft deal terms, target perimeter definitions, data flow inventories, existing control map.',
+                'Draft SPA and transitional services terms, proposed perimeter, entity and product footprint, application and data landscape, current control environment.',
               agents:
-                'Clause-to-execution-risk mapping; TSA scope projection; control-continuity scoring.',
+                'Mapping deal clauses to the operational obligations they create; projecting the TSA schedule the perimeter implies; testing where regulatory and control continuity breaks at separation.',
               processing:
-                'Traps register → mitigations register → risk-weighted recommendation.',
+                'Execution risk register → stranded cost and dependency exposure → mitigations costed and assigned → position for negotiation.',
               output:
-                'Pre-sign execution risk report + mitigations playbook. Delivered before ink.',
+                'An execution risk assessment the deal team can act on: what the perimeter will cost to separate, which risks belong in price, warranties or conditions precedent, and which need a mitigation owner before signing.',
             },
             {
               id: 'separation-integration-planning',
-              name: 'Separation/Integration Planning',
+              name: 'Separation & Integration Planning',
               input:
-                'Signed deal terms, perimeter definitions, target operating model.',
+                'Signed terms and agreed perimeter, target operating model, TSA service schedules, functional and technology dependency inventories.',
               agents:
-                'Dependency tracing; wave-window sequencing; Day-1 requirements derivation; data lineage mapping.',
+                'Tracing dependencies across entities, applications and data; sequencing work into cutover windows the business can absorb; deriving what has to be true on Day 1; mapping data lineage through migration.',
               processing:
-                'Dependency graph → wave plan → Day-1 readiness checklist → data migration sequence.',
+                'Dependency map → sequenced separation plan → Day 1 readiness criteria by function → migration and cutover approach.',
               output:
-                'Separation/integration plan with contractual wave commitments, Day-1 readiness pack, data migration plan with field-level lineage.',
+                'A plan the transaction can be run against: what stands up on Day 1, what runs on a TSA and for how long, what has to be built to exit each service, and the migration sequence with lineage tracked field by field.',
             },
             {
               id: 'tsa-tracking-reduction',
-              name: 'TSA Tracking & Reduction',
+              name: 'TSA Tracking & Exit',
               input:
-                'TSA scope, time-boxed obligations, exit criteria, ongoing delivery status.',
+                'Executed service schedules and charges, exit criteria, extension terms and reverse TSAs, standalone build progress by function.',
               agents:
-                'TSA dependency analysis; exit-criteria projection; scope-creep detection; control assurance verification.',
+                'Testing which services can exit and which are held up by a dependency elsewhere; projecting exit dates against the standalone build; flagging scope and charges drifting beyond the schedule; verifying the receiving controls before an exit is signed off.',
               processing:
-                'TSA register → reduction roadmap → exit scenarios → executive surface.',
+                'Service register → exit sequence by dependency → extension and stranded cost exposure → position for the Steering Committee.',
               output:
-                'TSA exit plan with milestone gates and scope-creep alarms; delivery dashboard with audit trail to closure.',
+                'A TSA exit plan with a gate per service: what has to be operational to exit it, who owns that, what an extension costs if the date moves, and evidence of control transfer at closure.',
             },
           ],
         },
@@ -1600,14 +1600,14 @@ export const v3 = {
           subtitle:
             'Technology, data and transformation programs across capital markets, banking, wealth and non-bank financial institutions.',
         },
-        // The function's principle. Reworked 2026-08-15 (Terry: the prior
-        // wording was a motherhood statement). Grounded in the approved
-        // markets cases: trade reporting / surveillance platforms, and APRA
-        // engagement at executive level on the $84M recovery.
+        // The function's principle. Reworked twice on 2026-08-15: first to
+        // drop the motherhood statement, then to stop typecasting the
+        // function as surveillance. Regulatory examination still grounds it;
+        // surveillance stays in the markets-depth line, not the lead.
         principle: {
           framing: '',
           statement:
-            'Trade reporting and surveillance hold when the evidence chain can be produced under examination. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
+            'Data programs in regulated businesses have to produce the evidence an examination will ask for. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
           support: '',
         },
         operatingModel: {

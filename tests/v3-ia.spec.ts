@@ -151,9 +151,9 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
     await expect(page.getByRole('heading', { name: line })).toBeVisible()
   }
 
-  const serviceIndex = page.getByRole('navigation', { name: 'Service line index' })
-  await expect(serviceIndex.getByRole('link')).toHaveCount(4)
-  await expect(serviceIndex.getByRole('link', { name: /Transaction Readiness/ })).toHaveAttribute('href', '#transaction-readiness')
+  const serviceIndex = page.getByRole('list', { name: 'Service lines' })
+  await expect(serviceIndex.getByRole('listitem').filter({ has: page.getByRole('heading', { level: 3 }) })).toHaveCount(4)
+  await expect(page.locator('#transaction-readiness')).toBeVisible()
 
   // TSA dedupe: each line owns distinct scope
   await expect(page.getByText('TSA strategy', { exact: true })).toBeVisible()
@@ -174,8 +174,8 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await workflowDetails.locator('summary').click()
   for (const name of [
     'Pre-Sign Execution Review',
-    'Separation/Integration Planning',
-    'TSA Tracking & Reduction',
+    'Separation & Integration Planning',
+    'TSA Tracking & Exit',
   ]) {
     await expect(workflowDetails.getByRole('heading', { name })).toBeVisible()
   }
