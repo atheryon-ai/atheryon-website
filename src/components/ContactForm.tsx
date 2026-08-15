@@ -21,6 +21,9 @@ const TOPIC_LABELS: Record<string, string> = {
   'system-assessment': 'System assessment',
   'ma-execution': 'M&A execution review',
   'capital-markets': 'Capital markets engagement',
+  'data-ai': 'Data & AI engagement',
+  // Retained for links predating the 2026-08-15 retirement of the practice;
+  // it is not offered in the practice select.
   mortgages: 'Mortgages practice',
 }
 
@@ -89,8 +92,32 @@ function ContactFormInner({
           />
         </div>
 
-        {topicParam && (
+        {/* With a topic already known — an arm's contact page, or an offer
+            CTA carrying ?topic= — the practice is not in question and rides
+            along hidden. The neutral /contact has no such context, so it asks
+            here instead of making the visitor pick an arm on a page first. */}
+        {topicParam ? (
           <input type="hidden" name="topic" value={topicParam} />
+        ) : (
+          <div>
+            <label
+              htmlFor="topic"
+              className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2"
+            >
+              Practice
+            </label>
+            <select
+              id="topic"
+              name="topic"
+              defaultValue=""
+              className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal focus:outline-none focus:border-charcoal transition-colors"
+            >
+              <option value="">Not sure yet</option>
+              <option value="ma-execution">M&A</option>
+              <option value="capital-markets">Capital Markets</option>
+              <option value="data-ai">Data &amp; AI</option>
+            </select>
+          </div>
         )}
 
         <div>

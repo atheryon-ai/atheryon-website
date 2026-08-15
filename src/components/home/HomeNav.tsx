@@ -24,12 +24,17 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
   // Council review 2026-08-10: inside an arm the destination is
   // unambiguous, so the primary CTA deep-links to that arm's contact
   // instead of forking at the /contact chooser.
+  // Data & AI has no contact page of its own, so it presets the practice on
+  // the firm form instead of dropping the visitor somewhere that cannot
+  // describe the enquiry they came to make.
   const ctaHref =
     pathname === '/ma' || pathname.startsWith('/ma/')
       ? '/ma/contact'
       : pathname === '/capital-markets' || pathname.startsWith('/capital-markets/')
         ? '/capital-markets/contact'
-        : config.cta.href
+        : pathname === '/data-ai' || pathname.startsWith('/data-ai/')
+          ? '/contact?topic=data-ai'
+          : config.cta.href
 
   const isNavItemActive = (href: string) => {
     if (href === '/capital-markets') {

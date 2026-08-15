@@ -13,21 +13,45 @@ const routes = [
   { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
 
-// Chooser pages (Terry 2026-08-09): the firm-level routes stay live and
-// offer one link per arm.
-for (const [path, links] of [
-  ['/experience', [['M&A Experience', '/ma/experience'], ['Capital Markets Experience', '/capital-markets/experience']]],
-  ['/approach', [['M&A Approach', '/ma/approach'], ['Capital Markets Approach', '/capital-markets/approach']]],
-  ['/contact', [['M&A', '/ma/contact'], ['Capital Markets', '/capital-markets/contact']]],
+// The firm-level routes stopped being choosers on 2026-08-15 (Terry): each one
+// is a destination that stacks both arms, M&A first, rather than a fork the
+// visitor has to resolve before seeing anything.
+for (const [path, throughLinks] of [
+  ['/experience', ['/ma/experience', '/capital-markets/experience']],
+  ['/approach', ['/ma/approach', '/capital-markets/approach']],
 ] as const) {
-  test(`${path} is a chooser between the two arms`, async ({ page }) => {
+  test(`${path} stacks both arms, M&A first, and links through`, async ({ page }) => {
     const response = await page.goto(path)
     expect(response?.status()).toBe(200)
-    for (const [label, href] of links) {
-      await expect(page.locator('main').getByRole('link', { name: label, exact: true })).toHaveAttribute('href', href)
+
+    const sections = page.locator('main section')
+    await expect(sections.filter({ hasText: 'M&A' }).first()).toBeVisible()
+    await expect(sections.filter({ hasText: 'Capital Markets' }).first()).toBeVisible()
+
+    for (const href of throughLinks) {
+      await expect(page.locator('main').locator(`a[href="${href}"]`)).toHaveCount(1)
     }
   })
 }
+
+test('/contact is the firm enquiry form, not a fork', async ({ page }) => {
+  const response = await page.goto('/contact')
+  expect(response?.status()).toBe(200)
+
+  // The form itself, with a practice to choose rather than a page to choose.
+  await expect(page.locator('form select#topic')).toBeVisible()
+  for (const value of ['ma-execution', 'capital-markets', 'data-ai']) {
+    await expect(page.locator(`form select#topic option[value="${value}"]`)).toHaveCount(1)
+  }
+  await expect(page.locator('main').locator('a[href="/ma/contact"]')).toHaveCount(0)
+})
+
+test('Discuss from /data-ai reaches the form with the practice preset', async ({ page }) => {
+  await page.goto('/data-ai')
+  await expect(
+    page.getByRole('link', { name: /Discuss a situation/i }).first(),
+  ).toHaveAttribute('href', '/contact?topic=data-ai')
+})
 
 test('/data-ai carries the underpinning principle', async ({ page }) => {
   await page.goto('/data-ai')
@@ -65,7 +89,7 @@ for (const route of routes) {
     // blue, resolved from :root, so there is no per-mode attribute to check.
 
     // DocFooter CTA — arm pages deep-link to their own contact (council
-    // review 2026-08-10); neutral pages keep the /contact chooser
+    // review 2026-08-10); everything else lands on the firm form at /contact
     await expect(page.getByRole('link', { name: 'Discuss a situation' }).last()).toHaveAttribute('href', /\/contact$/)
   })
 }

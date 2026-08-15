@@ -10,8 +10,14 @@ export const metadata: Metadata = {
 }
 
 const NAV = [
+  // Same places the header lists, in the same order, then the firm-level
+  // pages. This list had drifted behind an earlier IA: it offered no Capital
+  // Markets and no Data & AI, so two of the three header destinations were
+  // unreachable from a 404.
   { label: 'Home', tag: 'Atheryon home', href: '/' },
   { label: 'M&A', tag: 'Making Transactions Executable', href: '/ma' },
+  { label: 'Capital Markets', tag: 'Systems, data and delivery', href: '/capital-markets' },
+  { label: 'Data & AI', tag: 'The foundation under both arms', href: '/data-ai' },
   { label: 'Experience', tag: 'Representative experience', href: '/experience' },
   { label: 'Approach', tag: 'Method and governance', href: '/approach' },
   { label: 'About', tag: 'Story and co-founders', href: '/about' },

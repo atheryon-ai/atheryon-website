@@ -1869,21 +1869,21 @@ export const v3 = {
       title: 'Experience — Atheryon',
       description: 'Representative experience, by arm: M&A transactions and capital markets delivery.',
       sections: {
+        // Stacked, not a chooser (Terry 2026-08-15). This page used to be two
+        // links and nothing else. It now shows both arms' cases in order, M&A
+        // first, and each arm's own page carries the full context / role /
+        // outcome detail.
         hero: {
           label: 'atheryon / experience',
           title: 'Experience',
-          subtitle: 'Representative experience, by arm.',
+          subtitle: 'Representative experience across both arms.',
         },
-        links: [
+        arms: [
+          { label: 'M&A', href: '/ma/experience', sourceKey: 'maExperience' },
           {
-            label: 'M&A Experience',
-            href: '/ma/experience',
-            note: 'Transaction and separation experience across financial services.',
-          },
-          {
-            label: 'Capital Markets Experience',
+            label: 'Capital Markets',
             href: '/capital-markets/experience',
-            note: 'Capital markets systems, data platforms and regulatory delivery.',
+            sourceKey: 'cmExperience',
           },
         ],
       },
@@ -1894,21 +1894,27 @@ export const v3 = {
       title: 'Approach — Atheryon',
       description: 'How each arm works: method and governance for M&A, embedded delivery for capital markets.',
       sections: {
+        // Stacked, not a chooser (Terry 2026-08-15). Each arm's block carries
+        // its own lead paragraph, and the link goes through for the rest.
         hero: {
           label: 'atheryon / approach',
           title: 'Approach',
           subtitle: 'How each arm works.',
         },
-        links: [
+        arms: [
           {
-            label: 'M&A Approach',
+            label: 'M&A',
             href: '/ma/approach',
-            note: 'Method and governance across the transaction lifecycle.',
+            title: 'Method and governance across the transaction lifecycle',
+            body:
+              'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for the operational, technology and data requirements that execution will demand. Between signing and Day 1, we plan and run separation or integration. After Day 1, we hold delivery through to operational independence and TSA exit.',
           },
           {
-            label: 'Capital Markets Approach',
+            label: 'Capital Markets',
             href: '/capital-markets/approach',
-            note: 'Embedded delivery and the delivery patterns behind it.',
+            title: 'Embedded delivery',
+            body:
+              'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.',
           },
         ],
       },
@@ -1919,23 +1925,17 @@ export const v3 = {
       title: 'Contact — Atheryon',
       description: 'Talk to Atheryon: M&A transactions or capital markets technology and data programs.',
       sections: {
+        // /contact carries the form itself as of 2026-08-15 (Terry). It used
+        // to fork to the two arms' contact pages, which put a page between
+        // the visitor and the form and could not address Data & AI at all.
+        // The arm contact pages stay: inside an arm the header CTA still
+        // deep-links there, and the practice is preset rather than asked.
         hero: {
           label: 'atheryon / contact',
           title: 'Contact',
-          body: 'Choose the conversation. Enquiries are treated as confidential.',
+          body: 'Enquiries are treated as confidential.',
         },
-        links: [
-          {
-            label: 'M&A',
-            href: '/ma/contact',
-            note: 'Discuss a transaction or transformation.',
-          },
-          {
-            label: 'Capital Markets',
-            href: '/capital-markets/contact',
-            note: 'Discuss a technology or data program.',
-          },
-        ],
+        disclosure: contactDisclosure,
       },
     },
 
