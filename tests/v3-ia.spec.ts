@@ -133,14 +133,20 @@ for (const route of routes) {
 test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async ({ page }) => {
   await page.goto('/ma')
 
-  // The transaction principle, Why Atheryon and How we work live here now
-  // (Terry 2026-08-09: M&A-specific content leaves the homepage)
+  // The transaction principle and Why Atheryon live here (Terry 2026-08-09:
+  // M&A-specific content leaves the homepage).
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
   await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toBeVisible()
-  await expect(page.getByText('The quality of outcomes is often determined before execution begins.')).toBeVisible()
-  await expect(page.getByText('That belief sits at the heart of everything we do.')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'How we work' })).toBeVisible()
+
+  // Trimmed 2026-08-15 (Terry): the page stated one idea six times. These
+  // three sections were the principle again in other words, so the page is
+  // hero → principle → why → service lines → how we engage. Asserted absent
+  // so they cannot creep back.
+  await expect(page.getByRole('heading', { name: 'Our Belief' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'How we work' })).toHaveCount(0)
+  await expect(page.getByText('Clients engage Atheryon to:')).toHaveCount(0)
+  await expect(page.getByText('The earlier these requirements are understood')).toHaveCount(0)
 
   for (const line of [
     'Transaction Readiness',

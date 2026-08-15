@@ -1145,37 +1145,24 @@ export const v3 = {
           framing: 'Atheryon was founded on a simple observation:',
           statement:
             'Transaction value is protected when separation and integration requirements are understood early.',
-          support:
-            'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
+          // The support line went on 2026-08-15 (Terry): it paraphrased the
+          // statement directly above it, which is the whole point of a
+          // pull-quote. The statement carries the idea once.
+          support: '',
         },
-        // Terry 2026-08-09 (21:41 review): Our Belief is M&A copy too —
-        // rendered as the arm page's closing statement moment. Note: it
-        // closely echoes the principle above ("understood early" in both).
-        belief: {
-          kicker: 'Our Belief',
-          statement: 'Better decisions are made when the implications of execution are understood early.',
-          support: 'That belief sits at the heart of everything we do.',
-        },
-        // Terry 2026-08-09 (21:28 review): this section is M&A copy — it
-        // lives here, replacing the earlier transaction-specific Why
-        // Atheryon (superseded; recoverable in git history).
+        // Trimmed 2026-08-15 (Terry): the page stated one idea six times.
+        // "Our Belief" went entirely (it restated the principle in the same
+        // large type, so the page closed by repeating its opening), and this
+        // section dropped from four paragraphs plus a six-bullet list to the
+        // two paragraphs that carry something the principle does not: what
+        // actually goes wrong, and what it costs. The bullets were the four
+        // service lines restated.
         why: {
           label: 'Why Clients Choose Atheryon',
           title: 'Why Clients Choose Atheryon',
           paragraphs: [
-            'The quality of outcomes is often determined before execution begins.',
-            'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
-            'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
-            'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
-          ],
-          engageIntro: 'Clients engage Atheryon to:',
-          engageItems: [
-            'Understand the implications of strategic decisions before commitments are made',
-            'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
-            'Assess execution requirements, risks and dependencies early',
-            'Identify operational, technology and data constraints before they become delivery challenges',
-            'Navigate complex stakeholder, regulatory and governance environments',
-            'Protect value and improve execution certainty',
+            'Many organisations commit to a transaction without a clear view of the operational, technology, data and commercial requirements that delivery will demand.',
+            'Execution risks then surface after the terms are agreed, when the options for dealing with them have narrowed. Costs increase, timelines extend, and value is delayed or lost.',
           ],
         },
         lines: {
@@ -1310,38 +1297,11 @@ export const v3 = {
           body:
             'Atheryon engages as embedded senior specialists, working alongside your team from pre-sign review through Day 1 to operational independence and TSA exit. Pre-sign work can stand alone or lead into full delivery.',
         },
-        // Moved from the homepage (Terry 2026-08-09: M&A-specific).
-        values: {
-          label: 'How we work',
-          title: 'How we work',
-          items: [
-            {
-              id: 'early-insight',
-              name: 'Early Insight',
-              body: 'Understanding the operational implications of separation and integration before commitments are made.',
-            },
-            {
-              id: 'commercial-discipline',
-              name: 'Commercial Discipline',
-              body: 'Practical advice aligned to commercial outcomes and stakeholder priorities.',
-            },
-            {
-              id: 'execution-focus',
-              name: 'Execution Focus',
-              body: 'Translating transaction strategy into operational reality.',
-            },
-            {
-              id: 'leadership-under-pressure',
-              name: 'Leadership Under Pressure',
-              body: 'Navigating complex stakeholder and regulatory environments with clarity and confidence.',
-            },
-            {
-              id: 'trusted-partnership',
-              name: 'Trusted Partnership',
-              body: 'Operating with discretion and accountability throughout the transaction lifecycle.',
-            },
-          ],
-        },
+        // "How we work" (five values: Early Insight, Commercial Discipline,
+        // Execution Focus, Leadership Under Pressure, Trusted Partnership)
+        // was removed on 2026-08-15 (Terry): the five were the Why bullets
+        // and the service lines again with softer nouns. Recoverable in git
+        // history if a values section is ever wanted on its own page.
       },
     },
 
