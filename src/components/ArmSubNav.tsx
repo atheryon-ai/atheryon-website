@@ -1,14 +1,15 @@
 import Link from 'next/link'
 
 // Function sub-navigation (slim top nav; each function carries its own row).
-// Overview stays on the function landing; Experience and Approach point at
-// the firm pages with #ma / #data-ai. Rendered under DocBanner on function
-// landings and on /data-ai/supply-chain. Contact Us is header-only.
+// Overview stays on the function landing. Experience points at the firm
+// page with #ma / #data-ai. Approach retired 2026-08-16: each landing
+// carries its own method, so there is no Approach item. Rendered under
+// DocBanner on function landings and on /data-ai/supply-chain. Contact Us
+// is header-only.
 // The component name stays ArmSubNav by decision (functions spec §9).
 const ITEMS = [
   { id: 'overview', label: 'Overview' },
   { id: 'experience', label: 'Experience' },
-  { id: 'approach', label: 'Approach' },
 ] as const
 
 type ArmSection = (typeof ITEMS)[number]['id'] | 'contact'
@@ -23,7 +24,6 @@ export function ArmSubNav({
   const hrefs = {
     overview: base,
     experience: base === '/ma' ? '/experience#ma' : '/experience#data-ai',
-    approach: base === '/ma' ? '/approach#ma' : '/approach#data-ai',
   } as const
 
   return (

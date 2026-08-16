@@ -23,14 +23,15 @@
     { "route": "/technology",             "redirect": "/data-ai", "statusCode": 301 },
 
     { "route": "/ma/experience",              "redirect": "/experience#ma",              "statusCode": 301 },
-    { "route": "/ma/approach",                "redirect": "/approach#ma",                "statusCode": 301 },
+    { "route": "/ma/approach",                "redirect": "/ma",                         "statusCode": 301 },
     { "route": "/ma/contact",                 "redirect": "/contact?topic=ma-execution", "statusCode": 301 },
+    { "route": "/approach",                   "redirect": "/data-ai",                    "statusCode": 301 },
     { "route": "/data-ai/experience",         "redirect": "/experience#data-ai",         "statusCode": 301 },
-    { "route": "/data-ai/approach",           "redirect": "/approach#data-ai",           "statusCode": 301 },
+    { "route": "/data-ai/approach",           "redirect": "/data-ai",                    "statusCode": 301 },
     { "route": "/data-ai/contact",            "redirect": "/contact?topic=data-ai",      "statusCode": 301 },
     { "route": "/capital-markets",            "redirect": "/data-ai",                    "statusCode": 301 },
     { "route": "/capital-markets/experience", "redirect": "/experience#data-ai",         "statusCode": 301 },
-    { "route": "/capital-markets/approach",   "redirect": "/approach#data-ai",           "statusCode": 301 },
+    { "route": "/capital-markets/approach",   "redirect": "/data-ai",                    "statusCode": 301 },
     { "route": "/capital-markets/contact",    "redirect": "/contact?topic=data-ai",      "statusCode": 301 },
 
     { "route": "/labs/code",                   "redirect": "/offers/code",    "statusCode": 301 },
@@ -55,7 +56,6 @@
     { "route": "/contact",     "rewrite": "/contact.html" },
     { "route": "/ma",          "rewrite": "/ma.html" },
     { "route": "/experience",  "rewrite": "/experience.html" },
-    { "route": "/approach",    "rewrite": "/approach.html" },
     { "route": "/data-ai",     "rewrite": "/data-ai.html" },
     { "route": "/data-ai/supply-chain", "rewrite": "/data-ai/supply-chain.html" },
 

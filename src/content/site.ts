@@ -1003,7 +1003,8 @@ export const v3 = {
           { label: 'M&A Transaction Services', href: '/ma' },
           { label: 'Data, Transformation, AI', href: '/data-ai' },
           { label: 'Experience', href: '/experience' },
-          { label: 'Approach', href: '/approach' },
+          // Approach retired 2026-08-16: method lives on the function
+          // landings, so the firm column has no method row.
           { label: 'About', href: '/about' },
         ],
       },
@@ -1453,9 +1454,10 @@ export const v3 = {
       },
     },
 
-    // Method for firm /approach (function 1 block). Live URL: /approach#ma.
+    // Method for /ma How we engage (lifecycle and governance). Retired
+    // from /approach#ma on 2026-08-16; the live URL is /ma.
     maApproach: {
-      route: '/approach#ma',
+      route: '/ma',
       title: 'M&A Approach — Atheryon',
       description:
         'Method and governance across the transaction lifecycle: pre-sign insight, Day 1 readiness, and the path to operational independence and TSA exit.',
@@ -1810,9 +1812,10 @@ export const v3 = {
       },
     },
 
-    // Firm-level pages: one experience and one approach, both functions
-    // stacked in function order (spec §4). Full CRO / method copy lives here;
-    // the function-path copies stay until Task 5 301s them away.
+    // Firm-level pages: one experience carrying both functions' cases.
+    // /approach retired 2026-08-16: method lives on the function landings
+    // (/ma reads maApproach, /data-ai reads cmApproach); the SWA 301s
+    // /approach to /data-ai.
     experience: {
       route: '/experience',
       title: 'Experience — Atheryon',
@@ -1825,23 +1828,6 @@ export const v3 = {
         arms: [
           { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maExperience' },
           { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmExperience' },
-        ],
-      },
-    },
-
-    approach: {
-      route: '/approach',
-      title: 'Approach — Atheryon',
-      description: 'How each function works: method and governance for transactions, embedded delivery for data, transformation and AI programs.',
-      sections: {
-        hero: {
-          label: 'atheryon / approach',
-          title: 'Approach',
-          subtitle: 'How each function works.',
-        },
-        arms: [
-          { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maApproach' },
-          { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmApproach' },
         ],
       },
     },
@@ -1879,8 +1865,8 @@ export const v3 = {
       },
     },
 
-    // Function-2 content keys (cm*). Firm /experience and /approach read the
-    // experience and approach blocks; contact is firm-only.
+    // Function-2 content keys (cm*). Firm /experience still stacks both
+    // functions; the cmApproach method blocks render on /data-ai.
     cmContact: {
       route: '/contact?topic=data-ai',
       title: 'Contact — Data, Transformation, AI — Atheryon',
@@ -1913,8 +1899,11 @@ export const v3 = {
       },
     },
 
+    // Method for /data-ai (delivery examples, principles, embedded delivery,
+    // engage paths). Retired from /approach on 2026-08-16; the live URL is
+    // /data-ai. Route field is documentary.
     cmApproach: {
-      route: '/approach#data-ai',
+      route: '/data-ai',
       title: 'Approach — Data, Transformation, AI — Atheryon',
       description: 'How the function delivers: embedded senior specialists and AI-assisted delivery patterns.',
       sections: {

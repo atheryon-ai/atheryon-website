@@ -6,14 +6,13 @@ import { test, expect } from '@playwright/test'
 const routes = [
   { path: '/ma', heading: 'Making Transactions Executable' },
   { path: '/experience', heading: 'Experience' },
-  { path: '/approach', heading: 'Approach' },
   { path: '/data-ai', heading: 'Data, Transformation, AI' },
   { path: '/data-ai/supply-chain', heading: 'Supply Chain' },
 ] as const
 
-// One Experience, one Approach (Terry 2026-08-15): the firm pages carry the
-// full function copy. Function sub-nav points at hashes, not at the copies
-// Task 5 will 301 away.
+// One Experience (both functions). Method lives on the function landings
+// (Terry 2026-08-16): M&A method on /ma, Data & AI method on /data-ai.
+// /approach is retired; the SWA 301s it to /data-ai.
 test('/experience is the only cases page and carries full CRO for both functions', async ({ page }) => {
   await page.goto('/experience')
   await expect(page.locator('#ma')).toBeVisible()
@@ -24,24 +23,28 @@ test('/experience is the only cases page and carries full CRO for both functions
   await expect(page.locator('main').locator('a[href="/ma/experience"]')).toHaveCount(0)
 })
 
-test('/approach is the only method page and carries both functions in full', async ({ page }) => {
-  await page.goto('/approach')
-  await expect(page.locator('#ma')).toBeVisible()
-  await expect(page.locator('#data-ai')).toBeVisible()
-  await expect(page.getByText('From pre-sign to operational independence')).toBeVisible()
-  await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
-  await expect(page.locator('main').locator('a[href="/ma/approach"]')).toHaveCount(0)
+test('/approach is retired from the app', async ({ page }) => {
+  const response = await page.goto('/approach')
+  expect(response?.status()).toBe(404)
 })
 
-test('function sub-nav Experience and Approach point at the firm pages', async ({ page }) => {
+test('/data-ai#ma sends visitors to /ma', async ({ page }) => {
+  // Old /approach#ma bookmarks 301 to /data-ai with the fragment preserved;
+  // the client hash redirect finishes the trip to the right function.
+  await page.goto('/data-ai#ma')
+  await expect(page).toHaveURL(/\/ma\/?$/)
+  await expect(page.getByRole('heading', { level: 1, name: 'Making Transactions Executable' })).toBeVisible()
+})
+
+test('function sub-nav is Overview and Experience, no Approach', async ({ page }) => {
   await page.goto('/ma')
   const nav = page.getByRole('navigation', { name: 'Arm sections' })
   await expect(nav.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#ma')
-  await expect(nav.getByRole('link', { name: 'Approach' })).toHaveAttribute('href', '/approach#ma')
+  await expect(nav.getByRole('link', { name: 'Approach' })).toHaveCount(0)
   await page.goto('/data-ai')
   const nav2 = page.getByRole('navigation', { name: 'Arm sections' })
   await expect(nav2.getByRole('link', { name: 'Experience' })).toHaveAttribute('href', '/experience#data-ai')
-  await expect(nav2.getByRole('link', { name: 'Approach' })).toHaveAttribute('href', '/approach#data-ai')
+  await expect(nav2.getByRole('link', { name: 'Approach' })).toHaveCount(0)
 })
 
 test('/contact is the firm enquiry form, not a fork', async ({ page }) => {
@@ -202,9 +205,12 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByRole('heading', { name: 'Operating Model Transformation' })).toHaveCount(0)
   await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveCount(0)
 
-  // Engagement model (decided 2026-08-09): embedded, no stated durations
+  // Engagement model (decided 2026-08-09): embedded, no stated durations.
+  // Lifecycle and governance folded here when /approach#ma retired.
   await expect(page.getByRole('heading', { name: 'How we engage' })).toBeVisible()
   await expect(page.getByText('embedded senior specialists', { exact: false })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'From pre-sign to operational independence' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Governance and regulatory posture' })).toBeVisible()
   await expect(page.getByText('6–18 months')).toHaveCount(0)
   await expect(page.getByText('{{')).toHaveCount(0)
 
@@ -303,15 +309,15 @@ test('/experience#data-ai carries the three Appendix C cases', async ({ page }) 
   await expect(page.getByText('{{')).toHaveCount(0)
 })
 
-test('/approach#data-ai carries the delivery patterns and embedded delivery', async ({ page }) => {
-  await page.goto('/approach#data-ai')
+test('/data-ai carries the delivery patterns and embedded delivery', async ({ page }) => {
+  await page.goto('/data-ai')
   await expect(page.getByRole('heading', { name: 'Delivery examples' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Program recovery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Embedded delivery', exact: true })).toBeVisible()
   await expect(page.getByText('APRA CPS 234', { exact: false })).toBeVisible()
 
-  // Method principles and the three engagement paths live on the firm page
-  // (promoted from the deleted /data-ai/approach copy).
+  // Method principles and the three engagement paths moved onto the landing
+  // when /approach retired (Terry 2026-08-16).
   await expect(page.getByRole('heading', { name: 'How the work is directed' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Controls come first' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Regulatory reporting', exact: true })).toBeVisible()
@@ -360,6 +366,8 @@ test('footer Firm matches the unique URLs and Technology has no Themes', async (
   const firm = page.getByLabel('Footer navigation')
   await expect(firm.getByRole('link', { name: 'M&A Transaction Services', exact: true })).toHaveAttribute('href', '/ma')
   await expect(firm.getByRole('link', { name: 'Experience', exact: true })).toHaveAttribute('href', '/experience')
+  // Approach retired 2026-08-16: method lives on the function landings.
+  await expect(firm.getByRole('link', { name: 'Approach', exact: true })).toHaveCount(0)
   await expect(firm.getByRole('link', { name: 'Contact', exact: true })).toHaveCount(0)
   await expect(firm.getByText('Technology', { exact: true })).toHaveCount(0)
 
@@ -392,14 +400,15 @@ test.describe('retired-route redirects (SWA only)', () => {
     ['/ma/workflows', '/ma'],
     ['/technology', '/data-ai'],
     ['/ma/experience', '/experience#ma'],
-    ['/ma/approach', '/approach#ma'],
+    ['/ma/approach', '/ma'],
     ['/ma/contact', '/contact?topic=ma-execution'],
+    ['/approach', '/data-ai'],
     ['/data-ai/experience', '/experience#data-ai'],
-    ['/data-ai/approach', '/approach#data-ai'],
+    ['/data-ai/approach', '/data-ai'],
     ['/data-ai/contact', '/contact?topic=data-ai'],
     ['/capital-markets', '/data-ai'],
     ['/capital-markets/experience', '/experience#data-ai'],
-    ['/capital-markets/approach', '/approach#data-ai'],
+    ['/capital-markets/approach', '/data-ai'],
     ['/capital-markets/contact', '/contact?topic=data-ai'],
   ] as const) {
     test(`${from} 301s to ${to}`, async ({ request }) => {

@@ -7,6 +7,7 @@ import { isPending } from '@/lib/pending'
 
 const page = v3.pages.ma
 const s = page.sections
+const method = v3.pages.maApproach.sections
 
 export const metadata: Metadata = {
   title: page.title,
@@ -102,6 +103,24 @@ export default function MaArmPage() {
         <DocSection label={s.engagement.label} title={s.engagement.title}>
           <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
             {s.engagement.body.split('\n\n').map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <h3 className="mt-12 mb-6 font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
+            {method.lifecycle.title}
+          </h3>
+          <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+            {method.lifecycle.body.split('\n\n').map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <h3 className="mt-12 mb-6 font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
+            {method.governance.title}
+          </h3>
+          <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
+            {method.governance.body.split('\n\n').map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
