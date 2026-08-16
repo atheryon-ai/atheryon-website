@@ -18,14 +18,15 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
-  // Firm shell (functions-and-sectors spec §5). /approach left the nav
-  // (linked from body copy and footer); function-2 depth pages are reached
-  // via /data-ai and the footer, not the header.
+  // Firm shell (functions-and-sectors spec §5). /approach retired
+  // 2026-08-16 (method lives on the function landings); function-2 depth
+  // pages are reached via /data-ai and the footer, not the header.
   cm: {
     // Slim top bar: the two functions plus about. Three items — Capital
     // Markets left the header when it stopped being a function and became
-    // one of four sectors. Function sub-nav is Overview · Experience ·
-    // Approach (firm URLs with hashes); Contact Us is header-only.
+    // one of four sectors. Function sub-nav is Overview · Experience on
+    // both functions; each landing carries its own method. Contact Us is
+    // header-only.
     nav: [
       { label: 'M&A SERVICES', href: '/ma' },
       { label: 'DATA & AI', href: '/data-ai' },

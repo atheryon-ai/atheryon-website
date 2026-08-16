@@ -17,7 +17,6 @@ const NAV = [
   { label: 'M&A Transaction Services', tag: 'Making Transactions Executable', href: '/ma' },
   { label: 'Data, Transformation, AI', tag: 'Systems, data and delivery', href: '/data-ai' },
   { label: 'Experience', tag: 'Representative experience', href: '/experience' },
-  { label: 'Approach', tag: 'Method and governance', href: '/approach' },
   { label: 'About', tag: 'Story and co-founders', href: '/about' },
 ] as const
 
