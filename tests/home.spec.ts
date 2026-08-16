@@ -131,25 +131,18 @@ test('about page renders positioning, story and co-founder bios', async ({ page 
   await expect(page.getByText('Co-Founder, M&A Transaction Services')).toBeVisible()
 
   await expect(page.getByRole('heading', { level: 3, name: 'Terry Tsakiris' })).toBeVisible()
-  await expect(page.getByText('Co-Founder, Data, Transformation, AI')).toBeVisible()
+  await expect(page.getByText('Co-Founder, Data, Transformation & AI')).toBeVisible()
 
   const terry = page.locator('#terry-tsakiris')
-  await expect(terry).toContainText('mechanical engineering')
-  await expect(terry).toContainText('automated manufacturing solutions')
-  await expect(terry).toContainText('Credit Suisse')
-  await expect(terry).toContainText('near-real-time front-office risk')
-  await expect(terry).toContainText('P&L Attribution')
-  await expect(terry).toContainText('$50 million')
-  await expect(terry).toContainText('$58 million')
-  await expect(terry).toContainText('$26 million')
-  await expect(terry).toContainText('$84 million')
-  await expect(terry).toContainText('trade surveillance')
+  await expect(terry).toContainText('lead our Data, Transformation & AI practice')
+  await expect(terry).toContainText('front-office risk, P&L attribution')
+  await expect(terry).toContainText('Fixed Income, Equities, FX and Rates')
+  await expect(terry).toContainText('applied responsibly')
 
-  // Anna stays genericised. Credit Suisse is Terry's employer. Other named
-  // employers stay off the page.
+  // Both bios stay genericised: no named employers on the page.
   const bodyText = await page.locator('main').innerText()
   for (const name of [
-    'Westpac', 'Commonwealth Bank', 'CBA', 'Barclays',
+    'Westpac', 'Commonwealth Bank', 'CBA', 'Credit Suisse', 'Barclays',
     'Deutsche', 'Capco', 'CommInsure', 'Count Financial', 'BT Panorama',
     'Goldman',
   ]) {

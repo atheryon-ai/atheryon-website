@@ -1538,15 +1538,8 @@ export const v3 = {
           body:
             'Atheryon was founded on a simple observation: organisations rarely struggle because of strategy. They struggle because operational, technology and data complexity is discovered too late.\n\nAfter decades leading major transactions, transformations and technology initiatives, Atheryon’s founders saw the same challenge emerge repeatedly. Critical decisions were often made before key operational, technology and data dependencies were fully understood, increasing execution risk and reducing value.\n\nAtheryon was established to bring that understanding into the process earlier. We help clients identify complexity before decisions are locked in, navigate it during execution and deliver outcomes with confidence.\n\nWhether the objective is a transaction, business transformation, technology modernisation or AI-enabled change, success depends on understanding what will be required before commitments are made. Success is measured not by plans approved or deals signed, but by value realised, capabilities delivered and outcomes achieved.',
         },
-        // Anna's bio stays genericised (rev 5 §1). Terry's bio names Credit
-        // Suisse as employer (Terry, 2026-08-16). Other named employers stay
-        // off this page. Career facts are taken from the Delivery CV
-        // (Terence Tsakiris - CV - Delivery): 25+ years; BEng Mechanical and
-        // Melbourne Systems Engineering; CS first near-real-time FO risk then
-        // global P&L Attribution (FI, Equities, FX, Rates) plus the later
-        // global data & analytics platform; $84m programme recovery and 10x
-        // data-product delivery; Markets ODS / MiFID II / trade surveillance.
-        // Compilers / "bank-wide from the ground up" is not on the CV.
+        // Both bios stay genericised on employers (home.spec.ts). Spend
+        // split and named-bank cases live on /experience, not /about.
         founders: {
           label: 'Co-Founders',
           title: 'Co-founders',
@@ -1569,24 +1562,19 @@ export const v3 = {
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Data, Transformation, AI',
+              role: 'Co-Founder, Data, Transformation & AI',
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
-              // First person on /about for both co-founders (Terry 2026-08-16).
-              // Credit Suisse is named as employment. Other employers stay
-              // genericised (home.spec.ts). Facts from the Delivery CV:
-              // BEng Mechanical + Melbourne Systems Engineering; CS first
-              // near-real-time FO risk then global P&L Attribution (FI,
-              // Equities, FX, Rates) and the later data & analytics platform;
-              // $50m stall / 10% at $58m / remaining 90% for +$26m / $84m
-              // final (Terry 2026-08-16); Markets ODS / MiFID II / trade
-              // surveillance. Compilers, "bank-wide from the ground up", and
-              // Barclays commodities desks are not Credit Suisse claims.
+              // First person on /about (Terry 2026-08-16). Employers stay
+              // genericised. Named cases and the $50m/$84m spend split live
+              // on /experience#data-ai.
               paragraphs: [
-                'I co-founded Atheryon and lead Data, Transformation, AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
-                'At Credit Suisse I designed and delivered the bank’s first near-real-time front-office risk system. I then implemented a global P&L Attribution platform across Fixed Income, Equities, FX and Rates, and built the data and analytics platform those products ran on.',
-                'I have continued that work at global investment banks and major Australian financial institutions. I recovered a data and analytics program that had stalled after $50 million. At $58 million it was 10% done; I delivered the remaining 90% for a further $26 million, to a final cost of $84 million. I created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
+                'I co-founded Atheryon and lead our Data, Transformation & AI practice. With more than 25 years of experience spanning engineering, financial markets, data platforms and large-scale transformation, I help organisations modernise their data foundations, accelerate decision-making and unlock value through AI-enabled solutions.',
+                'My career has combined deep technical expertise with executive delivery leadership across global investment banks and major Australian financial institutions. I have led the design and delivery of mission-critical risk, market data, analytics and regulatory platforms in highly regulated environments, enabling organisations to improve performance, strengthen governance and manage risk at scale.',
+                'My experience includes delivering market-leading front-office risk, P&L attribution, market data and analytics platforms supporting Fixed Income, Equities, FX and Rates businesses globally. I have successfully recovered large-scale transformation programs, established high-performing data product organisations and built platforms supporting regulatory reporting, surveillance and enterprise decision-making.',
+                'At Atheryon, I work with executives and delivery teams to translate complex business challenges into practical technology outcomes. Combining expertise in data, engineering, AI and transformation, I help clients deliver measurable results while maintaining the governance, controls and operational discipline required in critical environments.',
+                'I remain closely involved in both solution design and delivery, ensuring emerging AI capabilities are applied responsibly within robust operational and regulatory frameworks.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
