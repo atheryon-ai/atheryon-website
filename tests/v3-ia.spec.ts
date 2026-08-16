@@ -125,11 +125,12 @@ test('/data-ai is boxes plus three links, not three indexes', async ({ page }) =
   await expect(page.getByRole('heading', { name: 'Systems & Platform Delivery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Where it shows up' })).toHaveCount(0)
-  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
-  await expect(page.getByText('$84M', { exact: true })).toBeVisible()
-  await expect(page.getByText('Stalled after $50 million', { exact: false })).toBeVisible()
+  // Cases live on /experience only. AWS-to-Azure is a function fact, not a case.
+  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toHaveCount(0)
+  await expect(page.getByText('$84M', { exact: true })).toHaveCount(0)
+  await expect(page.getByText('Stalled after $50 million', { exact: false })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveCount(0)
   await expect(page.getByText('AI agents have been used to migrate from AWS to Azure.')).toBeVisible()
-  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#data-ai')
   await expect(page.locator('main').locator('a[href="/labs"]')).toHaveCount(1)
   await expect(page.locator('main').locator('a[href="/ma#technology-data-migration"]')).toHaveCount(1)
   await expect(page.locator('main').locator('a[href="/data-ai/supply-chain"]')).toHaveCount(1)
@@ -196,10 +197,10 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByText('TSA design and exit planning', { exact: true })).toBeVisible()
   await expect(page.getByText('TSA establishment and exit management', { exact: true })).toBeVisible()
 
-  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '$20bn+ Mortgage Portfolio Acquisition' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Operating Model Transformation' })).toBeVisible()
-  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#ma')
+  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: '$20bn+ Mortgage Portfolio Acquisition' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Operating Model Transformation' })).toHaveCount(0)
+  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveCount(0)
 
   // Engagement model (decided 2026-08-09): embedded, no stated durations
   await expect(page.getByRole('heading', { name: 'How we engage' })).toBeVisible()

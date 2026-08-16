@@ -46,9 +46,9 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   // Firm-level track record (Terry 2026-08-16): three credentials, no
   // case write-ups. $20bn+ traces to maExperience case 01; 25+ years to
   // Anna's /about bio. Case figures (4 months, $84M, 5 years to 18 months)
-  // live on the function pages.
+  // live on /experience.
   await expect(page.getByRole('heading', { name: 'Track Record' })).toBeVisible()
-  await expect(page.getByText('Up to $20bn')).toBeVisible()
+  await expect(page.getByText('$20bn+', { exact: true })).toBeVisible()
   await expect(page.getByText('Deal value supported')).toBeVisible()
   await expect(page.getByText('25+ years', { exact: true })).toBeVisible()
   await expect(page.getByText('>$1bn')).toHaveCount(0)
