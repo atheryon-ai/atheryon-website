@@ -139,6 +139,9 @@ test('about page renders positioning, story and co-founder bios', async ({ page 
   await expect(terry).toContainText('Credit Suisse')
   await expect(terry).toContainText('near-real-time front-office risk')
   await expect(terry).toContainText('P&L Attribution')
+  await expect(terry).toContainText('$50 million')
+  await expect(terry).toContainText('$58 million')
+  await expect(terry).toContainText('$26 million')
   await expect(terry).toContainText('$84 million')
   await expect(terry).toContainText('trade surveillance')
 

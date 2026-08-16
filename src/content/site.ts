@@ -162,7 +162,7 @@ export const site = {
         intro: 'AI labs competing with the global SIs in regulated verticals hit the same wall: plausible models, missing domain judgement. Atheryon Labs is the working artefact of an ontology-driven banking platform — semantics, lineage, validation, and access control modelled in from day one, then handed to AI as the operating ground. The two corrections below show why that loop matters.',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
-        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
+        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I recovered a data programme that had stalled after $50 million and delivered the remaining 90% for a further $26 million, then stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
         vignettes: [
           {
             title: 'Lifecycle state model',
@@ -891,17 +891,17 @@ const cmCases = [
       {
         label: 'Context',
         body:
-          'A Financial Markets data and analytics transformation had stalled after more than $84 million in investment, with regulatory and operational capabilities still undelivered.',
+          'A Financial Markets data and analytics transformation had stalled after $50 million. At $58 million the program was 10% done, with regulatory and operational capabilities still undelivered.',
       },
       {
         label: 'Role',
         body:
-          'Program Director, accountable for recovering the program and delivering the outstanding capabilities.',
+          'Program Director, accountable for recovering the program and delivering the remaining 90%.',
       },
       {
         label: 'Outcome',
         body:
-          'The data and analytics platform went live, including automated trade surveillance and trade and record reconstruction, with executive-level APRA engagement. Subsequent strategic data-asset delivery ran up to ten times faster than previous methods.',
+          'The remaining 90% shipped for a further $26 million, taking the final program cost to $84 million. The data and analytics platform went live, including automated trade surveillance and trade and record reconstruction, with executive-level APRA engagement. Subsequent strategic data-asset delivery ran up to ten times faster than previous methods.',
       },
     ],
   },
@@ -914,7 +914,7 @@ const cmCases = [
       {
         label: 'Context',
         body:
-          'Commodities desks needed front-office risk at near real-time speed, plus regulatory market risk, during record crude oil volatility.',
+          'During a period of extreme crude oil volatility, commodities trading desks required near real-time risk visibility and regulatory market risk reporting.',
       },
       {
         label: 'Role',
@@ -1578,14 +1578,14 @@ export const v3 = {
               // BEng Mechanical + Melbourne Systems Engineering; CS first
               // near-real-time FO risk then global P&L Attribution (FI,
               // Equities, FX, Rates) and the later data & analytics platform;
-              // $84m programme recovery and 10x data-product delivery; Markets
-              // ODS / MiFID II / trade surveillance. Compilers, "bank-wide
-              // from the ground up", and Barclays commodities desks are not
-              // Credit Suisse claims.
+              // $50m stall / 10% at $58m / remaining 90% for +$26m / $84m
+              // final (Terry 2026-08-16); Markets ODS / MiFID II / trade
+              // surveillance. Compilers, "bank-wide from the ground up", and
+              // Barclays commodities desks are not Credit Suisse claims.
               paragraphs: [
                 'I co-founded Atheryon and lead Data, Transformation, AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
                 'At Credit Suisse I designed and delivered the bank’s first near-real-time front-office risk system. I then implemented a global P&L Attribution platform across Fixed Income, Equities, FX and Rates, and built the data and analytics platform those products ran on.',
-                'I have continued that work at global investment banks and major Australian financial institutions. I rescued a failed $84 million data and analytics program and created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
+                'I have continued that work at global investment banks and major Australian financial institutions. I recovered a data and analytics program that had stalled after $50 million. At $58 million it was 10% done; I delivered the remaining 90% for a further $26 million, to a final cost of $84 million. I created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
@@ -1727,10 +1727,11 @@ export const v3 = {
             },
           ],
         },
-        // Summaries only (Terry 2026-08-16). The $84M write-up stays on
+        // Summaries only (Terry 2026-08-16). The spend split ($50m stall,
+        // 10% at $58m, remaining 90% for +$26m, $84m final) is written on
         // /experience. AWS-to-Azure is a function-level line Terry added
-        // the same day; it is not attached to the $84M case. Experience
-        // case title is Program Recovery & Delivery (Terry 2026-08-16).
+        // the same day; it is not attached to this case. Experience case
+        // title is Program Recovery & Delivery (Terry 2026-08-16).
         engagements: {
           label: 'Representative Engagements',
           title: 'Representative engagements',
@@ -1742,7 +1743,7 @@ export const v3 = {
               figure: '$84M',
               name: 'Program Recovery & Delivery',
               summary:
-                'Recovered a stalled Financial Markets data program after more than $84 million in investment, and delivered the strategic data and analytics platform.',
+                'Stalled after $50 million, 10% done at $58 million. Delivered the remaining 90% for a further $26 million.',
             },
             {
               id: 'aws-azure-migration',
