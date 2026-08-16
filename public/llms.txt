@@ -1,33 +1,36 @@
 # Atheryon
 
-> Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.
+> Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation. The firm helps institutions make high-stakes decisions and deliver execution that stands up to regulatory, operational and market scrutiny.
 
 This document is the canonical machine-readable rendering of the Atheryon site, structured for AI agents interpreting capability and structure.
 
-## Arms
+## Functions
 
-Two business arms over a shared underpinning of data, transformation and AI:
+Atheryon operates across two functions:
 
-- M&A (led by Anna Contos): https://atheryon.com.au/ma — "Making Transactions Executable"
-- Capital Markets (led by Terry Tsakiris): https://atheryon.com.au/capital-markets
+- M&A Transaction Services (led by Anna Contos): https://atheryon.com.au/ma — "Making Transactions Executable". Transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.
+- Data, Transformation, AI (led by Terry Tsakiris): https://atheryon.com.au/data-ai — data platforms, transformation programs and AI-assisted delivery where evidence and operating data decide the outcome.
+
+## Sectors
+
+Both functions are engaged across four sectors: capital markets, banking, wealth and non-bank financial institutions. Sectors describe the audience; they are not separate pages.
 
 ## Site map
 
-- [Home](https://atheryon.com.au/): executive landing — "Making Complex Change Executable"; proof strip, principle, arms, founders.
-- [M&A](https://atheryon.com.au/ma): the M&A arm — transaction readiness, separation & integration strategy, execution leadership, and technology, data & migration readiness.
-- [Capital Markets](https://atheryon.com.au/capital-markets): the Capital Markets arm — capital markets systems, data and migration readiness, platform transition and AI-enabled analysis; engaged inside transactions and standalone.
-- [Experience](https://atheryon.com.au/experience): representative cases normalised to Context / Role / Outcome, mortgage portfolio acquisition first.
-- [Approach](https://atheryon.com.au/approach): method and governance across the transaction lifecycle.
-- [About](https://atheryon.com.au/about): positioning statement, firm story and co-founder biographies (Anna Contos, Terry Tsakiris).
+- [Home](https://atheryon.com.au/): executive landing — "Clarity for critical decisions. Leadership for complex execution."; track record, the two functions, co-founders.
+- [M&A Transaction Services](https://atheryon.com.au/ma): the function's offer and method, from pre-sign insight through Day 1 readiness to operational independence and TSA exit.
+- [Data, Transformation, AI](https://atheryon.com.au/data-ai): the function's offer and method, including embedded senior specialists and AI-assisted delivery patterns.
+- [Supply Chain](https://atheryon.com.au/data-ai/supply-chain): supply chain work on the Data & AI foundation — business process re-engineering and governed AI for regulated sectors, including pharmaceutical and health.
+- [Experience](https://atheryon.com.au/experience): representative cases across both functions, normalised to Context / Role / Outcome.
+- [About](https://atheryon.com.au/about): firm story and co-founder biographies (Anna Contos, Terry Tsakiris).
 - [Contact](https://atheryon.com.au/contact): single enquiry path.
 
-## Capital markets depth (L3)
+## Data, Transformation, AI depth
 
-- [System](https://atheryon.com.au/system): reference architecture for the capital markets platform work.
+- [System](https://atheryon.com.au/system): reference architecture for the platform work.
 - [Labs](https://atheryon.com.au/labs): the working reference platform.
 - [Themes](https://atheryon.com.au/themes): platform themes by banking function.
 - [Offers](https://atheryon.com.au/offers): platform licensing and engagement paths (code, prompts, consult).
-- [Roadmap](https://atheryon.com.au/roadmap): building + roadmap items across themes and practices.
 
 ## Other
 
