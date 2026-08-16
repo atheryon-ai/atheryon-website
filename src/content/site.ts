@@ -162,7 +162,7 @@ export const site = {
         intro: 'AI labs competing with the global SIs in regulated verticals hit the same wall: plausible models, missing domain judgement. Atheryon Labs is the working artefact of an ontology-driven banking platform — semantics, lineage, validation, and access control modelled in from day one, then handed to AI as the operating ground. The two corrections below show why that loop matters.',
         photo: '/labs/terry-headshot.jpg',
         photoAlt: 'Terry Tsakiris',
-        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I rescued a distressed $84M data programme and stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
+        bio: "I’m Terry Tsakiris. At Credit Suisse I built the bank’s first near-real-time front-office risk system, then a global P&L Attribution platform across Fixed Income, Equities, FX and Rates. At Commonwealth Bank I owned the Markets Operational Data Store powering Regulatory Trade Reporting, MiFID II, and Trade Surveillance. At Westpac Institutional Banking I recovered a data programme that had stalled after $50 million and delivered the remaining 90% for a further $26 million, then stood up a Data Products capability that delivered ten times faster than the bank’s prior baseline — the same compression AI labs need to compete with the consultancies that defended that baseline. Atheryon is a Microsoft partner and S&P Global partner; the platform is the next iteration of that method, paired with AI.",
         vignettes: [
           {
             title: 'Lifecycle state model',
@@ -891,17 +891,17 @@ const cmCases = [
       {
         label: 'Context',
         body:
-          'A Financial Markets data and analytics transformation had stalled after more than $84 million in investment, with regulatory and operational capabilities still undelivered.',
+          'A Financial Markets data and analytics transformation had stalled after $50 million. At $58 million the program was 10% done, with regulatory and operational capabilities still undelivered.',
       },
       {
         label: 'Role',
         body:
-          'Program Director, accountable for recovering the program and delivering the outstanding capabilities.',
+          'Program Director, accountable for recovering the program and delivering the remaining 90%.',
       },
       {
         label: 'Outcome',
         body:
-          'The data and analytics platform went live, including automated trade surveillance and trade and record reconstruction, with executive-level APRA engagement. Subsequent strategic data-asset delivery ran up to ten times faster than previous methods.',
+          'The remaining 90% shipped for a further $26 million, taking the final program cost to $84 million. The data and analytics platform went live, including automated trade surveillance and trade and record reconstruction, with executive-level APRA engagement. Subsequent strategic data-asset delivery ran up to ten times faster than previous methods.',
       },
     ],
   },
@@ -914,17 +914,17 @@ const cmCases = [
       {
         label: 'Context',
         body:
-          'Commodities desks needed front-office risk at near real-time speed, plus regulatory market risk, during record crude oil volatility.',
+          'During a period of extreme crude oil volatility, commodities trading desks required near real-time risk visibility and regulatory market risk reporting.',
       },
       {
         label: 'Role',
         body:
-          'Global head of risk platforms. Designed and delivered the system, including CAD2 Value-at-Risk and P&L attribution, and stood up the market data function in New York, London and Zurich.',
+          'As Global Head of Risk Platforms, led the design and delivery of the bank’s first near real-time front-office risk platform, including VaR, P&L attribution, and global market data capabilities across New York, London, and Zurich.',
       },
       {
         label: 'Outcome',
         body:
-          'The bank’s first near real-time front office risk system in production.',
+          'Delivered the bank’s first production near real-time front-office risk platform, enabling faster risk decisions and enterprise-scale risk transparency across global commodities operations.',
       },
     ],
   },
@@ -1538,15 +1538,8 @@ export const v3 = {
           body:
             'Atheryon was founded on a simple observation: organisations rarely struggle because of strategy. They struggle because operational, technology and data complexity is discovered too late.\n\nAfter decades leading major transactions, transformations and technology initiatives, Atheryon’s founders saw the same challenge emerge repeatedly. Critical decisions were often made before key operational, technology and data dependencies were fully understood, increasing execution risk and reducing value.\n\nAtheryon was established to bring that understanding into the process earlier. We help clients identify complexity before decisions are locked in, navigate it during execution and deliver outcomes with confidence.\n\nWhether the objective is a transaction, business transformation, technology modernisation or AI-enabled change, success depends on understanding what will be required before commitments are made. Success is measured not by plans approved or deals signed, but by value realised, capabilities delivered and outcomes achieved.',
         },
-        // Anna's bio stays genericised (rev 5 §1). Terry's bio names Credit
-        // Suisse as employer (Terry, 2026-08-16). Other named employers stay
-        // off this page. Career facts are taken from the Delivery CV
-        // (Terence Tsakiris - CV - Delivery): 25+ years; BEng Mechanical and
-        // Melbourne Systems Engineering; CS first near-real-time FO risk then
-        // global P&L Attribution (FI, Equities, FX, Rates) plus the later
-        // global data & analytics platform; $84m programme recovery and 10x
-        // data-product delivery; Markets ODS / MiFID II / trade surveillance.
-        // Compilers / "bank-wide from the ground up" is not on the CV.
+        // Both bios stay genericised on employers (home.spec.ts). Spend
+        // split and named-bank cases live on /experience, not /about.
         founders: {
           label: 'Co-Founders',
           title: 'Co-founders',
@@ -1559,33 +1552,29 @@ export const v3 = {
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'I co-founded Atheryon and lead M&A Transaction Services. With more than 25 years of experience across Australia, the UK and the US, I have advised and led organisations through acquisitions, divestments, separations, integrations and large-scale transformation programs.',
-                'I have held senior executive roles across banking, wealth and insurance, leading complex transaction and transformation initiatives in highly regulated environments. My experience spans transaction strategy, operating model design, business readiness, execution management and post-transaction stabilisation.',
-                'At Atheryon, I help clients navigate critical transaction events with confidence, bringing a practical, outcomes-focused approach to separation planning, integration execution and business transformation.',
+                'I co-founded Atheryon and lead our M&A Transaction Services practice. With more than 25 years of experience across Australia, the UK and the US, I advise corporate and private equity clients on acquisitions, divestments, separations, integrations and business transformations that unlock enterprise value.',
+                'Having held senior executive leadership roles across banking, wealth and NBFIs, I bring first-hand experience leading complex transactions in highly regulated environments. My expertise spans transaction strategy, operating model design, carve-out and separation planning, integration execution, business readiness and post-deal stabilisation.',
+                'I work closely with boards, executive teams and deal sponsors to navigate critical transaction events, translating strategic intent into executable plans and ensuring value is realised through disciplined delivery. My approach combines commercial pragmatism, operational rigour and deep transformation experience to help clients manage risk, accelerate outcomes and achieve sustainable results.',
+                'At Atheryon, I help clients execute transactions with confidence, providing practical, outcomes-focused leadership from deal strategy through to separation, integration and value realisation.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Data, Transformation, AI',
+              role: 'Co-Founder, Data, Transformation & AI',
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
-              // First person on /about for both co-founders (Terry 2026-08-16).
-              // Credit Suisse is named as employment. Other employers stay
-              // genericised (home.spec.ts). Facts from the Delivery CV:
-              // BEng Mechanical + Melbourne Systems Engineering; CS first
-              // near-real-time FO risk then global P&L Attribution (FI,
-              // Equities, FX, Rates) and the later data & analytics platform;
-              // $84m programme recovery and 10x data-product delivery; Markets
-              // ODS / MiFID II / trade surveillance. Compilers, "bank-wide
-              // from the ground up", and Barclays commodities desks are not
-              // Credit Suisse claims.
+              // First person on /about (Terry 2026-08-16). Employers stay
+              // genericised. Named cases and the $50m/$84m spend split live
+              // on /experience#data-ai.
               paragraphs: [
-                'I co-founded Atheryon and lead Data, Transformation, AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
-                'At Credit Suisse I designed and delivered the bank’s first near-real-time front-office risk system. I then implemented a global P&L Attribution platform across Fixed Income, Equities, FX and Rates, and built the data and analytics platform those products ran on.',
-                'I have continued that work at global investment banks and major Australian financial institutions. I rescued a failed $84 million data and analytics program and created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
+                'I co-founded Atheryon and lead our Data, Transformation & AI practice. With more than 25 years of experience spanning engineering, financial markets, data platforms and large-scale transformation, I help organisations modernise their data foundations, accelerate decision-making and unlock value through AI-enabled solutions.',
+                'My career has combined deep technical expertise with executive delivery leadership across global investment banks and major Australian financial institutions. I have led the design and delivery of mission-critical risk, market data, analytics and regulatory platforms in highly regulated environments, enabling organisations to improve performance, strengthen governance and manage risk at scale.',
+                'My experience includes delivering market-leading front-office risk, P&L attribution, market data and analytics platforms supporting Fixed Income, Equities, FX and Rates businesses globally. I have successfully recovered large-scale transformation programs, established high-performing data product organisations and built platforms supporting regulatory reporting, surveillance and enterprise decision-making.',
+                'At Atheryon, I work with executives and delivery teams to translate complex business challenges into practical technology outcomes. Combining expertise in data, engineering, AI and transformation, I help clients deliver measurable results while maintaining the governance, controls and operational discipline required in critical environments.',
+                'I remain closely involved in both solution design and delivery, ensuring emerging AI capabilities are applied responsibly within robust operational and regulatory frameworks.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
@@ -1727,10 +1716,11 @@ export const v3 = {
             },
           ],
         },
-        // Summaries only (Terry 2026-08-16). The $84M write-up stays on
+        // Summaries only (Terry 2026-08-16). The spend split ($50m stall,
+        // 10% at $58m, remaining 90% for +$26m, $84m final) is written on
         // /experience. AWS-to-Azure is a function-level line Terry added
-        // the same day; it is not attached to the $84M case. Experience
-        // case title is Program Recovery & Delivery (Terry 2026-08-16).
+        // the same day; it is not attached to this case. Experience case
+        // title is Program Recovery & Delivery (Terry 2026-08-16).
         engagements: {
           label: 'Representative Engagements',
           title: 'Representative engagements',
@@ -1742,7 +1732,7 @@ export const v3 = {
               figure: '$84M',
               name: 'Program Recovery & Delivery',
               summary:
-                'Recovered a stalled Financial Markets data program after more than $84 million in investment, and delivered the strategic data and analytics platform.',
+                'Stalled after $50 million, 10% done at $58 million. Delivered the remaining 90% for a further $26 million.',
             },
             {
               id: 'aws-azure-migration',

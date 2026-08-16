@@ -127,6 +127,7 @@ test('/data-ai is boxes plus three links, not three indexes', async ({ page }) =
   await expect(page.getByRole('heading', { name: 'Where it shows up' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
   await expect(page.getByText('$84M', { exact: true })).toBeVisible()
+  await expect(page.getByText('Stalled after $50 million', { exact: false })).toBeVisible()
   await expect(page.getByText('AI agents have been used to migrate from AWS to Azure.')).toBeVisible()
   await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#data-ai')
   await expect(page.locator('main').locator('a[href="/labs"]')).toHaveCount(1)
