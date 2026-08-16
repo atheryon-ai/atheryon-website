@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description: v3.pages.home.description,
     type: 'website',
     siteName: site.name,
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Atheryon — Making Complex Change Executable' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Atheryon' }],
   },
   twitter: {
     card: 'summary_large_image',

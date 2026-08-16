@@ -77,6 +77,9 @@ Re-sync after upstream changes; there is no build-time link.
   `next build` first**; it errors if `out/` is missing.
 - `node scripts/design-lint.mjs` — design-standard lint on its own
 - `node scripts/copy-lint.mjs` — copy-rule lint
+- `node scripts/generate-icons.mjs` — rebuilds the favicon / touch-icon /
+  manifest-icon set from `public/atheryon-mark.png` onto the navy ground. Run
+  after any change to the mark; the icons are committed, not built by CI.
 
 ## UI patterns
 - Pages use the `Doc*` family from `src/components/Doc.tsx` (DocPage wrapper,

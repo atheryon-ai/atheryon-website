@@ -1,11 +1,11 @@
 {
   "name": "Atheryon",
   "short_name": "Atheryon",
-  "description": "Atheryon helps regulated enterprises escape AI POC purgatory by delivering production-grade capabilities built on reusable data products.",
+  "description": "Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation. Two functions, engaged across capital markets, banking, wealth and non-bank financial institutions.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#0f172a",
+  "background_color": "#0E2A3A",
+  "theme_color": "#0E2A3A",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -23,10 +23,22 @@
       "type": "image/png"
     },
     {
-      "src": "/logo.png",
-      "sizes": "1024x1024",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
