@@ -1570,43 +1570,60 @@ export const v3 = {
         hero: {
           label: 'atheryon / data-ai',
           title: 'Data, Transformation, AI',
-          // Audience sentence, not a sector card list (spec §4).
+          // Terry's landing copy, 2026-08-16. First person converted to the
+          // house third-person voice ("Our experience" → "Experience").
           subtitle:
-            'Data platforms, transformation programs and AI-assisted delivery where evidence and operating data decide the outcome. Experience across capital markets, banking, wealth and non-bank financial institutions.',
+            'Atheryon helps organisations modernise data foundations, deliver complex transformation programs and apply AI in environments where governance, evidence and operational performance matter. Experience spans capital markets, banking, wealth and other regulated industries, where technology investments must deliver measurable business outcomes while meeting regulatory expectations.',
         },
-        // The function's principle. Reworked twice on 2026-08-15: first to
-        // drop the motherhood statement, then to stop typecasting the
-        // function as surveillance. Regulatory examination still grounds it;
-        // surveillance stays in the markets-depth line, not the lead.
+        // The function's principle (Terry 2026-08-16, replacing the
+        // regulatory-examination lead). The APRA claim moved to the
+        // regulated-environments section below.
         principle: {
           framing: '',
           statement:
-            'Data programs in regulated businesses must stand up to examination. Atheryon has delivered those platforms and led APRA engagement at executive level.',
-          support: '',
+            'Data is only valuable when it can be trusted. AI is only valuable when it can be deployed responsibly.',
+          support:
+            'Atheryon helps clients establish the platforms, operating models and delivery disciplines needed to turn data into insight, and insight into action.',
         },
-        // Discipline grid not rendered on /data-ai (MECE 2026-08-15). Kept
-        // for git history; the landing is boxes + three links.
-        operatingModel: {
-          label: 'Operating Model',
-          title: 'How the function works',
+        // The function's three pillars (Terry 2026-08-16). These replaced the
+        // data/transformation/AI discipline grid cut on 2026-08-15; new copy,
+        // new heading, same slot between the principle and the service lines.
+        pillars: {
+          label: 'What The Function Does',
+          title: 'What the function does',
+          items: [
+            {
+              name: 'Data Platforms',
+              body:
+                'Design and delivery of risk, market data, analytics and regulatory platforms that improve decision-making, strengthen governance and support operational performance at scale.',
+            },
+            {
+              name: 'Transformation Delivery',
+              body:
+                'Leadership of complex transformation programs, including mobilisation, recovery, operating model change, business readiness and large-scale delivery execution.',
+            },
+            {
+              name: 'AI & Accelerated Delivery',
+              body:
+                'Practical application of AI to improve productivity, delivery speed and operational insight. Atheryon applies AI within established governance and control frameworks, ensuring accountability, transparency and business ownership remain central to every outcome.',
+            },
+          ],
         },
-        data: {
-          label: 'Data',
-          title: 'Data',
+        // Terry 2026-08-16. Carries the regulator-engagement claim that the
+        // retired principle statement used to hold.
+        regulated: {
+          label: 'Experience In Regulated Environments',
+          title: 'Experience in regulated environments',
           body:
-            'The work starts with understanding what information exists, where it resides, how it is used and what must transition. Standalone that becomes data platforms, market data environments and reference data. Inside a transaction the same understanding drives execution timelines and TSA scope.',
+            'Atheryon has delivered critical data, risk, analytics and regulatory platforms for global investment banks and major Australian financial institutions. Experience includes executive engagement with regulators, regulatory reporting and surveillance capabilities, large-scale data transformations, and the delivery of platforms that withstand the scrutiny of auditors, regulators and business stakeholders alike.',
         },
-        transformation: {
-          label: 'Transformation',
-          title: 'Transformation',
+        // Terry 2026-08-16 ("Our Approach" in the source copy). Sits above
+        // the method detail moved here when /approach retired.
+        approach: {
+          label: 'Approach',
+          title: 'How the function delivers',
           body:
-            'Transformation follows a transaction or stands alone as a technology and data program, and it draws on the same data and AI foundation either way.',
-        },
-        ai: {
-          label: 'AI',
-          title: 'AI',
-          body:
-            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome. Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
+            'Atheryon combines strategic advisory, hands-on delivery leadership and deep technical expertise. Senior specialists remain accountable throughout the engagement, ensuring that technology decisions are aligned to business outcomes and that transformation delivers lasting value.',
         },
         // Service lines (Terry 2026-08-16): same register as /ma. Content
         // remains the markets catalogue; do not invent banking, wealth or

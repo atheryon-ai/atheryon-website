@@ -86,14 +86,22 @@ test('Contact Us from /data-ai presets the function-2 topic on the firm form', a
   )
 })
 
-test('/data-ai carries the function principle', async ({ page }) => {
+test('/data-ai carries the function principle and pillars', async ({ page }) => {
   await page.goto('/data-ai')
   await expect(
     page.getByText(
-      'Atheryon has delivered those platforms and led APRA engagement at executive level.',
+      'Data is only valuable when it can be trusted. AI is only valuable when it can be deployed responsibly.',
     ),
   ).toBeVisible()
-  // Three-discipline grid cut 2026-08-15 (MECE): the landing is boxes + three links.
+  // The three pillars from Terry's 2026-08-16 landing copy.
+  for (const pillar of ['Data Platforms', 'Transformation Delivery', 'AI & Accelerated Delivery']) {
+    await expect(page.getByRole('heading', { level: 3, name: pillar })).toBeVisible()
+  }
+  await expect(
+    page.getByRole('heading', { name: 'Experience in regulated environments' }),
+  ).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the function delivers' })).toBeVisible()
+  // The 2026-08-15 discipline grid stays retired; the pillars replaced it.
   await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
 })
 

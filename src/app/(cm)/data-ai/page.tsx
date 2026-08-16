@@ -7,11 +7,12 @@ import { RetiredHashRedirect } from '@/components/RetiredHashRedirect'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
-// Function 2 (functions-and-sectors spec §4; MECE cut 2026-08-15). Banner,
-// principle, markets depth boxes, three related links — Labs, M&A line-04,
-// supply chain — then the function method (delivery examples, principles,
-// embedded delivery, engage paths), moved here when /approach retired on
-// 2026-08-16. Each landing now carries its own method, like /ma.
+// Function 2 (functions-and-sectors spec §4). Banner, principle, the three
+// pillars (Terry's 2026-08-16 landing copy), markets depth boxes, three
+// related links — Labs, M&A line-04, supply chain — then regulated-environment
+// experience, the approach statement, and the function method (delivery
+// examples, principles, embedded delivery, engage paths) moved here when
+// /approach retired on 2026-08-16.
 const page = v3.pages.dataAi
 const s = page.sections
 const method = v3.pages.cmApproach.sections
@@ -50,9 +51,32 @@ export default function DataAiPage() {
             <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
               {s.principle.statement}
             </p>
+            {s.principle.support ? (
+              <p className="mt-6 text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
+                {s.principle.support}
+              </p>
+            ) : null}
           </div>
         </DocSection>
       )}
+
+      <DocSection label={s.pillars.label} title={s.pillars.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.pillars.items.map((pillar) => (
+            <li
+              key={pillar.name}
+              className="grid grid-cols-1 md:grid-cols-[minmax(16rem,0.5fr)_minmax(0,1.5fr)] gap-2 md:gap-8 py-6"
+            >
+              <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {pillar.name}
+              </h3>
+              <p className="text-base md:text-lg text-charcoal/85 leading-relaxed max-w-3xl">
+                {pillar.body}
+              </p>
+            </li>
+          ))}
+        </ol>
+      </DocSection>
 
       <DocSection label={s.lines.label} title={s.lines.title}>
         {s.lines.intro ? (
@@ -84,6 +108,18 @@ export default function DataAiPage() {
             </li>
           ))}
         </ul>
+      </DocSection>
+
+      <DocSection label={s.regulated.label} title={s.regulated.title}>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.regulated.body}
+        </p>
+      </DocSection>
+
+      <DocSection label={s.approach.label} title={s.approach.title}>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.approach.body}
+        </p>
       </DocSection>
 
       <DocSection label={method.examples.label} title={method.examples.title}>
