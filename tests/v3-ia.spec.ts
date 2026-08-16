@@ -19,7 +19,7 @@ test('/experience is the only cases page and carries full CRO for both functions
   await expect(page.locator('#ma')).toBeVisible()
   await expect(page.locator('#data-ai')).toBeVisible()
   await expect(page.getByText('Context').first()).toBeVisible()
-  await expect(page.getByText('more than $20 billion at signing', { exact: false })).toBeVisible()
+  await expect(page.getByText('more than $20 billion', { exact: false }).first()).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
   await expect(page.locator('main').locator('a[href="/ma/experience"]')).toHaveCount(0)
 })
@@ -196,7 +196,7 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByText('TSA establishment and exit management', { exact: true })).toBeVisible()
 
   await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Landmark Mortgage Portfolio Acquisition' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '$20bn+ Mortgage Portfolio Acquisition' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Operating Model Transformation' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#ma')
 
@@ -224,20 +224,31 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
 test('/experience#ma normalises cases to Context / Role / Outcome with the mortgage acquisition first', async ({ page }) => {
   await page.goto('/experience#ma')
 
-  await expect(page.getByText('Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.')).toBeVisible()
+  await expect(page.getByText('Selected transactions and transformation programs delivered by Atheryon principals across current engagements and prior leadership roles.')).toBeVisible()
+  await expect(page.getByText('Work across banking, wealth, capital markets and non-bank financial institutions, including a home-loan portfolio of more than $20 billion.')).toBeVisible()
 
   const firstCase = page.locator('ol > li').first()
-  await expect(firstCase.getByRole('heading', { name: 'Landmark Mortgage Portfolio Acquisition' })).toBeVisible()
+  await expect(firstCase.getByRole('heading', { name: '$20bn+ Mortgage Portfolio Acquisition' })).toBeVisible()
   await expect(firstCase.getByText('Context', { exact: true })).toBeVisible()
   await expect(firstCase.getByText('Role', { exact: true })).toBeVisible()
   await expect(firstCase.getByText('Outcome', { exact: true })).toBeVisible()
-  await expect(firstCase.getByText('more than $20 billion at signing', { exact: false })).toBeVisible()
+  await expect(firstCase.getByText('more than $20 billion', { exact: false })).toBeVisible()
+  await expect(firstCase.getByText('Integration Director for the acquiring specialist mortgage servicer')).toBeVisible()
   // De-named per Terry 2026-08-10: the deal name must not appear anywhere.
   // Exact + case-sensitive, else "programs" matches on a substring.
   await expect(page.getByText(/\bRAMS\b/)).toHaveCount(0)
 
   await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
+  await expect(page.getByText('Sale in four months. Full separation in ten months, with transitional services minimised.')).toBeVisible()
   await expect(page.getByText('{{')).toHaveCount(0)
+
+  const bodyText = await page.locator('#ma').innerText()
+  for (const name of [
+    'Westpac', 'Pepper', 'KKR', 'PIMCO', 'Commonwealth Bank', 'CBA',
+    'Count Financial', 'Financial Wisdom', 'CommInsure', 'Deutsche',
+  ]) {
+    expect(bodyText).not.toContain(name)
+  }
 })
 
 test('/data-ai is function 2, keeping the depth pages reachable', async ({ page }) => {

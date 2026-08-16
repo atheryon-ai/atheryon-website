@@ -1307,22 +1307,22 @@ export const v3 = {
             {
               id: 'mortgage-portfolio-acquisition',
               figure: '$20bn+',
-              name: 'Landmark Mortgage Portfolio Acquisition',
+              name: '$20bn+ Mortgage Portfolio Acquisition',
               summary:
-                'Atheryon leadership played a key role in the transition and integration of the mortgage portfolio acquisition.',
+                'Integration Director for the acquiring specialist mortgage servicer on a home-loan portfolio acquisition valued at more than $20 billion.',
             },
             {
               id: 'financial-advice-sale-separation',
               figure: '4 months',
               name: 'Sale and separation of a major financial advice business',
               summary:
-                'Completed the sale and full operational separation within four months, with minimal transitional arrangements.',
+                'Sale completed within four months, with transitional services minimised. Full business separation followed within ten months.',
             },
             {
               id: 'operating-model-transformation',
               name: 'Operating Model Transformation',
               summary:
-                'A large-scale operating model transformation across merged wealth and asset management businesses.',
+                'Recovered a delayed strategic initiative after the merger of wealth and asset management divisions, and delivered the first joint program.',
             },
           ],
         },
@@ -1360,29 +1360,33 @@ export const v3 = {
           label: 'Selected Cases',
           title: 'Selected cases',
           provenance:
-            'Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.',
+            'Selected transactions and transformation programs delivered by Atheryon principals across current engagements and prior leadership roles.',
+          // Sectors are the published audience line. The $20bn figure is the
+          // landmark case, not an aggregate of the list (Terry 2026-08-16).
+          framing:
+            'Work across banking, wealth, capital markets and non-bank financial institutions, including a home-loan portfolio of more than $20 billion.',
           items: [
             {
               id: 'mortgage-portfolio-acquisition',
               index: '01',
-              name: 'Landmark Mortgage Portfolio Acquisition',
+              name: '$20bn+ Mortgage Portfolio Acquisition',
               client: 'Specialist Mortgage Servicer',
               engagement: 'Integration Leadership',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'A landmark transaction valued at more than $20 billion at signing and recognised as one of the largest loan portfolio acquisitions in Australian history. The transaction involved compressed delivery timeframes, complex separation requirements, multiple service providers, significant operational dependencies and no seller TSA arrangements.',
+                    'A consortium acquisition of a mortgage portfolio valued at more than $20 billion. Compressed timelines, complex separation requirements, multiple service providers and no seller TSA.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Atheryon leadership played a key role in the transition and integration of the mortgage portfolio acquisition.',
+                    'Integration Director for the acquiring specialist mortgage servicer, accountable for transition and integration through deal completion.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Led the successful transition to a new servicing environment, delivering Day 1 operational readiness, seamless customer migration and ongoing regulatory compliance. Despite the scale and complexity of the transaction, timelines were achieved and hypercare issues remained exceptionally low, enabling immediate operational stand-up and value realisation.',
+                    'Delivered Day 1 operational readiness, customer migration and regulatory continuity on the agreed timeline, with low hypercare.',
                 },
               ],
             },
@@ -1395,16 +1399,18 @@ export const v3 = {
               details: [
                 {
                   label: 'Context',
-                  body: 'Divestment and integration programs at a major Australian bank.',
+                  body:
+                    'Group-wide M&A advisory at a major Australian bank, including more than $1 billion of wealth, superannuation and asset-management divestments.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led separation and integration advisory across the divestment and integration programs.',
+                  body:
+                    'Accountable for advisory from pre-sign through deal completion, and for implementation portfolios of more than $250 million.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Reduced separation complexity, accelerated readiness and materially limited TSA exposure across multiple strategic transactions.',
+                    'Member servicing agreement worth approximately $50 million in cost benefits, and a group divestment playbook.',
                 },
               ],
             },
@@ -1417,16 +1423,18 @@ export const v3 = {
               details: [
                 {
                   label: 'Context',
-                  body: 'The sale of a major financial advice business requiring pre-sign and post-sign separation execution.',
+                  body:
+                    'Sale of a major financial advice business and closure of a second advice network.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led pre-sign and post-sign separation execution for the sale.',
+                  body:
+                    'Accountable for pre-sign and post-sign execution, including Day 1 operating models. Program of approximately $50 million.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Completed the sale and full operational separation within four months, with minimal transitional arrangements.',
+                    'Sale in four months. Full separation in ten months, with transitional services minimised.',
                 },
               ],
             },
@@ -1439,15 +1447,18 @@ export const v3 = {
               details: [
                 {
                   label: 'Context',
-                  body: 'Significant wealth and insurance transactions requiring separation design and implementation readiness.',
+                  body:
+                    'Finance separation for a life insurance sale and a proposed wealth-management demerger.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led separation design and implementation readiness activities supporting the transactions.',
+                  body:
+                    'Stood up standalone finance functions and ran the ERP replacement tender. Program of approximately $50 million.',
                 },
                 {
                   label: 'Outcome',
-                  body: 'Enabled standalone operation while meeting regulatory, financial and operational requirements.',
+                  body:
+                    'Standalone finance functions ready for separation.',
                 },
               ],
             },
@@ -1460,16 +1471,18 @@ export const v3 = {
               details: [
                 {
                   label: 'Context',
-                  body: 'A large-scale operating model transformation across merged wealth and asset management businesses.',
+                  body:
+                    'Delayed strategic initiative across a €400 million asset pool after a wealth and asset-management merger.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led the operating model transformation program.',
+                  body:
+                    'Led a team of about 60 to design the new operating model.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Improved execution certainty, restored stakeholder confidence and re-established momentum on a strategically important initiative.',
+                    'Recovered the initiative and delivered the first joint program after the merger.',
                 },
               ],
             },

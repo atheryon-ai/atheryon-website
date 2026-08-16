@@ -35,8 +35,13 @@ export default function ExperiencePage() {
         return (
           <DocSection key={arm.id} id={arm.id} label={arm.label} title={cases.title}>
             {'provenance' in cases && cases.provenance && (
-              <p className="max-w-3xl font-mono text-sm text-charcoal/70 leading-relaxed mb-10">
+              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-4">
                 {cases.provenance}
+              </p>
+            )}
+            {'framing' in cases && cases.framing && (
+              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-10">
+                {cases.framing}
               </p>
             )}
 
@@ -62,19 +67,32 @@ export default function ExperiencePage() {
                   </header>
 
                   <dl className="divide-y divide-charcoal/15 border-t border-charcoal/15 md:border-t-0">
-                    {entry.details.map((detail) => (
+                    {entry.details.map((detail) => {
+                      const isOutcome = detail.label === 'Outcome'
+                      return (
                       <div
                         key={detail.label}
                         className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-6 py-5 first:pt-5 md:first:pt-0"
                       >
-                        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60">
+                        <dt
+                          className={`font-mono text-[11px] uppercase tracking-[0.18em] ${
+                            isOutcome ? 'text-bronze' : 'text-charcoal/60'
+                          }`}
+                        >
                           {detail.label}
                         </dt>
-                        <dd className="text-base md:text-lg text-charcoal/85 leading-relaxed">
+                        <dd
+                          className={`leading-relaxed ${
+                            isOutcome
+                              ? 'text-lg md:text-xl font-medium text-charcoal'
+                              : 'text-base md:text-lg text-charcoal/85'
+                          }`}
+                        >
                           {detail.body}
                         </dd>
                       </div>
-                    ))}
+                      )
+                    })}
                   </dl>
                 </li>
               ))}
