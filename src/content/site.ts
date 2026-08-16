@@ -1113,9 +1113,8 @@ export const v3 = {
             {
               id: 'anna-contos',
               name: 'Anna Contos',
-              // "Transformation" drops from Anna's line (spec §4): the word
-              // now names function 2.
-              line: 'Transactions, Separation & Integration',
+              // Function name, matching Terry's Data, Transformation, AI line.
+              line: 'M&A Transaction Services',
             },
             {
               id: 'terry-tsakiris',
@@ -1476,7 +1475,7 @@ export const v3 = {
                 {
                   label: 'Outcome',
                   body:
-                    'Recovered a critical strategic initiative and delivered the first successful joint programme following the merger, establishing a new operating model for the combined Wealth and Asset Management business.',
+                    'Recovered a critical strategic initiative and delivered the first successful joint program following the merger, establishing a new operating model for the combined Wealth and Asset Management business.',
                 },
               ],
             },
@@ -1569,7 +1568,7 @@ export const v3 = {
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Data, Transformation & AI',
+              role: 'Co-Founder, Data, Transformation, AI',
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
@@ -1584,9 +1583,9 @@ export const v3 = {
               // from the ground up", and Barclays commodities desks are not
               // Credit Suisse claims.
               paragraphs: [
-                'I co-founded Atheryon and lead Data, Transformation & AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
+                'I co-founded Atheryon and lead Data, Transformation, AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
                 'At Credit Suisse I designed and delivered the bank’s first near-real-time front-office risk system. I then implemented a global P&L Attribution platform across Fixed Income, Equities, FX and Rates, and built the data and analytics platform those products ran on.',
-                'I have continued that work at global investment banks and major Australian financial institutions. I rescued a failed $84 million data and analytics programme and created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
+                'I have continued that work at global investment banks and major Australian financial institutions. I rescued a failed $84 million data and analytics program and created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
@@ -2010,11 +2009,11 @@ export const v3 = {
               body: 'Modelling, engineering and governance set up to ship at multiples of prior speed.',
             },
             // Council build 2026-08-10 (sourced from the prod reference
-            // system's reporting workflow; the arm's case 03 proves it).
+            // system's reporting workflow; the function's case 03 proves it).
             {
               id: 'regulatory-reporting',
               name: 'Regulatory reporting',
-              body: 'The arm stands up trade reporting across regulatory regimes: validation against each regime’s rules and submissions in the prescribed format, with an audit trail behind every report.',
+              body: 'The function stands up trade reporting across regulatory regimes: validation against each regime’s rules and submissions in the prescribed format, with an audit trail behind every report.',
             },
           ],
         },
@@ -2024,7 +2023,7 @@ export const v3 = {
         method: {
           label: 'How The Work Is Directed',
           title: 'How the work is directed',
-          intro: 'Five principles govern how the arm’s senior specialists direct AI-assisted delivery.',
+          intro: 'Five principles govern how the function’s senior specialists direct AI-assisted delivery.',
           principles: [
             {
               name: 'Controls come first',
@@ -2054,12 +2053,12 @@ export const v3 = {
           body:
             'Delivery is embedded: senior specialists alongside your team, with AI agents running on Atheryon infrastructure and outputs surfacing in your tools. The operational-controls baseline is APRA CPS 234-aligned, and every agent decision lands in an auditable archive that can be replayed.\n\nAgents generate candidate outputs against the agreed data model; a senior capital-markets specialist reviews each one, selects the strongest, edits it where judgement is required, and signs it off before it reaches a client system.',
         },
-        // Council build 2026-08-10: the arm's three engagement paths,
+        // Council build 2026-08-10: the function's three engagement paths,
         // ported from the production offers and select-engagements posture.
         engage: {
-          label: 'How The Arm Engages',
-          title: 'How the arm engages',
-          intro: 'The arm engages through three paths.',
+          label: 'How The Function Engages',
+          title: 'How the function engages',
+          intro: 'The function engages through three paths.',
           paths: [
             {
               name: 'Advisory assessment',
@@ -2071,7 +2070,7 @@ export const v3 = {
             },
             {
               name: 'Platform licensing',
-              body: 'The working reference implementation and its supporting material can be licensed; the arm’s depth pages carry the detail.',
+              body: 'The working reference implementation and its supporting material can be licensed; the function’s depth pages carry the detail.',
             },
           ],
         },

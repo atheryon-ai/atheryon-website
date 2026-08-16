@@ -89,7 +89,7 @@ const jsonLd = {
     {
       '@type': 'Person',
       name: 'Terry Tsakiris',
-      jobTitle: 'Co-Founder, Data, Transformation & AI',
+      jobTitle: 'Co-Founder, Data, Transformation, AI',
       sameAs: 'https://www.linkedin.com/in/terencetsakiris/',
     },
   ],

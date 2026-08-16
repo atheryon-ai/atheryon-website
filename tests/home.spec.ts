@@ -95,10 +95,15 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     page.getByText('CAPITAL MARKETS · BANKING · WEALTH · NBFIs'),
   ).toBeVisible()
 
-  // Founders block, no employer names, linking to /about. "Transformation"
-  // left Anna's line: the word now names function 2 (spec §4).
-  await expect(page.getByText('Transactions, Separation & Integration', { exact: true })).toBeVisible()
-  await expect(page.getByText('Data, Transformation, AI', { exact: true }).first()).toBeVisible()
+  // Founders block, no employer names, linking to /about. Each line is the
+  // function name (spec §4). Scoped to the name row so the function-section
+  // titles on the same page do not collide.
+  await expect(
+    page.getByRole('heading', { name: 'Anna Contos' }).locator('..').getByText('M&A Transaction Services', { exact: true }),
+  ).toBeVisible()
+  await expect(
+    page.getByRole('heading', { name: 'Terry Tsakiris' }).locator('..').getByText('Data, Transformation, AI', { exact: true }),
+  ).toBeVisible()
   await expect(page.getByRole('link', { name: 'About the co-founders' })).toHaveAttribute('href', '/about')
 
   // CTAs (rev 4 label)
@@ -126,7 +131,7 @@ test('about page renders positioning, story and co-founder bios', async ({ page 
   await expect(page.getByText('Co-Founder, M&A Transaction Services')).toBeVisible()
 
   await expect(page.getByRole('heading', { level: 3, name: 'Terry Tsakiris' })).toBeVisible()
-  await expect(page.getByText('Co-Founder, Data, Transformation & AI')).toBeVisible()
+  await expect(page.getByText('Co-Founder, Data, Transformation, AI')).toBeVisible()
 
   const terry = page.locator('#terry-tsakiris')
   await expect(terry).toContainText('mechanical engineering')

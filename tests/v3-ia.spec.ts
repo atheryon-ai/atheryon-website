@@ -313,7 +313,7 @@ test('/approach#data-ai carries the delivery patterns and embedded delivery', as
   await expect(page.getByRole('heading', { name: 'How the work is directed' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Controls come first' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Regulatory reporting', exact: true })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'How the arm engages' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'How the function engages' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Advisory assessment' })).toBeVisible()
 })
 
