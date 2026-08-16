@@ -18,13 +18,13 @@ Also required: varied sentence length; concrete nouns over abstractions.
 
 ## Design standard (HARD RULES — apply to every UI edit)
 Styling contract: `docs/superpowers/specs/2026-08-09-design-standard.md`. Read it before any visual change. Non-negotiables:
-- **One dark ground.** The whole site renders on navy `#0E2A3A`. Statement moments (the homepage band, the `/capital-markets` pull-quote) are marked by serif scale, bronze ticks and the foundation rule; all of them sit on the same ground. `StatementBand` renders once site-wide, on homepage viewport 1; the design lint fails the build on a second usage.
+- **One dark ground.** The whole site renders on navy `#0E2A3A`. Statement moments (the homepage band, the `/data-ai` pull-quote) are marked by serif scale, bronze ticks and the foundation rule; all of them sit on the same ground. `StatementBand` renders once site-wide, on homepage viewport 1; the design lint fails the build on a second usage.
 - **`bone` and `charcoal` are role names; `globals.css` decides their colour.** It intercepts every utility they generate, so `bg-bone` renders navy and `text-charcoal` renders warm white `#FAF9F7`. Use them for "document surface" and "document text" and expect the dark result. Check contrast against `#0E2A3A`, or `#16394C` inside an elevated panel. See design standard §9.
 - **Tokens, not hexes.** Colours come from the Tailwind tokens and the `--homev3-*` variables in `globals.css` (ground `#0E2A3A`, elevated `#16394C`, bronze `#B08D57`, slate `#93A5B4`, warm-white `#FAF9F7`). No raw hex in components, no new colours, no gradients, no shadows, no imagery, no new fonts (typefaces gated on the IA brief §8 TODO 7). Amber `text-brand-amber-light` is a named exception for status badges only. Real platform screenshots on the `/labs/themes` theme cards are a named exception to the imagery rule (Terry, 2026-08-15; design standard §7) — nowhere else.
 - **Bronze is structural only.** Ticks, rules, small-caps strips, labels. Never body text.
 - **§ numbers ascend in display order.** Use the shared `Doc*` components; standard devices (tick, foundation rule, proof strip, statement band) are components, never hand-rolled per page.
-- **One CTA per viewport.** Header renders label OR shortLabel by breakpoint, never both.
-- **M&A before Capital Markets** wherever the arms appear.
+- **One CTA per viewport.** Header **CONTACT US** is the only primary CTA (label OR shortLabel by breakpoint, never both). There is no page-end CTA.
+- **Function 1 before function 2** wherever both appear: M&A Transaction Services (`/ma`), then Data, Transformation, AI (`/data-ai`). Header short form for function 1 is always **M&A Services** (`M&A SERVICES`), never bare `M&A`.
 
 ## Project
 Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`). No API routes, no middleware, no server actions. Output: `out/` via `next build`.
@@ -32,13 +32,13 @@ Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`).
 ## Key paths
 One route group, `(cm)`, rendering the nav + footer shell for every route:
 - `src/app/(cm)/` — the firm shell. Homepage (`page.tsx`), plus:
-  - arms: `ma`, `capital-markets`, `data-ai`
-  - per-arm sub-pages: `ma/{experience,approach,contact}`, `capital-markets/{experience,approach,contact}`
-  - firm-level: `about`, `contact`, `experience`, `approach`
-  - legacy/CM surfaces: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
+  - functions: `ma`, `data-ai`, plus `data-ai/supply-chain` (an application of function 2, not a sector)
+  - firm-level (one of each): `experience`, `approach`, `about`, `contact`
+  - function-2 depth: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
   - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
-  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision. The firm presents two arms, M&A and Capital Markets.
-- `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, capital-markets, data-ai, about, contact, experience, approach and the per-arm sub-pages). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`.
+  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision.
+  - **The firm presents two FUNCTIONS and four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`, Terry 2026-08-15). Functions: M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`). Sectors: capital markets, banking, wealth, non-bank financial institutions — an audience line, never routes and never nav items. `/capital-markets` was an arm until 2026-08-15; it retired into `/data-ai` and 301s there. Function-path copies `/ma/{experience,approach,contact}` and `/data-ai/{experience,approach,contact}` are deleted and 301 to the firm pages (hashes or `?topic=`). Header is `M&A SERVICES · DATA & AI · ABOUT` plus Contact Us → `/contact`. Do not build sector pages or per-sector service catalogues.
+- `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, data-ai, about, contact, experience, approach). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`. NOTE: function-2 content keys are still named `cm*` (`cmCta`, `cmExperience`, `cmApproach`, `cmCases`, …) — kept deliberately so component contracts did not churn; firm `/experience` and `/approach` read them as data sources.
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo
 - Inline TSX copy (not in site.ts): `/labs`, `/blog/why-claude`, `/privacy`, `/terms`

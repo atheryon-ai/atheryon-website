@@ -2,13 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DocPage, DocBanner, DocSection, DocFooter } from '@/components'
 import { site } from '@/content/site'
-import {
-  ODS_THEMES,
-  BUSINESS_THEMES_BY_FUNCTION,
-  FUNCTION_META,
-  FUNCTION_ORDER,
-  type Theme,
-} from '@/content/themes'
+import { ODS_THEMES, FUNCTION_META, type Theme } from '@/content/themes'
+// Bands come from metrics, not straight from themes.ts: the published set
+// excludes the retired mortgages function. Importing FUNCTION_ORDER or
+// BUSINESS_THEMES_BY_FUNCTION directly here would render a Mortgages band.
+import { PUBLISHED_THEMES_BY_FUNCTION } from '@/content/metrics'
 
 const { themes } = site.pages
 
@@ -26,12 +24,12 @@ export const metadata: Metadata = {
   },
 }
 
-const businessThemeCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(
-  (s, list) => s + list.length,
+const businessThemeCount = PUBLISHED_THEMES_BY_FUNCTION.reduce(
+  (s, [, list]) => s + list.length,
   0,
 )
-const businessPageCount = Object.values(BUSINESS_THEMES_BY_FUNCTION).reduce(
-  (s, list) => s + list.reduce((ss, t) => ss + (t.pages || 0), 0),
+const businessPageCount = PUBLISHED_THEMES_BY_FUNCTION.reduce(
+  (s, [, list]) => s + list.reduce((ss, t) => ss + (t.pages || 0), 0),
   0,
 )
 
@@ -133,11 +131,9 @@ function ThemeBlock({
 export default function ThemesPage() {
   return (
     <DocPage numbered={false}>
-      <h1 className="sr-only">{themes.headline}</h1>
-
       <DocBanner
         label="atheryon / labs / themes"
-        title={themes.headline}
+        title="Platform themes"
         body={themes.intro}
       />
 
@@ -167,8 +163,7 @@ export default function ThemesPage() {
             {businessThemeCount} themes · {businessPageCount} pages
           </div>
 
-          {FUNCTION_ORDER.map((fn) => {
-            const list = BUSINESS_THEMES_BY_FUNCTION[fn]
+          {PUBLISHED_THEMES_BY_FUNCTION.map(([fn, list]) => {
             if (!list || list.length === 0) return null
             const meta = FUNCTION_META[fn]
             return (

@@ -20,7 +20,15 @@ const TOPIC_LABELS: Record<string, string> = {
   'ai-direction': 'AI Direction',
   'system-assessment': 'System assessment',
   'ma-execution': 'M&A execution review',
-  'capital-markets': 'Capital markets engagement',
+  'data-ai': 'Data, transformation and AI program',
+  // Retained for links and bookmarks predating the 2026-08-15 move of capital
+  // markets from a function to a sector: the slug still resolves, and it maps
+  // onto function 2, which absorbed that work. Not offered in the select.
+  // Keeping the key also keeps the string stable for anything downstream of
+  // Formspree that filters on it.
+  'capital-markets': 'Data, transformation and AI program',
+  // Retained for links predating the 2026-08-15 retirement of the practice;
+  // it is not offered in the practice select.
   mortgages: 'Mortgages practice',
 }
 
@@ -89,8 +97,34 @@ function ContactFormInner({
           />
         </div>
 
-        {topicParam && (
+        {/* With a topic already known — an arm's contact page, or an offer
+            CTA carrying ?topic= — the practice is not in question and rides
+            along hidden. The neutral /contact has no such context, so it asks
+            here instead of making the visitor pick an arm on a page first. */}
+        {topicParam ? (
           <input type="hidden" name="topic" value={topicParam} />
+        ) : (
+          <div>
+            <label
+              htmlFor="topic"
+              className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2"
+            >
+              Practice
+            </label>
+            <select
+              id="topic"
+              name="topic"
+              defaultValue=""
+              className="w-full px-4 py-3 bg-white border border-charcoal/30 font-mono text-sm text-charcoal focus:outline-none focus:border-charcoal transition-colors"
+            >
+              {/* Two functions (spec §4). The capital-markets value still
+                  resolves through TOPIC_LABELS for old links, but it is not
+                  offered here: it is a sector, not something to choose. */}
+              <option value="">Not sure yet</option>
+              <option value="ma-execution">M&A Transaction Services</option>
+              <option value="data-ai">Data, Transformation, AI</option>
+            </select>
+          </div>
         )}
 
         <div>

@@ -29,17 +29,24 @@ export default function HomePage() {
         subheading={s.hero.subheading}
         arms={s.arms.items}
         underpinning={s.arms.underpinning.items}
-        cta={s.hero.primaryCta}
       />
 
-      {/* Section 2 — document register opens: supporting copy (Appendix B
-          verbatim) and the three equal explore links (Terry 2026-08-09). */}
+      {/* Document register: who / what / who for, then firm-level
+          credentials, then the two explore links. Case write-ups live
+          on the function pages. */}
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-12 md:py-16">
           <p className="text-lg md:text-xl text-charcoal/85 leading-relaxed max-w-3xl mb-8">
             {s.hero.supporting}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
+          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-charcoal leading-tight mb-8">
+            {s.trackRecord.title}
+          </h2>
+          <ProofStrip items={s.trackRecord.items} />
+          <p className="mt-10 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-4">
+            {s.hero.explore.intro}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 max-w-3xl">
             {s.hero.explore.items.map((entry) => (
               <Link
                 key={entry.id}
@@ -54,16 +61,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Parallel arm sections (Terry 2026-08-09): the front page splits
-          evenly — transaction proof under M&A, the $84M proof point under
-          Capital Markets. Principles live with the sub pages. */}
       <DocSection label={s.maSection.label} title={s.maSection.title}>
-        <ProofStrip items={s.maSection.proof.items} />
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+          {s.maSection.intro}
+        </p>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+          {s.maSection.supporting}
+        </p>
       </DocSection>
 
       <DocSection label={s.cmSection.label} title={s.cmSection.title}>
-        <ProofStrip items={s.cmSection.proof.items} />
-        <p className="mt-8 max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+          {s.cmSection.intro}
+        </p>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
           {s.cmSection.line}
         </p>
       </DocSection>
@@ -91,7 +102,7 @@ export default function HomePage() {
         </Link>
       </DocSection>
 
-      <DocFooter label="atheryon / overview / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / overview / end-of-document" />
     </DocPage>
   )
 }

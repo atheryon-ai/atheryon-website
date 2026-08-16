@@ -9,13 +9,14 @@ type Props = {
   subheading: string
   arms: ReadonlyArray<Arm>
   underpinning: ReadonlyArray<string>
-  cta: { label: string; href: string }
+  cta?: { label: string; href: string }
 }
 
 // Statement band (design standard §1): the poster register. Deep navy
-// surface, serif claim, arms with bronze ticks over the foundation rule,
-// one primary CTA. Full-band use is reserved for homepage viewport 1 — the
-// design lint fails the build if this component is rendered more than once.
+// surface, serif claim, function ticks over the foundation rule. The
+// contact CTA lives in the header only (Terry 2026-08-15). Full-band use
+// is reserved for homepage viewport 1 — the design lint fails the build
+// if this component is rendered more than once.
 export function StatementBand({ lines, subheading, arms, underpinning, cta }: Props) {
   return (
     <section className="bg-navy">
@@ -48,13 +49,15 @@ export function StatementBand({ lines, subheading, arms, underpinning, cta }: Pr
 
         <FoundationRule items={underpinning} />
 
-        <Link
-          href={cta.href}
-          className="mt-12 md:mt-14 inline-flex items-center gap-2 px-6 py-3 font-mono text-sm font-medium uppercase tracking-[0.10em] transition-colors hover:bg-white/10 text-warm-white border border-bronze"
-        >
-          {cta.label}
-          <span aria-hidden="true">→</span>
-        </Link>
+        {cta && (
+          <Link
+            href={cta.href}
+            className="mt-12 md:mt-14 inline-flex items-center gap-2 px-6 py-3 font-mono text-sm font-medium uppercase tracking-[0.10em] transition-colors hover:bg-white/10 text-warm-white border border-bronze"
+          >
+            {cta.label}
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
       </div>
     </section>
   )

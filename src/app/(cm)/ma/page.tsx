@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ArmSubNav } from '@/components/ArmSubNav'
 import { ServiceLineIndex } from '@/components/ServiceLineIndex'
-import { DocBanner, DocBullets, DocFooter, DocPage, DocSection } from '@/components/Doc'
+import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
@@ -34,26 +35,16 @@ export default function MaArmPage() {
           <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
             {s.principle.statement}
           </p>
-          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
-            {s.principle.support}
-          </p>
+          {s.principle.support && (
+            <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
+              {s.principle.support}
+            </p>
+          )}
         </div>
       </DocSection>
 
-      {/* Terry 2026-08-09 (21:28 review): the Why Clients Choose Atheryon
-          copy is M&A copy and lives here. */}
-      <DocSection label={s.why.label} title={s.why.title}>
-        <div className="max-w-3xl space-y-6 text-base md:text-lg text-charcoal/85 leading-relaxed">
-          {s.why.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-
-        <div className="mt-10 max-w-3xl">
-          <p className="text-base md:text-lg text-charcoal/85 mb-4">{s.why.engageIntro}</p>
-          <DocBullets items={[...s.why.engageItems]} />
-        </div>
-      </DocSection>
+      {/* Why / values / belief cut 2026-08-15 (MECE): they restated the
+          principle and the four boxes. Landing is offer then engage. */}
 
       <DocSection label={s.lines.label} title={s.lines.title}>
         <ServiceLineIndex
@@ -61,85 +52,78 @@ export default function MaArmPage() {
             id: line.id,
             label: line.name,
             note: line.tagline,
+            items: line.items,
           }))}
         />
+        <details className="workflow-details mt-10 border-y border-charcoal/15">
+          <summary className="cursor-pointer min-h-14 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/70 hover:text-charcoal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze">
+            <span>
+              {s.workflows.summary}
+              <span className="block mt-1 font-sans text-sm normal-case tracking-normal text-charcoal/70">
+                {s.workflows.subline}
+              </span>
+            </span>
+            <span className="details-indicator text-xl" aria-hidden="true" />
+          </summary>
+          <div className="pt-6">
+            <p className="max-w-3xl text-base text-charcoal/85 leading-relaxed mb-8">
+              {s.workflows.intro}
+            </p>
+            <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+              {s.workflows.items.map((workflow) => (
+                <li key={workflow.id} id={workflow.id} className="py-8 scroll-mt-24">
+                  <h4 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight mb-6">
+                    {workflow.name}
+                  </h4>
+                  <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {(
+                      [
+                        ['Input', workflow.input],
+                        ['AI agents', workflow.agents],
+                        ['Processing', workflow.processing],
+                        ['Output', workflow.output],
+                      ] as const
+                    ).map(([label, body]) => (
+                      <div key={label}>
+                        <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60 mb-2">
+                          {label}
+                        </dt>
+                        <dd className="text-sm text-charcoal/85 leading-relaxed">{body}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </details>
+      </DocSection>
+
+      <DocSection label={s.engagements.label} title={s.engagements.title}>
         <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.lines.items.map((line) => (
-            <li key={line.id} id={line.id} className="py-10 md:py-12 scroll-mt-24">
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
-                {line.index}
-              </div>
-              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
-                {line.name}
-              </h3>
-              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
-                {line.tagline}
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <ul className="divide-y divide-charcoal/15 border-y border-charcoal/15">
-                  {line.items.map((item) => (
-                    <li key={item} className="py-3 text-sm md:text-base text-charcoal/85">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="space-y-6 text-base text-charcoal/85 leading-relaxed">
-                  {line.body.split('\n\n').map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+          {s.engagements.items.map((item) => (
+            <li key={item.id} className="py-6">
+              {'figure' in item && item.figure && (
+                <div className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal">
+                  {item.figure}
                 </div>
-              </div>
-
-              {/* Rev 7: the three transaction workflows relocated from
-                  /capital-markets — collapsed secondary detail under line 04. */}
-              {line.id === 'technology-data-migration' && (
-                <details className="workflow-details mt-8 border-y border-charcoal/15">
-                  <summary className="cursor-pointer min-h-14 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-charcoal/70 hover:text-charcoal transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bronze">
-                    <span>
-                      {s.workflows.summary}
-                      <span className="block mt-1 font-sans text-sm normal-case tracking-normal text-charcoal/70">
-                        {s.workflows.subline}
-                      </span>
-                    </span>
-                    <span className="details-indicator text-xl" aria-hidden="true" />
-                  </summary>
-                  <div className="pt-6">
-                    <p className="max-w-3xl text-base text-charcoal/85 leading-relaxed mb-8">
-                      {s.workflows.intro}
-                    </p>
-                    <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-                      {s.workflows.items.map((workflow) => (
-                        <li key={workflow.id} id={workflow.id} className="py-8 scroll-mt-24">
-                          <h4 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight mb-6">
-                            {workflow.name}
-                          </h4>
-                          <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {(
-                              [
-                                ['Input', workflow.input],
-                                ['AI agents', workflow.agents],
-                                ['Processing', workflow.processing],
-                                ['Output', workflow.output],
-                              ] as const
-                            ).map(([label, body]) => (
-                              <div key={label}>
-                                <dt className="font-mono text-[11px] uppercase tracking-[0.18em] text-charcoal/60 mb-2">
-                                  {label}
-                                </dt>
-                                <dd className="text-sm text-charcoal/85 leading-relaxed">{body}</dd>
-                              </div>
-                            ))}
-                          </dl>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                </details>
               )}
+              <h3 className="mt-2 font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {item.name}
+              </h3>
+              <p className="mt-2 max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+                {item.summary}
+              </p>
             </li>
           ))}
         </ol>
+        <Link
+          href={s.engagements.href}
+          className="mt-8 inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline"
+        >
+          {s.engagements.ctaLabel}
+          <span aria-hidden="true">→</span>
+        </Link>
       </DocSection>
 
       {!isPending(s.engagement.body) && (
@@ -152,45 +136,7 @@ export default function MaArmPage() {
         </DocSection>
       )}
 
-      {/* Moved from the homepage (Terry 2026-08-09: M&A-specific). */}
-      <DocSection label={s.values.label} title={s.values.title}>
-        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.values.items.map((value, i) => (
-            <li
-              key={value.id}
-              className="grid grid-cols-[auto_1fr] md:grid-cols-[4rem_minmax(14rem,0.6fr)_minmax(0,1.4fr)] gap-x-5 md:gap-x-8 gap-y-2 py-6"
-            >
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 pt-1">
-                {String(i + 1).padStart(2, '0')}
-              </div>
-              <h3 className="font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
-                {value.name}
-              </h3>
-              <p className="col-start-2 md:col-start-3 text-base text-charcoal/85 leading-relaxed max-w-3xl">
-                {value.body}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </DocSection>
-
-      {/* Our Belief (Terry 2026-08-09: M&A copy) — closing statement
-          moment, unlabelled (no §). */}
-      <DocSection>
-        <div className="max-w-4xl py-4 md:py-8">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 mb-6">
-            {s.belief.kicker}
-          </p>
-          <p className="font-display text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-charcoal leading-[1.12]">
-            {s.belief.statement}
-          </p>
-          <p className="mt-8 text-base md:text-lg text-charcoal/75 leading-relaxed max-w-3xl">
-            {s.belief.support}
-          </p>
-        </div>
-      </DocSection>
-
-      <DocFooter label="atheryon / ma / end-of-document" cta={{ ...v3.maCta }} />
+      <DocFooter label="atheryon / ma / end-of-document" />
     </DocPage>
   )
 }

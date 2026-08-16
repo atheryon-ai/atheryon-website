@@ -5,7 +5,9 @@
 export function FoundationRule({ items }: { items: ReadonlyArray<string> }) {
   return (
     <div className="mt-10 md:mt-12 border-t-[1.5px] border-bronze/60 pt-7">
-      <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-bronze">
+      {/* Case comes from the items. Do not CSS-uppercase: NBFIs must keep
+          a lowercase plural s (Terry 2026-08-15). */}
+      <span className="font-mono text-xs md:text-sm tracking-[0.3em] text-bronze">
         {items.join(' · ')}
       </span>
     </div>

@@ -1,9 +1,13 @@
-/**
- * Snapshot of labs-platform/src/lib/themes/themes.ts (date: 2026-05-11).
- * Dependency-free copy for the marketing site. Manual re-sync required if
- * the source taxonomy changes — there is no build-time link between repos.
- */
-
+// src/lib/themes/themes.ts
+//
+// Typed source of truth for the /themes discovery page.
+//
+// MSX twin-page entries (the /msx/* surfaces and the t-msx-hub theme) were
+// removed from this catalog on 2026-05-06. The /msx namespace continues to
+// serve on the MSX host (msx.dev.atheryon.ai / msx.atheryon.ai) but is no
+// longer surfaced on /themes. Twin-page operational routes still live under
+// src/app/(msx)/msx/*; only the theme-catalog references were stripped.
+//
 // Two top-level domains: ODS (Operational Data Store — data plane,
 // engineering surface) and BUSINESS (the operational/user surface,
 // internally subdivided into the standard banking functions).
@@ -15,8 +19,8 @@
 //   - compliance       — regulatory + control surfaces
 //   - treasury         — liquidity, payments, GL, finance
 //
-// 26 themes / 111 pages total. Sums enforced by the contract test in
-// __tests__/themes.test.ts (labs-platform).
+// 31 themes / 121 pages total. Sums enforced by the contract test in
+// __tests__/themes.test.ts.
 
 export type Domain = 'ODS' | 'BUSINESS';
 
@@ -25,7 +29,8 @@ export type BusinessFunction =
   | 'risk-analytics'
   | 'operations'
   | 'compliance'
-  | 'treasury';
+  | 'treasury'
+  | 'mortgages';
 
 export interface ThemeRoute {
   label: string;
@@ -78,7 +83,13 @@ export const FUNCTION_META: Record<
   },
   treasury: {
     label: 'Treasury / Finance',
-    blurb: 'Settlements: PvP/DvP run tracking and cash ladders by currency.',
+    blurb: 'Liquidity, settlements, funding, payments oversight, general ledger.',
+    office: 'cross',
+  },
+  mortgages: {
+    label: 'Mortgages',
+    blurb:
+      'Loan origination, LIXI2 ingestion, portfolio, pricing, and IFRS 9 expected credit loss for residential mortgages.',
     office: 'cross',
   },
 };
@@ -89,11 +100,12 @@ export const FUNCTION_ORDER: readonly BusinessFunction[] = [
   'operations',
   'compliance',
   'treasury',
+  'mortgages',
 ];
 
 const t = (id: string) => `/menu-themes-thumbs/${id}.png`;
 
-// ── ODS · Operational Data Store · 6 themes · 37 pages ────────────
+// ── ODS · Operational Data Store · 7 themes · 56 pages ────────────
 export const ODS_THEMES: readonly Theme[] = [
   {
     id: 't-schema-model',
@@ -101,9 +113,7 @@ export const ODS_THEMES: readonly Theme[] = [
     shortTitle: 'Schema Modelling',
     pages: 12,
     blurb:
-      // Counts match the working-set in the labs-platform schema browser
-      // (CDM v7.0 = 1,019 types; ISO 20022 / FpML per the schema-explorer DB).
-      '1,019 CDM types · 42 ISO 20022 messages · 14 FpML schemas. Editor, browser, graph explorer, comparer, samples, mappings library, Legend Studio.',
+      '2,043 CDM types · 44 ISO 20022 messages · 14 FpML schemas. Editor, browser, graph explorer, comparer, samples, mappings library, Legend Studio.',
     thumb: t('t-schema-model'),
     primaryRoute: '/explore/schema',
     routes: [
@@ -214,9 +224,12 @@ export const ODS_THEMES: readonly Theme[] = [
     ],
     domain: 'ODS',
   },
+  // MSX Workshop Deck moved to atheryon-ai/msx-docs (msx.docs.atheryon.ai)
+  // on 2026-05-05. The /msx/workshop/* paths 308-redirect there from
+  // src/middleware.ts.
 ];
 
-// ── BUSINESS · 20 themes · 74 pages ──────────────────────────────
+// ── BUSINESS · 25 themes · 84 pages ──────────────────────────────
 const FRONT_OFFICE: readonly Theme[] = [
   {
     id: 't-trade-board',
@@ -226,11 +239,11 @@ const FRONT_OFFICE: readonly Theme[] = [
     blurb:
       'The platform home — 1,480 live trades on a 5-stage ribbon (Validate → Execute → Confirm → Clear → Settle), capability views, per-trade SLA dots.',
     thumb: t('t-trade-board'),
-    primaryRoute: '/ops',
+    primaryRoute: '/front-office/board',
     routes: [
-      { label: 'Trade Board', href: '/ops' },
-      { label: 'Commodity Forward Demo', href: '/ops/demo/commodity-forward' },
-      { label: 'Inbox', href: '/ops/inbox' },
+      { label: 'Trade Board', href: '/front-office/board' },
+      { label: 'Commodity Forward Demo', href: '/front-office/board/demo/commodity-forward' },
+      { label: 'Inbox', href: '/front-office/board/inbox' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'front-office',
@@ -284,9 +297,9 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       'D10 Exception Management — break detection, integration visualiser, exception inbox covering Confirm → SSI → Nostro → Portfolio.',
     thumb: t('t-break-triage'),
-    primaryRoute: '/post-trade/integration',
+    primaryRoute: '/operations/break-triage',
     routes: [
-      { label: 'Break Triage', href: '/post-trade/integration' },
+      { label: 'Break Triage', href: '/operations/break-triage' },
       { label: 'Integration Visualizer', href: '/post-trade/integration-visualizer' },
       { label: 'Exceptions', href: '/post-trade/exceptions' },
     ],
@@ -301,10 +314,10 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       'Trade confirmation matching — paper / electronic / physical commodity. CF-01..18 HLR coverage.',
     thumb: t('t-confirmations'),
-    primaryRoute: '/post-trade/confirmations',
+    primaryRoute: '/operations/confirmations',
     routes: [
-      { label: 'Confirmations (D2)', href: '/post-trade/confirmations' },
-      { label: 'Confirmations — Physical', href: '/post-trade/confirmations/physical' },
+      { label: 'Confirmations (D2)', href: '/operations/confirmations' },
+      { label: 'Confirmations — Physical', href: '/operations/confirmations/physical' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -317,9 +330,9 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       'Lifecycle event flow + ops audit log. Amendments, novations, terminations, resets, allocations.',
     thumb: t('t-lifecycle'),
-    primaryRoute: '/post-trade-ops/lifecycle',
+    primaryRoute: '/operations/lifecycle',
     routes: [
-      { label: 'Lifecycle Management (D3)', href: '/post-trade-ops/lifecycle' },
+      { label: 'Lifecycle Management (D3)', href: '/operations/lifecycle' },
       { label: 'Ops Audit Log', href: '/post-trade/audit' },
     ],
     domain: 'BUSINESS',
@@ -331,11 +344,11 @@ const OPERATIONS: readonly Theme[] = [
     shortTitle: 'Netting',
     pages: 2,
     blurb:
-      '$73.2B gross / $24.7B net · 66% benefit. Compression simulator and physical commodity netting.',
+      '$73.2B gross / $24.7B net · 66% benefit. Compression simulator, multilateral, payment netting.',
     thumb: t('t-netting'),
-    primaryRoute: '/post-trade/netting-compression',
+    primaryRoute: '/operations/netting',
     routes: [
-      { label: 'Netting / Compression (D4)', href: '/post-trade/netting-compression' },
+      { label: 'Netting / Compression (D4)', href: '/operations/netting' },
       { label: 'Netting — Physical', href: '/post-trade/netting/physical' },
     ],
     domain: 'BUSINESS',
@@ -347,11 +360,11 @@ const OPERATIONS: readonly Theme[] = [
     shortTitle: 'SSI',
     pages: 3,
     blurb:
-      '50 SSIs · DVP/FOP/PVP/RVP · real BICs (CHASUS33XXX, GLOSGB2LXXX). Management, exception handling, physical commodity SSIs.',
+      '50 SSIs · DVP/FOP/PVP/RVP · real BICs (CHASUS33XXX, GLOSGB2LXXX). Exception handling, physical commodity SSIs.',
     thumb: t('t-ssi'),
-    primaryRoute: '/post-trade/ssi-management',
+    primaryRoute: '/operations/ssi',
     routes: [
-      { label: 'SSI Management (D5)', href: '/post-trade/ssi-management' },
+      { label: 'SSI Management (D5)', href: '/operations/ssi' },
       { label: 'SSI Exceptions', href: '/post-trade/ssi-exceptions' },
       { label: 'SSI — Physical', href: '/post-trade/ssi/physical' },
     ],
@@ -366,9 +379,9 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       '500 positions · 94% match · $117K disputed. ISIN-level breaks, disputes, inventory.',
     thumb: t('t-portfolio-recon'),
-    primaryRoute: '/post-trade/portfolio-reconciliation',
+    primaryRoute: '/operations/portfolio-recon',
     routes: [
-      { label: 'Portfolio Recon (alt)', href: '/post-trade/portfolio-reconciliation' },
+      { label: 'Portfolio Recon (alt)', href: '/operations/portfolio-recon' },
       { label: 'Portfolio Reconciliation', href: '/post-trade/portfolio-recon' },
       { label: 'Portfolio — Disputes', href: '/post-trade/portfolio-recon/disputes' },
       { label: 'Portfolio — Inventory', href: '/post-trade/portfolio-recon/inventory' },
@@ -384,13 +397,13 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       '8 nostro accounts · 84.9% match · USD/EUR/GBP/JPY/AUD/SGD/HKD/CHF. Analytics, audit, triage, physical commodity nostros.',
     thumb: t('t-nostro-recon'),
-    primaryRoute: '/post-trade/nostro-reconciliation',
+    primaryRoute: '/operations/nostro-recon',
     routes: [
-      { label: 'Nostro Reconciliation (D8)', href: '/post-trade/nostro-reconciliation' },
-      { label: 'Nostro — Analytics', href: '/post-trade/nostro-reconciliation/analytics' },
-      { label: 'Nostro — Audit', href: '/post-trade/nostro-reconciliation/audit' },
-      { label: 'Nostro — Triage', href: '/post-trade/nostro-reconciliation/triage' },
-      { label: 'Nostro — Physical', href: '/post-trade/nostro-reconciliation/physical' },
+      { label: 'Nostro Reconciliation (D8)', href: '/operations/nostro-recon' },
+      { label: 'Nostro — Analytics', href: '/operations/nostro-recon/analytics' },
+      { label: 'Nostro — Audit', href: '/operations/nostro-recon/audit' },
+      { label: 'Nostro — Triage', href: '/operations/nostro-recon/triage' },
+      { label: 'Nostro — Physical', href: '/operations/nostro-recon/physical' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'operations',
@@ -403,11 +416,11 @@ const OPERATIONS: readonly Theme[] = [
     blurb:
       'Physical commodity twin — trade capture, dashboard, data quality, delivery, delivery-points, lifecycle, pricing, validation, REMIT reporting.',
     thumb: t('t-commodities'),
-    primaryRoute: '/commodities/dashboard',
+    primaryRoute: '/operations/commodities',
     routes: [
       { label: 'Commodities Trade Capture', href: '/commodities/trade-capture' },
       { label: 'Delivery Points', href: '/commodities/delivery-points' },
-      { label: 'Commodities Dashboard', href: '/commodities/dashboard' },
+      { label: 'Commodities Dashboard', href: '/operations/commodities' },
       { label: 'Commodities Data Quality', href: '/commodities/quality' },
       { label: 'Commodities Delivery', href: '/commodities/delivery' },
       { label: 'Commodities Lifecycle', href: '/commodities/lifecycle' },
@@ -504,7 +517,7 @@ const RISK_ANALYTICS: readonly Theme[] = [
     shortTitle: 'Risk Analytics',
     pages: 4,
     blurb:
-      'IRRBB Basel scenarios, plus Scenarios/Stress, VaR, and Correlation.',
+      'IRRBB Basel scenarios (real, in-process), plus Scenarios/Stress, VaR, and Correlation (page shells, v2 wiring).',
     thumb: t('t-risk-analytics'),
     primaryRoute: '/risk/irrbb',
     routes: [
@@ -522,7 +535,7 @@ const RISK_ANALYTICS: readonly Theme[] = [
     shortTitle: 'P&L',
     pages: 1,
     blurb:
-      'Daily P&L and advanced attribution.',
+      'Daily P&L and advanced attribution. v1 ships the page shell with tab scaffolding; atheryon-risk pnl/pnl_advanced wiring is v2.',
     thumb: t('t-risk-pnl'),
     primaryRoute: '/risk/pnl',
     routes: [
@@ -578,13 +591,115 @@ const TREASURY: readonly Theme[] = [
     blurb:
       '$22.5B today · 11 active runs · 8 pending tonight. PvP/DvP run tracking, cash-ladder by currency.',
     thumb: t('t-settlements'),
-    primaryRoute: '/post-trade-ops/settlements',
+    primaryRoute: '/treasury/settlements',
     routes: [
-      { label: 'Settlements (D7)', href: '/post-trade-ops/settlements' },
+      { label: 'Settlements (D7)', href: '/treasury/settlements' },
     ],
     domain: 'BUSINESS',
     primaryFunction: 'treasury',
     secondaryFunctions: ['operations'],
+  },
+  {
+    id: 't-payments-gl',
+    title: 'Payments & General Ledger',
+    shortTitle: 'Payments & GL',
+    pages: 1,
+    blurb:
+      'ISO 20022 pacs.008 / pain.001 messaging, BIC routing, GL postings. D7 PM-01..07 coverage.',
+    thumb: t('t-payments-gl'),
+    primaryRoute: '/treasury/payments',
+    routes: [
+      { label: 'Payments', href: '/treasury/payments' },
+    ],
+    domain: 'BUSINESS',
+    primaryFunction: 'treasury',
+    secondaryFunctions: ['operations'],
+  },
+];
+
+const MORTGAGES: readonly Theme[] = [
+  {
+    id: 't-mortgages-workspace',
+    title: 'Mortgages Workspace',
+    shortTitle: 'Workspace',
+    pages: 3,
+    blurb:
+      'Mortgage book overview — applications dashboard, portfolio table, and a state-machine walkthrough of an application moving through the pipeline.',
+    thumb: t('t-mortgages-workspace'),
+    primaryRoute: '/mortgages',
+    routes: [
+      { label: 'Mortgages Dashboard', href: '/mortgages' },
+      { label: 'Portfolio', href: '/mortgages/portfolio' },
+      { label: 'Application Explorer', href: '/mortgages/explorer' },
+    ],
+    domain: 'BUSINESS',
+    primaryFunction: 'mortgages',
+  },
+  {
+    id: 't-mortgages-origination',
+    title: 'Origination & LIXI',
+    shortTitle: 'Origination',
+    pages: 3,
+    blurb:
+      'LIXI2 message gateway, multi-tier validation playground, and CSV migration console for bulk loan onboarding.',
+    thumb: t('t-mortgages-origination'),
+    primaryRoute: '/mortgages/gateway',
+    routes: [
+      { label: 'LIXI2 Gateway', href: '/mortgages/gateway' },
+      { label: 'Validation Playground', href: '/mortgages/validate' },
+      { label: 'CSV Migration', href: '/mortgages/migration' },
+    ],
+    domain: 'BUSINESS',
+    primaryFunction: 'mortgages',
+  },
+  {
+    id: 't-mortgages-risk',
+    title: 'Mortgage Risk & Pricing',
+    shortTitle: 'Risk & Pricing',
+    pages: 2,
+    blurb:
+      'Loan pricing calculator (fixed/variable, APR, comparison rate, DV01) and IFRS 9 expected credit loss with collateral and LMI adjustments. ALM/IRRBB lives in the Risk & Analytics module.',
+    thumb: t('t-mortgages-risk'),
+    primaryRoute: '/mortgages/pricing',
+    routes: [
+      { label: 'Loan Pricing', href: '/mortgages/pricing' },
+      { label: 'IFRS 9 ECL', href: '/mortgages/credit' },
+    ],
+    domain: 'BUSINESS',
+    primaryFunction: 'mortgages',
+  },
+  {
+    id: 't-mortgages-data',
+    title: 'LIXI2 Data Model',
+    shortTitle: 'LIXI2 Model',
+    pages: 1,
+    blurb:
+      'Interactive ReactFlow visualization of the LIXI2 type graph — categories, drill-down expansion, search, layout.',
+    thumb: t('t-mortgages-data'),
+    primaryRoute: '/mortgages/data-model',
+    routes: [{ label: 'LIXI2 Type Graph', href: '/mortgages/data-model' }],
+    domain: 'BUSINESS',
+    primaryFunction: 'mortgages',
+  },
+  {
+    // Slice D — Origination workflow operator cockpit. Gated by
+    // FEATURE_MORTGAGES_ORIGINATION (sidebar sub-item is conditionally
+    // included in nav-config.ts; routes 404 via the route group layout
+    // when the flag is off).
+    id: 't-mortgages-origination-cockpit',
+    title: 'Origination Cockpit',
+    shortTitle: 'Cockpit',
+    pages: 2,
+    blurb:
+      'LIXI2-native operator surface — live KPI rollup, 17-state pipeline funnel, stalled queues, and 30-day throughput for the mortgage origination workflow engine.',
+    thumb: t('t-mortgages-origination-cockpit'),
+    primaryRoute: '/mortgages/origination/cockpit',
+    routes: [
+      { label: 'Cockpit Home', href: '/mortgages/origination/cockpit' },
+      { label: 'Case Queue', href: '/mortgages/origination/queue' },
+    ],
+    domain: 'BUSINESS',
+    primaryFunction: 'mortgages',
   },
 ];
 
@@ -594,6 +709,7 @@ export const BUSINESS_THEMES_BY_FUNCTION: Record<BusinessFunction, readonly Them
   operations: OPERATIONS,
   compliance: COMPLIANCE,
   treasury: TREASURY,
+  mortgages: MORTGAGES,
 };
 
 export const ALL_THEMES: readonly Theme[] = [
@@ -603,6 +719,7 @@ export const ALL_THEMES: readonly Theme[] = [
   ...OPERATIONS,
   ...COMPLIANCE,
   ...TREASURY,
+  ...MORTGAGES,
 ];
 
 export const ALL_THEME_IDS: readonly string[] = ALL_THEMES.map((th) => th.id);

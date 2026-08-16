@@ -18,10 +18,10 @@ test('/system §01 renders the architecture diagram at desktop and mobile', asyn
   await expect(figure.getByText('Operational Outputs', { exact: true })).toBeVisible()
 })
 
-test('/ma/contact form field order is Name, Company, Email, Message', async ({ page }) => {
-  // The enquiry form lives on the arm contact pages; root /contact is a
-  // chooser (Terry 2026-08-09).
-  await page.goto('/ma/contact')
+test('/contact form field order is Name, Company, Email, Message', async ({ page }) => {
+  // The enquiry form lives on the firm /contact page. Function context
+  // arrives as ?topic= (Terry 2026-08-15).
+  await page.goto('/contact?topic=ma-execution')
   const labels = await page.locator('form label').allTextContents()
   const trimmed = labels.map((l) => l.trim().replace(/\s*\*$/, '').trim())
   expect(trimmed[0]).toMatch(/^Name/i)

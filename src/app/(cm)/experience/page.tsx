@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
-import { ArmChooser } from '@/components/ArmChooser'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 
-// Chooser page (Terry 2026-08-09): experience is arm-scoped; this route
-// stays live as a thin chooser between the two arms.
+// One Experience page (Terry 2026-08-15): full Context / Role / Outcome for
+// both functions, function 1 first. Function-path URLs 301 here with hashes.
 const page = v3.pages.experience
 const s = page.sections
+
+const SOURCES = {
+  maExperience: v3.pages.maExperience,
+  cmExperience: v3.pages.cmExperience,
+} as const
 
 export const metadata: Metadata = {
   title: page.title,
@@ -20,16 +24,84 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://atheryon.com.au/experience' },
 }
 
-export default function ExperienceChooserPage() {
+export default function ExperiencePage() {
   return (
-    <DocPage compact>
-      <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+    <DocPage>
+      <DocBanner label={s.hero.label} title={s.hero.title} />
 
-      <DocSection>
-        <ArmChooser items={s.links} />
-      </DocSection>
+      {s.arms.map((arm) => {
+        const source = SOURCES[arm.sourceKey]
+        const cases = source.sections.cases
+        return (
+          <DocSection key={arm.id} id={arm.id} label={arm.label} title={cases.title}>
+            {'provenance' in cases && cases.provenance && (
+              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-4">
+                {cases.provenance}
+              </p>
+            )}
+            {'framing' in cases && cases.framing && (
+              <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-10">
+                {cases.framing}
+              </p>
+            )}
 
-      <DocFooter label="atheryon / experience / end-of-document" cta={{ ...v3.cta }} />
+            <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+              {cases.items.map((entry, i) => (
+                <li
+                  key={entry.id}
+                  id={entry.id}
+                  className="grid grid-cols-1 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-12 py-10 scroll-mt-24"
+                >
+                  <header>
+                    <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-3">
+                      {'index' in entry ? entry.index : String(i + 1).padStart(2, '0')}
+                    </div>
+                    <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight mb-3">
+                      {entry.name}
+                    </h3>
+                    <div className="font-mono text-xs uppercase tracking-[0.18em] text-charcoal/60 leading-relaxed">
+                      {entry.engagement}
+                      <br />
+                      {entry.client}
+                    </div>
+                  </header>
+
+                  <dl className="divide-y divide-charcoal/15 border-t border-charcoal/15 md:border-t-0">
+                    {entry.details.map((detail) => {
+                      const isOutcome = detail.label === 'Outcome'
+                      return (
+                      <div
+                        key={detail.label}
+                        className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-6 py-5 first:pt-5 md:first:pt-0"
+                      >
+                        <dt
+                          className={`font-mono text-[11px] uppercase tracking-[0.18em] ${
+                            isOutcome ? 'text-bronze' : 'text-charcoal/60'
+                          }`}
+                        >
+                          {detail.label}
+                        </dt>
+                        <dd
+                          className={`leading-relaxed ${
+                            isOutcome
+                              ? 'text-lg md:text-xl font-medium text-charcoal'
+                              : 'text-base md:text-lg text-charcoal/85'
+                          }`}
+                        >
+                          {detail.body}
+                        </dd>
+                      </div>
+                      )
+                    })}
+                  </dl>
+                </li>
+              ))}
+            </ol>
+          </DocSection>
+        )
+      })}
+
+      <DocFooter label="atheryon / experience / end-of-document" />
     </DocPage>
   )
 }

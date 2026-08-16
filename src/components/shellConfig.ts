@@ -3,8 +3,8 @@
 // There is one shell. `app/(cm)/layout.tsx` renders it for every route and
 // passes its mode to HomeNav, so the correct HTML is emitted at static-export
 // build time with no client mode detection. Route-group folders `(name)` do
-// not affect URLs, so /ma and /capital-markets sit inside that group and
-// inherit the firm shell rather than carrying layouts of their own.
+// not affect URLs, so /ma and /data-ai sit inside that group and inherit the
+// firm shell rather than carrying layouts of their own.
 //
 // The mortgages mode and its separate layout were removed on 2026-08-12; see
 // mortgagesRoadmap in content/site.ts. `Mode` stays a union so that a second
@@ -18,22 +18,29 @@ export type ShellConfig = {
 }
 
 export const shellConfig: Record<Mode, ShellConfig> = {
-  // Firm shell (rev 5 arms model). /approach left the nav (linked from body
-  // copy and footer); CM legacy pages are reached via /capital-markets and
-  // the footer, not the header.
+  // Firm shell (functions-and-sectors spec §5). /approach left the nav
+  // (linked from body copy and footer); function-2 depth pages are reached
+  // via /data-ai and the footer, not the header.
   cm: {
-    // Slim top bar (Terry 2026-08-09): arms + underpinning + about. The
-    // per-arm sub-pages (experience / approach / contact) hang off each
-    // arm's own sub-nav row, not the header.
+    // Slim top bar: the two functions plus about. Three items — Capital
+    // Markets left the header when it stopped being a function and became
+    // one of four sectors. Function sub-nav is Overview · Experience ·
+    // Approach (firm URLs with hashes); Contact Us is header-only.
     nav: [
-      { label: 'M&A', href: '/ma' },
-      { label: 'CAPITAL MARKETS', href: '/capital-markets' },
+      { label: 'M&A SERVICES', href: '/ma' },
       { label: 'DATA & AI', href: '/data-ai' },
       { label: 'ABOUT', href: '/about' },
     ],
     cta: {
-      label: 'DISCUSS A SITUATION',
-      shortLabel: 'DISCUSS',
+      // shortLabel MUST stay shorter than label. It renders below 420px via
+      // .home-nav-cta-short, and the header is a 3-column grid (brand · CTA ·
+      // MENU) with no room to spare at 375px. When the CTA became "Contact Us"
+      // in 6636eb7 both fields were set to the same string — the earlier values
+      // were BOOK / TALK / REVIEW — which made the small-viewport swap render
+      // an identical-width label and saved nothing. That silently overflowed
+      // the header by 4px on every page using this shell.
+      label: 'CONTACT US',
+      shortLabel: 'CONTACT',
       href: '/contact',
     },
   },

@@ -90,7 +90,7 @@ export default function AboutPage() {
         </div>
       </DocSection>
 
-      <DocFooter label="atheryon / about / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / about / end-of-document" />
     </DocPage>
   )
 }

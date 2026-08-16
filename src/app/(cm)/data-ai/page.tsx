@@ -1,15 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArmSubNav } from '@/components/ArmSubNav'
+import { ServiceLineIndex } from '@/components/ServiceLineIndex'
 import { DocBanner, DocFooter, DocPage, DocSection } from '@/components/Doc'
 import { v3 } from '@/content/site'
 import { isPending } from '@/lib/pending'
 
+// Function 2 (functions-and-sectors spec §4; MECE cut 2026-08-15). Banner,
+// principle, markets depth boxes, then three related links — Labs, M&A
+// line-04, supply chain. No discipline grid, no third "where it shows up" index.
 const page = v3.pages.dataAi
 const s = page.sections
 
-// TODO(terry): {{DATA_AI_PRINCIPLE}} — the underpinning principle renders
-// here once supplied (principles live with the sub pages, 2026-08-09).
 const showPrinciple = !isPending(s.principle.statement)
+
+// Labs note from platform depth; M&A + supply chain from the retired arms list.
+// Do not invent link copy here.
+const relatedLinks = [
+  s.depth.links.find((link) => link.href === '/labs'),
+  ...s.arms.links,
+].filter((link): link is (typeof s.arms.links)[number] => Boolean(link))
 
 export const metadata: Metadata = {
   title: page.title,
@@ -27,6 +37,7 @@ export default function DataAiPage() {
   return (
     <DocPage>
       <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+      <ArmSubNav base="/data-ai" active="overview" />
 
       {showPrinciple && (
         <DocSection>
@@ -38,27 +49,50 @@ export default function DataAiPage() {
         </DocSection>
       )}
 
-      <DocSection label={s.operatingModel.label} title={s.operatingModel.title}>
-        <ol className="grid grid-cols-1 lg:grid-cols-3 gap-px border border-charcoal/15 bg-charcoal/15">
-          {([s.data, s.transformation, s.ai] as const).map((section, index) => (
-            <li key={section.title} className="bg-bone p-6 md:p-8">
-              <div className="font-mono text-xs tabular-nums tracking-[0.18em] text-charcoal/55 mb-5">
-                {String(index + 1).padStart(2, '0')}
-              </div>
-              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal leading-tight">
-                {section.title}
+      <DocSection label={s.lines.label} title={s.lines.title}>
+        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+          {s.lines.intro}
+        </p>
+        <ServiceLineIndex
+          items={s.lines.items.map((line) => ({
+            id: line.id,
+            label: line.name,
+            note: line.tagline,
+            items: line.items,
+          }))}
+        />
+      </DocSection>
+
+      <DocSection label={s.engagements.label} title={s.engagements.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.engagements.items.map((item) => (
+            <li key={item.id} className="py-6">
+              {'figure' in item && item.figure && (
+                <div className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal">
+                  {item.figure}
+                </div>
+              )}
+              <h3 className="mt-2 font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {item.name}
               </h3>
-              <p className="mt-5 text-base text-charcoal/85 leading-relaxed">
-                {section.body}
+              <p className="mt-2 max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+                {item.summary}
               </p>
             </li>
           ))}
         </ol>
+        <Link
+          href={s.engagements.href}
+          className="mt-8 inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline"
+        >
+          {s.engagements.ctaLabel}
+          <span aria-hidden="true">→</span>
+        </Link>
       </DocSection>
 
-      <DocSection label={s.arms.label} title={s.arms.title}>
+      <DocSection>
         <ul className="border-y border-charcoal/15 divide-y divide-charcoal/15">
-          {s.arms.links.map((link) => (
+          {relatedLinks.map((link) => (
             <li key={link.href} className="grid grid-cols-1 sm:grid-cols-[12rem_1fr] gap-2 sm:gap-6 py-5">
               <Link
                 href={link.href}
@@ -72,7 +106,7 @@ export default function DataAiPage() {
         </ul>
       </DocSection>
 
-      <DocFooter label="atheryon / data-ai / end-of-document" cta={{ ...v3.cta }} />
+      <DocFooter label="atheryon / data-ai / end-of-document" />
     </DocPage>
   )
 }

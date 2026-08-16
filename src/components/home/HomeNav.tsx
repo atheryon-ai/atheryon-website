@@ -21,27 +21,29 @@ export function HomeNav({ mode = 'cm' }: { mode?: Mode }) {
   const btnRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname()
 
-  // Council review 2026-08-10: inside an arm the destination is
-  // unambiguous, so the primary CTA deep-links to that arm's contact
-  // instead of forking at the /contact chooser.
-  const ctaHref =
-    pathname === '/ma' || pathname.startsWith('/ma/')
-      ? '/ma/contact'
-      : pathname === '/capital-markets' || pathname.startsWith('/capital-markets/')
-        ? '/capital-markets/contact'
-        : config.cta.href
+  // The function-2 depth pages: reached from /data-ai and the footer, never
+  // the header. They drive both the CTA destination and the nav highlight
+  // below, so they are named once (functions spec §5).
+  const FUNCTION_2_DEPTH = ['/system', '/labs', '/themes', '/offers']
+
+  const isWithin = (route: string) => pathname === route || pathname.startsWith(`${route}/`)
+
+  // One firm Contact Us destination. Function context is a topic query so
+  // the /contact form can preselect. Old /ma/contact and /data-ai/contact
+  // URLs 301 here (staticwebapp.config.json).
+  const ctaHref = isWithin('/ma')
+    ? '/contact?topic=ma-execution'
+    : isWithin('/data-ai') || FUNCTION_2_DEPTH.some(isWithin)
+      ? '/contact?topic=data-ai'
+      : config.cta.href
 
   const isNavItemActive = (href: string) => {
-    if (href === '/capital-markets') {
-      return (
-        pathname === href ||
-        pathname.startsWith(`${href}/`) ||
-        ['/system', '/labs', '/themes', '/offers'].some(
-          (route) => pathname === route || pathname.startsWith(`${route}/`),
-        )
-      )
+    // DATA & AI also lights up across the function-2 depth pages, which have
+    // no header item of their own.
+    if (href === '/data-ai') {
+      return isWithin(href) || FUNCTION_2_DEPTH.some(isWithin)
     }
-    return pathname === href || pathname.startsWith(`${href}/`)
+    return isWithin(href)
   }
 
   // Close when the route changes (link selected from the panel).

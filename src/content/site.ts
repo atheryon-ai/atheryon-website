@@ -1,5 +1,23 @@
 import { metrics } from './metrics'
 
+// The banking domains Terry has worked, listed on the /labs evidence strip.
+// The "banking functions covered" stat derives its number from this array, so
+// the figure and the list beneath it can never disagree. This is a
+// biographical career claim, not a count of the labs platform taxonomy —
+// which is why it does not match the platform theme counts in metrics.ts.
+// Mortgages stays: the retired mortgages PRACTICE was an offering, while this
+// line is career history and survived that retirement deliberately.
+const evidenceBoxes = [
+  'Operational Data Store',
+  'Front Office',
+  'Operations',
+  'Compliance & Reporting',
+  'Market Risk',
+  'Credit Risk',
+  'Treasury',
+  'Mortgages',
+] as const
+
 export const site = {
   name: 'Atheryon',
   email: 'info@atheryon.com.au',
@@ -9,7 +27,6 @@ export const site = {
     { label: 'Themes', href: '/themes' },
     { label: 'Offers', href: '/offers' },
     { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
   ],
 
   // site.pages.* holds data for the preserved routes (/labs/*, /programs/*).
@@ -80,22 +97,19 @@ export const site = {
       evidence: {
         badge: 'At a glance',
         title: 'What was built, how fast',
+        // 2026-08-16: the two counts here used to be hardcoded 8 and 31. The 8
+        // is real but was never a platform-taxonomy figure — it counts the
+        // career domain boxes listed directly below, so it now derives from
+        // that array and cannot drift from the list it summarises. The 31 had
+        // no source anywhere in labs-platform and is replaced by the derived
+        // published theme count.
         statsItems: [
-          { value: String(metrics.bankingFunctions), label: 'banking functions covered' },
+          { value: String(evidenceBoxes.length), label: 'banking functions covered' },
           { value: '1', label: 'CDM data model — compliant with ISDA (International Swaps and Derivatives Association), end to end' },
-          { value: String(metrics.flagshipSurfaces), label: 'flagship surfaces shipped' },
+          { value: String(metrics.labs.themes), label: 'platform themes shipped' },
           { value: 'Weeks', label: 'vs. multi-year consultancy programmes' },
         ],
-        boxes: [
-          'Operational Data Store',
-          'Front Office',
-          'Operations',
-          'Compliance & Reporting',
-          'Market Risk',
-          'Credit Risk',
-          'Treasury',
-          'Mortgages',
-        ],
+        boxes: evidenceBoxes,
         caption: 'The bank as Terry has worked it. Each function maps to a domain shipped inside a tier-1 institution.',
         partners: [
           { name: 'Microsoft Partner' },
@@ -245,7 +259,7 @@ export const site = {
         hero: {
           eyebrow: '01 / Code',
           headline: 'Buy the Labs code.',
-          lede: `License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, ${metrics.bankingFunctions} banking functions, ${metrics.flagshipSurfaces} surfaces, deployable.`,
+          lede: `License the Atheryon Labs platform code as a working banking reference implementation — CDM-native, ${metrics.labs.themes} themes across ${metrics.labs.surfaces} operational surfaces, deployable.`,
         },
         whatYouGet: {
           badge: 'What you get',
@@ -256,7 +270,11 @@ export const site = {
             // (CDM v7.0 = 1,019 types), ISO 20022 + FpML per `docs/requirements/REQ-schema-explorer-dynamic-data.md`
             // (working-set counts from the schema browser DB). Verifiable by clicking through to /explore/schema.
             'CDM-native data model — 1,019 CDM types, 42 ISO 20022 messages, 14 FpML schemas, end-to-end ISDA Common Domain Model alignment.',
-            `${metrics.flagshipSurfaces} flagship surfaces shipped across trading, post-trade, risk, treasury, compliance, and mortgages.`,
+            // 2026-08-16: "and mortgages" dropped from the enumeration. The
+            // count is now derived and excludes the retired mortgages themes,
+            // so listing mortgages here would describe a domain the number in
+            // the same sentence does not include.
+            `${metrics.labs.themes} platform themes shipped across trading, post-trade, risk, treasury and compliance.`,
             'Deployment notes: built on Azure-friendly stack (Next.js + Python services). Deployable into your estate.',
             'Source paired with the directorial track (see License the prompts for the matching prompt archive).',
           ],
@@ -394,10 +412,10 @@ export const site = {
     },
 
     themes: {
-      title: 'Themes — Atheryon Labs',
+      title: 'Platform themes — Atheryon Labs',
       description: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages across the Atheryon labs platform — the live discovery surface for ODS, front office, risk & analytics, operations, compliance, and treasury.`,
       badge: 'Discovery',
-      headline: 'Explore the labs surface',
+      headline: 'Platform themes',
       intro: 'A public preview of the Atheryon labs discovery surface: every theme and every sub-page, rendered here as a static map. The lattice mirrors the operational shape of a tier-1 capital-markets bank. An Operational Data Store carries the schemas, validators, lifecycle, entity intelligence, ops and dev tools; five business-unit surfaces sit beside it, covering Front Office, Risk & Analytics, Operations, Compliance, and Treasury / Finance.',
       countsLine: `${metrics.labs.themes} themes · ${metrics.labs.pages} pages · ${metrics.labs.surfaces} surfaces (1 ODS data store + ${metrics.labs.businessUnits} business units)`,
       businessDividerLabel: 'Business Units',
@@ -838,7 +856,7 @@ export const v2 = {
   // Firm-wide page-end CTA label (rev 4) — DocFooter default for the legacy
   // L3 pages that still read v2.cta.
   cta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/contact',
   },
 } as const
@@ -846,8 +864,8 @@ export const v2 = {
 // The mortgages practice was retired from the public site on 2026-08-15
 // (Terry). The /mortgages route went on 2026-08-12; /roadmap carried the last
 // mention of the practice as a BUILDING entry, and /roadmap has now gone too,
-// taking the mortgagesRoadmap export with it. The firm presents two arms:
-// M&A and Capital Markets.
+// taking the mortgagesRoadmap export with it. The firm presents two functions:
+// M&A Transaction Services and Data, Transformation, AI.
 
 // =============================================================================
 // v3 — Executive-first IA (2026-08-09).
@@ -856,12 +874,13 @@ export const v2 = {
 // by TODO(anna) sign-off before dev → main promotion (see docs/claims-ledger.md).
 // =============================================================================
 
-// Approved capital-markets case copy (spec Appendix C, Terry 2026-08-09,
-// quoted verbatim from Terry's CV). Shared by the /capital-markets Selected
-// Cases section and the /experience Capital Markets section; case indices
-// are assigned by each page at render time. Anonymised client descriptors
-// are deliberate; no vendor names (Palantir may be named later at Terry's
-// option).
+// Approved case copy (spec Appendix C, Terry 2026-08-09, quoted verbatim from
+// Terry's CV). Consumed via the cmExperience key on firm /experience
+// (#data-ai). Case indices are assigned at render time. Anonymised client
+// descriptors are deliberate; no vendor names (Palantir may be named later
+// at Terry's option). These are markets cases, which is honest depth for
+// function 2 — do not add invented banking, wealth or NBFI cases to balance
+// them.
 const cmCases = [
   {
     id: 'data-program-recovery',
@@ -882,7 +901,7 @@ const cmCases = [
       {
         label: 'Outcome',
         body:
-          'The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
+          'The recovered program was delivered in 18 months after a 5-year failed run. The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
       },
     ],
   },
@@ -957,42 +976,44 @@ export const v3 = {
       'Transaction value is protected when separation and integration requirements are understood early.',
   },
 
-  // CTA (rev 4, spec §2): page-end CTAs "Discuss a situation". The arm
-  // variants deep-link to the arm's own contact (council review 2026-08-10).
+  // Header is the only Contact Us control (Terry 2026-08-15). Topic queries
+  // preset the firm form; there are no per-function contact pages.
   cta: {
-    label: 'Discuss a situation',
+    label: 'Contact us',
     href: '/contact',
   },
   maCta: {
-    label: 'Discuss a situation',
-    href: '/ma/contact',
+    label: 'Contact us',
+    href: '/contact?topic=ma-execution',
   },
   cmCta: {
-    label: 'Discuss a situation',
-    href: '/capital-markets/contact',
+    label: 'Contact us',
+    href: '/contact?topic=data-ai',
   },
 
-  // Firm footer (phase 2): CM legacy pages regroup under a Technology heading.
+  // Firm footer: function-2 depth pages group under a Technology heading.
   footer: {
     groups: [
       {
         heading: 'Firm',
         links: [
-          { label: 'M&A', href: '/ma' },
-          { label: 'Capital Markets', href: '/capital-markets' },
-          { label: 'Data. Transformation. AI.', href: '/data-ai' },
+          // One row per function (spec §5). The Capital Markets and
+          // Data. Transformation. AI. pair collapsed into one when the
+          // arm retired into function 2.
+          { label: 'M&A Transaction Services', href: '/ma' },
+          { label: 'Data, Transformation, AI', href: '/data-ai' },
           { label: 'Experience', href: '/experience' },
           { label: 'Approach', href: '/approach' },
           { label: 'About', href: '/about' },
-          { label: 'Contact', href: '/contact' },
         ],
       },
       {
         heading: 'Technology',
+        // Themes dropped 2026-08-15: /themes and /labs/themes are different
+        // surfaces (buyer vs platform) and must not share one footer label.
         links: [
-          { label: 'System', href: '/system' },
           { label: 'Labs', href: '/labs' },
-          { label: 'Themes', href: '/themes' },
+          { label: 'System', href: '/system' },
           { label: 'Offers', href: '/offers' },
         ],
       },
@@ -1008,88 +1029,85 @@ export const v3 = {
   pages: {
     home: {
       route: '/',
-      title: 'Atheryon — Making Complex Change Executable',
+      title: 'Atheryon — Clarity for critical decisions',
       description:
-        'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
+        'Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation. Two functions, engaged across capital markets, banking, wealth and non-bank financial institutions.',
       sections: {
-        // Root hero — rev 6: viewport 1 reproduces the approved poster
-        // (docs/superpowers/specs/atheryon-poster-2026-08-09.svg). Three
-        // serif lines, warm white on deep navy, arms + bronze foundation
-        // strip in the band. Supporting copy opens section 2 (Appendix B
-        // verbatim). Subheading fragments are display type only.
+        // Root hero — three serif lines in the statement band (design
+        // standard §3). Supporting copy opens the document register.
         hero: {
-          lines: ['Making', 'Complex Change', 'Executable.'],
-          subheading: 'Understanding implications early. Executing with confidence.',
+          lines: ['Clarity for', 'critical decisions.', 'Leadership for complex execution.'],
+          subheading:
+            'Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation.',
           supporting:
-            'Atheryon helps organisations navigate transactions, transformation, capital markets, data and technology initiatives by bringing clarity to critical decisions and leadership to execution.',
-          primaryCta: { label: 'Discuss a situation', href: '/contact' },
-          // Terry 2026-08-09: the front page splits evenly — three equal
-          // explore links, M&A first, the underpinning third.
+            'Atheryon operates across two functions: M&A Transaction Services, and Data, Transformation, AI. Both are engaged across capital markets, banking, wealth and non-bank financial institutions. The work helps institutions make high-stakes decisions and deliver execution that stands up to regulatory, operational and market scrutiny.',
+          primaryCta: { label: 'Contact us', href: '/contact' },
+          // Functions-and-sectors IA (Terry 2026-08-15, spec §4): two explore
+          // links, function 1 first. The third link went when Data,
+          // Transformation, AI stopped being an underpinning and became
+          // function 2.
           explore: {
+            intro: 'Choose the capability you need',
             items: [
-              { id: 'ma', label: 'Explore M&A', href: '/ma' },
-              { id: 'capital-markets', label: 'Explore Capital Markets', href: '/capital-markets' },
-              { id: 'data-ai', label: 'Data. Transformation. AI.', href: '/data-ai' },
+              { id: 'ma', label: 'Explore M&A Transaction Services', href: '/ma' },
+              { id: 'data-ai', label: 'Explore Data, Transformation, AI', href: '/data-ai' },
             ],
           },
         },
-        // Terry 2026-08-09 (screenshots): the transaction proof strip and
-        // the principle live INSIDE an M&A-labelled section; the parallel
-        // Capital Markets section carries the $84M proof point. Front page
-        // splits evenly between the arms.
+        // Firm-level credentials (Terry 2026-08-16): one strip, no case
+        // write-ups. Case detail lives on /ma, /data-ai and /experience.
+        // $20bn+ traces to maExperience case 01; 25+ years to Anna's
+        // /about bio; sectors are the published audience line.
+        trackRecord: {
+          title: 'Track Record',
+          items: [
+            {
+              id: 'transaction-value',
+              value: 'Up to $20bn',
+              detail: 'Deal value supported',
+            },
+            {
+              id: 'execution-track-record',
+              value: '25+ years',
+              detail: 'Financial-services transaction and transformation experience',
+            },
+            {
+              id: 'sectors',
+              value: 'Banking · Wealth · Capital Markets · NBFIs',
+              detail: 'Experience across regulated financial institutions',
+            },
+          ],
+        },
         maSection: {
-          label: 'M&A',
-          title: 'M&A',
-          proof: {
-            items: [
-              {
-                id: 'rams',
-                value: '$20bn+',
-                detail: 'Mortgage portfolio acquisition, integration leadership',
-              },
-              {
-                id: 'divestment-programs',
-                value: '>$1bn',
-                detail: 'Divestment and integration programs at a major Australian bank',
-              },
-              {
-                id: 'sectors',
-                value: 'Four sectors',
-                detail: 'Retail banking, business banking, wealth management and non-bank financial institutions',
-              },
-              {
-                id: 'jurisdictions',
-                value: 'Four jurisdictions',
-                detail: 'Australia, Europe, the United Kingdom and the United States',
-              },
-            ],
-          },
+          label: 'M&A Transaction Services',
+          title: 'M&A Transaction Services',
+          intro:
+            'Atheryon provides hands-on leadership across the M&A lifecycle, from diligence and transaction readiness through separation and integration. The function is engaged in complex, regulated environments where execution quality determines deal value.',
+          supporting:
+            'The work spans capital markets, banking, wealth and non-bank financial institutions.',
         },
+        // Function 2 (spec §4). The key stays cmSection so the homepage
+        // component contract is untouched; the content is now the function,
+        // not the retired Capital Markets arm.
         cmSection: {
-          label: 'Capital Markets',
-          title: 'Capital Markets',
-          proof: {
-            items: [
-              {
-                id: 'data-program-recovery',
-                value: '$84M',
-                detail: 'Recovery and delivery of a failed financial markets data program',
-              },
-            ],
-          },
+          label: 'Data, Transformation, AI',
+          title: 'Data, Transformation, AI',
+          intro:
+            'Atheryon helps institutions rebuild data foundations, apply AI under the same governance as the rest of the delivery, and run transformation programs that follow a transaction or stand alone.',
           line:
-            'Capital markets systems and platform delivery, market data environments and reference data, platform transition and AI-enabled delivery.',
+            'Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
         },
-        // Arms (rev 6): rendered inside the viewport-1 poster band as label
-        // rows with bronze ticks — M&A always first. Both link (phase 2
-        // shipped /capital-markets).
+        // Poster band (spec §4): the two functions carry bronze ticks,
+        // function 1 first, and the bronze foundation rule beneath them now
+        // carries the four sectors. It used to carry DATA · TRANSFORMATION ·
+        // AI, which became function 2's own name.
         arms: {
           items: [
-            { id: 'ma', label: 'M&A', href: '/ma' },
-            { id: 'capital-markets', label: 'CAPITAL MARKETS', href: '/capital-markets' },
+            { id: 'ma', label: 'M&A TRANSACTION SERVICES', href: '/ma' },
+            { id: 'data-ai', label: 'DATA, TRANSFORMATION, AI', href: '/data-ai' },
           ],
           underpinning: {
-            items: ['DATA', 'TRANSFORMATION', 'AI'],
+            items: ['CAPITAL MARKETS', 'BANKING', 'WEALTH', 'NBFIs'],
           },
         },
         // Primary credibility block (rev 5): one line per co-founder, no
@@ -1101,12 +1119,14 @@ export const v3 = {
             {
               id: 'anna-contos',
               name: 'Anna Contos',
-              line: 'Transactions, Separation & Integration, Transformation',
+              // "Transformation" drops from Anna's line (spec §4): the word
+              // now names function 2.
+              line: 'Transactions, Separation & Integration',
             },
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              line: 'Capital Markets, Data, Technology & AI',
+              line: 'Data, Transformation, AI',
             },
           ],
           href: '/about',
@@ -1117,53 +1137,37 @@ export const v3 = {
 
     ma: {
       route: '/ma',
-      title: 'M&A — Atheryon',
+      title: 'M&A Transaction Services — Atheryon',
       description:
-        'The M&A arm: transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.',
+        'M&A Transaction Services: transaction readiness, separation and integration strategy, execution leadership, and technology, data and migration readiness.',
       sections: {
         hero: {
           label: 'atheryon / ma',
           title: 'Making Transactions Executable',
+          // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'Advisory and execution leadership for acquisitions, divestments, separations and integrations, where execution risk can materially impact outcomes. The M&A arm is led by Anna Contos.',
+            'Advisory and execution leadership for acquisitions, divestments, separations and integrations where execution risk materially impacts outcomes. Experience across capital markets, banking, wealth and non-bank financial institutions.',
         },
-        // The arm's principle (Terry 2026-08-09: principles live with the
-        // sub pages, not the homepage). Large type, founding framing.
+        // The function's principle (Terry 2026-08-09: principles live with
+        // the sub pages, not the homepage). Large type, founding framing.
         principle: {
           framing: 'Atheryon was founded on a simple observation:',
           statement:
-            'Transaction value is protected when separation and integration requirements are understood early.',
-          support:
-            'The earlier these requirements are understood, the greater the opportunity to structure the transaction appropriately and reduce execution risk.',
+            'Transaction value is lost when separation and integration requirements are discovered too late.',
+          // The support line went on 2026-08-15 (Terry): it paraphrased the
+          // statement directly above it, which is the whole point of a
+          // pull-quote. The statement carries the idea once.
+          support: '',
         },
-        // Terry 2026-08-09 (21:41 review): Our Belief is M&A copy too —
-        // rendered as the arm page's closing statement moment. Note: it
-        // closely echoes the principle above ("understood early" in both).
-        belief: {
-          kicker: 'Our Belief',
-          statement: 'Better decisions are made when the implications of execution are understood early.',
-          support: 'That belief sits at the heart of everything we do.',
-        },
-        // Terry 2026-08-09 (21:28 review): this section is M&A copy — it
-        // lives here, replacing the earlier transaction-specific Why
-        // Atheryon (superseded; recoverable in git history).
+        // Not rendered on /ma as of the 2026-08-15 MECE cut (landing is
+        // offer then engage). Kept for git history; do not re-surface without
+        // a fresh decision — it restated the principle and the four boxes.
         why: {
           label: 'Why Clients Choose Atheryon',
           title: 'Why Clients Choose Atheryon',
           paragraphs: [
-            'The quality of outcomes is often determined before execution begins.',
-            'Yet many organisations make critical decisions without a clear understanding of the operational, technology, data and commercial requirements that successful delivery will demand.',
-            'Whether pursuing an acquisition, separating a business, transforming an operating model, modernising technology platforms, implementing data-led initiatives or responding to strategic priorities, execution risks frequently emerge only after commitments have been made. Costs increase, timelines extend, and value is delayed or lost.',
-            'Atheryon helps organisations understand what successful execution will require before decisions are locked in.',
-          ],
-          engageIntro: 'Clients engage Atheryon to:',
-          engageItems: [
-            'Understand the implications of strategic decisions before commitments are made',
-            'Shape transaction strategy, separation and integration approaches, and practical commercial outcomes',
-            'Assess execution requirements, risks and dependencies early',
-            'Identify operational, technology and data constraints before they become delivery challenges',
-            'Navigate complex stakeholder, regulatory and governance environments',
-            'Protect value and improve execution certainty',
+            'Many organisations commit to a transaction without a clear view of the operational, technology, data and commercial requirements that delivery will demand.',
+            'Execution risks then surface after the terms are agreed, when the options for dealing with them have narrowed. Costs increase, timelines extend, and value is delayed or lost.',
           ],
         },
         lines: {
@@ -1185,7 +1189,7 @@ export const v3 = {
                 'Pre-sign operational dependency analysis',
               ],
               body:
-                'We help clients understand the operational, technology, data and organisational requirements that can materially influence transaction outcomes before commitments are made.',
+                'Operational, technology, data and organisational requirements can materially influence a transaction outcome. We surface them while the terms are still open.',
             },
             {
               id: 'separation-integration-strategy',
@@ -1200,7 +1204,7 @@ export const v3 = {
                 'TSA design and exit planning',
               ],
               body:
-                'Our focus is on creating executable strategies that align commercial objectives with operational realities.',
+                'Strategies that hold up in delivery, aligning the commercial objective with what the business can operationally sustain.',
             },
             {
               id: 'execution-leadership',
@@ -1217,14 +1221,14 @@ export const v3 = {
                 'Delivery oversight and execution assurance',
               ],
               body:
-                'We provide experienced leadership across transactions where execution certainty is critical to achieving intended outcomes.',
+                'Senior leadership held across the transaction, for the moments where execution certainty decides whether the intended outcome arrives.',
             },
             {
               id: 'technology-data-migration',
               index: '04',
               name: 'Technology, Data & Migration Readiness',
               tagline:
-                'Helping clients understand and plan for the information, technology and migration challenges that often determine transaction success.',
+                'Planning for the information, technology and migration work that often decides whether a transaction lands.',
               items: [
                 'Structured data separation and migration assessments',
                 'Unstructured data and content migration analysis',
@@ -1236,7 +1240,7 @@ export const v3 = {
                 'Analysis of the data dependencies that drive TSA scope',
               ],
               body:
-                'Data is often one of the most significant drivers of separation and integration effort. Understanding what information exists, where it resides, how it is used and what must transition can materially influence execution timelines, TSA requirements, operational readiness and transaction value.\n\nAtheryon leverages data-enabled and AI-assisted techniques to help clients identify dependencies, assess migration complexity, improve visibility of risks and support informed decision-making throughout planning and execution.',
+                'Data is one of the largest drivers of separation and integration effort. What exists, where it sits and what has to move shapes execution timelines, TSA scope and the value that survives the transaction. Atheryon works this out using data-enabled and AI-assisted techniques, with senior specialists directing the work.',
             },
           ],
         },
@@ -1249,44 +1253,76 @@ export const v3 = {
           summary: 'Three transaction workflows',
           subline: 'Inputs, AI agents, processing and outputs',
           intro:
-            'Three workflows show how data-enabled and AI-assisted delivery works on a transaction. Each follows the same pipeline of input, AI agents, processing and output. Senior specialists direct the work and own the outcome.',
+            'Three points in a transaction where the operational answer arrives too late to be useful: before signing, through planning, and across the TSA period. Each workflow runs the same way, from the deal inputs available at that stage through to a deliverable the transaction can be governed against. Senior specialists direct the work, review every output and own the result.',
           stages: ['Input', 'AI agents', 'Processing', 'Output'] as const,
           items: [
             {
               id: 'pre-sign-execution-review',
               name: 'Pre-Sign Execution Review',
               input:
-                'Draft deal terms, target perimeter definitions, data flow inventories, existing control map.',
+                'Draft SPA and transitional services terms, proposed perimeter, entity and product footprint, application and data landscape, current control environment.',
               agents:
-                'Clause-to-execution-risk mapping; TSA scope projection; control-continuity scoring.',
+                'Mapping deal clauses to the operational obligations they create; projecting the TSA schedule the perimeter implies; testing where regulatory and control continuity breaks at separation.',
               processing:
-                'Traps register → mitigations register → risk-weighted recommendation.',
+                'Execution risk register → stranded cost and dependency exposure → mitigations costed and assigned → position for negotiation.',
               output:
-                'Pre-sign execution risk report + mitigations playbook. Delivered before ink.',
+                'An execution risk assessment the deal team can act on: what the perimeter will cost to separate, which risks belong in price, warranties or conditions precedent, and which need a mitigation owner before signing.',
             },
             {
               id: 'separation-integration-planning',
-              name: 'Separation/Integration Planning',
+              name: 'Separation & Integration Planning',
               input:
-                'Signed deal terms, perimeter definitions, target operating model.',
+                'Signed terms and agreed perimeter, target operating model, TSA service schedules, functional and technology dependency inventories.',
               agents:
-                'Dependency tracing; wave-window sequencing; Day-1 requirements derivation; data lineage mapping.',
+                'Tracing dependencies across entities, applications and data; sequencing work into cutover windows the business can absorb; deriving what has to be true on Day 1; mapping data lineage through migration.',
               processing:
-                'Dependency graph → wave plan → Day-1 readiness checklist → data migration sequence.',
+                'Dependency map → sequenced separation plan → Day 1 readiness criteria by function → migration and cutover approach.',
               output:
-                'Separation/integration plan with contractual wave commitments, Day-1 readiness pack, data migration plan with field-level lineage.',
+                'A plan the transaction can be run against: what stands up on Day 1, what runs on a TSA and for how long, what has to be built to exit each service, and the migration sequence with lineage tracked field by field.',
             },
             {
               id: 'tsa-tracking-reduction',
-              name: 'TSA Tracking & Reduction',
+              name: 'TSA Tracking & Exit',
               input:
-                'TSA scope, time-boxed obligations, exit criteria, ongoing delivery status.',
+                'Executed service schedules and charges, exit criteria, extension terms and reverse TSAs, standalone build progress by function.',
               agents:
-                'TSA dependency analysis; exit-criteria projection; scope-creep detection; control assurance verification.',
+                'Testing which services can exit and which are held up by a dependency elsewhere; projecting exit dates against the standalone build; flagging scope and charges drifting beyond the schedule; verifying the receiving controls before an exit is signed off.',
               processing:
-                'TSA register → reduction roadmap → exit scenarios → executive surface.',
+                'Service register → exit sequence by dependency → extension and stranded cost exposure → position for the Steering Committee.',
               output:
-                'TSA exit plan with milestone gates and scope-creep alarms; delivery dashboard with audit trail to closure.',
+                'A TSA exit plan with a gate per service: what has to be operational to exit it, who owns that, what an extension costs if the date moves, and evidence of control transfer at closure.',
+            },
+          ],
+        },
+        // Summaries only (Terry 2026-08-16). Full Context / Role / Outcome
+        // stays on /experience. Wording traces to maExperience cases 01, 03
+        // and 05. The /ma tile title stays Operating Model Transformation;
+        // experience case 05 is Post-Merger Transformation.
+        engagements: {
+          label: 'Representative Engagements',
+          title: 'Representative engagements',
+          href: '/experience#ma',
+          ctaLabel: 'Selected cases',
+          items: [
+            {
+              id: 'mortgage-portfolio-acquisition',
+              figure: '$20bn+',
+              name: '$20bn+ Mortgage Portfolio Acquisition',
+              summary:
+                'Integration Director for the acquiring specialist mortgage servicer on a home-loan portfolio acquisition valued at more than $20 billion.',
+            },
+            {
+              id: 'financial-advice-sale-separation',
+              figure: '4 months',
+              name: 'Sale and separation of a major financial advice business',
+              summary:
+                'Sale completed within four months, with transitional services minimised. Full business separation followed within ten months.',
+            },
+            {
+              id: 'operating-model-transformation',
+              name: 'Operating Model Transformation',
+              summary:
+                'Recovered a delayed strategic initiative after the merger of wealth and asset management divisions, and delivered the first joint program.',
             },
           ],
         },
@@ -1298,43 +1334,18 @@ export const v3 = {
           body:
             'Atheryon engages as embedded senior specialists, working alongside your team from pre-sign review through Day 1 to operational independence and TSA exit. Pre-sign work can stand alone or lead into full delivery.',
         },
-        // Moved from the homepage (Terry 2026-08-09: M&A-specific).
-        values: {
-          label: 'How we work',
-          title: 'How we work',
-          items: [
-            {
-              id: 'early-insight',
-              name: 'Early Insight',
-              body: 'Understanding the operational implications of separation and integration before commitments are made.',
-            },
-            {
-              id: 'commercial-discipline',
-              name: 'Commercial Discipline',
-              body: 'Practical advice aligned to commercial outcomes and stakeholder priorities.',
-            },
-            {
-              id: 'execution-focus',
-              name: 'Execution Focus',
-              body: 'Translating transaction strategy into operational reality.',
-            },
-            {
-              id: 'leadership-under-pressure',
-              name: 'Leadership Under Pressure',
-              body: 'Navigating complex stakeholder and regulatory environments with clarity and confidence.',
-            },
-            {
-              id: 'trusted-partnership',
-              name: 'Trusted Partnership',
-              body: 'Operating with discretion and accountability throughout the transaction lifecycle.',
-            },
-          ],
-        },
+        // "How we work" (five values: Early Insight, Commercial Discipline,
+        // Execution Focus, Leadership Under Pressure, Trusted Partnership)
+        // was removed on 2026-08-15 (Terry): the five were the Why bullets
+        // and the service lines again with softer nouns. Recoverable in git
+        // history if a values section is ever wanted on its own page.
       },
     },
 
+    // Cases for firm /experience (function 1 block). Route field is documentary;
+    // the live URL is /experience#ma.
     maExperience: {
-      route: '/ma/experience',
+      route: '/experience#ma',
       title: 'M&A Experience — Atheryon',
       description:
         'Representative transaction and transformation experience across financial services, led by Atheryon and its principals.',
@@ -1349,29 +1360,33 @@ export const v3 = {
           label: 'Selected Cases',
           title: 'Selected cases',
           provenance:
-            'Representative experience spans Atheryon engagements and programs led by Atheryon principals in prior senior roles.',
+            'Selected transactions and transformation programs delivered by Atheryon principals across current engagements and prior leadership roles.',
+          // Sectors are the published audience line. The $20bn figure is the
+          // landmark case, not an aggregate of the list (Terry 2026-08-16).
+          framing:
+            'Work across banking, wealth, capital markets and non-bank financial institutions, including a home-loan portfolio of more than $20 billion.',
           items: [
             {
               id: 'mortgage-portfolio-acquisition',
               index: '01',
-              name: 'Landmark Mortgage Portfolio Acquisition',
+              name: '$20bn+ Mortgage Portfolio Acquisition',
               client: 'Specialist Mortgage Servicer',
               engagement: 'Integration Leadership',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'A landmark transaction valued at more than $20 billion at signing and recognised as one of the largest loan portfolio acquisitions in Australian history. The transaction involved compressed delivery timeframes, complex separation requirements, multiple service providers, significant operational dependencies and no seller TSA arrangements.',
+                    'A consortium acquisition of a mortgage portfolio valued at more than $20 billion. Compressed timelines, complex separation requirements, multiple service providers and no seller transitional services.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Atheryon leadership played a key role in the transition and integration of the mortgage portfolio acquisition.',
+                    'Integration Director for the acquiring specialist mortgage servicer, responsible for separation, transition and Day 1 readiness planning through transaction completion.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Led the successful transition to a new servicing environment, delivering Day 1 operational readiness, seamless customer migration and ongoing regulatory compliance. Despite the scale and complexity of the transaction, timelines were achieved and hypercare issues remained exceptionally low, enabling immediate operational stand-up and value realisation.',
+                    'Delivered operational readiness for Day 1, customer migration and regulatory continuity within an accelerated timetable, enabling transition to the new servicing environment with minimal post-completion stabilisation requirements.',
                 },
               ],
             },
@@ -1379,43 +1394,47 @@ export const v3 = {
               id: 'enterprise-divestment-advisory',
               index: '02',
               name: 'Enterprise-Wide Divestment & Separation Advisory',
-              client: 'Major Australian Bank',
+              client: 'Major Australian Financial Institution',
               engagement: 'Separation & Integration Advisory',
               details: [
                 {
                   label: 'Context',
-                  body: 'Divestment and integration programs exceeding $1 billion in transaction value.',
+                  body:
+                    'Separation and integration advisory supporting a portfolio of wealth, superannuation and asset management transactions exceeding $1 billion in value at a major Australian financial institution.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led separation and integration advisory across the divestment and integration programs.',
+                  body:
+                    'Senior separation and integration advisory roles across acquisitions, divestments and strategic transactions, with responsibilities expanding over time to include an enterprise-wide M&A transaction advisory remit.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Reduced separation complexity, accelerated readiness and materially limited TSA exposure across multiple strategic transactions.',
+                    'Advised across a portfolio of acquisitions, divestments and strategic transactions, while helping establish repeatable separation and integration practices across the organisation.',
                 },
               ],
             },
             {
               id: 'financial-advice-sale-separation',
               index: '03',
-              name: 'Sale & Separation of a Major Financial Advice Business',
-              client: 'Leading Retail Bank',
+              name: 'Sale & Separation of Major Financial Advice Businesses',
+              client: 'Major Australian Banking and Wealth Group',
               engagement: 'Separation Execution',
               details: [
                 {
                   label: 'Context',
-                  body: 'The sale of a major financial advice business requiring pre-sign and post-sign separation execution.',
+                  body:
+                    'Sale of a major financial advice business representing approximately $8 billion in funds under advice, together with the closure of a second advice network, as part of a broader wealth simplification agenda.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led pre-sign and post-sign separation execution for the sale.',
+                  body:
+                    'Led divestment and separation execution across major wealth simplification initiatives, including business sale, network closure, Day 1 operating model design, business readiness and separation delivery.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Completed transaction execution within four months and achieved full operational separation within ten months, with minimal transitional arrangements.',
+                    'Delivered the successful sale of a major financial advice business in four months, a record timeframe for the bank, and the orderly closure of a second advice network, achieving minimal transitional services and full operational separation.',
                 },
               ],
             },
@@ -1423,56 +1442,59 @@ export const v3 = {
               id: 'wealth-demerger-insurance-divestment',
               index: '04',
               name: 'Wealth Demerger & Insurance Divestment',
-              client: 'Major Financial Services Organisation',
+              client: 'Major Australian Banking & Wealth Group',
               engagement: 'Separation Design & Readiness',
               details: [
                 {
                   label: 'Context',
-                  body: 'Significant wealth and insurance transactions requiring separation design and implementation readiness.',
+                  body:
+                    'Finance separation supporting a major life insurance divestment and a proposed wealth management demerger as part of a broader simplification agenda.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led separation design and implementation readiness activities supporting the transactions.',
+                  body:
+                    'Led finance separation planning and readiness activities, including standalone finance operating model design, ERP replacement platform selection, finance function separation and execution planning.',
                 },
                 {
                   label: 'Outcome',
-                  body: 'Enabled standalone operation while meeting regulatory, financial and operational requirements.',
+                  body:
+                    'Established standalone finance capabilities and separation readiness foundations to support a major insurance divestment and future restructuring options.',
                 },
               ],
             },
             {
               id: 'operating-model-transformation',
               index: '05',
-              name: 'Operating Model Transformation',
+              name: 'Post-Merger Transformation',
               client: 'Global Investment Bank',
               engagement: 'Transformation Leadership',
               details: [
                 {
                   label: 'Context',
-                  body: 'A large-scale operating model transformation across merged wealth and asset management businesses.',
+                  body:
+                    'Strategic investment initiative across a €400 million asset pool delayed following the merger of the Wealth and Asset Management divisions.',
                 },
                 {
                   label: 'Role',
-                  body: 'Led the operating model transformation program.',
+                  body:
+                    'Engaged by Executive Committee members to recover the initiative and lead a multidisciplinary team through the design and implementation of a new cross-divisional operating model.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Improved execution certainty, restored stakeholder confidence and re-established momentum on a strategically important initiative.',
+                    'Recovered a critical strategic initiative and delivered the first successful joint programme following the merger, establishing a new operating model for the combined Wealth and Asset Management business.',
                 },
               ],
             },
           ],
         },
-        // Terry 2026-08-09 (supersedes the rev 7 /experience placement):
-        // capital markets and M&A experience do not share a page. The three
-        // cmCases render only on /capital-markets (§ Selected Cases, anchor
-        // #experience); this page carries transactions only.
+        // Content keys stay function-scoped; firm /experience stacks both.
       },
     },
 
+    // Method for firm /approach (function 1 block). Live URL: /approach#ma.
     maApproach: {
-      route: '/ma/approach',
+      route: '/approach#ma',
       title: 'M&A Approach — Atheryon',
       description:
         'Method and governance across the transaction lifecycle: pre-sign insight, Day 1 readiness, and the path to operational independence and TSA exit.',
@@ -1486,7 +1508,7 @@ export const v3 = {
           label: 'Lifecycle',
           title: 'From pre-sign to operational independence',
           body:
-            'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for execution risk so commercial terms reflect operational reality. From signing, we lead readiness for Day 1 and the early period of operation. Beyond Day 1, we manage the path to operational independence and TSA exit.\n\nThe earlier the engagement begins, the more options remain open. Pre-sign work shapes the agreement itself; post-sign work protects the value already committed. Transformation work draws on the same data and AI foundation that underpins both arms.',
+            'Atheryon works across three stages of the transaction lifecycle. Before signing, we review the transaction for execution risk so commercial terms reflect operational reality. From signing, we lead readiness for Day 1 and the early period of operation. Beyond Day 1, we manage the path to operational independence and TSA exit.\n\nThe earlier the engagement begins, the more options remain open. Pre-sign work shapes the agreement itself; post-sign work protects the value already committed. Transformation work draws on the same data and AI foundation that underpins both functions.',
         },
         governance: {
           label: 'Governance',
@@ -1507,7 +1529,7 @@ export const v3 = {
           label: 'atheryon / about',
           title: 'About Atheryon',
           body:
-            'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
+            'Atheryon operates at the intersection of transactions, transformation, technology, data and AI. We help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
         },
         positioning: {
           label: 'Positioning',
@@ -1521,7 +1543,7 @@ export const v3 = {
           label: 'Our Story',
           title: 'Our story',
           body:
-            'Anna Contos spent more than two decades leading major separation, integration and transformation programs and watched the same pattern repeat: commercial decisions made before operational implications were fully understood. Together with Terry Tsakiris, she established Atheryon to bring that understanding into the process earlier.\n\nWe help clients understand what a transaction or transformation will require before decisions are locked in. When execution begins, we provide the leadership needed to navigate complexity and deliver the intended outcomes. A signed deal is only the start; success is operational independence, value realised and outcomes delivered.',
+            'Atheryon was founded on a simple observation: organisations rarely struggle because of strategy. They struggle because operational, technology and data complexity is discovered too late.\n\nAfter decades leading major transactions, transformations and technology initiatives, Atheryon’s founders saw the same challenge emerge repeatedly. Critical decisions were often made before key operational, technology and data dependencies were fully understood, increasing execution risk and reducing value.\n\nAtheryon was established to bring that understanding into the process earlier. We help clients identify complexity before decisions are locked in, navigate it during execution and deliver outcomes with confidence.\n\nWhether the objective is a transaction, business transformation, technology modernisation or AI-enabled change, success depends on understanding what will be required before commitments are made. Success is measured not by plans approved or deals signed, but by value realised, capabilities delivered and outcomes achieved.',
         },
         // Bios genericised per rev 5 §1 (Brief 2): no named employers; the
         // "global investment banking" / "major Australian banks" register.
@@ -1535,21 +1557,22 @@ export const v3 = {
             {
               id: 'anna-contos',
               name: 'Anna Contos',
-              role: 'Co-Founder, M&A',
+              role: 'Co-Founder, M&A Transaction Services',
               photo: '/anna-contos.jpg',
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'Anna Contos co-founded Atheryon and leads the M&A arm. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
-                'Anna has led separation and integration advisory at executive level for one of Australia’s major banks, spanning its divestment and acquisition initiatives, and previously headed divestment execution for the wealth division of another major Australian bank, running the portfolio of programs that delivered a landmark financial-advice divestment and the sale of a major insurance business. Earlier roles include platform take-to-market leadership and business consulting and strategy positions across global investment banking, wealth and retail.',
-                'Her track record spans the deal lifecycle in highly regulated and politically sensitive environments: separation and integration strategy, planning, commercial structuring, business readiness, execution and stabilisation, including carve-outs, demergers and end-to-end transition management.',
+                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. She brings more than 25 years of financial services experience across Australia, the UK and the US, including more than 20 years leading large-scale transformation programs and the past decade specialising in separations, integrations, divestments and transaction execution.',
+                'Anna has held executive leadership roles across major Australian financial institutions, leading separation and integration strategy, planning and execution for acquisitions, divestments and transformation initiatives. Her experience includes senior leadership roles in complex separation and integration programs associated with significant wealth, banking and insurance transactions, operating in highly regulated and high stakes environments.',
+                'Earlier roles included platform commercialisation, strategy and business consulting positions across investment banking, wealth management and retail financial services.',
+                'Her experience spans separation and integration strategy, operating model design, business readiness, transition planning, execution management and stabilisation, including carve-outs, divestments, acquisitions and post-transaction transformation.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Capital Markets',
+              role: 'Co-Founder, Data, Transformation, AI',
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
@@ -1558,9 +1581,9 @@ export const v3 = {
               // person. Employers stay genericised — home.spec.ts asserts that
               // no bank is named anywhere on the page.
               paragraphs: [
-                'I co-founded Atheryon and lead the Capital Markets arm. I have spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
+                'I co-founded Atheryon and lead Data, Transformation, AI. I have spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
                 'I built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. I owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. I also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
-                'At Atheryon I direct the Capital Markets arm: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both arms.',
+                'At Atheryon I direct the data, transformation and AI function: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both functions.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
@@ -1569,41 +1592,71 @@ export const v3 = {
       },
     },
 
-    // Rev 7 (Terry 2026-08-09: "do not mix capital markets with transaction"):
-    // this page carries standalone capital-markets material only. Its
-    // transaction role is stated in exactly one place — the outcomes
-    // crossLink line. Cases and delivery examples are the approved
-    // Appendix C copy (spec §8 TODO 6 RESOLVED 2026-08-09).
-    capitalMarkets: {
-      route: '/capital-markets',
-      title: 'Capital Markets — Atheryon',
+    // Function 2 (Terry 2026-08-15, functions-and-sectors spec §4). This was
+    // the shared-foundation page; it is now the function-2 landing and has
+    // absorbed the retired /capital-markets arm. The markets service lines
+    // below are that arm's approved copy, reframed as published depth in one
+    // sector rather than as the function's name. Display order follows spec
+    // §4 + MECE 2026-08-15: banner, principle, markets depth boxes, three
+    // related links (Labs from depth.links, M&A + supply chain from arms).
+    // Discipline grid and the "Where it shows up" index are not rendered.
+    dataAi: {
+      route: '/data-ai',
+      title: 'Data, Transformation, AI — Atheryon',
       description:
-        'The Capital Markets arm: capital markets systems and platform delivery, market data environments and reference data, platform transition and AI-enabled delivery.',
+        'Data, Transformation, AI: data platforms, transformation programs and AI-assisted delivery across capital markets, banking, wealth and non-bank financial institutions.',
       sections: {
         hero: {
-          label: 'atheryon / capital markets',
-          title: 'Capital Markets',
+          label: 'atheryon / data-ai',
+          title: 'Data, Transformation, AI',
+          // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'The Capital Markets arm, led by Terry Tsakiris. Engaged standalone for technology and data programs.',
+            'Technology, data and transformation programs across capital markets, banking, wealth and non-bank financial institutions.',
         },
-        // The arm's principle (Terry, 2026-08-09): the data-foundation
-        // observation — evidenced by the $84M recovery case and the market
-        // data / reference data practice, pointing down at the
-        // DATA · TRANSFORMATION · AI strip.
+        // The function's principle. Reworked twice on 2026-08-15: first to
+        // drop the motherhood statement, then to stop typecasting the
+        // function as surveillance. Regulatory examination still grounds it;
+        // surveillance stays in the markets-depth line, not the lead.
         principle: {
           framing: '',
-          statement: 'Capital markets platforms succeed or fail on the data beneath them.',
+          statement:
+            'Data programs in regulated businesses have to produce the evidence an examination will ask for. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
           support: '',
         },
-        // Council build 2026-08-10: the arm's four service lines, mirroring
-        // the /ma shape. Ported from cited production passages, claims-gated
-        // (no counts, no named entities, no speed claims); "Platform
-        // transition and application rationalisation" carries over from the
-        // arm's previously approved outcomes list. Supersedes the outcomes
-        // bullet list.
+        // Discipline grid not rendered on /data-ai (MECE 2026-08-15). Kept
+        // for git history; the landing is boxes + three links.
+        operatingModel: {
+          label: 'Operating Model',
+          title: 'How the function works',
+        },
+        data: {
+          label: 'Data',
+          title: 'Data',
+          body:
+            'The work starts with understanding what information exists, where it resides, how it is used and what must transition. Standalone that becomes data platforms, market data environments and reference data. Inside a transaction the same understanding drives execution timelines and TSA scope.',
+        },
+        transformation: {
+          label: 'Transformation',
+          title: 'Transformation',
+          body:
+            'Transformation follows a transaction or stands alone as a technology and data program, and it draws on the same data and AI foundation either way.',
+        },
+        ai: {
+          label: 'AI',
+          title: 'AI',
+          body:
+            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome. Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
+        },
+        // Published depth in one sector (spec §4.4). Ported unchanged from
+        // the retired /capital-markets arm: council build 2026-08-10, from
+        // cited production passages, claims-gated (no counts, no named
+        // entities, no speed claims). Do not retitle these as banking,
+        // wealth or NBFI lines, and do not invent parallel catalogues.
         lines: {
-          label: 'Service Lines',
-          title: 'Service lines',
+          label: 'Markets Depth',
+          title: 'Published depth: capital markets',
+          intro:
+            'The deepest published record of this function is in capital markets. The same disciplines are engaged across banking, wealth and non-bank financial institutions.',
           items: [
             {
               id: 'capital-markets-systems-platform-delivery',
@@ -1673,20 +1726,37 @@ export const v3 = {
                 'Reporting obligations multiply by regime, and each regime tends to absorb its own build team while schema drift quietly breaks submissions. Atheryon delivers reporting platforms where every trade is scored against per-regime completeness rules and each report is generated in the regime\'s prescribed format.\n\nThe design principle comes from how these platforms are examined: an audit asks for the evidence chain behind each submission, covering what was reported, what changed, who approved it and when. Surveillance sits on the same data foundation, so the evidence exists as a by-product of the workflow rather than a reconstruction after the fact.',
             },
           ],
-          // The single transaction mention on this page (rev 7 §1 rule).
-          crossLink: {
-            text: 'Inside a transaction, this arm runs the Technology, Data & Migration Readiness service line',
-            href: '/ma#technology-data-migration',
-          },
         },
-        // Council build 2026-08-10: proof paragraph and executive link
-        // notes (claims-gated; no counts, no URL — labs.atheryon.ai is
-        // offline).
+        // Summaries only (Terry 2026-08-16). The $84M write-up stays on
+        // /experience. AWS-to-Azure is a function-level line Terry added
+        // the same day; it is not attached to the $84M case.
+        engagements: {
+          label: 'Representative Engagements',
+          title: 'Representative engagements',
+          href: '/experience#data-ai',
+          ctaLabel: 'Selected cases',
+          items: [
+            {
+              id: 'data-program-recovery',
+              figure: '$84M',
+              name: 'Recovery of a failed financial markets data program',
+              summary:
+                'Recovered the program and delivered the strategic data and analytics platform in 18 months after a 5-year failed run.',
+            },
+            {
+              id: 'aws-azure-migration',
+              name: 'AWS to Azure migration',
+              summary: 'AI agents have been used to migrate from AWS to Azure.',
+            },
+          ],
+        },
+        // Full platform-depth index not rendered on /data-ai (MECE 2026-08-15).
+        // The Labs entry still supplies the note for the three related links.
         depth: {
           label: 'Platform Depth',
           title: 'Platform depth',
           intro:
-            'The arm maintains a working reference implementation of a capital markets platform, built with the same method it offers clients. The linked pages carry the technical depth. A deeper briefing, covering deployment topology and operational evidence, is available under MNDA.',
+            'The function maintains a working reference implementation of a capital markets platform, built with the same method it offers clients. The linked pages carry the technical depth. A deeper briefing, covering deployment topology and operational evidence, is available under MNDA.',
           links: [
             { label: 'System', href: '/system', note: 'Reference architecture for data, workflow, control and audit design' },
             { label: 'Labs', href: '/labs', note: 'The working platform and the method that built it' },
@@ -1694,72 +1764,14 @@ export const v3 = {
             { label: 'Offers', href: '/offers', note: 'Licensing and consulting paths for the platform and the method behind it' },
           ],
         },
-        // Decided 2026-08-09 (spec §8.4): no partner section on this page.
-        // If partners appear in body copy anywhere, S&P Global is the data
-        // partner and Microsoft Azure the technology runtime; detail stays on
-        // the L3 legacy pages.
-      },
-    },
-
-    // The underpinning page (Terry 2026-08-09): Data. Transformation. AI.
-    // is the shared foundation, NOT a third arm — the rev 5 decision record
-    // rejected a standalone Transformation pillar, so this page presents the
-    // disciplines both arms use, in the foundation register. Copy assembled
-    // from already-approved sentences (rev 5 §1, /approach, /ma line 04).
-    dataAi: {
-      route: '/data-ai',
-      title: 'Data. Transformation. AI. — Atheryon',
-      description:
-        'The shared foundation beneath the M&A and Capital Markets arms: data, transformation and AI applied under one governance, with senior specialists directing the work.',
-      sections: {
-        hero: {
-          label: 'atheryon / data-ai',
-          title: 'Data. Transformation. AI.',
-          subtitle:
-            'The shared foundation beneath the M&A and Capital Markets arms.',
-        },
-        // The underpinning principle (Terry, 2026-08-09, revised same
-        // evening): delivery in regulated environments, grounded by the
-        // APRA engagement and regulatory platform delivery in the
-        // capital-markets cases. Wording lightly polished from Terry's
-        // text; meaning unchanged.
-        principle: {
-          framing: '',
-          statement:
-            'Delivery in regulated environments takes solid knowledge of delivering regulatory outcomes. Atheryon faces regulators on behalf of clients and knows what is required.',
-          support: '',
-        },
-        operatingModel: {
-          label: 'Operating Model',
-          title: 'How the foundation works',
-        },
-        data: {
-          label: 'Data',
-          title: 'Data',
-          body:
-            'Both arms run on data work: understanding what information exists, where it resides, how it is used and what must transition. Inside a transaction that understanding drives execution timelines and TSA scope. In capital markets it takes the form of data platforms, market data environments and reference data.',
-        },
-        transformation: {
-          label: 'Transformation',
-          title: 'Transformation',
-          body:
-            'Transformation is a discipline both arms use rather than an offer in its own right. It follows a transaction or stands alone as a technology and data program, and it draws on the same data and AI foundation either way.',
-        },
-        ai: {
-          label: 'AI',
-          title: 'AI',
-          body:
-            'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome. Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
-        },
+        // M&A + supply chain notes reused on the landing as two of the three
+        // related links (with Labs). Title not rendered — it was a third index.
         arms: {
-          label: 'Where it shows up',
-          title: 'Where it shows up',
+          label: 'Where else it shows up',
+          title: 'Where else it shows up',
           links: [
-            { label: 'M&A', href: '/ma', note: 'Transaction readiness, separation and integration, execution leadership' },
-            { label: 'Capital Markets', href: '/capital-markets', note: 'Capital markets systems, data platforms and AI-enabled delivery' },
-            // Supply chain practice (Terry 2026-08-15): an application of the
-            // foundation, not a third arm — the rev 5 two-arm decision stands.
-            { label: 'Supply Chain', href: '/data-ai/supply-chain', note: 'The foundation applied to physical operations, with a focus on pharmaceutical and health supply chains' },
+            { label: 'M&A Transaction Services', href: '/ma#technology-data-migration', note: 'The same technique inside a transaction, as service line 04' },
+            { label: 'Supply Chain', href: '/data-ai/supply-chain', note: 'The function applied to physical operations, with a focus on pharmaceutical and health supply chains' },
           ],
         },
       },
@@ -1861,30 +1873,21 @@ export const v3 = {
       },
     },
 
-    // Chooser pages (Terry 2026-08-09: two experiences, two approaches,
-    // two contacts — one per arm; the firm-level routes stay live as thin
-    // choosers).
+    // Firm-level pages: one experience and one approach, both functions
+    // stacked in function order (spec §4). Full CRO / method copy lives here;
+    // the function-path copies stay until Task 5 301s them away.
     experience: {
       route: '/experience',
       title: 'Experience — Atheryon',
-      description: 'Representative experience, by arm: M&A transactions and capital markets delivery.',
+      description: 'Representative experience across both functions: transaction execution, and data, transformation and AI delivery.',
       sections: {
         hero: {
           label: 'atheryon / experience',
           title: 'Experience',
-          subtitle: 'Representative experience, by arm.',
         },
-        links: [
-          {
-            label: 'M&A Experience',
-            href: '/ma/experience',
-            note: 'Transaction and separation experience across financial services.',
-          },
-          {
-            label: 'Capital Markets Experience',
-            href: '/capital-markets/experience',
-            note: 'Capital markets systems, data platforms and regulatory delivery.',
-          },
+        arms: [
+          { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maExperience' },
+          { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmExperience' },
         ],
       },
     },
@@ -1892,24 +1895,16 @@ export const v3 = {
     approach: {
       route: '/approach',
       title: 'Approach — Atheryon',
-      description: 'How each arm works: method and governance for M&A, embedded delivery for capital markets.',
+      description: 'How each function works: method and governance for transactions, embedded delivery for data, transformation and AI programs.',
       sections: {
         hero: {
           label: 'atheryon / approach',
           title: 'Approach',
-          subtitle: 'How each arm works.',
+          subtitle: 'How each function works.',
         },
-        links: [
-          {
-            label: 'M&A Approach',
-            href: '/ma/approach',
-            note: 'Method and governance across the transaction lifecycle.',
-          },
-          {
-            label: 'Capital Markets Approach',
-            href: '/capital-markets/approach',
-            note: 'Embedded delivery and the delivery patterns behind it.',
-          },
+        arms: [
+          { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maApproach' },
+          { id: 'data-ai', label: 'Data, Transformation, AI', sourceKey: 'cmApproach' },
         ],
       },
     },
@@ -1917,30 +1912,24 @@ export const v3 = {
     contact: {
       route: '/contact',
       title: 'Contact — Atheryon',
-      description: 'Talk to Atheryon: M&A transactions or capital markets technology and data programs.',
+      description: 'Talk to Atheryon: M&A transactions or data, transformation and AI programs.',
       sections: {
+        // The only form (Terry 2026-08-15). Header Contact Us always lands
+        // here; on function surfaces it may add ?topic= so the practice is
+        // preset rather than asked. Per-function contact pages are gone.
         hero: {
           label: 'atheryon / contact',
           title: 'Contact',
-          body: 'Choose the conversation. Enquiries are treated as confidential.',
+          body: 'Enquiries are treated as confidential.',
         },
-        links: [
-          {
-            label: 'M&A',
-            href: '/ma/contact',
-            note: 'Discuss a transaction or transformation.',
-          },
-          {
-            label: 'Capital Markets',
-            href: '/capital-markets/contact',
-            note: 'Discuss a technology or data program.',
-          },
-        ],
+        disclosure: contactDisclosure,
       },
     },
 
+    // Orphan content blocks: pages deleted 2026-08-15; firm /contact is the
+    // only form. Kept so nothing else that keyed off the names breaks.
     maContact: {
-      route: '/ma/contact',
+      route: '/contact?topic=ma-execution',
       title: 'Contact — M&A — Atheryon',
       description: 'Talk to the M&A arm about a transaction or transformation.',
       sections: {
@@ -1953,29 +1942,31 @@ export const v3 = {
       },
     },
 
+    // Function-2 content keys (cm*). Firm /experience and /approach read the
+    // experience and approach blocks; contact is firm-only.
     cmContact: {
-      route: '/capital-markets/contact',
-      title: 'Contact — Capital Markets — Atheryon',
-      description: 'Talk to the Capital Markets arm about a technology or data program.',
+      route: '/contact?topic=data-ai',
+      title: 'Contact — Data, Transformation, AI — Atheryon',
+      description: 'Talk to Atheryon about a technology, data or transformation program.',
       sections: {
         hero: {
-          label: 'atheryon / capital markets / contact',
+          label: 'atheryon / data-ai / contact',
           title: 'Contact',
-          body: 'Tell us about the technology or data program you are considering. Enquiries are treated as confidential.',
+          body: 'Tell us about the technology, data or transformation program you are considering. Enquiries are treated as confidential.',
         },
         disclosure: contactDisclosure,
       },
     },
 
     cmExperience: {
-      route: '/capital-markets/experience',
-      title: 'Capital Markets Experience — Atheryon',
-      description: 'Capital markets delivery experience: program recovery, front office risk, regulatory platforms.',
+      route: '/experience#data-ai',
+      title: 'Experience — Data, Transformation, AI — Atheryon',
+      description: 'Delivery experience: program recovery, front office risk, regulatory platforms.',
       sections: {
         hero: {
-          label: 'atheryon / capital markets / experience',
-          title: 'Capital Markets Experience',
-          subtitle: 'Selected capital markets delivery, led by Atheryon principals in prior senior roles.',
+          label: 'atheryon / data-ai / experience',
+          title: 'Experience',
+          subtitle: 'Selected delivery, led by Atheryon principals in prior senior roles.',
         },
         cases: {
           label: 'Selected Cases',
@@ -1986,14 +1977,14 @@ export const v3 = {
     },
 
     cmApproach: {
-      route: '/capital-markets/approach',
-      title: 'Capital Markets Approach — Atheryon',
-      description: 'How the Capital Markets arm delivers: embedded senior specialists and AI-assisted delivery patterns.',
+      route: '/approach#data-ai',
+      title: 'Approach — Data, Transformation, AI — Atheryon',
+      description: 'How the function delivers: embedded senior specialists and AI-assisted delivery patterns.',
       sections: {
         hero: {
-          label: 'atheryon / capital markets / approach',
+          label: 'atheryon / data-ai / approach',
           title: 'Our Approach',
-          subtitle: 'How the Capital Markets arm delivers.',
+          subtitle: 'How the function delivers.',
         },
         // The three delivery patterns (Appendix C) in place of the
         // relocated transaction workflows.

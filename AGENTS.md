@@ -9,22 +9,31 @@ Next.js 15.5 **static export** (`output: 'export'`, `images.unoptimized: true`).
 No API routes, no middleware, no server actions. Output: `out/` via `next build`.
 
 ## Key paths
-Two route groups, each rendering its own nav + footer shell:
+One route group, `(cm)`, rendering the nav + footer shell for every route:
 
-- `src/app/(cm)/` — the firm shell, holding every page except the mortgages stub:
+- `src/app/(cm)/` — the firm shell, holding every page:
   - homepage `page.tsx`
-  - arms: `ma`, `capital-markets`, `data-ai`
-  - per-arm sub-pages: `ma/{experience,approach,contact}`, `capital-markets/{experience,approach,contact}`
-  - firm-level: `about`, `contact`, `experience`, `approach`
-  - legacy CM surfaces: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`, `roadmap`
+  - functions: `ma`, `data-ai`, plus `data-ai/supply-chain` (application of
+    function 2, not a sector)
+  - firm-level (one of each): `experience`, `approach`, `about`, `contact`
+  - function-2 depth: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
   - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
   - `/ma` has no layout of its own; it sits inside `(cm)` and inherits the firm shell
-- `src/app/mortgages/` — buried stub with its own layout (hidden from nav)
+  - **Two FUNCTIONS, four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`):
+    M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`).
+    Header short form for function 1 is always **M&A Services** (`M&A SERVICES`).
+    Capital markets, banking, wealth and NBFIs are sectors — an audience line,
+    never routes. `/capital-markets` retired into `/data-ai` on 2026-08-15 and
+    301s there. Function-path `/ma/*` and `/data-ai/{experience,approach,contact}`
+    pages are deleted and 301 to firm `/experience`, `/approach`, `/contact`.
+    The `/mortgages` stub went on 2026-08-12 and `/roadmap` on 2026-08-15.
 - `src/content/site.ts` — THREE content generations: `site` (older pages: labs,
   offers, footer links, legal labels), `v2` (superseded; still the source for
   `/system` and the `Doc*` chrome defaults) and `v3` (current: home, ma,
-  capital-markets, data-ai, about, contact, experience, approach and the per-arm
-  sub-pages). Also `v2Ma` and `v2Mortgages`. **New page copy goes in `v3`.**
+  data-ai, about, contact, experience, approach). Also `v2Ma` and
+  `v2Mortgages`. **New page copy goes in `v3`.** The function-2 keys are still
+  named `cm*` (`cmCta`, `cmExperience`, `cmApproach`, `cmCases`, …) —
+  deliberate; firm `/experience` and `/approach` still read them as sources.
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy
   (26 themes / 111 pages via `pageCountFor`); re-sync from the sibling repo
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
