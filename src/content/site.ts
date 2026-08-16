@@ -919,12 +919,12 @@ const cmCases = [
       {
         label: 'Role',
         body:
-          'Global head of risk platforms. Designed and delivered the system, including CAD2 Value-at-Risk and P&L attribution, and stood up the market data function in New York, London and Zurich.',
+          'As Global Head of Risk Platforms, led the design and delivery of the bank’s first near real-time front-office risk platform, including VaR, P&L attribution, and global market data capabilities across New York, London, and Zurich.',
       },
       {
         label: 'Outcome',
         body:
-          'The bank’s first near real-time front office risk system in production.',
+          'Delivered the bank’s first production near real-time front-office risk platform, enabling faster risk decisions and enterprise-scale risk transparency across global commodities operations.',
       },
     ],
   },
