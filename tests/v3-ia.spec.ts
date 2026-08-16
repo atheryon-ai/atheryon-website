@@ -90,7 +90,7 @@ test('/data-ai carries the function principle', async ({ page }) => {
   await page.goto('/data-ai')
   await expect(
     page.getByText(
-      'Atheryon has delivered those platforms and has led APRA engagement at executive level.',
+      'Atheryon has delivered those platforms and led APRA engagement at executive level.',
     ),
   ).toBeVisible()
   // Three-discipline grid cut 2026-08-15 (MECE): the landing is boxes + three links.

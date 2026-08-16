@@ -1581,7 +1581,7 @@ export const v3 = {
         principle: {
           framing: '',
           statement:
-            'Data programs in regulated businesses have to produce the evidence an examination will ask for. Atheryon has delivered those platforms and has led APRA engagement at executive level.',
+            'Data programs in regulated businesses must stand up to examination. Atheryon has delivered those platforms and led APRA engagement at executive level.',
           support: '',
         },
         // Discipline grid not rendered on /data-ai (MECE 2026-08-15). Kept
