@@ -1559,9 +1559,10 @@ export const v3 = {
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'I co-founded Atheryon and lead M&A Transaction Services. With more than 25 years of experience across Australia, the UK and the US, I have advised and led organisations through acquisitions, divestments, separations, integrations and large-scale transformation programs.',
-                'I have held senior executive roles across banking, wealth and insurance, leading complex transaction and transformation initiatives in highly regulated environments. My experience spans transaction strategy, operating model design, business readiness, execution management and post-transaction stabilisation.',
-                'At Atheryon, I help clients navigate critical transaction events with confidence, bringing a practical, outcomes-focused approach to separation planning, integration execution and business transformation.',
+                'I co-founded Atheryon and lead our M&A Transaction Services practice. With more than 25 years of experience across Australia, the UK and the US, I advise corporate and private equity clients on acquisitions, divestments, separations, integrations and business transformations that unlock enterprise value.',
+                'Having held senior executive leadership roles across banking, wealth and insurance, I bring first-hand experience leading complex transactions in highly regulated environments. My expertise spans transaction strategy, operating model design, carve-out and separation planning, integration execution, business readiness and post-deal stabilisation.',
+                'I work closely with boards, executive teams and deal sponsors to navigate critical transaction events, translating strategic intent into executable plans and ensuring value is realised through disciplined delivery. My approach combines commercial pragmatism, operational rigour and deep transformation experience to help clients manage risk, accelerate outcomes and achieve sustainable results.',
+                'At Atheryon, I help clients execute transactions with confidence, providing practical, outcomes-focused leadership from deal strategy through to separation, integration and value realisation.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
