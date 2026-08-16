@@ -1057,7 +1057,7 @@ export const v3 = {
           items: [
             {
               id: 'transaction-value',
-              value: 'Up to $20bn',
+              value: '$20bn+',
               detail: 'Deal value supported',
             },
             {
