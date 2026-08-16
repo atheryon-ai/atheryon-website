@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <DocPage>
-      <DocBanner label={s.hero.label} title={s.hero.title} body={s.hero.subtitle} />
+      <DocBanner label={s.hero.label} title={s.hero.title} />
 
       {s.arms.map((arm) => {
         const source = SOURCES[arm.sourceKey]

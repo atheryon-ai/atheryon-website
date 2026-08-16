@@ -1296,8 +1296,8 @@ export const v3 = {
         },
         // Summaries only (Terry 2026-08-16). Full Context / Role / Outcome
         // stays on /experience. Wording traces to maExperience cases 01, 03
-        // and 05. The reviewer's "Post-Merger Integration" line was not
-        // used: case 05 is published as Operating Model Transformation.
+        // and 05. The /ma tile title stays Operating Model Transformation;
+        // experience case 05 is Post-Merger Transformation.
         engagements: {
           label: 'Representative Engagements',
           title: 'Representative engagements',
@@ -1376,17 +1376,17 @@ export const v3 = {
                 {
                   label: 'Context',
                   body:
-                    'A consortium acquisition of a mortgage portfolio valued at more than $20 billion. Compressed timelines, complex separation requirements, multiple service providers and no seller TSA.',
+                    'A consortium acquisition of a mortgage portfolio valued at more than $20 billion. Compressed timelines, complex separation requirements, multiple service providers and no seller transitional services.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Integration Director for the acquiring specialist mortgage servicer, accountable for transition and integration through deal completion.',
+                    'Integration Director for the acquiring specialist mortgage servicer, responsible for separation, transition and Day 1 readiness planning through transaction completion.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Delivered Day 1 operational readiness, customer migration and regulatory continuity on the agreed timeline, with low hypercare.',
+                    'Delivered operational readiness for Day 1, customer migration and regulatory continuity within an accelerated timetable, enabling transition to the new servicing environment with minimal post-completion stabilisation requirements.',
                 },
               ],
             },
@@ -1394,47 +1394,47 @@ export const v3 = {
               id: 'enterprise-divestment-advisory',
               index: '02',
               name: 'Enterprise-Wide Divestment & Separation Advisory',
-              client: 'Major Australian Bank',
+              client: 'Major Australian Financial Institution',
               engagement: 'Separation & Integration Advisory',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'Group-wide M&A advisory at a major Australian bank, including more than $1 billion of wealth, superannuation and asset-management divestments.',
+                    'Separation and integration advisory supporting a portfolio of wealth, superannuation and asset management transactions exceeding $1 billion in value at a major Australian financial institution.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Accountable for advisory from pre-sign through deal completion, and for implementation portfolios of more than $250 million.',
+                    'Senior separation and integration advisory roles across acquisitions, divestments and strategic transactions, with responsibilities expanding over time to include an enterprise-wide M&A transaction advisory remit.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Member servicing agreement worth approximately $50 million in cost benefits, and a group divestment playbook.',
+                    'Advised across a portfolio of acquisitions, divestments and strategic transactions, while helping establish repeatable separation and integration practices across the organisation.',
                 },
               ],
             },
             {
               id: 'financial-advice-sale-separation',
               index: '03',
-              name: 'Sale & Separation of a Major Financial Advice Business',
-              client: 'Leading Retail Bank',
+              name: 'Sale & Separation of Major Financial Advice Businesses',
+              client: 'Major Australian Banking and Wealth Group',
               engagement: 'Separation Execution',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'Sale of a major financial advice business and closure of a second advice network.',
+                    'Sale of a major financial advice business representing approximately $8 billion in funds under advice, together with the closure of a second advice network, as part of a broader wealth simplification agenda.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Accountable for pre-sign and post-sign execution, including Day 1 operating models. Program of approximately $50 million.',
+                    'Led divestment and separation execution across major wealth simplification initiatives, including business sale, network closure, Day 1 operating model design, business readiness and separation delivery.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Sale in four months. Full separation in ten months, with transitional services minimised.',
+                    'Delivered the successful sale of a major financial advice business in four months, a record timeframe for the bank, and the orderly closure of a second advice network, achieving minimal transitional services and full operational separation.',
                 },
               ],
             },
@@ -1442,47 +1442,47 @@ export const v3 = {
               id: 'wealth-demerger-insurance-divestment',
               index: '04',
               name: 'Wealth Demerger & Insurance Divestment',
-              client: 'Major Financial Services Organisation',
+              client: 'Major Australian Banking & Wealth Group',
               engagement: 'Separation Design & Readiness',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'Finance separation for a life insurance sale and a proposed wealth-management demerger.',
+                    'Finance separation supporting a major life insurance divestment and a proposed wealth management demerger as part of a broader simplification agenda.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Stood up standalone finance functions and ran the ERP replacement tender. Program of approximately $50 million.',
+                    'Led finance separation planning and readiness activities, including standalone finance operating model design, ERP replacement platform selection, finance function separation and execution planning.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Standalone finance functions ready for separation.',
+                    'Established standalone finance capabilities and separation readiness foundations to support a major insurance divestment and future restructuring options.',
                 },
               ],
             },
             {
               id: 'operating-model-transformation',
               index: '05',
-              name: 'Operating Model Transformation',
+              name: 'Post-Merger Transformation',
               client: 'Global Investment Bank',
               engagement: 'Transformation Leadership',
               details: [
                 {
                   label: 'Context',
                   body:
-                    'Delayed strategic initiative across a €400 million asset pool after a wealth and asset-management merger.',
+                    'Strategic investment initiative across a €400 million asset pool delayed following the merger of the Wealth and Asset Management divisions.',
                 },
                 {
                   label: 'Role',
                   body:
-                    'Led a team of about 60 to design the new operating model.',
+                    'Engaged by Executive Committee members to recover the initiative and lead a multidisciplinary team through the design and implementation of a new cross-divisional operating model.',
                 },
                 {
                   label: 'Outcome',
                   body:
-                    'Recovered the initiative and delivered the first joint program after the merger.',
+                    'Recovered a critical strategic initiative and delivered the first successful joint programme following the merger, establishing a new operating model for the combined Wealth and Asset Management business.',
                 },
               ],
             },
@@ -1529,7 +1529,7 @@ export const v3 = {
           label: 'atheryon / about',
           title: 'About Atheryon',
           body:
-            'Transactions and transformations increasingly succeed or fail based on operational, technology and data complexity. Atheryon combines deep transaction execution experience with technology, data and AI expertise to help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
+            'Atheryon operates at the intersection of transactions, transformation, technology, data and AI. We help organisations understand complexity earlier, reduce execution risk and deliver outcomes with confidence.',
         },
         positioning: {
           label: 'Positioning',
@@ -1543,7 +1543,7 @@ export const v3 = {
           label: 'Our Story',
           title: 'Our story',
           body:
-            'Anna Contos spent more than two decades leading major separation, integration and transformation programs and watched the same pattern repeat: commercial decisions made before operational implications were fully understood. Together with Terry Tsakiris, she established Atheryon to bring that understanding into the process earlier.\n\nWe help clients understand what a transaction or transformation will require before decisions are locked in. When execution begins, we provide the leadership needed to navigate complexity and deliver the intended outcomes. A signed deal is only the start; success is operational independence, value realised and outcomes delivered.',
+            'Atheryon was founded on a simple observation: organisations rarely struggle because of strategy. They struggle because operational, technology and data complexity is discovered too late.\n\nAfter decades leading major transactions, transformations and technology initiatives, Atheryon’s founders saw the same challenge emerge repeatedly. Critical decisions were often made before key operational, technology and data dependencies were fully understood, increasing execution risk and reducing value.\n\nAtheryon was established to bring that understanding into the process earlier. We help clients identify complexity before decisions are locked in, navigate it during execution and deliver outcomes with confidence.\n\nWhether the objective is a transaction, business transformation, technology modernisation or AI-enabled change, success depends on understanding what will be required before commitments are made. Success is measured not by plans approved or deals signed, but by value realised, capabilities delivered and outcomes achieved.',
         },
         // Bios genericised per rev 5 §1 (Brief 2): no named employers; the
         // "global investment banking" / "major Australian banks" register.
@@ -1562,9 +1562,10 @@ export const v3 = {
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. She brings more than 25 years in financial-services execution across Australia, the UK and the US, with the recent two decades focused on separations, integrations, divestments and large-scale transformation.',
-                'Anna has led separation and integration advisory at executive level for one of Australia’s major banks, spanning its divestment and acquisition initiatives, and previously headed divestment execution for the wealth division of another major Australian bank, running the portfolio of programs that delivered a landmark financial-advice divestment and the sale of a major insurance business. Earlier roles include platform take-to-market leadership and business consulting and strategy positions across global investment banking, wealth and retail.',
-                'Her track record spans the deal lifecycle in highly regulated and politically sensitive environments: separation and integration strategy, planning, commercial structuring, business readiness, execution and stabilisation, including carve-outs, demergers and end-to-end transition management.',
+                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. She brings more than 25 years of financial services experience across Australia, the UK and the US, including more than 20 years leading large-scale transformation programs and the past decade specialising in separations, integrations, divestments and transaction execution.',
+                'Anna has held executive leadership roles across major Australian financial institutions, leading separation and integration strategy, planning and execution for acquisitions, divestments and transformation initiatives. Her experience includes senior leadership roles in complex separation and integration programs associated with significant wealth, banking and insurance transactions, operating in highly regulated and high stakes environments.',
+                'Earlier roles included platform commercialisation, strategy and business consulting positions across investment banking, wealth management and retail financial services.',
+                'Her experience spans separation and integration strategy, operating model design, business readiness, transition planning, execution management and stabilisation, including carve-outs, divestments, acquisitions and post-transaction transformation.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
@@ -1883,7 +1884,6 @@ export const v3 = {
         hero: {
           label: 'atheryon / experience',
           title: 'Experience',
-          subtitle: 'Representative experience across both functions.',
         },
         arms: [
           { id: 'ma', label: 'M&A Transaction Services', sourceKey: 'maExperience' },

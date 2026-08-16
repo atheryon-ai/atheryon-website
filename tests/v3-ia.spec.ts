@@ -238,8 +238,8 @@ test('/experience#ma normalises cases to Context / Role / Outcome with the mortg
   // Exact + case-sensitive, else "programs" matches on a substring.
   await expect(page.getByText(/\bRAMS\b/)).toHaveCount(0)
 
-  await expect(page.getByRole('heading', { name: 'Sale & Separation of a Major Financial Advice Business' })).toBeVisible()
-  await expect(page.getByText('Sale in four months. Full separation in ten months, with transitional services minimised.')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Sale & Separation of Major Financial Advice Businesses' })).toBeVisible()
+  await expect(page.getByText('Delivered the successful sale of a major financial advice business in four months, a record timeframe for the bank')).toBeVisible()
   await expect(page.getByText('{{')).toHaveCount(0)
 
   const bodyText = await page.locator('#ma').innerText()
