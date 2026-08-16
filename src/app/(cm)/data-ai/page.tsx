@@ -63,6 +63,33 @@ export default function DataAiPage() {
         />
       </DocSection>
 
+      <DocSection label={s.engagements.label} title={s.engagements.title}>
+        <ol className="border-y border-charcoal/15 divide-y divide-charcoal/15">
+          {s.engagements.items.map((item) => (
+            <li key={item.id} className="py-6">
+              {'figure' in item && item.figure && (
+                <div className="font-display text-2xl md:text-3xl font-medium tracking-tight text-charcoal">
+                  {item.figure}
+                </div>
+              )}
+              <h3 className="mt-2 font-display text-xl md:text-2xl font-medium tracking-tight text-charcoal leading-tight">
+                {item.name}
+              </h3>
+              <p className="mt-2 max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed">
+                {item.summary}
+              </p>
+            </li>
+          ))}
+        </ol>
+        <Link
+          href={s.engagements.href}
+          className="mt-8 inline-flex items-center gap-2 font-mono text-sm font-medium text-charcoal underline-offset-4 hover:underline"
+        >
+          {s.engagements.ctaLabel}
+          <span aria-hidden="true">→</span>
+        </Link>
+      </DocSection>
+
       <DocSection>
         <ul className="border-y border-charcoal/15 divide-y divide-charcoal/15">
           {relatedLinks.map((link) => (

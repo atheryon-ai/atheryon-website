@@ -125,6 +125,10 @@ test('/data-ai is boxes plus three links, not three indexes', async ({ page }) =
   await expect(page.getByRole('heading', { name: 'Capital Markets Systems & Platform Delivery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Where it shows up' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
+  await expect(page.getByText('$84M', { exact: true })).toBeVisible()
+  await expect(page.getByText('AI agents have been used to migrate from AWS to Azure.')).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#data-ai')
   await expect(page.locator('main').locator('a[href="/labs"]')).toHaveCount(1)
   await expect(page.locator('main').locator('a[href="/ma#technology-data-migration"]')).toHaveCount(1)
   await expect(page.locator('main').locator('a[href="/data-ai/supply-chain"]')).toHaveCount(1)
@@ -166,7 +170,7 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   // content leaves the homepage). Why / values / belief cut 2026-08-15 so
   // the landing is offer then engage, not a repeated sermon.
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toBeVisible()
-  await expect(page.getByText('Transaction value is protected when separation and integration requirements are understood early.')).toBeVisible()
+  await expect(page.getByText('Transaction value is lost when separation and integration requirements are discovered too late.')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Our Belief' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'How we work' })).toHaveCount(0)
@@ -190,6 +194,11 @@ test('/ma (M&A arm) lists the four service lines with deduped TSA scope', async 
   await expect(page.getByText('TSA strategy', { exact: true })).toBeVisible()
   await expect(page.getByText('TSA design and exit planning', { exact: true })).toBeVisible()
   await expect(page.getByText('TSA establishment and exit management', { exact: true })).toBeVisible()
+
+  await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Landmark Mortgage Portfolio Acquisition' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Operating Model Transformation' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Selected cases' })).toHaveAttribute('href', '/experience#ma')
 
   // Engagement model (decided 2026-08-09): embedded, no stated durations
   await expect(page.getByRole('heading', { name: 'How we engage' })).toBeVisible()

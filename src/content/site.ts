@@ -901,7 +901,7 @@ const cmCases = [
       {
         label: 'Outcome',
         body:
-          'The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
+          'The recovered program was delivered in 18 months after a 5-year failed run. The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
       },
     ],
   },
@@ -1029,65 +1029,62 @@ export const v3 = {
   pages: {
     home: {
       route: '/',
-      title: 'Atheryon — Making Complex Change Executable',
+      title: 'Atheryon — Clarity for critical decisions',
       description:
-        'Atheryon is a specialist advisory firm helping organisations understand and execute complex transactions, transformations and technology-driven change where operational, technology and data dependencies materially impact outcomes.',
+        'Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation. Two functions, engaged across capital markets, banking, wealth and non-bank financial institutions.',
       sections: {
-        // Root hero — rev 6: viewport 1 reproduces the approved poster
-        // (docs/superpowers/specs/atheryon-poster-2026-08-09.svg). Three
-        // serif lines, warm white on deep navy, arms + bronze foundation
-        // strip in the band. Supporting copy opens section 2 (Appendix B
-        // verbatim). Subheading fragments are display type only.
+        // Root hero — three serif lines in the statement band (design
+        // standard §3). Supporting copy opens the document register.
         hero: {
-          lines: ['Making', 'Complex Change', 'Executable.'],
-          subheading: 'Understanding implications early. Executing with confidence.',
+          lines: ['Clarity for', 'critical decisions.', 'Leadership for complex execution.'],
+          subheading:
+            'Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation.',
           supporting:
-            'Atheryon runs two functions: M&A Transaction Services, and Data, Transformation, AI. Both are engaged across capital markets, banking, wealth and non-bank financial institutions, bringing clarity to critical decisions and leadership to execution.',
+            'Atheryon operates across two functions: M&A Transaction Services, and Data, Transformation, AI. Both are engaged across capital markets, banking, wealth and non-bank financial institutions. The work helps institutions make high-stakes decisions and deliver execution that stands up to regulatory, operational and market scrutiny.',
           primaryCta: { label: 'Contact us', href: '/contact' },
           // Functions-and-sectors IA (Terry 2026-08-15, spec §4): two explore
           // links, function 1 first. The third link went when Data,
           // Transformation, AI stopped being an underpinning and became
           // function 2.
           explore: {
+            intro: 'Choose the capability you need',
             items: [
               { id: 'ma', label: 'Explore M&A Transaction Services', href: '/ma' },
               { id: 'data-ai', label: 'Explore Data, Transformation, AI', href: '/data-ai' },
             ],
           },
         },
-        // Terry 2026-08-09 (screenshots): the transaction proof strip and
-        // the principle live INSIDE the function-1 section; the parallel
-        // function-2 section carries the $84M proof point. Front page splits
-        // evenly between the two functions.
+        // Firm-level credentials (Terry 2026-08-16): one strip, no case
+        // write-ups. Case detail lives on /ma, /data-ai and /experience.
+        // $20bn+ traces to maExperience case 01; 25+ years to Anna's
+        // /about bio; sectors are the published audience line.
+        trackRecord: {
+          title: 'Track Record',
+          items: [
+            {
+              id: 'transaction-value',
+              value: 'Up to $20bn',
+              detail: 'Deal value supported',
+            },
+            {
+              id: 'execution-track-record',
+              value: '25+ years',
+              detail: 'Financial-services transaction and transformation experience',
+            },
+            {
+              id: 'sectors',
+              value: 'Banking · Wealth · Capital Markets · NBFIs',
+              detail: 'Experience across regulated financial institutions',
+            },
+          ],
+        },
         maSection: {
           label: 'M&A Transaction Services',
           title: 'M&A Transaction Services',
-          // Strip rebuilt 2026-08-15 (Terry): figures lead, per the design
-          // standard's proof-strip anatomy. The word-count entries (sectors,
-          // jurisdictions) went; geography dropped from the strip entirely.
-          // Every figure traces to published copy: $20bn+ from maExperience
-          // case 01, 4 months from case 03 (Terry 2026-08-15: the sale-to-
-          // separation figure is four months, not ten), 25+ years from
-          // Anna's /about bio.
-          proof: {
-            items: [
-              {
-                id: 'rams',
-                value: '$20bn+',
-                detail: 'Mortgage portfolio acquisition, integration leadership',
-              },
-              {
-                id: 'advice-separation',
-                value: '4 months',
-                detail: 'Sale to full operational separation of a major financial advice business',
-              },
-              {
-                id: 'execution-track-record',
-                value: '25+ years',
-                detail: 'Financial-services transaction and transformation execution',
-              },
-            ],
-          },
+          intro:
+            'Atheryon provides hands-on leadership across the M&A lifecycle, from diligence and transaction readiness through separation and integration. The function is engaged in complex, regulated environments where execution quality determines deal value.',
+          supporting:
+            'The work spans capital markets, banking, wealth and non-bank financial institutions.',
         },
         // Function 2 (spec §4). The key stays cmSection so the homepage
         // component contract is untouched; the content is now the function,
@@ -1095,17 +1092,10 @@ export const v3 = {
         cmSection: {
           label: 'Data, Transformation, AI',
           title: 'Data, Transformation, AI',
-          proof: {
-            items: [
-              {
-                id: 'data-program-recovery',
-                value: '$84M',
-                detail: 'Recovery and delivery of a failed financial markets data program',
-              },
-            ],
-          },
+          intro:
+            'Atheryon helps institutions rebuild data foundations, apply AI under the same governance as the rest of the delivery, and run transformation programs that follow a transaction or stand alone.',
           line:
-            'Data platforms and the environments around them, transformation programs that follow a transaction or stand alone, and AI applied under the same governance as the rest of the delivery.',
+            'Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
         },
         // Poster band (spec §4): the two functions carry bronze ticks,
         // function 1 first, and the bronze foundation rule beneath them now
@@ -1156,14 +1146,14 @@ export const v3 = {
           title: 'Making Transactions Executable',
           // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'Advisory and execution leadership for acquisitions, divestments, separations and integrations, where execution risk can materially impact outcomes. Engaged across capital markets, banking, wealth and non-bank financial institutions.',
+            'Advisory and execution leadership for acquisitions, divestments, separations and integrations where execution risk materially impacts outcomes. Experience across capital markets, banking, wealth and non-bank financial institutions.',
         },
         // The function's principle (Terry 2026-08-09: principles live with
         // the sub pages, not the homepage). Large type, founding framing.
         principle: {
           framing: 'Atheryon was founded on a simple observation:',
           statement:
-            'Transaction value is protected when separation and integration requirements are understood early.',
+            'Transaction value is lost when separation and integration requirements are discovered too late.',
           // The support line went on 2026-08-15 (Terry): it paraphrased the
           // statement directly above it, which is the whole point of a
           // pull-quote. The statement carries the idea once.
@@ -1301,6 +1291,38 @@ export const v3 = {
                 'Service register → exit sequence by dependency → extension and stranded cost exposure → position for the Steering Committee.',
               output:
                 'A TSA exit plan with a gate per service: what has to be operational to exit it, who owns that, what an extension costs if the date moves, and evidence of control transfer at closure.',
+            },
+          ],
+        },
+        // Summaries only (Terry 2026-08-16). Full Context / Role / Outcome
+        // stays on /experience. Wording traces to maExperience cases 01, 03
+        // and 05. The reviewer's "Post-Merger Integration" line was not
+        // used: case 05 is published as Operating Model Transformation.
+        engagements: {
+          label: 'Representative Engagements',
+          title: 'Representative engagements',
+          href: '/experience#ma',
+          ctaLabel: 'Selected cases',
+          items: [
+            {
+              id: 'mortgage-portfolio-acquisition',
+              figure: '$20bn+',
+              name: 'Landmark Mortgage Portfolio Acquisition',
+              summary:
+                'Atheryon leadership played a key role in the transition and integration of the mortgage portfolio acquisition.',
+            },
+            {
+              id: 'financial-advice-sale-separation',
+              figure: '4 months',
+              name: 'Sale and separation of a major financial advice business',
+              summary:
+                'Completed the sale and full operational separation within four months, with minimal transitional arrangements.',
+            },
+            {
+              id: 'operating-model-transformation',
+              name: 'Operating Model Transformation',
+              summary:
+                'A large-scale operating model transformation across merged wealth and asset management businesses.',
             },
           ],
         },
@@ -1688,6 +1710,29 @@ export const v3 = {
               ],
               body:
                 'Reporting obligations multiply by regime, and each regime tends to absorb its own build team while schema drift quietly breaks submissions. Atheryon delivers reporting platforms where every trade is scored against per-regime completeness rules and each report is generated in the regime\'s prescribed format.\n\nThe design principle comes from how these platforms are examined: an audit asks for the evidence chain behind each submission, covering what was reported, what changed, who approved it and when. Surveillance sits on the same data foundation, so the evidence exists as a by-product of the workflow rather than a reconstruction after the fact.',
+            },
+          ],
+        },
+        // Summaries only (Terry 2026-08-16). The $84M write-up stays on
+        // /experience. AWS-to-Azure is a function-level line Terry added
+        // the same day; it is not attached to the $84M case.
+        engagements: {
+          label: 'Representative Engagements',
+          title: 'Representative engagements',
+          href: '/experience#data-ai',
+          ctaLabel: 'Selected cases',
+          items: [
+            {
+              id: 'data-program-recovery',
+              figure: '$84M',
+              name: 'Recovery of a failed financial markets data program',
+              summary:
+                'Recovered the program and delivered the strategic data and analytics platform in 18 months after a 5-year failed run.',
+            },
+            {
+              id: 'aws-azure-migration',
+              name: 'AWS to Azure migration',
+              summary: 'AI agents have been used to migrate from AWS to Azure.',
             },
           ],
         },

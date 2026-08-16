@@ -6,12 +6,16 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
   // Brand lockup (wordmark only)
   await expect(page.getByText('ATHERYON', { exact: true })).toBeVisible()
 
-  // Viewport-1 poster band (rev 6): three-line serif hero + subheading
+  // Viewport-1 statement band: three-line serif hero + subheading
   const h1 = page.locator('h1')
-  await expect(h1).toContainText('Making')
-  await expect(h1).toContainText('Complex Change')
-  await expect(h1).toContainText('Executable.')
-  await expect(page.getByText('Understanding implications early. Executing with confidence.')).toBeVisible()
+  await expect(h1).toContainText('Clarity for')
+  await expect(h1).toContainText('critical decisions.')
+  await expect(h1).toContainText('Leadership for complex execution.')
+  await expect(
+    page.getByText(
+      'Atheryon supports financial-services leaders across M&A, data and AI-enabled transformation.',
+    ),
+  ).toBeVisible()
 
   // Slim top nav (functions spec §5): the two functions plus about. Three
   // items — Capital Markets left the header when it became a sector.
@@ -29,6 +33,7 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
 
   // Two explore links (spec §4), function 1 first. The third went when Data,
   // Transformation, AI stopped being an underpinning and became function 2.
+  await expect(page.getByText('Choose the capability you need')).toBeVisible()
   for (const [label, href] of [
     ['Explore M&A Transaction Services', '/ma'],
     ['Explore Data, Transformation, AI', '/data-ai'],
@@ -38,24 +43,37 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     ).toHaveAttribute('href', href)
   }
 
-  // Proof strip figures ($21.4bn tile rounded to $20bn+ and de-named per
-  // Terry 2026-08-10; the >$1bn tile was the same metric and was removed
-  // 2026-08-15; $84M is the function-2 proof per spec Appendix C)
-  await expect(page.getByText('$20bn+')).toBeVisible()
+  // Firm-level track record (Terry 2026-08-16): three credentials, no
+  // case write-ups. $20bn+ traces to maExperience case 01; 25+ years to
+  // Anna's /about bio. Case figures (4 months, $84M, 5 years to 18 months)
+  // live on the function pages.
+  await expect(page.getByRole('heading', { name: 'Track Record' })).toBeVisible()
+  await expect(page.getByText('Up to $20bn')).toBeVisible()
+  await expect(page.getByText('Deal value supported')).toBeVisible()
+  await expect(page.getByText('25+ years', { exact: true })).toBeVisible()
   await expect(page.getByText('>$1bn')).toHaveCount(0)
-  await expect(page.getByText('4 months', { exact: true })).toBeVisible()
+  await expect(page.getByText('4 months', { exact: true })).toHaveCount(0)
   await expect(page.getByText('10 months')).toHaveCount(0)
-  // Casing check: the sector is NBFIs, never NBFIS. It renders inside the
-  // FoundationRule's joined string, so match on substring.
-  await expect(page.getByText(/NBFIs/)).toBeVisible()
+  await expect(page.getByText('$84M', { exact: true })).toHaveCount(0)
+  await expect(page.getByText('5 years to 18 months', { exact: true })).toHaveCount(0)
+  await expect(page.getByText('AI agents have been used to migrate from AWS to Azure.')).toHaveCount(0)
+  // Casing check: the sector is NBFIs, never NBFIS. It now appears in the
+  // foundation strip and the track-record tile.
+  await expect(page.getByText(/NBFIs/)).toHaveCount(2)
   await expect(page.getByText(/NBFIS/)).toHaveCount(0)
-  await expect(page.getByText('$84M', { exact: true })).toBeVisible()
-  await expect(page.getByText('Recovery and delivery of a failed financial markets data program')).toBeVisible()
+
+  await expect(page.getByText('Atheryon provides hands-on leadership across the M&A lifecycle')).toBeVisible()
+  await expect(
+    page.getByText('Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.'),
+  ).toBeVisible()
 
   // Why Clients Choose Atheryon and Our Belief are M&A copy and live on
-  // /ma (Terry 2026-08-09 reviews)
+  // /ma (Terry 2026-08-09 reviews). The homepage rewrite's Why / Contact
+  // blocks stay off this page: three numbered sections, header CTA only.
   await expect(page.getByRole('heading', { name: 'Why Clients Choose Atheryon' })).toHaveCount(0)
+  await expect(page.getByRole('heading', { name: 'Why Atheryon' })).toHaveCount(0)
   await expect(page.getByText('Better decisions are made when the implications of execution are understood early.')).toHaveCount(0)
+  await expect(page.getByText('Ready to move forward with clarity')).toHaveCount(0)
 
   // Function principles live with the sub pages (Terry 2026-08-09), not here
   await expect(page.getByText('Atheryon was founded on a simple observation:')).toHaveCount(0)
