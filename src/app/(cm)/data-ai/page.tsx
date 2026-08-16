@@ -50,9 +50,11 @@ export default function DataAiPage() {
       )}
 
       <DocSection label={s.lines.label} title={s.lines.title}>
-        <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
-          {s.lines.intro}
-        </p>
+        {s.lines.intro ? (
+          <p className="max-w-3xl text-base md:text-lg text-charcoal/85 leading-relaxed mb-8">
+            {s.lines.intro}
+          </p>
+        ) : null}
         <ServiceLineIndex
           items={s.lines.items.map((line) => ({
             id: line.id,

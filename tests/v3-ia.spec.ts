@@ -20,7 +20,7 @@ test('/experience is the only cases page and carries full CRO for both functions
   await expect(page.locator('#data-ai')).toBeVisible()
   await expect(page.getByText('Context').first()).toBeVisible()
   await expect(page.getByText('more than $20 billion', { exact: false }).first()).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Recovery of a Failed $84M Data & Analytics Program' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Program Recovery & Delivery' })).toBeVisible()
   await expect(page.locator('main').locator('a[href="/ma/experience"]')).toHaveCount(0)
 })
 
@@ -96,12 +96,12 @@ test('/data-ai carries the function principle', async ({ page }) => {
 
 test('/data-ai absorbed the markets depth and platform links', async ({ page }) => {
   await page.goto('/data-ai')
-  await expect(page.getByRole('heading', { name: 'Published depth: capital markets' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Service lines' })).toBeVisible()
   for (const line of [
-    'Capital Markets Systems & Platform Delivery',
+    'Systems & Platform Delivery',
     'Market Data & Reference Data Environments',
     'Data Foundations',
-    'Regulatory Markets Platforms',
+    'Regulatory Platforms',
   ]) {
     await expect(page.getByRole('heading', { level: 3, name: line })).toBeVisible()
   }
@@ -122,7 +122,7 @@ test('/ma is offer then engage, not a repeated sermon', async ({ page }) => {
 
 test('/data-ai is boxes plus three links, not three indexes', async ({ page }) => {
   await page.goto('/data-ai')
-  await expect(page.getByRole('heading', { name: 'Capital Markets Systems & Platform Delivery' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Systems & Platform Delivery' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'How the function works' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Where it shows up' })).toHaveCount(0)
   await expect(page.getByRole('heading', { name: 'Representative engagements' })).toBeVisible()
@@ -292,9 +292,9 @@ test('/capital-markets is retired as a route and a nav item', async ({ page }) =
 test('/experience#data-ai carries the three Appendix C cases', async ({ page }) => {
   await page.goto('/experience#data-ai')
   for (const name of [
-    'Recovery of a Failed $84M Data & Analytics Program',
+    'Program Recovery & Delivery',
     'First Near Real-Time Front Office Risk System',
-    'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping',
+    'Regulatory Markets Platform',
   ]) {
     await expect(page.getByRole('heading', { name })).toBeVisible()
   }

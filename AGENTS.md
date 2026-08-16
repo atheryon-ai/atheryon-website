@@ -17,7 +17,7 @@ One route group, `(cm)`, rendering the nav + footer shell for every route:
     function 2, not a sector)
   - firm-level (one of each): `experience`, `approach`, `about`, `contact`
   - function-2 depth: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
-  - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
+  - legal: `privacy`, `terms`
   - `/ma` has no layout of its own; it sits inside `(cm)` and inherits the firm shell
   - **Two FUNCTIONS, four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`):
     M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`).
@@ -27,6 +27,7 @@ One route group, `(cm)`, rendering the nav + footer shell for every route:
     301s there. Function-path `/ma/*` and `/data-ai/{experience,approach,contact}`
     pages are deleted and 301 to firm `/experience`, `/approach`, `/contact`.
     The `/mortgages` stub went on 2026-08-12 and `/roadmap` on 2026-08-15.
+    `/blog` and `/blog/why-claude` were removed on 2026-08-16; those URLs 404.
 - `src/content/site.ts` — THREE content generations: `site` (older pages: labs,
   offers, footer links, legal labels), `v2` (superseded; still the source for
   `/system` and the `Doc*` chrome defaults) and `v3` (current: home, ma,
@@ -83,7 +84,7 @@ Re-sync after upstream changes; there is no build-time link.
   devices (bronze tick, foundation rule, proof strip, statement band) are
   components in `brand/`, never hand-rolled per page.
 - Prefer `site.ts` for page copy on structured pages, writing new copy into `v3`;
-  `/labs` and `/blog/why-claude` carry long-form copy inline in TSX.
+  `/labs` carries long-form copy inline in TSX.
 - **Exception — legal pages:** `/privacy` and `/terms` may inline their content in
   TSX rather than `site.ts`. Legal prose is long, deeply structured and changes
   rarely; inlining keeps it readable next to its rendering and avoids inventing a

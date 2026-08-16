@@ -35,13 +35,13 @@ One route group, `(cm)`, rendering the nav + footer shell for every route:
   - functions: `ma`, `data-ai`, plus `data-ai/supply-chain` (an application of function 2, not a sector)
   - firm-level (one of each): `experience`, `approach`, `about`, `contact`
   - function-2 depth: `themes`, `themes/[id]`, `offers`, `offers/{code,prompts,consult}`, `offers/prompts/thanks`, `system`, `labs`, `labs/themes`
-  - writing + legal: `blog`, `blog/why-claude`, `privacy`, `terms`
-  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision.
+  - legal: `privacy`, `terms`
+  - There is no separate `ma` route group; `/ma` lives inside `(cm)` and has no layout of its own. The `/mortgages` stub and its layout were removed on 2026-08-12, and `/roadmap` on 2026-08-15, retiring the mortgages practice from the public site: it was the last surface naming it. `/roadmap` has no redirect and 404s by decision. `/blog` and `/blog/why-claude` were removed on 2026-08-16; those URLs 404.
   - **The firm presents two FUNCTIONS and four SECTORS** (`docs/superpowers/specs/2026-08-15-functions-and-sectors-ia-design.md`, Terry 2026-08-15). Functions: M&A Transaction Services (`/ma`) and Data, Transformation, AI (`/data-ai`). Sectors: capital markets, banking, wealth, non-bank financial institutions — an audience line, never routes and never nav items. `/capital-markets` was an arm until 2026-08-15; it retired into `/data-ai` and 301s there. Function-path copies `/ma/{experience,approach,contact}` and `/data-ai/{experience,approach,contact}` are deleted and 301 to the firm pages (hashes or `?topic=`). Header is `M&A SERVICES · DATA & AI · ABOUT` plus Contact Us → `/contact`. Do not build sector pages or per-sector service catalogues.
 - `src/content/site.ts` — exports THREE content generations: `site` (older pages: labs, offers, footer links, legal labels), `v2` (superseded generation, still the source for `/system` and the `Doc*` chrome defaults) and `v3` (current generation: home, ma, data-ai, about, contact, experience, approach). Also `v2Ma` and `v2Mortgages`. New page copy goes in `v3`. NOTE: function-2 content keys are still named `cm*` (`cmCta`, `cmExperience`, `cmApproach`, `cmCases`, …) — kept deliberately so component contracts did not churn; firm `/experience` and `/approach` read them as data sources.
 - `src/content/buyerThemes.ts` — the seven `/themes` entries
 - `src/content/themes.ts` — manual snapshot of the labs-platform theme taxonomy; re-sync from sibling repo
-- Inline TSX copy (not in site.ts): `/labs`, `/blog/why-claude`, `/privacy`, `/terms`
+- Inline TSX copy (not in site.ts): `/labs`, `/privacy`, `/terms`
 - `src/components/` — `Doc.tsx` (DocPage/DocBanner/DocSection/DocFooter/DocBullets — §-numbered document chrome), `shellConfig.ts` (header nav per mode), `Footer.tsx` (reads `site.footer.*`), `brand/*` (BronzeTick, FoundationRule, ProofStrip, StatementBand), `ArmSubNav.tsx`, ContactForm, StatusBadge, SystemArchitectureDiagram, ModeSetter, `home/*`
 - `staticwebapp.config.json` — Azure SWA routes, redirects, auth (sp-clients role on `/integration/*`). All redirects go here (static export = no Next redirects).
 
@@ -65,7 +65,7 @@ Re-sync after upstream changes; there is no build-time link.
 
 ## UI patterns
 - Newer pages use the `Doc*` family from `src/components/Doc.tsx` (DocPage wrapper, DocBanner header, DocSection with § numbering, DocFooter)
-- Prefer `site.ts` for page copy on structured pages, writing new copy into the `v3` export; `/labs` and `/blog/why-claude` carry long-form copy inline in TSX
+- Prefer `site.ts` for page copy on structured pages, writing new copy into the `v3` export; `/labs` carries long-form copy inline in TSX
 - **Exception — legal pages:** `/privacy` and `/terms` may inline their content in TSX rather than `site.ts`. Reason: legal prose is long, deeply structured (sections, sub-sections, mixed rich bullets, external links), and changes rarely. Inlining keeps the content readable next to its rendering and avoids inventing a complex `site.pages.legal.{...}` shape that won't pay off for two pages.
 - Forms post to Formspree (https://formspree.io/f/xdkdynak) — 3rd-party PII processor
 

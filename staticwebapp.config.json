@@ -2,7 +2,6 @@
   "routes": [
     { "route": "/_next/static/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
 
-    { "route": "/writing",                "redirect": "/blog",        "statusCode": 301 },
     { "route": "/reality",                "redirect": "/",            "statusCode": 301 },
     { "route": "/data",                   "redirect": "/system",      "statusCode": 301 },
     { "route": "/ai-direction",           "redirect": "/themes",      "statusCode": 301 },

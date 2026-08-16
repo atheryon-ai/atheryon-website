@@ -20,7 +20,7 @@ import { Children, cloneElement, isValidElement, type ReactElement, type ReactNo
 // so inserting, hiding or reordering a section can never leave the chrome
 // out of sequence. Unlabelled DocSections (statement moments) are skipped.
 // `numbered={false}` keeps a page's labels plain — the 2026-08-09 §-strip
-// pass deliberately removed § chrome from the offers/legal/blog surfaces.
+// pass deliberately removed § chrome from the offers/legal surfaces.
 export function DocPage({
   children,
   numbered = true,

@@ -10,8 +10,8 @@ import { site, v3 } from '@/content/site'
 // surface.
 const TECH_SURFACES = ['/data-ai', '/system', '/labs', '/themes', '/offers']
 
-// Firm footer (exec-first IA): grouped columns — Firm / Technology /
-// Resources — with the legal links and contact details on a closing row.
+// Firm footer (exec-first IA): grouped columns — Firm / Technology —
+// with the legal links and contact details on a closing row.
 // The `mode` prop was dropped on 2026-08-12: it was already unused (`void
 // mode`) and existed only for the mortgages shell, which no longer exists.
 export function Footer() {
@@ -58,12 +58,6 @@ export function Footer() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href="https://www.linkedin.com/in/terencetsakiris/"
-              className="inline-block px-3 py-3 hover:text-white"
-            >
-              LinkedIn
-            </a>
             <a href={`mailto:${site.email}`} className="inline-block px-3 py-3 hover:text-white">
               {site.email}
             </a>

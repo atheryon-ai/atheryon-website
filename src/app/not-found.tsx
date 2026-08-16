@@ -19,7 +19,6 @@ const NAV = [
   { label: 'Experience', tag: 'Representative experience', href: '/experience' },
   { label: 'Approach', tag: 'Method and governance', href: '/approach' },
   { label: 'About', tag: 'Story and co-founders', href: '/about' },
-  { label: 'Writing', tag: 'Essays from the practice', href: '/blog' },
 ] as const
 
 /**

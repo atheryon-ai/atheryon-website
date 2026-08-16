@@ -884,24 +884,24 @@ export const v2 = {
 const cmCases = [
   {
     id: 'data-program-recovery',
-    name: 'Recovery of a Failed $84M Data & Analytics Program',
-    client: 'Major Australian Bank, Financial Markets',
-    engagement: 'Program Recovery & Platform Delivery',
+    name: 'Program Recovery & Delivery',
+    client: 'Major Australian Bank',
+    engagement: 'Financial Markets',
     details: [
       {
         label: 'Context',
         body:
-          'A strategic data and analytics transformation for the institutional bank’s financial markets business had failed after $84M of investment, with regulatory capabilities depending on it.',
+          'A Financial Markets data and analytics transformation had stalled after more than $84 million in investment, with regulatory and operational capabilities still undelivered.',
       },
       {
         label: 'Role',
         body:
-          'Program Director. Recovered the program and delivered the strategic data and analytics platform, automated trade surveillance, and trade and record reconstruction, then redefined how the bank builds and maintains its strategic data capability.',
+          'Program Director, accountable for recovering the program and delivering the outstanding capabilities.',
       },
       {
         label: 'Outcome',
         body:
-          'The recovered program was delivered in 18 months after a 5-year failed run. The platform and regulatory capabilities went live. The delivery approach established on the back of the recovery shipped strategic data assets at ten times prior speed, a first for the bank, with data governance stood up and APRA engagement led at executive level.',
+          'The data and analytics platform went live, including automated trade surveillance and trade and record reconstruction, with executive-level APRA engagement. Subsequent strategic data-asset delivery ran up to ten times faster than previous methods.',
       },
     ],
   },
@@ -914,40 +914,40 @@ const cmCases = [
       {
         label: 'Context',
         body:
-          'The commodities business needed front office risk at near real-time speed plus regulatory market risk capability, across desks spanning crude, natural gas and hybrids, during record crude oil volatility.',
+          'Commodities desks needed front-office risk at near real-time speed, plus regulatory market risk, during record crude oil volatility.',
       },
       {
         label: 'Role',
         body:
-          'Global head of risk platforms. Designed, developed and delivered the system; delivered CAD2 market risk capability including Value-at-Risk and P&L attribution for trading and product control; established the market data team and its BAU function across New York, London and Zurich.',
+          'Global head of risk platforms. Designed and delivered the system, including CAD2 Value-at-Risk and P&L attribution, and stood up the market data function in New York, London and Zurich.',
       },
       {
         label: 'Outcome',
         body:
-          'The bank’s first near real-time front office risk system in production, sustained by the market data function built alongside it.',
+          'The bank’s first near real-time front office risk system in production.',
       },
     ],
   },
   {
     id: 'regulatory-markets-platform',
-    name: 'Regulatory Markets Platform: Surveillance, Reporting, Record Keeping',
+    name: 'Regulatory Markets Platform',
     client: 'Major Australian Bank, Institutional Banking & Markets',
     engagement: 'Regulatory Platform Delivery',
     details: [
       {
         label: 'Context',
         body:
-          'The markets business faced obligations spanning regulatory trade reporting, record keeping, MiFID II and trade surveillance, with no platform to carry them.',
+          'The markets business faced trade reporting, record keeping, MiFID II and trade surveillance obligations, with no platform to carry them.',
       },
       {
         label: 'Role',
         body:
-          'Business owner and delivery lead. Led trade surveillance from inception to BAU handover; delivered the supporting platform; introduced the data modelling and engineering capability behind it.',
+          'Business owner and delivery lead from inception through BAU handover, including the data modelling and engineering capability behind the platform.',
       },
       {
         label: 'Outcome',
         body:
-          'Regulatory obligations met on a platform that transitioned into business-as-usual operation.',
+          'Obligations met on a platform that transitioned into business-as-usual operation.',
       },
     ],
   },
@@ -1015,12 +1015,6 @@ export const v3 = {
           { label: 'Labs', href: '/labs' },
           { label: 'System', href: '/system' },
           { label: 'Offers', href: '/offers' },
-        ],
-      },
-      {
-        heading: 'Resources',
-        links: [
-          { label: 'Writing', href: '/blog' },
         ],
       },
     ],
@@ -1545,11 +1539,15 @@ export const v3 = {
           body:
             'Atheryon was founded on a simple observation: organisations rarely struggle because of strategy. They struggle because operational, technology and data complexity is discovered too late.\n\nAfter decades leading major transactions, transformations and technology initiatives, Atheryon’s founders saw the same challenge emerge repeatedly. Critical decisions were often made before key operational, technology and data dependencies were fully understood, increasing execution risk and reducing value.\n\nAtheryon was established to bring that understanding into the process earlier. We help clients identify complexity before decisions are locked in, navigate it during execution and deliver outcomes with confidence.\n\nWhether the objective is a transaction, business transformation, technology modernisation or AI-enabled change, success depends on understanding what will be required before commitments are made. Success is measured not by plans approved or deals signed, but by value realised, capabilities delivered and outcomes achieved.',
         },
-        // Bios genericised per rev 5 §1 (Brief 2): no named employers; the
-        // "global investment banking" / "major Australian banks" register.
-        // Facts sourced from the earlier signed-off material. The mortgage
-        // portfolio acquisition on /ma/experience was de-named and rounded
-        // to "more than $20 billion" (Terry, 2026-08-10).
+        // Anna's bio stays genericised (rev 5 §1). Terry's bio names Credit
+        // Suisse as employer (Terry, 2026-08-16). Other named employers stay
+        // off this page. Career facts are taken from the Delivery CV
+        // (Terence Tsakiris - CV - Delivery): 25+ years; BEng Mechanical and
+        // Melbourne Systems Engineering; CS first near-real-time FO risk then
+        // global P&L Attribution (FI, Equities, FX, Rates) plus the later
+        // global data & analytics platform; $84m programme recovery and 10x
+        // data-product delivery; Markets ODS / MiFID II / trade surveillance.
+        // Compilers / "bank-wide from the ground up" is not on the CV.
         founders: {
           label: 'Co-Founders',
           title: 'Co-founders',
@@ -1562,27 +1560,33 @@ export const v3 = {
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. With more than 25 years\' experience across Australia, the UK and the US, she advises organisations on complex transactions, separations, integrations and transformation programs within financial services.',
-                'Anna has held senior executive roles across banking, wealth, insurance, and NBFIs, leading acquisitions, divestments and large-scale business transformations. Her expertise spans transaction strategy, operating model design, business readiness, execution management and post-transaction stabilisation.',
-                'Recognised as a trusted advisor to executive teams and boards, Anna brings deep sector expertise and a practical, outcomes-focused approach to delivering successful transaction outcomes.',
+                'I co-founded Atheryon and lead M&A Transaction Services. With more than 25 years of experience across Australia, the UK and the US, I have advised and led organisations through acquisitions, divestments, separations, integrations and large-scale transformation programs.',
+                'I have held senior executive roles across banking, wealth and insurance, leading complex transaction and transformation initiatives in highly regulated environments. My experience spans transaction strategy, operating model design, business readiness, execution management and post-transaction stabilisation.',
+                'At Atheryon, I help clients navigate critical transaction events with confidence, bringing a practical, outcomes-focused approach to separation planning, integration execution and business transformation.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
             {
               id: 'terry-tsakiris',
               name: 'Terry Tsakiris',
-              role: 'Co-Founder, Data, Transformation, AI',
+              role: 'Co-Founder, Data, Transformation & AI',
               photo: '/terry-tsakiris.jpg',
               photoWidth: 400,
               photoHeight: 400,
-              // First person (Terry 2026-08-15): the copy rule gives Terry his
-              // own voice on /about and /labs, and this bio was still third
-              // person. Employers stay genericised — home.spec.ts asserts that
-              // no bank is named anywhere on the page.
+              // First person on /about for both co-founders (Terry 2026-08-16).
+              // Credit Suisse is named as employment. Other employers stay
+              // genericised (home.spec.ts). Facts from the Delivery CV:
+              // BEng Mechanical + Melbourne Systems Engineering; CS first
+              // near-real-time FO risk then global P&L Attribution (FI,
+              // Equities, FX, Rates) and the later data & analytics platform;
+              // $84m programme recovery and 10x data-product delivery; Markets
+              // ODS / MiFID II / trade surveillance. Compilers, "bank-wide
+              // from the ground up", and Barclays commodities desks are not
+              // Credit Suisse claims.
               paragraphs: [
-                'I co-founded Atheryon and lead Data, Transformation, AI. I have spent more than two decades engineering core data infrastructure, front-office risk systems and data platforms inside global investment banks and major Australian banks.',
-                'I built a bank’s first near-real-time front-office risk system and a global P&L attribution platform across fixed income, equities, FX and rates. I owned a markets operational data store powering regulatory trade reporting, MiFID II and trade surveillance. I also rescued a distressed $84M data program at a major Australian institutional bank, standing up a data products capability that delivered ten times faster than the bank’s prior baseline.',
-                'At Atheryon I direct the data, transformation and AI function: capital markets systems, data platforms, separation and migration analysis, and the AI-assisted delivery methods used across both functions.',
+                'I co-founded Atheryon and lead Data, Transformation & AI. I have a mechanical engineering background and have built automated manufacturing solutions. Over more than 25 years I have delivered data and risk platforms in regulated financial markets.',
+                'At Credit Suisse I designed and delivered the bank’s first near-real-time front-office risk system. I then implemented a global P&L Attribution platform across Fixed Income, Equities, FX and Rates, and built the data and analytics platform those products ran on.',
+                'I have continued that work at global investment banks and major Australian financial institutions. I rescued a failed $84 million data and analytics programme and created a data-product delivery capability that shipped ten times faster than the prior baseline. I have owned the markets operational data store behind regulatory trade reporting and MiFID II, and I led trade surveillance from inception through to business-as-usual. At Atheryon I still engineer the systems and direct the delivery, including AI-assisted builds under the same controls.',
               ],
               linkedin: 'https://www.linkedin.com/in/terencetsakiris/',
             },
@@ -1610,7 +1614,7 @@ export const v3 = {
           title: 'Data, Transformation, AI',
           // Audience sentence, not a sector card list (spec §4).
           subtitle:
-            'Technology, data and transformation programs across capital markets, banking, wealth and non-bank financial institutions.',
+            'Data platforms, transformation programs and AI-assisted delivery where evidence and operating data decide the outcome. Experience across capital markets, banking, wealth and non-bank financial institutions.',
         },
         // The function's principle. Reworked twice on 2026-08-15: first to
         // drop the motherhood statement, then to stop typecasting the
@@ -1646,21 +1650,19 @@ export const v3 = {
           body:
             'AI sits inside the work, never in front of it. Atheryon applies data-enabled and AI-assisted techniques under the same governance as the rest of the delivery, with senior specialists directing the work and owning the outcome. Reference implementations run on Microsoft Azure, and Atheryon is a Microsoft partner.',
         },
-        // Published depth in one sector (spec §4.4). Ported unchanged from
-        // the retired /capital-markets arm: council build 2026-08-10, from
-        // cited production passages, claims-gated (no counts, no named
-        // entities, no speed claims). Do not retitle these as banking,
-        // wealth or NBFI lines, and do not invent parallel catalogues.
+        // Service lines (Terry 2026-08-16): same register as /ma. Content
+        // remains the markets catalogue; do not invent banking, wealth or
+        // NBFI lines. The function name is Data, Transformation, AI — these
+        // boxes are the work, not a sector landing.
         lines: {
-          label: 'Markets Depth',
-          title: 'Published depth: capital markets',
-          intro:
-            'The deepest published record of this function is in capital markets. The same disciplines are engaged across banking, wealth and non-bank financial institutions.',
+          label: 'Service Lines',
+          title: 'Service lines',
+          intro: '',
           items: [
             {
               id: 'capital-markets-systems-platform-delivery',
               index: '01',
-              name: 'Capital Markets Systems & Platform Delivery',
+              name: 'Systems & Platform Delivery',
               tagline:
                 'Designing and delivering the systems a markets business runs on, from trading and risk through to operations and reporting.',
               items: [
@@ -1710,7 +1712,7 @@ export const v3 = {
             {
               id: 'regulatory-markets-platforms',
               index: '04',
-              name: 'Regulatory Markets Platforms',
+              name: 'Regulatory Platforms',
               tagline:
                 'Delivering the platforms behind regulatory reporting and trade surveillance, with the records to evidence both.',
               items: [
@@ -1728,7 +1730,8 @@ export const v3 = {
         },
         // Summaries only (Terry 2026-08-16). The $84M write-up stays on
         // /experience. AWS-to-Azure is a function-level line Terry added
-        // the same day; it is not attached to the $84M case.
+        // the same day; it is not attached to the $84M case. Experience
+        // case title is Program Recovery & Delivery (Terry 2026-08-16).
         engagements: {
           label: 'Representative Engagements',
           title: 'Representative engagements',
@@ -1738,9 +1741,9 @@ export const v3 = {
             {
               id: 'data-program-recovery',
               figure: '$84M',
-              name: 'Recovery of a failed financial markets data program',
+              name: 'Program Recovery & Delivery',
               summary:
-                'Recovered the program and delivered the strategic data and analytics platform in 18 months after a 5-year failed run.',
+                'Recovered a stalled Financial Markets data program after more than $84 million in investment, and delivered the strategic data and analytics platform.',
             },
             {
               id: 'aws-azure-migration',
