@@ -159,3 +159,12 @@ test('about page renders positioning, story and co-founder bios', async ({ page 
   )
   expect(ratios).toEqual([0.8, 0.8])
 })
+
+test('about page Anna LinkedIn uses the public AU profile URL', async ({ page }) => {
+  await page.goto('/about')
+  // www.linkedin.com/in/anna-contos-7685a7 authwalls guests; au.linkedin.com
+  // is the public profile that actually opens.
+  await expect(
+    page.locator('#anna-contos').getByRole('link', { name: 'LinkedIn profile' }),
+  ).toHaveAttribute('href', 'https://au.linkedin.com/in/anna-contos-7685a7')
+})
