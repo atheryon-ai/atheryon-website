@@ -33,7 +33,7 @@ export default function HomePage() {
 
       {/* Document register: who / what / who for, then firm-level
           credentials, then the two explore links. Case write-ups live
-          on the function pages. */}
+          on /experience. */}
       <section className="border-b border-charcoal/15">
         <div className="max-w-container mx-auto px-6 py-12 md:py-16">
           <p className="text-lg md:text-xl text-charcoal/85 leading-relaxed max-w-3xl mb-8">

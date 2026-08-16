@@ -1049,7 +1049,7 @@ export const v3 = {
           },
         },
         // Firm-level credentials (Terry 2026-08-16): one strip, no case
-        // write-ups. Case detail lives on /ma, /data-ai and /experience.
+        // write-ups. Case detail lives on /experience.
         // $20bn+ traces to maExperience case 01; 25+ years to Anna's
         // /about bio; sectors are the published audience line.
         trackRecord: {
@@ -1284,38 +1284,6 @@ export const v3 = {
                 'Service register → exit sequence by dependency → extension and stranded cost exposure → position for the Steering Committee.',
               output:
                 'A TSA exit plan with a gate per service: what has to be operational to exit it, who owns that, what an extension costs if the date moves, and evidence of control transfer at closure.',
-            },
-          ],
-        },
-        // Summaries only (Terry 2026-08-16). Full Context / Role / Outcome
-        // stays on /experience. Wording traces to maExperience cases 01, 03
-        // and 05. The /ma tile title stays Operating Model Transformation;
-        // experience case 05 is Post-Merger Transformation.
-        engagements: {
-          label: 'Representative Engagements',
-          title: 'Representative engagements',
-          href: '/experience#ma',
-          ctaLabel: 'Selected cases',
-          items: [
-            {
-              id: 'mortgage-portfolio-acquisition',
-              figure: '$20bn+',
-              name: '$20bn+ Mortgage Portfolio Acquisition',
-              summary:
-                'Integration Director for the acquiring specialist mortgage servicer on a home-loan portfolio acquisition valued at more than $20 billion.',
-            },
-            {
-              id: 'financial-advice-sale-separation',
-              figure: '4 months',
-              name: 'Sale and separation of a major financial advice business',
-              summary:
-                'Sale completed within four months, with transitional services minimised. Full business separation followed within ten months.',
-            },
-            {
-              id: 'operating-model-transformation',
-              name: 'Operating Model Transformation',
-              summary:
-                'Recovered a delayed strategic initiative after the merger of wealth and asset management divisions, and delivered the first joint program.',
             },
           ],
         },
@@ -1659,6 +1627,9 @@ export const v3 = {
                 'Exception management and ageing analysis',
                 'Portfolio analytics and P&L attribution',
                 'Platform transition and application rationalisation',
+                // Function fact (Terry 2026-08-16). Was a landing tile; not a
+                // case. Kept here so the sentence is not lost.
+                'AI agents have been used to migrate from AWS to Azure.',
               ],
               body:
                 'A markets business runs on connected systems: pricing and risk on the desk, confirmation and settlement behind it. Analytics and reporting sit across the whole book. Atheryon designs and delivers these platforms for financial institutions, covering the trade lifecycle from execution through confirmation and settlement to the daily risk and P&L view.\n\nDelivery is senior-led from design through to production.',
@@ -1713,31 +1684,6 @@ export const v3 = {
               ],
               body:
                 'Reporting obligations multiply by regime, and each regime tends to absorb its own build team while schema drift quietly breaks submissions. Atheryon delivers reporting platforms where every trade is scored against per-regime completeness rules and each report is generated in the regime\'s prescribed format.\n\nThe design principle comes from how these platforms are examined: an audit asks for the evidence chain behind each submission, covering what was reported, what changed, who approved it and when. Surveillance sits on the same data foundation, so the evidence exists as a by-product of the workflow rather than a reconstruction after the fact.',
-            },
-          ],
-        },
-        // Summaries only (Terry 2026-08-16). The spend split ($50m stall,
-        // 10% at $58m, remaining 90% for +$26m, $84m final) is written on
-        // /experience. AWS-to-Azure is a function-level line Terry added
-        // the same day; it is not attached to this case. Experience case
-        // title is Program Recovery & Delivery (Terry 2026-08-16).
-        engagements: {
-          label: 'Representative Engagements',
-          title: 'Representative engagements',
-          href: '/experience#data-ai',
-          ctaLabel: 'Selected cases',
-          items: [
-            {
-              id: 'data-program-recovery',
-              figure: '$84M',
-              name: 'Program Recovery & Delivery',
-              summary:
-                'Stalled after $50 million, 10% done at $58 million. Delivered the remaining 90% for a further $26 million.',
-            },
-            {
-              id: 'aws-azure-migration',
-              name: 'AWS to Azure migration',
-              summary: 'AI agents have been used to migrate from AWS to Azure.',
             },
           ],
         },
