@@ -1557,7 +1557,7 @@ export const v3 = {
                 'I work closely with boards, executive teams and deal sponsors to navigate critical transaction events, translating strategic intent into executable plans and ensuring value is realised through disciplined delivery. My approach combines commercial pragmatism, operational rigour and deep transformation experience to help clients manage risk, accelerate outcomes and achieve sustainable results.',
                 'At Atheryon, I help clients execute transactions with confidence, providing practical, outcomes-focused leadership from deal strategy through to separation, integration and value realisation.',
               ],
-              linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
+              linkedin: 'https://au.linkedin.com/in/anna-contos-7685a7',
             },
             {
               id: 'terry-tsakiris',
