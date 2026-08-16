@@ -71,3 +71,15 @@ test('/roadmap is gone and is not linked from the footer', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('link', { name: 'Roadmap', exact: true })).toHaveCount(0)
 })
+
+// /blog was removed on 2026-08-16 (Terry). Deliberately no redirect — the
+// URL 404s, as does the one post that lived under it.
+test('/blog is gone and is not linked from the footer', async ({ page }) => {
+  const index = await page.goto('/blog')
+  expect(index?.status()).toBe(404)
+  const post = await page.goto('/blog/why-claude')
+  expect(post?.status()).toBe(404)
+
+  await page.goto('/')
+  await expect(page.getByRole('link', { name: 'Writing', exact: true })).toHaveCount(0)
+})

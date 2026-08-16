@@ -48,12 +48,11 @@ function ContactFormInner({
   const defaultMessage = topicLabel ? `I'm interested in: ${topicLabel}\n\n` : ''
 
   return (
-    <div className="grid md:grid-cols-2 gap-10 max-w-5xl">
-      <form
-        action="https://formspree.io/f/xdkdynak"
-        method="POST"
-        className="space-y-5"
-      >
+    <form
+      action="https://formspree.io/f/xdkdynak"
+      method="POST"
+      className="space-y-5"
+    >
         <div>
           <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/70 mb-2">
             {contact.form.fields.name.label}
@@ -97,10 +96,10 @@ function ContactFormInner({
           />
         </div>
 
-        {/* With a topic already known — an arm's contact page, or an offer
+        {/* With a topic already known — a function CTA, or an offer
             CTA carrying ?topic= — the practice is not in question and rides
-            along hidden. The neutral /contact has no such context, so it asks
-            here instead of making the visitor pick an arm on a page first. */}
+            along hidden. Neutral /contact has no such context, so it asks
+            here instead of making the visitor pick a function first. */}
         {topicParam ? (
           <input type="hidden" name="topic" value={topicParam} />
         ) : (
@@ -151,21 +150,6 @@ function ContactFormInner({
           <span aria-hidden="true">→</span>
         </button>
       </form>
-
-      <div className="space-y-6">
-        <div className="border border-charcoal/30 bg-white p-6">
-          <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-charcoal/60 mb-3">
-            Direct
-          </div>
-          <a
-            href={`mailto:${site.email}`}
-            className="font-mono text-sm text-charcoal underline-offset-4 hover:underline break-all"
-          >
-            {site.email}
-          </a>
-        </div>
-      </div>
-    </div>
   )
 }
 

@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ContactForm } from '@/components/ContactForm'
 import { DocBanner, DocPage, DocSection } from '@/components/Doc'
-import { site, v3 } from '@/content/site'
+import { v3 } from '@/content/site'
 
 // The firm-level enquiry form (Terry 2026-08-15). This route used to fork to
-// the two arms' contact pages, which cost a click, taught nothing, and had no
-// answer for a Data & AI enquiry. The form asks which practice instead, and
-// the arm contact pages still preset it for anyone already inside an arm.
+// two function contact pages, which cost a click, taught nothing, and had no
+// answer for a Data & AI enquiry. The form asks which practice instead;
+// function CTAs still preset it via ?topic=.
 const page = v3.pages.contact
 const s = page.sections
 
@@ -56,17 +56,6 @@ export default function ContactPage() {
           </div>
         </div>
       </DocSection>
-
-      <section>
-        <div className="max-w-container mx-auto px-6 py-16 md:py-20">
-          <a
-            href={`mailto:${site.email}`}
-            className="font-mono text-sm text-charcoal underline-offset-4 hover:underline"
-          >
-            {site.email}
-          </a>
-        </div>
-      </section>
     </DocPage>
   )
 }

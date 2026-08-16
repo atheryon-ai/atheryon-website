@@ -31,8 +31,6 @@ Two business arms over a shared underpinning of data, transformation and AI:
 
 ## Other
 
-- [Writing](https://atheryon.com.au/blog): essays from the practice.
-- [Mortgages](https://atheryon.com.au/mortgages): retail mortgage origination automation — practice stub (BUILDING).
 - [Privacy](https://atheryon.com.au/privacy) · [Terms](https://atheryon.com.au/terms)
 
 ## Audience
