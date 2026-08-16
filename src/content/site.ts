@@ -1562,10 +1562,9 @@ export const v3 = {
               photoWidth: 533,
               photoHeight: 800,
               paragraphs: [
-                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. She brings more than 25 years of financial services experience across Australia, the UK and the US, including more than 20 years leading large-scale transformation programs and the past decade specialising in separations, integrations, divestments and transaction execution.',
-                'Anna has held executive leadership roles across major Australian financial institutions, leading separation and integration strategy, planning and execution for acquisitions, divestments and transformation initiatives. Her experience includes senior leadership roles in complex separation and integration programs associated with significant wealth, banking and insurance transactions, operating in highly regulated and high stakes environments.',
-                'Earlier roles included platform commercialisation, strategy and business consulting positions across investment banking, wealth management and retail financial services.',
-                'Her experience spans separation and integration strategy, operating model design, business readiness, transition planning, execution management and stabilisation, including carve-outs, divestments, acquisitions and post-transaction transformation.',
+                'Anna Contos co-founded Atheryon and leads M&A Transaction Services. With more than 25 years\' experience across Australia, the UK and the US, she advises organisations on complex transactions, separations, integrations and transformation programs within financial services.',
+                'Anna has held senior executive roles across banking, wealth, insurance, and NBFIs, leading acquisitions, divestments and large-scale business transformations. Her expertise spans transaction strategy, operating model design, business readiness, execution management and post-transaction stabilisation.',
+                'Recognised as a trusted advisor to executive teams and boards, Anna brings deep sector expertise and a practical, outcomes-focused approach to delivering successful transaction outcomes.',
               ],
               linkedin: 'https://www.linkedin.com/in/anna-contos-7685a7/',
             },
