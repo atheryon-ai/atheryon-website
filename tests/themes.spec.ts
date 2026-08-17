@@ -61,25 +61,9 @@ test('legacy /workflows redirects to /themes', async ({ page }) => {
   expect(response?.url()).toContain('/themes')
 })
 
-// /roadmap was removed on 2026-08-15 (Terry): it was the last surface still
-// advertising the mortgages practice and it published dates for unshipped
-// work. Deliberately no redirect — the URL 404s.
-test('/roadmap is gone and is not linked from the footer', async ({ page }) => {
-  const response = await page.goto('/roadmap')
-  expect(response?.status()).toBe(404)
-
-  await page.goto('/')
-  await expect(page.getByRole('link', { name: 'Roadmap', exact: true })).toHaveCount(0)
-})
-
-// /blog was removed on 2026-08-16 (Terry). Deliberately no redirect — the
-// URL 404s, as does the one post that lived under it.
-test('/blog is gone and is not linked from the footer', async ({ page }) => {
-  const index = await page.goto('/blog')
-  expect(index?.status()).toBe(404)
-  const post = await page.goto('/blog/why-claude')
-  expect(post?.status()).toBe(404)
-
-  await page.goto('/')
-  await expect(page.getByRole('link', { name: 'Writing', exact: true })).toHaveCount(0)
+test('/themes is Buyer themes and /labs/themes is Platform themes', async ({ page }) => {
+  await page.goto('/themes')
+  await expect(page.getByRole('heading', { level: 1, name: 'Buyer themes' })).toBeVisible()
+  await page.goto('/labs/themes')
+  await expect(page.getByRole('heading', { name: /Platform themes/i })).toBeVisible()
 })

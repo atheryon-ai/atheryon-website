@@ -29,6 +29,7 @@ test('homepage carries the rev-5 hero stack, arms and founders', async ({ page }
     ).toHaveAttribute('href', href)
   }
   await expect(page.locator('.home-nav-links').getByRole('link', { name: 'APPROACH' })).toHaveCount(0)
+  await expect(page.locator('.home-nav-links').getByRole('link', { name: 'CAPITAL MARKETS' })).toHaveCount(0)
   await expect(page.locator('.home-nav-links a')).toHaveCount(3)
 
   // Two explore links (spec §4), function 1 first. The third went when Data,

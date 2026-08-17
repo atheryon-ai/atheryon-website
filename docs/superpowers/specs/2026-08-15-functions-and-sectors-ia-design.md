@@ -387,7 +387,7 @@ In scope when this spec is approved:
 - `shellConfig.ts`, `HomeNav.tsx`, `ArmSubNav.tsx`, `Footer.tsx`, `ContactForm.tsx`, `not-found.tsx`
 - `StatementBand` / homepage explore layout (two columns)
 - `staticwebapp.config.json`, `public/sitemap.xml`
-- Tests: `tests/home.spec.ts`, `tests/v3-ia.spec.ts`, `tests/mobile-nav.spec.ts`, and any other `/capital-markets` assertions
+- Tests: `tests/home.spec.ts`, `tests/ia.spec.ts`, `tests/mobile-nav.spec.ts`, and any other `/capital-markets` assertions
 - Copy/design rules: `CLAUDE.md`, `AGENTS.md`, design standard §0 / any “M&A before Capital Markets” line
 
 Out of scope:

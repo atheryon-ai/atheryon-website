@@ -68,7 +68,7 @@ Re-sync after upstream changes; there is no build-time link.
 ## Commands
 - `npx next build` — build + typecheck
 - `npx next dev` — local dev (port 3000)
-- `npx playwright test --project=chromium` — the suite CI runs (68 tests, ~1 min).
+- `npx playwright test --project=chromium` — the suite CI runs (81 tests, ~1 min).
   There is no `npm test` script. `playwright.config.ts` defines a single
   `chromium` project and starts `next dev` itself via `webServer`.
 - `npx playwright test tests/<file>` — targeted
